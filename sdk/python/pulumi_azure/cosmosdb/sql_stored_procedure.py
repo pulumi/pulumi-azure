@@ -265,6 +265,13 @@ class SqlStoredProcedure(pulumi.CustomResource):
             body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
+
         ## Import
 
         CosmosDB SQL Stored Procedures can be imported using the `resource id`, e.g.
@@ -319,6 +326,13 @@ class SqlStoredProcedure(pulumi.CustomResource):
             container_name=example_sql_container.name,
             body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
 
         ## Import
 

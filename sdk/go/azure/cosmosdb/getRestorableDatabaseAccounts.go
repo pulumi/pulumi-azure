@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.DocumentDB` - 2024-08-15
 func GetRestorableDatabaseAccounts(ctx *pulumi.Context, args *GetRestorableDatabaseAccountsArgs, opts ...pulumi.InvokeOption) (*GetRestorableDatabaseAccountsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRestorableDatabaseAccountsResult

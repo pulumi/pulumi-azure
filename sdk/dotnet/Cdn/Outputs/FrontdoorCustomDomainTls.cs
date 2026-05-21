@@ -15,20 +15,25 @@ namespace Pulumi.Azure.Cdn.Outputs
     {
         /// <summary>
         /// Resource ID of the Front Door Secret.
+        /// 
+        /// &gt; **Note:** `CdnFrontdoorSecretId` must be specified when `CertificateType` is `CustomerCertificate` and must not be specified when `CertificateType` is `ManagedCertificate`.
         /// </summary>
         public readonly string? CdnFrontdoorSecretId;
         /// <summary>
-        /// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+        /// Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
         /// 
-        /// &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+        /// &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
         /// </summary>
         public readonly string? CertificateType;
         /// <summary>
-        /// TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
-        /// 
-        /// &gt; **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+        /// A `CipherSuite` block as defined below.
         /// </summary>
+        public readonly Outputs.FrontdoorCustomDomainTlsCipherSuite? CipherSuite;
         public readonly string? MinimumTlsVersion;
+        /// <summary>
+        /// TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
+        /// </summary>
+        public readonly string? MinimumVersion;
 
         [OutputConstructor]
         private FrontdoorCustomDomainTls(
@@ -36,11 +41,17 @@ namespace Pulumi.Azure.Cdn.Outputs
 
             string? certificateType,
 
-            string? minimumTlsVersion)
+            Outputs.FrontdoorCustomDomainTlsCipherSuite? cipherSuite,
+
+            string? minimumTlsVersion,
+
+            string? minimumVersion)
         {
             CdnFrontdoorSecretId = cdnFrontdoorSecretId;
             CertificateType = certificateType;
+            CipherSuite = cipherSuite;
             MinimumTlsVersion = minimumTlsVersion;
+            MinimumVersion = minimumVersion;
         }
     }
 }

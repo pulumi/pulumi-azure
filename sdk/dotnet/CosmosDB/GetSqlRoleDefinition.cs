@@ -33,6 +33,13 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DocumentDB` - 2024-08-15
         /// </summary>
         public static Task<GetSqlRoleDefinitionResult> InvokeAsync(GetSqlRoleDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlRoleDefinitionResult>("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args ?? new GetSqlRoleDefinitionArgs(), options.WithDefaults());
@@ -59,6 +66,13 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DocumentDB` - 2024-08-15
         /// </summary>
         public static Output<GetSqlRoleDefinitionResult> Invoke(GetSqlRoleDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlRoleDefinitionResult>("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args ?? new GetSqlRoleDefinitionInvokeArgs(), options.WithDefaults());
@@ -85,6 +99,13 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DocumentDB` - 2024-08-15
         /// </summary>
         public static Output<GetSqlRoleDefinitionResult> Invoke(GetSqlRoleDefinitionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlRoleDefinitionResult>("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args ?? new GetSqlRoleDefinitionInvokeArgs(), options.WithDefaults());

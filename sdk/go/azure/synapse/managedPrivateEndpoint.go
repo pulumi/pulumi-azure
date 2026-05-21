@@ -108,6 +108,13 @@ import (
 //
 // ```
 //
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Synapse` - 2021-06-01
+//
 // ## Import
 //
 // Synapse Managed Private Endpoint can be imported using the `resource id`, e.g.
@@ -118,6 +125,10 @@ import (
 type ManagedPrivateEndpoint struct {
 	pulumi.CustomResourceState
 
+	// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+	FullyQualifiedDomainNames pulumi.StringArrayOutput `pulumi:"fullyQualifiedDomainNames"`
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
@@ -171,6 +182,10 @@ func GetManagedPrivateEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
 type managedPrivateEndpointState struct {
+	// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+	FullyQualifiedDomainNames []string `pulumi:"fullyQualifiedDomainNames"`
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
@@ -186,6 +201,10 @@ type managedPrivateEndpointState struct {
 }
 
 type ManagedPrivateEndpointState struct {
+	// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+	FullyQualifiedDomainNames pulumi.StringArrayInput
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
@@ -205,6 +224,10 @@ func (ManagedPrivateEndpointState) ElementType() reflect.Type {
 }
 
 type managedPrivateEndpointArgs struct {
+	// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+	FullyQualifiedDomainNames []string `pulumi:"fullyQualifiedDomainNames"`
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
@@ -221,6 +244,10 @@ type managedPrivateEndpointArgs struct {
 
 // The set of arguments for constructing a ManagedPrivateEndpoint resource.
 type ManagedPrivateEndpointArgs struct {
+	// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+	FullyQualifiedDomainNames pulumi.StringArrayInput
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
@@ -320,6 +347,13 @@ func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutput() ManagedPr
 
 func (o ManagedPrivateEndpointOutput) ToManagedPrivateEndpointOutputWithContext(ctx context.Context) ManagedPrivateEndpointOutput {
 	return o
+}
+
+// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+//
+// > **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+func (o ManagedPrivateEndpointOutput) FullyQualifiedDomainNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringArrayOutput { return v.FullyQualifiedDomainNames }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.

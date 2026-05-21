@@ -19,6 +19,8 @@ namespace Pulumi.Azure.Cdn.Outputs
         public readonly ImmutableArray<string> MatchValues;
         /// <summary>
         /// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+        /// 
+        /// &gt; **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
         /// </summary>
         public readonly string MatchVariable;
         /// <summary>

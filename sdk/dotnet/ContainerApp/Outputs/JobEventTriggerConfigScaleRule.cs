@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly string CustomRuleType;
         /// <summary>
-        /// ID of the System or User Managed Identity used to execute scale rule.
+        /// The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
         /// </summary>
         public readonly string? IdentityId;
         /// <summary>

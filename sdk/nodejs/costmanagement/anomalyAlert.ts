@@ -76,11 +76,11 @@ export class AnomalyAlert extends pulumi.CustomResource {
      */
     declare public readonly emailAddresses: pulumi.Output<string[]>;
     /**
-     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
      */
     declare public readonly emailSubject: pulumi.Output<string>;
     /**
-     * The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+     * The message of the Cost Anomaly Alert. Maximum length of the message is 100.
      */
     declare public readonly message: pulumi.Output<string | undefined>;
     /**
@@ -153,11 +153,11 @@ export interface AnomalyAlertState {
      */
     emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
      */
     emailSubject?: pulumi.Input<string | undefined>;
     /**
-     * The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+     * The message of the Cost Anomaly Alert. Maximum length of the message is 100.
      */
     message?: pulumi.Input<string | undefined>;
     /**
@@ -187,11 +187,11 @@ export interface AnomalyAlertArgs {
      */
     emailAddresses: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
      */
     emailSubject: pulumi.Input<string>;
     /**
-     * The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+     * The message of the Cost Anomaly Alert. Maximum length of the message is 100.
      */
     message?: pulumi.Input<string | undefined>;
     /**

@@ -104,28 +104,28 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
         return this.emailAddresses;
     }
     /**
-     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
      * 
      */
     @Export(name="emailSubject", refs={String.class}, tree="[0]")
     private Output<String> emailSubject;
 
     /**
-     * @return The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+     * @return The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
      * 
      */
     public Output<String> emailSubject() {
         return this.emailSubject;
     }
     /**
-     * The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+     * The message of the Cost Anomaly Alert. Maximum length of the message is 100.
      * 
      */
     @Export(name="message", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> message;
 
     /**
-     * @return The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+     * @return The message of the Cost Anomaly Alert. Maximum length of the message is 100.
      * 
      */
     public Output<Optional<String>> message() {

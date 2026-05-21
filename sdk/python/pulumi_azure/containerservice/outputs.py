@@ -4098,6 +4098,8 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
         suggest = None
         if key == "allowedUnsafeSysctls":
             suggest = "allowed_unsafe_sysctls"
+        elif key == "containerLogMaxFiles":
+            suggest = "container_log_max_files"
         elif key == "containerLogMaxLine":
             suggest = "container_log_max_line"
         elif key == "containerLogMaxSizeMb":
@@ -4130,6 +4132,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
 
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: Optional[Sequence[_builtins.str]] = None,
+                 container_log_max_files: Optional[_builtins.int] = None,
                  container_log_max_line: Optional[_builtins.int] = None,
                  container_log_max_size_mb: Optional[_builtins.int] = None,
                  cpu_cfs_quota_enabled: Optional[_builtins.bool] = None,
@@ -4141,7 +4144,7 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
                  topology_manager_policy: Optional[_builtins.str] = None):
         """
         :param Sequence[_builtins.str] allowed_unsafe_sysctls: Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
-        :param _builtins.int container_log_max_line: Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+        :param _builtins.int container_log_max_files: Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
         :param _builtins.int container_log_max_size_mb: Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
         :param _builtins.bool cpu_cfs_quota_enabled: Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
         :param _builtins.str cpu_cfs_quota_period: Specifies the CPU CFS quota period value.
@@ -4153,6 +4156,8 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
         """
         if allowed_unsafe_sysctls is not None:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
+        if container_log_max_files is not None:
+            pulumi.set(__self__, "container_log_max_files", container_log_max_files)
         if container_log_max_line is not None:
             pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
@@ -4181,11 +4186,17 @@ class KubernetesClusterDefaultNodePoolKubeletConfig(dict):
         return pulumi.get(self, "allowed_unsafe_sysctls")
 
     @_builtins.property
+    @pulumi.getter(name="containerLogMaxFiles")
+    def container_log_max_files(self) -> Optional[_builtins.int]:
+        """
+        Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+        """
+        return pulumi.get(self, "container_log_max_files")
+
+    @_builtins.property
     @pulumi.getter(name="containerLogMaxLine")
+    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
     def container_log_max_line(self) -> Optional[_builtins.int]:
-        """
-        Specifies the maximum number of container log files that can be present for a container. must be at least 2.
-        """
         return pulumi.get(self, "container_log_max_line")
 
     @_builtins.property
@@ -7140,6 +7151,8 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
         suggest = None
         if key == "allowedUnsafeSysctls":
             suggest = "allowed_unsafe_sysctls"
+        elif key == "containerLogMaxFiles":
+            suggest = "container_log_max_files"
         elif key == "containerLogMaxLine":
             suggest = "container_log_max_line"
         elif key == "containerLogMaxSizeMb":
@@ -7172,6 +7185,7 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
 
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: Optional[Sequence[_builtins.str]] = None,
+                 container_log_max_files: Optional[_builtins.int] = None,
                  container_log_max_line: Optional[_builtins.int] = None,
                  container_log_max_size_mb: Optional[_builtins.int] = None,
                  cpu_cfs_quota_enabled: Optional[_builtins.bool] = None,
@@ -7183,7 +7197,7 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
                  topology_manager_policy: Optional[_builtins.str] = None):
         """
         :param Sequence[_builtins.str] allowed_unsafe_sysctls: Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
-        :param _builtins.int container_log_max_line: Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+        :param _builtins.int container_log_max_files: Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
         :param _builtins.int container_log_max_size_mb: Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
         :param _builtins.bool cpu_cfs_quota_enabled: Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
         :param _builtins.str cpu_cfs_quota_period: Specifies the CPU CFS quota period value.
@@ -7195,6 +7209,8 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
         """
         if allowed_unsafe_sysctls is not None:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
+        if container_log_max_files is not None:
+            pulumi.set(__self__, "container_log_max_files", container_log_max_files)
         if container_log_max_line is not None:
             pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
@@ -7223,11 +7239,17 @@ class KubernetesClusterNodePoolKubeletConfig(dict):
         return pulumi.get(self, "allowed_unsafe_sysctls")
 
     @_builtins.property
+    @pulumi.getter(name="containerLogMaxFiles")
+    def container_log_max_files(self) -> Optional[_builtins.int]:
+        """
+        Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+        """
+        return pulumi.get(self, "container_log_max_files")
+
+    @_builtins.property
     @pulumi.getter(name="containerLogMaxLine")
+    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
     def container_log_max_line(self) -> Optional[_builtins.int]:
-        """
-        Specifies the maximum number of container log files that can be present for a container. must be at least 2.
-        """
         return pulumi.get(self, "container_log_max_line")
 
     @_builtins.property
@@ -8280,7 +8302,7 @@ class KubernetesClusterServiceMeshProfile(dict):
                  internal_ingress_gateway_enabled: Optional[_builtins.bool] = None):
         """
         :param _builtins.str mode: The mode of the service mesh. Possible value is `Istio`.
-        :param Sequence[_builtins.str] revisions: Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
+        :param Sequence[_builtins.str] revisions: Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
                
                > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         :param 'KubernetesClusterServiceMeshProfileCertificateAuthorityArgs' certificate_authority: A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
@@ -8310,7 +8332,7 @@ class KubernetesClusterServiceMeshProfile(dict):
     @pulumi.getter
     def revisions(self) -> Sequence[_builtins.str]:
         """
-        Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
+        Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 
         > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         """

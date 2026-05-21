@@ -32,7 +32,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string Mode;
         /// <summary>
-        /// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `Revisions` set to `["asm-1-25"]`, or leave it empty (the `Revisions` will only be known after apply). To start the canary upgrade, change `Revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
+        /// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `Revisions` set to `["asm-1-27"]`, or leave it empty (the `Revisions` will only be known after apply). To start the canary upgrade, change `Revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
         /// 
         /// &gt; **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
         /// </summary>

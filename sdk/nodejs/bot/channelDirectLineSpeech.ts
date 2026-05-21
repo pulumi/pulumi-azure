@@ -82,17 +82,19 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
      */
     declare public readonly botName: pulumi.Output<string>;
     /**
-     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     * The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+     *
+     * !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      */
     declare public readonly cognitiveAccountId: pulumi.Output<string | undefined>;
     /**
-     * The access key to access the Cognitive Service.
+     * The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      */
-    declare public readonly cognitiveServiceAccessKey: pulumi.Output<string>;
+    declare public readonly cognitiveServiceAccessKey: pulumi.Output<string | undefined>;
     /**
-     * Specifies the supported Azure location where the Cognitive Service resource exists.
+     * Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      */
-    declare public readonly cognitiveServiceLocation: pulumi.Output<string>;
+    declare public readonly cognitiveServiceLocation: pulumi.Output<string | undefined>;
     /**
      * The custom speech model id for the Direct Line Speech Channel.
      */
@@ -136,12 +138,6 @@ export class ChannelDirectLineSpeech extends pulumi.CustomResource {
             if (args?.botName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'botName'");
             }
-            if (args?.cognitiveServiceAccessKey === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cognitiveServiceAccessKey'");
-            }
-            if (args?.cognitiveServiceLocation === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cognitiveServiceLocation'");
-            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -170,15 +166,17 @@ export interface ChannelDirectLineSpeechState {
      */
     botName?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     * The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+     *
+     * !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      */
     cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The access key to access the Cognitive Service.
+     * The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      */
     cognitiveServiceAccessKey?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the supported Azure location where the Cognitive Service resource exists.
+     * Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      */
     cognitiveServiceLocation?: pulumi.Input<string | undefined>;
     /**
@@ -208,17 +206,19 @@ export interface ChannelDirectLineSpeechArgs {
      */
     botName: pulumi.Input<string>;
     /**
-     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     * The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+     *
+     * !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      */
     cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The access key to access the Cognitive Service.
+     * The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      */
-    cognitiveServiceAccessKey: pulumi.Input<string>;
+    cognitiveServiceAccessKey?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the supported Azure location where the Cognitive Service resource exists.
+     * Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      */
-    cognitiveServiceLocation: pulumi.Input<string>;
+    cognitiveServiceLocation?: pulumi.Input<string | undefined>;
     /**
      * The custom speech model id for the Direct Line Speech Channel.
      */

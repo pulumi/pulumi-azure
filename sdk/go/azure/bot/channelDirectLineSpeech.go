@@ -89,12 +89,14 @@ type ChannelDirectLineSpeech struct {
 
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName pulumi.StringOutput `pulumi:"botName"`
-	// The ID of the Cognitive Account this Bot Channel should be associated with.
+	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	//
+	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId pulumi.StringPtrOutput `pulumi:"cognitiveAccountId"`
-	// The access key to access the Cognitive Service.
-	CognitiveServiceAccessKey pulumi.StringOutput `pulumi:"cognitiveServiceAccessKey"`
-	// Specifies the supported Azure location where the Cognitive Service resource exists.
-	CognitiveServiceLocation pulumi.StringOutput `pulumi:"cognitiveServiceLocation"`
+	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	CognitiveServiceAccessKey pulumi.StringPtrOutput `pulumi:"cognitiveServiceAccessKey"`
+	// Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	CognitiveServiceLocation pulumi.StringPtrOutput `pulumi:"cognitiveServiceLocation"`
 	// The custom speech model id for the Direct Line Speech Channel.
 	CustomSpeechModelId pulumi.StringPtrOutput `pulumi:"customSpeechModelId"`
 	// The custom voice deployment id for the Direct Line Speech Channel.
@@ -115,17 +117,11 @@ func NewChannelDirectLineSpeech(ctx *pulumi.Context,
 	if args.BotName == nil {
 		return nil, errors.New("invalid value for required argument 'BotName'")
 	}
-	if args.CognitiveServiceAccessKey == nil {
-		return nil, errors.New("invalid value for required argument 'CognitiveServiceAccessKey'")
-	}
-	if args.CognitiveServiceLocation == nil {
-		return nil, errors.New("invalid value for required argument 'CognitiveServiceLocation'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.CognitiveServiceAccessKey != nil {
-		args.CognitiveServiceAccessKey = pulumi.ToSecret(args.CognitiveServiceAccessKey).(pulumi.StringInput)
+		args.CognitiveServiceAccessKey = pulumi.ToSecret(args.CognitiveServiceAccessKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"cognitiveServiceAccessKey",
@@ -156,11 +152,13 @@ func GetChannelDirectLineSpeech(ctx *pulumi.Context,
 type channelDirectLineSpeechState struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName *string `pulumi:"botName"`
-	// The ID of the Cognitive Account this Bot Channel should be associated with.
+	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	//
+	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId *string `pulumi:"cognitiveAccountId"`
-	// The access key to access the Cognitive Service.
+	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	CognitiveServiceAccessKey *string `pulumi:"cognitiveServiceAccessKey"`
-	// Specifies the supported Azure location where the Cognitive Service resource exists.
+	// Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	CognitiveServiceLocation *string `pulumi:"cognitiveServiceLocation"`
 	// The custom speech model id for the Direct Line Speech Channel.
 	CustomSpeechModelId *string `pulumi:"customSpeechModelId"`
@@ -175,11 +173,13 @@ type channelDirectLineSpeechState struct {
 type ChannelDirectLineSpeechState struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName pulumi.StringPtrInput
-	// The ID of the Cognitive Account this Bot Channel should be associated with.
+	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	//
+	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId pulumi.StringPtrInput
-	// The access key to access the Cognitive Service.
+	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	CognitiveServiceAccessKey pulumi.StringPtrInput
-	// Specifies the supported Azure location where the Cognitive Service resource exists.
+	// Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	CognitiveServiceLocation pulumi.StringPtrInput
 	// The custom speech model id for the Direct Line Speech Channel.
 	CustomSpeechModelId pulumi.StringPtrInput
@@ -198,12 +198,14 @@ func (ChannelDirectLineSpeechState) ElementType() reflect.Type {
 type channelDirectLineSpeechArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName string `pulumi:"botName"`
-	// The ID of the Cognitive Account this Bot Channel should be associated with.
+	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	//
+	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId *string `pulumi:"cognitiveAccountId"`
-	// The access key to access the Cognitive Service.
-	CognitiveServiceAccessKey string `pulumi:"cognitiveServiceAccessKey"`
-	// Specifies the supported Azure location where the Cognitive Service resource exists.
-	CognitiveServiceLocation string `pulumi:"cognitiveServiceLocation"`
+	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	CognitiveServiceAccessKey *string `pulumi:"cognitiveServiceAccessKey"`
+	// Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	CognitiveServiceLocation *string `pulumi:"cognitiveServiceLocation"`
 	// The custom speech model id for the Direct Line Speech Channel.
 	CustomSpeechModelId *string `pulumi:"customSpeechModelId"`
 	// The custom voice deployment id for the Direct Line Speech Channel.
@@ -218,12 +220,14 @@ type channelDirectLineSpeechArgs struct {
 type ChannelDirectLineSpeechArgs struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName pulumi.StringInput
-	// The ID of the Cognitive Account this Bot Channel should be associated with.
+	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	//
+	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId pulumi.StringPtrInput
-	// The access key to access the Cognitive Service.
-	CognitiveServiceAccessKey pulumi.StringInput
-	// Specifies the supported Azure location where the Cognitive Service resource exists.
-	CognitiveServiceLocation pulumi.StringInput
+	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	CognitiveServiceAccessKey pulumi.StringPtrInput
+	// Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+	CognitiveServiceLocation pulumi.StringPtrInput
 	// The custom speech model id for the Direct Line Speech Channel.
 	CustomSpeechModelId pulumi.StringPtrInput
 	// The custom voice deployment id for the Direct Line Speech Channel.
@@ -326,19 +330,21 @@ func (o ChannelDirectLineSpeechOutput) BotName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelDirectLineSpeech) pulumi.StringOutput { return v.BotName }).(pulumi.StringOutput)
 }
 
-// The ID of the Cognitive Account this Bot Channel should be associated with.
+// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+//
+// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 func (o ChannelDirectLineSpeechOutput) CognitiveAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelDirectLineSpeech) pulumi.StringPtrOutput { return v.CognitiveAccountId }).(pulumi.StringPtrOutput)
 }
 
-// The access key to access the Cognitive Service.
-func (o ChannelDirectLineSpeechOutput) CognitiveServiceAccessKey() pulumi.StringOutput {
-	return o.ApplyT(func(v *ChannelDirectLineSpeech) pulumi.StringOutput { return v.CognitiveServiceAccessKey }).(pulumi.StringOutput)
+// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+func (o ChannelDirectLineSpeechOutput) CognitiveServiceAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelDirectLineSpeech) pulumi.StringPtrOutput { return v.CognitiveServiceAccessKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the supported Azure location where the Cognitive Service resource exists.
-func (o ChannelDirectLineSpeechOutput) CognitiveServiceLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v *ChannelDirectLineSpeech) pulumi.StringOutput { return v.CognitiveServiceLocation }).(pulumi.StringOutput)
+// Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+func (o ChannelDirectLineSpeechOutput) CognitiveServiceLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelDirectLineSpeech) pulumi.StringPtrOutput { return v.CognitiveServiceLocation }).(pulumi.StringPtrOutput)
 }
 
 // The custom speech model id for the Direct Line Speech Channel.

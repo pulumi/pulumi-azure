@@ -594,7 +594,7 @@ type WorkspaceEnhancedSecurityCompliance struct {
 	//
 	// > **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
 	ComplianceSecurityProfileEnabled *bool `pulumi:"complianceSecurityProfileEnabled"`
-	// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+	// A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
 	//
 	// > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
 	//
@@ -624,7 +624,7 @@ type WorkspaceEnhancedSecurityComplianceArgs struct {
 	//
 	// > **Note:** The attributes `automaticClusterUpdateEnabled` and `enhancedSecurityMonitoringEnabled` must be set to `true` in order to set `complianceSecurityProfileEnabled` to `true`.
 	ComplianceSecurityProfileEnabled pulumi.BoolPtrInput `pulumi:"complianceSecurityProfileEnabled"`
-	// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+	// A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
 	//
 	// > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
 	//
@@ -725,7 +725,7 @@ func (o WorkspaceEnhancedSecurityComplianceOutput) ComplianceSecurityProfileEnab
 	return o.ApplyT(func(v WorkspaceEnhancedSecurityCompliance) *bool { return v.ComplianceSecurityProfileEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+// A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
 //
 // > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
 //
@@ -787,7 +787,7 @@ func (o WorkspaceEnhancedSecurityCompliancePtrOutput) ComplianceSecurityProfileE
 	}).(pulumi.BoolPtrOutput)
 }
 
-// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+// A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
 //
 // > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
 //

@@ -68,14 +68,14 @@ class AccountArgs:
                
                > **Note:** Blobs with a tier of `Premium` are of account kind `StorageV2`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the storage account. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        :param pulumi.Input[_builtins.str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         :param pulumi.Input[_builtins.str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
                
                > **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
         :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
-        :param pulumi.Input[_builtins.str] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
@@ -263,7 +263,7 @@ class AccountArgs:
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         """
         return pulumi.get(self, "access_tier")
 
@@ -303,7 +303,7 @@ class AccountArgs:
     @pulumi.getter(name="allowedCopyScope")
     def allowed_copy_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         """
         return pulumi.get(self, "allowed_copy_scope")
 
@@ -845,7 +845,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
 
-        :param pulumi.Input[_builtins.str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        :param pulumi.Input[_builtins.str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         :param pulumi.Input[_builtins.str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
                
                > **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
@@ -856,7 +856,7 @@ class _AccountState:
         :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
-        :param pulumi.Input[_builtins.str] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         :param pulumi.Input['AccountAzureFilesAuthenticationArgs'] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input['AccountBlobPropertiesArgs'] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
@@ -1226,7 +1226,7 @@ class _AccountState:
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         """
         return pulumi.get(self, "access_tier")
 
@@ -1292,7 +1292,7 @@ class _AccountState:
     @pulumi.getter(name="allowedCopyScope")
     def allowed_copy_scope(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         """
         return pulumi.get(self, "allowed_copy_scope")
 
@@ -2706,7 +2706,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage` - 2025-06-01
+        * `Microsoft.Storage` - 2025-08-01
 
         ## Import
 
@@ -2719,7 +2719,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        :param pulumi.Input[_builtins.str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         :param pulumi.Input[_builtins.str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
                
                > **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
@@ -2730,7 +2730,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
-        :param pulumi.Input[_builtins.str] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
@@ -2868,7 +2868,7 @@ class Account(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage` - 2025-06-01
+        * `Microsoft.Storage` - 2025-08-01
 
         ## Import
 
@@ -3189,7 +3189,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        :param pulumi.Input[_builtins.str] access_tier: Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         :param pulumi.Input[_builtins.str] account_kind: Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
                
                > **Note:** Changing the `account_kind` value from `Storage` to `StorageV2` will not trigger a force new on the storage account, it will only upgrade the existing storage account from `Storage` to `StorageV2` keeping the existing storage account in place.
@@ -3200,7 +3200,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] allow_nested_items_to_be_public: Allow or disallow nested items within this Account to opt into being public. Defaults to `true`.
                
                > **Note:** At this time `allow_nested_items_to_be_public` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
-        :param pulumi.Input[_builtins.str] allowed_copy_scope: Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        :param pulumi.Input[_builtins.str] allowed_copy_scope: The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         :param pulumi.Input[Union['AccountAzureFilesAuthenticationArgs', 'AccountAzureFilesAuthenticationArgsDict']] azure_files_authentication: A `azure_files_authentication` block as defined below.
         :param pulumi.Input[Union['AccountBlobPropertiesArgs', 'AccountBlobPropertiesArgsDict']] blob_properties: A `blob_properties` block as defined below.
         :param pulumi.Input[_builtins.bool] cross_tenant_replication_enabled: Should cross Tenant replication be enabled? Defaults to `false`.
@@ -3458,7 +3458,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="accessTier")
     def access_tier(self) -> pulumi.Output[_builtins.str]:
         """
-        Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         """
         return pulumi.get(self, "access_tier")
 
@@ -3504,7 +3504,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="allowedCopyScope")
     def allowed_copy_scope(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         """
         return pulumi.get(self, "allowed_copy_scope")
 

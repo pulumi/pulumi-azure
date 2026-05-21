@@ -112,6 +112,10 @@ type PolicyVM struct {
 
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackupOutput `pulumi:"backup"`
+	// The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+	//
+	// > **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+	ConsistencyType pulumi.StringPtrOutput `pulumi:"consistencyType"`
 	// Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
 	InstantRestoreResourceGroup PolicyVMInstantRestoreResourceGroupPtrOutput `pulumi:"instantRestoreResourceGroup"`
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
@@ -181,6 +185,10 @@ func GetPolicyVM(ctx *pulumi.Context,
 type policyVMState struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup *PolicyVMBackup `pulumi:"backup"`
+	// The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+	//
+	// > **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+	ConsistencyType *string `pulumi:"consistencyType"`
 	// Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
 	InstantRestoreResourceGroup *PolicyVMInstantRestoreResourceGroup `pulumi:"instantRestoreResourceGroup"`
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
@@ -212,6 +220,10 @@ type policyVMState struct {
 type PolicyVMState struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackupPtrInput
+	// The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+	//
+	// > **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+	ConsistencyType pulumi.StringPtrInput
 	// Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
 	InstantRestoreResourceGroup PolicyVMInstantRestoreResourceGroupPtrInput
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
@@ -247,6 +259,10 @@ func (PolicyVMState) ElementType() reflect.Type {
 type policyVMArgs struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackup `pulumi:"backup"`
+	// The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+	//
+	// > **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+	ConsistencyType *string `pulumi:"consistencyType"`
 	// Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
 	InstantRestoreResourceGroup *PolicyVMInstantRestoreResourceGroup `pulumi:"instantRestoreResourceGroup"`
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
@@ -279,6 +295,10 @@ type policyVMArgs struct {
 type PolicyVMArgs struct {
 	// Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 	Backup PolicyVMBackupInput
+	// The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+	//
+	// > **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+	ConsistencyType pulumi.StringPtrInput
 	// Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
 	InstantRestoreResourceGroup PolicyVMInstantRestoreResourceGroupPtrInput
 	// Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policyType` is `V1`, and `1` to `30` when `policyType` is `V2`.
@@ -397,6 +417,13 @@ func (o PolicyVMOutput) ToPolicyVMOutputWithContext(ctx context.Context) PolicyV
 // Configures the Policy backup frequency, times & days as documented in the `backup` block below.
 func (o PolicyVMOutput) Backup() PolicyVMBackupOutput {
 	return o.ApplyT(func(v *PolicyVM) PolicyVMBackupOutput { return v.Backup }).(PolicyVMBackupOutput)
+}
+
+// The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+//
+// > **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+func (o PolicyVMOutput) ConsistencyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PolicyVM) pulumi.StringPtrOutput { return v.ConsistencyType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.

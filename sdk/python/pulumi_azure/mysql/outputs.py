@@ -106,6 +106,7 @@ class FlexibleServerCustomerManagedKey(dict):
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def managed_hsm_key_id(self) -> Optional[_builtins.str]:
         """
         The ID of the Managed HSM Key.

@@ -111,46 +111,50 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
         return this.botName;
     }
     /**
-     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     * The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+     * 
+     * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      * 
      */
     @Export(name="cognitiveAccountId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cognitiveAccountId;
 
     /**
-     * @return The ID of the Cognitive Account this Bot Channel should be associated with.
+     * @return The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+     * 
+     * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> cognitiveAccountId() {
         return Codegen.optional(this.cognitiveAccountId);
     }
     /**
-     * The access key to access the Cognitive Service.
+     * The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
      */
     @Export(name="cognitiveServiceAccessKey", refs={String.class}, tree="[0]")
-    private Output<String> cognitiveServiceAccessKey;
+    private Output</* @Nullable */ String> cognitiveServiceAccessKey;
 
     /**
-     * @return The access key to access the Cognitive Service.
+     * @return The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
      */
-    public Output<String> cognitiveServiceAccessKey() {
-        return this.cognitiveServiceAccessKey;
+    public Output<Optional<String>> cognitiveServiceAccessKey() {
+        return Codegen.optional(this.cognitiveServiceAccessKey);
     }
     /**
-     * Specifies the supported Azure location where the Cognitive Service resource exists.
+     * Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
      */
     @Export(name="cognitiveServiceLocation", refs={String.class}, tree="[0]")
-    private Output<String> cognitiveServiceLocation;
+    private Output</* @Nullable */ String> cognitiveServiceLocation;
 
     /**
-     * @return Specifies the supported Azure location where the Cognitive Service resource exists.
+     * @return Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
      */
-    public Output<String> cognitiveServiceLocation() {
-        return this.cognitiveServiceLocation;
+    public Output<Optional<String>> cognitiveServiceLocation() {
+        return Codegen.optional(this.cognitiveServiceLocation);
     }
     /**
      * The custom speech model id for the Direct Line Speech Channel.

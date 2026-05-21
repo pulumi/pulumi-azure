@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain
     {
         /// <summary>
-        /// Is the Front Door Custom Domain/Endpoint activated?
+        /// Whether the Front Door Custom Domain or Front Door Endpoint is active.
         /// </summary>
         public readonly bool? Active;
         /// <summary>

@@ -18,6 +18,8 @@ import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorRuleSetPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorSecretPlainArgs;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetProfileArgs;
 import com.pulumi.azure.cdn.inputs.GetProfilePlainArgs;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorCustomDomainResult;
@@ -27,6 +29,7 @@ import com.pulumi.azure.cdn.outputs.GetFrontdoorOriginGroupResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorProfileResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorRuleSetResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorSecretResult;
+import com.pulumi.azure.cdn.outputs.GetFrontdoorSecurityPolicyResult;
 import com.pulumi.azure.cdn.outputs.GetProfileResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -37,7 +40,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class CdnFunctions {
     /**
-     * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+     * Gets information about an existing Front Door (standard/premium) Custom Domain.
      * 
      * ## Example Usage
      * 
@@ -64,22 +67,29 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
-     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
-     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
+     *             .name("existing-cdn-frontdoor-custom-domain")
+     *             .profileName("existing-cdn-frontdoor-profile")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
      *     }
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-04-15
      * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args) {
         return getFrontdoorCustomDomain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+     * Gets information about an existing Front Door (standard/premium) Custom Domain.
      * 
      * ## Example Usage
      * 
@@ -106,22 +116,29 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
-     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
-     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
+     *             .name("existing-cdn-frontdoor-custom-domain")
+     *             .profileName("existing-cdn-frontdoor-profile")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
      *     }
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-04-15
      * 
      */
     public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args) {
         return getFrontdoorCustomDomainPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+     * Gets information about an existing Front Door (standard/premium) Custom Domain.
      * 
      * ## Example Usage
      * 
@@ -148,22 +165,29 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
-     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
-     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
+     *             .name("existing-cdn-frontdoor-custom-domain")
+     *             .profileName("existing-cdn-frontdoor-profile")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
      *     }
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-04-15
      * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", TypeShape.of(GetFrontdoorCustomDomainResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+     * Gets information about an existing Front Door (standard/premium) Custom Domain.
      * 
      * ## Example Usage
      * 
@@ -190,22 +214,29 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
-     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
-     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
+     *             .name("existing-cdn-frontdoor-custom-domain")
+     *             .profileName("existing-cdn-frontdoor-profile")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
      *     }
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-04-15
      * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", TypeShape.of(GetFrontdoorCustomDomainResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+     * Gets information about an existing Front Door (standard/premium) Custom Domain.
      * 
      * ## Example Usage
      * 
@@ -232,15 +263,22 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
-     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
-     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
+     *             .name("existing-cdn-frontdoor-custom-domain")
+     *             .profileName("existing-cdn-frontdoor-profile")
+     *             .resourceGroupName("existing-resource-group")
      *             .build());
      * 
      *     }
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-04-15
      * 
      */
     public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args, InvokeOptions options) {
@@ -1575,6 +1613,671 @@ public final class CdnFunctions {
      */
     public static CompletableFuture<GetFrontdoorSecretResult> getFrontdoorSecretPlain(GetFrontdoorSecretPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", TypeShape.of(GetFrontdoorSecretResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets information about an existing Front Door (standard/premium) Security Policy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.cdn.FrontdoorProfile;
+     * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.dns.Zone;
+     * import com.pulumi.azure.dns.ZoneArgs;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-cdn-frontdoor")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
+     *             .name("example-frontdoor-profile")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName("Standard_AzureFrontDoor")
+     *             .build());
+     * 
+     *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", FrontdoorFirewallPolicyArgs.builder()
+     *             .name("examplecdnfrontdoorfirewallpolicy")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName(exampleFrontdoorProfile.skuName())
+     *             .enabled(true)
+     *             .mode("Prevention")
+     *             .redirectUrl("https://www.example.com")
+     *             .customRules(FrontdoorFirewallPolicyCustomRuleArgs.builder()
+     *                 .name("Rule1")
+     *                 .enabled(true)
+     *                 .priority(1)
+     *                 .rateLimitDurationInMinutes(1)
+     *                 .rateLimitThreshold(10)
+     *                 .type("MatchRule")
+     *                 .action("Block")
+     *                 .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
+     *                     .matchVariable("RemoteAddr")
+     *                     .operator("IPMatch")
+     *                     .negationCondition(false)
+     *                     .matchValues("192.168.1.0/24")
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+     *             .name("example-frontdoor.com")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()
+     *             .name("example-custom-domain")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .dnsZoneId(exampleZone.id())
+     *             .hostName("www.example-frontdoor.com")
+     *             .tls(FrontdoorCustomDomainTlsArgs.builder()
+     *                 .certificateType("ManagedCertificate")
+     *                 .minimumTlsVersion("TLS12")
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", FrontdoorSecurityPolicyArgs.builder()
+     *             .name("example-security-policy")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
+     *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
+     *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
+     *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
+     *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
+     *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
+     *                             .build())
+     *                         .patternsToMatch("/*")
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var example = CdnFunctions.getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs.builder()
+     *             .name(exampleFrontdoorSecurityPolicy.name())
+     *             .profileName(exampleFrontdoorProfile.name())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2024-02-01
+     * 
+     */
+    public static Output<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs args) {
+        return getFrontdoorSecurityPolicy(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets information about an existing Front Door (standard/premium) Security Policy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.cdn.FrontdoorProfile;
+     * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.dns.Zone;
+     * import com.pulumi.azure.dns.ZoneArgs;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-cdn-frontdoor")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
+     *             .name("example-frontdoor-profile")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName("Standard_AzureFrontDoor")
+     *             .build());
+     * 
+     *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", FrontdoorFirewallPolicyArgs.builder()
+     *             .name("examplecdnfrontdoorfirewallpolicy")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName(exampleFrontdoorProfile.skuName())
+     *             .enabled(true)
+     *             .mode("Prevention")
+     *             .redirectUrl("https://www.example.com")
+     *             .customRules(FrontdoorFirewallPolicyCustomRuleArgs.builder()
+     *                 .name("Rule1")
+     *                 .enabled(true)
+     *                 .priority(1)
+     *                 .rateLimitDurationInMinutes(1)
+     *                 .rateLimitThreshold(10)
+     *                 .type("MatchRule")
+     *                 .action("Block")
+     *                 .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
+     *                     .matchVariable("RemoteAddr")
+     *                     .operator("IPMatch")
+     *                     .negationCondition(false)
+     *                     .matchValues("192.168.1.0/24")
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+     *             .name("example-frontdoor.com")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()
+     *             .name("example-custom-domain")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .dnsZoneId(exampleZone.id())
+     *             .hostName("www.example-frontdoor.com")
+     *             .tls(FrontdoorCustomDomainTlsArgs.builder()
+     *                 .certificateType("ManagedCertificate")
+     *                 .minimumTlsVersion("TLS12")
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", FrontdoorSecurityPolicyArgs.builder()
+     *             .name("example-security-policy")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
+     *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
+     *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
+     *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
+     *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
+     *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
+     *                             .build())
+     *                         .patternsToMatch("/*")
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var example = CdnFunctions.getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs.builder()
+     *             .name(exampleFrontdoorSecurityPolicy.name())
+     *             .profileName(exampleFrontdoorProfile.name())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2024-02-01
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicyPlain(GetFrontdoorSecurityPolicyPlainArgs args) {
+        return getFrontdoorSecurityPolicyPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets information about an existing Front Door (standard/premium) Security Policy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.cdn.FrontdoorProfile;
+     * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.dns.Zone;
+     * import com.pulumi.azure.dns.ZoneArgs;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-cdn-frontdoor")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
+     *             .name("example-frontdoor-profile")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName("Standard_AzureFrontDoor")
+     *             .build());
+     * 
+     *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", FrontdoorFirewallPolicyArgs.builder()
+     *             .name("examplecdnfrontdoorfirewallpolicy")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName(exampleFrontdoorProfile.skuName())
+     *             .enabled(true)
+     *             .mode("Prevention")
+     *             .redirectUrl("https://www.example.com")
+     *             .customRules(FrontdoorFirewallPolicyCustomRuleArgs.builder()
+     *                 .name("Rule1")
+     *                 .enabled(true)
+     *                 .priority(1)
+     *                 .rateLimitDurationInMinutes(1)
+     *                 .rateLimitThreshold(10)
+     *                 .type("MatchRule")
+     *                 .action("Block")
+     *                 .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
+     *                     .matchVariable("RemoteAddr")
+     *                     .operator("IPMatch")
+     *                     .negationCondition(false)
+     *                     .matchValues("192.168.1.0/24")
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+     *             .name("example-frontdoor.com")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()
+     *             .name("example-custom-domain")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .dnsZoneId(exampleZone.id())
+     *             .hostName("www.example-frontdoor.com")
+     *             .tls(FrontdoorCustomDomainTlsArgs.builder()
+     *                 .certificateType("ManagedCertificate")
+     *                 .minimumTlsVersion("TLS12")
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", FrontdoorSecurityPolicyArgs.builder()
+     *             .name("example-security-policy")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
+     *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
+     *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
+     *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
+     *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
+     *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
+     *                             .build())
+     *                         .patternsToMatch("/*")
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var example = CdnFunctions.getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs.builder()
+     *             .name(exampleFrontdoorSecurityPolicy.name())
+     *             .profileName(exampleFrontdoorProfile.name())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2024-02-01
+     * 
+     */
+    public static Output<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:cdn/getFrontdoorSecurityPolicy:getFrontdoorSecurityPolicy", TypeShape.of(GetFrontdoorSecurityPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets information about an existing Front Door (standard/premium) Security Policy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.cdn.FrontdoorProfile;
+     * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.dns.Zone;
+     * import com.pulumi.azure.dns.ZoneArgs;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-cdn-frontdoor")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
+     *             .name("example-frontdoor-profile")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName("Standard_AzureFrontDoor")
+     *             .build());
+     * 
+     *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", FrontdoorFirewallPolicyArgs.builder()
+     *             .name("examplecdnfrontdoorfirewallpolicy")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName(exampleFrontdoorProfile.skuName())
+     *             .enabled(true)
+     *             .mode("Prevention")
+     *             .redirectUrl("https://www.example.com")
+     *             .customRules(FrontdoorFirewallPolicyCustomRuleArgs.builder()
+     *                 .name("Rule1")
+     *                 .enabled(true)
+     *                 .priority(1)
+     *                 .rateLimitDurationInMinutes(1)
+     *                 .rateLimitThreshold(10)
+     *                 .type("MatchRule")
+     *                 .action("Block")
+     *                 .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
+     *                     .matchVariable("RemoteAddr")
+     *                     .operator("IPMatch")
+     *                     .negationCondition(false)
+     *                     .matchValues("192.168.1.0/24")
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+     *             .name("example-frontdoor.com")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()
+     *             .name("example-custom-domain")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .dnsZoneId(exampleZone.id())
+     *             .hostName("www.example-frontdoor.com")
+     *             .tls(FrontdoorCustomDomainTlsArgs.builder()
+     *                 .certificateType("ManagedCertificate")
+     *                 .minimumTlsVersion("TLS12")
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", FrontdoorSecurityPolicyArgs.builder()
+     *             .name("example-security-policy")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
+     *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
+     *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
+     *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
+     *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
+     *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
+     *                             .build())
+     *                         .patternsToMatch("/*")
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var example = CdnFunctions.getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs.builder()
+     *             .name(exampleFrontdoorSecurityPolicy.name())
+     *             .profileName(exampleFrontdoorProfile.name())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2024-02-01
+     * 
+     */
+    public static Output<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:cdn/getFrontdoorSecurityPolicy:getFrontdoorSecurityPolicy", TypeShape.of(GetFrontdoorSecurityPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets information about an existing Front Door (standard/premium) Security Policy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.cdn.FrontdoorProfile;
+     * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.dns.Zone;
+     * import com.pulumi.azure.dns.ZoneArgs;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
+     * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
+     * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+     *             .name("example-cdn-frontdoor")
+     *             .location("West Europe")
+     *             .build());
+     * 
+     *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
+     *             .name("example-frontdoor-profile")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName("Standard_AzureFrontDoor")
+     *             .build());
+     * 
+     *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", FrontdoorFirewallPolicyArgs.builder()
+     *             .name("examplecdnfrontdoorfirewallpolicy")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .skuName(exampleFrontdoorProfile.skuName())
+     *             .enabled(true)
+     *             .mode("Prevention")
+     *             .redirectUrl("https://www.example.com")
+     *             .customRules(FrontdoorFirewallPolicyCustomRuleArgs.builder()
+     *                 .name("Rule1")
+     *                 .enabled(true)
+     *                 .priority(1)
+     *                 .rateLimitDurationInMinutes(1)
+     *                 .rateLimitThreshold(10)
+     *                 .type("MatchRule")
+     *                 .action("Block")
+     *                 .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
+     *                     .matchVariable("RemoteAddr")
+     *                     .operator("IPMatch")
+     *                     .negationCondition(false)
+     *                     .matchValues("192.168.1.0/24")
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
+     *             .name("example-frontdoor.com")
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()
+     *             .name("example-custom-domain")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .dnsZoneId(exampleZone.id())
+     *             .hostName("www.example-frontdoor.com")
+     *             .tls(FrontdoorCustomDomainTlsArgs.builder()
+     *                 .certificateType("ManagedCertificate")
+     *                 .minimumTlsVersion("TLS12")
+     *                 .build())
+     *             .build());
+     * 
+     *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", FrontdoorSecurityPolicyArgs.builder()
+     *             .name("example-security-policy")
+     *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+     *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
+     *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
+     *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
+     *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
+     *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
+     *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
+     *                             .build())
+     *                         .patternsToMatch("/*")
+     *                         .build())
+     *                     .build())
+     *                 .build())
+     *             .build());
+     * 
+     *         final var example = CdnFunctions.getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs.builder()
+     *             .name(exampleFrontdoorSecurityPolicy.name())
+     *             .profileName(exampleFrontdoorProfile.name())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2024-02-01
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicyPlain(GetFrontdoorSecurityPolicyPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorSecurityPolicy:getFrontdoorSecurityPolicy", TypeShape.of(GetFrontdoorSecurityPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing CDN Profile.

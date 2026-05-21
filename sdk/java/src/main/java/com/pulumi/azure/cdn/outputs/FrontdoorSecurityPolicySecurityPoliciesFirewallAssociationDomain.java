@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
     /**
-     * @return Is the Front Door Custom Domain/Endpoint activated?
+     * @return Whether the Front Door Custom Domain or Front Door Endpoint is active.
      * 
      */
     private @Nullable Boolean active;
@@ -26,7 +26,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
 
     private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain() {}
     /**
-     * @return Is the Front Door Custom Domain/Endpoint activated?
+     * @return Whether the Front Door Custom Domain or Front Door Endpoint is active.
      * 
      */
     public Optional<Boolean> active() {

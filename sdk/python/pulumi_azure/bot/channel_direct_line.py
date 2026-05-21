@@ -92,6 +92,8 @@ class ChannelDirectLineArgs:
 class _ChannelDirectLineState:
     def __init__(__self__, *,
                  bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_key1: pulumi.Input[Optional[_builtins.str]] = None,
+                 extension_key2: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sites: pulumi.Input[Optional[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]]] = None):
@@ -99,12 +101,18 @@ class _ChannelDirectLineState:
         Input properties used for looking up and filtering ChannelDirectLine resources.
 
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] extension_key1: The first key for Directline App Service Extension.
+        :param pulumi.Input[_builtins.str] extension_key2: The second key for Directline App Service Extension.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ChannelDirectLineSiteArgs']]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
         """
         if bot_name is not None:
             pulumi.set(__self__, "bot_name", bot_name)
+        if extension_key1 is not None:
+            pulumi.set(__self__, "extension_key1", extension_key1)
+        if extension_key2 is not None:
+            pulumi.set(__self__, "extension_key2", extension_key2)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if resource_group_name is not None:
@@ -123,6 +131,30 @@ class _ChannelDirectLineState:
     @bot_name.setter
     def bot_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "bot_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extensionKey1")
+    def extension_key1(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The first key for Directline App Service Extension.
+        """
+        return pulumi.get(self, "extension_key1")
+
+    @extension_key1.setter
+    def extension_key1(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "extension_key1", value)
+
+    @_builtins.property
+    @pulumi.getter(name="extensionKey2")
+    def extension_key2(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The second key for Directline App Service Extension.
+        """
+        return pulumi.get(self, "extension_key2")
+
+    @extension_key2.setter
+    def extension_key2(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "extension_key2", value)
 
     @_builtins.property
     @pulumi.getter
@@ -299,6 +331,10 @@ class ChannelDirectLine(pulumi.CustomResource):
             if sites is None and not opts.urn:
                 raise TypeError("Missing required property 'sites'")
             __props__.__dict__["sites"] = sites
+            __props__.__dict__["extension_key1"] = None
+            __props__.__dict__["extension_key2"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["extensionKey1", "extensionKey2"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChannelDirectLine, __self__).__init__(
             'azure:bot/channelDirectLine:ChannelDirectLine',
             resource_name,
@@ -310,6 +346,8 @@ class ChannelDirectLine(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             bot_name: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_key1: pulumi.Input[Optional[_builtins.str]] = None,
+            extension_key2: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sites: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict']]]]] = None) -> 'ChannelDirectLine':
@@ -321,6 +359,8 @@ class ChannelDirectLine(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] extension_key1: The first key for Directline App Service Extension.
+        :param pulumi.Input[_builtins.str] extension_key2: The second key for Directline App Service Extension.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelDirectLineSiteArgs', 'ChannelDirectLineSiteArgsDict']]]] sites: A site represents a client application that you want to connect to your bot. One or more `site` blocks as defined below.
@@ -330,6 +370,8 @@ class ChannelDirectLine(pulumi.CustomResource):
         __props__ = _ChannelDirectLineState.__new__(_ChannelDirectLineState)
 
         __props__.__dict__["bot_name"] = bot_name
+        __props__.__dict__["extension_key1"] = extension_key1
+        __props__.__dict__["extension_key2"] = extension_key2
         __props__.__dict__["location"] = location
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sites"] = sites
@@ -342,6 +384,22 @@ class ChannelDirectLine(pulumi.CustomResource):
         The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "bot_name")
+
+    @_builtins.property
+    @pulumi.getter(name="extensionKey1")
+    def extension_key1(self) -> pulumi.Output[_builtins.str]:
+        """
+        The first key for Directline App Service Extension.
+        """
+        return pulumi.get(self, "extension_key1")
+
+    @_builtins.property
+    @pulumi.getter(name="extensionKey2")
+    def extension_key2(self) -> pulumi.Output[_builtins.str]:
+        """
+        The second key for Directline App Service Extension.
+        """
+        return pulumi.get(self, "extension_key2")
 
     @_builtins.property
     @pulumi.getter

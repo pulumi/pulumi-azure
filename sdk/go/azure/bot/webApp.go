@@ -41,11 +41,13 @@ import (
 //				return err
 //			}
 //			_, err = bot.NewWebApp(ctx, "example", &bot.WebAppArgs{
-//				Name:              pulumi.String("example"),
-//				Location:          pulumi.String("global"),
-//				ResourceGroupName: example.Name,
-//				Sku:               pulumi.String("F0"),
-//				MicrosoftAppId:    pulumi.String(pulumi.String(current.ClientId)),
+//				Name:                 pulumi.String("example"),
+//				Location:             pulumi.String("global"),
+//				ResourceGroupName:    example.Name,
+//				Sku:                  pulumi.String("F0"),
+//				MicrosoftAppId:       pulumi.String(pulumi.String(current.ClientId)),
+//				MicrosoftAppType:     pulumi.String("SingleTenant"),
+//				MicrosoftAppTenantId: pulumi.String(pulumi.String(current.TenantId)),
 //			})
 //			if err != nil {
 //				return err
@@ -84,6 +86,14 @@ type WebApp struct {
 	LuisKey pulumi.StringPtrOutput `pulumi:"luisKey"`
 	// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
 	MicrosoftAppId pulumi.StringOutput `pulumi:"microsoftAppId"`
+	// The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId pulumi.StringPtrOutput `pulumi:"microsoftAppTenantId"`
+	// The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Defaults to `MultiTenant`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Creation of `bot.WebApp` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+	MicrosoftAppType pulumi.StringOutput `pulumi:"microsoftAppType"`
+	// The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppUserAssignedIdentityId pulumi.StringPtrOutput `pulumi:"microsoftAppUserAssignedIdentityId"`
 	// Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
@@ -162,6 +172,14 @@ type webAppState struct {
 	LuisKey *string `pulumi:"luisKey"`
 	// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
 	MicrosoftAppId *string `pulumi:"microsoftAppId"`
+	// The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId *string `pulumi:"microsoftAppTenantId"`
+	// The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Defaults to `MultiTenant`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Creation of `bot.WebApp` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+	MicrosoftAppType *string `pulumi:"microsoftAppType"`
+	// The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppUserAssignedIdentityId *string `pulumi:"microsoftAppUserAssignedIdentityId"`
 	// Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
@@ -191,6 +209,14 @@ type WebAppState struct {
 	LuisKey pulumi.StringPtrInput
 	// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
 	MicrosoftAppId pulumi.StringPtrInput
+	// The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId pulumi.StringPtrInput
+	// The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Defaults to `MultiTenant`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Creation of `bot.WebApp` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+	MicrosoftAppType pulumi.StringPtrInput
+	// The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppUserAssignedIdentityId pulumi.StringPtrInput
 	// Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
@@ -224,6 +250,14 @@ type webAppArgs struct {
 	LuisKey *string `pulumi:"luisKey"`
 	// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
 	MicrosoftAppId string `pulumi:"microsoftAppId"`
+	// The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId *string `pulumi:"microsoftAppTenantId"`
+	// The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Defaults to `MultiTenant`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Creation of `bot.WebApp` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+	MicrosoftAppType *string `pulumi:"microsoftAppType"`
+	// The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppUserAssignedIdentityId *string `pulumi:"microsoftAppUserAssignedIdentityId"`
 	// Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
 	Name *string `pulumi:"name"`
 	// The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
@@ -254,6 +288,14 @@ type WebAppArgs struct {
 	LuisKey pulumi.StringPtrInput
 	// The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
 	MicrosoftAppId pulumi.StringInput
+	// The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppTenantId pulumi.StringPtrInput
+	// The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Defaults to `MultiTenant`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Creation of `bot.WebApp` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+	MicrosoftAppType pulumi.StringPtrInput
+	// The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+	MicrosoftAppUserAssignedIdentityId pulumi.StringPtrInput
 	// Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.
 	Name pulumi.StringPtrInput
 	// The name of the resource group in which to create the Web App Bot. Changing this forces a new resource to be created.
@@ -394,6 +436,23 @@ func (o WebAppOutput) LuisKey() pulumi.StringPtrOutput {
 // The Microsoft Application ID for the Web App Bot. Changing this forces a new resource to be created.
 func (o WebAppOutput) MicrosoftAppId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.MicrosoftAppId }).(pulumi.StringOutput)
+}
+
+// The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+func (o WebAppOutput) MicrosoftAppTenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringPtrOutput { return v.MicrosoftAppTenantId }).(pulumi.StringPtrOutput)
+}
+
+// The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Defaults to `MultiTenant`. Changing this forces a new resource to be created.
+//
+// > **Note:** Creation of `bot.WebApp` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+func (o WebAppOutput) MicrosoftAppType() pulumi.StringOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringOutput { return v.MicrosoftAppType }).(pulumi.StringOutput)
+}
+
+// The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
+func (o WebAppOutput) MicrosoftAppUserAssignedIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebApp) pulumi.StringPtrOutput { return v.MicrosoftAppUserAssignedIdentityId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the Web App Bot. Changing this forces a new resource to be created. Must be globally unique.

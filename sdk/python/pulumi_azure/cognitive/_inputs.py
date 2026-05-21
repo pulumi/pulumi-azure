@@ -77,6 +77,9 @@ class AIServicesCustomerManagedKeyArgs:
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if managed_hsm_key_id is not None:
+            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+        if managed_hsm_key_id is not None:
             pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
 
     @_builtins.property
@@ -105,6 +108,7 @@ class AIServicesCustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.

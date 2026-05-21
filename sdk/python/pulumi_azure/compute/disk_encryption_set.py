@@ -69,6 +69,9 @@ class DiskEncryptionSetArgs:
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_hsm_key_id is not None:
+            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
+        if managed_hsm_key_id is not None:
             pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -172,6 +175,7 @@ class DiskEncryptionSetArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
     def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
@@ -261,6 +265,9 @@ class _DiskEncryptionSetState:
             pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if managed_hsm_key_id is not None:
+            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
         if managed_hsm_key_id is not None:
             pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if name is not None:
@@ -367,6 +374,7 @@ class _DiskEncryptionSetState:
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
     def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
@@ -970,7 +978,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def key_vault_key_id(self) -> pulumi.Output[_builtins.str]:
         """
         Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
 
@@ -999,7 +1007,8 @@ class DiskEncryptionSet(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
-    def managed_hsm_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
+    def managed_hsm_key_id(self) -> pulumi.Output[_builtins.str]:
         """
         Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         """

@@ -38,6 +38,22 @@ namespace Pulumi.Azure.EventHub.Inputs
         [Input("storageAccountId", required: true)]
         public Input<string> StorageAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived. 
+        /// 
+        /// &gt; **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `Enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+        /// 
+        /// &gt; **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+        /// </summary>
+        [Input("storageAuthenticationId")]
+        public Input<string>? StorageAuthenticationId { get; set; }
+
+        /// <summary>
+        /// The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+        /// </summary>
+        [Input("storageAuthenticationType")]
+        public Input<string>? StorageAuthenticationType { get; set; }
+
         public EventHubCaptureDescriptionDestinationArgs()
         {
         }

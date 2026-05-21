@@ -24,6 +24,7 @@ class PolicyVMArgs:
                  backup: pulumi.Input['PolicyVMBackupArgs'],
                  recovery_vault_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 consistency_type: pulumi.Input[Optional[_builtins.str]] = None,
                  instant_restore_resource_group: pulumi.Input[Optional['PolicyVMInstantRestoreResourceGroupArgs']] = None,
                  instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -40,6 +41,9 @@ class PolicyVMArgs:
         :param pulumi.Input['PolicyVMBackupArgs'] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         :param pulumi.Input[_builtins.str] recovery_vault_name: Specifies the name of the Recovery Services Vault to use. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] consistency_type: The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+               
+               > **Note:** `consistency_type` can only be specified when `policy_type` is `V2`.
         :param pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs'] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[_builtins.int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
                
@@ -56,6 +60,8 @@ class PolicyVMArgs:
         pulumi.set(__self__, "backup", backup)
         pulumi.set(__self__, "recovery_vault_name", recovery_vault_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if consistency_type is not None:
+            pulumi.set(__self__, "consistency_type", consistency_type)
         if instant_restore_resource_group is not None:
             pulumi.set(__self__, "instant_restore_resource_group", instant_restore_resource_group)
         if instant_restore_retention_days is not None:
@@ -112,6 +118,20 @@ class PolicyVMArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="consistencyType")
+    def consistency_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+
+        > **Note:** `consistency_type` can only be specified when `policy_type` is `V2`.
+        """
+        return pulumi.get(self, "consistency_type")
+
+    @consistency_type.setter
+    def consistency_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "consistency_type", value)
 
     @_builtins.property
     @pulumi.getter(name="instantRestoreResourceGroup")
@@ -240,6 +260,7 @@ class PolicyVMArgs:
 class _PolicyVMState:
     def __init__(__self__, *,
                  backup: pulumi.Input[Optional['PolicyVMBackupArgs']] = None,
+                 consistency_type: pulumi.Input[Optional[_builtins.str]] = None,
                  instant_restore_resource_group: pulumi.Input[Optional['PolicyVMInstantRestoreResourceGroupArgs']] = None,
                  instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -256,6 +277,9 @@ class _PolicyVMState:
         Input properties used for looking up and filtering PolicyVM resources.
 
         :param pulumi.Input['PolicyVMBackupArgs'] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[_builtins.str] consistency_type: The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+               
+               > **Note:** `consistency_type` can only be specified when `policy_type` is `V2`.
         :param pulumi.Input['PolicyVMInstantRestoreResourceGroupArgs'] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[_builtins.int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
                
@@ -273,6 +297,8 @@ class _PolicyVMState:
         """
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
+        if consistency_type is not None:
+            pulumi.set(__self__, "consistency_type", consistency_type)
         if instant_restore_resource_group is not None:
             pulumi.set(__self__, "instant_restore_resource_group", instant_restore_resource_group)
         if instant_restore_retention_days is not None:
@@ -309,6 +335,20 @@ class _PolicyVMState:
     @backup.setter
     def backup(self, value: pulumi.Input[Optional['PolicyVMBackupArgs']]):
         pulumi.set(self, "backup", value)
+
+    @_builtins.property
+    @pulumi.getter(name="consistencyType")
+    def consistency_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+
+        > **Note:** `consistency_type` can only be specified when `policy_type` is `V2`.
+        """
+        return pulumi.get(self, "consistency_type")
+
+    @consistency_type.setter
+    def consistency_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "consistency_type", value)
 
     @_builtins.property
     @pulumi.getter(name="instantRestoreResourceGroup")
@@ -464,6 +504,7 @@ class PolicyVM(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup: pulumi.Input[Optional[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
+                 consistency_type: pulumi.Input[Optional[_builtins.str]] = None,
                  instant_restore_resource_group: pulumi.Input[Optional[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
                  instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -546,6 +587,9 @@ class PolicyVM(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[_builtins.str] consistency_type: The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+               
+               > **Note:** `consistency_type` can only be specified when `policy_type` is `V2`.
         :param pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[_builtins.int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
                
@@ -649,6 +693,7 @@ class PolicyVM(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup: pulumi.Input[Optional[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
+                 consistency_type: pulumi.Input[Optional[_builtins.str]] = None,
                  instant_restore_resource_group: pulumi.Input[Optional[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
                  instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -673,6 +718,7 @@ class PolicyVM(pulumi.CustomResource):
             if backup is None and not opts.urn:
                 raise TypeError("Missing required property 'backup'")
             __props__.__dict__["backup"] = backup
+            __props__.__dict__["consistency_type"] = consistency_type
             __props__.__dict__["instant_restore_resource_group"] = instant_restore_resource_group
             __props__.__dict__["instant_restore_retention_days"] = instant_restore_retention_days
             __props__.__dict__["name"] = name
@@ -700,6 +746,7 @@ class PolicyVM(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             backup: pulumi.Input[Optional[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']]] = None,
+            consistency_type: pulumi.Input[Optional[_builtins.str]] = None,
             instant_restore_resource_group: pulumi.Input[Optional[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']]] = None,
             instant_restore_retention_days: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -720,6 +767,9 @@ class PolicyVM(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['PolicyVMBackupArgs', 'PolicyVMBackupArgsDict']] backup: Configures the Policy backup frequency, times & days as documented in the `backup` block below.
+        :param pulumi.Input[_builtins.str] consistency_type: The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+               
+               > **Note:** `consistency_type` can only be specified when `policy_type` is `V2`.
         :param pulumi.Input[Union['PolicyVMInstantRestoreResourceGroupArgs', 'PolicyVMInstantRestoreResourceGroupArgsDict']] instant_restore_resource_group: Specifies the instant restore resource group name as documented in the `instant_restore_resource_group` block below.
         :param pulumi.Input[_builtins.int] instant_restore_retention_days: Specifies the instant restore retention range in days. Possible values are between `1` and `5` when `policy_type` is `V1`, and `1` to `30` when `policy_type` is `V2`.
                
@@ -740,6 +790,7 @@ class PolicyVM(pulumi.CustomResource):
         __props__ = _PolicyVMState.__new__(_PolicyVMState)
 
         __props__.__dict__["backup"] = backup
+        __props__.__dict__["consistency_type"] = consistency_type
         __props__.__dict__["instant_restore_resource_group"] = instant_restore_resource_group
         __props__.__dict__["instant_restore_retention_days"] = instant_restore_retention_days
         __props__.__dict__["name"] = name
@@ -761,6 +812,16 @@ class PolicyVM(pulumi.CustomResource):
         Configures the Policy backup frequency, times & days as documented in the `backup` block below.
         """
         return pulumi.get(self, "backup")
+
+    @_builtins.property
+    @pulumi.getter(name="consistencyType")
+    def consistency_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+
+        > **Note:** `consistency_type` can only be specified when `policy_type` is `V2`.
+        """
+        return pulumi.get(self, "consistency_type")
 
     @_builtins.property
     @pulumi.getter(name="instantRestoreResourceGroup")

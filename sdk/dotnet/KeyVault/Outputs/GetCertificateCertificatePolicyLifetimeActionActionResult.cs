@@ -14,7 +14,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class GetCertificateCertificatePolicyLifetimeActionActionResult
     {
         /// <summary>
-        /// The Type of action to be performed when the lifetime trigger is triggerec.
+        /// The Type of action to be performed when the lifetime trigger is triggered.
         /// </summary>
         public readonly string ActionType;
 

@@ -31,14 +31,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     public static final AccountArgs Empty = new AccountArgs();
 
     /**
-     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
      * 
      */
     @Import(name="accessTier")
     private @Nullable Output<String> accessTier;
 
     /**
-     * @return Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+     * @return Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
      * 
      */
     public Optional<Output<String>> accessTier() {
@@ -118,14 +118,14 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     * The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
      * 
      */
     @Import(name="allowedCopyScope")
     private @Nullable Output<String> allowedCopyScope;
 
     /**
-     * @return Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     * @return The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
      * 
      */
     public Optional<Output<String>> allowedCopyScope() {
@@ -766,7 +766,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessTier Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+         * @param accessTier Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
          * 
          * @return builder
          * 
@@ -777,7 +777,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessTier Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+         * @param accessTier Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
          * 
          * @return builder
          * 
@@ -883,7 +883,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedCopyScope Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+         * @param allowedCopyScope The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
          * 
          * @return builder
          * 
@@ -894,7 +894,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedCopyScope Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+         * @param allowedCopyScope The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
          * 
          * @return builder
          * 

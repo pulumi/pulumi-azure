@@ -19,6 +19,8 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
     /**
      * One or more `domain` blocks as defined below.
      * 
+     * &gt; **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
+     * 
      */
     @Import(name="domains", required=true)
     private Output<List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs>> domains;
@@ -26,20 +28,22 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
     /**
      * @return One or more `domain` blocks as defined below.
      * 
+     * &gt; **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
+     * 
      */
     public Output<List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs>> domains() {
         return this.domains;
     }
 
     /**
-     * The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+     * The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="patternsToMatch", required=true)
     private Output<String> patternsToMatch;
 
     /**
-     * @return The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+     * @return The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> patternsToMatch() {
@@ -74,6 +78,8 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         /**
          * @param domains One or more `domain` blocks as defined below.
          * 
+         * &gt; **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
+         * 
          * @return builder
          * 
          */
@@ -85,6 +91,8 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         /**
          * @param domains One or more `domain` blocks as defined below.
          * 
+         * &gt; **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
+         * 
          * @return builder
          * 
          */
@@ -95,6 +103,8 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         /**
          * @param domains One or more `domain` blocks as defined below.
          * 
+         * &gt; **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
+         * 
          * @return builder
          * 
          */
@@ -103,7 +113,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param patternsToMatch The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+         * @param patternsToMatch The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -114,7 +124,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArg
         }
 
         /**
-         * @param patternsToMatch The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+         * @param patternsToMatch The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

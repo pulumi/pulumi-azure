@@ -104,6 +104,34 @@ public class ChannelDirectLine extends com.pulumi.resources.CustomResource {
         return this.botName;
     }
     /**
+     * The first key for Directline App Service Extension.
+     * 
+     */
+    @Export(name="extensionKey1", refs={String.class}, tree="[0]")
+    private Output<String> extensionKey1;
+
+    /**
+     * @return The first key for Directline App Service Extension.
+     * 
+     */
+    public Output<String> extensionKey1() {
+        return this.extensionKey1;
+    }
+    /**
+     * The second key for Directline App Service Extension.
+     * 
+     */
+    @Export(name="extensionKey2", refs={String.class}, tree="[0]")
+    private Output<String> extensionKey2;
+
+    /**
+     * @return The second key for Directline App Service Extension.
+     * 
+     */
+    public Output<String> extensionKey2() {
+        return this.extensionKey2;
+    }
+    /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -185,6 +213,10 @@ public class ChannelDirectLine extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "extensionKey1",
+                "extensionKey2"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

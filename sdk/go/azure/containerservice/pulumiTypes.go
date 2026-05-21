@@ -8319,7 +8319,9 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) Zones() pulumi.StringArrayOut
 type KubernetesClusterDefaultNodePoolKubeletConfig struct {
 	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
 	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
-	// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+	// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+	ContainerLogMaxFiles *int `pulumi:"containerLogMaxFiles"`
+	// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
 	ContainerLogMaxLine *int `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb *int `pulumi:"containerLogMaxSizeMb"`
@@ -8353,7 +8355,9 @@ type KubernetesClusterDefaultNodePoolKubeletConfigInput interface {
 type KubernetesClusterDefaultNodePoolKubeletConfigArgs struct {
 	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
 	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
-	// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+	// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+	ContainerLogMaxFiles pulumi.IntPtrInput `pulumi:"containerLogMaxFiles"`
+	// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
 	ContainerLogMaxLine pulumi.IntPtrInput `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMb"`
@@ -8455,7 +8459,12 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) AllowedUnsafeSysctl
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxFiles }).(pulumi.IntPtrOutput)
+}
+
+// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxLine }).(pulumi.IntPtrOutput)
 }
@@ -8534,7 +8543,17 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) AllowedUnsafeSys
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxFiles
+	}).(pulumi.IntPtrOutput)
+}
+
+// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
 func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
 		if v == nil {
@@ -15072,7 +15091,9 @@ func (o KubernetesClusterNetworkProfileNatGatewayProfilePtrOutput) ManagedOutbou
 type KubernetesClusterNodePoolKubeletConfig struct {
 	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
 	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
-	// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+	// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+	ContainerLogMaxFiles *int `pulumi:"containerLogMaxFiles"`
+	// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
 	ContainerLogMaxLine *int `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb *int `pulumi:"containerLogMaxSizeMb"`
@@ -15106,7 +15127,9 @@ type KubernetesClusterNodePoolKubeletConfigInput interface {
 type KubernetesClusterNodePoolKubeletConfigArgs struct {
 	// Specifies the allow list of unsafe sysctls command or patterns (ending in `*`).
 	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
-	// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+	// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+	ContainerLogMaxFiles pulumi.IntPtrInput `pulumi:"containerLogMaxFiles"`
+	// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
 	ContainerLogMaxLine pulumi.IntPtrInput `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMb"`
@@ -15208,7 +15231,12 @@ func (o KubernetesClusterNodePoolKubeletConfigOutput) AllowedUnsafeSysctls() pul
 	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) []string { return v.AllowedUnsafeSysctls }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+func (o KubernetesClusterNodePoolKubeletConfigOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ContainerLogMaxFiles }).(pulumi.IntPtrOutput)
+}
+
+// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
 func (o KubernetesClusterNodePoolKubeletConfigOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ContainerLogMaxLine }).(pulumi.IntPtrOutput)
 }
@@ -15287,7 +15315,17 @@ func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) AllowedUnsafeSysctls() 
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ContainerLogMaxFiles() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerLogMaxFiles
+	}).(pulumi.IntPtrOutput)
+}
+
+// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
 func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *int {
 		if v == nil {
@@ -17384,7 +17422,7 @@ type KubernetesClusterServiceMeshProfile struct {
 	InternalIngressGatewayEnabled *bool `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode string `pulumi:"mode"`
-	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
+	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 	//
 	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 	Revisions []string `pulumi:"revisions"`
@@ -17412,7 +17450,7 @@ type KubernetesClusterServiceMeshProfileArgs struct {
 	InternalIngressGatewayEnabled pulumi.BoolPtrInput `pulumi:"internalIngressGatewayEnabled"`
 	// The mode of the service mesh. Possible value is `Istio`.
 	Mode pulumi.StringInput `pulumi:"mode"`
-	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
+	// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 	//
 	// > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 	Revisions pulumi.StringArrayInput `pulumi:"revisions"`
@@ -17519,7 +17557,7 @@ func (o KubernetesClusterServiceMeshProfileOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesClusterServiceMeshProfile) string { return v.Mode }).(pulumi.StringOutput)
 }
 
-// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
+// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 //
 // > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 func (o KubernetesClusterServiceMeshProfileOutput) Revisions() pulumi.StringArrayOutput {
@@ -17592,7 +17630,7 @@ func (o KubernetesClusterServiceMeshProfilePtrOutput) Mode() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
+// Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
 //
 // > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 func (o KubernetesClusterServiceMeshProfilePtrOutput) Revisions() pulumi.StringArrayOutput {

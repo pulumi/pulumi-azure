@@ -79,6 +79,14 @@ export class ChannelDirectLine extends pulumi.CustomResource {
      */
     declare public readonly botName: pulumi.Output<string>;
     /**
+     * The first key for Directline App Service Extension.
+     */
+    declare public /*out*/ readonly extensionKey1: pulumi.Output<string>;
+    /**
+     * The second key for Directline App Service Extension.
+     */
+    declare public /*out*/ readonly extensionKey2: pulumi.Output<string>;
+    /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     declare public readonly location: pulumi.Output<string>;
@@ -105,6 +113,8 @@ export class ChannelDirectLine extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ChannelDirectLineState | undefined;
             resourceInputs["botName"] = state?.botName;
+            resourceInputs["extensionKey1"] = state?.extensionKey1;
+            resourceInputs["extensionKey2"] = state?.extensionKey2;
             resourceInputs["location"] = state?.location;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["sites"] = state?.sites;
@@ -123,8 +133,12 @@ export class ChannelDirectLine extends pulumi.CustomResource {
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sites"] = args?.sites;
+            resourceInputs["extensionKey1"] = undefined /*out*/;
+            resourceInputs["extensionKey2"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["extensionKey1", "extensionKey2"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChannelDirectLine.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -137,6 +151,14 @@ export interface ChannelDirectLineState {
      * The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
      */
     botName?: pulumi.Input<string | undefined>;
+    /**
+     * The first key for Directline App Service Extension.
+     */
+    extensionKey1?: pulumi.Input<string | undefined>;
+    /**
+     * The second key for Directline App Service Extension.
+     */
+    extensionKey2?: pulumi.Input<string | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

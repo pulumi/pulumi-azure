@@ -24,7 +24,11 @@ public final class AIServicesCustomerManagedKey {
     /**
      * @return The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     private @Nullable String managedHsmKeyId;
 
     private AIServicesCustomerManagedKey() {}
@@ -45,7 +49,11 @@ public final class AIServicesCustomerManagedKey {
     /**
      * @return The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     public Optional<String> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }

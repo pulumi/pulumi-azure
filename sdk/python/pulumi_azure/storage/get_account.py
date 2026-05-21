@@ -1175,7 +1175,7 @@ def get_account(min_tls_version: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage` - 2025-06-01
+    * `Microsoft.Storage` - 2025-08-01
 
 
     :param _builtins.str min_tls_version: The minimum supported TLS version for this storage account.
@@ -1306,7 +1306,7 @@ def get_account_output(min_tls_version: pulumi.Input[Optional[Optional[_builtins
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage` - 2025-06-01
+    * `Microsoft.Storage` - 2025-08-01
 
 
     :param _builtins.str min_tls_version: The minimum supported TLS version for this storage account.

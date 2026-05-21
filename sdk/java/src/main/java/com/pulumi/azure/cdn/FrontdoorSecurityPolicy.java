@@ -38,6 +38,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
  * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
@@ -104,7 +106,12 @@ import javax.annotation.Nullable;
  *             .name("example-customDomain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
- *             .hostName("contoso.fabrikam.com")
+ *             .hostName(StdFunctions.join(JoinArgs.builder()
+ *                 .separator(".")
+ *                 .input(                
+ *                     "contoso",
+ *                     exampleZone.name())
+ *                 .build()).applyValue(_invoke -> _invoke.result()))
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
  *                 .certificateType("ManagedCertificate")
  *                 .minimumTlsVersion("TLS12")
@@ -141,7 +148,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Front Door Security Policies can be imported using the `resource id`, e.g.
+ * A Front Door Security Policy can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
@@ -151,42 +158,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy")
 public class FrontdoorSecurityPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+     * The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="cdnFrontdoorProfileId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+     * @return The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> cdnFrontdoorProfileId() {
         return this.cdnFrontdoorProfileId;
     }
     /**
-     * The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
+     * The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
+     * @return The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * An `securityPolicies` block as defined below.
+     * A `securityPolicies` block as defined below.
      * 
      */
     @Export(name="securityPolicies", refs={FrontdoorSecurityPolicySecurityPolicies.class}, tree="[0]")
     private Output<FrontdoorSecurityPolicySecurityPolicies> securityPolicies;
 
     /**
-     * @return An `securityPolicies` block as defined below.
+     * @return A `securityPolicies` block as defined below.
      * 
      */
     public Output<FrontdoorSecurityPolicySecurityPolicies> securityPolicies() {

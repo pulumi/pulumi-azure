@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+ * Gets information about an existing Front Door (standard/premium) Custom Domain.
  *
  * ## Example Usage
  *
@@ -16,11 +16,18 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorCustomDomain({
- *     name: exampleAzurermCdnFrontdoorCustomDomain.name,
- *     profileName: exampleAzurermCdnFrontdoorProfile.name,
- *     resourceGroupName: exampleAzurermCdnFrontdoorProfile.resourceGroupName,
+ *     name: "existing-cdn-frontdoor-custom-domain",
+ *     profileName: "existing-cdn-frontdoor-profile",
+ *     resourceGroupName: "existing-resource-group",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cdn` - 2025-04-15
  */
 export function getFrontdoorCustomDomain(args: GetFrontdoorCustomDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -57,9 +64,12 @@ export interface GetFrontdoorCustomDomainResult {
      * The ID of the Front Door Profile which the Front Door Custom Domain is bound to.
      */
     readonly cdnFrontdoorProfileId: string;
+    /**
+     * The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+     */
     readonly dnsZoneId: string;
     /**
-     * The date time that the token expires.
+     * The date and time that the token expires.
      */
     readonly expirationDate: string;
     /**
@@ -83,7 +93,7 @@ export interface GetFrontdoorCustomDomainResult {
     readonly validationToken: string;
 }
 /**
- * Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+ * Gets information about an existing Front Door (standard/premium) Custom Domain.
  *
  * ## Example Usage
  *
@@ -92,11 +102,18 @@ export interface GetFrontdoorCustomDomainResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorCustomDomain({
- *     name: exampleAzurermCdnFrontdoorCustomDomain.name,
- *     profileName: exampleAzurermCdnFrontdoorProfile.name,
- *     resourceGroupName: exampleAzurermCdnFrontdoorProfile.resourceGroupName,
+ *     name: "existing-cdn-frontdoor-custom-domain",
+ *     profileName: "existing-cdn-frontdoor-profile",
+ *     resourceGroupName: "existing-resource-group",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cdn` - 2025-04-15
  */
 export function getFrontdoorCustomDomainOutput(args: GetFrontdoorCustomDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorCustomDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

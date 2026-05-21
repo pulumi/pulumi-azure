@@ -154,7 +154,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Storage` - 2025-06-01
+ * * `Microsoft.Storage` - 2025-08-01
  * 
  * ## Import
  * 
@@ -168,14 +168,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:storage/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     /**
-     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+     * Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
      * 
      */
     @Export(name="accessTier", refs={String.class}, tree="[0]")
     private Output<String> accessTier;
 
     /**
-     * @return Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+     * @return Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
      * 
      */
     public Output<String> accessTier() {
@@ -250,14 +250,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowNestedItemsToBePublic);
     }
     /**
-     * Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     * The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
      * 
      */
     @Export(name="allowedCopyScope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedCopyScope;
 
     /**
-     * @return Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+     * @return The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
      * 
      */
     public Output<Optional<String>> allowedCopyScope() {

@@ -4953,17 +4953,19 @@ func (o EndpointOriginArrayOutput) Index(i pulumi.IntInput) EndpointOriginOutput
 
 type FrontdoorCustomDomainTls struct {
 	// Resource ID of the Front Door Secret.
+	//
+	// > **Note:** `cdnFrontdoorSecretId` must be specified when `certificateType` is `CustomerCertificate` and must not be specified when `certificateType` is `ManagedCertificate`.
 	CdnFrontdoorSecretId *string `pulumi:"cdnFrontdoorSecretId"`
-	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+	// Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	//
-	// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+	// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
 	CertificateType *string `pulumi:"certificateType"`
-	// TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
-	//
-	// > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
-	//
-	// Deprecated: As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
+	// A `cipherSuite` block as defined below.
+	CipherSuite *FrontdoorCustomDomainTlsCipherSuite `pulumi:"cipherSuite"`
+	// Deprecated: `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
+	// TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
+	MinimumVersion *string `pulumi:"minimumVersion"`
 }
 
 // FrontdoorCustomDomainTlsInput is an input type that accepts FrontdoorCustomDomainTlsArgs and FrontdoorCustomDomainTlsOutput values.
@@ -4979,17 +4981,19 @@ type FrontdoorCustomDomainTlsInput interface {
 
 type FrontdoorCustomDomainTlsArgs struct {
 	// Resource ID of the Front Door Secret.
+	//
+	// > **Note:** `cdnFrontdoorSecretId` must be specified when `certificateType` is `CustomerCertificate` and must not be specified when `certificateType` is `ManagedCertificate`.
 	CdnFrontdoorSecretId pulumi.StringPtrInput `pulumi:"cdnFrontdoorSecretId"`
-	// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+	// Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	//
-	// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+	// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
 	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
-	// TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
-	//
-	// > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
-	//
-	// Deprecated: As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
+	// A `cipherSuite` block as defined below.
+	CipherSuite FrontdoorCustomDomainTlsCipherSuitePtrInput `pulumi:"cipherSuite"`
+	// Deprecated: `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
 	MinimumTlsVersion pulumi.StringPtrInput `pulumi:"minimumTlsVersion"`
+	// TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
+	MinimumVersion pulumi.StringPtrInput `pulumi:"minimumVersion"`
 }
 
 func (FrontdoorCustomDomainTlsArgs) ElementType() reflect.Type {
@@ -5070,24 +5074,32 @@ func (o FrontdoorCustomDomainTlsOutput) ToFrontdoorCustomDomainTlsPtrOutputWithC
 }
 
 // Resource ID of the Front Door Secret.
+//
+// > **Note:** `cdnFrontdoorSecretId` must be specified when `certificateType` is `CustomerCertificate` and must not be specified when `certificateType` is `ManagedCertificate`.
 func (o FrontdoorCustomDomainTlsOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.CdnFrontdoorSecretId }).(pulumi.StringPtrOutput)
 }
 
-// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+// Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 //
-// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
 func (o FrontdoorCustomDomainTlsOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
 }
 
-// TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
-//
-// > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
-//
-// Deprecated: As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
+// A `cipherSuite` block as defined below.
+func (o FrontdoorCustomDomainTlsOutput) CipherSuite() FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return o.ApplyT(func(v FrontdoorCustomDomainTls) *FrontdoorCustomDomainTlsCipherSuite { return v.CipherSuite }).(FrontdoorCustomDomainTlsCipherSuitePtrOutput)
+}
+
+// Deprecated: `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
 func (o FrontdoorCustomDomainTlsOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.MinimumTlsVersion }).(pulumi.StringPtrOutput)
+}
+
+// TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
+func (o FrontdoorCustomDomainTlsOutput) MinimumVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.MinimumVersion }).(pulumi.StringPtrOutput)
 }
 
 type FrontdoorCustomDomainTlsPtrOutput struct{ *pulumi.OutputState }
@@ -5115,6 +5127,8 @@ func (o FrontdoorCustomDomainTlsPtrOutput) Elem() FrontdoorCustomDomainTlsOutput
 }
 
 // Resource ID of the Front Door Secret.
+//
+// > **Note:** `cdnFrontdoorSecretId` must be specified when `certificateType` is `CustomerCertificate` and must not be specified when `certificateType` is `ManagedCertificate`.
 func (o FrontdoorCustomDomainTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
@@ -5124,9 +5138,9 @@ func (o FrontdoorCustomDomainTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+// Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 //
-// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
 func (o FrontdoorCustomDomainTlsPtrOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
@@ -5136,11 +5150,17 @@ func (o FrontdoorCustomDomainTlsPtrOutput) CertificateType() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
-//
-// > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
-//
-// Deprecated: As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
+// A `cipherSuite` block as defined below.
+func (o FrontdoorCustomDomainTlsPtrOutput) CipherSuite() FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *FrontdoorCustomDomainTlsCipherSuite {
+		if v == nil {
+			return nil
+		}
+		return v.CipherSuite
+	}).(FrontdoorCustomDomainTlsCipherSuitePtrOutput)
+}
+
+// Deprecated: `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
 func (o FrontdoorCustomDomainTlsPtrOutput) MinimumTlsVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
@@ -5148,6 +5168,354 @@ func (o FrontdoorCustomDomainTlsPtrOutput) MinimumTlsVersion() pulumi.StringPtrO
 		}
 		return v.MinimumTlsVersion
 	}).(pulumi.StringPtrOutput)
+}
+
+// TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
+func (o FrontdoorCustomDomainTlsPtrOutput) MinimumVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorCustomDomainTlsCipherSuite struct {
+	// A `customCiphers` block as defined below.
+	//
+	// > **Note:** The `customCiphers` block is required when `type` is set to `Customized` and must not be specified otherwise.
+	CustomCiphers *FrontdoorCustomDomainTlsCipherSuiteCustomCiphers `pulumi:"customCiphers"`
+	// The cipher suite set type. Possible values are `Customized`, `TLS12_2022`, and `TLS12_2023`.
+	Type string `pulumi:"type"`
+}
+
+// FrontdoorCustomDomainTlsCipherSuiteInput is an input type that accepts FrontdoorCustomDomainTlsCipherSuiteArgs and FrontdoorCustomDomainTlsCipherSuiteOutput values.
+// You can construct a concrete instance of `FrontdoorCustomDomainTlsCipherSuiteInput` via:
+//
+//	FrontdoorCustomDomainTlsCipherSuiteArgs{...}
+type FrontdoorCustomDomainTlsCipherSuiteInput interface {
+	pulumi.Input
+
+	ToFrontdoorCustomDomainTlsCipherSuiteOutput() FrontdoorCustomDomainTlsCipherSuiteOutput
+	ToFrontdoorCustomDomainTlsCipherSuiteOutputWithContext(context.Context) FrontdoorCustomDomainTlsCipherSuiteOutput
+}
+
+type FrontdoorCustomDomainTlsCipherSuiteArgs struct {
+	// A `customCiphers` block as defined below.
+	//
+	// > **Note:** The `customCiphers` block is required when `type` is set to `Customized` and must not be specified otherwise.
+	CustomCiphers FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrInput `pulumi:"customCiphers"`
+	// The cipher suite set type. Possible values are `Customized`, `TLS12_2022`, and `TLS12_2023`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (FrontdoorCustomDomainTlsCipherSuiteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorCustomDomainTlsCipherSuite)(nil)).Elem()
+}
+
+func (i FrontdoorCustomDomainTlsCipherSuiteArgs) ToFrontdoorCustomDomainTlsCipherSuiteOutput() FrontdoorCustomDomainTlsCipherSuiteOutput {
+	return i.ToFrontdoorCustomDomainTlsCipherSuiteOutputWithContext(context.Background())
+}
+
+func (i FrontdoorCustomDomainTlsCipherSuiteArgs) ToFrontdoorCustomDomainTlsCipherSuiteOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainTlsCipherSuiteOutput)
+}
+
+func (i FrontdoorCustomDomainTlsCipherSuiteArgs) ToFrontdoorCustomDomainTlsCipherSuitePtrOutput() FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return i.ToFrontdoorCustomDomainTlsCipherSuitePtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorCustomDomainTlsCipherSuiteArgs) ToFrontdoorCustomDomainTlsCipherSuitePtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainTlsCipherSuiteOutput).ToFrontdoorCustomDomainTlsCipherSuitePtrOutputWithContext(ctx)
+}
+
+// FrontdoorCustomDomainTlsCipherSuitePtrInput is an input type that accepts FrontdoorCustomDomainTlsCipherSuiteArgs, FrontdoorCustomDomainTlsCipherSuitePtr and FrontdoorCustomDomainTlsCipherSuitePtrOutput values.
+// You can construct a concrete instance of `FrontdoorCustomDomainTlsCipherSuitePtrInput` via:
+//
+//	        FrontdoorCustomDomainTlsCipherSuiteArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorCustomDomainTlsCipherSuitePtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorCustomDomainTlsCipherSuitePtrOutput() FrontdoorCustomDomainTlsCipherSuitePtrOutput
+	ToFrontdoorCustomDomainTlsCipherSuitePtrOutputWithContext(context.Context) FrontdoorCustomDomainTlsCipherSuitePtrOutput
+}
+
+type frontdoorCustomDomainTlsCipherSuitePtrType FrontdoorCustomDomainTlsCipherSuiteArgs
+
+func FrontdoorCustomDomainTlsCipherSuitePtr(v *FrontdoorCustomDomainTlsCipherSuiteArgs) FrontdoorCustomDomainTlsCipherSuitePtrInput {
+	return (*frontdoorCustomDomainTlsCipherSuitePtrType)(v)
+}
+
+func (*frontdoorCustomDomainTlsCipherSuitePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorCustomDomainTlsCipherSuite)(nil)).Elem()
+}
+
+func (i *frontdoorCustomDomainTlsCipherSuitePtrType) ToFrontdoorCustomDomainTlsCipherSuitePtrOutput() FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return i.ToFrontdoorCustomDomainTlsCipherSuitePtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorCustomDomainTlsCipherSuitePtrType) ToFrontdoorCustomDomainTlsCipherSuitePtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainTlsCipherSuitePtrOutput)
+}
+
+type FrontdoorCustomDomainTlsCipherSuiteOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorCustomDomainTlsCipherSuiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorCustomDomainTlsCipherSuite)(nil)).Elem()
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteOutput) ToFrontdoorCustomDomainTlsCipherSuiteOutput() FrontdoorCustomDomainTlsCipherSuiteOutput {
+	return o
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteOutput) ToFrontdoorCustomDomainTlsCipherSuiteOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuiteOutput {
+	return o
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteOutput) ToFrontdoorCustomDomainTlsCipherSuitePtrOutput() FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return o.ToFrontdoorCustomDomainTlsCipherSuitePtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteOutput) ToFrontdoorCustomDomainTlsCipherSuitePtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorCustomDomainTlsCipherSuite) *FrontdoorCustomDomainTlsCipherSuite {
+		return &v
+	}).(FrontdoorCustomDomainTlsCipherSuitePtrOutput)
+}
+
+// A `customCiphers` block as defined below.
+//
+// > **Note:** The `customCiphers` block is required when `type` is set to `Customized` and must not be specified otherwise.
+func (o FrontdoorCustomDomainTlsCipherSuiteOutput) CustomCiphers() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return o.ApplyT(func(v FrontdoorCustomDomainTlsCipherSuite) *FrontdoorCustomDomainTlsCipherSuiteCustomCiphers {
+		return v.CustomCiphers
+	}).(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput)
+}
+
+// The cipher suite set type. Possible values are `Customized`, `TLS12_2022`, and `TLS12_2023`.
+func (o FrontdoorCustomDomainTlsCipherSuiteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v FrontdoorCustomDomainTlsCipherSuite) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type FrontdoorCustomDomainTlsCipherSuitePtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorCustomDomainTlsCipherSuitePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorCustomDomainTlsCipherSuite)(nil)).Elem()
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuitePtrOutput) ToFrontdoorCustomDomainTlsCipherSuitePtrOutput() FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return o
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuitePtrOutput) ToFrontdoorCustomDomainTlsCipherSuitePtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuitePtrOutput {
+	return o
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuitePtrOutput) Elem() FrontdoorCustomDomainTlsCipherSuiteOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTlsCipherSuite) FrontdoorCustomDomainTlsCipherSuite {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorCustomDomainTlsCipherSuite
+		return ret
+	}).(FrontdoorCustomDomainTlsCipherSuiteOutput)
+}
+
+// A `customCiphers` block as defined below.
+//
+// > **Note:** The `customCiphers` block is required when `type` is set to `Customized` and must not be specified otherwise.
+func (o FrontdoorCustomDomainTlsCipherSuitePtrOutput) CustomCiphers() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTlsCipherSuite) *FrontdoorCustomDomainTlsCipherSuiteCustomCiphers {
+		if v == nil {
+			return nil
+		}
+		return v.CustomCiphers
+	}).(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput)
+}
+
+// The cipher suite set type. Possible values are `Customized`, `TLS12_2022`, and `TLS12_2023`.
+func (o FrontdoorCustomDomainTlsCipherSuitePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTlsCipherSuite) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type FrontdoorCustomDomainTlsCipherSuiteCustomCiphers struct {
+	// A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+	//
+	// > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
+	Tls12s []string `pulumi:"tls12s"`
+	// A set of TLS 1.3 cipher suites. Possible values are `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+	//
+	// > **Note:** When `tls13` is specified, it must include both `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+	Tls13s []string `pulumi:"tls13s"`
+}
+
+// FrontdoorCustomDomainTlsCipherSuiteCustomCiphersInput is an input type that accepts FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs and FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput values.
+// You can construct a concrete instance of `FrontdoorCustomDomainTlsCipherSuiteCustomCiphersInput` via:
+//
+//	FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs{...}
+type FrontdoorCustomDomainTlsCipherSuiteCustomCiphersInput interface {
+	pulumi.Input
+
+	ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput
+	ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutputWithContext(context.Context) FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput
+}
+
+type FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs struct {
+	// A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+	//
+	// > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
+	Tls12s pulumi.StringArrayInput `pulumi:"tls12s"`
+	// A set of TLS 1.3 cipher suites. Possible values are `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+	//
+	// > **Note:** When `tls13` is specified, it must include both `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+	Tls13s pulumi.StringArrayInput `pulumi:"tls13s"`
+}
+
+func (FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorCustomDomainTlsCipherSuiteCustomCiphers)(nil)).Elem()
+}
+
+func (i FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput {
+	return i.ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutputWithContext(context.Background())
+}
+
+func (i FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput)
+}
+
+func (i FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return i.ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutputWithContext(context.Background())
+}
+
+func (i FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput).ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutputWithContext(ctx)
+}
+
+// FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrInput is an input type that accepts FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs, FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtr and FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput values.
+// You can construct a concrete instance of `FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrInput` via:
+//
+//	        FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs{...}
+//
+//	or:
+//
+//	        nil
+type FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrInput interface {
+	pulumi.Input
+
+	ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput
+	ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutputWithContext(context.Context) FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput
+}
+
+type frontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrType FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs
+
+func FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtr(v *FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs) FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrInput {
+	return (*frontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrType)(v)
+}
+
+func (*frontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorCustomDomainTlsCipherSuiteCustomCiphers)(nil)).Elem()
+}
+
+func (i *frontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrType) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return i.ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutputWithContext(context.Background())
+}
+
+func (i *frontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrType) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput)
+}
+
+type FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FrontdoorCustomDomainTlsCipherSuiteCustomCiphers)(nil)).Elem()
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput {
+	return o
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput {
+	return o
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return o.ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutputWithContext(context.Background())
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FrontdoorCustomDomainTlsCipherSuiteCustomCiphers) *FrontdoorCustomDomainTlsCipherSuiteCustomCiphers {
+		return &v
+	}).(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput)
+}
+
+// A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+//
+// > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput) Tls12s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorCustomDomainTlsCipherSuiteCustomCiphers) []string { return v.Tls12s }).(pulumi.StringArrayOutput)
+}
+
+// A set of TLS 1.3 cipher suites. Possible values are `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+//
+// > **Note:** When `tls13` is specified, it must include both `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput) Tls13s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FrontdoorCustomDomainTlsCipherSuiteCustomCiphers) []string { return v.Tls13s }).(pulumi.StringArrayOutput)
+}
+
+type FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput struct{ *pulumi.OutputState }
+
+func (FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FrontdoorCustomDomainTlsCipherSuiteCustomCiphers)(nil)).Elem()
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return o
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput) ToFrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutputWithContext(ctx context.Context) FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput {
+	return o
+}
+
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput) Elem() FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTlsCipherSuiteCustomCiphers) FrontdoorCustomDomainTlsCipherSuiteCustomCiphers {
+		if v != nil {
+			return *v
+		}
+		var ret FrontdoorCustomDomainTlsCipherSuiteCustomCiphers
+		return ret
+	}).(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput)
+}
+
+// A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+//
+// > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput) Tls12s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTlsCipherSuiteCustomCiphers) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Tls12s
+	}).(pulumi.StringArrayOutput)
+}
+
+// A set of TLS 1.3 cipher suites. Possible values are `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+//
+// > **Note:** When `tls13` is specified, it must include both `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput) Tls13s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FrontdoorCustomDomainTlsCipherSuiteCustomCiphers) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Tls13s
+	}).(pulumi.StringArrayOutput)
 }
 
 type FrontdoorFirewallPolicyCustomRule struct {
@@ -5322,6 +5690,8 @@ type FrontdoorFirewallPolicyCustomRuleMatchCondition struct {
 	// Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
 	MatchValues []string `pulumi:"matchValues"`
 	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+	//
+	// > **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
 	MatchVariable string `pulumi:"matchVariable"`
 	// Should the result of the condition be negated.
 	NegationCondition *bool `pulumi:"negationCondition"`
@@ -5348,6 +5718,8 @@ type FrontdoorFirewallPolicyCustomRuleMatchConditionArgs struct {
 	// Up to `600` possible values to match. Limit is in total across all `matchCondition` blocks and `matchValues` arguments. String value itself can be up to `256` characters in length.
 	MatchValues pulumi.StringArrayInput `pulumi:"matchValues"`
 	// The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+	//
+	// > **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
 	MatchVariable pulumi.StringInput `pulumi:"matchVariable"`
 	// Should the result of the condition be negated.
 	NegationCondition pulumi.BoolPtrInput `pulumi:"negationCondition"`
@@ -5416,6 +5788,8 @@ func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) MatchValues() pul
 }
 
 // The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+//
+// > **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
 func (o FrontdoorFirewallPolicyCustomRuleMatchConditionOutput) MatchVariable() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorFirewallPolicyCustomRuleMatchCondition) string { return v.MatchVariable }).(pulumi.StringOutput)
 }
@@ -11889,7 +12263,7 @@ func (o FrontdoorSecretSecretCustomerCertificateArrayOutput) Index(i pulumi.IntI
 }
 
 type FrontdoorSecurityPolicySecurityPolicies struct {
-	// An `firewall` block as defined below.
+	// A `firewall` block as defined below.
 	Firewall FrontdoorSecurityPolicySecurityPoliciesFirewall `pulumi:"firewall"`
 }
 
@@ -11905,7 +12279,7 @@ type FrontdoorSecurityPolicySecurityPoliciesInput interface {
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesArgs struct {
-	// An `firewall` block as defined below.
+	// A `firewall` block as defined below.
 	Firewall FrontdoorSecurityPolicySecurityPoliciesFirewallInput `pulumi:"firewall"`
 }
 
@@ -11986,7 +12360,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesOutput) ToFrontdoorSecurityPolicy
 	}).(FrontdoorSecurityPolicySecurityPoliciesPtrOutput)
 }
 
-// An `firewall` block as defined below.
+// A `firewall` block as defined below.
 func (o FrontdoorSecurityPolicySecurityPoliciesOutput) Firewall() FrontdoorSecurityPolicySecurityPoliciesFirewallOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPolicies) FrontdoorSecurityPolicySecurityPoliciesFirewall {
 		return v.Firewall
@@ -12017,7 +12391,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Elem() FrontdoorSecuri
 	}).(FrontdoorSecurityPolicySecurityPoliciesOutput)
 }
 
-// An `firewall` block as defined below.
+// A `firewall` block as defined below.
 func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Firewall() FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPolicies) *FrontdoorSecurityPolicySecurityPoliciesFirewall {
 		if v == nil {
@@ -12030,7 +12404,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesPtrOutput) Firewall() FrontdoorSe
 type FrontdoorSecurityPolicySecurityPoliciesFirewall struct {
 	// An `association` block as defined below.
 	Association FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation `pulumi:"association"`
-	// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+	// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
 	CdnFrontdoorFirewallPolicyId string `pulumi:"cdnFrontdoorFirewallPolicyId"`
 }
 
@@ -12048,7 +12422,7 @@ type FrontdoorSecurityPolicySecurityPoliciesFirewallInput interface {
 type FrontdoorSecurityPolicySecurityPoliciesFirewallArgs struct {
 	// An `association` block as defined below.
 	Association FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput `pulumi:"association"`
-	// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+	// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
 	CdnFrontdoorFirewallPolicyId pulumi.StringInput `pulumi:"cdnFrontdoorFirewallPolicyId"`
 }
 
@@ -12136,7 +12510,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) Association() Fro
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput)
 }
 
-// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallOutput) CdnFrontdoorFirewallPolicyId() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewall) string { return v.CdnFrontdoorFirewallPolicyId }).(pulumi.StringOutput)
 }
@@ -12175,7 +12549,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) Association() 
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput)
 }
 
-// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) CdnFrontdoorFirewallPolicyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewall) *string {
 		if v == nil {
@@ -12187,8 +12561,10 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallPtrOutput) CdnFrontdoorFi
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation struct {
 	// One or more `domain` blocks as defined below.
+	//
+	// > **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
 	Domains []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain `pulumi:"domains"`
-	// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+	// The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
 	PatternsToMatch string `pulumi:"patternsToMatch"`
 }
 
@@ -12205,8 +12581,10 @@ type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationInput interface {
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs struct {
 	// One or more `domain` blocks as defined below.
+	//
+	// > **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
 	Domains FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput `pulumi:"domains"`
-	// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+	// The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
 	PatternsToMatch pulumi.StringInput `pulumi:"patternsToMatch"`
 }
 
@@ -12288,13 +12666,15 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) ToFron
 }
 
 // One or more `domain` blocks as defined below.
+//
+// > **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) Domains() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
 		return v.Domains
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput)
 }
 
-// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+// The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationOutput) PatternsToMatch() pulumi.StringOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) string { return v.PatternsToMatch }).(pulumi.StringOutput)
 }
@@ -12324,6 +12704,8 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Ele
 }
 
 // One or more `domain` blocks as defined below.
+//
+// > **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Domains() FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) []FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
 		if v == nil {
@@ -12333,7 +12715,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Dom
 	}).(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput)
 }
 
-// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+// The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) PatternsToMatch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation) *string {
 		if v == nil {
@@ -12344,7 +12726,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationPtrOutput) Pat
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain struct {
-	// Is the Front Door Custom Domain/Endpoint activated?
+	// Whether the Front Door Custom Domain or Front Door Endpoint is active.
 	Active *bool `pulumi:"active"`
 	// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
 	CdnFrontdoorDomainId string `pulumi:"cdnFrontdoorDomainId"`
@@ -12362,7 +12744,7 @@ type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainInput inter
 }
 
 type FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs struct {
-	// Is the Front Door Custom Domain/Endpoint activated?
+	// Whether the Front Door Custom Domain or Front Door Endpoint is active.
 	Active pulumi.BoolPtrInput `pulumi:"active"`
 	// The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
 	CdnFrontdoorDomainId pulumi.StringInput `pulumi:"cdnFrontdoorDomainId"`
@@ -12419,7 +12801,7 @@ func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) 
 	return o
 }
 
-// Is the Front Door Custom Domain/Endpoint activated?
+// Whether the Front Door Custom Domain or Front Door Endpoint is active.
 func (o FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainOutput) Active() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain) *bool { return v.Active }).(pulumi.BoolPtrOutput)
 }
@@ -12456,8 +12838,12 @@ type GetFrontdoorCustomDomainTl struct {
 	CdnFrontdoorSecretId string `pulumi:"cdnFrontdoorSecretId"`
 	// The SSL certificate type.
 	CertificateType string `pulumi:"certificateType"`
-	// The TLS protocol version that will be used for Https connections.
+	// A `cipherSuite` block as defined below.
+	CipherSuites []GetFrontdoorCustomDomainTlCipherSuite `pulumi:"cipherSuites"`
+	// Deprecated: `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
 	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
+	// The TLS protocol version that will be used for Https connections.
+	MinimumVersion string `pulumi:"minimumVersion"`
 }
 
 // GetFrontdoorCustomDomainTlInput is an input type that accepts GetFrontdoorCustomDomainTlArgs and GetFrontdoorCustomDomainTlOutput values.
@@ -12476,8 +12862,12 @@ type GetFrontdoorCustomDomainTlArgs struct {
 	CdnFrontdoorSecretId pulumi.StringInput `pulumi:"cdnFrontdoorSecretId"`
 	// The SSL certificate type.
 	CertificateType pulumi.StringInput `pulumi:"certificateType"`
-	// The TLS protocol version that will be used for Https connections.
+	// A `cipherSuite` block as defined below.
+	CipherSuites GetFrontdoorCustomDomainTlCipherSuiteArrayInput `pulumi:"cipherSuites"`
+	// Deprecated: `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
 	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
+	// The TLS protocol version that will be used for Https connections.
+	MinimumVersion pulumi.StringInput `pulumi:"minimumVersion"`
 }
 
 func (GetFrontdoorCustomDomainTlArgs) ElementType() reflect.Type {
@@ -12541,9 +12931,19 @@ func (o GetFrontdoorCustomDomainTlOutput) CertificateType() pulumi.StringOutput 
 	return o.ApplyT(func(v GetFrontdoorCustomDomainTl) string { return v.CertificateType }).(pulumi.StringOutput)
 }
 
-// The TLS protocol version that will be used for Https connections.
+// A `cipherSuite` block as defined below.
+func (o GetFrontdoorCustomDomainTlOutput) CipherSuites() GetFrontdoorCustomDomainTlCipherSuiteArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorCustomDomainTl) []GetFrontdoorCustomDomainTlCipherSuite { return v.CipherSuites }).(GetFrontdoorCustomDomainTlCipherSuiteArrayOutput)
+}
+
+// Deprecated: `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
 func (o GetFrontdoorCustomDomainTlOutput) MinimumTlsVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFrontdoorCustomDomainTl) string { return v.MinimumTlsVersion }).(pulumi.StringOutput)
+}
+
+// The TLS protocol version that will be used for Https connections.
+func (o GetFrontdoorCustomDomainTlOutput) MinimumVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorCustomDomainTl) string { return v.MinimumVersion }).(pulumi.StringOutput)
 }
 
 type GetFrontdoorCustomDomainTlArrayOutput struct{ *pulumi.OutputState }
@@ -12564,6 +12964,220 @@ func (o GetFrontdoorCustomDomainTlArrayOutput) Index(i pulumi.IntInput) GetFront
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorCustomDomainTl {
 		return vs[0].([]GetFrontdoorCustomDomainTl)[vs[1].(int)]
 	}).(GetFrontdoorCustomDomainTlOutput)
+}
+
+type GetFrontdoorCustomDomainTlCipherSuite struct {
+	// A `customCiphers` block as defined below.
+	CustomCiphers []GetFrontdoorCustomDomainTlCipherSuiteCustomCipher `pulumi:"customCiphers"`
+	// The TLS policy type used for this Front Door Custom Domain.
+	Type string `pulumi:"type"`
+}
+
+// GetFrontdoorCustomDomainTlCipherSuiteInput is an input type that accepts GetFrontdoorCustomDomainTlCipherSuiteArgs and GetFrontdoorCustomDomainTlCipherSuiteOutput values.
+// You can construct a concrete instance of `GetFrontdoorCustomDomainTlCipherSuiteInput` via:
+//
+//	GetFrontdoorCustomDomainTlCipherSuiteArgs{...}
+type GetFrontdoorCustomDomainTlCipherSuiteInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorCustomDomainTlCipherSuiteOutput() GetFrontdoorCustomDomainTlCipherSuiteOutput
+	ToGetFrontdoorCustomDomainTlCipherSuiteOutputWithContext(context.Context) GetFrontdoorCustomDomainTlCipherSuiteOutput
+}
+
+type GetFrontdoorCustomDomainTlCipherSuiteArgs struct {
+	// A `customCiphers` block as defined below.
+	CustomCiphers GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayInput `pulumi:"customCiphers"`
+	// The TLS policy type used for this Front Door Custom Domain.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetFrontdoorCustomDomainTlCipherSuiteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorCustomDomainTlCipherSuite)(nil)).Elem()
+}
+
+func (i GetFrontdoorCustomDomainTlCipherSuiteArgs) ToGetFrontdoorCustomDomainTlCipherSuiteOutput() GetFrontdoorCustomDomainTlCipherSuiteOutput {
+	return i.ToGetFrontdoorCustomDomainTlCipherSuiteOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorCustomDomainTlCipherSuiteArgs) ToGetFrontdoorCustomDomainTlCipherSuiteOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlCipherSuiteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorCustomDomainTlCipherSuiteOutput)
+}
+
+// GetFrontdoorCustomDomainTlCipherSuiteArrayInput is an input type that accepts GetFrontdoorCustomDomainTlCipherSuiteArray and GetFrontdoorCustomDomainTlCipherSuiteArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorCustomDomainTlCipherSuiteArrayInput` via:
+//
+//	GetFrontdoorCustomDomainTlCipherSuiteArray{ GetFrontdoorCustomDomainTlCipherSuiteArgs{...} }
+type GetFrontdoorCustomDomainTlCipherSuiteArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorCustomDomainTlCipherSuiteArrayOutput() GetFrontdoorCustomDomainTlCipherSuiteArrayOutput
+	ToGetFrontdoorCustomDomainTlCipherSuiteArrayOutputWithContext(context.Context) GetFrontdoorCustomDomainTlCipherSuiteArrayOutput
+}
+
+type GetFrontdoorCustomDomainTlCipherSuiteArray []GetFrontdoorCustomDomainTlCipherSuiteInput
+
+func (GetFrontdoorCustomDomainTlCipherSuiteArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorCustomDomainTlCipherSuite)(nil)).Elem()
+}
+
+func (i GetFrontdoorCustomDomainTlCipherSuiteArray) ToGetFrontdoorCustomDomainTlCipherSuiteArrayOutput() GetFrontdoorCustomDomainTlCipherSuiteArrayOutput {
+	return i.ToGetFrontdoorCustomDomainTlCipherSuiteArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorCustomDomainTlCipherSuiteArray) ToGetFrontdoorCustomDomainTlCipherSuiteArrayOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlCipherSuiteArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorCustomDomainTlCipherSuiteArrayOutput)
+}
+
+type GetFrontdoorCustomDomainTlCipherSuiteOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorCustomDomainTlCipherSuiteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorCustomDomainTlCipherSuite)(nil)).Elem()
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteOutput) ToGetFrontdoorCustomDomainTlCipherSuiteOutput() GetFrontdoorCustomDomainTlCipherSuiteOutput {
+	return o
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteOutput) ToGetFrontdoorCustomDomainTlCipherSuiteOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlCipherSuiteOutput {
+	return o
+}
+
+// A `customCiphers` block as defined below.
+func (o GetFrontdoorCustomDomainTlCipherSuiteOutput) CustomCiphers() GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorCustomDomainTlCipherSuite) []GetFrontdoorCustomDomainTlCipherSuiteCustomCipher {
+		return v.CustomCiphers
+	}).(GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput)
+}
+
+// The TLS policy type used for this Front Door Custom Domain.
+func (o GetFrontdoorCustomDomainTlCipherSuiteOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorCustomDomainTlCipherSuite) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetFrontdoorCustomDomainTlCipherSuiteArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorCustomDomainTlCipherSuiteArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorCustomDomainTlCipherSuite)(nil)).Elem()
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteArrayOutput) ToGetFrontdoorCustomDomainTlCipherSuiteArrayOutput() GetFrontdoorCustomDomainTlCipherSuiteArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteArrayOutput) ToGetFrontdoorCustomDomainTlCipherSuiteArrayOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlCipherSuiteArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteArrayOutput) Index(i pulumi.IntInput) GetFrontdoorCustomDomainTlCipherSuiteOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorCustomDomainTlCipherSuite {
+		return vs[0].([]GetFrontdoorCustomDomainTlCipherSuite)[vs[1].(int)]
+	}).(GetFrontdoorCustomDomainTlCipherSuiteOutput)
+}
+
+type GetFrontdoorCustomDomainTlCipherSuiteCustomCipher struct {
+	// A set of TLS 1.2 cipher suites.
+	Tls12s []string `pulumi:"tls12s"`
+	// A set of TLS 1.3 cipher suites.
+	Tls13s []string `pulumi:"tls13s"`
+}
+
+// GetFrontdoorCustomDomainTlCipherSuiteCustomCipherInput is an input type that accepts GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArgs and GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput values.
+// You can construct a concrete instance of `GetFrontdoorCustomDomainTlCipherSuiteCustomCipherInput` via:
+//
+//	GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArgs{...}
+type GetFrontdoorCustomDomainTlCipherSuiteCustomCipherInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput() GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput
+	ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutputWithContext(context.Context) GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput
+}
+
+type GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArgs struct {
+	// A set of TLS 1.2 cipher suites.
+	Tls12s pulumi.StringArrayInput `pulumi:"tls12s"`
+	// A set of TLS 1.3 cipher suites.
+	Tls13s pulumi.StringArrayInput `pulumi:"tls13s"`
+}
+
+func (GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorCustomDomainTlCipherSuiteCustomCipher)(nil)).Elem()
+}
+
+func (i GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArgs) ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput() GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput {
+	return i.ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArgs) ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput)
+}
+
+// GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayInput is an input type that accepts GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArray and GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayInput` via:
+//
+//	GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArray{ GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArgs{...} }
+type GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput() GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput
+	ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutputWithContext(context.Context) GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput
+}
+
+type GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArray []GetFrontdoorCustomDomainTlCipherSuiteCustomCipherInput
+
+func (GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorCustomDomainTlCipherSuiteCustomCipher)(nil)).Elem()
+}
+
+func (i GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArray) ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput() GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput {
+	return i.ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArray) ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput)
+}
+
+type GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorCustomDomainTlCipherSuiteCustomCipher)(nil)).Elem()
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput) ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput() GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput {
+	return o
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput) ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput {
+	return o
+}
+
+// A set of TLS 1.2 cipher suites.
+func (o GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput) Tls12s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorCustomDomainTlCipherSuiteCustomCipher) []string { return v.Tls12s }).(pulumi.StringArrayOutput)
+}
+
+// A set of TLS 1.3 cipher suites.
+func (o GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput) Tls13s() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorCustomDomainTlCipherSuiteCustomCipher) []string { return v.Tls13s }).(pulumi.StringArrayOutput)
+}
+
+type GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorCustomDomainTlCipherSuiteCustomCipher)(nil)).Elem()
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput) ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput() GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput) ToGetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutputWithContext(ctx context.Context) GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput) Index(i pulumi.IntInput) GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorCustomDomainTlCipherSuiteCustomCipher {
+		return vs[0].([]GetFrontdoorCustomDomainTlCipherSuiteCustomCipher)[vs[1].(int)]
+	}).(GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput)
 }
 
 type GetFrontdoorOriginGroupHealthProbe struct {
@@ -13189,6 +13803,431 @@ func (o GetFrontdoorSecretSecretCustomerCertificateArrayOutput) Index(i pulumi.I
 	}).(GetFrontdoorSecretSecretCustomerCertificateOutput)
 }
 
+type GetFrontdoorSecurityPolicySecurityPolicy struct {
+	// A `firewall` block as defined below.
+	Firewalls []GetFrontdoorSecurityPolicySecurityPolicyFirewall `pulumi:"firewalls"`
+}
+
+// GetFrontdoorSecurityPolicySecurityPolicyInput is an input type that accepts GetFrontdoorSecurityPolicySecurityPolicyArgs and GetFrontdoorSecurityPolicySecurityPolicyOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecurityPolicySecurityPolicyInput` via:
+//
+//	GetFrontdoorSecurityPolicySecurityPolicyArgs{...}
+type GetFrontdoorSecurityPolicySecurityPolicyInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecurityPolicySecurityPolicyOutput() GetFrontdoorSecurityPolicySecurityPolicyOutput
+	ToGetFrontdoorSecurityPolicySecurityPolicyOutputWithContext(context.Context) GetFrontdoorSecurityPolicySecurityPolicyOutput
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyArgs struct {
+	// A `firewall` block as defined below.
+	Firewalls GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayInput `pulumi:"firewalls"`
+}
+
+func (GetFrontdoorSecurityPolicySecurityPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicy)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyArgs) ToGetFrontdoorSecurityPolicySecurityPolicyOutput() GetFrontdoorSecurityPolicySecurityPolicyOutput {
+	return i.ToGetFrontdoorSecurityPolicySecurityPolicyOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyArgs) ToGetFrontdoorSecurityPolicySecurityPolicyOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecurityPolicySecurityPolicyOutput)
+}
+
+// GetFrontdoorSecurityPolicySecurityPolicyArrayInput is an input type that accepts GetFrontdoorSecurityPolicySecurityPolicyArray and GetFrontdoorSecurityPolicySecurityPolicyArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecurityPolicySecurityPolicyArrayInput` via:
+//
+//	GetFrontdoorSecurityPolicySecurityPolicyArray{ GetFrontdoorSecurityPolicySecurityPolicyArgs{...} }
+type GetFrontdoorSecurityPolicySecurityPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecurityPolicySecurityPolicyArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyArrayOutput
+	ToGetFrontdoorSecurityPolicySecurityPolicyArrayOutputWithContext(context.Context) GetFrontdoorSecurityPolicySecurityPolicyArrayOutput
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyArray []GetFrontdoorSecurityPolicySecurityPolicyInput
+
+func (GetFrontdoorSecurityPolicySecurityPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecurityPolicySecurityPolicy)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyArray) ToGetFrontdoorSecurityPolicySecurityPolicyArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyArrayOutput {
+	return i.ToGetFrontdoorSecurityPolicySecurityPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyArray) ToGetFrontdoorSecurityPolicySecurityPolicyArrayOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecurityPolicySecurityPolicyArrayOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecurityPolicySecurityPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicy)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyOutput) ToGetFrontdoorSecurityPolicySecurityPolicyOutput() GetFrontdoorSecurityPolicySecurityPolicyOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyOutput) ToGetFrontdoorSecurityPolicySecurityPolicyOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyOutput {
+	return o
+}
+
+// A `firewall` block as defined below.
+func (o GetFrontdoorSecurityPolicySecurityPolicyOutput) Firewalls() GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorSecurityPolicySecurityPolicy) []GetFrontdoorSecurityPolicySecurityPolicyFirewall {
+		return v.Firewalls
+	}).(GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecurityPolicySecurityPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecurityPolicySecurityPolicy)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyArrayOutput) ToGetFrontdoorSecurityPolicySecurityPolicyArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyArrayOutput) ToGetFrontdoorSecurityPolicySecurityPolicyArrayOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyArrayOutput) Index(i pulumi.IntInput) GetFrontdoorSecurityPolicySecurityPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorSecurityPolicySecurityPolicy {
+		return vs[0].([]GetFrontdoorSecurityPolicySecurityPolicy)[vs[1].(int)]
+	}).(GetFrontdoorSecurityPolicySecurityPolicyOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewall struct {
+	// An `association` block as defined below.
+	Associations []GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation `pulumi:"associations"`
+	// The ID of the Front Door Firewall Policy associated with this Front Door Security Policy.
+	CdnFrontdoorFirewallPolicyId string `pulumi:"cdnFrontdoorFirewallPolicyId"`
+}
+
+// GetFrontdoorSecurityPolicySecurityPolicyFirewallInput is an input type that accepts GetFrontdoorSecurityPolicySecurityPolicyFirewallArgs and GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecurityPolicySecurityPolicyFirewallInput` via:
+//
+//	GetFrontdoorSecurityPolicySecurityPolicyFirewallArgs{...}
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallOutputWithContext(context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallArgs struct {
+	// An `association` block as defined below.
+	Associations GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayInput `pulumi:"associations"`
+	// The ID of the Front Door Firewall Policy associated with this Front Door Security Policy.
+	CdnFrontdoorFirewallPolicyId pulumi.StringInput `pulumi:"cdnFrontdoorFirewallPolicyId"`
+}
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewall)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallArgs) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput {
+	return i.ToGetFrontdoorSecurityPolicySecurityPolicyFirewallOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallArgs) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput)
+}
+
+// GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayInput is an input type that accepts GetFrontdoorSecurityPolicySecurityPolicyFirewallArray and GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayInput` via:
+//
+//	GetFrontdoorSecurityPolicySecurityPolicyFirewallArray{ GetFrontdoorSecurityPolicySecurityPolicyFirewallArgs{...} }
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutputWithContext(context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallArray []GetFrontdoorSecurityPolicySecurityPolicyFirewallInput
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecurityPolicySecurityPolicyFirewall)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallArray) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput {
+	return i.ToGetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallArray) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewall)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput {
+	return o
+}
+
+// An `association` block as defined below.
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput) Associations() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorSecurityPolicySecurityPolicyFirewall) []GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation {
+		return v.Associations
+	}).(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput)
+}
+
+// The ID of the Front Door Firewall Policy associated with this Front Door Security Policy.
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput) CdnFrontdoorFirewallPolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorSecurityPolicySecurityPolicyFirewall) string { return v.CdnFrontdoorFirewallPolicyId }).(pulumi.StringOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecurityPolicySecurityPolicyFirewall)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput) Index(i pulumi.IntInput) GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorSecurityPolicySecurityPolicyFirewall {
+		return vs[0].([]GetFrontdoorSecurityPolicySecurityPolicyFirewall)[vs[1].(int)]
+	}).(GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation struct {
+	// A `domain` block as defined below.
+	Domains []GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain `pulumi:"domains"`
+	// The paths associated with this firewall policy.
+	PatternsToMatches []string `pulumi:"patternsToMatches"`
+}
+
+// GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationInput is an input type that accepts GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArgs and GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationInput` via:
+//
+//	GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArgs{...}
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutputWithContext(context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArgs struct {
+	// A `domain` block as defined below.
+	Domains GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayInput `pulumi:"domains"`
+	// The paths associated with this firewall policy.
+	PatternsToMatches pulumi.StringArrayInput `pulumi:"patternsToMatches"`
+}
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArgs) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput {
+	return i.ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArgs) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput)
+}
+
+// GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayInput is an input type that accepts GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArray and GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayInput` via:
+//
+//	GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArray{ GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArgs{...} }
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutputWithContext(context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArray []GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationInput
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArray) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput {
+	return i.ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArray) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput {
+	return o
+}
+
+// A `domain` block as defined below.
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput) Domains() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation) []GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain {
+		return v.Domains
+	}).(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput)
+}
+
+// The paths associated with this firewall policy.
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput) PatternsToMatches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation) []string {
+		return v.PatternsToMatches
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput) Index(i pulumi.IntInput) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation {
+		return vs[0].([]GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation)[vs[1].(int)]
+	}).(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain struct {
+	// Is the Front Door Custom Domain or Front Door Endpoint active?
+	Active bool `pulumi:"active"`
+	// The ID of the Front Door Custom Domain or Front Door Endpoint associated with this Front Door Security Policy.
+	CdnFrontdoorDomainId string `pulumi:"cdnFrontdoorDomainId"`
+}
+
+// GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainInput is an input type that accepts GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArgs and GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainInput` via:
+//
+//	GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArgs{...}
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutputWithContext(context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArgs struct {
+	// Is the Front Door Custom Domain or Front Door Endpoint active?
+	Active pulumi.BoolInput `pulumi:"active"`
+	// The ID of the Front Door Custom Domain or Front Door Endpoint associated with this Front Door Security Policy.
+	CdnFrontdoorDomainId pulumi.StringInput `pulumi:"cdnFrontdoorDomainId"`
+}
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArgs) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput {
+	return i.ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArgs) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput)
+}
+
+// GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayInput is an input type that accepts GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArray and GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput values.
+// You can construct a concrete instance of `GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayInput` via:
+//
+//	GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArray{ GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArgs{...} }
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayInput interface {
+	pulumi.Input
+
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput
+	ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutputWithContext(context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArray []GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainInput
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain)(nil)).Elem()
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArray) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput {
+	return i.ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutputWithContext(context.Background())
+}
+
+func (i GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArray) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput {
+	return o
+}
+
+// Is the Front Door Custom Domain or Front Door Endpoint active?
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput) Active() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain) bool { return v.Active }).(pulumi.BoolOutput)
+}
+
+// The ID of the Front Door Custom Domain or Front Door Endpoint associated with this Front Door Security Policy.
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput) CdnFrontdoorDomainId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain) string {
+		return v.CdnFrontdoorDomainId
+	}).(pulumi.StringOutput)
+}
+
+type GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain)(nil)).Elem()
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput() GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput) ToGetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutputWithContext(ctx context.Context) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput {
+	return o
+}
+
+func (o GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput) Index(i pulumi.IntInput) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain {
+		return vs[0].([]GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain)[vs[1].(int)]
+	}).(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainCdnManagedHttpsInput)(nil)).Elem(), EndpointCustomDomainCdnManagedHttpsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCustomDomainCdnManagedHttpsPtrInput)(nil)).Elem(), EndpointCustomDomainCdnManagedHttpsArgs{})
@@ -13256,6 +14295,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointOriginArrayInput)(nil)).Elem(), EndpointOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomDomainTlsInput)(nil)).Elem(), FrontdoorCustomDomainTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomDomainTlsPtrInput)(nil)).Elem(), FrontdoorCustomDomainTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomDomainTlsCipherSuiteInput)(nil)).Elem(), FrontdoorCustomDomainTlsCipherSuiteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomDomainTlsCipherSuitePtrInput)(nil)).Elem(), FrontdoorCustomDomainTlsCipherSuiteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomDomainTlsCipherSuiteCustomCiphersInput)(nil)).Elem(), FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrInput)(nil)).Elem(), FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleArrayInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorFirewallPolicyCustomRuleMatchConditionInput)(nil)).Elem(), FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{})
@@ -13354,6 +14397,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayInput)(nil)).Elem(), FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorCustomDomainTlInput)(nil)).Elem(), GetFrontdoorCustomDomainTlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorCustomDomainTlArrayInput)(nil)).Elem(), GetFrontdoorCustomDomainTlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorCustomDomainTlCipherSuiteInput)(nil)).Elem(), GetFrontdoorCustomDomainTlCipherSuiteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorCustomDomainTlCipherSuiteArrayInput)(nil)).Elem(), GetFrontdoorCustomDomainTlCipherSuiteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorCustomDomainTlCipherSuiteCustomCipherInput)(nil)).Elem(), GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayInput)(nil)).Elem(), GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupHealthProbeArrayInput)(nil)).Elem(), GetFrontdoorOriginGroupHealthProbeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorOriginGroupLoadBalancingInput)(nil)).Elem(), GetFrontdoorOriginGroupLoadBalancingArgs{})
@@ -13365,6 +14412,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretArrayInput)(nil)).Elem(), GetFrontdoorSecretSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretCustomerCertificateInput)(nil)).Elem(), GetFrontdoorSecretSecretCustomerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecretSecretCustomerCertificateArrayInput)(nil)).Elem(), GetFrontdoorSecretSecretCustomerCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyInput)(nil)).Elem(), GetFrontdoorSecurityPolicySecurityPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyArrayInput)(nil)).Elem(), GetFrontdoorSecurityPolicySecurityPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallInput)(nil)).Elem(), GetFrontdoorSecurityPolicySecurityPolicyFirewallArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayInput)(nil)).Elem(), GetFrontdoorSecurityPolicySecurityPolicyFirewallArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationInput)(nil)).Elem(), GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayInput)(nil)).Elem(), GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainInput)(nil)).Elem(), GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayInput)(nil)).Elem(), GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArray{})
 	pulumi.RegisterOutputType(EndpointCustomDomainCdnManagedHttpsOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDomainCdnManagedHttpsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointCustomDomainUserManagedHttpsOutput{})
@@ -13431,6 +14486,10 @@ func init() {
 	pulumi.RegisterOutputType(EndpointOriginArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorCustomDomainTlsOutput{})
 	pulumi.RegisterOutputType(FrontdoorCustomDomainTlsPtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorCustomDomainTlsCipherSuiteOutput{})
+	pulumi.RegisterOutputType(FrontdoorCustomDomainTlsCipherSuitePtrOutput{})
+	pulumi.RegisterOutputType(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput{})
+	pulumi.RegisterOutputType(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleArrayOutput{})
 	pulumi.RegisterOutputType(FrontdoorFirewallPolicyCustomRuleMatchConditionOutput{})
@@ -13529,6 +14588,10 @@ func init() {
 	pulumi.RegisterOutputType(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorCustomDomainTlOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorCustomDomainTlArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorCustomDomainTlCipherSuiteOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorCustomDomainTlCipherSuiteArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorCustomDomainTlCipherSuiteCustomCipherOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupHealthProbeArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorOriginGroupLoadBalancingOutput{})
@@ -13540,4 +14603,12 @@ func init() {
 	pulumi.RegisterOutputType(GetFrontdoorSecretSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorSecretSecretCustomerCertificateOutput{})
 	pulumi.RegisterOutputType(GetFrontdoorSecretSecretCustomerCertificateArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecurityPolicySecurityPolicyOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecurityPolicySecurityPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecurityPolicySecurityPolicyFirewallOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecurityPolicySecurityPolicyFirewallArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArrayOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainOutput{})
+	pulumi.RegisterOutputType(GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArrayOutput{})
 }

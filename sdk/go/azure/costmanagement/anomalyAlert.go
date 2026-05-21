@@ -69,9 +69,9 @@ type AnomalyAlert struct {
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Specifies a list of email addresses which the Anomaly Alerts are send to.
 	EmailAddresses pulumi.StringArrayOutput `pulumi:"emailAddresses"`
-	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
 	EmailSubject pulumi.StringOutput `pulumi:"emailSubject"`
-	// The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+	// The message of the Cost Anomaly Alert. Maximum length of the message is 100.
 	Message pulumi.StringPtrOutput `pulumi:"message"`
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -124,9 +124,9 @@ type anomalyAlertState struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Specifies a list of email addresses which the Anomaly Alerts are send to.
 	EmailAddresses []string `pulumi:"emailAddresses"`
-	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
 	EmailSubject *string `pulumi:"emailSubject"`
-	// The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+	// The message of the Cost Anomaly Alert. Maximum length of the message is 100.
 	Message *string `pulumi:"message"`
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name *string `pulumi:"name"`
@@ -141,9 +141,9 @@ type AnomalyAlertState struct {
 	DisplayName pulumi.StringPtrInput
 	// Specifies a list of email addresses which the Anomaly Alerts are send to.
 	EmailAddresses pulumi.StringArrayInput
-	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
 	EmailSubject pulumi.StringPtrInput
-	// The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+	// The message of the Cost Anomaly Alert. Maximum length of the message is 100.
 	Message pulumi.StringPtrInput
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name pulumi.StringPtrInput
@@ -162,9 +162,9 @@ type anomalyAlertArgs struct {
 	DisplayName string `pulumi:"displayName"`
 	// Specifies a list of email addresses which the Anomaly Alerts are send to.
 	EmailAddresses []string `pulumi:"emailAddresses"`
-	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
 	EmailSubject string `pulumi:"emailSubject"`
-	// The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+	// The message of the Cost Anomaly Alert. Maximum length of the message is 100.
 	Message *string `pulumi:"message"`
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name *string `pulumi:"name"`
@@ -180,9 +180,9 @@ type AnomalyAlertArgs struct {
 	DisplayName pulumi.StringInput
 	// Specifies a list of email addresses which the Anomaly Alerts are send to.
 	EmailAddresses pulumi.StringArrayInput
-	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+	// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
 	EmailSubject pulumi.StringInput
-	// The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+	// The message of the Cost Anomaly Alert. Maximum length of the message is 100.
 	Message pulumi.StringPtrInput
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name pulumi.StringPtrInput
@@ -289,12 +289,12 @@ func (o AnomalyAlertOutput) EmailAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AnomalyAlert) pulumi.StringArrayOutput { return v.EmailAddresses }).(pulumi.StringArrayOutput)
 }
 
-// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
 func (o AnomalyAlertOutput) EmailSubject() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyAlert) pulumi.StringOutput { return v.EmailSubject }).(pulumi.StringOutput)
 }
 
-// The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+// The message of the Cost Anomaly Alert. Maximum length of the message is 100.
 func (o AnomalyAlertOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyAlert) pulumi.StringPtrOutput { return v.Message }).(pulumi.StringPtrOutput)
 }

@@ -48,14 +48,22 @@ public final class AIServicesCustomerManagedKeyArgs extends com.pulumi.resources
     /**
      * The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     @Import(name="managedHsmKeyId")
     private @Nullable Output<String> managedHsmKeyId;
 
     /**
      * @return The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
      * 
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<String>> managedHsmKeyId() {
         return Optional.ofNullable(this.managedHsmKeyId);
     }
@@ -133,7 +141,11 @@ public final class AIServicesCustomerManagedKeyArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
+         * @deprecated
+         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
         public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
             $.managedHsmKeyId = managedHsmKeyId;
             return this;
@@ -144,7 +156,11 @@ public final class AIServicesCustomerManagedKeyArgs extends com.pulumi.resources
          * 
          * @return builder
          * 
+         * @deprecated
+         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
         public Builder managedHsmKeyId(String managedHsmKeyId) {
             return managedHsmKeyId(Output.of(managedHsmKeyId));
         }

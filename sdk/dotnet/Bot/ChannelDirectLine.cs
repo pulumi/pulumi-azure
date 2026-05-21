@@ -75,6 +75,18 @@ namespace Pulumi.Azure.Bot
         public Output<string> BotName { get; private set; } = null!;
 
         /// <summary>
+        /// The first key for Directline App Service Extension.
+        /// </summary>
+        [Output("extensionKey1")]
+        public Output<string> ExtensionKey1 { get; private set; } = null!;
+
+        /// <summary>
+        /// The second key for Directline App Service Extension.
+        /// </summary>
+        [Output("extensionKey2")]
+        public Output<string> ExtensionKey2 { get; private set; } = null!;
+
+        /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -115,6 +127,11 @@ namespace Pulumi.Azure.Bot
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "extensionKey1",
+                    "extensionKey2",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -181,6 +198,38 @@ namespace Pulumi.Azure.Bot
         /// </summary>
         [Input("botName")]
         public Input<string>? BotName { get; set; }
+
+        [Input("extensionKey1")]
+        private Input<string>? _extensionKey1;
+
+        /// <summary>
+        /// The first key for Directline App Service Extension.
+        /// </summary>
+        public Input<string>? ExtensionKey1
+        {
+            get => _extensionKey1;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _extensionKey1 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("extensionKey2")]
+        private Input<string>? _extensionKey2;
+
+        /// <summary>
+        /// The second key for Directline App Service Extension.
+        /// </summary>
+        public Input<string>? ExtensionKey2
+        {
+            get => _extensionKey2;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _extensionKey2 = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The supported Azure location where the resource exists. Changing this forces a new resource to be created.

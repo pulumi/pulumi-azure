@@ -8,6 +8,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class EventHubCaptureDescriptionDestinationArgs extends com.pulumi.resources.ResourceArgs {
@@ -78,6 +80,44 @@ public final class EventHubCaptureDescriptionDestinationArgs extends com.pulumi.
         return this.storageAccountId;
     }
 
+    /**
+     * The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+     * 
+     * &gt; **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+     * 
+     * &gt; **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+     * 
+     */
+    @Import(name="storageAuthenticationId")
+    private @Nullable Output<String> storageAuthenticationId;
+
+    /**
+     * @return The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+     * 
+     * &gt; **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+     * 
+     * &gt; **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+     * 
+     */
+    public Optional<Output<String>> storageAuthenticationId() {
+        return Optional.ofNullable(this.storageAuthenticationId);
+    }
+
+    /**
+     * The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+     * 
+     */
+    @Import(name="storageAuthenticationType")
+    private @Nullable Output<String> storageAuthenticationType;
+
+    /**
+     * @return The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+     * 
+     */
+    public Optional<Output<String>> storageAuthenticationType() {
+        return Optional.ofNullable(this.storageAuthenticationType);
+    }
+
     private EventHubCaptureDescriptionDestinationArgs() {}
 
     private EventHubCaptureDescriptionDestinationArgs(EventHubCaptureDescriptionDestinationArgs $) {
@@ -85,6 +125,8 @@ public final class EventHubCaptureDescriptionDestinationArgs extends com.pulumi.
         this.blobContainerName = $.blobContainerName;
         this.name = $.name;
         this.storageAccountId = $.storageAccountId;
+        this.storageAuthenticationId = $.storageAuthenticationId;
+        this.storageAuthenticationType = $.storageAuthenticationType;
     }
 
     public static Builder builder() {
@@ -191,6 +233,56 @@ public final class EventHubCaptureDescriptionDestinationArgs extends com.pulumi.
          */
         public Builder storageAccountId(String storageAccountId) {
             return storageAccountId(Output.of(storageAccountId));
+        }
+
+        /**
+         * @param storageAuthenticationId The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+         * 
+         * &gt; **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+         * 
+         * &gt; **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAuthenticationId(@Nullable Output<String> storageAuthenticationId) {
+            $.storageAuthenticationId = storageAuthenticationId;
+            return this;
+        }
+
+        /**
+         * @param storageAuthenticationId The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+         * 
+         * &gt; **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+         * 
+         * &gt; **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAuthenticationId(String storageAuthenticationId) {
+            return storageAuthenticationId(Output.of(storageAuthenticationId));
+        }
+
+        /**
+         * @param storageAuthenticationType The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAuthenticationType(@Nullable Output<String> storageAuthenticationType) {
+            $.storageAuthenticationType = storageAuthenticationType;
+            return this;
+        }
+
+        /**
+         * @param storageAuthenticationType The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAuthenticationType(String storageAuthenticationType) {
+            return storageAuthenticationType(Output.of(storageAuthenticationType));
         }
 
         public EventHubCaptureDescriptionDestinationArgs build() {

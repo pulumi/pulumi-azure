@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+// Gets information about an existing Front Door (standard/premium) Custom Domain.
 //
 // ## Example Usage
 //
@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cdn.LookupFrontdoorCustomDomain(ctx, &cdn.LookupFrontdoorCustomDomainArgs{
-//				Name:              exampleAzurermCdnFrontdoorCustomDomain.Name,
-//				ProfileName:       exampleAzurermCdnFrontdoorProfile.Name,
-//				ResourceGroupName: exampleAzurermCdnFrontdoorProfile.ResourceGroupName,
+//				Name:              "existing-cdn-frontdoor-custom-domain",
+//				ProfileName:       "existing-cdn-frontdoor-profile",
+//				ResourceGroupName: "existing-resource-group",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.Cdn` - 2025-04-15
 func LookupFrontdoorCustomDomain(ctx *pulumi.Context, args *LookupFrontdoorCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorCustomDomainResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorCustomDomainResult
@@ -64,8 +71,9 @@ type LookupFrontdoorCustomDomainArgs struct {
 type LookupFrontdoorCustomDomainResult struct {
 	// The ID of the Front Door Profile which the Front Door Custom Domain is bound to.
 	CdnFrontdoorProfileId string `pulumi:"cdnFrontdoorProfileId"`
-	DnsZoneId             string `pulumi:"dnsZoneId"`
-	// The date time that the token expires.
+	// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+	DnsZoneId string `pulumi:"dnsZoneId"`
+	// The date and time that the token expires.
 	ExpirationDate string `pulumi:"expirationDate"`
 	// The host name of the domain.
 	HostName string `pulumi:"hostName"`
@@ -123,11 +131,12 @@ func (o LookupFrontdoorCustomDomainResultOutput) CdnFrontdoorProfileId() pulumi.
 	return o.ApplyT(func(v LookupFrontdoorCustomDomainResult) string { return v.CdnFrontdoorProfileId }).(pulumi.StringOutput)
 }
 
+// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
 func (o LookupFrontdoorCustomDomainResultOutput) DnsZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorCustomDomainResult) string { return v.DnsZoneId }).(pulumi.StringOutput)
 }
 
-// The date time that the token expires.
+// The date and time that the token expires.
 func (o LookupFrontdoorCustomDomainResultOutput) ExpirationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFrontdoorCustomDomainResult) string { return v.ExpirationDate }).(pulumi.StringOutput)
 }

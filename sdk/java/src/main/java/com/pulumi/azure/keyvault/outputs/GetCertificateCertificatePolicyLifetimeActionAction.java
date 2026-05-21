@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class GetCertificateCertificatePolicyLifetimeActionAction {
     /**
-     * @return The Type of action to be performed when the lifetime trigger is triggerec.
+     * @return The Type of action to be performed when the lifetime trigger is triggered.
      * 
      */
     private String actionType;
 
     private GetCertificateCertificatePolicyLifetimeActionAction() {}
     /**
-     * @return The Type of action to be performed when the lifetime trigger is triggerec.
+     * @return The Type of action to be performed when the lifetime trigger is triggered.
      * 
      */
     public String actionType() {

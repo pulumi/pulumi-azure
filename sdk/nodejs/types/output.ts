@@ -24324,22 +24324,56 @@ export namespace cdn {
     export interface FrontdoorCustomDomainTls {
         /**
          * Resource ID of the Front Door Secret.
+         *
+         * > **Note:** `cdnFrontdoorSecretId` must be specified when `certificateType` is `CustomerCertificate` and must not be specified when `certificateType` is `ManagedCertificate`.
          */
         cdnFrontdoorSecretId: string;
         /**
-         * Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+         * Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
          *
-         * > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+         * > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
          */
         certificateType?: string;
         /**
-         * TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
-         *
-         * > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
-         *
-         * @deprecated As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.
+         * A `cipherSuite` block as defined below.
          */
-        minimumTlsVersion?: string;
+        cipherSuite?: outputs.cdn.FrontdoorCustomDomainTlsCipherSuite;
+        /**
+         * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+         */
+        minimumTlsVersion: string;
+        /**
+         * TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
+         */
+        minimumVersion: string;
+    }
+
+    export interface FrontdoorCustomDomainTlsCipherSuite {
+        /**
+         * A `customCiphers` block as defined below.
+         *
+         * > **Note:** The `customCiphers` block is required when `type` is set to `Customized` and must not be specified otherwise.
+         */
+        customCiphers?: outputs.cdn.FrontdoorCustomDomainTlsCipherSuiteCustomCiphers;
+        /**
+         * The cipher suite set type. Possible values are `Customized`, `TLS12_2022`, and `TLS12_2023`.
+         */
+        type: string;
+    }
+
+    export interface FrontdoorCustomDomainTlsCipherSuiteCustomCiphers {
+        /**
+         * A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+         *
+         * > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
+         */
+        tls12s?: string[];
+        /**
+         * A set of TLS 1.3 cipher suites. Possible values are `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+         *
+         * > **Note:** When `tls13` is specified, it must include both `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+         */
+        tls13s: string[];
     }
 
     export interface FrontdoorFirewallPolicyCustomRule {
@@ -24386,6 +24420,8 @@ export namespace cdn {
         matchValues: string[];
         /**
          * The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+         *
+         * > **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
          */
         matchVariable: string;
         /**
@@ -25256,7 +25292,7 @@ export namespace cdn {
 
     export interface FrontdoorSecurityPolicySecurityPolicies {
         /**
-         * An `firewall` block as defined below.
+         * A `firewall` block as defined below.
          */
         firewall: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewall;
     }
@@ -25267,7 +25303,7 @@ export namespace cdn {
          */
         association: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation;
         /**
-         * The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+         * The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
          */
         cdnFrontdoorFirewallPolicyId: string;
     }
@@ -25275,17 +25311,19 @@ export namespace cdn {
     export interface FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
         /**
          * One or more `domain` blocks as defined below.
+         *
+         * > **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
          */
         domains: outputs.cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain[];
         /**
-         * The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+         * The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
          */
         patternsToMatch: string;
     }
 
     export interface FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain {
         /**
-         * Is the Front Door Custom Domain/Endpoint activated?
+         * Whether the Front Door Custom Domain or Front Door Endpoint is active.
          */
         active: boolean;
         /**
@@ -25304,9 +25342,39 @@ export namespace cdn {
          */
         certificateType: string;
         /**
-         * The TLS protocol version that will be used for Https connections.
+         * A `cipherSuite` block as defined below.
+         */
+        cipherSuites: outputs.cdn.GetFrontdoorCustomDomainTlCipherSuite[];
+        /**
+         * @deprecated `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
          */
         minimumTlsVersion: string;
+        /**
+         * The TLS protocol version that will be used for Https connections.
+         */
+        minimumVersion: string;
+    }
+
+    export interface GetFrontdoorCustomDomainTlCipherSuite {
+        /**
+         * A `customCiphers` block as defined below.
+         */
+        customCiphers: outputs.cdn.GetFrontdoorCustomDomainTlCipherSuiteCustomCipher[];
+        /**
+         * The TLS policy type used for this Front Door Custom Domain.
+         */
+        type: string;
+    }
+
+    export interface GetFrontdoorCustomDomainTlCipherSuiteCustomCipher {
+        /**
+         * A set of TLS 1.2 cipher suites.
+         */
+        tls12s: string[];
+        /**
+         * A set of TLS 1.3 cipher suites.
+         */
+        tls13s: string[];
     }
 
     export interface GetFrontdoorOriginGroupHealthProbe {
@@ -25383,6 +25451,46 @@ export namespace cdn {
          * One or more `subject alternative names` contained within the key vault certificate.
          */
         subjectAlternativeNames: string[];
+    }
+
+    export interface GetFrontdoorSecurityPolicySecurityPolicy {
+        /**
+         * A `firewall` block as defined below.
+         */
+        firewalls: outputs.cdn.GetFrontdoorSecurityPolicySecurityPolicyFirewall[];
+    }
+
+    export interface GetFrontdoorSecurityPolicySecurityPolicyFirewall {
+        /**
+         * An `association` block as defined below.
+         */
+        associations: outputs.cdn.GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation[];
+        /**
+         * The ID of the Front Door Firewall Policy associated with this Front Door Security Policy.
+         */
+        cdnFrontdoorFirewallPolicyId: string;
+    }
+
+    export interface GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociation {
+        /**
+         * A `domain` block as defined below.
+         */
+        domains: outputs.cdn.GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain[];
+        /**
+         * The paths associated with this firewall policy.
+         */
+        patternsToMatches: string[];
+    }
+
+    export interface GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomain {
+        /**
+         * Is the Front Door Custom Domain or Front Door Endpoint active?
+         */
+        active: boolean;
+        /**
+         * The ID of the Front Door Custom Domain or Front Door Endpoint associated with this Front Door Security Policy.
+         */
+        cdnFrontdoorDomainId: string;
     }
 
 }
@@ -25476,11 +25584,13 @@ export namespace cognitive {
         /**
          * The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
          */
-        keyVaultKeyId?: string;
+        keyVaultKeyId: string;
         /**
          * The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+         *
+         * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
          */
-        managedHsmKeyId?: string;
+        managedHsmKeyId: string;
     }
 
     export interface AIServicesIdentity {
@@ -32357,7 +32467,7 @@ export namespace containerapp {
          */
         customRuleType: string;
         /**
-         * ID of the System or User Managed Identity used to execute scale rule.
+         * The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
          */
         identityId?: string;
         /**
@@ -34435,9 +34545,13 @@ export namespace containerservice {
          */
         allowedUnsafeSysctls?: string[];
         /**
-         * Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+         * Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
          */
-        containerLogMaxLine?: number;
+        containerLogMaxFiles: number;
+        /**
+         * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+         */
+        containerLogMaxLine: number;
         /**
          * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
          */
@@ -35263,9 +35377,13 @@ export namespace containerservice {
          */
         allowedUnsafeSysctls?: string[];
         /**
-         * Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+         * Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
          */
-        containerLogMaxLine?: number;
+        containerLogMaxFiles: number;
+        /**
+         * @deprecated `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+         */
+        containerLogMaxLine: number;
         /**
          * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
          */
@@ -35566,7 +35684,7 @@ export namespace containerservice {
          */
         mode: string;
         /**
-         * Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
+         * Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
          *
          * > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
          */
@@ -37809,7 +37927,7 @@ export namespace databricks {
          */
         complianceSecurityProfileEnabled?: boolean;
         /**
-         * A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+         * A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
          *
          * > **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
          *
@@ -43945,6 +44063,18 @@ export namespace eventhub {
          * The ID of the Blob Storage Account where messages should be archived.
          */
         storageAccountId: string;
+        /**
+         * The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived. 
+         *
+         * > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+         *
+         * > **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+         */
+        storageAuthenticationId?: string;
+        /**
+         * The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+         */
+        storageAuthenticationType?: string;
     }
 
     export interface EventHubNamespaceIdentity {
@@ -49054,7 +49184,7 @@ export namespace keyvault {
 
     export interface CertifiateCertificatePolicyLifetimeActionAction {
         /**
-         * The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+         * The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
          */
         actionType: string;
     }
@@ -49240,7 +49370,7 @@ export namespace keyvault {
 
     export interface CertificateCertificatePolicyLifetimeActionAction {
         /**
-         * The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+         * The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
          */
         actionType: string;
     }
@@ -49398,7 +49528,7 @@ export namespace keyvault {
 
     export interface GetCertificateCertificatePolicyLifetimeActionAction {
         /**
-         * The Type of action to be performed when the lifetime trigger is triggerec.
+         * The Type of action to be performed when the lifetime trigger is triggered.
          */
         actionType: string;
     }
@@ -54993,7 +55123,7 @@ export namespace mssql {
 
     export interface GetManagedDatabaseLongTermRetentionPolicy {
         /**
-         * Specifies if the backups are immutable.
+         * @deprecated The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
          */
         immutableBackupsEnabled: boolean;
         /**
@@ -55128,11 +55258,11 @@ export namespace mssql {
 
     export interface ManagedDatabaseLongTermRetentionPolicy {
         /**
-         * Specifies if the backups are immutable. Defaults to `false`.
+         * @deprecated The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
          */
         immutableBackupsEnabled?: boolean;
         /**
-         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
+         * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
          */
         monthlyRetention: string;
         /**
@@ -55140,11 +55270,11 @@ export namespace mssql {
          */
         weekOfYear: number;
         /**
-         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+         * The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
          */
         weeklyRetention: string;
         /**
-         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
+         * The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
          */
         yearlyRetention: string;
     }
@@ -55679,6 +55809,8 @@ export namespace mysql {
         keyVaultKeyId?: string;
         /**
          * The ID of the Managed HSM Key.
+         *
+         * @deprecated The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
          */
         managedHsmKeyId?: string;
         /**
@@ -61278,7 +61410,7 @@ export namespace network {
          */
         actions?: string[];
         /**
-         * The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+         * The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.MessagingConnectors/connectors`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
          */
         name: string;
     }
@@ -61990,7 +62122,7 @@ export namespace network {
          */
         actions?: string[];
         /**
-         * The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+         * The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.MessagingConnectors/connectors`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
          */
         name: string;
     }

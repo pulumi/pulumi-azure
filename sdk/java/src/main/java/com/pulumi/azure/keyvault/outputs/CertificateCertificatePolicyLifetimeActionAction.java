@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class CertificateCertificatePolicyLifetimeActionAction {
     /**
-     * @return The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+     * @return The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
      * 
      */
     private String actionType;
 
     private CertificateCertificatePolicyLifetimeActionAction() {}
     /**
-     * @return The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+     * @return The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
      * 
      */
     public String actionType() {

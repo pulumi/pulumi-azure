@@ -25,8 +25,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+        /// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
         /// </summary>
+        [Input("containerLogMaxFiles")]
+        public Input<int>? ContainerLogMaxFiles { get; set; }
+
         [Input("containerLogMaxLine")]
         public Input<int>? ContainerLogMaxLine { get; set; }
 

@@ -1702,6 +1702,14 @@ type EventHubCaptureDescriptionDestination struct {
 	Name string `pulumi:"name"`
 	// The ID of the Blob Storage Account where messages should be archived.
 	StorageAccountId string `pulumi:"storageAccountId"`
+	// The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+	//
+	// > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+	//
+	// > **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+	StorageAuthenticationId *string `pulumi:"storageAuthenticationId"`
+	// The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+	StorageAuthenticationType *string `pulumi:"storageAuthenticationType"`
 }
 
 // EventHubCaptureDescriptionDestinationInput is an input type that accepts EventHubCaptureDescriptionDestinationArgs and EventHubCaptureDescriptionDestinationOutput values.
@@ -1726,6 +1734,14 @@ type EventHubCaptureDescriptionDestinationArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Blob Storage Account where messages should be archived.
 	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+	//
+	// > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+	//
+	// > **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+	StorageAuthenticationId pulumi.StringPtrInput `pulumi:"storageAuthenticationId"`
+	// The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+	StorageAuthenticationType pulumi.StringPtrInput `pulumi:"storageAuthenticationType"`
 }
 
 func (EventHubCaptureDescriptionDestinationArgs) ElementType() reflect.Type {
@@ -1827,6 +1843,20 @@ func (o EventHubCaptureDescriptionDestinationOutput) StorageAccountId() pulumi.S
 	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
+// The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+//
+// > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+//
+// > **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+func (o EventHubCaptureDescriptionDestinationOutput) StorageAuthenticationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) *string { return v.StorageAuthenticationId }).(pulumi.StringPtrOutput)
+}
+
+// The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+func (o EventHubCaptureDescriptionDestinationOutput) StorageAuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventHubCaptureDescriptionDestination) *string { return v.StorageAuthenticationType }).(pulumi.StringPtrOutput)
+}
+
 type EventHubCaptureDescriptionDestinationPtrOutput struct{ *pulumi.OutputState }
 
 func (EventHubCaptureDescriptionDestinationPtrOutput) ElementType() reflect.Type {
@@ -1890,6 +1920,30 @@ func (o EventHubCaptureDescriptionDestinationPtrOutput) StorageAccountId() pulum
 			return nil
 		}
 		return &v.StorageAccountId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+//
+// > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+//
+// > **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+func (o EventHubCaptureDescriptionDestinationPtrOutput) StorageAuthenticationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescriptionDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAuthenticationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+func (o EventHubCaptureDescriptionDestinationPtrOutput) StorageAuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventHubCaptureDescriptionDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageAuthenticationType
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -119,6 +119,13 @@ def get_sql_database(account_name: Optional[_builtins.str] = None,
         account_name="tfex-cosmosdb-sql-database-account-name")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DocumentDB` - 2024-08-15
+
 
     :param _builtins.str account_name: The name of the Cosmos DB SQL Database to create the table within.
     :param _builtins.str name: Specifies the name of the Cosmos DB SQL Database.
@@ -155,6 +162,13 @@ def get_sql_database_output(account_name: pulumi.Input[Optional[_builtins.str]] 
         resource_group_name="tfex-cosmosdb-sql-database-rg",
         account_name="tfex-cosmosdb-sql-database-account-name")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.DocumentDB` - 2024-08-15
 
 
     :param _builtins.str account_name: The name of the Cosmos DB SQL Database to create the table within.

@@ -137,7 +137,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Storage` - 2025-06-01
+// * `Microsoft.Storage` - 2025-08-01
 //
 // ## Import
 //
@@ -149,7 +149,7 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
 	AccessTier pulumi.StringOutput `pulumi:"accessTier"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
@@ -165,7 +165,7 @@ type Account struct {
 	//
 	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic pulumi.BoolPtrOutput `pulumi:"allowNestedItemsToBePublic"`
-	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	// The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
 	AllowedCopyScope pulumi.StringPtrOutput `pulumi:"allowedCopyScope"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrOutput `pulumi:"azureFilesAuthentication"`
@@ -461,7 +461,7 @@ func GetAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Account resources.
 type accountState struct {
-	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
@@ -477,7 +477,7 @@ type accountState struct {
 	//
 	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
-	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	// The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
 	AllowedCopyScope *string `pulumi:"allowedCopyScope"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
@@ -726,7 +726,7 @@ type accountState struct {
 }
 
 type AccountState struct {
-	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
 	AccessTier pulumi.StringPtrInput
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
@@ -742,7 +742,7 @@ type AccountState struct {
 	//
 	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic pulumi.BoolPtrInput
-	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	// The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
 	AllowedCopyScope pulumi.StringPtrInput
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
@@ -995,7 +995,7 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
 	AccessTier *string `pulumi:"accessTier"`
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
@@ -1011,7 +1011,7 @@ type accountArgs struct {
 	//
 	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic *bool `pulumi:"allowNestedItemsToBePublic"`
-	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	// The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
 	AllowedCopyScope *string `pulumi:"allowedCopyScope"`
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication *AccountAzureFilesAuthentication `pulumi:"azureFilesAuthentication"`
@@ -1117,7 +1117,7 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+	// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
 	AccessTier pulumi.StringPtrInput
 	// Defines the Kind of account. Valid options are `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage` and `StorageV2`. Defaults to `StorageV2`.
 	//
@@ -1133,7 +1133,7 @@ type AccountArgs struct {
 	//
 	// > **Note:** At this time `allowNestedItemsToBePublic` is only supported in the Public Cloud, China Cloud, and US Government Cloud.
 	AllowNestedItemsToBePublic pulumi.BoolPtrInput
-	// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+	// The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
 	AllowedCopyScope pulumi.StringPtrInput
 	// A `azureFilesAuthentication` block as defined below.
 	AzureFilesAuthentication AccountAzureFilesAuthenticationPtrInput
@@ -1324,7 +1324,7 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
 func (o AccountOutput) AccessTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.AccessTier }).(pulumi.StringOutput)
 }
@@ -1355,7 +1355,7 @@ func (o AccountOutput) AllowNestedItemsToBePublic() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.AllowNestedItemsToBePublic }).(pulumi.BoolPtrOutput)
 }
 
-// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+// The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
 func (o AccountOutput) AllowedCopyScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.AllowedCopyScope }).(pulumi.StringPtrOutput)
 }

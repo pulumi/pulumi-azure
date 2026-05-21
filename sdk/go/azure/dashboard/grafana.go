@@ -44,6 +44,8 @@ import (
 //				ApiKeyEnabled:                  pulumi.Bool(true),
 //				DeterministicOutboundIpEnabled: pulumi.Bool(true),
 //				PublicNetworkAccessEnabled:     pulumi.Bool(false),
+//				Sku:                            pulumi.String("Standard"),
+//				SkuSize:                        pulumi.String("X1"),
 //				Identity: &dashboard.GrafanaIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -105,6 +107,8 @@ type Grafana struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
+	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+	SkuSize pulumi.StringPtrOutput `pulumi:"skuSize"`
 	// A `smtp` block as defined below.
 	Smtp GrafanaSmtpPtrOutput `pulumi:"smtp"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
@@ -177,6 +181,8 @@ type grafanaState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku *string `pulumi:"sku"`
+	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+	SkuSize *string `pulumi:"skuSize"`
 	// A `smtp` block as defined below.
 	Smtp *GrafanaSmtp `pulumi:"smtp"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
@@ -214,6 +220,8 @@ type GrafanaState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrInput
+	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+	SkuSize pulumi.StringPtrInput
 	// A `smtp` block as defined below.
 	Smtp GrafanaSmtpPtrInput
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
@@ -249,6 +257,8 @@ type grafanaArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku *string `pulumi:"sku"`
+	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+	SkuSize *string `pulumi:"skuSize"`
 	// A `smtp` block as defined below.
 	Smtp *GrafanaSmtp `pulumi:"smtp"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
@@ -281,6 +291,8 @@ type GrafanaArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrInput
+	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+	SkuSize pulumi.StringPtrInput
 	// A `smtp` block as defined below.
 	Smtp GrafanaSmtpPtrInput
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
@@ -446,6 +458,11 @@ func (o GrafanaOutput) ResourceGroupName() pulumi.StringOutput {
 // The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 func (o GrafanaOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+func (o GrafanaOutput) SkuSize() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Grafana) pulumi.StringPtrOutput { return v.SkuSize }).(pulumi.StringPtrOutput)
 }
 
 // A `smtp` block as defined below.

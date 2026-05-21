@@ -115,6 +115,14 @@ namespace Pulumi.Azure.Backup
         public Output<Outputs.PolicyVMBackup> Backup { get; private set; } = null!;
 
         /// <summary>
+        /// The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+        /// 
+        /// &gt; **Note:** `ConsistencyType` can only be specified when `PolicyType` is `V2`.
+        /// </summary>
+        [Output("consistencyType")]
+        public Output<string?> ConsistencyType { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the instant restore resource group name as documented in the `InstantRestoreResourceGroup` block below.
         /// </summary>
         [Output("instantRestoreResourceGroup")]
@@ -241,6 +249,14 @@ namespace Pulumi.Azure.Backup
         public Input<Inputs.PolicyVMBackupArgs> Backup { get; set; } = null!;
 
         /// <summary>
+        /// The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+        /// 
+        /// &gt; **Note:** `ConsistencyType` can only be specified when `PolicyType` is `V2`.
+        /// </summary>
+        [Input("consistencyType")]
+        public Input<string>? ConsistencyType { get; set; }
+
+        /// <summary>
         /// Specifies the instant restore resource group name as documented in the `InstantRestoreResourceGroup` block below.
         /// </summary>
         [Input("instantRestoreResourceGroup")]
@@ -327,6 +343,14 @@ namespace Pulumi.Azure.Backup
         /// </summary>
         [Input("backup")]
         public Input<Inputs.PolicyVMBackupGetArgs>? Backup { get; set; }
+
+        /// <summary>
+        /// The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+        /// 
+        /// &gt; **Note:** `ConsistencyType` can only be specified when `PolicyType` is `V2`.
+        /// </summary>
+        [Input("consistencyType")]
+        public Input<string>? ConsistencyType { get; set; }
 
         /// <summary>
         /// Specifies the instant restore resource group name as documented in the `InstantRestoreResourceGroup` block below.

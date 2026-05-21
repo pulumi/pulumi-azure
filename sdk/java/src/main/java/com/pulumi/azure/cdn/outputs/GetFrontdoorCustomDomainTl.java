@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.cdn.outputs;
 
+import com.pulumi.azure.cdn.outputs.GetFrontdoorCustomDomainTlCipherSuite;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -21,10 +23,22 @@ public final class GetFrontdoorCustomDomainTl {
      */
     private String certificateType;
     /**
+     * @return A `cipherSuite` block as defined below.
+     * 
+     */
+    private List<GetFrontdoorCustomDomainTlCipherSuite> cipherSuites;
+    /**
+     * @deprecated
+     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+    private String minimumTlsVersion;
+    /**
      * @return The TLS protocol version that will be used for Https connections.
      * 
      */
-    private String minimumTlsVersion;
+    private String minimumVersion;
 
     private GetFrontdoorCustomDomainTl() {}
     /**
@@ -42,11 +56,27 @@ public final class GetFrontdoorCustomDomainTl {
         return this.certificateType;
     }
     /**
+     * @return A `cipherSuite` block as defined below.
+     * 
+     */
+    public List<GetFrontdoorCustomDomainTlCipherSuite> cipherSuites() {
+        return this.cipherSuites;
+    }
+    /**
+     * @deprecated
+     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
+    public String minimumTlsVersion() {
+        return this.minimumTlsVersion;
+    }
+    /**
      * @return The TLS protocol version that will be used for Https connections.
      * 
      */
-    public String minimumTlsVersion() {
-        return this.minimumTlsVersion;
+    public String minimumVersion() {
+        return this.minimumVersion;
     }
 
     public static Builder builder() {
@@ -60,13 +90,17 @@ public final class GetFrontdoorCustomDomainTl {
     public static final class Builder {
         private String cdnFrontdoorSecretId;
         private String certificateType;
+        private List<GetFrontdoorCustomDomainTlCipherSuite> cipherSuites;
         private String minimumTlsVersion;
+        private String minimumVersion;
         public Builder() {}
         public Builder(GetFrontdoorCustomDomainTl defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cdnFrontdoorSecretId = defaults.cdnFrontdoorSecretId;
     	      this.certificateType = defaults.certificateType;
+    	      this.cipherSuites = defaults.cipherSuites;
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
+    	      this.minimumVersion = defaults.minimumVersion;
         }
 
         @CustomType.Setter
@@ -86,6 +120,17 @@ public final class GetFrontdoorCustomDomainTl {
             return this;
         }
         @CustomType.Setter
+        public Builder cipherSuites(List<GetFrontdoorCustomDomainTlCipherSuite> cipherSuites) {
+            if (cipherSuites == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainTl", "cipherSuites");
+            }
+            this.cipherSuites = cipherSuites;
+            return this;
+        }
+        public Builder cipherSuites(GetFrontdoorCustomDomainTlCipherSuite... cipherSuites) {
+            return cipherSuites(List.of(cipherSuites));
+        }
+        @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             if (minimumTlsVersion == null) {
               throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainTl", "minimumTlsVersion");
@@ -93,11 +138,21 @@ public final class GetFrontdoorCustomDomainTl {
             this.minimumTlsVersion = minimumTlsVersion;
             return this;
         }
+        @CustomType.Setter
+        public Builder minimumVersion(String minimumVersion) {
+            if (minimumVersion == null) {
+              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainTl", "minimumVersion");
+            }
+            this.minimumVersion = minimumVersion;
+            return this;
+        }
         public GetFrontdoorCustomDomainTl build() {
             final var _resultValue = new GetFrontdoorCustomDomainTl();
             _resultValue.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
             _resultValue.certificateType = certificateType;
+            _resultValue.cipherSuites = cipherSuites;
             _resultValue.minimumTlsVersion = minimumTlsVersion;
+            _resultValue.minimumVersion = minimumVersion;
             return _resultValue;
         }
     }

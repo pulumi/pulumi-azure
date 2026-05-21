@@ -18,14 +18,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
     public static final FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs Empty = new FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs();
 
     /**
-     * Is the Front Door Custom Domain/Endpoint activated?
+     * Whether the Front Door Custom Domain or Front Door Endpoint is active.
      * 
      */
     @Import(name="active")
     private @Nullable Output<Boolean> active;
 
     /**
-     * @return Is the Front Door Custom Domain/Endpoint activated?
+     * @return Whether the Front Door Custom Domain or Front Door Endpoint is active.
      * 
      */
     public Optional<Output<Boolean>> active() {
@@ -73,7 +73,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
         }
 
         /**
-         * @param active Is the Front Door Custom Domain/Endpoint activated?
+         * @param active Whether the Front Door Custom Domain or Front Door Endpoint is active.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDom
         }
 
         /**
-         * @param active Is the Front Door Custom Domain/Endpoint activated?
+         * @param active Whether the Front Door Custom Domain or Front Door Endpoint is active.
          * 
          * @return builder
          * 

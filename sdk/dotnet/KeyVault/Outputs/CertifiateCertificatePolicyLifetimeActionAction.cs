@@ -14,7 +14,7 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class CertifiateCertificatePolicyLifetimeActionAction
     {
         /// <summary>
-        /// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+        /// The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
         /// </summary>
         public readonly string ActionType;
 

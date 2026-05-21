@@ -17,6 +17,8 @@ namespace Pulumi.Azure.Cdn.Inputs
 
         /// <summary>
         /// One or more `Domain` blocks as defined below.
+        /// 
+        /// &gt; **Note:** The number of `Domain` blocks that may be included in the configuration varies depending on the `SkuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `Domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `Domain` blocks.
         /// </summary>
         public InputList<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainGetArgs> Domains
         {
@@ -25,7 +27,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         }
 
         /// <summary>
-        /// The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+        /// The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("patternsToMatch", required: true)]
         public Input<string> PatternsToMatch { get; set; } = null!;

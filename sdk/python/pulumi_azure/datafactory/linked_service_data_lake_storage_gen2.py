@@ -637,13 +637,15 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["service_principal_id"] = service_principal_id
-            __props__.__dict__["service_principal_key"] = service_principal_key
-            __props__.__dict__["storage_account_key"] = storage_account_key
+            __props__.__dict__["service_principal_key"] = None if service_principal_key is None else pulumi.Output.secret(service_principal_key)
+            __props__.__dict__["storage_account_key"] = None if storage_account_key is None else pulumi.Output.secret(storage_account_key)
             __props__.__dict__["tenant"] = tenant
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["use_managed_identity"] = use_managed_identity
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["servicePrincipalKey", "storageAccountKey"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinkedServiceDataLakeStorageGen2, __self__).__init__(
             'azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2',
             resource_name,

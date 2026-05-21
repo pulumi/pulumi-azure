@@ -33,6 +33,13 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DocumentDB` - 2024-08-15
         /// </summary>
         public static Task<GetSqlDatabaseResult> InvokeAsync(GetSqlDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDatabaseResult>("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args ?? new GetSqlDatabaseArgs(), options.WithDefaults());
@@ -59,6 +66,13 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DocumentDB` - 2024-08-15
         /// </summary>
         public static Output<GetSqlDatabaseResult> Invoke(GetSqlDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDatabaseResult>("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args ?? new GetSqlDatabaseInvokeArgs(), options.WithDefaults());
@@ -85,6 +99,13 @@ namespace Pulumi.Azure.CosmosDB
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.DocumentDB` - 2024-08-15
         /// </summary>
         public static Output<GetSqlDatabaseResult> Invoke(GetSqlDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDatabaseResult>("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args ?? new GetSqlDatabaseInvokeArgs(), options.WithDefaults());

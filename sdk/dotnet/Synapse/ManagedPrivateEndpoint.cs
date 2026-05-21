@@ -95,6 +95,13 @@ namespace Pulumi.Azure.Synapse
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Synapse` - 2021-06-01
+    /// 
     /// ## Import
     /// 
     /// Synapse Managed Private Endpoint can be imported using the `resource id`, e.g.
@@ -106,6 +113,14 @@ namespace Pulumi.Azure.Synapse
     [AzureResourceType("azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `FullyQualifiedDomainNames` must be specified when the `TargetResourceId` is a Private Link Service.
+        /// </summary>
+        [Output("fullyQualifiedDomainNames")]
+        public Output<ImmutableArray<string>> FullyQualifiedDomainNames { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         /// </summary>
@@ -180,6 +195,20 @@ namespace Pulumi.Azure.Synapse
 
     public sealed class ManagedPrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
+        [Input("fullyQualifiedDomainNames")]
+        private InputList<string>? _fullyQualifiedDomainNames;
+
+        /// <summary>
+        /// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `FullyQualifiedDomainNames` must be specified when the `TargetResourceId` is a Private Link Service.
+        /// </summary>
+        public InputList<string> FullyQualifiedDomainNames
+        {
+            get => _fullyQualifiedDomainNames ?? (_fullyQualifiedDomainNames = new InputList<string>());
+            set => _fullyQualifiedDomainNames = value;
+        }
+
         /// <summary>
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         /// </summary>
@@ -216,6 +245,20 @@ namespace Pulumi.Azure.Synapse
 
     public sealed class ManagedPrivateEndpointState : global::Pulumi.ResourceArgs
     {
+        [Input("fullyQualifiedDomainNames")]
+        private InputList<string>? _fullyQualifiedDomainNames;
+
+        /// <summary>
+        /// A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `FullyQualifiedDomainNames` must be specified when the `TargetResourceId` is a Private Link Service.
+        /// </summary>
+        public InputList<string> FullyQualifiedDomainNames
+        {
+            get => _fullyQualifiedDomainNames ?? (_fullyQualifiedDomainNames = new InputList<string>());
+            set => _fullyQualifiedDomainNames = value;
+        }
+
         /// <summary>
         /// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         /// </summary>

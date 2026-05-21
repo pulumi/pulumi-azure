@@ -20,6 +20,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DocumentDB` - 2024-08-15
  */
 export function getMongoDatabase(args: GetMongoDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -80,6 +87,13 @@ export interface GetMongoDatabaseResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DocumentDB` - 2024-08-15
  */
 export function getMongoDatabaseOutput(args: GetMongoDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMongoDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -66,6 +66,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Synapse` - 2021-06-01
+ *
  * ## Import
  *
  * Synapse Managed Private Endpoint can be imported using the `resource id`, e.g.
@@ -103,6 +110,12 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     }
 
     /**
+     * A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+     */
+    declare public readonly fullyQualifiedDomainNames: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -136,6 +149,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrivateEndpointState | undefined;
+            resourceInputs["fullyQualifiedDomainNames"] = state?.fullyQualifiedDomainNames;
             resourceInputs["name"] = state?.name;
             resourceInputs["subresourceName"] = state?.subresourceName;
             resourceInputs["synapseWorkspaceId"] = state?.synapseWorkspaceId;
@@ -151,6 +165,7 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
             if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
+            resourceInputs["fullyQualifiedDomainNames"] = args?.fullyQualifiedDomainNames;
             resourceInputs["name"] = args?.name;
             resourceInputs["subresourceName"] = args?.subresourceName;
             resourceInputs["synapseWorkspaceId"] = args?.synapseWorkspaceId;
@@ -165,6 +180,12 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
  */
 export interface ManagedPrivateEndpointState {
+    /**
+     * A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+     */
+    fullyQualifiedDomainNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */
@@ -191,6 +212,12 @@ export interface ManagedPrivateEndpointState {
  * The set of arguments for constructing a ManagedPrivateEndpoint resource.
  */
 export interface ManagedPrivateEndpointArgs {
+    /**
+     * A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+     */
+    fullyQualifiedDomainNames?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      */

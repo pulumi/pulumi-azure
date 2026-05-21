@@ -248,6 +248,13 @@ class CassandraKeyspace(pulumi.CustomResource):
             throughput=400)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
+
         ## Import
 
         Cosmos Cassandra KeySpace can be imported using the `resource id`, e.g.
@@ -306,6 +313,13 @@ class CassandraKeyspace(pulumi.CustomResource):
             account_name=example_account.name,
             throughput=400)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
 
         ## Import
 

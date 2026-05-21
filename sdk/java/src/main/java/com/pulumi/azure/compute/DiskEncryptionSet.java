@@ -367,7 +367,7 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyVaultKeyId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> keyVaultKeyId;
+    private Output<String> keyVaultKeyId;
 
     /**
      * @return Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
@@ -378,8 +378,8 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      * 
      */
-    public Output<Optional<String>> keyVaultKeyId() {
-        return Codegen.optional(this.keyVaultKeyId);
+    public Output<String> keyVaultKeyId() {
+        return this.keyVaultKeyId;
     }
     /**
      * The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
@@ -412,16 +412,20 @@ public class DiskEncryptionSet extends com.pulumi.resources.CustomResource {
     /**
      * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
+     * @deprecated
+     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> managedHsmKeyId;
+    private Output<String> managedHsmKeyId;
 
     /**
      * @return Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
      * 
      */
-    public Output<Optional<String>> managedHsmKeyId() {
-        return Codegen.optional(this.managedHsmKeyId);
+    public Output<String> managedHsmKeyId() {
+        return this.managedHsmKeyId;
     }
     /**
      * The name of the Disk Encryption Set. Changing this forces a new resource to be created.

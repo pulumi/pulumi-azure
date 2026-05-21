@@ -34,16 +34,35 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfigArgs extends com
     }
 
     /**
-     * Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+     * Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
      * 
      */
+    @Import(name="containerLogMaxFiles")
+    private @Nullable Output<Integer> containerLogMaxFiles;
+
+    /**
+     * @return Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+     * 
+     */
+    public Optional<Output<Integer>> containerLogMaxFiles() {
+        return Optional.ofNullable(this.containerLogMaxFiles);
+    }
+
+    /**
+     * @deprecated
+     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="containerLogMaxLine")
     private @Nullable Output<Integer> containerLogMaxLine;
 
     /**
-     * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+     * @deprecated
+     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<Integer>> containerLogMaxLine() {
         return Optional.ofNullable(this.containerLogMaxLine);
     }
@@ -172,6 +191,7 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfigArgs extends com
 
     private KubernetesClusterDefaultNodePoolKubeletConfigArgs(KubernetesClusterDefaultNodePoolKubeletConfigArgs $) {
         this.allowedUnsafeSysctls = $.allowedUnsafeSysctls;
+        this.containerLogMaxFiles = $.containerLogMaxFiles;
         this.containerLogMaxLine = $.containerLogMaxLine;
         this.containerLogMaxSizeMb = $.containerLogMaxSizeMb;
         this.cpuCfsQuotaEnabled = $.cpuCfsQuotaEnabled;
@@ -233,22 +253,47 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfigArgs extends com
         }
 
         /**
-         * @param containerLogMaxLine Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+         * @param containerLogMaxFiles Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
          * 
          * @return builder
          * 
          */
+        public Builder containerLogMaxFiles(@Nullable Output<Integer> containerLogMaxFiles) {
+            $.containerLogMaxFiles = containerLogMaxFiles;
+            return this;
+        }
+
+        /**
+         * @param containerLogMaxFiles Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder containerLogMaxFiles(Integer containerLogMaxFiles) {
+            return containerLogMaxFiles(Output.of(containerLogMaxFiles));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
         public Builder containerLogMaxLine(@Nullable Output<Integer> containerLogMaxLine) {
             $.containerLogMaxLine = containerLogMaxLine;
             return this;
         }
 
         /**
-         * @param containerLogMaxLine Specifies the maximum number of container log files that can be present for a container. must be at least 2.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+         * 
          */
+        @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
         public Builder containerLogMaxLine(Integer containerLogMaxLine) {
             return containerLogMaxLine(Output.of(containerLogMaxLine));
         }

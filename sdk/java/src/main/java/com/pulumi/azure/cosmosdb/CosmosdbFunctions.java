@@ -311,6 +311,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static Output<GetMongoDatabaseResult> getMongoDatabase(GetMongoDatabaseArgs args) {
         return getMongoDatabase(args, InvokeOptions.Empty);
@@ -353,6 +360,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static CompletableFuture<GetMongoDatabaseResult> getMongoDatabasePlain(GetMongoDatabasePlainArgs args) {
@@ -397,6 +411,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static Output<GetMongoDatabaseResult> getMongoDatabase(GetMongoDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cosmosdb/getMongoDatabase:getMongoDatabase", TypeShape.of(GetMongoDatabaseResult.class), args, Utilities.withVersion(options));
@@ -439,6 +460,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static Output<GetMongoDatabaseResult> getMongoDatabase(GetMongoDatabaseArgs args, InvokeOutputOptions options) {
@@ -483,6 +511,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static CompletableFuture<GetMongoDatabaseResult> getMongoDatabasePlain(GetMongoDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:cosmosdb/getMongoDatabase:getMongoDatabase", TypeShape.of(GetMongoDatabaseResult.class), args, Utilities.withVersion(options));
@@ -524,6 +559,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static Output<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs args) {
@@ -567,6 +609,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static CompletableFuture<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccountsPlain(GetRestorableDatabaseAccountsPlainArgs args) {
         return getRestorableDatabaseAccountsPlain(args, InvokeOptions.Empty);
@@ -608,6 +657,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static Output<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs args, InvokeOptions options) {
@@ -651,6 +707,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static Output<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccounts(GetRestorableDatabaseAccountsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", TypeShape.of(GetRestorableDatabaseAccountsResult.class), args, Utilities.withVersion(options));
@@ -692,6 +755,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static CompletableFuture<GetRestorableDatabaseAccountsResult> getRestorableDatabaseAccountsPlain(GetRestorableDatabaseAccountsPlainArgs args, InvokeOptions options) {
@@ -735,6 +805,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static Output<GetSqlDatabaseResult> getSqlDatabase(GetSqlDatabaseArgs args) {
         return getSqlDatabase(args, InvokeOptions.Empty);
@@ -776,6 +853,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static CompletableFuture<GetSqlDatabaseResult> getSqlDatabasePlain(GetSqlDatabasePlainArgs args) {
@@ -819,6 +903,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static Output<GetSqlDatabaseResult> getSqlDatabase(GetSqlDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cosmosdb/getSqlDatabase:getSqlDatabase", TypeShape.of(GetSqlDatabaseResult.class), args, Utilities.withVersion(options));
@@ -860,6 +951,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static Output<GetSqlDatabaseResult> getSqlDatabase(GetSqlDatabaseArgs args, InvokeOutputOptions options) {
@@ -903,6 +1001,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static CompletableFuture<GetSqlDatabaseResult> getSqlDatabasePlain(GetSqlDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:cosmosdb/getSqlDatabase:getSqlDatabase", TypeShape.of(GetSqlDatabaseResult.class), args, Utilities.withVersion(options));
@@ -944,6 +1049,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static Output<GetSqlRoleDefinitionResult> getSqlRoleDefinition(GetSqlRoleDefinitionArgs args) {
@@ -987,6 +1099,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static CompletableFuture<GetSqlRoleDefinitionResult> getSqlRoleDefinitionPlain(GetSqlRoleDefinitionPlainArgs args) {
         return getSqlRoleDefinitionPlain(args, InvokeOptions.Empty);
@@ -1028,6 +1147,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static Output<GetSqlRoleDefinitionResult> getSqlRoleDefinition(GetSqlRoleDefinitionArgs args, InvokeOptions options) {
@@ -1071,6 +1197,13 @@ public final class CosmosdbFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
+     * 
      */
     public static Output<GetSqlRoleDefinitionResult> getSqlRoleDefinition(GetSqlRoleDefinitionArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", TypeShape.of(GetSqlRoleDefinitionResult.class), args, Utilities.withVersion(options));
@@ -1112,6 +1245,13 @@ public final class CosmosdbFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.DocumentDB` - 2024-08-15
      * 
      */
     public static CompletableFuture<GetSqlRoleDefinitionResult> getSqlRoleDefinitionPlain(GetSqlRoleDefinitionPlainArgs args, InvokeOptions options) {

@@ -403,7 +403,7 @@ class WorkspaceEnhancedSecurityComplianceArgsDict(TypedDict):
     """
     compliance_security_profile_standards: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+    A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
 
     > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
 
@@ -428,7 +428,7 @@ class WorkspaceEnhancedSecurityComplianceArgs:
                > **Note:** Changing the value of `compliance_security_profile_enabled` from `true` to `false` forces a replacement of the Databricks workspace.
                
                > **Note:** The attributes `automatic_cluster_update_enabled` and `enhanced_security_monitoring_enabled` must be set to `true` in order to set `compliance_security_profile_enabled` to `true`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] compliance_security_profile_standards: A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] compliance_security_profile_standards: A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
                
                > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
                
@@ -476,7 +476,7 @@ class WorkspaceEnhancedSecurityComplianceArgs:
     @pulumi.getter(name="complianceSecurityProfileStandards")
     def compliance_security_profile_standards(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+        A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
 
         > **Note:** `compliance_security_profile_enabled` must be set to `true` in order to use `compliance_security_profile_standards`.
 

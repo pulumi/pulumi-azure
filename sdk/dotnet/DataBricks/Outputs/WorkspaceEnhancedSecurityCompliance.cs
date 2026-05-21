@@ -26,7 +26,7 @@ namespace Pulumi.Azure.DataBricks.Outputs
         /// </summary>
         public readonly bool? ComplianceSecurityProfileEnabled;
         /// <summary>
-        /// A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+        /// A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
         /// 
         /// &gt; **Note:** `ComplianceSecurityProfileEnabled` must be set to `True` in order to use `ComplianceSecurityProfileStandards`.
         /// 

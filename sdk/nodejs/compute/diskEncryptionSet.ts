@@ -255,7 +255,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `azure.authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
      * In this case, `azure.keyvault.AccessPolicy` is not needed.
      */
-    declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultKeyId: pulumi.Output<string>;
     /**
      * The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
      */
@@ -266,8 +266,10 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
     declare public readonly location: pulumi.Output<string>;
     /**
      * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     *
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
      */
-    declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
+    declare public readonly managedHsmKeyId: pulumi.Output<string>;
     /**
      * The name of the Disk Encryption Set. Changing this forces a new resource to be created.
      */
@@ -375,6 +377,8 @@ export interface DiskEncryptionSetState {
     location?: pulumi.Input<string | undefined>;
     /**
      * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     *
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
      */
     managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -432,6 +436,8 @@ export interface DiskEncryptionSetArgs {
     location?: pulumi.Input<string | undefined>;
     /**
      * Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+     *
+     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
      */
     managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**

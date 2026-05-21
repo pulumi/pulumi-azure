@@ -11,6 +11,8 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -115,6 +117,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Synapse` - 2021-06-01
+ * 
  * ## Import
  * 
  * Synapse Managed Private Endpoint can be imported using the `resource id`, e.g.
@@ -126,6 +135,24 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint")
 public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource {
+    /**
+     * A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+     * 
+     */
+    @Export(name="fullyQualifiedDomainNames", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> fullyQualifiedDomainNames;
+
+    /**
+     * @return A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+     * 
+     */
+    public Output<Optional<List<String>>> fullyQualifiedDomainNames() {
+        return Codegen.optional(this.fullyQualifiedDomainNames);
+    }
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
      * 

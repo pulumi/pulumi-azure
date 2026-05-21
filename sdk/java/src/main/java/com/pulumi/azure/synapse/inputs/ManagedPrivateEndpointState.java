@@ -6,6 +6,7 @@ package com.pulumi.azure.synapse.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -14,6 +15,25 @@ import javax.annotation.Nullable;
 public final class ManagedPrivateEndpointState extends com.pulumi.resources.ResourceArgs {
 
     public static final ManagedPrivateEndpointState Empty = new ManagedPrivateEndpointState();
+
+    /**
+     * A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+     * 
+     */
+    @Import(name="fullyQualifiedDomainNames")
+    private @Nullable Output<List<String>> fullyQualifiedDomainNames;
+
+    /**
+     * @return A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+     * 
+     */
+    public Optional<Output<List<String>>> fullyQualifiedDomainNames() {
+        return Optional.ofNullable(this.fullyQualifiedDomainNames);
+    }
 
     /**
      * Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
@@ -86,6 +106,7 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
     private ManagedPrivateEndpointState() {}
 
     private ManagedPrivateEndpointState(ManagedPrivateEndpointState $) {
+        this.fullyQualifiedDomainNames = $.fullyQualifiedDomainNames;
         this.name = $.name;
         this.subresourceName = $.subresourceName;
         this.synapseWorkspaceId = $.synapseWorkspaceId;
@@ -108,6 +129,43 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
 
         public Builder(ManagedPrivateEndpointState defaults) {
             $ = new ManagedPrivateEndpointState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param fullyQualifiedDomainNames A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedDomainNames(@Nullable Output<List<String>> fullyQualifiedDomainNames) {
+            $.fullyQualifiedDomainNames = fullyQualifiedDomainNames;
+            return this;
+        }
+
+        /**
+         * @param fullyQualifiedDomainNames A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedDomainNames(List<String> fullyQualifiedDomainNames) {
+            return fullyQualifiedDomainNames(Output.of(fullyQualifiedDomainNames));
+        }
+
+        /**
+         * @param fullyQualifiedDomainNames A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `fullyQualifiedDomainNames` must be specified when the `targetResourceId` is a Private Link Service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fullyQualifiedDomainNames(String... fullyQualifiedDomainNames) {
+            return fullyQualifiedDomainNames(List.of(fullyQualifiedDomainNames));
         }
 
         /**

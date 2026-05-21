@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  *                     .type("MatchRule")
  *                     .action("Block")
  *                     .matchConditions(FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                         .matchVariable("RemoteAddr")
+ *                         .matchVariable("SocketAddr")
  *                         .operator("IPMatch")
  *                         .negationCondition(false)
  *                         .matchValues(                        
@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  *                     .action("Block")
  *                     .matchConditions(                    
  *                         FrontdoorFirewallPolicyCustomRuleMatchConditionArgs.builder()
- *                             .matchVariable("RemoteAddr")
+ *                             .matchVariable("SocketAddr")
  *                             .operator("IPMatch")
  *                             .negationCondition(false)
  *                             .matchValues("192.168.1.0/24")
@@ -231,14 +231,14 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.customBlockResponseBody);
     }
     /**
-     * If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
      * 
      */
     @Export(name="customBlockResponseStatusCode", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> customBlockResponseStatusCode;
 
     /**
-     * @return If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
      * 
      */
     public Output<Optional<Integer>> customBlockResponseStatusCode() {

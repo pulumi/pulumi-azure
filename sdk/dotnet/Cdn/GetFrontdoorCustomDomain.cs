@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     public static class GetFrontdoorCustomDomain
     {
         /// <summary>
-        /// Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+        /// Gets information about an existing Front Door (standard/premium) Custom Domain.
         /// 
         /// ## Example Usage
         /// 
@@ -26,19 +26,26 @@ namespace Pulumi.Azure.Cdn
         /// {
         ///     var example = Azure.Cdn.GetFrontdoorCustomDomain.Invoke(new()
         ///     {
-        ///         Name = exampleAzurermCdnFrontdoorCustomDomain.Name,
-        ///         ProfileName = exampleAzurermCdnFrontdoorProfile.Name,
-        ///         ResourceGroupName = exampleAzurermCdnFrontdoorProfile.ResourceGroupName,
+        ///         Name = "existing-cdn-frontdoor-custom-domain",
+        ///         ProfileName = "existing-cdn-frontdoor-profile",
+        ///         ResourceGroupName = "existing-resource-group",
         ///     });
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Cdn` - 2025-04-15
         /// </summary>
         public static Task<GetFrontdoorCustomDomainResult> InvokeAsync(GetFrontdoorCustomDomainArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorCustomDomainResult>("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args ?? new GetFrontdoorCustomDomainArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+        /// Gets information about an existing Front Door (standard/premium) Custom Domain.
         /// 
         /// ## Example Usage
         /// 
@@ -52,19 +59,26 @@ namespace Pulumi.Azure.Cdn
         /// {
         ///     var example = Azure.Cdn.GetFrontdoorCustomDomain.Invoke(new()
         ///     {
-        ///         Name = exampleAzurermCdnFrontdoorCustomDomain.Name,
-        ///         ProfileName = exampleAzurermCdnFrontdoorProfile.Name,
-        ///         ResourceGroupName = exampleAzurermCdnFrontdoorProfile.ResourceGroupName,
+        ///         Name = "existing-cdn-frontdoor-custom-domain",
+        ///         ProfileName = "existing-cdn-frontdoor-profile",
+        ///         ResourceGroupName = "existing-resource-group",
         ///     });
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Cdn` - 2025-04-15
         /// </summary>
         public static Output<GetFrontdoorCustomDomainResult> Invoke(GetFrontdoorCustomDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorCustomDomainResult>("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args ?? new GetFrontdoorCustomDomainInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+        /// Gets information about an existing Front Door (standard/premium) Custom Domain.
         /// 
         /// ## Example Usage
         /// 
@@ -78,13 +92,20 @@ namespace Pulumi.Azure.Cdn
         /// {
         ///     var example = Azure.Cdn.GetFrontdoorCustomDomain.Invoke(new()
         ///     {
-        ///         Name = exampleAzurermCdnFrontdoorCustomDomain.Name,
-        ///         ProfileName = exampleAzurermCdnFrontdoorProfile.Name,
-        ///         ResourceGroupName = exampleAzurermCdnFrontdoorProfile.ResourceGroupName,
+        ///         Name = "existing-cdn-frontdoor-custom-domain",
+        ///         ProfileName = "existing-cdn-frontdoor-profile",
+        ///         ResourceGroupName = "existing-resource-group",
         ///     });
         /// 
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.Cdn` - 2025-04-15
         /// </summary>
         public static Output<GetFrontdoorCustomDomainResult> Invoke(GetFrontdoorCustomDomainInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorCustomDomainResult>("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args ?? new GetFrontdoorCustomDomainInvokeArgs(), options.WithDefaults());
@@ -151,9 +172,12 @@ namespace Pulumi.Azure.Cdn
         /// The ID of the Front Door Profile which the Front Door Custom Domain is bound to.
         /// </summary>
         public readonly string CdnFrontdoorProfileId;
+        /// <summary>
+        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+        /// </summary>
         public readonly string DnsZoneId;
         /// <summary>
-        /// The date time that the token expires.
+        /// The date and time that the token expires.
         /// </summary>
         public readonly string ExpirationDate;
         /// <summary>

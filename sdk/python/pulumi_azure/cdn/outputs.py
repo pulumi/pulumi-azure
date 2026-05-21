@@ -49,6 +49,8 @@ __all__ = [
     'EndpointGlobalDeliveryRuleUrlRewriteAction',
     'EndpointOrigin',
     'FrontdoorCustomDomainTls',
+    'FrontdoorCustomDomainTlsCipherSuite',
+    'FrontdoorCustomDomainTlsCipherSuiteCustomCiphers',
     'FrontdoorFirewallPolicyCustomRule',
     'FrontdoorFirewallPolicyCustomRuleMatchCondition',
     'FrontdoorFirewallPolicyLogScrubbing',
@@ -98,12 +100,18 @@ __all__ = [
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation',
     'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain',
     'GetFrontdoorCustomDomainTlResult',
+    'GetFrontdoorCustomDomainTlCipherSuiteResult',
+    'GetFrontdoorCustomDomainTlCipherSuiteCustomCipherResult',
     'GetFrontdoorOriginGroupHealthProbeResult',
     'GetFrontdoorOriginGroupLoadBalancingResult',
     'GetFrontdoorProfileIdentityResult',
     'GetFrontdoorProfileLogScrubbingRuleResult',
     'GetFrontdoorSecretSecretResult',
     'GetFrontdoorSecretSecretCustomerCertificateResult',
+    'GetFrontdoorSecurityPolicySecurityPolicyResult',
+    'GetFrontdoorSecurityPolicySecurityPolicyFirewallResult',
+    'GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationResult',
+    'GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainResult',
 ]
 
 @pulumi.output_type
@@ -2390,8 +2398,12 @@ class FrontdoorCustomDomainTls(dict):
             suggest = "cdn_frontdoor_secret_id"
         elif key == "certificateType":
             suggest = "certificate_type"
+        elif key == "cipherSuite":
+            suggest = "cipher_suite"
         elif key == "minimumTlsVersion":
             suggest = "minimum_tls_version"
+        elif key == "minimumVersion":
+            suggest = "minimum_version"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FrontdoorCustomDomainTls. Access the value via the '{suggest}' property getter instead.")
@@ -2407,28 +2419,37 @@ class FrontdoorCustomDomainTls(dict):
     def __init__(__self__, *,
                  cdn_frontdoor_secret_id: Optional[_builtins.str] = None,
                  certificate_type: Optional[_builtins.str] = None,
-                 minimum_tls_version: Optional[_builtins.str] = None):
+                 cipher_suite: Optional['outputs.FrontdoorCustomDomainTlsCipherSuite'] = None,
+                 minimum_tls_version: Optional[_builtins.str] = None,
+                 minimum_version: Optional[_builtins.str] = None):
         """
         :param _builtins.str cdn_frontdoor_secret_id: Resource ID of the Front Door Secret.
-        :param _builtins.str certificate_type: Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
                
-               > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
-        :param _builtins.str minimum_tls_version: TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
+               > **Note:** `cdn_frontdoor_secret_id` must be specified when `certificate_type` is `CustomerCertificate` and must not be specified when `certificate_type` is `ManagedCertificate`.
+        :param _builtins.str certificate_type: Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
                
-               > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
+               > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+        :param 'FrontdoorCustomDomainTlsCipherSuiteArgs' cipher_suite: A `cipher_suite` block as defined below.
+        :param _builtins.str minimum_version: TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
         """
         if cdn_frontdoor_secret_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_secret_id", cdn_frontdoor_secret_id)
         if certificate_type is not None:
             pulumi.set(__self__, "certificate_type", certificate_type)
+        if cipher_suite is not None:
+            pulumi.set(__self__, "cipher_suite", cipher_suite)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        if minimum_version is not None:
+            pulumi.set(__self__, "minimum_version", minimum_version)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorSecretId")
     def cdn_frontdoor_secret_id(self) -> Optional[_builtins.str]:
         """
         Resource ID of the Front Door Secret.
+
+        > **Note:** `cdn_frontdoor_secret_id` must be specified when `certificate_type` is `CustomerCertificate` and must not be specified when `certificate_type` is `ManagedCertificate`.
         """
         return pulumi.get(self, "cdn_frontdoor_secret_id")
 
@@ -2436,22 +2457,123 @@ class FrontdoorCustomDomainTls(dict):
     @pulumi.getter(name="certificateType")
     def certificate_type(self) -> Optional[_builtins.str]:
         """
-        Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+        Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 
-        > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+        > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
         """
         return pulumi.get(self, "certificate_type")
 
     @_builtins.property
-    @pulumi.getter(name="minimumTlsVersion")
-    @_utilities.deprecated("""As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider.""")
-    def minimum_tls_version(self) -> Optional[_builtins.str]:
+    @pulumi.getter(name="cipherSuite")
+    def cipher_suite(self) -> Optional['outputs.FrontdoorCustomDomainTlsCipherSuite']:
         """
-        TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
+        A `cipher_suite` block as defined below.
+        """
+        return pulumi.get(self, "cipher_suite")
 
-        > **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
-        """
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsVersion")
+    @_utilities.deprecated("""`minimum_tls_version` has been deprecated in favour of `minimum_version` and will be removed in v5.0 of the AzureRM provider""")
+    def minimum_tls_version(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "minimum_tls_version")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumVersion")
+    def minimum_version(self) -> Optional[_builtins.str]:
+        """
+        TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
+        """
+        return pulumi.get(self, "minimum_version")
+
+
+@pulumi.output_type
+class FrontdoorCustomDomainTlsCipherSuite(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customCiphers":
+            suggest = "custom_ciphers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontdoorCustomDomainTlsCipherSuite. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontdoorCustomDomainTlsCipherSuite.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontdoorCustomDomainTlsCipherSuite.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: _builtins.str,
+                 custom_ciphers: Optional['outputs.FrontdoorCustomDomainTlsCipherSuiteCustomCiphers'] = None):
+        """
+        :param _builtins.str type: The cipher suite set type. Possible values are `Customized`, `TLS12_2022`, and `TLS12_2023`.
+        :param 'FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs' custom_ciphers: A `custom_ciphers` block as defined below.
+               
+               > **Note:** The `custom_ciphers` block is required when `type` is set to `Customized` and must not be specified otherwise.
+        """
+        pulumi.set(__self__, "type", type)
+        if custom_ciphers is not None:
+            pulumi.set(__self__, "custom_ciphers", custom_ciphers)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The cipher suite set type. Possible values are `Customized`, `TLS12_2022`, and `TLS12_2023`.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="customCiphers")
+    def custom_ciphers(self) -> Optional['outputs.FrontdoorCustomDomainTlsCipherSuiteCustomCiphers']:
+        """
+        A `custom_ciphers` block as defined below.
+
+        > **Note:** The `custom_ciphers` block is required when `type` is set to `Customized` and must not be specified otherwise.
+        """
+        return pulumi.get(self, "custom_ciphers")
+
+
+@pulumi.output_type
+class FrontdoorCustomDomainTlsCipherSuiteCustomCiphers(dict):
+    def __init__(__self__, *,
+                 tls12s: Optional[Sequence[_builtins.str]] = None,
+                 tls13s: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] tls12s: A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+               
+               > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimum_version` is `TLS12` and `type` is `Customized`.
+        :param Sequence[_builtins.str] tls13s: A set of TLS 1.3 cipher suites. Possible values are `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+               
+               > **Note:** When `tls13` is specified, it must include both `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+        """
+        if tls12s is not None:
+            pulumi.set(__self__, "tls12s", tls12s)
+        if tls13s is not None:
+            pulumi.set(__self__, "tls13s", tls13s)
+
+    @_builtins.property
+    @pulumi.getter
+    def tls12s(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+
+        > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimum_version` is `TLS12` and `type` is `Customized`.
+        """
+        return pulumi.get(self, "tls12s")
+
+    @_builtins.property
+    @pulumi.getter
+    def tls13s(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A set of TLS 1.3 cipher suites. Possible values are `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+
+        > **Note:** When `tls13` is specified, it must include both `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
+        """
+        return pulumi.get(self, "tls13s")
 
 
 @pulumi.output_type
@@ -2612,6 +2734,8 @@ class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
         """
         :param Sequence[_builtins.str] match_values: Up to `600` possible values to match. Limit is in total across all `match_condition` blocks and `match_values` arguments. String value itself can be up to `256` characters in length.
         :param _builtins.str match_variable: The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+               
+               > **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
         :param _builtins.str operator: Comparison type to use for matching with the variable value. Possible values are `Any`, `BeginsWith`, `Contains`, `EndsWith`, `Equal`, `GeoMatch`, `GreaterThan`, `GreaterThanOrEqual`, `IPMatch`, `LessThan`, `LessThanOrEqual`, or `RegEx`.
         :param _builtins.bool negation_condition: Should the result of the condition be negated.
         :param _builtins.str selector: Match against a specific key if the `match_variable` is `QueryString`, `PostArgs`, `RequestHeader`, or `Cookies`.
@@ -2640,6 +2764,8 @@ class FrontdoorFirewallPolicyCustomRuleMatchCondition(dict):
     def match_variable(self) -> _builtins.str:
         """
         The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+
+        > **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
         """
         return pulumi.get(self, "match_variable")
 
@@ -5868,7 +5994,7 @@ class FrontdoorSecurityPolicySecurityPolicies(dict):
     def __init__(__self__, *,
                  firewall: 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall'):
         """
-        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallArgs' firewall: An `firewall` block as defined below.
+        :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallArgs' firewall: A `firewall` block as defined below.
         """
         pulumi.set(__self__, "firewall", firewall)
 
@@ -5876,7 +6002,7 @@ class FrontdoorSecurityPolicySecurityPolicies(dict):
     @pulumi.getter
     def firewall(self) -> 'outputs.FrontdoorSecurityPolicySecurityPoliciesFirewall':
         """
-        An `firewall` block as defined below.
+        A `firewall` block as defined below.
         """
         return pulumi.get(self, "firewall")
 
@@ -5905,7 +6031,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
                  cdn_frontdoor_firewall_policy_id: _builtins.str):
         """
         :param 'FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs' association: An `association` block as defined below.
-        :param _builtins.str cdn_frontdoor_firewall_policy_id: The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        :param _builtins.str cdn_frontdoor_firewall_policy_id: The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "association", association)
         pulumi.set(__self__, "cdn_frontdoor_firewall_policy_id", cdn_frontdoor_firewall_policy_id)
@@ -5922,7 +6048,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewall(dict):
     @pulumi.getter(name="cdnFrontdoorFirewallPolicyId")
     def cdn_frontdoor_firewall_policy_id(self) -> _builtins.str:
         """
-        The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_firewall_policy_id")
 
@@ -5951,7 +6077,9 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
                  patterns_to_match: _builtins.str):
         """
         :param Sequence['FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs'] domains: One or more `domain` blocks as defined below.
-        :param _builtins.str patterns_to_match: The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+               
+               > **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `sku_name` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
+        :param _builtins.str patterns_to_match: The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "domains", domains)
         pulumi.set(__self__, "patterns_to_match", patterns_to_match)
@@ -5961,6 +6089,8 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
     def domains(self) -> Sequence['outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain']:
         """
         One or more `domain` blocks as defined below.
+
+        > **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `sku_name` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
         """
         return pulumi.get(self, "domains")
 
@@ -5968,7 +6098,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation(dict):
     @pulumi.getter(name="patternsToMatch")
     def patterns_to_match(self) -> _builtins.str:
         """
-        The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+        The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "patterns_to_match")
 
@@ -5997,7 +6127,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
                  active: Optional[_builtins.bool] = None):
         """
         :param _builtins.str cdn_frontdoor_domain_id: The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy.
-        :param _builtins.bool active: Is the Front Door Custom Domain/Endpoint activated?
+        :param _builtins.bool active: Whether the Front Door Custom Domain or Front Door Endpoint is active.
         """
         pulumi.set(__self__, "cdn_frontdoor_domain_id", cdn_frontdoor_domain_id)
         if active is not None:
@@ -6015,7 +6145,7 @@ class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain(dict):
     @pulumi.getter
     def active(self) -> Optional[_builtins.bool]:
         """
-        Is the Front Door Custom Domain/Endpoint activated?
+        Whether the Front Door Custom Domain or Front Door Endpoint is active.
         """
         return pulumi.get(self, "active")
 
@@ -6025,15 +6155,20 @@ class GetFrontdoorCustomDomainTlResult(dict):
     def __init__(__self__, *,
                  cdn_frontdoor_secret_id: _builtins.str,
                  certificate_type: _builtins.str,
-                 minimum_tls_version: _builtins.str):
+                 cipher_suites: Sequence['outputs.GetFrontdoorCustomDomainTlCipherSuiteResult'],
+                 minimum_tls_version: _builtins.str,
+                 minimum_version: _builtins.str):
         """
         :param _builtins.str cdn_frontdoor_secret_id: The Resource ID of the Front Door Secret.
         :param _builtins.str certificate_type: The SSL certificate type.
-        :param _builtins.str minimum_tls_version: The TLS protocol version that will be used for Https connections.
+        :param Sequence['GetFrontdoorCustomDomainTlCipherSuiteArgs'] cipher_suites: A `cipher_suite` block as defined below.
+        :param _builtins.str minimum_version: The TLS protocol version that will be used for Https connections.
         """
         pulumi.set(__self__, "cdn_frontdoor_secret_id", cdn_frontdoor_secret_id)
         pulumi.set(__self__, "certificate_type", certificate_type)
+        pulumi.set(__self__, "cipher_suites", cipher_suites)
         pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
+        pulumi.set(__self__, "minimum_version", minimum_version)
 
     @_builtins.property
     @pulumi.getter(name="cdnFrontdoorSecretId")
@@ -6052,12 +6187,84 @@ class GetFrontdoorCustomDomainTlResult(dict):
         return pulumi.get(self, "certificate_type")
 
     @_builtins.property
+    @pulumi.getter(name="cipherSuites")
+    def cipher_suites(self) -> Sequence['outputs.GetFrontdoorCustomDomainTlCipherSuiteResult']:
+        """
+        A `cipher_suite` block as defined below.
+        """
+        return pulumi.get(self, "cipher_suites")
+
+    @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
+    @_utilities.deprecated("""`minimum_tls_version` has been deprecated in favour of `minimum_version` and will be removed in v5.0 of the AzureRM provider""")
     def minimum_tls_version(self) -> _builtins.str:
+        return pulumi.get(self, "minimum_tls_version")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumVersion")
+    def minimum_version(self) -> _builtins.str:
         """
         The TLS protocol version that will be used for Https connections.
         """
-        return pulumi.get(self, "minimum_tls_version")
+        return pulumi.get(self, "minimum_version")
+
+
+@pulumi.output_type
+class GetFrontdoorCustomDomainTlCipherSuiteResult(dict):
+    def __init__(__self__, *,
+                 custom_ciphers: Sequence['outputs.GetFrontdoorCustomDomainTlCipherSuiteCustomCipherResult'],
+                 type: _builtins.str):
+        """
+        :param Sequence['GetFrontdoorCustomDomainTlCipherSuiteCustomCipherArgs'] custom_ciphers: A `custom_ciphers` block as defined below.
+        :param _builtins.str type: The TLS policy type used for this Front Door Custom Domain.
+        """
+        pulumi.set(__self__, "custom_ciphers", custom_ciphers)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter(name="customCiphers")
+    def custom_ciphers(self) -> Sequence['outputs.GetFrontdoorCustomDomainTlCipherSuiteCustomCipherResult']:
+        """
+        A `custom_ciphers` block as defined below.
+        """
+        return pulumi.get(self, "custom_ciphers")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The TLS policy type used for this Front Door Custom Domain.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetFrontdoorCustomDomainTlCipherSuiteCustomCipherResult(dict):
+    def __init__(__self__, *,
+                 tls12s: Sequence[_builtins.str],
+                 tls13s: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] tls12s: A set of TLS 1.2 cipher suites.
+        :param Sequence[_builtins.str] tls13s: A set of TLS 1.3 cipher suites.
+        """
+        pulumi.set(__self__, "tls12s", tls12s)
+        pulumi.set(__self__, "tls13s", tls13s)
+
+    @_builtins.property
+    @pulumi.getter
+    def tls12s(self) -> Sequence[_builtins.str]:
+        """
+        A set of TLS 1.2 cipher suites.
+        """
+        return pulumi.get(self, "tls12s")
+
+    @_builtins.property
+    @pulumi.getter
+    def tls13s(self) -> Sequence[_builtins.str]:
+        """
+        A set of TLS 1.3 cipher suites.
+        """
+        return pulumi.get(self, "tls13s")
 
 
 @pulumi.output_type
@@ -6268,5 +6475,110 @@ class GetFrontdoorSecretSecretCustomerCertificateResult(dict):
         One or more `subject alternative names` contained within the key vault certificate.
         """
         return pulumi.get(self, "subject_alternative_names")
+
+
+@pulumi.output_type
+class GetFrontdoorSecurityPolicySecurityPolicyResult(dict):
+    def __init__(__self__, *,
+                 firewalls: Sequence['outputs.GetFrontdoorSecurityPolicySecurityPolicyFirewallResult']):
+        """
+        :param Sequence['GetFrontdoorSecurityPolicySecurityPolicyFirewallArgs'] firewalls: A `firewall` block as defined below.
+        """
+        pulumi.set(__self__, "firewalls", firewalls)
+
+    @_builtins.property
+    @pulumi.getter
+    def firewalls(self) -> Sequence['outputs.GetFrontdoorSecurityPolicySecurityPolicyFirewallResult']:
+        """
+        A `firewall` block as defined below.
+        """
+        return pulumi.get(self, "firewalls")
+
+
+@pulumi.output_type
+class GetFrontdoorSecurityPolicySecurityPolicyFirewallResult(dict):
+    def __init__(__self__, *,
+                 associations: Sequence['outputs.GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationResult'],
+                 cdn_frontdoor_firewall_policy_id: _builtins.str):
+        """
+        :param Sequence['GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationArgs'] associations: An `association` block as defined below.
+        :param _builtins.str cdn_frontdoor_firewall_policy_id: The ID of the Front Door Firewall Policy associated with this Front Door Security Policy.
+        """
+        pulumi.set(__self__, "associations", associations)
+        pulumi.set(__self__, "cdn_frontdoor_firewall_policy_id", cdn_frontdoor_firewall_policy_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def associations(self) -> Sequence['outputs.GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationResult']:
+        """
+        An `association` block as defined below.
+        """
+        return pulumi.get(self, "associations")
+
+    @_builtins.property
+    @pulumi.getter(name="cdnFrontdoorFirewallPolicyId")
+    def cdn_frontdoor_firewall_policy_id(self) -> _builtins.str:
+        """
+        The ID of the Front Door Firewall Policy associated with this Front Door Security Policy.
+        """
+        return pulumi.get(self, "cdn_frontdoor_firewall_policy_id")
+
+
+@pulumi.output_type
+class GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationResult(dict):
+    def __init__(__self__, *,
+                 domains: Sequence['outputs.GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainResult'],
+                 patterns_to_matches: Sequence[_builtins.str]):
+        """
+        :param Sequence['GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainArgs'] domains: A `domain` block as defined below.
+        :param Sequence[_builtins.str] patterns_to_matches: The paths associated with this firewall policy.
+        """
+        pulumi.set(__self__, "domains", domains)
+        pulumi.set(__self__, "patterns_to_matches", patterns_to_matches)
+
+    @_builtins.property
+    @pulumi.getter
+    def domains(self) -> Sequence['outputs.GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainResult']:
+        """
+        A `domain` block as defined below.
+        """
+        return pulumi.get(self, "domains")
+
+    @_builtins.property
+    @pulumi.getter(name="patternsToMatches")
+    def patterns_to_matches(self) -> Sequence[_builtins.str]:
+        """
+        The paths associated with this firewall policy.
+        """
+        return pulumi.get(self, "patterns_to_matches")
+
+
+@pulumi.output_type
+class GetFrontdoorSecurityPolicySecurityPolicyFirewallAssociationDomainResult(dict):
+    def __init__(__self__, *,
+                 active: _builtins.bool,
+                 cdn_frontdoor_domain_id: _builtins.str):
+        """
+        :param _builtins.bool active: Is the Front Door Custom Domain or Front Door Endpoint active?
+        :param _builtins.str cdn_frontdoor_domain_id: The ID of the Front Door Custom Domain or Front Door Endpoint associated with this Front Door Security Policy.
+        """
+        pulumi.set(__self__, "active", active)
+        pulumi.set(__self__, "cdn_frontdoor_domain_id", cdn_frontdoor_domain_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def active(self) -> _builtins.bool:
+        """
+        Is the Front Door Custom Domain or Front Door Endpoint active?
+        """
+        return pulumi.get(self, "active")
+
+    @_builtins.property
+    @pulumi.getter(name="cdnFrontdoorDomainId")
+    def cdn_frontdoor_domain_id(self) -> _builtins.str:
+        """
+        The ID of the Front Door Custom Domain or Front Door Endpoint associated with this Front Door Security Policy.
+        """
+        return pulumi.get(self, "cdn_frontdoor_domain_id")
 
 

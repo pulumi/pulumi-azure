@@ -240,6 +240,13 @@ class MongoDatabase(pulumi.CustomResource):
             throughput=400)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
+
         ## Import
 
         Cosmos Mongo Database can be imported using the `resource id`, e.g.
@@ -284,6 +291,13 @@ class MongoDatabase(pulumi.CustomResource):
             account_name=example.name,
             throughput=400)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
 
         ## Import
 

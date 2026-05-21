@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages the association between a NAT Gateway and a Public IP Prefix.
+// Manages a NAT Gateway Public IP Prefix association.
 //
 // ## Example Usage
 //
@@ -30,14 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-//				Name:     pulumi.String("example-resources"),
+//				Name:     pulumi.String("example-resource-group"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			examplePublicIpPrefix, err := network.NewPublicIpPrefix(ctx, "example", &network.PublicIpPrefixArgs{
-//				Name:              pulumi.String("example"),
+//				Name:              pulumi.String("example-public-ip-prefix"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				PrefixLength:      pulumi.Int(30),
@@ -49,10 +49,65 @@ import (
 //				return err
 //			}
 //			exampleNatGateway, err := network.NewNatGateway(ctx, "example", &network.NatGatewayArgs{
-//				Name:              pulumi.String("example-NatGateway"),
+//				Name:              pulumi.String("example-nat-gateway"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewNatGatewayPublicIpPrefixAssociation(ctx, "example", &network.NatGatewayPublicIpPrefixAssociationArgs{
+//				NatGatewayId:     exampleNatGateway.ID(),
+//				PublicIpPrefixId: examplePublicIpPrefix.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### IPv6
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resource-group"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			examplePublicIpPrefix, err := network.NewPublicIpPrefix(ctx, "example", &network.PublicIpPrefixArgs{
+//				Name:              pulumi.String("example-public-ip-prefix"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				IpVersion:         pulumi.String("IPv6"),
+//				PrefixLength:      pulumi.Int(127),
+//				Sku:               pulumi.String("StandardV2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleNatGateway, err := network.NewNatGateway(ctx, "example", &network.NatGatewayArgs{
+//				Name:              pulumi.String("example-nat-gateway"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("StandardV2"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,21 +134,23 @@ import (
 //
 // ## Import
 //
-// Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
+// A NAT Gateway Public IP Prefix association can be imported using the `resource id`, e.g.
 //
 // ```sh
-// $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
+// $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/natGateways/natGateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/publicIPPrefixes/publicIPPrefix1"
 // ```
 //
-// > **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPPrefixID}`
+// > **Note:** This is a Terraform-specific ID in the format `{natGatewayID}|{publicIPPrefixID}`.
 type NatGatewayPublicIpPrefixAssociation struct {
 	pulumi.CustomResourceState
 
 	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId pulumi.StringOutput `pulumi:"natGatewayId"`
-	// The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+	// > **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `StandardV2`.
+	//
+	// > **Note:** When `publicIpPrefixId` references an `IPv6` Public IP Prefix, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpPrefixId` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
 	PublicIpPrefixId pulumi.StringOutput `pulumi:"publicIpPrefixId"`
 }
 
@@ -135,18 +192,22 @@ func GetNatGatewayPublicIpPrefixAssociation(ctx *pulumi.Context,
 type natGatewayPublicIpPrefixAssociationState struct {
 	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId *string `pulumi:"natGatewayId"`
-	// The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+	// > **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `StandardV2`.
+	//
+	// > **Note:** When `publicIpPrefixId` references an `IPv6` Public IP Prefix, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpPrefixId` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
 }
 
 type NatGatewayPublicIpPrefixAssociationState struct {
 	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId pulumi.StringPtrInput
-	// The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+	// > **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `StandardV2`.
+	//
+	// > **Note:** When `publicIpPrefixId` references an `IPv6` Public IP Prefix, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpPrefixId` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
 	PublicIpPrefixId pulumi.StringPtrInput
 }
 
@@ -157,9 +218,11 @@ func (NatGatewayPublicIpPrefixAssociationState) ElementType() reflect.Type {
 type natGatewayPublicIpPrefixAssociationArgs struct {
 	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId string `pulumi:"natGatewayId"`
-	// The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+	// > **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `StandardV2`.
+	//
+	// > **Note:** When `publicIpPrefixId` references an `IPv6` Public IP Prefix, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpPrefixId` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
 	PublicIpPrefixId string `pulumi:"publicIpPrefixId"`
 }
 
@@ -167,9 +230,11 @@ type natGatewayPublicIpPrefixAssociationArgs struct {
 type NatGatewayPublicIpPrefixAssociationArgs struct {
 	// The ID of the NAT Gateway. Changing this forces a new resource to be created.
 	NatGatewayId pulumi.StringInput
-	// The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+	// The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+	// > **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `StandardV2`.
+	//
+	// > **Note:** When `publicIpPrefixId` references an `IPv6` Public IP Prefix, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpPrefixId` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
 	PublicIpPrefixId pulumi.StringInput
 }
 
@@ -265,9 +330,11 @@ func (o NatGatewayPublicIpPrefixAssociationOutput) NatGatewayId() pulumi.StringO
 	return o.ApplyT(func(v *NatGatewayPublicIpPrefixAssociation) pulumi.StringOutput { return v.NatGatewayId }).(pulumi.StringOutput)
 }
 
-// The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+// The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
 //
-// > **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+// > **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `StandardV2`.
+//
+// > **Note:** When `publicIpPrefixId` references an `IPv6` Public IP Prefix, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpPrefixId` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
 func (o NatGatewayPublicIpPrefixAssociationOutput) PublicIpPrefixId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NatGatewayPublicIpPrefixAssociation) pulumi.StringOutput { return v.PublicIpPrefixId }).(pulumi.StringOutput)
 }

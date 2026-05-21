@@ -36,12 +36,16 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
     /**
      * The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
      * 
+     * &gt; **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
+     * 
      */
     @Import(name="matchVariable", required=true)
     private Output<String> matchVariable;
 
     /**
      * @return The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+     * 
+     * &gt; **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
      * 
      */
     public Output<String> matchVariable() {
@@ -171,6 +175,8 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
         /**
          * @param matchVariable The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
          * 
+         * &gt; **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
+         * 
          * @return builder
          * 
          */
@@ -181,6 +187,8 @@ public final class FrontdoorFirewallPolicyCustomRuleMatchConditionArgs extends c
 
         /**
          * @param matchVariable The request variable to compare with. Possible values are `Cookies`, `PostArgs`, `QueryString`, `RemoteAddr`, `RequestBody`, `RequestHeader`, `RequestMethod`, `RequestUri`, or `SocketAddr`.
+         * 
+         * &gt; **Note:** `RemoteAddr` inspects the original client IP from the `X-Forwarded-For` header. Use `SocketAddr` when you need to match the source IP address seen by Front Door WAF.
          * 
          * @return builder
          * 

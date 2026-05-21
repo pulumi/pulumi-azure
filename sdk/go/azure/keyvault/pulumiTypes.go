@@ -1017,7 +1017,7 @@ func (o CertifiateCertificatePolicyLifetimeActionArrayOutput) Index(i pulumi.Int
 }
 
 type CertifiateCertificatePolicyLifetimeActionAction struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+	// The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
 	ActionType string `pulumi:"actionType"`
 }
 
@@ -1033,7 +1033,7 @@ type CertifiateCertificatePolicyLifetimeActionActionInput interface {
 }
 
 type CertifiateCertificatePolicyLifetimeActionActionArgs struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+	// The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 }
 
@@ -1063,7 +1063,7 @@ func (o CertifiateCertificatePolicyLifetimeActionActionOutput) ToCertifiateCerti
 	return o
 }
 
-// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+// The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
 func (o CertifiateCertificatePolicyLifetimeActionActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertifiateCertificatePolicyLifetimeActionAction) string { return v.ActionType }).(pulumi.StringOutput)
 }
@@ -2666,7 +2666,7 @@ func (o CertificateCertificatePolicyLifetimeActionArrayOutput) Index(i pulumi.In
 }
 
 type CertificateCertificatePolicyLifetimeActionAction struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+	// The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
 	ActionType string `pulumi:"actionType"`
 }
 
@@ -2682,7 +2682,7 @@ type CertificateCertificatePolicyLifetimeActionActionInput interface {
 }
 
 type CertificateCertificatePolicyLifetimeActionActionArgs struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+	// The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 }
 
@@ -2712,7 +2712,7 @@ func (o CertificateCertificatePolicyLifetimeActionActionOutput) ToCertificateCer
 	return o
 }
 
-// The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+// The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
 func (o CertificateCertificatePolicyLifetimeActionActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v CertificateCertificatePolicyLifetimeActionAction) string { return v.ActionType }).(pulumi.StringOutput)
 }
@@ -5096,7 +5096,7 @@ func (o GetCertificateCertificatePolicyLifetimeActionArrayOutput) Index(i pulumi
 }
 
 type GetCertificateCertificatePolicyLifetimeActionAction struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec.
+	// The Type of action to be performed when the lifetime trigger is triggered.
 	ActionType string `pulumi:"actionType"`
 }
 
@@ -5112,7 +5112,7 @@ type GetCertificateCertificatePolicyLifetimeActionActionInput interface {
 }
 
 type GetCertificateCertificatePolicyLifetimeActionActionArgs struct {
-	// The Type of action to be performed when the lifetime trigger is triggerec.
+	// The Type of action to be performed when the lifetime trigger is triggered.
 	ActionType pulumi.StringInput `pulumi:"actionType"`
 }
 
@@ -5167,7 +5167,7 @@ func (o GetCertificateCertificatePolicyLifetimeActionActionOutput) ToGetCertific
 	return o
 }
 
-// The Type of action to be performed when the lifetime trigger is triggerec.
+// The Type of action to be performed when the lifetime trigger is triggered.
 func (o GetCertificateCertificatePolicyLifetimeActionActionOutput) ActionType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateCertificatePolicyLifetimeActionAction) string { return v.ActionType }).(pulumi.StringOutput)
 }

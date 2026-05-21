@@ -17,7 +17,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewall {
      */
     private FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation association;
     /**
-     * @return The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+     * @return The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
      * 
      */
     private String cdnFrontdoorFirewallPolicyId;
@@ -31,7 +31,7 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewall {
         return this.association;
     }
     /**
-     * @return The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+     * @return The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
      * 
      */
     public String cdnFrontdoorFirewallPolicyId() {

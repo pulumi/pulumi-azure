@@ -423,6 +423,13 @@ class MongoCollection(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
+
         ## Import
 
         CosmosDB Mongo Collection can be imported using the `resource id`, e.g.
@@ -481,6 +488,13 @@ class MongoCollection(pulumi.CustomResource):
                 "unique": True,
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
 
         ## Import
 

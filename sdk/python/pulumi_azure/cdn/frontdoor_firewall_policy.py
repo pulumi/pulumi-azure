@@ -50,7 +50,7 @@ class FrontdoorFirewallPolicyArgs:
                
                > **Note:** When you remove the `captcha_cookie_expiration_in_minutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
         :param pulumi.Input[_builtins.str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
-        :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
@@ -167,7 +167,7 @@ class FrontdoorFirewallPolicyArgs:
     @pulumi.getter(name="customBlockResponseStatusCode")
     def custom_block_response_status_code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         """
         return pulumi.get(self, "custom_block_response_status_code")
 
@@ -320,7 +320,7 @@ class _FrontdoorFirewallPolicyState:
                
                > **Note:** When you remove the `captcha_cookie_expiration_in_minutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
         :param pulumi.Input[_builtins.str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
-        :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         :param pulumi.Input[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleArgs']]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
@@ -410,7 +410,7 @@ class _FrontdoorFirewallPolicyState:
     @pulumi.getter(name="customBlockResponseStatusCode")
     def custom_block_response_status_code(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         """
         return pulumi.get(self, "custom_block_response_status_code")
 
@@ -642,7 +642,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "type": "MatchRule",
                     "action": "Block",
                     "match_conditions": [{
-                        "match_variable": "RemoteAddr",
+                        "match_variable": "SocketAddr",
                         "operator": "IPMatch",
                         "negation_condition": False,
                         "match_values": [
@@ -661,7 +661,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "action": "Block",
                     "match_conditions": [
                         {
-                            "match_variable": "RemoteAddr",
+                            "match_variable": "SocketAddr",
                             "operator": "IPMatch",
                             "negation_condition": False,
                             "match_values": ["192.168.1.0/24"],
@@ -759,7 +759,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                
                > **Note:** When you remove the `captcha_cookie_expiration_in_minutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
         :param pulumi.Input[_builtins.str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
-        :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.int] js_challenge_cookie_expiration_in_minutes: Specifies the JavaScript challenge cookie lifetime in minutes, after which the user will be revalidated. Possible values are between `5` to `1440` minutes. Defaults to `30` minutes.
@@ -824,7 +824,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "type": "MatchRule",
                     "action": "Block",
                     "match_conditions": [{
-                        "match_variable": "RemoteAddr",
+                        "match_variable": "SocketAddr",
                         "operator": "IPMatch",
                         "negation_condition": False,
                         "match_values": [
@@ -843,7 +843,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                     "action": "Block",
                     "match_conditions": [
                         {
-                            "match_variable": "RemoteAddr",
+                            "match_variable": "SocketAddr",
                             "operator": "IPMatch",
                             "negation_condition": False,
                             "match_values": ["192.168.1.0/24"],
@@ -1033,7 +1033,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
                
                > **Note:** When you remove the `captcha_cookie_expiration_in_minutes` field from your configuration, the value will revert to the default of `30` minutes in the Terraform state. This is because Azure manages this setting and Terraform will reflect the actual Azure configuration, which defaults to `30` minutes when not explicitly specified.
         :param pulumi.Input[_builtins.str] custom_block_response_body: If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
-        :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        :param pulumi.Input[_builtins.int] custom_block_response_status_code: If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FrontdoorFirewallPolicyCustomRuleArgs', 'FrontdoorFirewallPolicyCustomRuleArgsDict']]]] custom_rules: One or more `custom_rule` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Front Door Firewall Policy enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] frontend_endpoint_ids: The Front Door Profiles frontend endpoints associated with this Front Door Firewall Policy.
@@ -1104,7 +1104,7 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
     @pulumi.getter(name="customBlockResponseStatusCode")
     def custom_block_response_status_code(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         """
         return pulumi.get(self, "custom_block_response_status_code")
 

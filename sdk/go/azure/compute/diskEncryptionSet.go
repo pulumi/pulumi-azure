@@ -314,13 +314,15 @@ type DiskEncryptionSet struct {
 	//
 	// > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 	// In this case, `keyvault.AccessPolicy` is not needed.
-	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
+	KeyVaultKeyId pulumi.StringOutput `pulumi:"keyVaultKeyId"`
 	// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
 	KeyVaultKeyUrl pulumi.StringOutput `pulumi:"keyVaultKeyUrl"`
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
-	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
+	//
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
+	ManagedHsmKeyId pulumi.StringOutput `pulumi:"managedHsmKeyId"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
@@ -391,6 +393,8 @@ type diskEncryptionSetState struct {
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	//
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -427,6 +431,8 @@ type DiskEncryptionSetState struct {
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	//
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -465,6 +471,8 @@ type diskEncryptionSetArgs struct {
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	//
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -500,6 +508,8 @@ type DiskEncryptionSetArgs struct {
 	// Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
+	//
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
 	ManagedHsmKeyId pulumi.StringPtrInput
 	// The name of the Disk Encryption Set. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -628,8 +638,8 @@ func (o DiskEncryptionSetOutput) Identity() DiskEncryptionSetIdentityOutput {
 //
 // > **Note:** A KeyVault or Managed HSM using enableRbacAuthorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
 // In this case, `keyvault.AccessPolicy` is not needed.
-func (o DiskEncryptionSetOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
+func (o DiskEncryptionSetOutput) KeyVaultKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.KeyVaultKeyId }).(pulumi.StringOutput)
 }
 
 // The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
@@ -643,8 +653,10 @@ func (o DiskEncryptionSetOutput) Location() pulumi.StringOutput {
 }
 
 // Key ID of a key in a managed HSM. Exactly one of `managedHsmKeyId`, `keyVaultKeyId` must be specified.
-func (o DiskEncryptionSetOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
+//
+// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM Provider
+func (o DiskEncryptionSetOutput) ManagedHsmKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DiskEncryptionSet) pulumi.StringOutput { return v.ManagedHsmKeyId }).(pulumi.StringOutput)
 }
 
 // The name of the Disk Encryption Set. Changing this forces a new resource to be created.

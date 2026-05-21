@@ -70,13 +70,16 @@ class GetFrontdoorCustomDomainResult:
     @_builtins.property
     @pulumi.getter(name="dnsZoneId")
     def dns_zone_id(self) -> _builtins.str:
+        """
+        The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+        """
         return pulumi.get(self, "dns_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> _builtins.str:
         """
-        The date time that the token expires.
+        The date and time that the token expires.
         """
         return pulumi.get(self, "expiration_date")
 
@@ -151,7 +154,7 @@ def get_frontdoor_custom_domain(name: Optional[_builtins.str] = None,
                                 resource_group_name: Optional[_builtins.str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFrontdoorCustomDomainResult:
     """
-    Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+    Gets information about an existing Front Door (standard/premium) Custom Domain.
 
     ## Example Usage
 
@@ -159,10 +162,17 @@ def get_frontdoor_custom_domain(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_custom_domain(name=example_azurerm_cdn_frontdoor_custom_domain["name"],
-        profile_name=example_azurerm_cdn_frontdoor_profile["name"],
-        resource_group_name=example_azurerm_cdn_frontdoor_profile["resourceGroupName"])
+    example = azure.cdn.get_frontdoor_custom_domain(name="existing-cdn-frontdoor-custom-domain",
+        profile_name="existing-cdn-frontdoor-profile",
+        resource_group_name="existing-resource-group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cdn` - 2025-04-15
 
 
     :param _builtins.str name: The name of the Front Door Custom Domain.
@@ -192,7 +202,7 @@ def get_frontdoor_custom_domain_output(name: pulumi.Input[Optional[_builtins.str
                                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrontdoorCustomDomainResult]:
     """
-    Use this data source to access information about an existing Front Door (standard/premium) Custom Domain.
+    Gets information about an existing Front Door (standard/premium) Custom Domain.
 
     ## Example Usage
 
@@ -200,10 +210,17 @@ def get_frontdoor_custom_domain_output(name: pulumi.Input[Optional[_builtins.str
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cdn.get_frontdoor_custom_domain(name=example_azurerm_cdn_frontdoor_custom_domain["name"],
-        profile_name=example_azurerm_cdn_frontdoor_profile["name"],
-        resource_group_name=example_azurerm_cdn_frontdoor_profile["resourceGroupName"])
+    example = azure.cdn.get_frontdoor_custom_domain(name="existing-cdn-frontdoor-custom-domain",
+        profile_name="existing-cdn-frontdoor-profile",
+        resource_group_name="existing-resource-group")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cdn` - 2025-04-15
 
 
     :param _builtins.str name: The name of the Front Door Custom Domain.

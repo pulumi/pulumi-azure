@@ -2269,15 +2269,15 @@ func (o JobTargetGroupJobTargetArrayOutput) Index(i pulumi.IntInput) JobTargetGr
 }
 
 type ManagedDatabaseLongTermRetentionPolicy struct {
-	// Specifies if the backups are immutable. Defaults to `false`.
+	// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
 	ImmutableBackupsEnabled *bool `pulumi:"immutableBackupsEnabled"`
-	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
+	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 	MonthlyRetention *string `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
 	WeekOfYear *int `pulumi:"weekOfYear"`
-	// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+	// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
 	WeeklyRetention *string `pulumi:"weeklyRetention"`
-	// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
+	// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
 	YearlyRetention *string `pulumi:"yearlyRetention"`
 }
 
@@ -2293,15 +2293,15 @@ type ManagedDatabaseLongTermRetentionPolicyInput interface {
 }
 
 type ManagedDatabaseLongTermRetentionPolicyArgs struct {
-	// Specifies if the backups are immutable. Defaults to `false`.
+	// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
 	ImmutableBackupsEnabled pulumi.BoolPtrInput `pulumi:"immutableBackupsEnabled"`
-	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
+	// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 	MonthlyRetention pulumi.StringPtrInput `pulumi:"monthlyRetention"`
 	// The week of year to take the yearly backup. Value has to be between `1` and `52`.
 	WeekOfYear pulumi.IntPtrInput `pulumi:"weekOfYear"`
-	// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+	// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
 	WeeklyRetention pulumi.StringPtrInput `pulumi:"weeklyRetention"`
-	// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
+	// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
 	YearlyRetention pulumi.StringPtrInput `pulumi:"yearlyRetention"`
 }
 
@@ -2382,12 +2382,12 @@ func (o ManagedDatabaseLongTermRetentionPolicyOutput) ToManagedDatabaseLongTermR
 	}).(ManagedDatabaseLongTermRetentionPolicyPtrOutput)
 }
 
-// Specifies if the backups are immutable. Defaults to `false`.
+// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
 func (o ManagedDatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
+// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 func (o ManagedDatabaseLongTermRetentionPolicyOutput) MonthlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *string { return v.MonthlyRetention }).(pulumi.StringPtrOutput)
 }
@@ -2397,12 +2397,12 @@ func (o ManagedDatabaseLongTermRetentionPolicyOutput) WeekOfYear() pulumi.IntPtr
 	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *int { return v.WeekOfYear }).(pulumi.IntPtrOutput)
 }
 
-// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
 func (o ManagedDatabaseLongTermRetentionPolicyOutput) WeeklyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *string { return v.WeeklyRetention }).(pulumi.StringPtrOutput)
 }
 
-// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
+// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
 func (o ManagedDatabaseLongTermRetentionPolicyOutput) YearlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedDatabaseLongTermRetentionPolicy) *string { return v.YearlyRetention }).(pulumi.StringPtrOutput)
 }
@@ -2431,7 +2431,7 @@ func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) Elem() ManagedDatabaseL
 	}).(ManagedDatabaseLongTermRetentionPolicyOutput)
 }
 
-// Specifies if the backups are immutable. Defaults to `false`.
+// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
 func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ImmutableBackupsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *bool {
 		if v == nil {
@@ -2441,7 +2441,7 @@ func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) ImmutableBackupsEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
+// The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
 func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) MonthlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *string {
 		if v == nil {
@@ -2461,7 +2461,7 @@ func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) WeekOfYear() pulumi.Int
 	}).(pulumi.IntPtrOutput)
 }
 
-// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+// The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
 func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) WeeklyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *string {
 		if v == nil {
@@ -2471,7 +2471,7 @@ func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) WeeklyRetention() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
+// The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
 func (o ManagedDatabaseLongTermRetentionPolicyPtrOutput) YearlyRetention() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedDatabaseLongTermRetentionPolicy) *string {
 		if v == nil {
@@ -7838,7 +7838,7 @@ func (o GetFailoverGroupReadWriteEndpointFailoverPolicyArrayOutput) Index(i pulu
 }
 
 type GetManagedDatabaseLongTermRetentionPolicy struct {
-	// Specifies if the backups are immutable.
+	// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
 	ImmutableBackupsEnabled bool `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format.
 	MonthlyRetention string `pulumi:"monthlyRetention"`
@@ -7862,7 +7862,7 @@ type GetManagedDatabaseLongTermRetentionPolicyInput interface {
 }
 
 type GetManagedDatabaseLongTermRetentionPolicyArgs struct {
-	// Specifies if the backups are immutable.
+	// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
 	ImmutableBackupsEnabled pulumi.BoolInput `pulumi:"immutableBackupsEnabled"`
 	// The monthly retention policy for an LTR backup in an ISO 8601 format.
 	MonthlyRetention pulumi.StringInput `pulumi:"monthlyRetention"`
@@ -7925,7 +7925,7 @@ func (o GetManagedDatabaseLongTermRetentionPolicyOutput) ToGetManagedDatabaseLon
 	return o
 }
 
-// Specifies if the backups are immutable.
+// Deprecated: The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
 func (o GetManagedDatabaseLongTermRetentionPolicyOutput) ImmutableBackupsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetManagedDatabaseLongTermRetentionPolicy) bool { return v.ImmutableBackupsEnabled }).(pulumi.BoolOutput)
 }
