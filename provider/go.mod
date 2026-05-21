@@ -1,11 +1,11 @@
 module github.com/pulumi/pulumi-azure/provider/v6
 
-go 1.25.9
+go 1.25.10
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
-	github.com/hashicorp/go-azure-helpers v0.76.2
-	github.com/hashicorp/go-azure-sdk/sdk v0.20260407.1111603
+	github.com/hashicorp/go-azure-helpers v0.79.0
+	github.com/hashicorp/go-azure-sdk/sdk v0.20260417.1195006
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.38.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.6.0
@@ -127,7 +127,8 @@ require (
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.72 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-sdk/resource-manager v0.20260407.1111603 // indirect
+	github.com/hashicorp/go-azure-sdk/data-plane v0.20260417.1195006 // indirect
+	github.com/hashicorp/go-azure-sdk/resource-manager v0.20260417.1195006 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.5.0 // indirect
@@ -160,7 +161,7 @@ require (
 	github.com/iancoleman/strcase v0.3.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/iwdgo/sigintwindows v0.2.2 // indirect
-	github.com/jackofallops/giovanni v0.28.0 // indirect
+	github.com/jackofallops/giovanni v0.29.0 // indirect
 	github.com/jackofallops/kermit v0.20241010.1180132 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
