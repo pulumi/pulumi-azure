@@ -388,7 +388,7 @@ class Container(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage` - 2025-06-01
+        * `Microsoft.Storage` - 2025-08-01
 
         ## Import
 
@@ -453,7 +453,7 @@ class Container(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Storage` - 2025-06-01
+        * `Microsoft.Storage` - 2025-08-01
 
         ## Import
 

@@ -45,7 +45,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Storage` - 2025-06-01
+// * `Microsoft.Storage` - 2025-08-01
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQueueResult

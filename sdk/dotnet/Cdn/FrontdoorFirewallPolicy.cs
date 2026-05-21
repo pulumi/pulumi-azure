@@ -60,7 +60,7 @@ namespace Pulumi.Azure.Cdn
     ///                 {
     ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
     ///                     {
-    ///                         MatchVariable = "RemoteAddr",
+    ///                         MatchVariable = "SocketAddr",
     ///                         Operator = "IPMatch",
     ///                         NegationCondition = false,
     ///                         MatchValues = new[]
@@ -84,7 +84,7 @@ namespace Pulumi.Azure.Cdn
     ///                 {
     ///                     new Azure.Cdn.Inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs
     ///                     {
-    ///                         MatchVariable = "RemoteAddr",
+    ///                         MatchVariable = "SocketAddr",
     ///                         Operator = "IPMatch",
     ///                         NegationCondition = false,
     ///                         MatchValues = new[]
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.Cdn
         public Output<string?> CustomBlockResponseBody { get; private set; } = null!;
 
         /// <summary>
-        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         /// </summary>
         [Output("customBlockResponseStatusCode")]
         public Output<int?> CustomBlockResponseStatusCode { get; private set; } = null!;
@@ -386,7 +386,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? CustomBlockResponseBody { get; set; }
 
         /// <summary>
-        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         /// </summary>
         [Input("customBlockResponseStatusCode")]
         public Input<int>? CustomBlockResponseStatusCode { get; set; }
@@ -516,7 +516,7 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? CustomBlockResponseBody { get; set; }
 
         /// <summary>
-        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+        /// If a `CustomRule` block's action type is `Block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
         /// </summary>
         [Input("customBlockResponseStatusCode")]
         public Input<int>? CustomBlockResponseStatusCode { get; set; }

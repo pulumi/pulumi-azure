@@ -760,6 +760,10 @@ class EventHubCaptureDescriptionDestination(dict):
             suggest = "blob_container_name"
         elif key == "storageAccountId":
             suggest = "storage_account_id"
+        elif key == "storageAuthenticationId":
+            suggest = "storage_authentication_id"
+        elif key == "storageAuthenticationType":
+            suggest = "storage_authentication_type"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in EventHubCaptureDescriptionDestination. Access the value via the '{suggest}' property getter instead.")
@@ -776,7 +780,9 @@ class EventHubCaptureDescriptionDestination(dict):
                  archive_name_format: _builtins.str,
                  blob_container_name: _builtins.str,
                  name: _builtins.str,
-                 storage_account_id: _builtins.str):
+                 storage_account_id: _builtins.str,
+                 storage_authentication_id: Optional[_builtins.str] = None,
+                 storage_authentication_type: Optional[_builtins.str] = None):
         """
         :param _builtins.str archive_name_format: The Blob naming convention for archiving. e.g. `{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}`. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order
         :param _builtins.str blob_container_name: The name of the Container within the Blob Storage Account where messages should be archived.
@@ -784,11 +790,21 @@ class EventHubCaptureDescriptionDestination(dict):
                
                > **Note:** At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
         :param _builtins.str storage_account_id: The ID of the Blob Storage Account where messages should be archived.
+        :param _builtins.str storage_authentication_id: The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived. 
+               
+               > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+               
+               > **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+        :param _builtins.str storage_authentication_type: The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
         """
         pulumi.set(__self__, "archive_name_format", archive_name_format)
         pulumi.set(__self__, "blob_container_name", blob_container_name)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_authentication_id is not None:
+            pulumi.set(__self__, "storage_authentication_id", storage_authentication_id)
+        if storage_authentication_type is not None:
+            pulumi.set(__self__, "storage_authentication_type", storage_authentication_type)
 
     @_builtins.property
     @pulumi.getter(name="archiveNameFormat")
@@ -823,6 +839,26 @@ class EventHubCaptureDescriptionDestination(dict):
         The ID of the Blob Storage Account where messages should be archived.
         """
         return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAuthenticationId")
+    def storage_authentication_id(self) -> Optional[_builtins.str]:
+        """
+        The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived. 
+
+        > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+
+        > **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+        """
+        return pulumi.get(self, "storage_authentication_id")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAuthenticationType")
+    def storage_authentication_type(self) -> Optional[_builtins.str]:
+        """
+        The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+        """
+        return pulumi.get(self, "storage_authentication_type")
 
 
 @pulumi.output_type

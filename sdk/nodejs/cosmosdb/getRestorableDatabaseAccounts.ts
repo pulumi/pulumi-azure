@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DocumentDB` - 2024-08-15
  */
 export function getRestorableDatabaseAccounts(args: GetRestorableDatabaseAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetRestorableDatabaseAccountsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -77,6 +84,13 @@ export interface GetRestorableDatabaseAccountsResult {
  * });
  * export const id = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DocumentDB` - 2024-08-15
  */
 export function getRestorableDatabaseAccountsOutput(args: GetRestorableDatabaseAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRestorableDatabaseAccountsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -166,6 +166,13 @@ class SqlFunction(pulumi.CustomResource):
             body="function trigger(){}")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
+
         ## Import
 
         SQL User Defined Functions can be imported using the `resource id`, e.g.
@@ -214,6 +221,13 @@ class SqlFunction(pulumi.CustomResource):
             container_id=example_sql_container.id,
             body="function trigger(){}")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
 
         ## Import
 

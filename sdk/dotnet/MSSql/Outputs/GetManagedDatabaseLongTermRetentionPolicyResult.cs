@@ -13,9 +13,6 @@ namespace Pulumi.Azure.MSSql.Outputs
     [OutputType]
     public sealed class GetManagedDatabaseLongTermRetentionPolicyResult
     {
-        /// <summary>
-        /// Specifies if the backups are immutable.
-        /// </summary>
         public readonly bool ImmutableBackupsEnabled;
         /// <summary>
         /// The monthly retention policy for an LTR backup in an ISO 8601 format.

@@ -82,6 +82,10 @@ type ChannelDirectLine struct {
 
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName pulumi.StringOutput `pulumi:"botName"`
+	// The first key for Directline App Service Extension.
+	ExtensionKey1 pulumi.StringOutput `pulumi:"extensionKey1"`
+	// The second key for Directline App Service Extension.
+	ExtensionKey2 pulumi.StringOutput `pulumi:"extensionKey2"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -106,6 +110,11 @@ func NewChannelDirectLine(ctx *pulumi.Context,
 	if args.Sites == nil {
 		return nil, errors.New("invalid value for required argument 'Sites'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"extensionKey1",
+		"extensionKey2",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ChannelDirectLine
 	err := ctx.RegisterResource("azure:bot/channelDirectLine:ChannelDirectLine", name, args, &resource, opts...)
@@ -131,6 +140,10 @@ func GetChannelDirectLine(ctx *pulumi.Context,
 type channelDirectLineState struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName *string `pulumi:"botName"`
+	// The first key for Directline App Service Extension.
+	ExtensionKey1 *string `pulumi:"extensionKey1"`
+	// The second key for Directline App Service Extension.
+	ExtensionKey2 *string `pulumi:"extensionKey2"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -142,6 +155,10 @@ type channelDirectLineState struct {
 type ChannelDirectLineState struct {
 	// The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 	BotName pulumi.StringPtrInput
+	// The first key for Directline App Service Extension.
+	ExtensionKey1 pulumi.StringPtrInput
+	// The second key for Directline App Service Extension.
+	ExtensionKey2 pulumi.StringPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
@@ -267,6 +284,16 @@ func (o ChannelDirectLineOutput) ToChannelDirectLineOutputWithContext(ctx contex
 // The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
 func (o ChannelDirectLineOutput) BotName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelDirectLine) pulumi.StringOutput { return v.BotName }).(pulumi.StringOutput)
+}
+
+// The first key for Directline App Service Extension.
+func (o ChannelDirectLineOutput) ExtensionKey1() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChannelDirectLine) pulumi.StringOutput { return v.ExtensionKey1 }).(pulumi.StringOutput)
+}
+
+// The second key for Directline App Service Extension.
+func (o ChannelDirectLineOutput) ExtensionKey2() pulumi.StringOutput {
+	return o.ApplyT(func(v *ChannelDirectLine) pulumi.StringOutput { return v.ExtensionKey2 }).(pulumi.StringOutput)
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.

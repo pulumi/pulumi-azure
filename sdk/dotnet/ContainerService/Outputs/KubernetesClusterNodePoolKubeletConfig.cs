@@ -18,8 +18,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly ImmutableArray<string> AllowedUnsafeSysctls;
         /// <summary>
-        /// Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+        /// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
         /// </summary>
+        public readonly int? ContainerLogMaxFiles;
         public readonly int? ContainerLogMaxLine;
         /// <summary>
         /// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -58,6 +59,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         private KubernetesClusterNodePoolKubeletConfig(
             ImmutableArray<string> allowedUnsafeSysctls,
 
+            int? containerLogMaxFiles,
+
             int? containerLogMaxLine,
 
             int? containerLogMaxSizeMb,
@@ -77,6 +80,7 @@ namespace Pulumi.Azure.ContainerService.Outputs
             string? topologyManagerPolicy)
         {
             AllowedUnsafeSysctls = allowedUnsafeSysctls;
+            ContainerLogMaxFiles = containerLogMaxFiles;
             ContainerLogMaxLine = containerLogMaxLine;
             ContainerLogMaxSizeMb = containerLogMaxSizeMb;
             CpuCfsQuotaEnabled = cpuCfsQuotaEnabled;

@@ -31,8 +31,8 @@ class AnomalyAlertArgs:
 
         :param pulumi.Input[_builtins.str] display_name: The display name which should be used for this Cost Anomaly Alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses which the Anomaly Alerts are send to.
-        :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
-        :param pulumi.Input[_builtins.str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
+        :param pulumi.Input[_builtins.str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
         :param pulumi.Input[_builtins.str] notification_email: The email address of the point of contact that should get the unsubscribe requests and notification emails.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
@@ -77,7 +77,7 @@ class AnomalyAlertArgs:
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> pulumi.Input[_builtins.str]:
         """
-        The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+        The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
         """
         return pulumi.get(self, "email_subject")
 
@@ -89,7 +89,7 @@ class AnomalyAlertArgs:
     @pulumi.getter
     def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         """
         return pulumi.get(self, "message")
 
@@ -149,8 +149,8 @@ class _AnomalyAlertState:
 
         :param pulumi.Input[_builtins.str] display_name: The display name which should be used for this Cost Anomaly Alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses which the Anomaly Alerts are send to.
-        :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
-        :param pulumi.Input[_builtins.str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
+        :param pulumi.Input[_builtins.str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
         :param pulumi.Input[_builtins.str] notification_email: The email address of the point of contact that should get the unsubscribe requests and notification emails.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
@@ -198,7 +198,7 @@ class _AnomalyAlertState:
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+        The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
         """
         return pulumi.get(self, "email_subject")
 
@@ -210,7 +210,7 @@ class _AnomalyAlertState:
     @pulumi.getter
     def message(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         """
         return pulumi.get(self, "message")
 
@@ -308,8 +308,8 @@ class AnomalyAlert(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The display name which should be used for this Cost Anomaly Alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses which the Anomaly Alerts are send to.
-        :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
-        :param pulumi.Input[_builtins.str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
+        :param pulumi.Input[_builtins.str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
         :param pulumi.Input[_builtins.str] notification_email: The email address of the point of contact that should get the unsubscribe requests and notification emails.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
@@ -425,8 +425,8 @@ class AnomalyAlert(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The display name which should be used for this Cost Anomaly Alert.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses which the Anomaly Alerts are send to.
-        :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
-        :param pulumi.Input[_builtins.str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        :param pulumi.Input[_builtins.str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
+        :param pulumi.Input[_builtins.str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
         :param pulumi.Input[_builtins.str] notification_email: The email address of the point of contact that should get the unsubscribe requests and notification emails.
         :param pulumi.Input[_builtins.str] subscription_id: The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
@@ -464,7 +464,7 @@ class AnomalyAlert(pulumi.CustomResource):
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> pulumi.Output[_builtins.str]:
         """
-        The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+        The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
         """
         return pulumi.get(self, "email_subject")
 
@@ -472,7 +472,7 @@ class AnomalyAlert(pulumi.CustomResource):
     @pulumi.getter
     def message(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         """
         return pulumi.get(self, "message")
 

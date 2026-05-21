@@ -78,22 +78,24 @@ namespace Pulumi.Azure.Bot
         public Output<string> BotName { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Cognitive Account this Bot Channel should be associated with.
+        /// The ID of the Cognitive Account this Bot Channel should be associated with. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
+        /// 
+        /// !&gt; **Note:** Once added, `CognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
         /// </summary>
         [Output("cognitiveAccountId")]
         public Output<string?> CognitiveAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The access key to access the Cognitive Service.
+        /// The access key to access the Cognitive Service. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
         /// </summary>
         [Output("cognitiveServiceAccessKey")]
-        public Output<string> CognitiveServiceAccessKey { get; private set; } = null!;
+        public Output<string?> CognitiveServiceAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the supported Azure location where the Cognitive Service resource exists.
+        /// Specifies the supported Azure location where the Cognitive Service resource exists. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
         /// </summary>
         [Output("cognitiveServiceLocation")]
-        public Output<string> CognitiveServiceLocation { get; private set; } = null!;
+        public Output<string?> CognitiveServiceLocation { get; private set; } = null!;
 
         /// <summary>
         /// The custom speech model id for the Direct Line Speech Channel.
@@ -176,16 +178,18 @@ namespace Pulumi.Azure.Bot
         public Input<string> BotName { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Cognitive Account this Bot Channel should be associated with.
+        /// The ID of the Cognitive Account this Bot Channel should be associated with. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
+        /// 
+        /// !&gt; **Note:** Once added, `CognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
         /// </summary>
         [Input("cognitiveAccountId")]
         public Input<string>? CognitiveAccountId { get; set; }
 
-        [Input("cognitiveServiceAccessKey", required: true)]
+        [Input("cognitiveServiceAccessKey")]
         private Input<string>? _cognitiveServiceAccessKey;
 
         /// <summary>
-        /// The access key to access the Cognitive Service.
+        /// The access key to access the Cognitive Service. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
         /// </summary>
         public Input<string>? CognitiveServiceAccessKey
         {
@@ -198,10 +202,10 @@ namespace Pulumi.Azure.Bot
         }
 
         /// <summary>
-        /// Specifies the supported Azure location where the Cognitive Service resource exists.
+        /// Specifies the supported Azure location where the Cognitive Service resource exists. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
         /// </summary>
-        [Input("cognitiveServiceLocation", required: true)]
-        public Input<string> CognitiveServiceLocation { get; set; } = null!;
+        [Input("cognitiveServiceLocation")]
+        public Input<string>? CognitiveServiceLocation { get; set; }
 
         /// <summary>
         /// The custom speech model id for the Direct Line Speech Channel.
@@ -242,7 +246,9 @@ namespace Pulumi.Azure.Bot
         public Input<string>? BotName { get; set; }
 
         /// <summary>
-        /// The ID of the Cognitive Account this Bot Channel should be associated with.
+        /// The ID of the Cognitive Account this Bot Channel should be associated with. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
+        /// 
+        /// !&gt; **Note:** Once added, `CognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
         /// </summary>
         [Input("cognitiveAccountId")]
         public Input<string>? CognitiveAccountId { get; set; }
@@ -251,7 +257,7 @@ namespace Pulumi.Azure.Bot
         private Input<string>? _cognitiveServiceAccessKey;
 
         /// <summary>
-        /// The access key to access the Cognitive Service.
+        /// The access key to access the Cognitive Service. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
         /// </summary>
         public Input<string>? CognitiveServiceAccessKey
         {
@@ -264,7 +270,7 @@ namespace Pulumi.Azure.Bot
         }
 
         /// <summary>
-        /// Specifies the supported Azure location where the Cognitive Service resource exists.
+        /// Specifies the supported Azure location where the Cognitive Service resource exists. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
         /// </summary>
         [Input("cognitiveServiceLocation")]
         public Input<string>? CognitiveServiceLocation { get; set; }

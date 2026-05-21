@@ -220,7 +220,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
      * 
      * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      * 
@@ -229,7 +229,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
     private @Nullable Output<Integer> reservationCapacityInGbPerDay;
 
     /**
-     * @return The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+     * @return The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
      * 
      * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      * 
@@ -661,7 +661,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+         * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
          * 
          * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
          * 
@@ -674,7 +674,7 @@ public final class AnalyticsWorkspaceState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+         * @param reservationCapacityInGbPerDay The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
          * 
          * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
          * 

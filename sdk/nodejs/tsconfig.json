@@ -348,6 +348,7 @@
         "cdn/getFrontdoorProfile.ts",
         "cdn/getFrontdoorRuleSet.ts",
         "cdn/getFrontdoorSecret.ts",
+        "cdn/getFrontdoorSecurityPolicy.ts",
         "cdn/getProfile.ts",
         "cdn/index.ts",
         "cdn/profile.ts",

@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.DocumentDB` - 2024-08-15
 func LookupSqlRoleDefinition(ctx *pulumi.Context, args *LookupSqlRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupSqlRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSqlRoleDefinitionResult

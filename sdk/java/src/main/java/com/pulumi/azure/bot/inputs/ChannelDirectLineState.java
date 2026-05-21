@@ -33,6 +33,36 @@ public final class ChannelDirectLineState extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The first key for Directline App Service Extension.
+     * 
+     */
+    @Import(name="extensionKey1")
+    private @Nullable Output<String> extensionKey1;
+
+    /**
+     * @return The first key for Directline App Service Extension.
+     * 
+     */
+    public Optional<Output<String>> extensionKey1() {
+        return Optional.ofNullable(this.extensionKey1);
+    }
+
+    /**
+     * The second key for Directline App Service Extension.
+     * 
+     */
+    @Import(name="extensionKey2")
+    private @Nullable Output<String> extensionKey2;
+
+    /**
+     * @return The second key for Directline App Service Extension.
+     * 
+     */
+    public Optional<Output<String>> extensionKey2() {
+        return Optional.ofNullable(this.extensionKey2);
+    }
+
+    /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -81,6 +111,8 @@ public final class ChannelDirectLineState extends com.pulumi.resources.ResourceA
 
     private ChannelDirectLineState(ChannelDirectLineState $) {
         this.botName = $.botName;
+        this.extensionKey1 = $.extensionKey1;
+        this.extensionKey2 = $.extensionKey2;
         this.location = $.location;
         this.resourceGroupName = $.resourceGroupName;
         this.sites = $.sites;
@@ -123,6 +155,48 @@ public final class ChannelDirectLineState extends com.pulumi.resources.ResourceA
          */
         public Builder botName(String botName) {
             return botName(Output.of(botName));
+        }
+
+        /**
+         * @param extensionKey1 The first key for Directline App Service Extension.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensionKey1(@Nullable Output<String> extensionKey1) {
+            $.extensionKey1 = extensionKey1;
+            return this;
+        }
+
+        /**
+         * @param extensionKey1 The first key for Directline App Service Extension.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensionKey1(String extensionKey1) {
+            return extensionKey1(Output.of(extensionKey1));
+        }
+
+        /**
+         * @param extensionKey2 The second key for Directline App Service Extension.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensionKey2(@Nullable Output<String> extensionKey2) {
+            $.extensionKey2 = extensionKey2;
+            return this;
+        }
+
+        /**
+         * @param extensionKey2 The second key for Directline App Service Extension.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder extensionKey2(String extensionKey2) {
+            return extensionKey2(Output.of(extensionKey2));
         }
 
         /**

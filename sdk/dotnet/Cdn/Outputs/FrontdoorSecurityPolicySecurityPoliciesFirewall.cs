@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// </summary>
         public readonly Outputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation Association;
         /// <summary>
-        /// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        /// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string CdnFrontdoorFirewallPolicyId;
 

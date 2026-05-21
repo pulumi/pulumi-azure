@@ -23,6 +23,8 @@ type FlexibleServerCustomerManagedKey struct {
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// The ID of the Managed HSM Key.
+	//
+	// Deprecated: The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
 	PrimaryUserAssignedIdentityId *string `pulumi:"primaryUserAssignedIdentityId"`
@@ -49,6 +51,8 @@ type FlexibleServerCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault Key.
 	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
 	// The ID of the Managed HSM Key.
+	//
+	// Deprecated: The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId pulumi.StringPtrInput `pulumi:"managedHsmKeyId"`
 	// Specifies the primary user managed identity id for a Customer Managed Key. Should be added with `identityIds`.
 	PrimaryUserAssignedIdentityId pulumi.StringPtrInput `pulumi:"primaryUserAssignedIdentityId"`
@@ -149,6 +153,8 @@ func (o FlexibleServerCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringPtr
 }
 
 // The ID of the Managed HSM Key.
+//
+// Deprecated: The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
 func (o FlexibleServerCustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlexibleServerCustomerManagedKey) *string { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }
@@ -215,6 +221,8 @@ func (o FlexibleServerCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.String
 }
 
 // The ID of the Managed HSM Key.
+//
+// Deprecated: The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider
 func (o FlexibleServerCustomerManagedKeyPtrOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FlexibleServerCustomerManagedKey) *string {
 		if v == nil {

@@ -107,6 +107,12 @@ export class PolicyVM extends pulumi.CustomResource {
      */
     declare public readonly backup: pulumi.Output<outputs.backup.PolicyVMBackup>;
     /**
+     * The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+     *
+     * > **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+     */
+    declare public readonly consistencyType: pulumi.Output<string | undefined>;
+    /**
      * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      */
     declare public readonly instantRestoreResourceGroup: pulumi.Output<outputs.backup.PolicyVMInstantRestoreResourceGroup | undefined>;
@@ -171,6 +177,7 @@ export class PolicyVM extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyVMState | undefined;
             resourceInputs["backup"] = state?.backup;
+            resourceInputs["consistencyType"] = state?.consistencyType;
             resourceInputs["instantRestoreResourceGroup"] = state?.instantRestoreResourceGroup;
             resourceInputs["instantRestoreRetentionDays"] = state?.instantRestoreRetentionDays;
             resourceInputs["name"] = state?.name;
@@ -195,6 +202,7 @@ export class PolicyVM extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["backup"] = args?.backup;
+            resourceInputs["consistencyType"] = args?.consistencyType;
             resourceInputs["instantRestoreResourceGroup"] = args?.instantRestoreResourceGroup;
             resourceInputs["instantRestoreRetentionDays"] = args?.instantRestoreRetentionDays;
             resourceInputs["name"] = args?.name;
@@ -221,6 +229,12 @@ export interface PolicyVMState {
      * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     backup?: pulumi.Input<inputs.backup.PolicyVMBackup | undefined>;
+    /**
+     * The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+     *
+     * > **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+     */
+    consistencyType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      */
@@ -281,6 +295,12 @@ export interface PolicyVMArgs {
      * Configures the Policy backup frequency, times & days as documented in the `backup` block below.
      */
     backup: pulumi.Input<inputs.backup.PolicyVMBackup>;
+    /**
+     * The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+     *
+     * > **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+     */
+    consistencyType?: pulumi.Input<string | undefined>;
     /**
      * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      */

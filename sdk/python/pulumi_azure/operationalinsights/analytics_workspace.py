@@ -53,7 +53,7 @@ class AnalyticsWorkspaceArgs:
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
                
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.int] retention_in_days: The workspace data retention in days. Possible values are between `30` and `730`.
@@ -261,7 +261,7 @@ class AnalyticsWorkspaceArgs:
     @pulumi.getter(name="reservationCapacityInGbPerDay")
     def reservation_capacity_in_gb_per_day(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 
         > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         """
@@ -352,7 +352,7 @@ class _AnalyticsWorkspaceState:
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
                
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -570,7 +570,7 @@ class _AnalyticsWorkspaceState:
     @pulumi.getter(name="reservationCapacityInGbPerDay")
     def reservation_capacity_in_gb_per_day(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 
         > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         """
@@ -708,7 +708,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights` - 2022-10-01, 2020-08-01
+        * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
 
         ## Import
 
@@ -732,7 +732,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] local_authentication_enabled: Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
                
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -777,7 +777,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.OperationalInsights` - 2022-10-01, 2020-08-01
+        * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
 
         ## Import
 
@@ -902,7 +902,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] primary_shared_key: The Primary shared key for the Log Analytics Workspace.
-        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        :param pulumi.Input[_builtins.int] reservation_capacity_in_gb_per_day: The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
                
                > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Log Analytics workspace is created. Changing this forces a new resource to be created.
@@ -1050,7 +1050,7 @@ class AnalyticsWorkspace(pulumi.CustomResource):
     @pulumi.getter(name="reservationCapacityInGbPerDay")
     def reservation_capacity_in_gb_per_day(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 
         > **Note:** `reservation_capacity_in_gb_per_day` can only be used when the `sku` is set to `CapacityReservation`.
         """

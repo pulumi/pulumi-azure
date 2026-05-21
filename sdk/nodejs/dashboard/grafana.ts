@@ -27,6 +27,8 @@ import * as utilities from "../utilities";
  *     apiKeyEnabled: true,
  *     deterministicOutboundIpEnabled: true,
  *     publicNetworkAccessEnabled: false,
+ *     sku: "Standard",
+ *     skuSize: "X1",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
@@ -136,6 +138,10 @@ export class Grafana extends pulumi.CustomResource {
      */
     declare public readonly sku: pulumi.Output<string | undefined>;
     /**
+     * The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+     */
+    declare public readonly skuSize: pulumi.Output<string | undefined>;
+    /**
      * A `smtp` block as defined below.
      */
     declare public readonly smtp: pulumi.Output<outputs.dashboard.GrafanaSmtp | undefined>;
@@ -175,6 +181,7 @@ export class Grafana extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state?.publicNetworkAccessEnabled;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["sku"] = state?.sku;
+            resourceInputs["skuSize"] = state?.skuSize;
             resourceInputs["smtp"] = state?.smtp;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["zoneRedundancyEnabled"] = state?.zoneRedundancyEnabled;
@@ -197,6 +204,7 @@ export class Grafana extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args?.publicNetworkAccessEnabled;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
+            resourceInputs["skuSize"] = args?.skuSize;
             resourceInputs["smtp"] = args?.smtp;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["zoneRedundancyEnabled"] = args?.zoneRedundancyEnabled;
@@ -270,6 +278,10 @@ export interface GrafanaState {
      */
     sku?: pulumi.Input<string | undefined>;
     /**
+     * The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+     */
+    skuSize?: pulumi.Input<string | undefined>;
+    /**
      * A `smtp` block as defined below.
      */
     smtp?: pulumi.Input<inputs.dashboard.GrafanaSmtp | undefined>;
@@ -331,6 +343,10 @@ export interface GrafanaArgs {
      * The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      */
     sku?: pulumi.Input<string | undefined>;
+    /**
+     * The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+     */
+    skuSize?: pulumi.Input<string | undefined>;
     /**
      * A `smtp` block as defined below.
      */

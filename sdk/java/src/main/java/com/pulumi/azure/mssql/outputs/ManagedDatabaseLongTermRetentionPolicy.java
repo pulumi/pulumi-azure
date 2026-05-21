@@ -14,12 +14,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ManagedDatabaseLongTermRetentionPolicy {
     /**
-     * @return Specifies if the backups are immutable. Defaults to `false`.
+     * @deprecated
+     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
      * 
      */
+    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource. */
     private @Nullable Boolean immutableBackupsEnabled;
     /**
-     * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
+     * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
      * 
      */
     private @Nullable String monthlyRetention;
@@ -29,26 +31,28 @@ public final class ManagedDatabaseLongTermRetentionPolicy {
      */
     private @Nullable Integer weekOfYear;
     /**
-     * @return The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+     * @return The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
      * 
      */
     private @Nullable String weeklyRetention;
     /**
-     * @return The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
+     * @return The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
      * 
      */
     private @Nullable String yearlyRetention;
 
     private ManagedDatabaseLongTermRetentionPolicy() {}
     /**
-     * @return Specifies if the backups are immutable. Defaults to `false`.
+     * @deprecated
+     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
      * 
      */
+    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource. */
     public Optional<Boolean> immutableBackupsEnabled() {
         return Optional.ofNullable(this.immutableBackupsEnabled);
     }
     /**
-     * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
+     * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
      * 
      */
     public Optional<String> monthlyRetention() {
@@ -62,14 +66,14 @@ public final class ManagedDatabaseLongTermRetentionPolicy {
         return Optional.ofNullable(this.weekOfYear);
     }
     /**
-     * @return The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+     * @return The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
      * 
      */
     public Optional<String> weeklyRetention() {
         return Optional.ofNullable(this.weeklyRetention);
     }
     /**
-     * @return The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
+     * @return The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
      * 
      */
     public Optional<String> yearlyRetention() {

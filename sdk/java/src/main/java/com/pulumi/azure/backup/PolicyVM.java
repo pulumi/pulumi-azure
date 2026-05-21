@@ -138,6 +138,24 @@ public class PolicyVM extends com.pulumi.resources.CustomResource {
         return this.backup;
     }
     /**
+     * The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+     * 
+     * &gt; **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+     * 
+     */
+    @Export(name="consistencyType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> consistencyType;
+
+    /**
+     * @return The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+     * 
+     * &gt; **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+     * 
+     */
+    public Output<Optional<String>> consistencyType() {
+        return Codegen.optional(this.consistencyType);
+    }
+    /**
      * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      * 
      */

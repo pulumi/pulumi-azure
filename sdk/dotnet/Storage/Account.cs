@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Storage
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Storage` - 2025-06-01
+    /// * `Microsoft.Storage` - 2025-08-01
     /// 
     /// ## Import
     /// 
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.Storage
     public partial class Account : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         /// </summary>
         [Output("accessTier")]
         public Output<string> AccessTier { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Storage
         public Output<bool?> AllowNestedItemsToBePublic { get; private set; } = null!;
 
         /// <summary>
-        /// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        /// The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         /// </summary>
         [Output("allowedCopyScope")]
         public Output<string?> AllowedCopyScope { get; private set; } = null!;
@@ -891,7 +891,7 @@ namespace Pulumi.Azure.Storage
     public sealed class AccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -927,7 +927,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? AllowNestedItemsToBePublic { get; set; }
 
         /// <summary>
-        /// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        /// The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         /// </summary>
         [Input("allowedCopyScope")]
         public Input<string>? AllowedCopyScope { get; set; }
@@ -1175,7 +1175,7 @@ namespace Pulumi.Azure.Storage
     public sealed class AccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold` and `Premium`. Defaults to `Hot`.
+        /// Defines the access tier for `BlobStorage`, `FileStorage` and `StorageV2` accounts. Valid options are `Hot`, `Cool`, `Cold`, `Smart` and `Premium`. Defaults to `Hot`.
         /// </summary>
         [Input("accessTier")]
         public Input<string>? AccessTier { get; set; }
@@ -1211,7 +1211,7 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? AllowNestedItemsToBePublic { get; set; }
 
         /// <summary>
-        /// Restrict copy to and from Storage Accounts within an AAD tenant or with Private Links to the same VNet. Possible values are `AAD` and `PrivateLink`.
+        /// The permitted scope for copy operations between storage accounts. Possible values are `AAD`, `PrivateLink` and `All`.
         /// </summary>
         [Input("allowedCopyScope")]
         public Input<string>? AllowedCopyScope { get; set; }

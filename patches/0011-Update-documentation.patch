@@ -18,7 +18,7 @@ index 19499f28d1..0999a50d8e 100644
  
  The following arguments are supported:
 diff --git a/website/docs/d/key_vault_certificate.html.markdown b/website/docs/d/key_vault_certificate.html.markdown
-index 44c84f7e6e..1765f6fbf8 100644
+index fd10baec86..0cb7b734de 100644
 --- a/website/docs/d/key_vault_certificate.html.markdown
 +++ b/website/docs/d/key_vault_certificate.html.markdown
 @@ -10,9 +10,6 @@ description: |-
@@ -684,7 +684,7 @@ index 05c1348c17..3b18f5076c 100644
  }
  ```
 diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index 9fe07a8278..61c622f797 100644
+index 526e1e9527..a46f14774e 100644
 --- a/website/docs/r/app_service.html.markdown
 +++ b/website/docs/r/app_service.html.markdown
 @@ -17,7 +17,7 @@ Manages an App Service (within an App Service Plan).
@@ -793,7 +793,7 @@ index 7739e7b064..537f56c5d6 100644
  
  ## Import
 diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index a15c9ca07b..54ee79511d 100644
+index 6f790f48c9..4081c21063 100644
 --- a/website/docs/r/app_service_slot.html.markdown
 +++ b/website/docs/r/app_service_slot.html.markdown
 @@ -235,7 +235,7 @@ A `site_config` block supports the following:
@@ -1339,7 +1339,7 @@ index c0d300f67e..25741da51a 100644
  
  resource "random_integer" "ri" {
 diff --git a/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown b/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown
-index b253b344b1..8c60d3b094 100644
+index f04ac791ba..1724b8dd56 100644
 --- a/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown
 +++ b/website/docs/r/cosmosdb_cassandra_keyspace.html.markdown
 @@ -56,13 +56,13 @@ The following arguments are supported:
@@ -1361,7 +1361,7 @@ index b253b344b1..8c60d3b094 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_cassandra_table.html.markdown b/website/docs/r/cosmosdb_cassandra_table.html.markdown
-index dd93ea473e..e6b6edb854 100644
+index d720e0fa18..8a017ffda9 100644
 --- a/website/docs/r/cosmosdb_cassandra_table.html.markdown
 +++ b/website/docs/r/cosmosdb_cassandra_table.html.markdown
 @@ -87,7 +87,7 @@ The following arguments are supported:
@@ -1417,7 +1417,7 @@ index adc5076ced..392a5fc125 100644
  * `index_policy` - (Optional) The configuration of the indexing policy. One or more `index_policy` blocks as defined below.
  
 diff --git a/website/docs/r/cosmosdb_mongo_collection.html.markdown b/website/docs/r/cosmosdb_mongo_collection.html.markdown
-index 38dad63f59..6cbbdbfb34 100644
+index 36cc45f1cf..6890b57986 100644
 --- a/website/docs/r/cosmosdb_mongo_collection.html.markdown
 +++ b/website/docs/r/cosmosdb_mongo_collection.html.markdown
 @@ -56,7 +56,7 @@ The following arguments are supported:
@@ -1430,7 +1430,7 @@ index 38dad63f59..6cbbdbfb34 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_mongo_database.html.markdown b/website/docs/r/cosmosdb_mongo_database.html.markdown
-index ae59a62598..791ef78908 100644
+index 4d98402f3a..8e124172d0 100644
 --- a/website/docs/r/cosmosdb_mongo_database.html.markdown
 +++ b/website/docs/r/cosmosdb_mongo_database.html.markdown
 @@ -36,13 +36,13 @@ The following arguments are supported:
@@ -1470,7 +1470,7 @@ index 15e3bfc9cc..2ad9b0768e 100644
  * `indexing_policy` - (Optional) An `indexing_policy` block as defined below.
  
 diff --git a/website/docs/r/cosmosdb_sql_database.html.markdown b/website/docs/r/cosmosdb_sql_database.html.markdown
-index b10620ab05..dd6582cadf 100644
+index 75ff4e71f9..545c30e631 100644
 --- a/website/docs/r/cosmosdb_sql_database.html.markdown
 +++ b/website/docs/r/cosmosdb_sql_database.html.markdown
 @@ -40,9 +40,9 @@ The following arguments are supported:
@@ -1486,7 +1486,7 @@ index b10620ab05..dd6582cadf 100644
  ---
  
 diff --git a/website/docs/r/cosmosdb_table.html.markdown b/website/docs/r/cosmosdb_table.html.markdown
-index 39499da5f7..4c2965a6b7 100644
+index 322249c7e8..e082e99364 100644
 --- a/website/docs/r/cosmosdb_table.html.markdown
 +++ b/website/docs/r/cosmosdb_table.html.markdown
 @@ -36,13 +36,13 @@ The following arguments are supported:
@@ -1838,7 +1838,7 @@ index b57e37d9e1..0e225711e4 100644
  
  ## Import
 diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index c6616153b5..70fd228653 100644
+index 5b81ab4e7c..3c98785897 100644
 --- a/website/docs/r/function_app.html.markdown
 +++ b/website/docs/r/function_app.html.markdown
 @@ -237,7 +237,7 @@ The following arguments are supported:
@@ -1851,7 +1851,7 @@ index c6616153b5..70fd228653 100644
  ~> **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
  
 diff --git a/website/docs/r/function_app_slot.html.markdown b/website/docs/r/function_app_slot.html.markdown
-index dfb68bed02..f9b4758e48 100644
+index e8c751e61c..24b144f7f8 100644
 --- a/website/docs/r/function_app_slot.html.markdown
 +++ b/website/docs/r/function_app_slot.html.markdown
 @@ -80,7 +80,7 @@ The following arguments are supported:
@@ -2075,7 +2075,7 @@ index 074197c220..c9fc27d270 100644
 --> **Note:** Both Identifiers are unique to Terraform and don't map to an existing object within Azure.
 +-> **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
 diff --git a/website/docs/r/key_vault_certificate.html.markdown b/website/docs/r/key_vault_certificate.html.markdown
-index 327659d1fb..fea5a85f54 100644
+index 2aa1ce9cbb..4681b69b37 100644
 --- a/website/docs/r/key_vault_certificate.html.markdown
 +++ b/website/docs/r/key_vault_certificate.html.markdown
 @@ -11,8 +11,6 @@ description: |-
@@ -2145,7 +2145,7 @@ index e32bd341dd..3d783894ed 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index dff76fb797..c189e720c6 100644
+index aa7514a107..8f1465075d 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
@@ -2222,7 +2222,7 @@ index dff76fb797..c189e720c6 100644
  
 @@ -814,13 +806,13 @@ A `service_mesh_profile` block supports the following:
  
- * `revisions` - (Required) Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-25"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-25", "asm-1-26"]`. To roll back the canary upgrade, revert to `["asm-1-25"]`. To confirm the upgrade, change to `["asm-1-26"]`.
+ * `revisions` - (Required) Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
  
 --> **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
 +-> **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
@@ -2284,7 +2284,7 @@ index dff76fb797..c189e720c6 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index e7357ab822..6b0de7b28e 100644
+index 8856c89f9b..ab59ee7f03 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,15 +10,13 @@ description: |-
@@ -3136,24 +3136,24 @@ index 864d53e5f6..8902750633 100644
  ```hcl
  data "azurerm_virtual_machine" "example" {
 diff --git a/website/docs/r/nat_gateway_public_ip_association.html.markdown b/website/docs/r/nat_gateway_public_ip_association.html.markdown
-index 8a3a59b333..34921aace2 100644
+index 0e9ae9adda..78ef00ef10 100644
 --- a/website/docs/r/nat_gateway_public_ip_association.html.markdown
 +++ b/website/docs/r/nat_gateway_public_ip_association.html.markdown
-@@ -54,7 +54,7 @@ The following arguments are supported:
+@@ -86,7 +86,7 @@ The following arguments are supported:
  
  In addition to the Arguments listed above - the following Attributes are exported:
  
--* `id` - The (Terraform specific) ID of the Association between the NAT Gateway and the Public IP.
-+* `id` - The (provider specific) ID of the Association between the Nat Gateway and the Public IP.
+-* `id` - The Terraform-specific ID of the NAT Gateway Public IP Address association.
++* `id` - The provider-specific ID of the NAT Gateway Public IP Address association.
  
  ## Timeouts
  
-@@ -72,7 +72,7 @@ Associations between NAT Gateway and Public IP Addresses can be imported using t
- terraform import azurerm_nat_gateway_public_ip_association.example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1"
+@@ -104,7 +104,7 @@ A NAT Gateway Public IP Address association can be imported using the `resource
+ terraform import azurerm_nat_gateway_public_ip_association.example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/natGateways/natGateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/publicIPAddresses/publicIPAddress1"
  ```
  
---> **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPAddressID}`
-+-> **Note:** This is a provider-specific ID in the format `{natGatewayID}|{publicIPAddressID}`
+--> **Note:** This is a Terraform-specific ID in the format `{natGatewayID}|{publicIPAddressID}`.
++-> **Note:** This is a provider-specific ID in the format `{natGatewayID}|{publicIPAddressID}`.
  
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
@@ -3999,7 +3999,7 @@ index 77f03ae919..916c180067 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index 4755f7eb66..da802ae301 100644
+index 7c69c8133b..e780a3bad9 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -4047,7 +4047,7 @@ index 4755f7eb66..da802ae301 100644
 --> **Note:** Delegating to services may not be available in all regions. Check that the service you are delegating to is available in your region using the [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-list-available-delegations). Also, `actions` is specific to each service type. The exact list of `actions` needs to be retrieved using the aforementioned [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-list-available-delegations).
 +-> **NOTE:** Delegating to services may not be available in all regions. Check that the service you are delegating to is available in your region using the [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-list-available-delegations). Also, `actions` is specific to each service type. The exact list of `actions` needs to be retrieved using the aforementioned [Azure CLI](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-list-available-delegations).
  
- * `name` - (Required) The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
+ * `name` - (Required) The name of service to delegate to. Possible values are `GitHub.Network/networkSettings`, `Informatica.DataManagement/organizations`, `Microsoft.ApiManagement/service`, `Microsoft.Apollo/npu`, `Microsoft.App/environments`, `Microsoft.App/testClients`, `Microsoft.AVS/PrivateClouds`, `Microsoft.AzureCosmosDB/clusters`, `Microsoft.BareMetal/AzureHostedService`, `Microsoft.BareMetal/AzureHPC`, `Microsoft.BareMetal/AzurePaymentHSM`, `Microsoft.BareMetal/AzureVMware`, `Microsoft.BareMetal/CrayServers`, `Microsoft.BareMetal/MonitoringServers`, `Microsoft.Batch/batchAccounts`, `Microsoft.CloudTest/hostedpools`, `Microsoft.CloudTest/images`, `Microsoft.CloudTest/pools`, `Microsoft.Codespaces/plans`, `Microsoft.ContainerInstance/containerGroups`, `Microsoft.ContainerService/managedClusters`, `Microsoft.ContainerService/TestClients`, `Microsoft.Databricks/workspaces`, `Microsoft.DBforMySQL/flexibleServers`, `Microsoft.DBforMySQL/servers`, `Microsoft.DBforMySQL/serversv2`, `Microsoft.DBforPostgreSQL/flexibleServers`, `Microsoft.DBforPostgreSQL/serversv2`, `Microsoft.DBforPostgreSQL/singleServers`, `Microsoft.DelegatedNetwork/controller`, `Microsoft.DevCenter/networkConnection`, `Microsoft.DevOpsInfrastructure/pools`, `Microsoft.DocumentDB/cassandraClusters`, `Microsoft.Fidalgo/networkSettings`, `Microsoft.HardwareSecurityModules/dedicatedHSMs`, `Microsoft.Kusto/clusters`, `Microsoft.LabServices/labplans`, `Microsoft.Logic/integrationServiceEnvironments`, `Microsoft.MachineLearningServices/workspaces`, `Microsoft.MessagingConnectors/connectors`, `Microsoft.Netapp/volumes`, `Microsoft.Network/applicationGateways`, `Microsoft.Network/dnsResolvers`, `Microsoft.Network/managedResolvers`, `Microsoft.Network/fpgaNetworkInterfaces`, `Microsoft.Network/networkWatchers.`, `Microsoft.Network/virtualNetworkGateways`, `Microsoft.Orbital/orbitalGateways`, `Microsoft.PowerAutomate/hostedRpa`, `Microsoft.PowerPlatform/enterprisePolicies`, `Microsoft.PowerPlatform/vnetaccesslinks`, `Microsoft.ServiceFabricMesh/networks`, `Microsoft.ServiceNetworking/trafficControllers`, `Microsoft.Singularity/accounts/networks`, `Microsoft.Singularity/accounts/npu`, `Microsoft.Sql/managedInstances`, `Microsoft.Sql/managedInstancesOnebox`, `Microsoft.Sql/managedInstancesStage`, `Microsoft.Sql/managedInstancesTest`, `Microsoft.Sql/servers`, `Microsoft.StoragePool/diskPools`, `Microsoft.StreamAnalytics/streamingJobs`, `Microsoft.Synapse/workspaces`, `Microsoft.Web/hostingEnvironments`, `Microsoft.Web/serverFarms`, `NGINX.NGINXPLUS/nginxDeployments`, `PaloAltoNetworks.Cloudngfw/firewalls`, `PureStorage.Block/storagePools`, `Qumulo.Storage/fileSystems`, and `Oracle.Database/networkAttachments`.
  
  * `actions` - (Optional) A list of Actions which should be delegated. This list is specific to the service to delegate to. Possible values are `Microsoft.Network/networkinterfaces/*`, `Microsoft.Network/publicIPAddresses/join/action`, `Microsoft.Network/publicIPAddresses/read`, `Microsoft.Network/virtualNetworks/read`, `Microsoft.Network/virtualNetworks/subnets/action`, `Microsoft.Network/virtualNetworks/subnets/join/action`, `Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action`, and `Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action`.
  
@@ -4507,7 +4507,7 @@ index 1d16cc2c39..01fc9a07e7 100644
  ## Import
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index 1626706b0b..127a21fed9 100644
+index 7b9c228819..ffe8acda6b 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-

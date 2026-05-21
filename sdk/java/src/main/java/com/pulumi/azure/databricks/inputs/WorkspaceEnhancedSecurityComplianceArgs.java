@@ -56,7 +56,7 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
     }
 
     /**
-     * A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+     * A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
      * 
      * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
      * 
@@ -67,7 +67,7 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
     private @Nullable Output<List<String>> complianceSecurityProfileStandards;
 
     /**
-     * @return A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+     * @return A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
      * 
      * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
      * 
@@ -171,7 +171,7 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
         }
 
         /**
-         * @param complianceSecurityProfileStandards A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+         * @param complianceSecurityProfileStandards A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
          * 
          * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
          * 
@@ -186,7 +186,7 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
         }
 
         /**
-         * @param complianceSecurityProfileStandards A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+         * @param complianceSecurityProfileStandards A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
          * 
          * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
          * 
@@ -200,7 +200,7 @@ public final class WorkspaceEnhancedSecurityComplianceArgs extends com.pulumi.re
         }
 
         /**
-         * @param complianceSecurityProfileStandards A list of standards to enforce on this workspace. Possible values include `HIPAA` and `PCI_DSS`.
+         * @param complianceSecurityProfileStandards A list of standards to enforce on this workspace. Possible values include `HIPAA`, `PCI_DSS`, `FEDRAMP_MODERATE`, `IRAP_PROTECTED`, `FEDRAMP_HIGH`, `FEDRAMP_IL5`, `ITAR_EAR`, `CYBER_ESSENTIAL_PLUS`, `CANADA_PROTECTED_B`, `ISMAP`, `HITRUST`, `K_FSI`, `GERMANY_C5`, and `GERMANY_TISAX`
          * 
          * &gt; **Note:** `complianceSecurityProfileEnabled` must be set to `true` in order to use `complianceSecurityProfileStandards`.
          * 

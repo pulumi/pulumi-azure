@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Manages the association between a NAT Gateway and a Public IP Prefix.
+ * Manages a NAT Gateway Public IP Prefix association.
  * 
  * ## Example Usage
  * 
@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-resources")
+ *             .name("example-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
  *         var examplePublicIpPrefix = new PublicIpPrefix("examplePublicIpPrefix", PublicIpPrefixArgs.builder()
- *             .name("example")
+ *             .name("example-public-ip-prefix")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .prefixLength(30)
@@ -60,10 +60,71 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()
- *             .name("example-NatGateway")
+ *             .name("example-nat-gateway")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName("Standard")
+ *             .build());
+ * 
+ *         var exampleNatGatewayPublicIpPrefixAssociation = new NatGatewayPublicIpPrefixAssociation("exampleNatGatewayPublicIpPrefixAssociation", NatGatewayPublicIpPrefixAssociationArgs.builder()
+ *             .natGatewayId(exampleNatGateway.id())
+ *             .publicIpPrefixId(examplePublicIpPrefix.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### IPv6
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.PublicIpPrefix;
+ * import com.pulumi.azure.network.PublicIpPrefixArgs;
+ * import com.pulumi.azure.network.NatGateway;
+ * import com.pulumi.azure.network.NatGatewayArgs;
+ * import com.pulumi.azure.network.NatGatewayPublicIpPrefixAssociation;
+ * import com.pulumi.azure.network.NatGatewayPublicIpPrefixAssociationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resource-group")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var examplePublicIpPrefix = new PublicIpPrefix("examplePublicIpPrefix", PublicIpPrefixArgs.builder()
+ *             .name("example-public-ip-prefix")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .ipVersion("IPv6")
+ *             .prefixLength(127)
+ *             .sku("StandardV2")
+ *             .build());
+ * 
+ *         var exampleNatGateway = new NatGateway("exampleNatGateway", NatGatewayArgs.builder()
+ *             .name("example-nat-gateway")
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .skuName("StandardV2")
  *             .build());
  * 
  *         var exampleNatGatewayPublicIpPrefixAssociation = new NatGatewayPublicIpPrefixAssociation("exampleNatGatewayPublicIpPrefixAssociation", NatGatewayPublicIpPrefixAssociationArgs.builder()
@@ -85,13 +146,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
+ * A NAT Gateway Public IP Prefix association can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1&#34;
+ * $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/natGateways/natGateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/publicIPPrefixes/publicIPPrefix1&#34;
  * ```
  * 
- * &gt; **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPPrefixID}`
+ * &gt; **Note:** This is a Terraform-specific ID in the format `{natGatewayID}|{publicIPPrefixID}`.
  * 
  */
 @ResourceType(type="azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation")
@@ -111,18 +172,22 @@ public class NatGatewayPublicIpPrefixAssociation extends com.pulumi.resources.Cu
         return this.natGatewayId;
     }
     /**
-     * The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     * The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+     * &gt; **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `StandardV2`.
+     * 
+     * &gt; **Note:** When `publicIpPrefixId` references an `IPv6` Public IP Prefix, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpPrefixId` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
      * 
      */
     @Export(name="publicIpPrefixId", refs={String.class}, tree="[0]")
     private Output<String> publicIpPrefixId;
 
     /**
-     * @return The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     * @return The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpPrefixId` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+     * &gt; **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpPrefixId` must reference a Public IP Prefix with SKU `StandardV2`.
+     * 
+     * &gt; **Note:** When `publicIpPrefixId` references an `IPv6` Public IP Prefix, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpPrefixId` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
      * 
      */
     public Output<String> publicIpPrefixId() {

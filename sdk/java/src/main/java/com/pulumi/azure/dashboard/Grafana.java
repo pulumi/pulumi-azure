@@ -63,6 +63,8 @@ import javax.annotation.Nullable;
  *             .apiKeyEnabled(true)
  *             .deterministicOutboundIpEnabled(true)
  *             .publicNetworkAccessEnabled(false)
+ *             .sku("Standard")
+ *             .skuSize("X1")
  *             .identity(GrafanaIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
@@ -287,6 +289,20 @@ public class Grafana extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> sku() {
         return Codegen.optional(this.sku);
+    }
+    /**
+     * The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+     * 
+     */
+    @Export(name="skuSize", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> skuSize;
+
+    /**
+     * @return The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+     * 
+     */
+    public Output<Optional<String>> skuSize() {
+        return Codegen.optional(this.skuSize);
     }
     /**
      * A `smtp` block as defined below.

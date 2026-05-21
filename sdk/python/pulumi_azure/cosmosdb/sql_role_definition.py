@@ -315,6 +315,13 @@ class SqlRoleDefinition(pulumi.CustomResource):
             }])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
+
         ## Import
 
         Cosmos DB SQL Role Definitions can be imported using the `resource id`, e.g.
@@ -378,6 +385,13 @@ class SqlRoleDefinition(pulumi.CustomResource):
                 "data_actions": ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             }])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
 
         ## Import
 

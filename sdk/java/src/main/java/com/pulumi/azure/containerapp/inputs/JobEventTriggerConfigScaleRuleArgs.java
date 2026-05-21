@@ -50,14 +50,14 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
     }
 
     /**
-     * ID of the System or User Managed Identity used to execute scale rule.
+     * The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
      * 
      */
     @Import(name="identityId")
     private @Nullable Output<String> identityId;
 
     /**
-     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * @return The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
      * 
      */
     public Optional<Output<String>> identityId() {
@@ -175,7 +175,7 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param identityId ID of the System or User Managed Identity used to execute scale rule.
+         * @param identityId The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class JobEventTriggerConfigScaleRuleArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param identityId ID of the System or User Managed Identity used to execute scale rule.
+         * @param identityId The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
          * 
          * @return builder
          * 

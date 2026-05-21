@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.OperationalInsights` - 2022-10-01, 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
  * 
  * ## Import
  * 
@@ -266,7 +266,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return this.primarySharedKey;
     }
     /**
-     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
      * 
      * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      * 
@@ -275,7 +275,7 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Integer> reservationCapacityInGbPerDay;
 
     /**
-     * @return The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+     * @return The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
      * 
      * &gt; **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      * 

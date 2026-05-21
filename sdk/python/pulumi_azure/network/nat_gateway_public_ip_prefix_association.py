@@ -25,9 +25,11 @@ class NatGatewayPublicIpPrefixAssociationArgs:
         The set of arguments for constructing a NatGatewayPublicIpPrefixAssociation resource.
 
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
                
-               > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_prefix_id` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+               > **Note:** When `nat_gateway_id` references a NAT Gateway with SKU `Standard`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `Standard`. When `nat_gateway_id` references a NAT Gateway with SKU `StandardV2`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `StandardV2`.
+               
+               > **Note:** When `public_ip_prefix_id` references an `IPv6` Public IP Prefix, `nat_gateway_id` must reference a NAT Gateway with SKU `StandardV2`, and `public_ip_prefix_id` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
         """
         pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
         pulumi.set(__self__, "public_ip_prefix_id", public_ip_prefix_id)
@@ -48,9 +50,11 @@ class NatGatewayPublicIpPrefixAssociationArgs:
     @pulumi.getter(name="publicIpPrefixId")
     def public_ip_prefix_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+        The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
 
-        > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_prefix_id` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+        > **Note:** When `nat_gateway_id` references a NAT Gateway with SKU `Standard`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `Standard`. When `nat_gateway_id` references a NAT Gateway with SKU `StandardV2`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `StandardV2`.
+
+        > **Note:** When `public_ip_prefix_id` references an `IPv6` Public IP Prefix, `nat_gateway_id` must reference a NAT Gateway with SKU `StandardV2`, and `public_ip_prefix_id` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
@@ -68,9 +72,11 @@ class _NatGatewayPublicIpPrefixAssociationState:
         Input properties used for looking up and filtering NatGatewayPublicIpPrefixAssociation resources.
 
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
                
-               > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_prefix_id` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+               > **Note:** When `nat_gateway_id` references a NAT Gateway with SKU `Standard`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `Standard`. When `nat_gateway_id` references a NAT Gateway with SKU `StandardV2`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `StandardV2`.
+               
+               > **Note:** When `public_ip_prefix_id` references an `IPv6` Public IP Prefix, `nat_gateway_id` must reference a NAT Gateway with SKU `StandardV2`, and `public_ip_prefix_id` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
         """
         if nat_gateway_id is not None:
             pulumi.set(__self__, "nat_gateway_id", nat_gateway_id)
@@ -93,9 +99,11 @@ class _NatGatewayPublicIpPrefixAssociationState:
     @pulumi.getter(name="publicIpPrefixId")
     def public_ip_prefix_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+        The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
 
-        > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_prefix_id` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+        > **Note:** When `nat_gateway_id` references a NAT Gateway with SKU `Standard`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `Standard`. When `nat_gateway_id` references a NAT Gateway with SKU `StandardV2`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `StandardV2`.
+
+        > **Note:** When `public_ip_prefix_id` references an `IPv6` Public IP Prefix, `nat_gateway_id` must reference a NAT Gateway with SKU `StandardV2`, and `public_ip_prefix_id` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 
@@ -114,7 +122,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
                  public_ip_prefix_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages the association between a NAT Gateway and a Public IP Prefix.
+        Manages a NAT Gateway Public IP Prefix association.
 
         ## Example Usage
 
@@ -123,19 +131,45 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="example-resources",
+            name="example-resource-group",
             location="West Europe")
         example_public_ip_prefix = azure.network.PublicIpPrefix("example",
-            name="example",
+            name="example-public-ip-prefix",
             location=example.location,
             resource_group_name=example.name,
             prefix_length=30,
             zones=["1"])
         example_nat_gateway = azure.network.NatGateway("example",
-            name="example-NatGateway",
+            name="example-nat-gateway",
             location=example.location,
             resource_group_name=example.name,
             sku_name="Standard")
+        example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("example",
+            nat_gateway_id=example_nat_gateway.id,
+            public_ip_prefix_id=example_public_ip_prefix.id)
+        ```
+
+        ### IPv6
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resource-group",
+            location="West Europe")
+        example_public_ip_prefix = azure.network.PublicIpPrefix("example",
+            name="example-public-ip-prefix",
+            location=example.location,
+            resource_group_name=example.name,
+            ip_version="IPv6",
+            prefix_length=127,
+            sku="StandardV2")
+        example_nat_gateway = azure.network.NatGateway("example",
+            name="example-nat-gateway",
+            location=example.location,
+            resource_group_name=example.name,
+            sku_name="StandardV2")
         example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("example",
             nat_gateway_id=example_nat_gateway.id,
             public_ip_prefix_id=example_public_ip_prefix.id)
@@ -150,21 +184,23 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
+        A NAT Gateway Public IP Prefix association can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
+        $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/natGateways/natGateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/publicIPPrefixes/publicIPPrefix1"
         ```
 
-        > **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPPrefixID}`
+        > **Note:** This is a Terraform-specific ID in the format `{natGatewayID}|{publicIPPrefixID}`.
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
                
-               > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_prefix_id` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+               > **Note:** When `nat_gateway_id` references a NAT Gateway with SKU `Standard`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `Standard`. When `nat_gateway_id` references a NAT Gateway with SKU `StandardV2`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `StandardV2`.
+               
+               > **Note:** When `public_ip_prefix_id` references an `IPv6` Public IP Prefix, `nat_gateway_id` must reference a NAT Gateway with SKU `StandardV2`, and `public_ip_prefix_id` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
         """
         ...
     @overload
@@ -173,7 +209,7 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
                  args: NatGatewayPublicIpPrefixAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages the association between a NAT Gateway and a Public IP Prefix.
+        Manages a NAT Gateway Public IP Prefix association.
 
         ## Example Usage
 
@@ -182,19 +218,45 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.core.ResourceGroup("example",
-            name="example-resources",
+            name="example-resource-group",
             location="West Europe")
         example_public_ip_prefix = azure.network.PublicIpPrefix("example",
-            name="example",
+            name="example-public-ip-prefix",
             location=example.location,
             resource_group_name=example.name,
             prefix_length=30,
             zones=["1"])
         example_nat_gateway = azure.network.NatGateway("example",
-            name="example-NatGateway",
+            name="example-nat-gateway",
             location=example.location,
             resource_group_name=example.name,
             sku_name="Standard")
+        example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("example",
+            nat_gateway_id=example_nat_gateway.id,
+            public_ip_prefix_id=example_public_ip_prefix.id)
+        ```
+
+        ### IPv6
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resource-group",
+            location="West Europe")
+        example_public_ip_prefix = azure.network.PublicIpPrefix("example",
+            name="example-public-ip-prefix",
+            location=example.location,
+            resource_group_name=example.name,
+            ip_version="IPv6",
+            prefix_length=127,
+            sku="StandardV2")
+        example_nat_gateway = azure.network.NatGateway("example",
+            name="example-nat-gateway",
+            location=example.location,
+            resource_group_name=example.name,
+            sku_name="StandardV2")
         example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("example",
             nat_gateway_id=example_nat_gateway.id,
             public_ip_prefix_id=example_public_ip_prefix.id)
@@ -209,13 +271,13 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Associations between NAT Gateway and Public IP Prefixes can be imported using the `resource id`, e.g.
+        A NAT Gateway Public IP Prefix association can be imported using the `resource id`, e.g.
 
         ```sh
-        $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPPrefixes/myPublicIpPrefix1"
+        $ pulumi import azure:network/natGatewayPublicIpPrefixAssociation:NatGatewayPublicIpPrefixAssociation example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/natGateways/natGateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/publicIPPrefixes/publicIPPrefix1"
         ```
 
-        > **Note:** This is a Terraform Specific ID in the format `{natGatewayID}|{publicIPPrefixID}`
+        > **Note:** This is a Terraform-specific ID in the format `{natGatewayID}|{publicIPPrefixID}`.
 
 
         :param str resource_name: The name of the resource.
@@ -270,9 +332,11 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] nat_gateway_id: The ID of the NAT Gateway. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
                
-               > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_prefix_id` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+               > **Note:** When `nat_gateway_id` references a NAT Gateway with SKU `Standard`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `Standard`. When `nat_gateway_id` references a NAT Gateway with SKU `StandardV2`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `StandardV2`.
+               
+               > **Note:** When `public_ip_prefix_id` references an `IPv6` Public IP Prefix, `nat_gateway_id` must reference a NAT Gateway with SKU `StandardV2`, and `public_ip_prefix_id` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -294,9 +358,11 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
     @pulumi.getter(name="publicIpPrefixId")
     def public_ip_prefix_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Public IP Prefix which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+        The ID of the Public IP Prefix which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
 
-        > **Note:** When `nat_gateway_id` references a `StandardV2` NAT Gateway, `public_ip_prefix_id` must reference a `StandardV2` Public IP Prefix. Azure rejects `Standard` Public IP Prefixes with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+        > **Note:** When `nat_gateway_id` references a NAT Gateway with SKU `Standard`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `Standard`. When `nat_gateway_id` references a NAT Gateway with SKU `StandardV2`, `public_ip_prefix_id` must reference a Public IP Prefix with SKU `StandardV2`.
+
+        > **Note:** When `public_ip_prefix_id` references an `IPv6` Public IP Prefix, `nat_gateway_id` must reference a NAT Gateway with SKU `StandardV2`, and `public_ip_prefix_id` must reference an `IPv6` Public IP Prefix with SKU `StandardV2`.
         """
         return pulumi.get(self, "public_ip_prefix_id")
 

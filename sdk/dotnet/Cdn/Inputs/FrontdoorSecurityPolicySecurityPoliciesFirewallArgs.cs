@@ -19,7 +19,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         public Input<Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs> Association { get; set; } = null!;
 
         /// <summary>
-        /// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        /// The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cdnFrontdoorFirewallPolicyId", required: true)]
         public Input<string> CdnFrontdoorFirewallPolicyId { get; set; } = null!;

@@ -340,6 +340,13 @@ class CassandraTable(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
+
         ## Import
 
         Cosmos Cassandra Table can be imported using the `resource id`, e.g.
@@ -420,6 +427,13 @@ class CassandraTable(pulumi.CustomResource):
                 }],
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
 
         ## Import
 

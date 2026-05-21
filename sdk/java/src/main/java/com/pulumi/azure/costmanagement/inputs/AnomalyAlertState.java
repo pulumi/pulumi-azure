@@ -47,14 +47,14 @@ public final class AnomalyAlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+     * The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
      * 
      */
     @Import(name="emailSubject")
     private @Nullable Output<String> emailSubject;
 
     /**
-     * @return The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+     * @return The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
      * 
      */
     public Optional<Output<String>> emailSubject() {
@@ -62,14 +62,14 @@ public final class AnomalyAlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+     * The message of the Cost Anomaly Alert. Maximum length of the message is 100.
      * 
      */
     @Import(name="message")
     private @Nullable Output<String> message;
 
     /**
-     * @return The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+     * @return The message of the Cost Anomaly Alert. Maximum length of the message is 100.
      * 
      */
     public Optional<Output<String>> message() {
@@ -204,7 +204,7 @@ public final class AnomalyAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailSubject The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+         * @param emailSubject The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class AnomalyAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailSubject The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+         * @param emailSubject The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class AnomalyAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param message The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+         * @param message The message of the Cost Anomaly Alert. Maximum length of the message is 100.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class AnomalyAlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param message The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+         * @param message The message of the Cost Anomaly Alert. Maximum length of the message is 100.
          * 
          * @return builder
          * 

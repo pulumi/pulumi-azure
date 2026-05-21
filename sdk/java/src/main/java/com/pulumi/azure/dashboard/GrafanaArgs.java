@@ -188,6 +188,21 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+     * 
+     */
+    @Import(name="skuSize")
+    private @Nullable Output<String> skuSize;
+
+    /**
+     * @return The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+     * 
+     */
+    public Optional<Output<String>> skuSize() {
+        return Optional.ofNullable(this.skuSize);
+    }
+
+    /**
      * A `smtp` block as defined below.
      * 
      */
@@ -246,6 +261,7 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
+        this.skuSize = $.skuSize;
         this.smtp = $.smtp;
         this.tags = $.tags;
         this.zoneRedundancyEnabled = $.zoneRedundancyEnabled;
@@ -508,6 +524,27 @@ public final class GrafanaArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
+        }
+
+        /**
+         * @param skuSize The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuSize(@Nullable Output<String> skuSize) {
+            $.skuSize = skuSize;
+            return this;
+        }
+
+        /**
+         * @param skuSize The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skuSize(String skuSize) {
+            return skuSize(Output.of(skuSize));
         }
 
         /**

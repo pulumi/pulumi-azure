@@ -4060,7 +4060,7 @@ class JobEventTriggerConfigScaleRuleArgsDict(TypedDict):
     """
     identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    ID of the System or User Managed Identity used to execute scale rule.
+    The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
     """
 
 @pulumi.input_type
@@ -4076,7 +4076,7 @@ class JobEventTriggerConfigScaleRuleArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: Metadata properties to describe the scale rule.
         :param pulumi.Input[_builtins.str] name: Name of the scale rule.
         :param pulumi.Input[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]] authentications: A `authentication` block as defined below.
-        :param pulumi.Input[_builtins.str] identity_id: ID of the System or User Managed Identity used to execute scale rule.
+        :param pulumi.Input[_builtins.str] identity_id: The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
         """
         pulumi.set(__self__, "custom_rule_type", custom_rule_type)
         pulumi.set(__self__, "metadata", metadata)
@@ -4138,7 +4138,7 @@ class JobEventTriggerConfigScaleRuleArgs:
     @pulumi.getter(name="identityId")
     def identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID of the System or User Managed Identity used to execute scale rule.
+        The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
         """
         return pulumi.get(self, "identity_id")
 

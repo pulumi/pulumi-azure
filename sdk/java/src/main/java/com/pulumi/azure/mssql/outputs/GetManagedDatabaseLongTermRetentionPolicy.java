@@ -13,9 +13,11 @@ import java.util.Objects;
 @CustomType
 public final class GetManagedDatabaseLongTermRetentionPolicy {
     /**
-     * @return Specifies if the backups are immutable.
+     * @deprecated
+     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
      * 
      */
+    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source. */
     private Boolean immutableBackupsEnabled;
     /**
      * @return The monthly retention policy for an LTR backup in an ISO 8601 format.
@@ -40,9 +42,11 @@ public final class GetManagedDatabaseLongTermRetentionPolicy {
 
     private GetManagedDatabaseLongTermRetentionPolicy() {}
     /**
-     * @return Specifies if the backups are immutable.
+     * @deprecated
+     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
      * 
      */
+    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source. */
     public Boolean immutableBackupsEnabled() {
         return this.immutableBackupsEnabled;
     }

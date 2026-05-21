@@ -14,9 +14,9 @@ import (
 
 // Manages a Static Site Custom Domain.
 //
-// !> **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+// !> **Note:** This resource has been superseded by `appservice.StaticWebAppCustomDomain` and will be removed in version 5.0 of the AzureRM provider.
 //
-// > **Note:** The `appservice.StaticSiteCustomDomain` resource is deprecated in favour of `appservice.StaticWebAppCustomDomain` and will be removed in a future major release.
+// !> **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
 //
 // ## Example Usage
 //

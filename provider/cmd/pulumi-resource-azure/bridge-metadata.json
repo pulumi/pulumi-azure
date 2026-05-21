@@ -3269,7 +3269,31 @@
                 "majorVersion": 6,
                 "fields": {
                     "tls": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "cipher_suite": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "custom_ciphers": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "tls12": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "tls13": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -21446,7 +21470,12 @@
             },
             "azurerm_synapse_managed_private_endpoint": {
                 "current": "azure:synapse/managedPrivateEndpoint:ManagedPrivateEndpoint",
-                "majorVersion": 6
+                "majorVersion": 6,
+                "fields": {
+                    "fully_qualified_domain_names": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "azurerm_synapse_private_link_hub": {
                 "current": "azure:synapse/privateLinkHub:PrivateLinkHub",
@@ -25898,7 +25927,31 @@
                 "majorVersion": 6,
                 "fields": {
                     "tls": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "cipher_suite": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "custom_ciphers": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "tls12": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "tls13": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -25964,6 +26017,39 @@
                                         "fields": {
                                             "subject_alternative_names": {
                                                 "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "azurerm_cdn_frontdoor_security_policy": {
+                "current": "azure:cdn/getFrontdoorSecurityPolicy:getFrontdoorSecurityPolicy",
+                "majorVersion": 6,
+                "fields": {
+                    "security_policies": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "firewall": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "association": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "domain": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "patterns_to_match": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
                                             }
                                         }
                                     }

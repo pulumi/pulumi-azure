@@ -19,6 +19,8 @@ type AIServicesCustomerManagedKey struct {
 	// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+	//
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 }
 
@@ -39,6 +41,8 @@ type AIServicesCustomerManagedKeyArgs struct {
 	// The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
 	KeyVaultKeyId pulumi.StringPtrInput `pulumi:"keyVaultKeyId"`
 	// The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+	//
+	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 	ManagedHsmKeyId pulumi.StringPtrInput `pulumi:"managedHsmKeyId"`
 }
 
@@ -130,6 +134,8 @@ func (o AIServicesCustomerManagedKeyOutput) KeyVaultKeyId() pulumi.StringPtrOutp
 }
 
 // The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+//
+// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 func (o AIServicesCustomerManagedKeyOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AIServicesCustomerManagedKey) *string { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }
@@ -179,6 +185,8 @@ func (o AIServicesCustomerManagedKeyPtrOutput) KeyVaultKeyId() pulumi.StringPtrO
 }
 
 // The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `keyVaultKeyId`, `managedHsmKeyId` must be specified.
+//
+// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
 func (o AIServicesCustomerManagedKeyPtrOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AIServicesCustomerManagedKey) *string {
 		if v == nil {

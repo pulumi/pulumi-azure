@@ -27,9 +27,9 @@ class FrontdoorSecurityPolicyArgs:
         """
         The set of arguments for constructing a FrontdoorSecurityPolicy resource.
 
-        :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
-        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'] security_policies: An `security_policies` block as defined below.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'] security_policies: A `security_policies` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
         pulumi.set(__self__, "security_policies", security_policies)
@@ -40,7 +40,7 @@ class FrontdoorSecurityPolicyArgs:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -52,7 +52,7 @@ class FrontdoorSecurityPolicyArgs:
     @pulumi.getter(name="securityPolicies")
     def security_policies(self) -> pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs']:
         """
-        An `security_policies` block as defined below.
+        A `security_policies` block as defined below.
         """
         return pulumi.get(self, "security_policies")
 
@@ -64,7 +64,7 @@ class FrontdoorSecurityPolicyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
+        The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -82,9 +82,9 @@ class _FrontdoorSecurityPolicyState:
         """
         Input properties used for looking up and filtering FrontdoorSecurityPolicy resources.
 
-        :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
-        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'] security_policies: An `security_policies` block as defined below.
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input['FrontdoorSecurityPolicySecurityPoliciesArgs'] security_policies: A `security_policies` block as defined below.
         """
         if cdn_frontdoor_profile_id is not None:
             pulumi.set(__self__, "cdn_frontdoor_profile_id", cdn_frontdoor_profile_id)
@@ -97,7 +97,7 @@ class _FrontdoorSecurityPolicyState:
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -109,7 +109,7 @@ class _FrontdoorSecurityPolicyState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
+        The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -121,7 +121,7 @@ class _FrontdoorSecurityPolicyState:
     @pulumi.getter(name="securityPolicies")
     def security_policies(self) -> pulumi.Input[Optional['FrontdoorSecurityPolicySecurityPoliciesArgs']]:
         """
-        An `security_policies` block as defined below.
+        A `security_policies` block as defined below.
         """
         return pulumi.get(self, "security_policies")
 
@@ -148,6 +148,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="example-cdn-frontdoor",
@@ -190,7 +191,11 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             name="example-customDomain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name="contoso.fabrikam.com",
+            host_name=std.join_output(separator=".",
+                input=[
+                    "contoso",
+                    example_zone.name,
+                ]).apply(lambda invoke: invoke.result),
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -220,7 +225,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Front Door Security Policies can be imported using the `resource id`, e.g.
+        A Front Door Security Policy can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
@@ -229,9 +234,9 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
-        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']] security_policies: An `security_policies` block as defined below.
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']] security_policies: A `security_policies` block as defined below.
         """
         ...
     @overload
@@ -247,6 +252,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
         example = azure.core.ResourceGroup("example",
             name="example-cdn-frontdoor",
@@ -289,7 +295,11 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
             name="example-customDomain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name="contoso.fabrikam.com",
+            host_name=std.join_output(separator=".",
+                input=[
+                    "contoso",
+                    example_zone.name,
+                ]).apply(lambda invoke: invoke.result),
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -319,7 +329,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Front Door Security Policies can be imported using the `resource id`, e.g.
+        A Front Door Security Policy can be imported using the `resource id`, e.g.
 
         ```sh
         $ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
@@ -380,9 +390,9 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
-        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
-        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']] security_policies: An `security_policies` block as defined below.
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_profile_id: The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['FrontdoorSecurityPolicySecurityPoliciesArgs', 'FrontdoorSecurityPolicySecurityPoliciesArgsDict']] security_policies: A `security_policies` block as defined below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -397,7 +407,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
     @pulumi.getter(name="cdnFrontdoorProfileId")
     def cdn_frontdoor_profile_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "cdn_frontdoor_profile_id")
 
@@ -405,7 +415,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
+        The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -413,7 +423,7 @@ class FrontdoorSecurityPolicy(pulumi.CustomResource):
     @pulumi.getter(name="securityPolicies")
     def security_policies(self) -> pulumi.Output['outputs.FrontdoorSecurityPolicySecurityPolicies']:
         """
-        An `security_policies` block as defined below.
+        A `security_policies` block as defined below.
         """
         return pulumi.get(self, "security_policies")
 

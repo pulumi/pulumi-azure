@@ -53,7 +53,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Storage` - 2025-06-01
+// * `Microsoft.Storage` - 2025-08-01
 func LookupEncryptionScope(ctx *pulumi.Context, args *LookupEncryptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupEncryptionScopeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEncryptionScopeResult

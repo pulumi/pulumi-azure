@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Front Door (standard/premium) Custom Domain.
     /// 
-    /// !&gt; **Note:** If you are using Terraform to manage your DNS Auth and DNS CNAME records for your Custom Domain you will need to add configuration blocks for both the `azure.dns.TxtRecord`(see the `Example DNS Auth TXT Record Usage` below) and the `azure.dns.CNameRecord`(see the `Example CNAME Record Usage` below) to your configuration file.
+    /// &gt; **Note:** If you are using Terraform to manage your DNS Auth and DNS CNAME records for your Custom Domain you will need to add configuration blocks for both the `azure.dns.TxtRecord` (see the `Example DNS Auth TXT Record Usage` below) and the `azure.dns.CNameRecord` (see the `Example CNAME Record Usage` below) to your configuration file.
     /// 
     /// ## Example Usage
     /// 
@@ -26,33 +26,110 @@ namespace Pulumi.Azure.Cdn
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
-    ///         Name = "example-cdn-frontdoor",
+    ///         Name = "example-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var exampleZone = new Azure.Dns.Zone("example", new()
     ///     {
-    ///         Name = "sub-domain.domain.com",
+    ///         Name = "fabrikam.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
     ///     {
-    ///         Name = "example-profile",
+    ///         Name = "example-cdn-frontdoor-profile",
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard_AzureFrontDoor",
     ///     });
     /// 
+    ///     var exampleFrontdoorEndpoint = new Azure.Cdn.FrontdoorEndpoint("example", new()
+    ///     {
+    ///         Name = "example-cdn-frontdoor-endpoint",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
+    ///     {
+    ///         Name = "example-cdn-frontdoor-origin-group",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         LoadBalancing = null,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
+    ///     {
+    ///         Name = "example-cdn-frontdoor-origin",
+    ///         CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
+    ///         HostName = "contoso.fabrikam.com",
+    ///         CertificateNameCheckEnabled = false,
+    ///     });
+    /// 
     ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain("example", new()
     ///     {
-    ///         Name = "example-customDomain",
+    ///         Name = "example-cdn-frontdoor-custom-domain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
-    ///         HostName = "contoso.fabrikam.com",
+    ///         HostName = exampleFrontdoorOrigin.HostName,
     ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",
-    ///             MinimumTlsVersion = "TLS12",
+    ///             MinimumVersion = "TLS12",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFrontdoorRoute = new Azure.Cdn.FrontdoorRoute("example", new()
+    ///     {
+    ///         Name = "example-cdn-frontdoor-route",
+    ///         CdnFrontdoorEndpointId = exampleFrontdoorEndpoint.Id,
+    ///         CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
+    ///         CdnFrontdoorOriginIds = new[]
+    ///         {
+    ///             exampleFrontdoorOrigin.Id,
+    ///         },
+    ///         CdnFrontdoorCustomDomainIds = new[]
+    ///         {
+    ///             exampleFrontdoorCustomDomain.Id,
+    ///         },
+    ///         PatternsToMatches = new[]
+    ///         {
+    ///             "/*",
+    ///         },
+    ///         SupportedProtocols = new[]
+    ///         {
+    ///             "Http",
+    ///             "Https",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFrontdoorFirewallPolicy = new Azure.Cdn.FrontdoorFirewallPolicy("example", new()
+    ///     {
+    ///         Name = "examplecdnfrontdoorfirewallpolicy",
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = exampleFrontdoorProfile.SkuName,
+    ///         Mode = "Prevention",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorSecurityPolicy = new Azure.Cdn.FrontdoorSecurityPolicy("example", new()
+    ///     {
+    ///         Name = "example-cdn-frontdoor-security-policy",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         SecurityPolicies = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesArgs
+    ///         {
+    ///             Firewall = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs
+    ///             {
+    ///                 CdnFrontdoorFirewallPolicyId = exampleFrontdoorFirewallPolicy.Id,
+    ///                 Association = new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs
+    ///                 {
+    ///                     Domains = new[]
+    ///                     {
+    ///                         new Azure.Cdn.Inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs
+    ///                         {
+    ///                             CdnFrontdoorDomainId = exampleFrontdoorCustomDomain.Id,
+    ///                         },
+    ///                     },
+    ///                     PatternsToMatch = "/*",
+    ///                 },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -62,6 +139,10 @@ namespace Pulumi.Azure.Cdn
     /// ## Example DNS Auth TXT Record Usage
     /// 
     /// The name of your DNS TXT record should be in the format of `_dnsauth.&lt;your_subdomain&gt;`. So, for example, if we use the `HostName` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `ValidationToken` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
+    /// 
+    /// &gt; **Note:** Domain ownership validation is performed asynchronously by the Azure Front Door service (the domain typically transitions through states like `Submitting` and `Pending` before becoming `Approved`). If validation appears to be taking longer than expected, refer to the Azure Front Door documentation on [domain validation](https://learn.microsoft.com/azure/frontdoor/domain#domain-validation) and [domain validation states](https://learn.microsoft.com/azure/frontdoor/domain#domain-validation).
+    /// 
+    /// &gt; **Note:** Azure Front Door custom domain operations are currently gated by an internal service-side validation and backend synchronization process. While that process is running, the service can reject otherwise valid follow-up write operations until the custom domain reaches an approved state, which can make create, update, and delete operations take significantly longer than expected.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -74,15 +155,19 @@ namespace Pulumi.Azure.Cdn
     /// {
     ///     var example = new Azure.Dns.TxtRecord("example", new()
     ///     {
-    ///         Name = Std.Join.Invoke(new()
+    ///         Name = Std.Split.Invoke(new()
+    ///         {
+    ///             Separator = ".",
+    ///             Text = exampleAzurermCdnFrontdoorCustomDomain.HostName,
+    ///         }).Apply(invoke =&gt; Std.Join.Invoke(new()
     ///         {
     ///             Separator = ".",
     ///             Input = new[]
     ///             {
     ///                 "_dnsauth",
-    ///                 "contoso",
+    ///                 invoke.Result[0],
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         })).Apply(invoke =&gt; invoke.Result),
     ///         ZoneName = exampleAzurermDnsZone.Name,
     ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
     ///         Ttl = 3600,
@@ -100,19 +185,24 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Example CNAME Record Usage
     /// 
-    /// !&gt; **Note:** You **must** include the `DependsOn` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `DependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
+    /// &gt; **Note:** When managing the CNAME record using Terraform, you may need to ensure your Custom Domain is associated with a Front Door Route (and any applicable Security Policy) before creating the CNAME record. This example uses `DependsOn` to enforce that ordering.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Azure.Dns.CNameRecord("example", new()
     ///     {
-    ///         Name = "contoso",
+    ///         Name = Std.Split.Invoke(new()
+    ///         {
+    ///             Separator = ".",
+    ///             Text = exampleAzurermCdnFrontdoorCustomDomain.HostName,
+    ///         }).Apply(invoke =&gt; invoke.Result[0]),
     ///         ZoneName = exampleAzurermDnsZone.Name,
     ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
     ///         Ttl = 3600,
@@ -129,9 +219,16 @@ namespace Pulumi.Azure.Cdn
     /// });
     /// ```
     /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Cdn` - 2025-04-15
+    /// 
     /// ## Import
     /// 
-    /// Front Door Custom Domains can be imported using the `resource id`, e.g.
+    /// A Front Door Custom Domain can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
@@ -141,13 +238,15 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorCustomDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Output("cdnFrontdoorProfileId")]
         public Output<string> CdnFrontdoorProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+        /// 
+        /// &gt; **Note:** If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
         /// 
         /// &lt;!-- * `PreValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
         /// 
@@ -157,19 +256,23 @@ namespace Pulumi.Azure.Cdn
         public Output<string?> DnsZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// The date time that the token expires.
+        /// The date and time that the token expires.
         /// </summary>
         [Output("expirationDate")]
         public Output<string> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// The host name of the domain. The `HostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+        /// The host name of the domain. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `HostName` field must be the FQDN of your domain (e.g. `contoso.fabrikam.com`).
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
+        /// The name which should be used for this Front Door Custom Domain. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `Name` must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number, and contain only letters, numbers, and hyphens.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -237,13 +340,15 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorCustomDomainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId", required: true)]
         public Input<string> CdnFrontdoorProfileId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+        /// 
+        /// &gt; **Note:** If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
         /// 
         /// &lt;!-- * `PreValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
         /// 
@@ -253,13 +358,17 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? DnsZoneId { get; set; }
 
         /// <summary>
-        /// The host name of the domain. The `HostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+        /// The host name of the domain. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `HostName` field must be the FQDN of your domain (e.g. `contoso.fabrikam.com`).
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
+        /// The name which should be used for this Front Door Custom Domain. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `Name` must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number, and contain only letters, numbers, and hyphens.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -279,13 +388,15 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorCustomDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
+        /// The ID of the Front Door Profile. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId")]
         public Input<string>? CdnFrontdoorProfileId { get; set; }
 
         /// <summary>
-        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+        /// The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+        /// 
+        /// &gt; **Note:** If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
         /// 
         /// &lt;!-- * `PreValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
         /// 
@@ -295,19 +406,23 @@ namespace Pulumi.Azure.Cdn
         public Input<string>? DnsZoneId { get; set; }
 
         /// <summary>
-        /// The date time that the token expires.
+        /// The date and time that the token expires.
         /// </summary>
         [Input("expirationDate")]
         public Input<string>? ExpirationDate { get; set; }
 
         /// <summary>
-        /// The host name of the domain. The `HostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+        /// The host name of the domain. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** The `HostName` field must be the FQDN of your domain (e.g. `contoso.fabrikam.com`).
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
+        /// The name which should be used for this Front Door Custom Domain. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `Name` must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number, and contain only letters, numbers, and hyphens.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -20,9 +20,16 @@ public final class KubernetesClusterNodePoolKubeletConfig {
      */
     private @Nullable List<String> allowedUnsafeSysctls;
     /**
-     * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+     * @return Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
      * 
      */
+    private @Nullable Integer containerLogMaxFiles;
+    /**
+     * @deprecated
+     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
     private @Nullable Integer containerLogMaxLine;
     /**
      * @return Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -74,9 +81,18 @@ public final class KubernetesClusterNodePoolKubeletConfig {
         return this.allowedUnsafeSysctls == null ? List.of() : this.allowedUnsafeSysctls;
     }
     /**
-     * @return Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+     * @return Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
      * 
      */
+    public Optional<Integer> containerLogMaxFiles() {
+        return Optional.ofNullable(this.containerLogMaxFiles);
+    }
+    /**
+     * @deprecated
+     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Integer> containerLogMaxLine() {
         return Optional.ofNullable(this.containerLogMaxLine);
     }
@@ -147,6 +163,7 @@ public final class KubernetesClusterNodePoolKubeletConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> allowedUnsafeSysctls;
+        private @Nullable Integer containerLogMaxFiles;
         private @Nullable Integer containerLogMaxLine;
         private @Nullable Integer containerLogMaxSizeMb;
         private @Nullable Boolean cpuCfsQuotaEnabled;
@@ -160,6 +177,7 @@ public final class KubernetesClusterNodePoolKubeletConfig {
         public Builder(KubernetesClusterNodePoolKubeletConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allowedUnsafeSysctls = defaults.allowedUnsafeSysctls;
+    	      this.containerLogMaxFiles = defaults.containerLogMaxFiles;
     	      this.containerLogMaxLine = defaults.containerLogMaxLine;
     	      this.containerLogMaxSizeMb = defaults.containerLogMaxSizeMb;
     	      this.cpuCfsQuotaEnabled = defaults.cpuCfsQuotaEnabled;
@@ -179,6 +197,12 @@ public final class KubernetesClusterNodePoolKubeletConfig {
         }
         public Builder allowedUnsafeSysctls(String... allowedUnsafeSysctls) {
             return allowedUnsafeSysctls(List.of(allowedUnsafeSysctls));
+        }
+        @CustomType.Setter
+        public Builder containerLogMaxFiles(@Nullable Integer containerLogMaxFiles) {
+
+            this.containerLogMaxFiles = containerLogMaxFiles;
+            return this;
         }
         @CustomType.Setter
         public Builder containerLogMaxLine(@Nullable Integer containerLogMaxLine) {
@@ -237,6 +261,7 @@ public final class KubernetesClusterNodePoolKubeletConfig {
         public KubernetesClusterNodePoolKubeletConfig build() {
             final var _resultValue = new KubernetesClusterNodePoolKubeletConfig();
             _resultValue.allowedUnsafeSysctls = allowedUnsafeSysctls;
+            _resultValue.containerLogMaxFiles = containerLogMaxFiles;
             _resultValue.containerLogMaxLine = containerLogMaxLine;
             _resultValue.containerLogMaxSizeMb = containerLogMaxSizeMb;
             _resultValue.cpuCfsQuotaEnabled = cpuCfsQuotaEnabled;

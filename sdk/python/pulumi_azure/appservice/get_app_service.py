@@ -290,7 +290,7 @@ def get_app_service(name: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing App Service.
 
-    !> **Note:** The `appservice.AppService` data source is deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use the `appservice.LinuxWebApp` and `appservice.WindowsWebApp` data sources instead.
+    !> **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `appservice.LinuxWebApp` and `appservice.WindowsWebApp` data sources instead.
 
     ## Example Usage
 
@@ -341,7 +341,7 @@ def get_app_service_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     """
     Use this data source to access information about an existing App Service.
 
-    !> **Note:** The `appservice.AppService` data source is deprecated in version 5.0 of the provider and will be removed in version 6.0. Please use the `appservice.LinuxWebApp` and `appservice.WindowsWebApp` data sources instead.
+    !> **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `appservice.LinuxWebApp` and `appservice.WindowsWebApp` data sources instead.
 
     ## Example Usage
 

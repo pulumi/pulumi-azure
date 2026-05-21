@@ -45,7 +45,7 @@ namespace Pulumi.Azure.OperationalInsights
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.OperationalInsights` - 2022-10-01, 2020-08-01
+    /// * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
     /// 
     /// ## Import
     /// 
@@ -134,7 +134,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<string> PrimarySharedKey { get; private set; } = null!;
 
         /// <summary>
-        /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
         /// 
         /// &gt; **Note:** `ReservationCapacityInGbPerDay` can only be used when the `Sku` is set to `CapacityReservation`.
         /// </summary>
@@ -304,7 +304,7 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
         /// 
         /// &gt; **Note:** `ReservationCapacityInGbPerDay` can only be used when the `Sku` is set to `CapacityReservation`.
         /// </summary>
@@ -441,7 +441,7 @@ namespace Pulumi.Azure.OperationalInsights
         }
 
         /// <summary>
-        /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+        /// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
         /// 
         /// &gt; **Note:** `ReservationCapacityInGbPerDay` can only be used when the `Sku` is set to `CapacityReservation`.
         /// </summary>

@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
 /**
  * Manages a Front Door (standard/premium) Custom Domain.
  * 
- * !&gt; **Note:** If you are using Terraform to manage your DNS Auth and DNS CNAME records for your Custom Domain you will need to add configuration blocks for both the `azure.dns.TxtRecord`(see the `Example DNS Auth TXT Record Usage` below) and the `azure.dns.CNameRecord`(see the `Example CNAME Record Usage` below) to your configuration file.
+ * &gt; **Note:** If you are using Terraform to manage your DNS Auth and DNS CNAME records for your Custom Domain you will need to add configuration blocks for both the `azure.dns.TxtRecord` (see the `Example DNS Auth TXT Record Usage` below) and the `azure.dns.CNameRecord` (see the `Example CNAME Record Usage` below) to your configuration file.
  * 
  * ## Example Usage
  * 
@@ -37,9 +37,25 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.ZoneArgs;
  * import com.pulumi.azure.cdn.FrontdoorProfile;
  * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+ * import com.pulumi.azure.cdn.FrontdoorEndpoint;
+ * import com.pulumi.azure.cdn.FrontdoorEndpointArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOrigin;
+ * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
+ * import com.pulumi.azure.cdn.FrontdoorRoute;
+ * import com.pulumi.azure.cdn.FrontdoorRouteArgs;
+ * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
+ * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
+ * import com.pulumi.azure.cdn.FrontdoorSecurityPolicy;
+ * import com.pulumi.azure.cdn.FrontdoorSecurityPolicyArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,29 +70,83 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
- *             .name("example-cdn-frontdoor")
+ *             .name("example-resource-group")
  *             .location("West Europe")
  *             .build());
  * 
  *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
- *             .name("sub-domain.domain.com")
+ *             .name("fabrikam.com")
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile("exampleFrontdoorProfile", FrontdoorProfileArgs.builder()
- *             .name("example-profile")
+ *             .name("example-cdn-frontdoor-profile")
  *             .resourceGroupName(example.name())
  *             .skuName("Standard_AzureFrontDoor")
  *             .build());
  * 
+ *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint("exampleFrontdoorEndpoint", FrontdoorEndpointArgs.builder()
+ *             .name("example-cdn-frontdoor-endpoint")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .build());
+ * 
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup("exampleFrontdoorOriginGroup", FrontdoorOriginGroupArgs.builder()
+ *             .name("example-cdn-frontdoor-origin-group")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin("exampleFrontdoorOrigin", FrontdoorOriginArgs.builder()
+ *             .name("example-cdn-frontdoor-origin")
+ *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
+ *             .hostName("contoso.fabrikam.com")
+ *             .certificateNameCheckEnabled(false)
+ *             .build());
+ * 
  *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain("exampleFrontdoorCustomDomain", FrontdoorCustomDomainArgs.builder()
- *             .name("example-customDomain")
+ *             .name("example-cdn-frontdoor-custom-domain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
- *             .hostName("contoso.fabrikam.com")
+ *             .hostName(exampleFrontdoorOrigin.hostName())
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
  *                 .certificateType("ManagedCertificate")
- *                 .minimumTlsVersion("TLS12")
+ *                 .minimumVersion("TLS12")
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFrontdoorRoute = new FrontdoorRoute("exampleFrontdoorRoute", FrontdoorRouteArgs.builder()
+ *             .name("example-cdn-frontdoor-route")
+ *             .cdnFrontdoorEndpointId(exampleFrontdoorEndpoint.id())
+ *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
+ *             .cdnFrontdoorOriginIds(exampleFrontdoorOrigin.id())
+ *             .cdnFrontdoorCustomDomainIds(exampleFrontdoorCustomDomain.id())
+ *             .patternsToMatches("/*")
+ *             .supportedProtocols(            
+ *                 "Http",
+ *                 "Https")
+ *             .build());
+ * 
+ *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy", FrontdoorFirewallPolicyArgs.builder()
+ *             .name("examplecdnfrontdoorfirewallpolicy")
+ *             .resourceGroupName(example.name())
+ *             .skuName(exampleFrontdoorProfile.skuName())
+ *             .mode("Prevention")
+ *             .build());
+ * 
+ *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy("exampleFrontdoorSecurityPolicy", FrontdoorSecurityPolicyArgs.builder()
+ *             .name("example-cdn-frontdoor-security-policy")
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
+ *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()
+ *                     .cdnFrontdoorFirewallPolicyId(exampleFrontdoorFirewallPolicy.id())
+ *                     .association(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs.builder()
+ *                         .domains(FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs.builder()
+ *                             .cdnFrontdoorDomainId(exampleFrontdoorCustomDomain.id())
+ *                             .build())
+ *                         .patternsToMatch("/*")
+ *                         .build())
+ *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -89,6 +159,10 @@ import javax.annotation.Nullable;
  * 
  * The name of your DNS TXT record should be in the format of `_dnsauth.&lt;your_subdomain&gt;`. So, for example, if we use the `hostName` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validationToken` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
  * 
+ * &gt; **Note:** Domain ownership validation is performed asynchronously by the Azure Front Door service (the domain typically transitions through states like `Submitting` and `Pending` before becoming `Approved`). If validation appears to be taking longer than expected, refer to the Azure Front Door documentation on [domain validation](https://learn.microsoft.com/azure/frontdoor/domain#domain-validation) and [domain validation states](https://learn.microsoft.com/azure/frontdoor/domain#domain-validation).
+ * 
+ * &gt; **Note:** Azure Front Door custom domain operations are currently gated by an internal service-side validation and backend synchronization process. While that process is running, the service can reject otherwise valid follow-up write operations until the custom domain reaches an approved state, which can make create, update, and delete operations take significantly longer than expected.
+ * 
  * <pre>
  * {@code
  * package generated_program;
@@ -100,6 +174,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dns.TxtRecordArgs;
  * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
  * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.SplitArgs;
  * import com.pulumi.std.inputs.JoinArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -119,7 +194,10 @@ import javax.annotation.Nullable;
  *                 .separator(".")
  *                 .input(                
  *                     "_dnsauth",
- *                     "contoso")
+ *                     StdFunctions.split(SplitArgs.builder()
+ *                         .separator(".")
+ *                         .text(exampleAzurermCdnFrontdoorCustomDomain.hostName())
+ *                         .build()).result()[0])
  *                 .build()).result())
  *             .zoneName(exampleAzurermDnsZone.name())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
@@ -136,7 +214,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example CNAME Record Usage
  * 
- * !&gt; **Note:** You **must** include the `dependsOn` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `dependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
+ * &gt; **Note:** When managing the CNAME record using Terraform, you may need to ensure your Custom Domain is associated with a Front Door Route (and any applicable Security Policy) before creating the CNAME record. This example uses `dependsOn` to enforce that ordering.
  * 
  * <pre>
  * {@code
@@ -147,6 +225,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.dns.CNameRecord;
  * import com.pulumi.azure.dns.CNameRecordArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.SplitArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -162,7 +242,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CNameRecord("example", CNameRecordArgs.builder()
- *             .name("contoso")
+ *             .name(StdFunctions.split(SplitArgs.builder()
+ *                 .separator(".")
+ *                 .text(exampleAzurermCdnFrontdoorCustomDomain.hostName())
+ *                 .build()).result()[0])
  *             .zoneName(exampleAzurermDnsZone.name())
  *             .resourceGroupName(exampleAzurermResourceGroup.name())
  *             .ttl(3600)
@@ -178,9 +261,16 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cdn` - 2025-04-15
+ * 
  * ## Import
  * 
- * Front Door Custom Domains can be imported using the `resource id`, e.g.
+ * A Front Door Custom Domain can be imported using the `resource id`, e.g.
  * 
  * ```sh
  * $ pulumi import azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/customDomains/customDomain1
@@ -190,21 +280,23 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain")
 public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
+     * The ID of the Front Door Profile. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="cdnFrontdoorProfileId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorProfileId;
 
     /**
-     * @return The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created.
+     * @return The ID of the Front Door Profile. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> cdnFrontdoorProfileId() {
         return this.cdnFrontdoorProfileId;
     }
     /**
-     * The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+     * The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+     * 
+     * &gt; **Note:** If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
      * 
      * &lt;!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      * 
@@ -215,7 +307,9 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> dnsZoneId;
 
     /**
-     * @return The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
+     * @return The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+     * 
+     * &gt; **Note:** If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider&#39;s domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you&#39;re using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually.
      * 
      * &lt;!-- * `preValidatedCdnFrontdoorCustomDomainId` - (Optional) The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door.
      * 
@@ -226,42 +320,50 @@ public class FrontdoorCustomDomain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dnsZoneId);
     }
     /**
-     * The date time that the token expires.
+     * The date and time that the token expires.
      * 
      */
     @Export(name="expirationDate", refs={String.class}, tree="[0]")
     private Output<String> expirationDate;
 
     /**
-     * @return The date time that the token expires.
+     * @return The date and time that the token expires.
      * 
      */
     public Output<String> expirationDate() {
         return this.expirationDate;
     }
     /**
-     * The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+     * The host name of the domain. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `hostName` field must be the FQDN of your domain (e.g. `contoso.fabrikam.com`).
      * 
      */
     @Export(name="hostName", refs={String.class}, tree="[0]")
     private Output<String> hostName;
 
     /**
-     * @return The host name of the domain. The `hostName` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created.
+     * @return The host name of the domain. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `hostName` field must be the FQDN of your domain (e.g. `contoso.fabrikam.com`).
      * 
      */
     public Output<String> hostName() {
         return this.hostName;
     }
     /**
-     * The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
+     * The name which should be used for this Front Door Custom Domain. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `name` must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number, and contain only letters, numbers, and hyphens.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created.
+     * @return The name which should be used for this Front Door Custom Domain. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `name` must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number, and contain only letters, numbers, and hyphens.
      * 
      */
     public Output<String> name() {

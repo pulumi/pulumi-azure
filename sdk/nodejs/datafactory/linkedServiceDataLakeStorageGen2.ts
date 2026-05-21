@@ -170,13 +170,15 @@ export class LinkedServiceDataLakeStorageGen2 extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["parameters"] = args?.parameters;
             resourceInputs["servicePrincipalId"] = args?.servicePrincipalId;
-            resourceInputs["servicePrincipalKey"] = args?.servicePrincipalKey;
-            resourceInputs["storageAccountKey"] = args?.storageAccountKey;
+            resourceInputs["servicePrincipalKey"] = args?.servicePrincipalKey ? pulumi.secret(args.servicePrincipalKey) : undefined;
+            resourceInputs["storageAccountKey"] = args?.storageAccountKey ? pulumi.secret(args.storageAccountKey) : undefined;
             resourceInputs["tenant"] = args?.tenant;
             resourceInputs["url"] = args?.url;
             resourceInputs["useManagedIdentity"] = args?.useManagedIdentity;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["servicePrincipalKey", "storageAccountKey"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(LinkedServiceDataLakeStorageGen2.__pulumiType, name, resourceInputs, opts);
     }
 }

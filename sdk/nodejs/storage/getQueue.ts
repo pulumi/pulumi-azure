@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Storage` - 2025-06-01
+ * * `Microsoft.Storage` - 2025-08-01
  */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -111,7 +111,7 @@ export interface GetQueueResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Storage` - 2025-06-01
+ * * `Microsoft.Storage` - 2025-08-01
  */
 export function getQueueOutput(args: GetQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

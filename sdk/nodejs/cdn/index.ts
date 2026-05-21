@@ -110,6 +110,11 @@ export const getFrontdoorSecret: typeof import("./getFrontdoorSecret").getFrontd
 export const getFrontdoorSecretOutput: typeof import("./getFrontdoorSecret").getFrontdoorSecretOutput = null as any;
 utilities.lazyLoad(exports, ["getFrontdoorSecret","getFrontdoorSecretOutput"], () => require("./getFrontdoorSecret"));
 
+export { GetFrontdoorSecurityPolicyArgs, GetFrontdoorSecurityPolicyResult, GetFrontdoorSecurityPolicyOutputArgs } from "./getFrontdoorSecurityPolicy";
+export const getFrontdoorSecurityPolicy: typeof import("./getFrontdoorSecurityPolicy").getFrontdoorSecurityPolicy = null as any;
+export const getFrontdoorSecurityPolicyOutput: typeof import("./getFrontdoorSecurityPolicy").getFrontdoorSecurityPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getFrontdoorSecurityPolicy","getFrontdoorSecurityPolicyOutput"], () => require("./getFrontdoorSecurityPolicy"));
+
 export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getProfile";
 export const getProfile: typeof import("./getProfile").getProfile = null as any;
 export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;

@@ -164,7 +164,7 @@ def get_share(acls: Optional[Sequence[Union['GetShareAclArgs', 'GetShareAclArgsD
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage` - 2025-06-01
+    * `Microsoft.Storage` - 2025-08-01
 
 
     :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.
@@ -222,7 +222,7 @@ def get_share_output(acls: pulumi.Input[Optional[Optional[Sequence[Union['GetSha
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Storage` - 2025-06-01
+    * `Microsoft.Storage` - 2025-08-01
 
 
     :param Sequence[Union['GetShareAclArgs', 'GetShareAclArgsDict']] acls: One or more acl blocks as defined below.

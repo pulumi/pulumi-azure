@@ -70,13 +70,13 @@ namespace Pulumi.Azure.CostManagement
         public Output<ImmutableArray<string>> EmailAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+        /// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
         /// </summary>
         [Output("emailSubject")]
         public Output<string> EmailSubject { get; private set; } = null!;
 
         /// <summary>
-        /// The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        /// The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         /// </summary>
         [Output("message")]
         public Output<string?> Message { get; private set; } = null!;
@@ -164,13 +164,13 @@ namespace Pulumi.Azure.CostManagement
         }
 
         /// <summary>
-        /// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+        /// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
         /// </summary>
         [Input("emailSubject", required: true)]
         public Input<string> EmailSubject { get; set; } = null!;
 
         /// <summary>
-        /// The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        /// The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }
@@ -220,13 +220,13 @@ namespace Pulumi.Azure.CostManagement
         }
 
         /// <summary>
-        /// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
+        /// The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 50.
         /// </summary>
         [Input("emailSubject")]
         public Input<string>? EmailSubject { get; set; }
 
         /// <summary>
-        /// The message of the Cost Anomaly Alert. Maximum length of the message is 250.
+        /// The message of the Cost Anomaly Alert. Maximum length of the message is 100.
         /// </summary>
         [Input("message")]
         public Input<string>? Message { get; set; }

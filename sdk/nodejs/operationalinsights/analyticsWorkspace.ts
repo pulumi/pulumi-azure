@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.OperationalInsights` - 2022-10-01, 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
  *
  * ## Import
  *
@@ -124,7 +124,7 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly primarySharedKey: pulumi.Output<string>;
     /**
-     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
      *
      * > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
@@ -283,7 +283,7 @@ export interface AnalyticsWorkspaceState {
      */
     primarySharedKey?: pulumi.Input<string | undefined>;
     /**
-     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
      *
      * > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */
@@ -373,7 +373,7 @@ export interface AnalyticsWorkspaceArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+     * The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
      *
      * > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
      */

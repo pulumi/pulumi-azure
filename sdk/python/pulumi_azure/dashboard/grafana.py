@@ -32,6 +32,7 @@ class GrafanaArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_size: pulumi.Input[Optional[_builtins.str]] = None,
                  smtp: pulumi.Input[Optional['GrafanaSmtpArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
@@ -49,6 +50,7 @@ class GrafanaArgs:
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Dashboard Grafana. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[_builtins.str] sku: The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[_builtins.str] sku_size: The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input['GrafanaSmtpArgs'] smtp: A `smtp` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
@@ -73,6 +75,8 @@ class GrafanaArgs:
             pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sku_size is not None:
+            pulumi.set(__self__, "sku_size", sku_size)
         if smtp is not None:
             pulumi.set(__self__, "smtp", smtp)
         if tags is not None:
@@ -213,6 +217,18 @@ class GrafanaArgs:
         pulumi.set(self, "sku", value)
 
     @_builtins.property
+    @pulumi.getter(name="skuSize")
+    def sku_size(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+        """
+        return pulumi.get(self, "sku_size")
+
+    @sku_size.setter
+    def sku_size(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sku_size", value)
+
+    @_builtins.property
     @pulumi.getter
     def smtp(self) -> pulumi.Input[Optional['GrafanaSmtpArgs']]:
         """
@@ -266,6 +282,7 @@ class _GrafanaState:
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_size: pulumi.Input[Optional[_builtins.str]] = None,
                  smtp: pulumi.Input[Optional['GrafanaSmtpArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
@@ -286,6 +303,7 @@ class _GrafanaState:
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[_builtins.str] sku: The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[_builtins.str] sku_size: The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input['GrafanaSmtpArgs'] smtp: A `smtp` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
@@ -318,6 +336,8 @@ class _GrafanaState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if sku_size is not None:
+            pulumi.set(__self__, "sku_size", sku_size)
         if smtp is not None:
             pulumi.set(__self__, "smtp", smtp)
         if tags is not None:
@@ -494,6 +514,18 @@ class _GrafanaState:
         pulumi.set(self, "sku", value)
 
     @_builtins.property
+    @pulumi.getter(name="skuSize")
+    def sku_size(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+        """
+        return pulumi.get(self, "sku_size")
+
+    @sku_size.setter
+    def sku_size(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sku_size", value)
+
+    @_builtins.property
     @pulumi.getter
     def smtp(self) -> pulumi.Input[Optional['GrafanaSmtpArgs']]:
         """
@@ -547,6 +579,7 @@ class Grafana(pulumi.CustomResource):
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_size: pulumi.Input[Optional[_builtins.str]] = None,
                  smtp: pulumi.Input[Optional[Union['GrafanaSmtpArgs', 'GrafanaSmtpArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -571,6 +604,8 @@ class Grafana(pulumi.CustomResource):
             api_key_enabled=True,
             deterministic_outbound_ip_enabled=True,
             public_network_access_enabled=False,
+            sku="Standard",
+            sku_size="X1",
             identity={
                 "type": "SystemAssigned",
             },
@@ -608,6 +643,7 @@ class Grafana(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[_builtins.str] sku: The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[_builtins.str] sku_size: The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Union['GrafanaSmtpArgs', 'GrafanaSmtpArgsDict']] smtp: A `smtp` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
@@ -638,6 +674,8 @@ class Grafana(pulumi.CustomResource):
             api_key_enabled=True,
             deterministic_outbound_ip_enabled=True,
             public_network_access_enabled=False,
+            sku="Standard",
+            sku_size="X1",
             identity={
                 "type": "SystemAssigned",
             },
@@ -688,6 +726,7 @@ class Grafana(pulumi.CustomResource):
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
+                 sku_size: pulumi.Input[Optional[_builtins.str]] = None,
                  smtp: pulumi.Input[Optional[Union['GrafanaSmtpArgs', 'GrafanaSmtpArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -715,6 +754,7 @@ class Grafana(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["sku"] = sku
+            __props__.__dict__["sku_size"] = sku_size
             __props__.__dict__["smtp"] = smtp
             __props__.__dict__["tags"] = tags
             __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
@@ -745,6 +785,7 @@ class Grafana(pulumi.CustomResource):
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
+            sku_size: pulumi.Input[Optional[_builtins.str]] = None,
             smtp: pulumi.Input[Optional[Union['GrafanaSmtpArgs', 'GrafanaSmtpArgsDict']]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Grafana':
@@ -769,6 +810,7 @@ class Grafana(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether to enable traffic over the public interface. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[_builtins.str] sku: The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+        :param pulumi.Input[_builtins.str] sku_size: The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
         :param pulumi.Input[Union['GrafanaSmtpArgs', 'GrafanaSmtpArgsDict']] smtp: A `smtp` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Dashboard Grafana.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
@@ -791,6 +833,7 @@ class Grafana(pulumi.CustomResource):
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["sku"] = sku
+        __props__.__dict__["sku_size"] = sku_size
         __props__.__dict__["smtp"] = smtp
         __props__.__dict__["tags"] = tags
         __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
@@ -907,6 +950,14 @@ class Grafana(pulumi.CustomResource):
         The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
         """
         return pulumi.get(self, "sku")
+
+    @_builtins.property
+    @pulumi.getter(name="skuSize")
+    def sku_size(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+        """
+        return pulumi.get(self, "sku_size")
 
     @_builtins.property
     @pulumi.getter

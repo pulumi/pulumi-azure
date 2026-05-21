@@ -298,7 +298,7 @@ namespace Pulumi.Azure.Compute
         /// In this case, `azure.keyvault.AccessPolicy` is not needed.
         /// </summary>
         [Output("keyVaultKeyId")]
-        public Output<string?> KeyVaultKeyId { get; private set; } = null!;
+        public Output<string> KeyVaultKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
@@ -316,7 +316,7 @@ namespace Pulumi.Azure.Compute
         /// Key ID of a key in a managed HSM. Exactly one of `ManagedHsmKeyId`, `KeyVaultKeyId` must be specified.
         /// </summary>
         [Output("managedHsmKeyId")]
-        public Output<string?> ManagedHsmKeyId { get; private set; } = null!;
+        public Output<string> ManagedHsmKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The name of the Disk Encryption Set. Changing this forces a new resource to be created.

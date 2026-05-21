@@ -26,7 +26,7 @@ public final class JobEventTriggerConfigScaleRule {
      */
     private String customRuleType;
     /**
-     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * @return The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
      * 
      */
     private @Nullable String identityId;
@@ -57,7 +57,7 @@ public final class JobEventTriggerConfigScaleRule {
         return this.customRuleType;
     }
     /**
-     * @return ID of the System or User Managed Identity used to execute scale rule.
+     * @return The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
      * 
      */
     public Optional<String> identityId() {

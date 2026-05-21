@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.cdn.outputs;
 
+import com.pulumi.azure.cdn.outputs.FrontdoorCustomDomainTlsCipherSuite;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -14,56 +15,76 @@ public final class FrontdoorCustomDomainTls {
     /**
      * @return Resource ID of the Front Door Secret.
      * 
+     * &gt; **Note:** `cdnFrontdoorSecretId` must be specified when `certificateType` is `CustomerCertificate` and must not be specified when `certificateType` is `ManagedCertificate`.
+     * 
      */
     private @Nullable String cdnFrontdoorSecretId;
     /**
-     * @return Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+     * @return Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
      * 
-     * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+     * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
      * 
      */
     private @Nullable String certificateType;
     /**
-     * @return TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
-     * 
-     * &gt; **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
-     * 
-     * @deprecated
-     * As of March 1, 2025, support for &#39;TLS10&#39; will be retired from Azure Front Door, therefore the &#39;TLS10&#39; property value will be removed in v5.0 of the provider.
+     * @return A `cipherSuite` block as defined below.
      * 
      */
-    @Deprecated /* As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider. */
+    private @Nullable FrontdoorCustomDomainTlsCipherSuite cipherSuite;
+    /**
+     * @deprecated
+     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
     private @Nullable String minimumTlsVersion;
+    /**
+     * @return TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
+     * 
+     */
+    private @Nullable String minimumVersion;
 
     private FrontdoorCustomDomainTls() {}
     /**
      * @return Resource ID of the Front Door Secret.
+     * 
+     * &gt; **Note:** `cdnFrontdoorSecretId` must be specified when `certificateType` is `CustomerCertificate` and must not be specified when `certificateType` is `ManagedCertificate`.
      * 
      */
     public Optional<String> cdnFrontdoorSecretId() {
         return Optional.ofNullable(this.cdnFrontdoorSecretId);
     }
     /**
-     * @return Defines the source of the SSL certificate. Possible values include `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
+     * @return Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
      * 
-     * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
+     * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
      * 
      */
     public Optional<String> certificateType() {
         return Optional.ofNullable(this.certificateType);
     }
     /**
-     * @return TLS protocol version that will be used for Https. Possible values are `TLS12`. Defaults to `TLS12`.
-     * 
-     * &gt; **Note:** On March 1, 2025, support for Transport Layer Security (TLS) 1.0 and 1.1 will be retired for Azure Front Door, all connections to Azure Front Door must employ `TLS 1.2` or later, please see the product [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
-     * 
-     * @deprecated
-     * As of March 1, 2025, support for &#39;TLS10&#39; will be retired from Azure Front Door, therefore the &#39;TLS10&#39; property value will be removed in v5.0 of the provider.
+     * @return A `cipherSuite` block as defined below.
      * 
      */
-    @Deprecated /* As of March 1, 2025, support for 'TLS10' will be retired from Azure Front Door, therefore the 'TLS10' property value will be removed in v5.0 of the provider. */
+    public Optional<FrontdoorCustomDomainTlsCipherSuite> cipherSuite() {
+        return Optional.ofNullable(this.cipherSuite);
+    }
+    /**
+     * @deprecated
+     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
+     * 
+     */
+    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
     public Optional<String> minimumTlsVersion() {
         return Optional.ofNullable(this.minimumTlsVersion);
+    }
+    /**
+     * @return TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
+     * 
+     */
+    public Optional<String> minimumVersion() {
+        return Optional.ofNullable(this.minimumVersion);
     }
 
     public static Builder builder() {
@@ -77,13 +98,17 @@ public final class FrontdoorCustomDomainTls {
     public static final class Builder {
         private @Nullable String cdnFrontdoorSecretId;
         private @Nullable String certificateType;
+        private @Nullable FrontdoorCustomDomainTlsCipherSuite cipherSuite;
         private @Nullable String minimumTlsVersion;
+        private @Nullable String minimumVersion;
         public Builder() {}
         public Builder(FrontdoorCustomDomainTls defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.cdnFrontdoorSecretId = defaults.cdnFrontdoorSecretId;
     	      this.certificateType = defaults.certificateType;
+    	      this.cipherSuite = defaults.cipherSuite;
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
+    	      this.minimumVersion = defaults.minimumVersion;
         }
 
         @CustomType.Setter
@@ -99,16 +124,30 @@ public final class FrontdoorCustomDomainTls {
             return this;
         }
         @CustomType.Setter
+        public Builder cipherSuite(@Nullable FrontdoorCustomDomainTlsCipherSuite cipherSuite) {
+
+            this.cipherSuite = cipherSuite;
+            return this;
+        }
+        @CustomType.Setter
         public Builder minimumTlsVersion(@Nullable String minimumTlsVersion) {
 
             this.minimumTlsVersion = minimumTlsVersion;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder minimumVersion(@Nullable String minimumVersion) {
+
+            this.minimumVersion = minimumVersion;
             return this;
         }
         public FrontdoorCustomDomainTls build() {
             final var _resultValue = new FrontdoorCustomDomainTls();
             _resultValue.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
             _resultValue.certificateType = certificateType;
+            _resultValue.cipherSuite = cipherSuite;
             _resultValue.minimumTlsVersion = minimumTlsVersion;
+            _resultValue.minimumVersion = minimumVersion;
             return _resultValue;
         }
     }

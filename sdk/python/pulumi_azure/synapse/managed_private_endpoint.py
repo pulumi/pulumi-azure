@@ -22,6 +22,7 @@ class ManagedPrivateEndpointArgs:
                  subresource_name: pulumi.Input[_builtins.str],
                  synapse_workspace_id: pulumi.Input[_builtins.str],
                  target_resource_id: pulumi.Input[_builtins.str],
+                 fully_qualified_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedPrivateEndpoint resource.
@@ -33,11 +34,16 @@ class ManagedPrivateEndpointArgs:
                
                > **Note:** A Synapse firewall rule including local IP is needed for managing current resource.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fully_qualified_domain_names: A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+               
+               > **Note:** `fully_qualified_domain_names` must be specified when the `target_resource_id` is a Private Link Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "subresource_name", subresource_name)
         pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if fully_qualified_domain_names is not None:
+            pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -82,6 +88,20 @@ class ManagedPrivateEndpointArgs:
         pulumi.set(self, "target_resource_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="fullyQualifiedDomainNames")
+    def fully_qualified_domain_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+
+        > **Note:** `fully_qualified_domain_names` must be specified when the `target_resource_id` is a Private Link Service.
+        """
+        return pulumi.get(self, "fully_qualified_domain_names")
+
+    @fully_qualified_domain_names.setter
+    def fully_qualified_domain_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "fully_qualified_domain_names", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -97,6 +117,7 @@ class ManagedPrivateEndpointArgs:
 @pulumi.input_type
 class _ManagedPrivateEndpointState:
     def __init__(__self__, *,
+                 fully_qualified_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -104,6 +125,9 @@ class _ManagedPrivateEndpointState:
         """
         Input properties used for looking up and filtering ManagedPrivateEndpoint resources.
 
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fully_qualified_domain_names: A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+               
+               > **Note:** `fully_qualified_domain_names` must be specified when the `target_resource_id` is a Private Link Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
@@ -113,6 +137,8 @@ class _ManagedPrivateEndpointState:
                > **Note:** A Synapse firewall rule including local IP is needed for managing current resource.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Synapse Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
+        if fully_qualified_domain_names is not None:
+            pulumi.set(__self__, "fully_qualified_domain_names", fully_qualified_domain_names)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if subresource_name is not None:
@@ -121,6 +147,20 @@ class _ManagedPrivateEndpointState:
             pulumi.set(__self__, "synapse_workspace_id", synapse_workspace_id)
         if target_resource_id is not None:
             pulumi.set(__self__, "target_resource_id", target_resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="fullyQualifiedDomainNames")
+    def fully_qualified_domain_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+
+        > **Note:** `fully_qualified_domain_names` must be specified when the `target_resource_id` is a Private Link Service.
+        """
+        return pulumi.get(self, "fully_qualified_domain_names")
+
+    @fully_qualified_domain_names.setter
+    def fully_qualified_domain_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "fully_qualified_domain_names", value)
 
     @_builtins.property
     @pulumi.getter
@@ -181,6 +221,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 fully_qualified_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -240,6 +281,13 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Synapse` - 2021-06-01
+
         ## Import
 
         Synapse Managed Private Endpoint can be imported using the `resource id`, e.g.
@@ -251,6 +299,9 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fully_qualified_domain_names: A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+               
+               > **Note:** `fully_qualified_domain_names` must be specified when the `target_resource_id` is a Private Link Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
@@ -320,6 +371,13 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             opts = pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Synapse` - 2021-06-01
+
         ## Import
 
         Synapse Managed Private Endpoint can be imported using the `resource id`, e.g.
@@ -344,6 +402,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 fully_qualified_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
                  synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -357,6 +416,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ManagedPrivateEndpointArgs.__new__(ManagedPrivateEndpointArgs)
 
+            __props__.__dict__["fully_qualified_domain_names"] = fully_qualified_domain_names
             __props__.__dict__["name"] = name
             if subresource_name is None and not opts.urn:
                 raise TypeError("Missing required property 'subresource_name'")
@@ -377,6 +437,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            fully_qualified_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             subresource_name: pulumi.Input[Optional[_builtins.str]] = None,
             synapse_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -388,6 +449,9 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] fully_qualified_domain_names: A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+               
+               > **Note:** `fully_qualified_domain_names` must be specified when the `target_resource_id` is a Private Link Service.
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subresource_name: Specifies the sub resource name which the Synapse Private Endpoint is able to connect to. Changing this forces a new resource to be created.
                
@@ -401,11 +465,22 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
 
         __props__ = _ManagedPrivateEndpointState.__new__(_ManagedPrivateEndpointState)
 
+        __props__.__dict__["fully_qualified_domain_names"] = fully_qualified_domain_names
         __props__.__dict__["name"] = name
         __props__.__dict__["subresource_name"] = subresource_name
         __props__.__dict__["synapse_workspace_id"] = synapse_workspace_id
         __props__.__dict__["target_resource_id"] = target_resource_id
         return ManagedPrivateEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="fullyQualifiedDomainNames")
+    def fully_qualified_domain_names(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        A list of fully qualified domain names to assign to the Synapse Private Endpoint. Changing this forces a new resource to be created.
+
+        > **Note:** `fully_qualified_domain_names` must be specified when the `target_resource_id` is a Private Link Service.
+        """
+        return pulumi.get(self, "fully_qualified_domain_names")
 
     @_builtins.property
     @pulumi.getter

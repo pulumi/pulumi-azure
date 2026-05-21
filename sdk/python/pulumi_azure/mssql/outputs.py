@@ -963,11 +963,10 @@ class ManagedDatabaseLongTermRetentionPolicy(dict):
                  weekly_retention: Optional[_builtins.str] = None,
                  yearly_retention: Optional[_builtins.str] = None):
         """
-        :param _builtins.bool immutable_backups_enabled: Specifies if the backups are immutable. Defaults to `false`.
-        :param _builtins.str monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
+        :param _builtins.str monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         :param _builtins.int week_of_year: The week of year to take the yearly backup. Value has to be between `1` and `52`.
-        :param _builtins.str weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
-        :param _builtins.str yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
+        :param _builtins.str weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+        :param _builtins.str yearly_retention: The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
         if immutable_backups_enabled is not None:
             pulumi.set(__self__, "immutable_backups_enabled", immutable_backups_enabled)
@@ -982,17 +981,15 @@ class ManagedDatabaseLongTermRetentionPolicy(dict):
 
     @_builtins.property
     @pulumi.getter(name="immutableBackupsEnabled")
+    @_utilities.deprecated("""The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.""")
     def immutable_backups_enabled(self) -> Optional[_builtins.bool]:
-        """
-        Specifies if the backups are immutable. Defaults to `false`.
-        """
         return pulumi.get(self, "immutable_backups_enabled")
 
     @_builtins.property
     @pulumi.getter(name="monthlyRetention")
     def monthly_retention(self) -> Optional[_builtins.str]:
         """
-        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
+        The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "monthly_retention")
 
@@ -1008,7 +1005,7 @@ class ManagedDatabaseLongTermRetentionPolicy(dict):
     @pulumi.getter(name="weeklyRetention")
     def weekly_retention(self) -> Optional[_builtins.str]:
         """
-        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
+        The weekly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 520 weeks. e.g. `P1Y`, `P1M`, `P1W` or `P7D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "weekly_retention")
 
@@ -1016,7 +1013,7 @@ class ManagedDatabaseLongTermRetentionPolicy(dict):
     @pulumi.getter(name="yearlyRetention")
     def yearly_retention(self) -> Optional[_builtins.str]:
         """
-        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
+        The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 10 years. e.g. `P1Y`, `P12M`, `P52W` or `P365D`. Defaults to `PT0S`.
         """
         return pulumi.get(self, "yearly_retention")
 
@@ -3149,7 +3146,6 @@ class GetManagedDatabaseLongTermRetentionPolicyResult(dict):
                  weekly_retention: _builtins.str,
                  yearly_retention: _builtins.str):
         """
-        :param _builtins.bool immutable_backups_enabled: Specifies if the backups are immutable.
         :param _builtins.str monthly_retention: The monthly retention policy for an LTR backup in an ISO 8601 format.
         :param _builtins.int week_of_year: The week of year to take the yearly backup.
         :param _builtins.str weekly_retention: The weekly retention policy for an LTR backup in an ISO 8601 format.
@@ -3163,10 +3159,8 @@ class GetManagedDatabaseLongTermRetentionPolicyResult(dict):
 
     @_builtins.property
     @pulumi.getter(name="immutableBackupsEnabled")
+    @_utilities.deprecated("""The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.""")
     def immutable_backups_enabled(self) -> _builtins.bool:
-        """
-        Specifies if the backups are immutable.
-        """
         return pulumi.get(self, "immutable_backups_enabled")
 
     @_builtins.property

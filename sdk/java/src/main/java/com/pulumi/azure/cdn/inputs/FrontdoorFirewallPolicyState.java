@@ -61,14 +61,14 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
     }
 
     /**
-     * If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
      * 
      */
     @Import(name="customBlockResponseStatusCode")
     private @Nullable Output<Integer> customBlockResponseStatusCode;
 
     /**
-     * @return If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * @return If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
      * 
      */
     public Optional<Output<Integer>> customBlockResponseStatusCode() {
@@ -380,7 +380,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customBlockResponseStatusCode If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+         * @param customBlockResponseStatusCode If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class FrontdoorFirewallPolicyState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param customBlockResponseStatusCode If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+         * @param customBlockResponseStatusCode If a `customRule` block&#39;s action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
          * 
          * @return builder
          * 

@@ -122,6 +122,17 @@ func NewLinkedServiceDataLakeStorageGen2(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
+	if args.ServicePrincipalKey != nil {
+		args.ServicePrincipalKey = pulumi.ToSecret(args.ServicePrincipalKey).(pulumi.StringPtrInput)
+	}
+	if args.StorageAccountKey != nil {
+		args.StorageAccountKey = pulumi.ToSecret(args.StorageAccountKey).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"servicePrincipalKey",
+		"storageAccountKey",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LinkedServiceDataLakeStorageGen2
 	err := ctx.RegisterResource("azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2", name, args, &resource, opts...)

@@ -278,6 +278,13 @@ class SqlRoleAssignment(pulumi.CustomResource):
             scope=example_account.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
+
         ## Import
 
         Cosmos DB SQL Role Assignments can be imported using the `resource id`, e.g.
@@ -345,6 +352,13 @@ class SqlRoleAssignment(pulumi.CustomResource):
             principal_id=current.object_id,
             scope=example_account.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2024-08-15
 
         ## Import
 

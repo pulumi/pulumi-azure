@@ -57,7 +57,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.OperationalInsights` - 2022-10-01, 2020-08-01
+// * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
 //
 // ## Import
 //
@@ -95,7 +95,7 @@ type AnalyticsWorkspace struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringOutput `pulumi:"primarySharedKey"`
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay pulumi.IntPtrOutput `pulumi:"reservationCapacityInGbPerDay"`
@@ -183,7 +183,7 @@ type analyticsWorkspaceState struct {
 	Name *string `pulumi:"name"`
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey *string `pulumi:"primarySharedKey"`
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
@@ -234,7 +234,7 @@ type AnalyticsWorkspaceState struct {
 	Name pulumi.StringPtrInput
 	// The Primary shared key for the Log Analytics Workspace.
 	PrimarySharedKey pulumi.StringPtrInput
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
@@ -287,7 +287,7 @@ type analyticsWorkspaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay *int `pulumi:"reservationCapacityInGbPerDay"`
@@ -333,7 +333,7 @@ type AnalyticsWorkspaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Log Analytics Workspace. Workspace name should include 4-63 letters, digits or '-'. The '-' shouldn't be the first or the last symbol. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+	// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 	//
 	// > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 	ReservationCapacityInGbPerDay pulumi.IntPtrInput
@@ -505,7 +505,7 @@ func (o AnalyticsWorkspaceOutput) PrimarySharedKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnalyticsWorkspace) pulumi.StringOutput { return v.PrimarySharedKey }).(pulumi.StringOutput)
 }
 
-// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`.
+// The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`, `10000`, `25000`, and `50000`.
 //
 // > **Note:** `reservationCapacityInGbPerDay` can only be used when the `sku` is set to `CapacityReservation`.
 func (o AnalyticsWorkspaceOutput) ReservationCapacityInGbPerDay() pulumi.IntPtrOutput {

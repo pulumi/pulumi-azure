@@ -97,6 +97,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.DocumentDB` - 2024-08-15
+ * 
  * ## Import
  * 
  * Cosmos DB SQL Role Assignments can be imported using the `resource id`, e.g.

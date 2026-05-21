@@ -477,7 +477,7 @@ class CertifiateCertificatePolicyLifetimeActionAction(dict):
     def __init__(__self__, *,
                  action_type: _builtins.str):
         """
-        :param _builtins.str action_type: The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+        :param _builtins.str action_type: The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
         """
         pulumi.set(__self__, "action_type", action_type)
 
@@ -485,7 +485,7 @@ class CertifiateCertificatePolicyLifetimeActionAction(dict):
     @pulumi.getter(name="actionType")
     def action_type(self) -> _builtins.str:
         """
-        The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+        The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
         """
         return pulumi.get(self, "action_type")
 
@@ -1135,7 +1135,7 @@ class CertificateCertificatePolicyLifetimeActionAction(dict):
     def __init__(__self__, *,
                  action_type: _builtins.str):
         """
-        :param _builtins.str action_type: The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+        :param _builtins.str action_type: The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
         """
         pulumi.set(__self__, "action_type", action_type)
 
@@ -1143,7 +1143,7 @@ class CertificateCertificatePolicyLifetimeActionAction(dict):
     @pulumi.getter(name="actionType")
     def action_type(self) -> _builtins.str:
         """
-        The Type of action to be performed when the lifetime trigger is triggerec. Possible values include `AutoRenew` and `EmailContacts`.
+        The Type of action to be performed when the lifetime trigger is triggered. Possible values include `AutoRenew` and `EmailContacts`.
         """
         return pulumi.get(self, "action_type")
 
@@ -2129,7 +2129,7 @@ class GetCertificateCertificatePolicyLifetimeActionActionResult(dict):
     def __init__(__self__, *,
                  action_type: _builtins.str):
         """
-        :param _builtins.str action_type: The Type of action to be performed when the lifetime trigger is triggerec.
+        :param _builtins.str action_type: The Type of action to be performed when the lifetime trigger is triggered.
         """
         pulumi.set(__self__, "action_type", action_type)
 
@@ -2137,7 +2137,7 @@ class GetCertificateCertificatePolicyLifetimeActionActionResult(dict):
     @pulumi.getter(name="actionType")
     def action_type(self) -> _builtins.str:
         """
-        The Type of action to be performed when the lifetime trigger is triggerec.
+        The Type of action to be performed when the lifetime trigger is triggered.
         """
         return pulumi.get(self, "action_type")
 

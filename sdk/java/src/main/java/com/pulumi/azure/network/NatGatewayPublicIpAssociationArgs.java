@@ -30,18 +30,22 @@ public final class NatGatewayPublicIpAssociationArgs extends com.pulumi.resource
     }
 
     /**
-     * The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     * The ID of the Public IP Address which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+     * &gt; **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpAddressId` must reference a Public IP Address with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpAddressId` must reference a Public IP Address with SKU `StandardV2`.
+     * 
+     * &gt; **Note:** When `publicIpAddressId` references an `IPv6` Public IP Address, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpAddressId` must reference an `IPv6` Public IP Address with SKU `StandardV2`.
      * 
      */
     @Import(name="publicIpAddressId", required=true)
     private Output<String> publicIpAddressId;
 
     /**
-     * @return The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+     * @return The ID of the Public IP Address which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+     * &gt; **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpAddressId` must reference a Public IP Address with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpAddressId` must reference a Public IP Address with SKU `StandardV2`.
+     * 
+     * &gt; **Note:** When `publicIpAddressId` references an `IPv6` Public IP Address, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpAddressId` must reference an `IPv6` Public IP Address with SKU `StandardV2`.
      * 
      */
     public Output<String> publicIpAddressId() {
@@ -95,9 +99,11 @@ public final class NatGatewayPublicIpAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param publicIpAddressId The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+         * @param publicIpAddressId The ID of the Public IP Address which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+         * &gt; **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpAddressId` must reference a Public IP Address with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpAddressId` must reference a Public IP Address with SKU `StandardV2`.
+         * 
+         * &gt; **Note:** When `publicIpAddressId` references an `IPv6` Public IP Address, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpAddressId` must reference an `IPv6` Public IP Address with SKU `StandardV2`.
          * 
          * @return builder
          * 
@@ -108,9 +114,11 @@ public final class NatGatewayPublicIpAssociationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param publicIpAddressId The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created.
+         * @param publicIpAddressId The ID of the Public IP Address which this NAT Gateway should be connected to. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** When `natGatewayId` references a `StandardV2` NAT Gateway, `publicIpAddressId` must reference a `StandardV2` Public IP. Azure rejects `Standard` Public IPs with `StandardV2` NAT Gateways, and this incompatibility is not validated during pulumi preview phase.
+         * &gt; **Note:** When `natGatewayId` references a NAT Gateway with SKU `Standard`, `publicIpAddressId` must reference a Public IP Address with SKU `Standard`. When `natGatewayId` references a NAT Gateway with SKU `StandardV2`, `publicIpAddressId` must reference a Public IP Address with SKU `StandardV2`.
+         * 
+         * &gt; **Note:** When `publicIpAddressId` references an `IPv6` Public IP Address, `natGatewayId` must reference a NAT Gateway with SKU `StandardV2`, and `publicIpAddressId` must reference an `IPv6` Public IP Address with SKU `StandardV2`.
          * 
          * @return builder
          * 

@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *             type: "MatchRule",
  *             action: "Block",
  *             matchConditions: [{
- *                 matchVariable: "RemoteAddr",
+ *                 matchVariable: "SocketAddr",
  *                 operator: "IPMatch",
  *                 negationCondition: false,
  *                 matchValues: [
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *             action: "Block",
  *             matchConditions: [
  *                 {
- *                     matchVariable: "RemoteAddr",
+ *                     matchVariable: "SocketAddr",
  *                     operator: "IPMatch",
  *                     negationCondition: false,
  *                     matchValues: ["192.168.1.0/24"],
@@ -193,7 +193,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
      */
     declare public readonly customBlockResponseBody: pulumi.Output<string | undefined>;
     /**
-     * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
      */
     declare public readonly customBlockResponseStatusCode: pulumi.Output<number | undefined>;
     /**
@@ -338,7 +338,7 @@ export interface FrontdoorFirewallPolicyState {
      */
     customBlockResponseBody?: pulumi.Input<string | undefined>;
     /**
-     * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
      */
     customBlockResponseStatusCode?: pulumi.Input<number | undefined>;
     /**
@@ -422,7 +422,7 @@ export interface FrontdoorFirewallPolicyArgs {
      */
     customBlockResponseBody?: pulumi.Input<string | undefined>;
     /**
-     * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+     * If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
      */
     customBlockResponseStatusCode?: pulumi.Input<number | undefined>;
     /**

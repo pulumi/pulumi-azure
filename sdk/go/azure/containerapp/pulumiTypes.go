@@ -5774,7 +5774,7 @@ type JobEventTriggerConfigScaleRule struct {
 	Authentications []JobEventTriggerConfigScaleRuleAuthentication `pulumi:"authentications"`
 	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
 	CustomRuleType string `pulumi:"customRuleType"`
-	// ID of the System or User Managed Identity used to execute scale rule.
+	// The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 	IdentityId *string `pulumi:"identityId"`
 	// Metadata properties to describe the scale rule.
 	Metadata map[string]string `pulumi:"metadata"`
@@ -5798,7 +5798,7 @@ type JobEventTriggerConfigScaleRuleArgs struct {
 	Authentications JobEventTriggerConfigScaleRuleAuthenticationArrayInput `pulumi:"authentications"`
 	// Type of the scale rule. Possible values are `activemq`, `artemis-queue`, `kafka`, `pulsar`, `aws-cloudwatch`, `aws-dynamodb`, `aws-dynamodb-streams`, `aws-kinesis-stream`, `aws-sqs-queue`, `azure-app-insights`, `azure-blob`, `azure-data-explorer`, `azure-eventhub`, `azure-log-analytics`, `azure-monitor`, `azure-pipelines`, `azure-servicebus`, `azure-queue`, `cassandra`, `cpu`, `cron`, `datadog`, `elasticsearch`, `external`, `external-push`, `gcp-stackdriver`, `gcp-storage`, `gcp-pubsub`, `graphite`, `http`, `huawei-cloudeye`, `ibmmq`, `influxdb`, `kubernetes-workload`, `liiklus`, `memory`, `metrics-api`, `mongodb`, `mssql`, `mysql`, `nats-jetstream`, `stan`, `tcp`, `new-relic`, `openstack-metric`, `openstack-swift`, `postgresql`, `predictkube`, `prometheus`, `rabbitmq`, `redis`, `redis-cluster`, `redis-sentinel`, `redis-streams`, `redis-cluster-streams`, `redis-sentinel-streams`, `selenium-grid`, `solace-event-queue` and `github-runner`.
 	CustomRuleType pulumi.StringInput `pulumi:"customRuleType"`
-	// ID of the System or User Managed Identity used to execute scale rule.
+	// The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 	IdentityId pulumi.StringPtrInput `pulumi:"identityId"`
 	// Metadata properties to describe the scale rule.
 	Metadata pulumi.StringMapInput `pulumi:"metadata"`
@@ -5869,7 +5869,7 @@ func (o JobEventTriggerConfigScaleRuleOutput) CustomRuleType() pulumi.StringOutp
 	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) string { return v.CustomRuleType }).(pulumi.StringOutput)
 }
 
-// ID of the System or User Managed Identity used to execute scale rule.
+// The ID of the identity used to authenticate with the scale rule backend. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 func (o JobEventTriggerConfigScaleRuleOutput) IdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobEventTriggerConfigScaleRule) *string { return v.IdentityId }).(pulumi.StringPtrOutput)
 }

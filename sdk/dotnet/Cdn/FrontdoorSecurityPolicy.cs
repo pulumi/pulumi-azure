@@ -19,6 +19,7 @@ namespace Pulumi.Azure.Cdn
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -85,7 +86,15 @@ namespace Pulumi.Azure.Cdn
     ///         Name = "example-customDomain",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         DnsZoneId = exampleZone.Id,
-    ///         HostName = "contoso.fabrikam.com",
+    ///         HostName = Std.Join.Invoke(new()
+    ///         {
+    ///             Separator = ".",
+    ///             Input = new[]
+    ///             {
+    ///                 "contoso",
+    ///                 exampleZone.Name,
+    ///             },
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",
@@ -129,7 +138,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Import
     /// 
-    /// Front Door Security Policies can be imported using the `resource id`, e.g.
+    /// A Front Door Security Policy can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
     /// $ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
@@ -139,19 +148,19 @@ namespace Pulumi.Azure.Cdn
     public partial class FrontdoorSecurityPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        /// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("cdnFrontdoorProfileId")]
         public Output<string> CdnFrontdoorProfileId { get; private set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
+        /// The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An `SecurityPolicies` block as defined below.
+        /// A `SecurityPolicies` block as defined below.
         /// </summary>
         [Output("securityPolicies")]
         public Output<Outputs.FrontdoorSecurityPolicySecurityPolicies> SecurityPolicies { get; private set; } = null!;
@@ -203,19 +212,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorSecurityPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        /// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId", required: true)]
         public Input<string> CdnFrontdoorProfileId { get; set; } = null!;
 
         /// <summary>
-        /// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
+        /// The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `SecurityPolicies` block as defined below.
+        /// A `SecurityPolicies` block as defined below.
         /// </summary>
         [Input("securityPolicies", required: true)]
         public Input<Inputs.FrontdoorSecurityPolicySecurityPoliciesArgs> SecurityPolicies { get; set; } = null!;
@@ -229,19 +238,19 @@ namespace Pulumi.Azure.Cdn
     public sealed class FrontdoorSecurityPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created.
+        /// The Front Door Profile Resource Id that is linked to this Front Door Security Policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("cdnFrontdoorProfileId")]
         public Input<string>? CdnFrontdoorProfileId { get; set; }
 
         /// <summary>
-        /// The name which should be used for this Front Door Security Policy. Possible values must not be an empty string. Changing this forces a new Front Door Security Policy to be created.
+        /// The name which should be used for this Front Door Security Policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// An `SecurityPolicies` block as defined below.
+        /// A `SecurityPolicies` block as defined below.
         /// </summary>
         [Input("securityPolicies")]
         public Input<Inputs.FrontdoorSecurityPolicySecurityPoliciesGetArgs>? SecurityPolicies { get; set; }

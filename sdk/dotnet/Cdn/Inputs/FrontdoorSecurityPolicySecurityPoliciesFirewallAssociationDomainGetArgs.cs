@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Cdn.Inputs
     public sealed class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Is the Front Door Custom Domain/Endpoint activated?
+        /// Whether the Front Door Custom Domain or Front Door Endpoint is active.
         /// </summary>
         [Input("active")]
         public Input<bool>? Active { get; set; }

@@ -15,10 +15,12 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
     /**
      * @return One or more `domain` blocks as defined below.
      * 
+     * &gt; **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
+     * 
      */
     private List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains;
     /**
-     * @return The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+     * @return The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
      * 
      */
     private String patternsToMatch;
@@ -27,12 +29,14 @@ public final class FrontdoorSecurityPolicySecurityPoliciesFirewallAssociation {
     /**
      * @return One or more `domain` blocks as defined below.
      * 
+     * &gt; **Note:** The number of `domain` blocks that may be included in the configuration varies depending on the `skuName` field of the linked Front Door Profile. The `Standard_AzureFrontDoor` sku may contain up to 100 `domain` blocks and a `Premium_AzureFrontDoor` sku may contain up to 500 `domain` blocks.
+     * 
      */
     public List<FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomain> domains() {
         return this.domains;
     }
     /**
-     * @return The list of paths to match for this firewall policy. Possible value includes `/*`. Changing this forces a new Front Door Security Policy to be created.
+     * @return The list of paths to match for this firewall policy. The only possible value is `/*`. Changing this forces a new resource to be created.
      * 
      */
     public String patternsToMatch() {

@@ -37,6 +37,8 @@ namespace Pulumi.Azure.Dashboard
     ///         ApiKeyEnabled = true,
     ///         DeterministicOutboundIpEnabled = true,
     ///         PublicNetworkAccessEnabled = false,
+    ///         Sku = "Standard",
+    ///         SkuSize = "X1",
     ///         Identity = new Azure.Dashboard.Inputs.GrafanaIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -151,6 +153,12 @@ namespace Pulumi.Azure.Dashboard
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+        /// </summary>
+        [Output("skuSize")]
+        public Output<string?> SkuSize { get; private set; } = null!;
 
         /// <summary>
         /// A `Smtp` block as defined below.
@@ -289,6 +297,12 @@ namespace Pulumi.Azure.Dashboard
         public Input<string>? Sku { get; set; }
 
         /// <summary>
+        /// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+        /// </summary>
+        [Input("skuSize")]
+        public Input<string>? SkuSize { get; set; }
+
+        /// <summary>
         /// A `Smtp` block as defined below.
         /// </summary>
         [Input("smtp")]
@@ -415,6 +429,12 @@ namespace Pulumi.Azure.Dashboard
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
+        /// </summary>
+        [Input("skuSize")]
+        public Input<string>? SkuSize { get; set; }
 
         /// <summary>
         /// A `Smtp` block as defined below.

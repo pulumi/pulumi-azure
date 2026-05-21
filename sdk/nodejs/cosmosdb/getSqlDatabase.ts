@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  *     accountName: "tfex-cosmosdb-sql-database-account-name",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DocumentDB` - 2024-08-15
  */
 export function getSqlDatabase(args: GetSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -84,6 +91,13 @@ export interface GetSqlDatabaseResult {
  *     accountName: "tfex-cosmosdb-sql-database-account-name",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DocumentDB` - 2024-08-15
  */
 export function getSqlDatabaseOutput(args: GetSqlDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

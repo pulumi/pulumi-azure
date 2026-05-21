@@ -17,9 +17,13 @@ public final class GetFrontdoorCustomDomainResult {
      * 
      */
     private String cdnFrontdoorProfileId;
+    /**
+     * @return The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+     * 
+     */
     private String dnsZoneId;
     /**
-     * @return The date time that the token expires.
+     * @return The date and time that the token expires.
      * 
      */
     private String expirationDate;
@@ -55,11 +59,15 @@ public final class GetFrontdoorCustomDomainResult {
     public String cdnFrontdoorProfileId() {
         return this.cdnFrontdoorProfileId;
     }
+    /**
+     * @return The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain.
+     * 
+     */
     public String dnsZoneId() {
         return this.dnsZoneId;
     }
     /**
-     * @return The date time that the token expires.
+     * @return The date and time that the token expires.
      * 
      */
     public String expirationDate() {

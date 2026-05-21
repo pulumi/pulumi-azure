@@ -75,6 +75,9 @@ class FlexibleServerCustomerManagedKeyArgs:
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if managed_hsm_key_id is not None:
+            warnings.warn("""The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
+            pulumi.log.warn("""managed_hsm_key_id is deprecated: The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
+        if managed_hsm_key_id is not None:
             pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if primary_user_assigned_identity_id is not None:
             pulumi.set(__self__, "primary_user_assigned_identity_id", primary_user_assigned_identity_id)
@@ -119,6 +122,7 @@ class FlexibleServerCustomerManagedKeyArgs:
 
     @_builtins.property
     @pulumi.getter(name="managedHsmKeyId")
+    @_utilities.deprecated("""The `customer_managed_key.managed_hsm_key_id` property has been deprecated in favour of `customer_managed_key.key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
     def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The ID of the Managed HSM Key.

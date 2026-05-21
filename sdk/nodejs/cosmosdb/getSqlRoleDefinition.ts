@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DocumentDB` - 2024-08-15
  */
 export function getSqlRoleDefinition(args: GetSqlRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -92,6 +99,13 @@ export interface GetSqlRoleDefinitionResult {
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.DocumentDB` - 2024-08-15
  */
 export function getSqlRoleDefinitionOutput(args: GetSqlRoleDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlRoleDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

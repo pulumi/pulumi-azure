@@ -40,6 +40,25 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+     * 
+     * &gt; **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+     * 
+     */
+    @Import(name="consistencyType")
+    private @Nullable Output<String> consistencyType;
+
+    /**
+     * @return The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+     * 
+     * &gt; **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+     * 
+     */
+    public Optional<Output<String>> consistencyType() {
+        return Optional.ofNullable(this.consistencyType);
+    }
+
+    /**
      * Specifies the instant restore resource group name as documented in the `instantRestoreResourceGroup` block below.
      * 
      */
@@ -227,6 +246,7 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
 
     private PolicyVMArgs(PolicyVMArgs $) {
         this.backup = $.backup;
+        this.consistencyType = $.consistencyType;
         this.instantRestoreResourceGroup = $.instantRestoreResourceGroup;
         this.instantRestoreRetentionDays = $.instantRestoreRetentionDays;
         this.name = $.name;
@@ -278,6 +298,31 @@ public final class PolicyVMArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder backup(PolicyVMBackupArgs backup) {
             return backup(Output.of(backup));
+        }
+
+        /**
+         * @param consistencyType The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+         * 
+         * &gt; **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consistencyType(@Nullable Output<String> consistencyType) {
+            $.consistencyType = consistencyType;
+            return this;
+        }
+
+        /**
+         * @param consistencyType The consistency type for the backup policy. The only possible value is `OnlyCrashConsistent`.
+         * 
+         * &gt; **Note:** `consistencyType` can only be specified when `policyType` is `V2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consistencyType(String consistencyType) {
+            return consistencyType(Output.of(consistencyType));
         }
 
         /**

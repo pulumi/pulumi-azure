@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class EventHubCaptureDescriptionDestination {
@@ -32,6 +34,20 @@ public final class EventHubCaptureDescriptionDestination {
      * 
      */
     private String storageAccountId;
+    /**
+     * @return The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+     * 
+     * &gt; **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+     * 
+     * &gt; **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+     * 
+     */
+    private @Nullable String storageAuthenticationId;
+    /**
+     * @return The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+     * 
+     */
+    private @Nullable String storageAuthenticationType;
 
     private EventHubCaptureDescriptionDestination() {}
     /**
@@ -64,6 +80,24 @@ public final class EventHubCaptureDescriptionDestination {
     public String storageAccountId() {
         return this.storageAccountId;
     }
+    /**
+     * @return The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
+     * 
+     * &gt; **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
+     * 
+     * &gt; **Note:** The managed identity used by the capture feature must be granted the `Storage Blob Data Contributor` role.
+     * 
+     */
+    public Optional<String> storageAuthenticationId() {
+        return Optional.ofNullable(this.storageAuthenticationId);
+    }
+    /**
+     * @return The identity used to authenticate the Blob Storage Account where messages should be archived. Possible values are `StorageSAS`, `SystemAssigned` or `UserAssigned`. Defaults to `StorageSAS`.
+     * 
+     */
+    public Optional<String> storageAuthenticationType() {
+        return Optional.ofNullable(this.storageAuthenticationType);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -78,6 +112,8 @@ public final class EventHubCaptureDescriptionDestination {
         private String blobContainerName;
         private String name;
         private String storageAccountId;
+        private @Nullable String storageAuthenticationId;
+        private @Nullable String storageAuthenticationType;
         public Builder() {}
         public Builder(EventHubCaptureDescriptionDestination defaults) {
     	      Objects.requireNonNull(defaults);
@@ -85,6 +121,8 @@ public final class EventHubCaptureDescriptionDestination {
     	      this.blobContainerName = defaults.blobContainerName;
     	      this.name = defaults.name;
     	      this.storageAccountId = defaults.storageAccountId;
+    	      this.storageAuthenticationId = defaults.storageAuthenticationId;
+    	      this.storageAuthenticationType = defaults.storageAuthenticationType;
         }
 
         @CustomType.Setter
@@ -119,12 +157,26 @@ public final class EventHubCaptureDescriptionDestination {
             this.storageAccountId = storageAccountId;
             return this;
         }
+        @CustomType.Setter
+        public Builder storageAuthenticationId(@Nullable String storageAuthenticationId) {
+
+            this.storageAuthenticationId = storageAuthenticationId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder storageAuthenticationType(@Nullable String storageAuthenticationType) {
+
+            this.storageAuthenticationType = storageAuthenticationType;
+            return this;
+        }
         public EventHubCaptureDescriptionDestination build() {
             final var _resultValue = new EventHubCaptureDescriptionDestination();
             _resultValue.archiveNameFormat = archiveNameFormat;
             _resultValue.blobContainerName = blobContainerName;
             _resultValue.name = name;
             _resultValue.storageAccountId = storageAccountId;
+            _resultValue.storageAuthenticationId = storageAuthenticationId;
+            _resultValue.storageAuthenticationType = storageAuthenticationType;
             return _resultValue;
         }
     }

@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.DocumentDB` - 2024-08-15
 func LookupSqlDatabase(ctx *pulumi.Context, args *LookupSqlDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupSqlDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSqlDatabaseResult

@@ -64,7 +64,7 @@ import (
 //						Action:                     pulumi.String("Block"),
 //						MatchConditions: cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArray{
 //							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
-//								MatchVariable:     pulumi.String("RemoteAddr"),
+//								MatchVariable:     pulumi.String("SocketAddr"),
 //								Operator:          pulumi.String("IPMatch"),
 //								NegationCondition: pulumi.Bool(false),
 //								MatchValues: pulumi.StringArray{
@@ -84,7 +84,7 @@ import (
 //						Action:                     pulumi.String("Block"),
 //						MatchConditions: cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArray{
 //							&cdn.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs{
-//								MatchVariable:     pulumi.String("RemoteAddr"),
+//								MatchVariable:     pulumi.String("SocketAddr"),
 //								Operator:          pulumi.String("IPMatch"),
 //								NegationCondition: pulumi.Bool(false),
 //								MatchValues: pulumi.StringArray{
@@ -205,7 +205,7 @@ type FrontdoorFirewallPolicy struct {
 	CaptchaCookieExpirationInMinutes pulumi.IntOutput `pulumi:"captchaCookieExpirationInMinutes"`
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody pulumi.StringPtrOutput `pulumi:"customBlockResponseBody"`
-	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
 	CustomBlockResponseStatusCode pulumi.IntPtrOutput `pulumi:"customBlockResponseStatusCode"`
 	// One or more `customRule` blocks as defined below.
 	CustomRules FrontdoorFirewallPolicyCustomRuleArrayOutput `pulumi:"customRules"`
@@ -292,7 +292,7 @@ type frontdoorFirewallPolicyState struct {
 	CaptchaCookieExpirationInMinutes *int `pulumi:"captchaCookieExpirationInMinutes"`
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody *string `pulumi:"customBlockResponseBody"`
-	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
 	CustomBlockResponseStatusCode *int `pulumi:"customBlockResponseStatusCode"`
 	// One or more `customRule` blocks as defined below.
 	CustomRules []FrontdoorFirewallPolicyCustomRule `pulumi:"customRules"`
@@ -341,7 +341,7 @@ type FrontdoorFirewallPolicyState struct {
 	CaptchaCookieExpirationInMinutes pulumi.IntPtrInput
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody pulumi.StringPtrInput
-	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
 	CustomBlockResponseStatusCode pulumi.IntPtrInput
 	// One or more `customRule` blocks as defined below.
 	CustomRules FrontdoorFirewallPolicyCustomRuleArrayInput
@@ -394,7 +394,7 @@ type frontdoorFirewallPolicyArgs struct {
 	CaptchaCookieExpirationInMinutes *int `pulumi:"captchaCookieExpirationInMinutes"`
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody *string `pulumi:"customBlockResponseBody"`
-	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
 	CustomBlockResponseStatusCode *int `pulumi:"customBlockResponseStatusCode"`
 	// One or more `customRule` blocks as defined below.
 	CustomRules []FrontdoorFirewallPolicyCustomRule `pulumi:"customRules"`
@@ -442,7 +442,7 @@ type FrontdoorFirewallPolicyArgs struct {
 	CaptchaCookieExpirationInMinutes pulumi.IntPtrInput
 	// If a `customRule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding.
 	CustomBlockResponseBody pulumi.StringPtrInput
-	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+	// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
 	CustomBlockResponseStatusCode pulumi.IntPtrInput
 	// One or more `customRule` blocks as defined below.
 	CustomRules FrontdoorFirewallPolicyCustomRuleArrayInput
@@ -581,7 +581,7 @@ func (o FrontdoorFirewallPolicyOutput) CustomBlockResponseBody() pulumi.StringPt
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.StringPtrOutput { return v.CustomBlockResponseBody }).(pulumi.StringPtrOutput)
 }
 
-// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`.
+// If a `customRule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, `429`, `990`, `991`, `992`, `993`, `994`, `995`, `996`, `997`, `998`, or `999`.
 func (o FrontdoorFirewallPolicyOutput) CustomBlockResponseStatusCode() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) pulumi.IntPtrOutput { return v.CustomBlockResponseStatusCode }).(pulumi.IntPtrOutput)
 }

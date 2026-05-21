@@ -31,14 +31,18 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the Cognitive Account this Bot Channel should be associated with.
+     * The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+     * 
+     * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      * 
      */
     @Import(name="cognitiveAccountId")
     private @Nullable Output<String> cognitiveAccountId;
 
     /**
-     * @return The ID of the Cognitive Account this Bot Channel should be associated with.
+     * @return The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+     * 
+     * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> cognitiveAccountId() {
@@ -46,14 +50,14 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
     }
 
     /**
-     * The access key to access the Cognitive Service.
+     * The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
      */
     @Import(name="cognitiveServiceAccessKey")
     private @Nullable Output<String> cognitiveServiceAccessKey;
 
     /**
-     * @return The access key to access the Cognitive Service.
+     * @return The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
      */
     public Optional<Output<String>> cognitiveServiceAccessKey() {
@@ -61,14 +65,14 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
     }
 
     /**
-     * Specifies the supported Azure location where the Cognitive Service resource exists.
+     * Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
      */
     @Import(name="cognitiveServiceLocation")
     private @Nullable Output<String> cognitiveServiceLocation;
 
     /**
-     * @return Specifies the supported Azure location where the Cognitive Service resource exists.
+     * @return Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
      */
     public Optional<Output<String>> cognitiveServiceLocation() {
@@ -188,7 +192,9 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cognitiveAccountId The ID of the Cognitive Account this Bot Channel should be associated with.
+         * @param cognitiveAccountId The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+         * 
+         * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -199,7 +205,9 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cognitiveAccountId The ID of the Cognitive Account this Bot Channel should be associated with.
+         * @param cognitiveAccountId The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
+         * 
+         * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -209,7 +217,7 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cognitiveServiceAccessKey The access key to access the Cognitive Service.
+         * @param cognitiveServiceAccessKey The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
          * 
          * @return builder
          * 
@@ -220,7 +228,7 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cognitiveServiceAccessKey The access key to access the Cognitive Service.
+         * @param cognitiveServiceAccessKey The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
          * 
          * @return builder
          * 
@@ -230,7 +238,7 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cognitiveServiceLocation Specifies the supported Azure location where the Cognitive Service resource exists.
+         * @param cognitiveServiceLocation Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
          * 
          * @return builder
          * 
@@ -241,7 +249,7 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cognitiveServiceLocation Specifies the supported Azure location where the Cognitive Service resource exists.
+         * @param cognitiveServiceLocation Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
          * 
          * @return builder
          * 
