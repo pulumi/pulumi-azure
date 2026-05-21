@@ -1,3 +1,0 @@
-name: azure-timer
-runtime: nodejs
-description: Work with a Timer-triggered Azure Function
