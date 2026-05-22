@@ -265,11 +265,11 @@ class AccountKeyVaultReferenceArgs:
 
 
 class AccountNetworkProfileArgsDict(TypedDict):
-    account_access: NotRequired[pulumi.Input[Optional['AccountNetworkProfileAccountAccessArgs']]]
+    account_access: NotRequired[pulumi.Input[Optional['AccountNetworkProfileAccountAccessArgsDict']]]
     """
     An `account_access` block as defined below.
     """
-    node_management_access: NotRequired[pulumi.Input[Optional['AccountNetworkProfileNodeManagementAccessArgs']]]
+    node_management_access: NotRequired[pulumi.Input[Optional['AccountNetworkProfileNodeManagementAccessArgsDict']]]
     """
     A `node_management_access` block as defined below.
 
@@ -324,7 +324,7 @@ class AccountNetworkProfileAccountAccessArgsDict(TypedDict):
     """
     Specifies the default action for the account access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
     """
-    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArgs']]]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkProfileAccountAccessIpRuleArgsDict']]]]]
     """
     One or more `ip_rule` blocks as defined below.
     """
@@ -421,7 +421,7 @@ class AccountNetworkProfileNodeManagementAccessArgsDict(TypedDict):
     """
     Specifies the default action for the node management access. Possible values are `Allow` and `Deny`. Defaults to `Deny`.
     """
-    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArgs']]]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkProfileNodeManagementAccessIpRuleArgsDict']]]]]
     """
     One or more `ip_rule` blocks as defined below.
     """
@@ -632,7 +632,7 @@ class PoolContainerConfigurationArgsDict(TypedDict):
     """
     A list of container image names to use, as would be specified by `docker pull`. Changing this forces a new resource to be created.
     """
-    container_registries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgs']]]]]
+    container_registries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolContainerConfigurationContainerRegistryArgsDict']]]]]
     """
     One or more `container_registries` blocks as defined below. Additional container registries from which container images can be pulled by the pool's VMs. Changing this forces a new resource to be created.
     """
@@ -1228,19 +1228,19 @@ class PoolIdentityArgs:
 
 
 class PoolMountArgsDict(TypedDict):
-    azure_blob_file_system: NotRequired[pulumi.Input[Optional['PoolMountAzureBlobFileSystemArgs']]]
+    azure_blob_file_system: NotRequired[pulumi.Input[Optional['PoolMountAzureBlobFileSystemArgsDict']]]
     """
     A `azure_blob_file_system` block defined as below.
     """
-    azure_file_shares: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolMountAzureFileShareArgs']]]]]
+    azure_file_shares: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolMountAzureFileShareArgsDict']]]]]
     """
     A `azure_file_share` block defined as below.
     """
-    cifs_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolMountCifsMountArgs']]]]]
+    cifs_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolMountCifsMountArgsDict']]]]]
     """
     A `cifs_mount` block defined as below.
     """
-    nfs_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolMountNfsMountArgs']]]]]
+    nfs_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolMountNfsMountArgsDict']]]]]
     """
     A `nfs_mount` block defined as below.
     """
@@ -1748,7 +1748,7 @@ class PoolNetworkConfigurationArgsDict(TypedDict):
     """
     The scope of dynamic vnet assignment. Allowed values: `none`, `job`. Changing this forces a new resource to be created. Defaults to `none`.
     """
-    endpoint_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgs']]]]]
+    endpoint_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationArgsDict']]]]]
     """
     A list of `endpoint_configuration` blocks that can be used to address specific ports on an individual compute node externally as defined below. Set as documented in the inbound_nat_pools block below. Changing this forces a new resource to be created.
     """
@@ -1885,7 +1885,7 @@ class PoolNetworkConfigurationEndpointConfigurationArgsDict(TypedDict):
     """
     The protocol of the endpoint. Acceptable values are `TCP` and `UDP`. Changing this forces a new resource to be created.
     """
-    network_security_group_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgs']]]]]
+    network_security_group_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolNetworkConfigurationEndpointConfigurationNetworkSecurityGroupRuleArgsDict']]]]]
     """
     A list of `network_security_group_rules` blocks as defined below that will be applied to the endpoint. The maximum number of rules that can be specified across all the endpoints on a Batch pool is `25`. If no network security group rules are specified, a default rule will be created to allow inbound access to the specified backendPort. Set as documented in the network_security_group_rules block below. Changing this forces a new resource to be created.
     """
@@ -2202,11 +2202,11 @@ class PoolStartTaskArgsDict(TypedDict):
     """
     A map of strings (key,value) that represents the environment variables to set in the start task.
     """
-    containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolStartTaskContainerArgs']]]]]
+    containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolStartTaskContainerArgsDict']]]]]
     """
     A `container` block is the settings for the container under which the start task runs as defined below. When this is specified, all directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` (the root of Azure Batch directories on the node) are mapped into the container, all task environment variables are mapped into the container, and the task command line is executed in the container.
     """
-    resource_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolStartTaskResourceFileArgs']]]]]
+    resource_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolStartTaskResourceFileArgsDict']]]]]
     """
     One or more `resource_file` blocks that describe the files to be downloaded to a compute node as defined below.
     """
@@ -2341,7 +2341,7 @@ class PoolStartTaskContainerArgsDict(TypedDict):
     """
     The image to use to create the container in which the task will run. This is the full image reference, as would be specified to "docker pull". If no tag is provided as part of the image name, the tag ":latest" is used as a default.
     """
-    registries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgs']]]]]
+    registries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolStartTaskContainerRegistryArgsDict']]]]]
     """
     The `container_registries` block defined as below.
     """
@@ -2654,7 +2654,7 @@ class PoolStartTaskResourceFileArgs:
 
 
 class PoolStartTaskUserIdentityArgsDict(TypedDict):
-    auto_user: NotRequired[pulumi.Input[Optional['PoolStartTaskUserIdentityAutoUserArgs']]]
+    auto_user: NotRequired[pulumi.Input[Optional['PoolStartTaskUserIdentityAutoUserArgsDict']]]
     """
     A `auto_user` block that describes the user identity under which the start task runs as defined below.
 
@@ -2914,11 +2914,11 @@ class PoolUserAccountArgsDict(TypedDict):
     """
     The password for the user account.
     """
-    linux_user_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgs']]]]]
+    linux_user_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolUserAccountLinuxUserConfigurationArgsDict']]]]]
     """
     The `linux_user_configuration` block defined below is a linux-specific user configuration for the user account. This property is ignored if specified on a Windows pool. If not specified, the user is created with the default options.
     """
-    windows_user_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgs']]]]]
+    windows_user_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PoolUserAccountWindowsUserConfigurationArgsDict']]]]]
     """
     The `windows_user_configuration` block defined below is a windows-specific user configuration for the user account. This property can only be specified if the user is on a Windows pool. If not specified and on a Windows pool, the user is created with the default options.
     """

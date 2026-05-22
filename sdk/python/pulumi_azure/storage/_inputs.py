@@ -124,7 +124,7 @@ class AccountAzureFilesAuthenticationArgsDict(TypedDict):
     """
     Specifies the directory service used. Possible values are `AADDS`, `AD` and `AADKERB`.
     """
-    active_directory: NotRequired[pulumi.Input[Optional['AccountAzureFilesAuthenticationActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['AccountAzureFilesAuthenticationActiveDirectoryArgsDict']]]
     """
     A `active_directory` block as defined below. Required when `directory_type` is `AD`.
     """
@@ -327,11 +327,11 @@ class AccountBlobPropertiesArgsDict(TypedDict):
 
     > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
     """
-    container_delete_retention_policy: NotRequired[pulumi.Input[Optional['AccountBlobPropertiesContainerDeleteRetentionPolicyArgs']]]
+    container_delete_retention_policy: NotRequired[pulumi.Input[Optional['AccountBlobPropertiesContainerDeleteRetentionPolicyArgsDict']]]
     """
     A `container_delete_retention_policy` block as defined below.
     """
-    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgs']]]]]
+    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountBlobPropertiesCorsRuleArgsDict']]]]]
     """
     A `cors_rule` block as defined below.
     """
@@ -339,7 +339,7 @@ class AccountBlobPropertiesArgsDict(TypedDict):
     """
     The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
     """
-    delete_retention_policy: NotRequired[pulumi.Input[Optional['AccountBlobPropertiesDeleteRetentionPolicyArgs']]]
+    delete_retention_policy: NotRequired[pulumi.Input[Optional['AccountBlobPropertiesDeleteRetentionPolicyArgsDict']]]
     """
     A `delete_retention_policy` block as defined below.
     """
@@ -349,7 +349,7 @@ class AccountBlobPropertiesArgsDict(TypedDict):
 
     > **Note:** This field cannot be configured when `kind` is set to `Storage` (V1).
     """
-    restore_policy: NotRequired[pulumi.Input[Optional['AccountBlobPropertiesRestorePolicyArgs']]]
+    restore_policy: NotRequired[pulumi.Input[Optional['AccountBlobPropertiesRestorePolicyArgsDict']]]
     """
     A `restore_policy` block as defined below. This must be used together with `delete_retention_policy` set, `versioning_enabled` and `change_feed_enabled` set to `true`.
 
@@ -1062,7 +1062,7 @@ class AccountNetworkRulesArgsDict(TypedDict):
     """
     List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
     """
-    private_link_accesses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgs']]]]]
+    private_link_accesses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkRulesPrivateLinkAccessArgsDict']]]]]
     """
     One or more `private_link_access` block as defined below.
 
@@ -1272,19 +1272,19 @@ class AccountNetworkRulesPrivateLinkAccessRuleArgs:
 
 
 class AccountQueuePropertiesArgsDict(TypedDict):
-    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]]
+    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgsDict']]]]]
     """
     A `cors_rule` block as defined above.
     """
-    hour_metrics: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]]
+    hour_metrics: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgsDict']]]
     """
     A `hour_metrics` block as defined below.
     """
-    logging: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]]
+    logging: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesLoggingArgsDict']]]
     """
     A `logging` block as defined below.
     """
-    minute_metrics: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]]
+    minute_metrics: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgsDict']]]
     """
     A `minute_metrics` block as defined below.
     """
@@ -1823,15 +1823,15 @@ class AccountSasPolicyArgs:
 
 
 class AccountSharePropertiesArgsDict(TypedDict):
-    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgs']]]]]
+    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountSharePropertiesCorsRuleArgsDict']]]]]
     """
     A `cors_rule` block as defined below.
     """
-    retention_policy: NotRequired[pulumi.Input[Optional['AccountSharePropertiesRetentionPolicyArgs']]]
+    retention_policy: NotRequired[pulumi.Input[Optional['AccountSharePropertiesRetentionPolicyArgsDict']]]
     """
     A `retention_policy` block as defined below.
     """
-    smb: NotRequired[pulumi.Input[Optional['AccountSharePropertiesSmbArgs']]]
+    smb: NotRequired[pulumi.Input[Optional['AccountSharePropertiesSmbArgsDict']]]
     """
     A `smb` block as defined below.
     """
@@ -2210,7 +2210,7 @@ class BlobInventoryPolicyRuleArgsDict(TypedDict):
     """
     The storage container name to store the blob inventory files for this rule.
     """
-    filter: NotRequired[pulumi.Input[Optional['BlobInventoryPolicyRuleFilterArgs']]]
+    filter: NotRequired[pulumi.Input[Optional['BlobInventoryPolicyRuleFilterArgsDict']]]
     """
     A `filter` block as defined above.
     """
@@ -2987,15 +2987,15 @@ class ManagementPolicyRuleArgs:
 
 
 class ManagementPolicyRuleActionsArgsDict(TypedDict):
-    base_blob: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsBaseBlobArgs']]]
+    base_blob: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsBaseBlobArgsDict']]]
     """
     A `base_blob` block as documented below.
     """
-    snapshot: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsSnapshotArgs']]]
+    snapshot: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsSnapshotArgsDict']]]
     """
     A `snapshot` block as documented below.
     """
-    version: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsVersionArgs']]]
+    version: NotRequired[pulumi.Input[Optional['ManagementPolicyRuleActionsVersionArgsDict']]]
     """
     A `version` block as documented below.
     """
@@ -3603,7 +3603,7 @@ class ManagementPolicyRuleFiltersArgsDict(TypedDict):
     """
     An array of predefined values. Valid options are `blockBlob` and `appendBlob`.
     """
-    match_blob_index_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgs']]]]]
+    match_blob_index_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagementPolicyRuleFiltersMatchBlobIndexTagArgsDict']]]]]
     """
     A `match_blob_index_tag` block as defined below. The block defines the blob index tag based filtering for blob objects.
 
@@ -3844,7 +3844,7 @@ class ShareAclArgsDict(TypedDict):
     """
     The ID which should be used for this Shared Identifier.
     """
-    access_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclAccessPolicyArgs']]]]]
+    access_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ShareAclAccessPolicyArgsDict']]]]]
     """
     An `access_policy` block as defined below.
     """
@@ -3966,7 +3966,7 @@ class TableAclArgsDict(TypedDict):
     """
     The ID which should be used for this Shared Identifier.
     """
-    access_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableAclAccessPolicyArgs']]]]]
+    access_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableAclAccessPolicyArgsDict']]]]]
     """
     An `access_policy` block as defined below.
     """

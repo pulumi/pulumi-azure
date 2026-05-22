@@ -92,7 +92,7 @@ class ConfigurationFeatureTargetingFilterArgsDict(TypedDict):
     """
     A number representing the percentage of the entire user base.
     """
-    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgs']]]]]
+    groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationFeatureTargetingFilterGroupArgsDict']]]]]
     """
     One or more `groups` blocks as defined below.
     """

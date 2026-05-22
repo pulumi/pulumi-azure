@@ -955,7 +955,7 @@ class AlertRuleFusionSourceArgsDict(TypedDict):
     """
     Whether this source signal is enabled or disabled in Fusion detection? Defaults to `true`.
     """
-    sub_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgs']]]]]
+    sub_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceSubTypeArgsDict']]]]]
     """
     One or more `sub_type` blocks as defined below.
     """
@@ -1090,7 +1090,7 @@ class AlertRuleNrtAlertDetailsOverrideArgsDict(TypedDict):
     """
     The format containing columns name(s) to override the name of this Sentinel Alert Rule.
     """
-    dynamic_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgs']]]]]
+    dynamic_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleNrtAlertDetailsOverrideDynamicPropertyArgsDict']]]]]
     """
     A list of `dynamic_property` blocks as defined below.
     """
@@ -1592,7 +1592,7 @@ class AlertRuleScheduledAlertDetailsOverrideArgsDict(TypedDict):
     """
     The format containing columns name(s) to override the name of this Sentinel Alert Rule.
     """
-    dynamic_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgs']]]]]
+    dynamic_properties: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleScheduledAlertDetailsOverrideDynamicPropertyArgsDict']]]]]
     """
     A list of `dynamic_property` blocks as defined below.
     """
@@ -3171,7 +3171,7 @@ class ThreatIntelligenceIndicatorParsedPatternArgsDict(TypedDict):
     """
     The type key of parsed pattern.
     """
-    pattern_type_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgs']]]]]
+    pattern_type_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreatIntelligenceIndicatorParsedPatternPatternTypeValueArgsDict']]]]]
     """
     A `pattern_type_values` block as defined below.
     """

@@ -2019,7 +2019,7 @@ class VirtualMachineAssessmentArgsDict(TypedDict):
     """
     Should Assessment be run immediately? Defaults to `false`.
     """
-    schedule: NotRequired[pulumi.Input[Optional['VirtualMachineAssessmentScheduleArgs']]]
+    schedule: NotRequired[pulumi.Input[Optional['VirtualMachineAssessmentScheduleArgsDict']]]
     """
     An `schedule` block as defined below.
     """
@@ -2190,7 +2190,7 @@ class VirtualMachineAutoBackupArgsDict(TypedDict):
     """
     Encryption password to use. Setting a password will enable encryption.
     """
-    manual_schedule: NotRequired[pulumi.Input[Optional['VirtualMachineAutoBackupManualScheduleArgs']]]
+    manual_schedule: NotRequired[pulumi.Input[Optional['VirtualMachineAutoBackupManualScheduleArgsDict']]]
     """
     A `manual_schedule` block as documented below. When this block is present, the schedule type is set to `Manual`. Without this block, the schedule type is set to `Automated`.
     """
@@ -3194,11 +3194,11 @@ class VirtualMachineStorageConfigurationArgsDict(TypedDict):
     """
     The type of storage workload. Valid values include `GENERAL`, `OLTP`, or `DW`.
     """
-    data_settings: NotRequired[pulumi.Input[Optional['VirtualMachineStorageConfigurationDataSettingsArgs']]]
+    data_settings: NotRequired[pulumi.Input[Optional['VirtualMachineStorageConfigurationDataSettingsArgsDict']]]
     """
     A `storage_settings` block as defined below.
     """
-    log_settings: NotRequired[pulumi.Input[Optional['VirtualMachineStorageConfigurationLogSettingsArgs']]]
+    log_settings: NotRequired[pulumi.Input[Optional['VirtualMachineStorageConfigurationLogSettingsArgsDict']]]
     """
     A `storage_settings` block as defined below.
     """
@@ -3206,7 +3206,7 @@ class VirtualMachineStorageConfigurationArgsDict(TypedDict):
     """
     Specifies whether to set system databases (except tempDb) location to newly created data storage. Possible values are `true` and `false`. Defaults to `false`.
     """
-    temp_db_settings: NotRequired[pulumi.Input[Optional['VirtualMachineStorageConfigurationTempDbSettingsArgs']]]
+    temp_db_settings: NotRequired[pulumi.Input[Optional['VirtualMachineStorageConfigurationTempDbSettingsArgsDict']]]
     """
     An `temp_db_settings` block as defined below.
     """

@@ -40,25 +40,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			custom := customRoleDefinition.RoleDefinitionId.ApplyT(func(roleDefinitionId string) (authorization.GetRoleDefinitionResult, error) {
-//				return authorization.GetRoleDefinitionResult(interface{}(authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-//					RoleDefinitionId: pulumi.StringRef(pulumi.StringRef(roleDefinitionId)),
-//					Scope:            pulumi.StringRef(pulumi.StringRef(pulumi.String(primary.Id))),
-//				}, nil))), nil
-//			}).(authorization.GetRoleDefinitionResultOutput)
-//			_ = customRoleDefinition.Name.ApplyT(func(name string) (authorization.GetRoleDefinitionResult, error) {
-//				return authorization.GetRoleDefinitionResult(interface{}(authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-//					Name:  pulumi.StringRef(pulumi.StringRef(name)),
-//					Scope: pulumi.StringRef(pulumi.StringRef(pulumi.String(primary.Id))),
-//				}, nil))), nil
-//			}).(authorization.GetRoleDefinitionResultOutput)
+//			custom := authorization.LookupRoleDefinitionOutput(ctx, authorization.GetRoleDefinitionOutputArgs{
+//				RoleDefinitionId: customRoleDefinition.RoleDefinitionId,
+//				Scope:            pulumi.String(primary.Id),
+//			}, nil)
+//			_ = authorization.LookupRoleDefinitionOutput(ctx, authorization.GetRoleDefinitionOutputArgs{
+//				Name:  customRoleDefinition.Name,
+//				Scope: pulumi.String(primary.Id),
+//			}, nil)
 //			builtin, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
 //				Name: pulumi.StringRef("Contributor"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("customRoleDefinitionId", custom.Id)
+//			ctx.Export("customRoleDefinitionId", custom.ApplyT(func(custom authorization.GetRoleDefinitionResult) (*string, error) {
+//				return &custom.Id, nil
+//			}).(pulumi.StringPtrOutput))
 //			ctx.Export("contributorRoleDefinitionId", builtin.Id)
 //			return nil
 //		})

@@ -742,11 +742,11 @@ class ResourceGroupCostManagementViewDatasetArgsDict(TypedDict):
     """
     The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
     """
-    groupings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgs']]]]]
+    groupings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetGroupingArgsDict']]]]]
     """
     One or more `grouping` blocks as defined below.
     """
-    sortings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgs']]]]]
+    sortings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupCostManagementViewDatasetSortingArgsDict']]]]]
     """
     One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
     """
@@ -1183,7 +1183,7 @@ class ResourceGroupPolicyAssignmentOverrideArgsDict(TypedDict):
     """
     Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
     """
-    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgs']]]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourceGroupPolicyAssignmentOverrideSelectorArgsDict']]]]]
     """
     One or more `override_selector` block as defined below.
     """
@@ -1512,7 +1512,7 @@ class ResourcePolicyAssignmentOverrideArgsDict(TypedDict):
     """
     Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
     """
-    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgs']]]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ResourcePolicyAssignmentOverrideSelectorArgsDict']]]]]
     """
     One or more `override_selector` block as defined below.
     """
@@ -1856,11 +1856,11 @@ class SubscriptionCostManagementViewDatasetArgsDict(TypedDict):
     """
     The granularity of rows in the report. Possible values are `Daily` and `Monthly`.
     """
-    groupings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgs']]]]]
+    groupings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetGroupingArgsDict']]]]]
     """
     One or more `grouping` blocks as defined below.
     """
-    sortings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgs']]]]]
+    sortings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionCostManagementViewDatasetSortingArgsDict']]]]]
     """
     One or more `sorting` blocks as defined below, containing the order by expression to be used in the report
     """
@@ -2297,7 +2297,7 @@ class SubscriptionPolicyAssignmentOverrideArgsDict(TypedDict):
     """
     Specifies the value to override the policy property. Possible values for `policyEffect` override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects).
     """
-    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgs']]]]]
+    selectors: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SubscriptionPolicyAssignmentOverrideSelectorArgsDict']]]]]
     """
     One or more `override_selector` block as defined below.
     """

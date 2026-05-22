@@ -123,7 +123,7 @@ class DefinitionEligibleAuthorizationArgsDict(TypedDict):
     """
     The Principal ID of the Azure built-in role that defines the permissions that the Azure Active Directory will have on the projected scope.
     """
-    just_in_time_access_policy: NotRequired[pulumi.Input[Optional['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgs']]]
+    just_in_time_access_policy: NotRequired[pulumi.Input[Optional['DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgsDict']]]
     """
     A `just_in_time_access_policy` block as defined below.
     """
@@ -202,7 +202,7 @@ class DefinitionEligibleAuthorizationArgs:
 
 
 class DefinitionEligibleAuthorizationJustInTimeAccessPolicyArgsDict(TypedDict):
-    approvers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgs']]]]]
+    approvers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DefinitionEligibleAuthorizationJustInTimeAccessPolicyApproverArgsDict']]]]]
     """
     An `approver` block as defined below.
     """

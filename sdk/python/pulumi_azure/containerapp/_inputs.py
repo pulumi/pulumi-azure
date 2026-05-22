@@ -294,11 +294,11 @@ class AppIngressArgsDict(TypedDict):
     """
     The client certificate mode for the Ingress. Possible values are `require`, `accept`, and `ignore`.
     """
-    cors: NotRequired[pulumi.Input[Optional['AppIngressCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['AppIngressCorsArgsDict']]]
     """
     A `cors` block as defined below.
     """
-    custom_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppIngressCustomDomainArgs']]]]]
+    custom_domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppIngressCustomDomainArgsDict']]]]]
     """
     One or more `custom_domain` block as detailed below.
     """
@@ -316,7 +316,7 @@ class AppIngressArgsDict(TypedDict):
     """
     The FQDN of the ingress.
     """
-    ip_security_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppIngressIpSecurityRestrictionArgs']]]]]
+    ip_security_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppIngressIpSecurityRestrictionArgsDict']]]]]
     """
     One or more `ip_security_restriction` blocks for IP-filtering rules as defined below.
     """
@@ -1116,7 +1116,7 @@ class AppTemplateArgsDict(TypedDict):
     """
     One or more `container` blocks as detailed below.
     """
-    azure_queue_scale_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgs']]]]]
+    azure_queue_scale_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateAzureQueueScaleRuleArgsDict']]]]]
     """
     One or more `azure_queue_scale_rule` blocks as defined below.
     """
@@ -1124,15 +1124,15 @@ class AppTemplateArgsDict(TypedDict):
     """
     The number of seconds to wait before scaling down the number of instances again. Defaults to `300`.
     """
-    custom_scale_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgs']]]]]
+    custom_scale_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateCustomScaleRuleArgsDict']]]]]
     """
     One or more `custom_scale_rule` blocks as defined below.
     """
-    http_scale_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgs']]]]]
+    http_scale_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateHttpScaleRuleArgsDict']]]]]
     """
     One or more `http_scale_rule` blocks as defined below.
     """
-    init_containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateInitContainerArgs']]]]]
+    init_containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateInitContainerArgsDict']]]]]
     """
     The definition of an init container that is part of the group as documented in the `init_container` block below.
     """
@@ -1152,7 +1152,7 @@ class AppTemplateArgsDict(TypedDict):
     """
     The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
     """
-    tcp_scale_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgs']]]]]
+    tcp_scale_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateTcpScaleRuleArgsDict']]]]]
     """
     One or more `tcp_scale_rule` blocks as defined below.
     """
@@ -1160,7 +1160,7 @@ class AppTemplateArgsDict(TypedDict):
     """
     The time in seconds after the container is sent the termination signal before the process if forcibly killed.
     """
-    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateVolumeArgs']]]]]
+    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateVolumeArgsDict']]]]]
     """
     A `volume` block as detailed below.
     """
@@ -1540,7 +1540,7 @@ class AppTemplateContainerArgsDict(TypedDict):
     """
     A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
     """
-    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerEnvArgs']]]]]
+    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerEnvArgsDict']]]]]
     """
     One or more `env` blocks as detailed below.
     """
@@ -1550,19 +1550,19 @@ class AppTemplateContainerArgsDict(TypedDict):
 
     > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
     """
-    liveness_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgs']]]]]
+    liveness_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeArgsDict']]]]]
     """
     A `liveness_probe` block as detailed below.
     """
-    readiness_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgs']]]]]
+    readiness_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeArgsDict']]]]]
     """
     A `readiness_probe` block as detailed below.
     """
-    startup_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgs']]]]]
+    startup_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerStartupProbeArgsDict']]]]]
     """
     A `startup_probe` block as detailed below.
     """
-    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgs']]]]]
+    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerVolumeMountArgsDict']]]]]
     """
     A `volume_mounts` block as detailed below.
     """
@@ -1861,7 +1861,7 @@ class AppTemplateContainerLivenessProbeArgsDict(TypedDict):
     """
     The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerLivenessProbeHeaderArgsDict']]]]]
     """
     A `header` block as detailed below.
     """
@@ -2115,7 +2115,7 @@ class AppTemplateContainerReadinessProbeArgsDict(TypedDict):
     """
     The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerReadinessProbeHeaderArgsDict']]]]]
     """
     A `header` block as detailed below.
     """
@@ -2369,7 +2369,7 @@ class AppTemplateContainerStartupProbeArgsDict(TypedDict):
     """
     The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `240`. Defaults to `3`.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateContainerStartupProbeHeaderArgsDict']]]]]
     """
     A `header` block as detailed below.
     """
@@ -2690,7 +2690,7 @@ class AppTemplateCustomScaleRuleArgsDict(TypedDict):
     """
     The name of the Scaling Rule
     """
-    authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgs']]]]]
+    authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateCustomScaleRuleAuthenticationArgsDict']]]]]
     """
     Zero or more `authentication` blocks as defined below.
 
@@ -2845,7 +2845,7 @@ class AppTemplateHttpScaleRuleArgsDict(TypedDict):
     """
     The name of the Scaling Rule
     """
-    authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArgs']]]]]
+    authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateHttpScaleRuleAuthenticationArgsDict']]]]]
     """
     Zero or more `authentication` blocks as defined below.
     """
@@ -2974,7 +2974,7 @@ class AppTemplateInitContainerArgsDict(TypedDict):
 
     > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
     """
-    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgs']]]]]
+    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateInitContainerEnvArgsDict']]]]]
     """
     One or more `env` blocks as detailed below.
     """
@@ -2990,7 +2990,7 @@ class AppTemplateInitContainerArgsDict(TypedDict):
 
     > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
     """
-    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgs']]]]]
+    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateInitContainerVolumeMountArgsDict']]]]]
     """
     A `volume_mounts` block as detailed below.
     """
@@ -3306,7 +3306,7 @@ class AppTemplateTcpScaleRuleArgsDict(TypedDict):
     """
     The name of the Scaling Rule
     """
-    authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArgs']]]]]
+    authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppTemplateTcpScaleRuleAuthenticationArgsDict']]]]]
     """
     Zero or more `authentication` blocks as defined below.
     """
@@ -3892,7 +3892,7 @@ class JobEventTriggerConfigArgsDict(TypedDict):
     """
     Minimum number of successful replica completions before overall job completion.
     """
-    scales: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobEventTriggerConfigScaleArgs']]]]]
+    scales: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobEventTriggerConfigScaleArgsDict']]]]]
     """
     A `scale` block as defined below.
     """
@@ -3965,7 +3965,7 @@ class JobEventTriggerConfigScaleArgsDict(TypedDict):
     """
     Interval to check each event source in seconds.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleArgsDict']]]]]
     """
     A `rules` block as defined below.
     """
@@ -4054,7 +4054,7 @@ class JobEventTriggerConfigScaleRuleArgsDict(TypedDict):
     """
     Name of the scale rule.
     """
-    authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgs']]]]]
+    authentications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobEventTriggerConfigScaleRuleAuthenticationArgsDict']]]]]
     """
     A `authentication` block as defined below.
     """
@@ -4598,11 +4598,11 @@ class JobTemplateArgsDict(TypedDict):
     """
     A `container` block as defined below.
     """
-    init_containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateInitContainerArgs']]]]]
+    init_containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateInitContainerArgsDict']]]]]
     """
     A `init_container` block as defined below.
     """
-    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateVolumeArgs']]]]]
+    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateVolumeArgsDict']]]]]
     """
     A `volume` block as defined below.
     """
@@ -4690,7 +4690,7 @@ class JobTemplateContainerArgsDict(TypedDict):
     """
     A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
     """
-    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerEnvArgs']]]]]
+    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerEnvArgsDict']]]]]
     """
     One or more `env` blocks as detailed below.
     """
@@ -4700,19 +4700,19 @@ class JobTemplateContainerArgsDict(TypedDict):
 
     > **Note:** `ephemeral_storage` is currently in preview and not configurable at this time.
     """
-    liveness_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeArgs']]]]]
+    liveness_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeArgsDict']]]]]
     """
     A `liveness_probe` block as detailed below.
     """
-    readiness_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeArgs']]]]]
+    readiness_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeArgsDict']]]]]
     """
     A `readiness_probe` block as detailed below.
     """
-    startup_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerStartupProbeArgs']]]]]
+    startup_probes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerStartupProbeArgsDict']]]]]
     """
     A `startup_probe` block as detailed below.
     """
-    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerVolumeMountArgs']]]]]
+    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerVolumeMountArgsDict']]]]]
     """
     A `volume_mounts` block as detailed below.
     """
@@ -5005,7 +5005,7 @@ class JobTemplateContainerLivenessProbeArgsDict(TypedDict):
     """
     The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `30`. Defaults to `3`.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerLivenessProbeHeaderArgsDict']]]]]
     """
     A `header` block as detailed below.
     """
@@ -5259,7 +5259,7 @@ class JobTemplateContainerReadinessProbeArgsDict(TypedDict):
     """
     The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `48`. Defaults to `3`.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerReadinessProbeHeaderArgsDict']]]]]
     """
     A `header` block as detailed below.
     """
@@ -5513,7 +5513,7 @@ class JobTemplateContainerStartupProbeArgsDict(TypedDict):
     """
     The number of consecutive failures required to consider this probe as failed. Possible values are between `1` and `240`. Defaults to `3`.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerStartupProbeHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateContainerStartupProbeHeaderArgsDict']]]]]
     """
     A `header` block as detailed below.
     """
@@ -5844,7 +5844,7 @@ class JobTemplateInitContainerArgsDict(TypedDict):
 
     > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
     """
-    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateInitContainerEnvArgs']]]]]
+    envs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateInitContainerEnvArgsDict']]]]]
     """
     One or more `env` blocks as detailed below.
     """
@@ -5860,7 +5860,7 @@ class JobTemplateInitContainerArgsDict(TypedDict):
 
     > **Note:** When using a Consumption plan, the `cpu` and `memory` properties must add up to one of the combinations found in the Microsoft provided documentation, for more information see [vCPU and memory allocation requirements](https://learn.microsoft.com/azure/container-apps/containers#allocations)
     """
-    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateInitContainerVolumeMountArgs']]]]]
+    volume_mounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['JobTemplateInitContainerVolumeMountArgsDict']]]]]
     """
     A `volume_mounts` block as detailed below.
     """

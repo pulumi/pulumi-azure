@@ -68,7 +68,7 @@ class PolicyFileShareBackupArgsDict(TypedDict):
 
     > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
     """
-    hourly: NotRequired[pulumi.Input[Optional['PolicyFileShareBackupHourlyArgs']]]
+    hourly: NotRequired[pulumi.Input[Optional['PolicyFileShareBackupHourlyArgsDict']]]
     """
     A `hourly` block defined as below. This is required when `frequency` is set to `Hourly`.
     """
@@ -1123,23 +1123,23 @@ class PolicyVMWorkloadProtectionPolicyArgsDict(TypedDict):
     """
     The type of the VM Workload Backup Policy. Possible values are `Differential`, `Full`, `Incremental` and `Log`.
     """
-    retention_daily: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicyRetentionDailyArgs']]]
+    retention_daily: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicyRetentionDailyArgsDict']]]
     """
     A `retention_daily` block as defined below.
     """
-    retention_monthly: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgs']]]
+    retention_monthly: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicyRetentionMonthlyArgsDict']]]
     """
     A `retention_monthly` block as defined below.
     """
-    retention_weekly: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgs']]]
+    retention_weekly: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicyRetentionWeeklyArgsDict']]]
     """
     A `retention_weekly` block as defined below.
     """
-    retention_yearly: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgs']]]
+    retention_yearly: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicyRetentionYearlyArgsDict']]]
     """
     A `retention_yearly` block as defined below.
     """
-    simple_retention: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicySimpleRetentionArgs']]]
+    simple_retention: NotRequired[pulumi.Input[Optional['PolicyVMWorkloadProtectionPolicySimpleRetentionArgsDict']]]
     """
     A `simple_retention` block as defined below.
     """

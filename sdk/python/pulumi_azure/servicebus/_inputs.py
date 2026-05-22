@@ -199,7 +199,7 @@ class NamespaceNetworkRuleSetArgsDict(TypedDict):
     """
     One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
     """
-    network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]]
+    network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgsDict']]]]]
     """
     One or more `network_rules` blocks as defined below.
     """

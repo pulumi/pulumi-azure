@@ -556,15 +556,15 @@ class HBaseClusterGatewayArgs:
 
 
 class HBaseClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input[Optional['HBaseClusterMetastoresAmbariArgs']]]
+    ambari: NotRequired[pulumi.Input[Optional['HBaseClusterMetastoresAmbariArgsDict']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input[Optional['HBaseClusterMetastoresHiveArgs']]]
+    hive: NotRequired[pulumi.Input[Optional['HBaseClusterMetastoresHiveArgsDict']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input[Optional['HBaseClusterMetastoresOozieArgs']]]
+    oozie: NotRequired[pulumi.Input[Optional['HBaseClusterMetastoresOozieArgsDict']]]
     """
     An `oozie` block as defined below.
     """
@@ -1236,7 +1236,7 @@ class HBaseClusterRolesHeadNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesHeadNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -1460,7 +1460,7 @@ class HBaseClusterRolesWorkerNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    autoscale: NotRequired[pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleArgs']]]
+    autoscale: NotRequired[pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleArgsDict']]]
     """
     A `autoscale` block as defined below.
     """
@@ -1470,7 +1470,7 @@ class HBaseClusterRolesWorkerNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesWorkerNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -1646,7 +1646,7 @@ class HBaseClusterRolesWorkerNodeArgs:
 
 
 class HBaseClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
-    recurrence: NotRequired[pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]]
+    recurrence: NotRequired[pulumi.Input[Optional['HBaseClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]]
     """
     A `recurrence` block as defined below.
 
@@ -1875,7 +1875,7 @@ class HBaseClusterRolesZookeeperNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HBaseClusterRolesZookeeperNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -2691,15 +2691,15 @@ class HadoopClusterGatewayArgs:
 
 
 class HadoopClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input[Optional['HadoopClusterMetastoresAmbariArgs']]]
+    ambari: NotRequired[pulumi.Input[Optional['HadoopClusterMetastoresAmbariArgsDict']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input[Optional['HadoopClusterMetastoresHiveArgs']]]
+    hive: NotRequired[pulumi.Input[Optional['HadoopClusterMetastoresHiveArgsDict']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input[Optional['HadoopClusterMetastoresOozieArgs']]]
+    oozie: NotRequired[pulumi.Input[Optional['HadoopClusterMetastoresOozieArgsDict']]]
     """
     An `oozie` block as defined below.
     """
@@ -3303,7 +3303,7 @@ class HadoopClusterRolesArgsDict(TypedDict):
     """
     A `zookeeper_node` block as defined below.
     """
-    edge_node: NotRequired[pulumi.Input[Optional['HadoopClusterRolesEdgeNodeArgs']]]
+    edge_node: NotRequired[pulumi.Input[Optional['HadoopClusterRolesEdgeNodeArgsDict']]]
     """
     A `edge_node` block as defined below.
     """
@@ -3389,11 +3389,11 @@ class HadoopClusterRolesEdgeNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Edge Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`.
     """
-    https_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgs']]]]]
+    https_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeHttpsEndpointArgsDict']]]]]
     """
     The HTTPS Connectivity Endpoint for this HDInsight Hadoop Cluster. One or more `https_endpoints` blocks as defined below.
     """
-    uninstall_script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgs']]]]]
+    uninstall_script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesEdgeNodeUninstallScriptActionArgsDict']]]]]
     """
     A `uninstall_script_actions` block as defined below. Changing this forces a new resource to be created.
     """
@@ -3740,7 +3740,7 @@ class HadoopClusterRolesHeadNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesHeadNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -3964,7 +3964,7 @@ class HadoopClusterRolesWorkerNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    autoscale: NotRequired[pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleArgs']]]
+    autoscale: NotRequired[pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleArgsDict']]]
     """
     A `autoscale` block as defined below.
     """
@@ -3974,7 +3974,7 @@ class HadoopClusterRolesWorkerNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesWorkerNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -4150,11 +4150,11 @@ class HadoopClusterRolesWorkerNodeArgs:
 
 
 class HadoopClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
-    capacity: NotRequired[pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgs']]]
+    capacity: NotRequired[pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleCapacityArgsDict']]]
     """
     A `capacity` block as defined below.
     """
-    recurrence: NotRequired[pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]]
+    recurrence: NotRequired[pulumi.Input[Optional['HadoopClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]]
     """
     A `recurrence` block as defined below.
 
@@ -4446,7 +4446,7 @@ class HadoopClusterRolesZookeeperNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterRolesZookeeperNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -5262,15 +5262,15 @@ class InteractiveQueryClusterGatewayArgs:
 
 
 class InteractiveQueryClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterMetastoresAmbariArgs']]]
+    ambari: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterMetastoresAmbariArgsDict']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterMetastoresHiveArgs']]]
+    hive: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterMetastoresHiveArgsDict']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterMetastoresOozieArgs']]]
+    oozie: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterMetastoresOozieArgsDict']]]
     """
     An `oozie` block as defined below.
     """
@@ -5944,7 +5944,7 @@ class InteractiveQueryClusterRolesHeadNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesHeadNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -6174,7 +6174,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgsDict(TypedDict):
 
     > **Note:** High memory instances must be specified for the Head Node (Azure suggests a `Standard_D14_V2`).
     """
-    autoscale: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgs']]]
+    autoscale: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleArgsDict']]]
     """
     A `autoscale` block as defined below.
     """
@@ -6184,7 +6184,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesWorkerNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -6364,7 +6364,7 @@ class InteractiveQueryClusterRolesWorkerNodeArgs:
 
 
 class InteractiveQueryClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
-    recurrence: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]]
+    recurrence: NotRequired[pulumi.Input[Optional['InteractiveQueryClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]]
     """
     A `recurrence` block as defined below.
     """
@@ -6587,7 +6587,7 @@ class InteractiveQueryClusterRolesZookeeperNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['InteractiveQueryClusterRolesZookeeperNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -7403,15 +7403,15 @@ class KafkaClusterGatewayArgs:
 
 
 class KafkaClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input[Optional['KafkaClusterMetastoresAmbariArgs']]]
+    ambari: NotRequired[pulumi.Input[Optional['KafkaClusterMetastoresAmbariArgsDict']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input[Optional['KafkaClusterMetastoresHiveArgs']]]
+    hive: NotRequired[pulumi.Input[Optional['KafkaClusterMetastoresHiveArgsDict']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input[Optional['KafkaClusterMetastoresOozieArgs']]]
+    oozie: NotRequired[pulumi.Input[Optional['KafkaClusterMetastoresOozieArgsDict']]]
     """
     An `oozie` block as defined below.
     """
@@ -8068,7 +8068,7 @@ class KafkaClusterRolesArgsDict(TypedDict):
     """
     A `zookeeper_node` block as defined below.
     """
-    kafka_management_node: NotRequired[pulumi.Input[Optional['KafkaClusterRolesKafkaManagementNodeArgs']]]
+    kafka_management_node: NotRequired[pulumi.Input[Optional['KafkaClusterRolesKafkaManagementNodeArgsDict']]]
     """
     A `kafka_management_node` block as defined below.
 
@@ -8162,7 +8162,7 @@ class KafkaClusterRolesHeadNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesHeadNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -8384,7 +8384,7 @@ class KafkaClusterRolesKafkaManagementNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesKafkaManagementNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -8629,7 +8629,7 @@ class KafkaClusterRolesWorkerNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesWorkerNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -8885,7 +8885,7 @@ class KafkaClusterRolesZookeeperNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterRolesZookeeperNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -9701,15 +9701,15 @@ class SparkClusterGatewayArgs:
 
 
 class SparkClusterMetastoresArgsDict(TypedDict):
-    ambari: NotRequired[pulumi.Input[Optional['SparkClusterMetastoresAmbariArgs']]]
+    ambari: NotRequired[pulumi.Input[Optional['SparkClusterMetastoresAmbariArgsDict']]]
     """
     An `ambari` block as defined below.
     """
-    hive: NotRequired[pulumi.Input[Optional['SparkClusterMetastoresHiveArgs']]]
+    hive: NotRequired[pulumi.Input[Optional['SparkClusterMetastoresHiveArgsDict']]]
     """
     A `hive` block as defined below.
     """
-    oozie: NotRequired[pulumi.Input[Optional['SparkClusterMetastoresOozieArgs']]]
+    oozie: NotRequired[pulumi.Input[Optional['SparkClusterMetastoresOozieArgsDict']]]
     """
     An `oozie` block as defined below.
     """
@@ -10381,7 +10381,7 @@ class SparkClusterRolesHeadNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesHeadNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -10605,7 +10605,7 @@ class SparkClusterRolesWorkerNodeArgsDict(TypedDict):
     """
     The Size of the Virtual Machine which should be used as the Worker Nodes. Possible values are `ExtraSmall`, `Small`, `Medium`, `Large`, `ExtraLarge`, `A5`, `A6`, `A7`, `A8`, `A9`, `A10`, `A11`, `Standard_A1_V2`, `Standard_A2_V2`, `Standard_A2m_V2`, `Standard_A3`, `Standard_A4_V2`, `Standard_A4m_V2`, `Standard_A8_V2`, `Standard_A8m_V2`, `Standard_D1`, `Standard_D2`, `Standard_D3`, `Standard_D4`, `Standard_D11`, `Standard_D12`, `Standard_D13`, `Standard_D14`, `Standard_D1_V2`, `Standard_D2_V2`, `Standard_D3_V2`, `Standard_D4_V2`, `Standard_D5_V2`, `Standard_D11_V2`, `Standard_D12_V2`, `Standard_D13_V2`, `Standard_D14_V2`, `Standard_DS1_V2`, `Standard_DS2_V2`, `Standard_DS3_V2`, `Standard_DS4_V2`, `Standard_DS5_V2`, `Standard_DS11_V2`, `Standard_DS12_V2`, `Standard_DS13_V2`, `Standard_DS14_V2`, `Standard_E2_V3`, `Standard_E4_V3`, `Standard_E8_V3`, `Standard_E16_V3`, `Standard_E20_V3`, `Standard_E32_V3`, `Standard_E64_V3`, `Standard_E64i_V3`, `Standard_E2s_V3`, `Standard_E4s_V3`, `Standard_E8s_V3`, `Standard_E16s_V3`, `Standard_E20s_V3`, `Standard_E32s_V3`, `Standard_E64s_V3`, `Standard_E64is_V3`, `Standard_D2a_V4`, `Standard_D4a_V4`, `Standard_D8a_V4`, `Standard_D16a_V4`, `Standard_D32a_V4`, `Standard_D48a_V4`, `Standard_D64a_V4`, `Standard_D96a_V4`, `Standard_E2a_V4`, `Standard_E4a_V4`, `Standard_E8a_V4`, `Standard_E16a_V4`, `Standard_E20a_V4`, `Standard_E32a_V4`, `Standard_E48a_V4`, `Standard_E64a_V4`, `Standard_E96a_V4`, `Standard_D2ads_V5`, `Standard_D4ads_V5`, `Standard_D8ads_V5`, `Standard_D16ads_V5`, `Standard_D32ads_V5`, `Standard_D48ads_V5`, `Standard_D64ads_V5`, `Standard_D96ads_V5`, `Standard_E2ads_V5`, `Standard_E4ads_V5`, `Standard_E8ads_V5`, `Standard_E16ads_V5`, `Standard_E20ads_V5`, `Standard_E32ads_V5`, `Standard_E48ads_V5`, `Standard_E64ads_V5`, `Standard_E96ads_V5`, `Standard_G1`, `Standard_G2`, `Standard_G3`, `Standard_G4`, `Standard_G5`, `Standard_F2s_V2`, `Standard_F4s_V2`, `Standard_F8s_V2`, `Standard_F16s_V2`, `Standard_F32s_V2`, `Standard_F64s_V2`, `Standard_F72s_V2`, `Standard_GS1`, `Standard_GS2`, `Standard_GS3`, `Standard_GS4`, `Standard_GS5` and `Standard_NC24`. Changing this forces a new resource to be created.
     """
-    autoscale: NotRequired[pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleArgs']]]
+    autoscale: NotRequired[pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleArgsDict']]]
     """
     A `autoscale` block as defined below.
     """
@@ -10615,7 +10615,7 @@ class SparkClusterRolesWorkerNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesWorkerNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -10791,11 +10791,11 @@ class SparkClusterRolesWorkerNodeArgs:
 
 
 class SparkClusterRolesWorkerNodeAutoscaleArgsDict(TypedDict):
-    capacity: NotRequired[pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleCapacityArgs']]]
+    capacity: NotRequired[pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleCapacityArgsDict']]]
     """
     A `capacity` block as defined below.
     """
-    recurrence: NotRequired[pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgs']]]
+    recurrence: NotRequired[pulumi.Input[Optional['SparkClusterRolesWorkerNodeAutoscaleRecurrenceArgsDict']]]
     """
     A `recurrence` block as defined below.
 
@@ -11087,7 +11087,7 @@ class SparkClusterRolesZookeeperNodeArgsDict(TypedDict):
 
     > **Note:** If specified, this password must be at least 10 characters in length and must contain at least one digit, one uppercase and one lower case letter, one non-alphanumeric character (except characters ' " ` \\).
     """
-    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgs']]]]]
+    script_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SparkClusterRolesZookeeperNodeScriptActionArgsDict']]]]]
     """
     The script action which will run on the cluster. One or more `script_actions` blocks as defined above. Changing this forces a new resource to be created.
     """

@@ -353,7 +353,7 @@ class FleetUpdateRunManagedClusterUpdateArgsDict(TypedDict):
     """
     A `upgrade` block as defined below.
     """
-    node_image_selection: NotRequired[pulumi.Input[Optional['FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs']]]
+    node_image_selection: NotRequired[pulumi.Input[Optional['FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgsDict']]]
     """
     A `node_image_selection` block as defined below.
     """
@@ -675,7 +675,7 @@ class FluxConfigurationBlobStorageArgsDict(TypedDict):
     """
     Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets.
     """
-    managed_identity: NotRequired[pulumi.Input[Optional['FluxConfigurationBlobStorageManagedIdentityArgs']]]
+    managed_identity: NotRequired[pulumi.Input[Optional['FluxConfigurationBlobStorageManagedIdentityArgsDict']]]
     """
     A `managed_identity` block as defined below.
     """
@@ -683,7 +683,7 @@ class FluxConfigurationBlobStorageArgsDict(TypedDict):
     """
     Specifies the shared access token to access the storage container.
     """
-    service_principal: NotRequired[pulumi.Input[Optional['FluxConfigurationBlobStorageServicePrincipalArgs']]]
+    service_principal: NotRequired[pulumi.Input[Optional['FluxConfigurationBlobStorageServicePrincipalArgsDict']]]
     """
     A `service_principal` block as defined below.
     """
@@ -1415,7 +1415,7 @@ class FluxConfigurationKustomizationArgsDict(TypedDict):
     """
     Specifies the path in the source reference to reconcile on the cluster.
     """
-    post_build: NotRequired[pulumi.Input[Optional['FluxConfigurationKustomizationPostBuildArgs']]]
+    post_build: NotRequired[pulumi.Input[Optional['FluxConfigurationKustomizationPostBuildArgsDict']]]
     """
     A `post_build` block as defined below.
     """
@@ -1611,7 +1611,7 @@ class FluxConfigurationKustomizationPostBuildArgsDict(TypedDict):
     """
     Specifies the key/value pairs holding the variables to be substituted in this Kustomization.
     """
-    substitute_froms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FluxConfigurationKustomizationPostBuildSubstituteFromArgs']]]]]
+    substitute_froms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FluxConfigurationKustomizationPostBuildSubstituteFromArgsDict']]]]]
     """
     A `substitute_from` block as defined below.
     """
@@ -1751,7 +1751,7 @@ class GroupContainerArgsDict(TypedDict):
     """
     A list of environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
     """
-    liveness_probe: NotRequired[pulumi.Input[Optional['GroupContainerLivenessProbeArgs']]]
+    liveness_probe: NotRequired[pulumi.Input[Optional['GroupContainerLivenessProbeArgsDict']]]
     """
     The definition of a readiness probe for this container as documented in the `liveness_probe` block below. Changing this forces a new resource to be created.
     """
@@ -1759,11 +1759,11 @@ class GroupContainerArgsDict(TypedDict):
     """
     The upper limit of the memory of the containers in GB.
     """
-    ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerPortArgs']]]]]
+    ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerPortArgsDict']]]]]
     """
     A set of public ports for the container. Changing this forces a new resource to be created. Set as documented in the `ports` block below.
     """
-    readiness_probe: NotRequired[pulumi.Input[Optional['GroupContainerReadinessProbeArgs']]]
+    readiness_probe: NotRequired[pulumi.Input[Optional['GroupContainerReadinessProbeArgsDict']]]
     """
     The definition of a readiness probe for this container as documented in the `readiness_probe` block below. Changing this forces a new resource to be created.
     """
@@ -1771,11 +1771,11 @@ class GroupContainerArgsDict(TypedDict):
     """
     A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
     """
-    securities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerSecurityArgs']]]]]
+    securities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerSecurityArgsDict']]]]]
     """
     The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
     """
-    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerVolumeArgs']]]]]
+    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerVolumeArgsDict']]]]]
     """
     The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
     """
@@ -2016,7 +2016,7 @@ class GroupContainerLivenessProbeArgsDict(TypedDict):
     """
     How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
     """
-    http_gets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgs']]]]]
+    http_gets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerLivenessProbeHttpGetArgsDict']]]]]
     """
     The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
     """
@@ -2309,7 +2309,7 @@ class GroupContainerReadinessProbeArgsDict(TypedDict):
     """
     How many times to try the probe before restarting the container (liveness probe) or marking the container as unhealthy (readiness probe). Changing this forces a new resource to be created.
     """
-    http_gets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgs']]]]]
+    http_gets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupContainerReadinessProbeHttpGetArgsDict']]]]]
     """
     The definition of the http_get for this container as documented in the `http_get` block below. Changing this forces a new resource to be created.
     """
@@ -2585,7 +2585,7 @@ class GroupContainerVolumeArgsDict(TypedDict):
     """
     Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    git_repo: NotRequired[pulumi.Input[Optional['GroupContainerVolumeGitRepoArgs']]]
+    git_repo: NotRequired[pulumi.Input[Optional['GroupContainerVolumeGitRepoArgsDict']]]
     """
     A `git_repo` block as defined below. Changing this forces a new resource to be created.
     """
@@ -3298,11 +3298,11 @@ class GroupInitContainerArgsDict(TypedDict):
     """
     A list of sensitive environment variables to be set on the container. Specified as a map of name/value pairs. Changing this forces a new resource to be created.
     """
-    securities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitContainerSecurityArgs']]]]]
+    securities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitContainerSecurityArgsDict']]]]]
     """
     The definition of the security context for this container as documented in the `security` block below. Changing this forces a new resource to be created.
     """
-    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitContainerVolumeArgs']]]]]
+    volumes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GroupInitContainerVolumeArgsDict']]]]]
     """
     The definition of a volume mount for this container as documented in the `volume` block below. Changing this forces a new resource to be created.
     """
@@ -3471,7 +3471,7 @@ class GroupInitContainerVolumeArgsDict(TypedDict):
     """
     Boolean as to whether the mounted volume should be an empty directory. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    git_repo: NotRequired[pulumi.Input[Optional['GroupInitContainerVolumeGitRepoArgs']]]
+    git_repo: NotRequired[pulumi.Input[Optional['GroupInitContainerVolumeGitRepoArgsDict']]]
     """
     A `git_repo` block as defined below. Changing this forces a new resource to be created.
     """
@@ -3753,7 +3753,7 @@ class KubernetesClusterAciConnectorLinuxArgsDict(TypedDict):
     }])
     ```
     """
-    connector_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgs']]]]]
+    connector_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterAciConnectorLinuxConnectorIdentityArgsDict']]]]]
     """
     A `connector_identity` block is exported. The exported attributes are defined below.
     """
@@ -4577,7 +4577,7 @@ class KubernetesClusterDefaultNodePoolArgsDict(TypedDict):
     """
     Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
     """
-    kubelet_config: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolKubeletConfigArgs']]]
+    kubelet_config: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolKubeletConfigArgsDict']]]
     """
     A `kubelet_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
     """
@@ -4585,7 +4585,7 @@ class KubernetesClusterDefaultNodePoolArgsDict(TypedDict):
     """
     The type of disk used by kubelet. Possible values are `OS` and `Temporary`. `temporary_name_for_rotation` must be specified when changing this block.
     """
-    linux_os_config: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolLinuxOsConfigArgs']]]
+    linux_os_config: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolLinuxOsConfigArgsDict']]]
     """
     A `linux_os_config` block as defined below. `temporary_name_for_rotation` must be specified when changing this block.
     """
@@ -4600,7 +4600,7 @@ class KubernetesClusterDefaultNodePoolArgsDict(TypedDict):
     """
     A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
     """
-    node_network_profile: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs']]]
+    node_network_profile: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolNodeNetworkProfileArgsDict']]]
     """
     A `node_network_profile` block as documented below.
     """
@@ -4672,7 +4672,7 @@ class KubernetesClusterDefaultNodePoolArgsDict(TypedDict):
     """
     Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
     """
-    upgrade_settings: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolUpgradeSettingsArgs']]]
+    upgrade_settings: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolUpgradeSettingsArgsDict']]]
     """
     A `upgrade_settings` block as documented below.
     """
@@ -5550,7 +5550,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgsDict(TypedDict):
     """
     Specifies the size of the swap file on each node in MB.
     """
-    sysctl_config: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']]]
+    sysctl_config: NotRequired[pulumi.Input[Optional['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgsDict']]]
     """
     A `sysctl_config` block as defined below.
     """
@@ -6241,7 +6241,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs:
 
 
 class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgsDict(TypedDict):
-    allowed_host_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs']]]]]
+    allowed_host_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgsDict']]]]]
     """
     One or more `allowed_host_ports` blocks as defined below.
     """
@@ -6867,7 +6867,7 @@ class KubernetesClusterIngressApplicationGatewayArgsDict(TypedDict):
     """
     The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
     """
-    ingress_application_gateway_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgs']]]]]
+    ingress_application_gateway_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterIngressApplicationGatewayIngressApplicationGatewayIdentityArgsDict']]]]]
     """
     An `ingress_application_gateway_identity` block is exported. The exported attributes are defined below.
     """
@@ -7113,7 +7113,7 @@ class KubernetesClusterKeyManagementServiceArgs:
 
 
 class KubernetesClusterKeyVaultSecretsProviderArgsDict(TypedDict):
-    secret_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgs']]]]]
+    secret_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterKeyVaultSecretsProviderSecretIdentityArgsDict']]]]]
     """
     An `secret_identity` block is exported. The exported attributes are defined below.
     """
@@ -7659,11 +7659,11 @@ class KubernetesClusterLinuxProfileSshKeyArgs:
 
 
 class KubernetesClusterMaintenanceWindowArgsDict(TypedDict):
-    alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgs']]]]]
+    alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAllowedArgsDict']]]]]
     """
     One or more `allowed` blocks as defined below.
     """
-    not_alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArgs']]]]]
+    not_alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNotAllowedArgsDict']]]]]
     """
     One or more `not_allowed` block as defined below.
     """
@@ -7775,7 +7775,7 @@ class KubernetesClusterMaintenanceWindowAutoUpgradeArgsDict(TypedDict):
     """
     The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
     """
-    not_alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgs']]]]]
+    not_alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowAutoUpgradeNotAllowedArgsDict']]]]]
     """
     One or more `not_allowed` block as defined below.
     """
@@ -8031,7 +8031,7 @@ class KubernetesClusterMaintenanceWindowNodeOsArgsDict(TypedDict):
     """
     The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`.
     """
-    not_alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgs']]]]]
+    not_alloweds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterMaintenanceWindowNodeOsNotAllowedArgsDict']]]]]
     """
     One or more `not_allowed` block as defined below.
     """
@@ -8402,7 +8402,7 @@ class KubernetesClusterNetworkProfileArgsDict(TypedDict):
 
     > **Note:** Changing `network_plugin` forces a new resource to be created, except when upgrading from `kubenet` to `azure` with `network_plugin_mode` set to `overlay`.
     """
-    advanced_networking: NotRequired[pulumi.Input[Optional['KubernetesClusterNetworkProfileAdvancedNetworkingArgs']]]
+    advanced_networking: NotRequired[pulumi.Input[Optional['KubernetesClusterNetworkProfileAdvancedNetworkingArgsDict']]]
     """
     An `advanced_networking` block as defined below.
     """
@@ -8418,7 +8418,7 @@ class KubernetesClusterNetworkProfileArgsDict(TypedDict):
 
     ->**Note:** Dual-stack networking requires that the Preview Feature `Microsoft.ContainerService/AKS-EnableDualStack` is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
     """
-    load_balancer_profile: NotRequired[pulumi.Input[Optional['KubernetesClusterNetworkProfileLoadBalancerProfileArgs']]]
+    load_balancer_profile: NotRequired[pulumi.Input[Optional['KubernetesClusterNetworkProfileLoadBalancerProfileArgsDict']]]
     """
     A `load_balancer_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard`. Changing this forces a new resource to be created.
     """
@@ -8426,7 +8426,7 @@ class KubernetesClusterNetworkProfileArgsDict(TypedDict):
     """
     Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
     """
-    nat_gateway_profile: NotRequired[pulumi.Input[Optional['KubernetesClusterNetworkProfileNatGatewayProfileArgs']]]
+    nat_gateway_profile: NotRequired[pulumi.Input[Optional['KubernetesClusterNetworkProfileNatGatewayProfileArgsDict']]]
     """
     A `nat_gateway_profile` block as defined below. This can only be specified when `load_balancer_sku` is set to `standard` and `outbound_type` is set to `managedNATGateway` or `userAssignedNATGateway`. Changing this forces a new resource to be created.
     """
@@ -9359,7 +9359,7 @@ class KubernetesClusterNodePoolLinuxOsConfigArgsDict(TypedDict):
     """
     Specifies the size of swap file on each node in MB.
     """
-    sysctl_config: NotRequired[pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']]]
+    sysctl_config: NotRequired[pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgsDict']]]
     """
     A `sysctl_config` block as defined below.
     """
@@ -10050,7 +10050,7 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs:
 
 
 class KubernetesClusterNodePoolNodeNetworkProfileArgsDict(TypedDict):
-    allowed_host_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs']]]]]
+    allowed_host_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgsDict']]]]]
     """
     One or more `allowed_host_ports` blocks as defined below.
     """
@@ -10394,7 +10394,7 @@ class KubernetesClusterOmsAgentArgsDict(TypedDict):
     """
     Is managed identity authentication for monitoring enabled?
     """
-    oms_agent_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgs']]]]]
+    oms_agent_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterOmsAgentOmsAgentIdentityArgsDict']]]]]
     """
     An `oms_agent_identity` block is exported. The exported attributes are defined below.
     """
@@ -10533,7 +10533,7 @@ class KubernetesClusterServiceMeshProfileArgsDict(TypedDict):
 
     > **NOTE:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
     """
-    certificate_authority: NotRequired[pulumi.Input[Optional['KubernetesClusterServiceMeshProfileCertificateAuthorityArgs']]]
+    certificate_authority: NotRequired[pulumi.Input[Optional['KubernetesClusterServiceMeshProfileCertificateAuthorityArgsDict']]]
     """
     A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
     """
@@ -10956,7 +10956,7 @@ class KubernetesClusterWebAppRoutingArgsDict(TypedDict):
     """
     Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `None`, `Internal`, `External` and `AnnotationControlled`. Defaults to `AnnotationControlled`.
     """
-    web_app_routing_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgs']]]]]
+    web_app_routing_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KubernetesClusterWebAppRoutingWebAppRoutingIdentityArgsDict']]]]]
     """
     A `web_app_routing_identity` block is exported. The exported attributes are defined below.
     """
@@ -11093,7 +11093,7 @@ class KubernetesClusterWindowsProfileArgsDict(TypedDict):
     """
     The Admin Username for Windows VMs. Changing this forces a new resource to be created.
     """
-    gmsa: NotRequired[pulumi.Input[Optional['KubernetesClusterWindowsProfileGmsaArgs']]]
+    gmsa: NotRequired[pulumi.Input[Optional['KubernetesClusterWindowsProfileGmsaArgsDict']]]
     """
     A `gmsa` block as defined below.
     """
@@ -11679,7 +11679,7 @@ class RegistryNetworkRuleSetArgsDict(TypedDict):
     """
     The behaviour for requests matching no rules. Either `Allow` or `Deny`. Defaults to `Allow`
     """
-    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgs']]]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RegistryNetworkRuleSetIpRuleArgsDict']]]]]
     """
     One or more `ip_rule` blocks as defined below.
 
@@ -12522,11 +12522,11 @@ class RegistryTaskPlatformArgs:
 
 
 class RegistryTaskRegistryCredentialArgsDict(TypedDict):
-    customs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArgs']]]]]
+    customs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RegistryTaskRegistryCredentialCustomArgsDict']]]]]
     """
     One or more `custom` blocks as defined above.
     """
-    source: NotRequired[pulumi.Input[Optional['RegistryTaskRegistryCredentialSourceArgs']]]
+    source: NotRequired[pulumi.Input[Optional['RegistryTaskRegistryCredentialSourceArgsDict']]]
     """
     One `source` block as defined below.
     """
@@ -12703,7 +12703,7 @@ class RegistryTaskSourceTriggerArgsDict(TypedDict):
     """
     The type of the source control service. Possible values are `Github` and `VisualStudioTeamService`.
     """
-    authentication: NotRequired[pulumi.Input[Optional['RegistryTaskSourceTriggerAuthenticationArgs']]]
+    authentication: NotRequired[pulumi.Input[Optional['RegistryTaskSourceTriggerAuthenticationArgsDict']]]
     """
     A `authentication` block as defined above.
     """

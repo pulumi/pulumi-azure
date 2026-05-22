@@ -30,23 +30,23 @@ __all__ = [
 ]
 
 class EmailServiceDomainVerificationRecordArgsDict(TypedDict):
-    dkim2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2Args']]]]]
+    dkim2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkim2ArgsDict']]]]]
     """
     (Optional) An `dkim2` block as defined below.
     """
-    dkims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgs']]]]]
+    dkims: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDkimArgsDict']]]]]
     """
     (Optional) An `dkim` block as defined below.
     """
-    dmarcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgs']]]]]
+    dmarcs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDmarcArgsDict']]]]]
     """
     (Optional) An `dmarc` block as defined below.
     """
-    domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgs']]]]]
+    domains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordDomainArgsDict']]]]]
     """
     (Optional) An `domain` block as defined below.
     """
-    spfs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgs']]]]]
+    spfs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EmailServiceDomainVerificationRecordSpfArgsDict']]]]]
     """
     (Optional) An `spf` block as defined below.
     """

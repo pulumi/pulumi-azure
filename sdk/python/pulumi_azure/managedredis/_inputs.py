@@ -101,7 +101,7 @@ class ManagedRedisDefaultDatabaseArgsDict(TypedDict):
     """
     The ID of the Managed Redis Database Instance.
     """
-    modules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgs']]]]]
+    modules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgsDict']]]]]
     """
     A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
     """

@@ -481,7 +481,7 @@ class DeploymentWebApplicationFirewallArgsDict(TypedDict):
     """
     Whether WAF is enabled/disabled for this NGINX Deployment.
     """
-    statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgs']]]]]
+    statuses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusArgsDict']]]]]
     """
     A `status` block as defined below.
     """
@@ -525,19 +525,19 @@ class DeploymentWebApplicationFirewallArgs:
 
 
 class DeploymentWebApplicationFirewallStatusArgsDict(TypedDict):
-    attack_signatures_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgs']]]]]
+    attack_signatures_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusAttackSignaturesPackageArgsDict']]]]]
     """
     One or more `attack_signatures_package` blocks as defined below.
     """
-    bot_signatures_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgs']]]]]
+    bot_signatures_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusBotSignaturesPackageArgsDict']]]]]
     """
     One or more `bot_signatures_package` blocks as defined below.
     """
-    component_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgs']]]]]
+    component_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusComponentVersionArgsDict']]]]]
     """
     One or more `component_versions` blocks as defined below.
     """
-    threat_campaigns_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgs']]]]]
+    threat_campaigns_packages: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentWebApplicationFirewallStatusThreatCampaignsPackageArgsDict']]]]]
     """
     One or more `threat_campaigns_package` blocks as defined below.
     """

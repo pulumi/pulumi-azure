@@ -32,7 +32,7 @@ class HostPoolScheduledAgentUpdatesArgsDict(TypedDict):
 
     > **Note:** if `enabled` is set to `true` then at least one and a maximum of two `schedule` blocks must be provided.
     """
-    schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgs']]]]]
+    schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HostPoolScheduledAgentUpdatesScheduleArgsDict']]]]]
     """
     A `schedule` block as defined below. A maximum of two blocks can be added.
     """

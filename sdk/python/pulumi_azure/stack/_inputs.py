@@ -792,7 +792,7 @@ class HciDeploymentSettingScaleUnitHostNetworkIntentArgsDict(TypedDict):
     """
     Specifies a list of network traffic types. Possible values are `Compute`, `Storage`, `Management`. Changing this forces a new Stack HCI Deployment Setting to be created.
     """
-    adapter_property_override: NotRequired[pulumi.Input[Optional['HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgs']]]
+    adapter_property_override: NotRequired[pulumi.Input[Optional['HciDeploymentSettingScaleUnitHostNetworkIntentAdapterPropertyOverrideArgsDict']]]
     """
     A `adapter_property_override` block as defined above. Changing this forces a new Stack HCI Deployment Setting to be created.
     """
@@ -800,7 +800,7 @@ class HciDeploymentSettingScaleUnitHostNetworkIntentArgsDict(TypedDict):
     """
     Whether to override adapter properties. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
     """
-    qos_policy_override: NotRequired[pulumi.Input[Optional['HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgs']]]
+    qos_policy_override: NotRequired[pulumi.Input[Optional['HciDeploymentSettingScaleUnitHostNetworkIntentQosPolicyOverrideArgsDict']]]
     """
     A `qos_policy_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
     """
@@ -808,7 +808,7 @@ class HciDeploymentSettingScaleUnitHostNetworkIntentArgsDict(TypedDict):
     """
     Whether to override QoS policy. Possible values are `true` and `false`. defaults to `false`. Changing this forces a new Stack HCI Deployment Setting to be created.
     """
-    virtual_switch_configuration_override: NotRequired[pulumi.Input[Optional['HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgs']]]
+    virtual_switch_configuration_override: NotRequired[pulumi.Input[Optional['HciDeploymentSettingScaleUnitHostNetworkIntentVirtualSwitchConfigurationOverrideArgsDict']]]
     """
     A `virtual_switch_configuration_override` block as defined below. Changing this forces a new Stack HCI Deployment Setting to be created.
     """
@@ -1488,13 +1488,13 @@ class HciLogicalNetworkSubnetArgsDict(TypedDict):
     """
     The address prefix in CIDR notation. Changing this forces a new resource to be created.
     """
-    ip_pools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HciLogicalNetworkSubnetIpPoolArgs']]]]]
+    ip_pools: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HciLogicalNetworkSubnetIpPoolArgsDict']]]]]
     """
     One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
 
     > **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
     """
-    routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgs']]]]]
+    routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['HciLogicalNetworkSubnetRouteArgsDict']]]]]
     """
     A `route` block as defined above. Changing this forces a new resource to be created.
     """

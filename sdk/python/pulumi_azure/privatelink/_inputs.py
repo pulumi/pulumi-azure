@@ -235,7 +235,7 @@ class EndpointPrivateDnsZoneConfigArgsDict(TypedDict):
     """
     The ID of the Private DNS Zone that the config belongs to.
     """
-    record_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgs']]]]]
+    record_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointPrivateDnsZoneConfigRecordSetArgsDict']]]]]
     """
     A `record_sets` block as defined below.
     """

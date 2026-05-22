@@ -610,7 +610,7 @@ class CacheDirectoryLdapArgsDict(TypedDict):
     """
     The FQDN or IP address of the LDAP server.
     """
-    bind: NotRequired[pulumi.Input[Optional['CacheDirectoryLdapBindArgs']]]
+    bind: NotRequired[pulumi.Input[Optional['CacheDirectoryLdapBindArgsDict']]]
     """
     A `bind` block as defined above.
     """

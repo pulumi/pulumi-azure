@@ -594,7 +594,7 @@ class ClusterNodeTypeArgsDict(TypedDict):
     """
     The name of the Node Type.
     """
-    application_ports: NotRequired[pulumi.Input[Optional['ClusterNodeTypeApplicationPortsArgs']]]
+    application_ports: NotRequired[pulumi.Input[Optional['ClusterNodeTypeApplicationPortsArgsDict']]]
     """
     A `application_ports` block as defined below.
     """
@@ -606,7 +606,7 @@ class ClusterNodeTypeArgsDict(TypedDict):
     """
     The Durability Level for this Node Type. Possible values include `Bronze`, `Gold` and `Silver`. Defaults to `Bronze`.
     """
-    ephemeral_ports: NotRequired[pulumi.Input[Optional['ClusterNodeTypeEphemeralPortsArgs']]]
+    ephemeral_ports: NotRequired[pulumi.Input[Optional['ClusterNodeTypeEphemeralPortsArgsDict']]]
     """
     A `ephemeral_ports` block as defined below.
     """
@@ -1100,7 +1100,7 @@ class ClusterReverseProxyCertificateCommonNamesCommonNameArgs:
 
 
 class ClusterUpgradePolicyArgsDict(TypedDict):
-    delta_health_policy: NotRequired[pulumi.Input[Optional['ClusterUpgradePolicyDeltaHealthPolicyArgs']]]
+    delta_health_policy: NotRequired[pulumi.Input[Optional['ClusterUpgradePolicyDeltaHealthPolicyArgsDict']]]
     """
     A `delta_health_policy` block as defined below
     """
@@ -1120,7 +1120,7 @@ class ClusterUpgradePolicyArgsDict(TypedDict):
     """
     Specifies the duration, in "hh:mm:ss" string format, that Service Fabric waits before it performs the initial health check after it finishes the upgrade on the upgrade domain. Defaults to `00:00:30`.
     """
-    health_policy: NotRequired[pulumi.Input[Optional['ClusterUpgradePolicyHealthPolicyArgs']]]
+    health_policy: NotRequired[pulumi.Input[Optional['ClusterUpgradePolicyHealthPolicyArgsDict']]]
     """
     A `health_policy` block as defined below
     """
@@ -1407,11 +1407,11 @@ class ClusterUpgradePolicyHealthPolicyArgs:
 
 
 class ManagedClusterAuthenticationArgsDict(TypedDict):
-    active_directory: NotRequired[pulumi.Input[Optional['ManagedClusterAuthenticationActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['ManagedClusterAuthenticationActiveDirectoryArgsDict']]]
     """
     A `active_directory` block as defined above.
     """
-    certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgs']]]]]
+    certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterAuthenticationCertificateArgsDict']]]]]
     """
     One or more `certificate` blocks as defined below.
     """
@@ -1828,7 +1828,7 @@ class ManagedClusterNodeTypeArgsDict(TypedDict):
     """
     If set to true, only stateless workloads can run on this node type.
     """
-    vm_secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgs']]]]]
+    vm_secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedClusterNodeTypeVmSecretArgsDict']]]]]
     """
     One or more `vm_secrets` blocks as defined below.
     """

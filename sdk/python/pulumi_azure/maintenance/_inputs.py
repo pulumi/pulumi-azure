@@ -50,7 +50,7 @@ class AssignmentDynamicScopeFilterArgsDict(TypedDict):
     """
     Filter VMs by `Any` or `All` specified tags. Defaults to `Any`.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AssignmentDynamicScopeFilterTagArgsDict']]]]]
     """
     One or more `tags` blocks as defined below.
     """
@@ -206,7 +206,7 @@ class AssignmentDynamicScopeFilterTagArgs:
 
 
 class ConfigurationInstallPatchesArgsDict(TypedDict):
-    linuxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgs']]]]]
+    linuxes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesLinuxArgsDict']]]]]
     """
     A `linux` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
     """
@@ -214,7 +214,7 @@ class ConfigurationInstallPatchesArgsDict(TypedDict):
     """
     Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed. Possible values are `Always`, `IfRequired` and `Never`. This property only applies when `scope` is set to `InGuestPatch`.
     """
-    windows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgs']]]]]
+    windows: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfigurationInstallPatchesWindowArgsDict']]]]]
     """
     A `windows` block as defined above. This property only applies when `scope` is set to `InGuestPatch`
     """

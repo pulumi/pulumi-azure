@@ -221,7 +221,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaArgsDict(TypedDict):
     """
     The message count for the Logic App Integration Batch Configuration.
     """
-    recurrence: NotRequired[pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgs']]]
+    recurrence: NotRequired[pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgsDict']]]
     """
     A `recurrence` block as documented below.
     """
@@ -294,7 +294,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceArgsDict(Type
     """
     The end time of the schedule, formatted as an RFC3339 string.
     """
-    schedule: NotRequired[pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgs']]]
+    schedule: NotRequired[pulumi.Input[Optional['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgsDict']]]
     """
     A `schedule` block as documented below.
     """
@@ -421,7 +421,7 @@ class IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleArgsD
     """
     A list of days of the month that the job should execute on.
     """
-    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgs']]]]]
+    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationAccountBatchConfigurationReleaseCriteriaRecurrenceScheduleMonthlyArgsDict']]]]]
     """
     A `monthly` block as documented below.
     """
@@ -857,7 +857,7 @@ class StandardSiteConfigArgsDict(TypedDict):
     """
     The Auto-swap slot name.
     """
-    cors: NotRequired[pulumi.Input[Optional['StandardSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['StandardSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined below.
     """
@@ -887,7 +887,7 @@ class StandardSiteConfigArgsDict(TypedDict):
 
     > **Note:** If `ip_restriction_default_action` is not configured, it is implicitly set to `Allow` when no `ip_restriction` rules are defined and `Deny` when at least one `ip_restriction` rule is defined.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigIpRestrictionArgsDict']]]]]
     """
     A list of `ip_restriction` objects representing IP restrictions as defined below.
 
@@ -918,7 +918,7 @@ class StandardSiteConfigArgsDict(TypedDict):
     """
     The action to take when no `scm_ip_restriction` rules match. Possible values are `Allow` and `Deny`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
 
@@ -1430,7 +1430,7 @@ class StandardSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['StandardSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['StandardSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific as a `ip_restriction` block as defined below.
     """
@@ -1694,7 +1694,7 @@ class StandardSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['StandardSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['StandardSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific `ip_restriction` as defined below.
     """
@@ -2068,19 +2068,19 @@ class TriggerRecurrenceScheduleArgs:
 
 
 class WorkflowAccessControlArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input[Optional['WorkflowAccessControlActionArgs']]]
+    action: NotRequired[pulumi.Input[Optional['WorkflowAccessControlActionArgsDict']]]
     """
     A `action` block as defined below.
     """
-    content: NotRequired[pulumi.Input[Optional['WorkflowAccessControlContentArgs']]]
+    content: NotRequired[pulumi.Input[Optional['WorkflowAccessControlContentArgsDict']]]
     """
     A `content` block as defined below.
     """
-    trigger: NotRequired[pulumi.Input[Optional['WorkflowAccessControlTriggerArgs']]]
+    trigger: NotRequired[pulumi.Input[Optional['WorkflowAccessControlTriggerArgsDict']]]
     """
     A `trigger` block as defined below.
     """
-    workflow_management: NotRequired[pulumi.Input[Optional['WorkflowAccessControlWorkflowManagementArgs']]]
+    workflow_management: NotRequired[pulumi.Input[Optional['WorkflowAccessControlWorkflowManagementArgsDict']]]
     """
     A `workflow_management` block as defined below.
     """
@@ -2217,7 +2217,7 @@ class WorkflowAccessControlTriggerArgsDict(TypedDict):
     """
     A list of the allowed caller IP address ranges.
     """
-    open_authentication_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgs']]]]]
+    open_authentication_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WorkflowAccessControlTriggerOpenAuthenticationPolicyArgsDict']]]]]
     """
     A `open_authentication_policy` block as defined below.
     """

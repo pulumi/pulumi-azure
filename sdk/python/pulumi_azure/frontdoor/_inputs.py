@@ -229,7 +229,7 @@ class FirewallPolicyCustomRuleArgsDict(TypedDict):
     """
     Is the rule is enabled or disabled? Defaults to `true`.
     """
-    match_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgs']]]]]
+    match_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyCustomRuleMatchConditionArgsDict']]]]]
     """
     One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
     """
@@ -513,11 +513,11 @@ class FirewallPolicyManagedRuleArgsDict(TypedDict):
     """
     The version on the managed rule to use with this resource.
     """
-    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArgs']]]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleExclusionArgsDict']]]]]
     """
     One or more `exclusion` blocks as defined below.
     """
-    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArgs']]]]]
+    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideArgsDict']]]]]
     """
     One or more `override` blocks as defined below.
     """
@@ -662,11 +662,11 @@ class FirewallPolicyManagedRuleOverrideArgsDict(TypedDict):
     """
     The managed rule group to override.
     """
-    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArgs']]]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideExclusionArgsDict']]]]]
     """
     One or more `exclusion` blocks as defined below.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleArgsDict']]]]]
     """
     One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
     """
@@ -804,7 +804,7 @@ class FirewallPolicyManagedRuleOverrideRuleArgsDict(TypedDict):
     """
     Is the managed rule override enabled or disabled. Defaults to `false`
     """
-    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyManagedRuleOverrideRuleExclusionArgsDict']]]]]
     """
     One or more `exclusion` blocks as defined below.
     """
@@ -1730,7 +1730,7 @@ class FrontdoorRoutingRuleArgsDict(TypedDict):
     """
     `Enable` or `Disable` use of this Backend Routing Rule. Permitted values are `true` or `false`. Defaults to `true`.
     """
-    forwarding_configuration: NotRequired[pulumi.Input[Optional['FrontdoorRoutingRuleForwardingConfigurationArgs']]]
+    forwarding_configuration: NotRequired[pulumi.Input[Optional['FrontdoorRoutingRuleForwardingConfigurationArgsDict']]]
     """
     A `forwarding_configuration` block as defined below.
     """
@@ -1738,7 +1738,7 @@ class FrontdoorRoutingRuleArgsDict(TypedDict):
     """
     The ID of the FrontDoor.
     """
-    redirect_configuration: NotRequired[pulumi.Input[Optional['FrontdoorRoutingRuleRedirectConfigurationArgs']]]
+    redirect_configuration: NotRequired[pulumi.Input[Optional['FrontdoorRoutingRuleRedirectConfigurationArgsDict']]]
     """
     A `redirect_configuration` block as defined below.
     """
@@ -2178,11 +2178,11 @@ class RulesEngineRuleArgsDict(TypedDict):
     """
     Priority of the rule, must be unique per rules engine definition.
     """
-    action: NotRequired[pulumi.Input[Optional['RulesEngineRuleActionArgs']]]
+    action: NotRequired[pulumi.Input[Optional['RulesEngineRuleActionArgsDict']]]
     """
     An `action` block as defined below.
     """
-    match_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgs']]]]]
+    match_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleMatchConditionArgsDict']]]]]
     """
     One or more `match_condition` block as defined below.
     """
@@ -2257,11 +2257,11 @@ class RulesEngineRuleArgs:
 
 
 class RulesEngineRuleActionArgsDict(TypedDict):
-    request_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgs']]]]]
+    request_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleActionRequestHeaderArgsDict']]]]]
     """
     A `request_header` block as defined below.
     """
-    response_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgs']]]]]
+    response_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RulesEngineRuleActionResponseHeaderArgsDict']]]]]
     """
     A `response_header` block as defined below.
     """

@@ -688,11 +688,11 @@ class AccountRestoreArgsDict(TypedDict):
 
     > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
     """
-    databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]]]]
+    databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreDatabaseArgsDict']]]]]
     """
     A `database` block as defined below. Changing this forces a new resource to be created.
     """
-    gremlin_databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgs']]]]]
+    gremlin_databases: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgsDict']]]]]
     """
     One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -1055,7 +1055,7 @@ class CassandraTableSchemaArgsDict(TypedDict):
     """
     One or more `partition_key` blocks as defined below.
     """
-    cluster_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgs']]]]]
+    cluster_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CassandraTableSchemaClusterKeyArgsDict']]]]]
     """
     One or more `cluster_key` blocks as defined below.
     """
@@ -1370,7 +1370,7 @@ class GremlinGraphIndexPolicyArgsDict(TypedDict):
     """
     Indicates if the indexing policy is automatic. Defaults to `true`.
     """
-    composite_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgs']]]]]
+    composite_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicyCompositeIndexArgsDict']]]]]
     """
     One or more `composite_index` blocks as defined below.
     """
@@ -1382,7 +1382,7 @@ class GremlinGraphIndexPolicyArgsDict(TypedDict):
     """
     List of paths to include in the indexing. Required if `indexing_mode` is `Consistent` or `Lazy`.
     """
-    spatial_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgs']]]]]
+    spatial_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GremlinGraphIndexPolicySpatialIndexArgsDict']]]]]
     """
     One or more `spatial_index` blocks as defined below.
     """
@@ -2322,15 +2322,15 @@ class SqlContainerConflictResolutionPolicyArgs:
 
 
 class SqlContainerIndexingPolicyArgsDict(TypedDict):
-    composite_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgs']]]]]
+    composite_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyCompositeIndexArgsDict']]]]]
     """
     One or more `composite_index` blocks as defined below.
     """
-    excluded_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgs']]]]]
+    excluded_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyExcludedPathArgsDict']]]]]
     """
     One or more `excluded_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
     """
-    included_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgs']]]]]
+    included_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicyIncludedPathArgsDict']]]]]
     """
     One or more `included_path` blocks as defined below. Either `included_path` or `excluded_path` must contain the `path` `/*`
     """
@@ -2338,7 +2338,7 @@ class SqlContainerIndexingPolicyArgsDict(TypedDict):
     """
     Indicates the indexing mode. Possible values include: `consistent` and `none`. Defaults to `consistent`.
     """
-    spatial_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgs']]]]]
+    spatial_indices: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SqlContainerIndexingPolicySpatialIndexArgsDict']]]]]
     """
     One or more `spatial_index` blocks as defined below.
     """

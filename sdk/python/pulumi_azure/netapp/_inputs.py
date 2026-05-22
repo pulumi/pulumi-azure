@@ -1344,11 +1344,11 @@ class VolumeGroupOracleVolumeArgsDict(TypedDict):
     """
     Volume specification name. Possible values are `ora-data1`, `ora-data2`, `ora-data3`, `ora-data4`, `ora-data5`, `ora-data6`, `ora-data7`, `ora-data8`, `ora-log`, `ora-log-mirror`, `ora-binary` and `ora-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    data_protection_replication: NotRequired[pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionReplicationArgs']]]
+    data_protection_replication: NotRequired[pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionReplicationArgsDict']]]
     """
     A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    data_protection_snapshot_policy: NotRequired[pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgs']]]
+    data_protection_snapshot_policy: NotRequired[pulumi.Input[Optional['VolumeGroupOracleVolumeDataProtectionSnapshotPolicyArgsDict']]]
     """
     A `data_protection_snapshot_policy` block as defined below.
     """
@@ -2045,11 +2045,11 @@ class VolumeGroupSapHanaVolumeArgsDict(TypedDict):
     """
     Volume specification name. Possible values are `data`, `log`, `shared`, `data-backup` and `log-backup`. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    data_protection_replication: NotRequired[pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionReplicationArgs']]]
+    data_protection_replication: NotRequired[pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionReplicationArgsDict']]]
     """
     A `data_protection_replication` block as defined below. Changing this forces a new Application Volume Group to be created and data will be lost.
     """
-    data_protection_snapshot_policy: NotRequired[pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgs']]]
+    data_protection_snapshot_policy: NotRequired[pulumi.Input[Optional['VolumeGroupSapHanaVolumeDataProtectionSnapshotPolicyArgsDict']]]
     """
     A `data_protection_snapshot_policy` block as defined below.
     """

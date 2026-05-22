@@ -1516,7 +1516,7 @@ class LinuxVirtualMachineOsDiskArgsDict(TypedDict):
     """
     The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
     """
-    diff_disk_settings: NotRequired[pulumi.Input[Optional['LinuxVirtualMachineOsDiskDiffDiskSettingsArgs']]]
+    diff_disk_settings: NotRequired[pulumi.Input[Optional['LinuxVirtualMachineOsDiskDiffDiskSettingsArgsDict']]]
     """
     A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
@@ -2436,7 +2436,7 @@ class LinuxVirtualMachineScaleSetExtensionArgsDict(TypedDict):
 
     > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
     """
-    protected_settings_from_key_vault: NotRequired[pulumi.Input[Optional['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]]
+    protected_settings_from_key_vault: NotRequired[pulumi.Input[Optional['LinuxVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']]]
     """
     A `protected_settings_from_key_vault` block as defined below.
 
@@ -3111,7 +3111,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgsDict(TypedDi
 
     > **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
     """
-    public_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]]
+    public_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgsDict']]]]]
     """
     A `public_ip_address` block as defined below.
     """
@@ -3309,7 +3309,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressA
     """
     The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
     """
-    ip_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]]
+    ip_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgsDict']]]]]
     """
     One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -3486,7 +3486,7 @@ class LinuxVirtualMachineScaleSetOsDiskArgsDict(TypedDict):
     """
     The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
     """
-    diff_disk_settings: NotRequired[pulumi.Input[Optional['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]]
+    diff_disk_settings: NotRequired[pulumi.Input[Optional['LinuxVirtualMachineScaleSetOsDiskDiffDiskSettingsArgsDict']]]
     """
     A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
     """
@@ -4500,7 +4500,7 @@ class ManagedDiskEncryptionSettingsArgsDict(TypedDict):
     """
     A `disk_encryption_key` block as defined above.
     """
-    key_encryption_key: NotRequired[pulumi.Input[Optional['ManagedDiskEncryptionSettingsKeyEncryptionKeyArgs']]]
+    key_encryption_key: NotRequired[pulumi.Input[Optional['ManagedDiskEncryptionSettingsKeyEncryptionKeyArgsDict']]]
     """
     A `key_encryption_key` block as defined below.
     """
@@ -5009,7 +5009,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgsDict(TypedDict):
 
     > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
     """
-    protected_settings_from_key_vault: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]]
+    protected_settings_from_key_vault: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']]]
     """
     A `protected_settings_from_key_vault` block as defined below.
 
@@ -5535,7 +5535,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgsDict(
 
     > **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
     """
-    public_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]]
+    public_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgsDict']]]]]
     """
     A `public_ip_address` block as defined below.
     """
@@ -5709,7 +5709,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     """
     The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
     """
-    ip_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]]
+    ip_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgsDict']]]]]
     """
     One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -5900,7 +5900,7 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgsDict(TypedDict):
     """
     The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
     """
-    diff_disk_settings: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]]
+    diff_disk_settings: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgsDict']]]
     """
     A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
     """
@@ -6079,11 +6079,11 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgsDict(TypedDict):
 
     > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
     """
-    linux_configuration: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs']]]
+    linux_configuration: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgsDict']]]
     """
     A `linux_configuration` block as documented below.
     """
-    windows_configuration: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs']]]
+    windows_configuration: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgsDict']]]
     """
     A `windows_configuration` block as documented below.
     """
@@ -6156,7 +6156,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgsDict(Type
     """
     The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
     """
-    admin_ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]]]]
+    admin_ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgsDict']]]]]
     """
     A `admin_ssh_key` block as documented below.
     """
@@ -6186,7 +6186,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgsDict(Type
     """
     Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
     """
-    secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]]]]
+    secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgsDict']]]]]
     """
     One or more `secret` blocks as defined below.
     """
@@ -6496,7 +6496,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgsDict(Ty
     """
     The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
     """
-    additional_unattend_contents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]]]]
+    additional_unattend_contents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgsDict']]]]]
     """
     One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -6530,7 +6530,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgsDict(Ty
     """
     Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
     """
-    secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]]]]
+    secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgsDict']]]]]
     """
     One or more `secret` blocks as defined below.
     """
@@ -6538,7 +6538,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgsDict(Ty
     """
     Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
     """
-    winrm_listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]]]
+    winrm_listeners: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgsDict']]]]]
     """
     One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -7870,7 +7870,7 @@ class RunCommandSourceArgsDict(TypedDict):
     command_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     script: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     script_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    script_uri_managed_identity: NotRequired[pulumi.Input[Optional['RunCommandSourceScriptUriManagedIdentityArgs']]]
+    script_uri_managed_identity: NotRequired[pulumi.Input[Optional['RunCommandSourceScriptUriManagedIdentityArgsDict']]]
     """
     A `script_uri_managed_identity` block as defined above.
     """
@@ -8365,7 +8365,7 @@ class ScaleSetNetworkProfileArgsDict(TypedDict):
     """
     Specifies whether to enable accelerated networking or not.
     """
-    dns_settings: NotRequired[pulumi.Input[Optional['ScaleSetNetworkProfileDnsSettingsArgs']]]
+    dns_settings: NotRequired[pulumi.Input[Optional['ScaleSetNetworkProfileDnsSettingsArgsDict']]]
     """
     A `dns_settings` block as documented below.
     """
@@ -8555,7 +8555,7 @@ class ScaleSetNetworkProfileIpConfigurationArgsDict(TypedDict):
 
     > **NOTE:** When using this field you'll also need to configure a Rule for the Load Balancer, and use a `depends_on` between this resource and the Load Balancer Rule.
     """
-    public_ip_address_configuration: NotRequired[pulumi.Input[Optional['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgs']]]
+    public_ip_address_configuration: NotRequired[pulumi.Input[Optional['ScaleSetNetworkProfileIpConfigurationPublicIpAddressConfigurationArgsDict']]]
     """
     Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The `public_ip_address_configuration` block is documented below.
     """
@@ -8858,7 +8858,7 @@ class ScaleSetOsProfileLinuxConfigArgsDict(TypedDict):
     """
     Specifies whether password authentication should be disabled. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArgs']]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileLinuxConfigSshKeyArgsDict']]]]]
     """
     One or more `ssh_keys` blocks as defined below.
 
@@ -8985,7 +8985,7 @@ class ScaleSetOsProfileSecretArgsDict(TypedDict):
     """
     Specifies the key vault to use.
     """
-    vault_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgs']]]]]
+    vault_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileSecretVaultCertificateArgsDict']]]]]
     """
     (Required, on Windows machines) One or more `vault_certificates` blocks as defined below.
     """
@@ -9077,7 +9077,7 @@ class ScaleSetOsProfileSecretVaultCertificateArgs:
 
 
 class ScaleSetOsProfileWindowsConfigArgsDict(TypedDict):
-    additional_unattend_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]]]
+    additional_unattend_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigAdditionalUnattendConfigArgsDict']]]]]
     """
     An `additional_unattend_config` block as documented below.
     """
@@ -9089,7 +9089,7 @@ class ScaleSetOsProfileWindowsConfigArgsDict(TypedDict):
     """
     Indicates whether virtual machine agent should be provisioned on the virtual machines in the scale set.
     """
-    winrms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgs']]]]]
+    winrms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScaleSetOsProfileWindowsConfigWinrmArgsDict']]]]]
     """
     A collection of `winrm` blocks as documented below.
     """
@@ -10182,7 +10182,7 @@ class SharedImageGallerySharingArgsDict(TypedDict):
 
     > **Note:** This requires that the Preview Feature `Microsoft.Compute/CommunityGalleries` is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
     """
-    community_gallery: NotRequired[pulumi.Input[Optional['SharedImageGallerySharingCommunityGalleryArgs']]]
+    community_gallery: NotRequired[pulumi.Input[Optional['SharedImageGallerySharingCommunityGalleryArgsDict']]]
     """
     A `community_gallery` block as defined below. Changing this forces a new resource to be created.
 
@@ -10586,7 +10586,7 @@ class SnapshotEncryptionSettingsArgsDict(TypedDict):
     """
     A `disk_encryption_key` block as defined below.
     """
-    key_encryption_key: NotRequired[pulumi.Input[Optional['SnapshotEncryptionSettingsKeyEncryptionKeyArgs']]]
+    key_encryption_key: NotRequired[pulumi.Input[Optional['SnapshotEncryptionSettingsKeyEncryptionKeyArgsDict']]]
     """
     A `key_encryption_key` block as defined below.
     """
@@ -11007,7 +11007,7 @@ class VirtualMachineOsProfileLinuxConfigArgsDict(TypedDict):
     """
     Specifies whether password authentication should be disabled. If set to `false`, an `admin_password` must be specified.
     """
-    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgs']]]]]
+    ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineOsProfileLinuxConfigSshKeyArgsDict']]]]]
     """
     One or more `ssh_keys` blocks as defined below. This field is required if `disable_password_authentication` is set to `true`.
     """
@@ -11114,7 +11114,7 @@ class VirtualMachineOsProfileSecretArgsDict(TypedDict):
     """
     Specifies the ID of the Key Vault to use.
     """
-    vault_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgs']]]]]
+    vault_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineOsProfileSecretVaultCertificateArgsDict']]]]]
     """
     One or more `vault_certificates` blocks as defined below.
     """
@@ -11236,7 +11236,7 @@ class VirtualMachineOsProfileSecretVaultCertificateArgs:
 
 
 class VirtualMachineOsProfileWindowsConfigArgsDict(TypedDict):
-    additional_unattend_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgs']]]]]
+    additional_unattend_configs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigAdditionalUnattendConfigArgsDict']]]]]
     """
     An `additional_unattend_config` block as defined below.
     """
@@ -11254,7 +11254,7 @@ class VirtualMachineOsProfileWindowsConfigArgsDict(TypedDict):
     """
     Specifies the time zone of the virtual machine, [the possible values are defined here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/). Changing this forces a new resource to be created.
     """
-    winrms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgs']]]]]
+    winrms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualMachineOsProfileWindowsConfigWinrmArgsDict']]]]]
     """
     One or more `winrm` blocks as defined below.
     """
@@ -12504,7 +12504,7 @@ class WindowsVirtualMachineOsDiskArgsDict(TypedDict):
     """
     The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
     """
-    diff_disk_settings: NotRequired[pulumi.Input[Optional['WindowsVirtualMachineOsDiskDiffDiskSettingsArgs']]]
+    diff_disk_settings: NotRequired[pulumi.Input[Optional['WindowsVirtualMachineOsDiskDiffDiskSettingsArgsDict']]]
     """
     A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
 
@@ -13424,7 +13424,7 @@ class WindowsVirtualMachineScaleSetExtensionArgsDict(TypedDict):
 
     > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. TitleCase vs snakeCase) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
     """
-    protected_settings_from_key_vault: NotRequired[pulumi.Input[Optional['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs']]]
+    protected_settings_from_key_vault: NotRequired[pulumi.Input[Optional['WindowsVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgsDict']]]
     """
     A `protected_settings_from_key_vault` block as defined below.
 
@@ -14099,7 +14099,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgsDict(Typed
 
     > **Note:** One `ip_configuration` block must be marked as Primary for each Network Interface.
     """
-    public_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]]]]
+    public_ip_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgsDict']]]]]
     """
     A `public_ip_address` block as defined below.
     """
@@ -14297,7 +14297,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddres
     """
     The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
     """
-    ip_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]]]]
+    ip_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgsDict']]]]]
     """
     One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
     """
@@ -14474,7 +14474,7 @@ class WindowsVirtualMachineScaleSetOsDiskArgsDict(TypedDict):
     """
     The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
     """
-    diff_disk_settings: NotRequired[pulumi.Input[Optional['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs']]]
+    diff_disk_settings: NotRequired[pulumi.Input[Optional['WindowsVirtualMachineScaleSetOsDiskDiffDiskSettingsArgsDict']]]
     """
     A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
     """

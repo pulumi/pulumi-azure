@@ -805,11 +805,11 @@ class ApplicationGatewayBackendHttpSettingArgsDict(TypedDict):
     """
     The name of the affinity cookie.
     """
-    authentication_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]]
+    authentication_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict']]]]]
     """
     One or more `authentication_certificate_backend` blocks as defined below.
     """
-    connection_draining: NotRequired[pulumi.Input[Optional['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']]]
+    connection_draining: NotRequired[pulumi.Input[Optional['ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict']]]
     """
     A `connection_draining` block as defined below.
     """
@@ -1637,7 +1637,7 @@ class ApplicationGatewayHttpListenerArgsDict(TypedDict):
     """
     The Protocol to use for this HTTP Listener. Possible values are `Http` and `Https`.
     """
-    custom_error_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgs']]]]]
+    custom_error_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayHttpListenerCustomErrorConfigurationArgsDict']]]]]
     """
     One or more `custom_error_configuration` blocks as defined below.
     """
@@ -2621,7 +2621,7 @@ class ApplicationGatewayProbeArgsDict(TypedDict):
     """
     The ID of the Rewrite Rule Set
     """
-    match: NotRequired[pulumi.Input[Optional['ApplicationGatewayProbeMatchArgs']]]
+    match: NotRequired[pulumi.Input[Optional['ApplicationGatewayProbeMatchArgsDict']]]
     """
     A `match` block as defined above.
 
@@ -3449,7 +3449,7 @@ class ApplicationGatewayRewriteRuleSetArgsDict(TypedDict):
     """
     The ID of the Rewrite Rule Set
     """
-    rewrite_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgs']]]]]
+    rewrite_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleArgsDict']]]]]
     """
     One or more `rewrite_rule` blocks as defined below.
     """
@@ -3517,19 +3517,19 @@ class ApplicationGatewayRewriteRuleSetRewriteRuleArgsDict(TypedDict):
     """
     Rule sequence of the rewrite rule that determines the order of execution in a set.
     """
-    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgs']]]]]
+    conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleConditionArgsDict']]]]]
     """
     One or more `condition` blocks as defined above.
     """
-    request_header_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgs']]]]]
+    request_header_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleRequestHeaderConfigurationArgsDict']]]]]
     """
     One or more `request_header_configuration` blocks as defined above.
     """
-    response_header_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgs']]]]]
+    response_header_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayRewriteRuleSetRewriteRuleResponseHeaderConfigurationArgsDict']]]]]
     """
     One or more `response_header_configuration` blocks as defined above.
     """
-    url: NotRequired[pulumi.Input[Optional['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgs']]]
+    url: NotRequired[pulumi.Input[Optional['ApplicationGatewayRewriteRuleSetRewriteRuleUrlArgsDict']]]
     """
     One `url` block as defined below
     """
@@ -4435,7 +4435,7 @@ class ApplicationGatewaySslProfileArgsDict(TypedDict):
     """
     The ID of the Rewrite Rule Set
     """
-    ssl_policy: NotRequired[pulumi.Input[Optional['ApplicationGatewaySslProfileSslPolicyArgs']]]
+    ssl_policy: NotRequired[pulumi.Input[Optional['ApplicationGatewaySslProfileSslPolicyArgsDict']]]
     """
     a `ssl_policy` block as defined below.
     """
@@ -5330,11 +5330,11 @@ class ApplicationGatewayWafConfigurationArgsDict(TypedDict):
     """
     The Version of the Rule Set used for this Web Application Firewall. Possible values are `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
     """
-    disabled_rule_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgs']]]]]
+    disabled_rule_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationDisabledRuleGroupArgsDict']]]]]
     """
     One or more `disabled_rule_group` blocks as defined below.
     """
-    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgs']]]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayWafConfigurationExclusionArgsDict']]]]]
     """
     One or more `exclusion` blocks as defined below.
     """
@@ -5632,7 +5632,7 @@ class ExpressRouteCircuitPeeringIpv6ArgsDict(TypedDict):
     """
     A boolean value indicating whether the IPv6 peering is enabled. Defaults to `true`.
     """
-    microsoft_peering: NotRequired[pulumi.Input[Optional['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgs']]]
+    microsoft_peering: NotRequired[pulumi.Input[Optional['ExpressRouteCircuitPeeringIpv6MicrosoftPeeringArgsDict']]]
     """
     A `microsoft_peering` block as defined below.
     """
@@ -5975,7 +5975,7 @@ class ExpressRouteConnectionRoutingArgsDict(TypedDict):
     """
     The ID of the Route Map associated with this Express Route Connection for outbound routes.
     """
-    propagated_route_table: NotRequired[pulumi.Input[Optional['ExpressRouteConnectionRoutingPropagatedRouteTableArgs']]]
+    propagated_route_table: NotRequired[pulumi.Input[Optional['ExpressRouteConnectionRoutingPropagatedRouteTableArgsDict']]]
     """
     A `propagated_route_table` block as defined below.
     """
@@ -6657,7 +6657,7 @@ class FirewallApplicationRuleCollectionRuleArgsDict(TypedDict):
     """
     A list of FQDN tags. Possible values are `AppServiceEnvironment`, `AzureBackup`, `AzureKubernetesService`, `HDInsight`, `MicrosoftActiveProtectionService`, `WindowsDiagnostics`, `WindowsUpdate` and `WindowsVirtualDesktop`.
     """
-    protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgs']]]]]
+    protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallApplicationRuleCollectionRuleProtocolArgsDict']]]]]
     """
     One or more `protocol` blocks as defined below.
     """
@@ -7715,7 +7715,7 @@ class FirewallPolicyInsightsArgsDict(TypedDict):
     """
     Whether the insights functionality is enabled for this Firewall Policy.
     """
-    log_analytics_workspaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgs']]]]]
+    log_analytics_workspaces: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyInsightsLogAnalyticsWorkspaceArgsDict']]]]]
     """
     A list of `log_analytics_workspace` block as defined below.
     """
@@ -7849,11 +7849,11 @@ class FirewallPolicyIntrusionDetectionArgsDict(TypedDict):
     """
     A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses.
     """
-    signature_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgs']]]]]
+    signature_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionSignatureOverrideArgsDict']]]]]
     """
     One or more `signature_overrides` blocks as defined below.
     """
-    traffic_bypasses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgs']]]]]
+    traffic_bypasses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyIntrusionDetectionTrafficBypassArgsDict']]]]]
     """
     One or more `traffic_bypass` blocks as defined below.
     """
@@ -8246,11 +8246,11 @@ class FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgsDict(Typ
     """
     Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with `destination_fqdns`.
     """
-    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgs']]]]]
+    http_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleHttpHeaderArgsDict']]]]]
     """
     Specifies a list of HTTP/HTTPS headers to insert. One or more `http_headers` blocks as defined below.
     """
-    protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs']]]]]
+    protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgsDict']]]]]
     source_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     source_ip_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     terminate_tls: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
@@ -9282,7 +9282,7 @@ class NetworkConnectionMonitorEndpointArgsDict(TypedDict):
     """
     A list of IPv4/IPv6 subnet masks or IPv4/IPv6 IP addresses to be excluded to the Network Connection Monitor endpoint.
     """
-    filter: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorEndpointFilterArgs']]]
+    filter: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorEndpointFilterArgsDict']]]
     """
     A `filter` block as defined below.
     """
@@ -9434,7 +9434,7 @@ class NetworkConnectionMonitorEndpointArgs:
 
 
 class NetworkConnectionMonitorEndpointFilterArgsDict(TypedDict):
-    items: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgs']]]]]
+    items: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorEndpointFilterItemArgsDict']]]]]
     """
     A `item` block as defined below.
     """
@@ -9540,11 +9540,11 @@ class NetworkConnectionMonitorTestConfigurationArgsDict(TypedDict):
     """
     The protocol used to evaluate tests. Possible values are `Tcp`, `Http` and `Icmp`.
     """
-    http_configuration: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgs']]]
+    http_configuration: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict']]]
     """
     A `http_configuration` block as defined below.
     """
-    icmp_configuration: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgs']]]
+    icmp_configuration: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationIcmpConfigurationArgsDict']]]
     """
     A `icmp_configuration` block as defined below.
     """
@@ -9552,11 +9552,11 @@ class NetworkConnectionMonitorTestConfigurationArgsDict(TypedDict):
     """
     The preferred IP version which is used in the test evaluation. Possible values are `IPv4` and `IPv6`.
     """
-    success_threshold: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgs']]]
+    success_threshold: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationSuccessThresholdArgsDict']]]
     """
     A `success_threshold` block as defined below.
     """
-    tcp_configuration: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs']]]
+    tcp_configuration: NotRequired[pulumi.Input[Optional['NetworkConnectionMonitorTestConfigurationTcpConfigurationArgsDict']]]
     """
     A `tcp_configuration` block as defined below.
     """
@@ -9715,7 +9715,7 @@ class NetworkConnectionMonitorTestConfigurationHttpConfigurationArgsDict(TypedDi
     """
     Should HTTPS be preferred over HTTP in cases where the choice is not explicit? Defaults to `false`.
     """
-    request_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgs']]]]]
+    request_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NetworkConnectionMonitorTestConfigurationHttpConfigurationRequestHeaderArgsDict']]]]]
     """
     A `request_header` block as defined below.
     """
@@ -11350,7 +11350,7 @@ class PointToPointVpnGatewayConnectionConfigurationArgsDict(TypedDict):
     """
     Should Internet Security be enabled to secure internet traffic? Defaults to `false`.
     """
-    route: NotRequired[pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRouteArgs']]]
+    route: NotRequired[pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRouteArgsDict']]]
     """
     A `route` block as defined below.
     """
@@ -11437,7 +11437,7 @@ class PointToPointVpnGatewayConnectionConfigurationRouteArgsDict(TypedDict):
     """
     The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
     """
-    propagated_route_table: NotRequired[pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgs']]]
+    propagated_route_table: NotRequired[pulumi.Input[Optional['PointToPointVpnGatewayConnectionConfigurationRoutePropagatedRouteTableArgsDict']]]
     """
     A `propagated_route_table` block as defined below.
     """
@@ -11772,11 +11772,11 @@ class RouteMapRuleArgsDict(TypedDict):
     """
     The unique name for the rule.
     """
-    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionArgs']]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionArgsDict']]]]]
     """
     An `action` block as defined below.
     """
-    match_criterions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgs']]]]]
+    match_criterions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleMatchCriterionArgsDict']]]]]
     """
     A `match_criterion` block as defined below.
     """
@@ -11860,7 +11860,7 @@ class RouteMapRuleActionArgsDict(TypedDict):
     """
     The type of the action to be taken. Possible values are `Add`, `Drop`, `Remove`, `Replace` and `Unknown`.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RouteMapRuleActionParameterArgsDict']]]]]
     """
     A `parameter` block as defined below. Required if `type` is anything other than `Drop`.
     """
@@ -12880,7 +12880,7 @@ class TrafficManagerProfileMonitorConfigArgsDict(TypedDict):
     """
     The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
     """
-    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgs']]]]]
+    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TrafficManagerProfileMonitorConfigCustomHeaderArgsDict']]]]]
     """
     One or more `custom_header` blocks as defined below.
     """
@@ -13098,7 +13098,7 @@ class VirtualHubConnectionRoutingArgsDict(TypedDict):
     """
     The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
     """
-    propagated_route_table: NotRequired[pulumi.Input[Optional['VirtualHubConnectionRoutingPropagatedRouteTableArgs']]]
+    propagated_route_table: NotRequired[pulumi.Input[Optional['VirtualHubConnectionRoutingPropagatedRouteTableArgsDict']]]
     """
     A `propagated_route_table` block as defined below.
     """
@@ -13110,7 +13110,7 @@ class VirtualHubConnectionRoutingArgsDict(TypedDict):
     """
     Whether the static routes should be propagated to the Virtual Hub. Defaults to `true`.
     """
-    static_vnet_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgs']]]]]
+    static_vnet_routes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualHubConnectionRoutingStaticVnetRouteArgsDict']]]]]
     """
     A `static_vnet_route` block as defined below.
     """
@@ -13600,7 +13600,7 @@ class VirtualNetworkGatewayBgpSettingsArgsDict(TypedDict):
     """
     The weight added to routes which have been learned through BGP peering. Valid values can be between `0` and `100`.
     """
-    peering_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgs']]]]]
+    peering_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayBgpSettingsPeeringAddressArgsDict']]]]]
     """
     A list of `peering_addresses` blocks as defined below. Only one `peering_addresses` block can be specified except when `active_active` of this Virtual Network Gateway is `true`.
     """
@@ -14409,7 +14409,7 @@ class VirtualNetworkGatewayVpnClientConfigurationArgsDict(TypedDict):
     """
     AzureAD Tenant URL
     """
-    ipsec_policy: NotRequired[pulumi.Input[Optional['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgs']]]
+    ipsec_policy: NotRequired[pulumi.Input[Optional['VirtualNetworkGatewayVpnClientConfigurationIpsecPolicyArgsDict']]]
     """
     An `ipsec_policy` block as defined below.
     """
@@ -14421,19 +14421,19 @@ class VirtualNetworkGatewayVpnClientConfigurationArgsDict(TypedDict):
     """
     The secret used by the Radius server.
     """
-    radius_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs']]]]]
+    radius_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgsDict']]]]]
     """
     One or more `radius_server` blocks as defined below.
     """
-    revoked_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs']]]]]
+    revoked_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgsDict']]]]]
     """
     One or more `revoked_certificate` blocks which are defined below.
     """
-    root_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs']]]]]
+    root_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgsDict']]]]]
     """
     One or more `root_certificate` blocks which are defined below. These root certificates are used to sign the client certificate used by the VPN clients to connect to the gateway.
     """
-    virtual_network_gateway_client_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgs']]]]]
+    virtual_network_gateway_client_connections: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayVpnClientConfigurationVirtualNetworkGatewayClientConnectionArgsDict']]]]]
     """
     One or more `virtual_network_gateway_client_connection` blocks as defined below.
     """
@@ -15153,7 +15153,7 @@ class VirtualNetworkSubnetArgsDict(TypedDict):
     """
     Enable default outbound access to the internet for the subnet. Defaults to `true`.
     """
-    delegation: NotRequired[pulumi.Input[Optional['VirtualNetworkSubnetDelegationArgs']]]
+    delegation: NotRequired[pulumi.Input[Optional['VirtualNetworkSubnetDelegationArgsDict']]]
     """
     One or more `delegation` blocks as defined below.
     """
@@ -15607,11 +15607,11 @@ class VpnGatewayBgpSettingsArgsDict(TypedDict):
     """
     The Address which should be used for the BGP Peering.
     """
-    instance0_bgp_peering_address: NotRequired[pulumi.Input[Optional['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgs']]]
+    instance0_bgp_peering_address: NotRequired[pulumi.Input[Optional['VpnGatewayBgpSettingsInstance0BgpPeeringAddressArgsDict']]]
     """
     An `instance_bgp_peering_address` block as defined below.
     """
-    instance1_bgp_peering_address: NotRequired[pulumi.Input[Optional['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgs']]]
+    instance1_bgp_peering_address: NotRequired[pulumi.Input[Optional['VpnGatewayBgpSettingsInstance1BgpPeeringAddressArgsDict']]]
     """
     An `instance_bgp_peering_address` block as defined below.
     """
@@ -15890,7 +15890,7 @@ class VpnGatewayConnectionRoutingArgsDict(TypedDict):
     """
     The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
     """
-    propagated_route_table: NotRequired[pulumi.Input[Optional['VpnGatewayConnectionRoutingPropagatedRouteTableArgs']]]
+    propagated_route_table: NotRequired[pulumi.Input[Optional['VpnGatewayConnectionRoutingPropagatedRouteTableArgsDict']]]
     """
     A `propagated_route_table` block as defined below.
     """
@@ -16081,7 +16081,7 @@ class VpnGatewayConnectionVpnLinkArgsDict(TypedDict):
     """
     The connection mode of this VPN Link. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`.
     """
-    custom_bgp_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgs']]]]]
+    custom_bgp_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkCustomBgpAddressArgsDict']]]]]
     """
     One or more `custom_bgp_address` blocks as defined below.
     """
@@ -16097,7 +16097,7 @@ class VpnGatewayConnectionVpnLinkArgsDict(TypedDict):
     """
     A list of the ingress NAT Rule Ids.
     """
-    ipsec_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgs']]]]]
+    ipsec_policies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnGatewayConnectionVpnLinkIpsecPolicyArgsDict']]]]]
     """
     One or more `ipsec_policy` blocks as defined above.
     """
@@ -17052,15 +17052,15 @@ class VpnServerConfigurationPolicyGroupPolicyArgs:
 
 
 class VpnServerConfigurationRadiusArgsDict(TypedDict):
-    client_root_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgs']]]]]
+    client_root_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusClientRootCertificateArgsDict']]]]]
     """
     One or more `client_root_certificate` blocks as defined below.
     """
-    server_root_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgs']]]]]
+    server_root_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerRootCertificateArgsDict']]]]]
     """
     One or more `server_root_certificate` blocks as defined below.
     """
-    servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgs']]]]]
+    servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VpnServerConfigurationRadiusServerArgsDict']]]]]
     """
     One or more `server` blocks as defined below.
     """
@@ -17285,7 +17285,7 @@ class VpnSiteLinkArgsDict(TypedDict):
     """
     The name which should be used for this VPN Site Link.
     """
-    bgp: NotRequired[pulumi.Input[Optional['VpnSiteLinkBgpArgs']]]
+    bgp: NotRequired[pulumi.Input[Optional['VpnSiteLinkBgpArgsDict']]]
     """
     A `bgp` block as defined above.
 
@@ -17488,7 +17488,7 @@ class VpnSiteLinkBgpArgs:
 
 
 class VpnSiteO365PolicyArgsDict(TypedDict):
-    traffic_category: NotRequired[pulumi.Input[Optional['VpnSiteO365PolicyTrafficCategoryArgs']]]
+    traffic_category: NotRequired[pulumi.Input[Optional['VpnSiteO365PolicyTrafficCategoryArgsDict']]]
     """
     A `traffic_category` block as defined above.
     """

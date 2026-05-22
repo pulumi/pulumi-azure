@@ -319,83 +319,83 @@ class EndpointDeliveryRuleArgsDict(TypedDict):
     """
     The order used for this rule. The order values should be sequential and begin at `1`.
     """
-    cache_expiration_action: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleCacheExpirationActionArgs']]]
+    cache_expiration_action: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleCacheExpirationActionArgsDict']]]
     """
     A `cache_expiration_action` block as defined above.
     """
-    cache_key_query_string_action: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleCacheKeyQueryStringActionArgs']]]
+    cache_key_query_string_action: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleCacheKeyQueryStringActionArgsDict']]]
     """
     A `cache_key_query_string_action` block as defined above.
     """
-    cookies_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArgs']]]]]
+    cookies_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleCookiesConditionArgsDict']]]]]
     """
     A `cookies_condition` block as defined above.
     """
-    device_condition: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleDeviceConditionArgs']]]
+    device_condition: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleDeviceConditionArgsDict']]]
     """
     A `device_condition` block as defined below.
     """
-    http_version_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArgs']]]]]
+    http_version_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleHttpVersionConditionArgsDict']]]]]
     """
     A `http_version_condition` block as defined below.
     """
-    modify_request_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArgs']]]]]
+    modify_request_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleModifyRequestHeaderActionArgsDict']]]]]
     """
     A `modify_request_header_action` block as defined below.
     """
-    modify_response_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArgs']]]]]
+    modify_response_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleModifyResponseHeaderActionArgsDict']]]]]
     """
     A `modify_response_header_action` block as defined below.
     """
-    post_arg_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArgs']]]]]
+    post_arg_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRulePostArgConditionArgsDict']]]]]
     """
     A `post_arg_condition` block as defined below.
     """
-    query_string_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArgs']]]]]
+    query_string_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleQueryStringConditionArgsDict']]]]]
     """
     A `query_string_condition` block as defined below.
     """
-    remote_address_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArgs']]]]]
+    remote_address_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleRemoteAddressConditionArgsDict']]]]]
     """
     A `remote_address_condition` block as defined below.
     """
-    request_body_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArgs']]]]]
+    request_body_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleRequestBodyConditionArgsDict']]]]]
     """
     A `request_body_condition` block as defined below.
     """
-    request_header_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArgs']]]]]
+    request_header_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleRequestHeaderConditionArgsDict']]]]]
     """
     A `request_header_condition` block as defined below.
     """
-    request_method_condition: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleRequestMethodConditionArgs']]]
+    request_method_condition: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleRequestMethodConditionArgsDict']]]
     """
     A `request_method_condition` block as defined below.
     """
-    request_scheme_condition: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleRequestSchemeConditionArgs']]]
+    request_scheme_condition: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleRequestSchemeConditionArgsDict']]]
     """
     A `request_scheme_condition` block as defined below.
     """
-    request_uri_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArgs']]]]]
+    request_uri_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleRequestUriConditionArgsDict']]]]]
     """
     A `request_uri_condition` block as defined below.
     """
-    url_file_extension_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArgs']]]]]
+    url_file_extension_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileExtensionConditionArgsDict']]]]]
     """
     A `url_file_extension_condition` block as defined below.
     """
-    url_file_name_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArgs']]]]]
+    url_file_name_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleUrlFileNameConditionArgsDict']]]]]
     """
     A `url_file_name_condition` block as defined below.
     """
-    url_path_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArgs']]]]]
+    url_path_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointDeliveryRuleUrlPathConditionArgsDict']]]]]
     """
     A `url_path_condition` block as defined below.
     """
-    url_redirect_action: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleUrlRedirectActionArgs']]]
+    url_redirect_action: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleUrlRedirectActionArgsDict']]]
     """
     A `url_redirect_action` block as defined below.
     """
-    url_rewrite_action: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleUrlRewriteActionArgs']]]
+    url_rewrite_action: NotRequired[pulumi.Input[Optional['EndpointDeliveryRuleUrlRewriteActionArgsDict']]]
     """
     A `url_rewrite_action` block as defined below.
     """
@@ -2438,27 +2438,27 @@ class EndpointGeoFilterArgs:
 
 
 class EndpointGlobalDeliveryRuleArgsDict(TypedDict):
-    cache_expiration_action: NotRequired[pulumi.Input[Optional['EndpointGlobalDeliveryRuleCacheExpirationActionArgs']]]
+    cache_expiration_action: NotRequired[pulumi.Input[Optional['EndpointGlobalDeliveryRuleCacheExpirationActionArgsDict']]]
     """
     A `cache_expiration_action` block as defined above.
     """
-    cache_key_query_string_action: NotRequired[pulumi.Input[Optional['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgs']]]
+    cache_key_query_string_action: NotRequired[pulumi.Input[Optional['EndpointGlobalDeliveryRuleCacheKeyQueryStringActionArgsDict']]]
     """
     A `cache_key_query_string_action` block as defined above.
     """
-    modify_request_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgs']]]]]
+    modify_request_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyRequestHeaderActionArgsDict']]]]]
     """
     A `modify_request_header_action` block as defined below.
     """
-    modify_response_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgs']]]]]
+    modify_response_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EndpointGlobalDeliveryRuleModifyResponseHeaderActionArgsDict']]]]]
     """
     A `modify_response_header_action` block as defined below.
     """
-    url_redirect_action: NotRequired[pulumi.Input[Optional['EndpointGlobalDeliveryRuleUrlRedirectActionArgs']]]
+    url_redirect_action: NotRequired[pulumi.Input[Optional['EndpointGlobalDeliveryRuleUrlRedirectActionArgsDict']]]
     """
     A `url_redirect_action` block as defined below.
     """
-    url_rewrite_action: NotRequired[pulumi.Input[Optional['EndpointGlobalDeliveryRuleUrlRewriteActionArgs']]]
+    url_rewrite_action: NotRequired[pulumi.Input[Optional['EndpointGlobalDeliveryRuleUrlRewriteActionArgsDict']]]
     """
     A `url_rewrite_action` block as defined below.
     """
@@ -3091,7 +3091,7 @@ class FrontdoorCustomDomainTlsArgsDict(TypedDict):
 
     > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
     """
-    cipher_suite: NotRequired[pulumi.Input[Optional['FrontdoorCustomDomainTlsCipherSuiteArgs']]]
+    cipher_suite: NotRequired[pulumi.Input[Optional['FrontdoorCustomDomainTlsCipherSuiteArgsDict']]]
     """
     A `cipher_suite` block as defined below.
     """
@@ -3201,7 +3201,7 @@ class FrontdoorCustomDomainTlsCipherSuiteArgsDict(TypedDict):
     """
     The cipher suite set type. Possible values are `Customized`, `TLS12_2022`, and `TLS12_2023`.
     """
-    custom_ciphers: NotRequired[pulumi.Input[Optional['FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs']]]
+    custom_ciphers: NotRequired[pulumi.Input[Optional['FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgsDict']]]
     """
     A `custom_ciphers` block as defined below.
 
@@ -3330,7 +3330,7 @@ class FrontdoorFirewallPolicyCustomRuleArgsDict(TypedDict):
     """
     Is the rule is enabled or disabled? Defaults to `true`.
     """
-    match_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArgs']]]]]
+    match_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyCustomRuleMatchConditionArgsDict']]]]]
     """
     One or more `match_condition` block defined below. Can support up to `10` `match_condition` blocks.
     """
@@ -3782,11 +3782,11 @@ class FrontdoorFirewallPolicyManagedRuleArgsDict(TypedDict):
     """
     The version of the managed rule to use with this resource. Possible values depends on which default rule set type you are using, for the `DefaultRuleSet` type the possible values include `1.0` or `preview-0.1`. For `Microsoft_DefaultRuleSet` the possible values include `1.1`, `2.0`, or `2.1`. For `BotProtection` the value must be `preview-0.1` and for `Microsoft_BotManagerRuleSet` the possible values include `1.0` and `1.1`.
     """
-    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgs']]]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleExclusionArgsDict']]]]]
     """
     One or more `exclusion` blocks as defined below.
     """
-    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgs']]]]]
+    overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideArgsDict']]]]]
     """
     One or more `override` blocks as defined below.
     """
@@ -3958,11 +3958,11 @@ class FrontdoorFirewallPolicyManagedRuleOverrideArgsDict(TypedDict):
     """
     The managed rule group to override.
     """
-    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgs']]]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideExclusionArgsDict']]]]]
     """
     One or more `exclusion` blocks as defined below.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleArgsDict']]]]]
     """
     One or more `rule` blocks as defined below. If none are specified, all of the rules in the group will be disabled.
     """
@@ -4122,7 +4122,7 @@ class FrontdoorFirewallPolicyManagedRuleOverrideRuleArgsDict(TypedDict):
     """
     Is the managed rule override enabled or disabled. Defaults to `false`
     """
-    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgs']]]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorFirewallPolicyManagedRuleOverrideRuleExclusionArgsDict']]]]]
     """
     One or more `exclusion` blocks as defined below.
     """
@@ -4765,23 +4765,23 @@ class FrontdoorRouteCacheArgs:
 
 
 class FrontdoorRuleActionsArgsDict(TypedDict):
-    request_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgs']]]]]
+    request_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleActionsRequestHeaderActionArgsDict']]]]]
     """
     A `request_header_action` block as defined below.
     """
-    response_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgs']]]]]
+    response_header_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleActionsResponseHeaderActionArgsDict']]]]]
     """
     A `response_header_action` block as defined below.
     """
-    route_configuration_override_action: NotRequired[pulumi.Input[Optional['FrontdoorRuleActionsRouteConfigurationOverrideActionArgs']]]
+    route_configuration_override_action: NotRequired[pulumi.Input[Optional['FrontdoorRuleActionsRouteConfigurationOverrideActionArgsDict']]]
     """
     A `route_configuration_override_action` block as defined below.
     """
-    url_redirect_action: NotRequired[pulumi.Input[Optional['FrontdoorRuleActionsUrlRedirectActionArgs']]]
+    url_redirect_action: NotRequired[pulumi.Input[Optional['FrontdoorRuleActionsUrlRedirectActionArgsDict']]]
     """
     A `url_redirect_action` block as defined below. You may **not** have a `url_redirect_action` **and** a `url_rewrite_action` defined in the same `actions` block.
     """
-    url_rewrite_action: NotRequired[pulumi.Input[Optional['FrontdoorRuleActionsUrlRewriteActionArgs']]]
+    url_rewrite_action: NotRequired[pulumi.Input[Optional['FrontdoorRuleActionsUrlRewriteActionArgsDict']]]
     """
     A `url_rewrite_action` block as defined below. You may **not** have a `url_rewrite_action` **and** a `url_redirect_action` defined in the same `actions` block.
     """
@@ -5393,79 +5393,79 @@ class FrontdoorRuleActionsUrlRewriteActionArgs:
 
 
 class FrontdoorRuleConditionsArgsDict(TypedDict):
-    client_port_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgs']]]]]
+    client_port_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsClientPortConditionArgsDict']]]]]
     """
     A `client_port_condition` block as defined below.
     """
-    cookies_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgs']]]]]
+    cookies_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsCookiesConditionArgsDict']]]]]
     """
     A `cookies_condition` block as defined below.
     """
-    host_name_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgs']]]]]
+    host_name_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsHostNameConditionArgsDict']]]]]
     """
     A `host_name_condition` block as defined below.
     """
-    http_version_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgs']]]]]
+    http_version_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsHttpVersionConditionArgsDict']]]]]
     """
     A `http_version_condition` block as defined below.
     """
-    is_device_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgs']]]]]
+    is_device_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsIsDeviceConditionArgsDict']]]]]
     """
     A `is_device_condition` block as defined below.
     """
-    post_args_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgs']]]]]
+    post_args_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsPostArgsConditionArgsDict']]]]]
     """
     A `post_args_condition` block as defined below.
     """
-    query_string_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgs']]]]]
+    query_string_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsQueryStringConditionArgsDict']]]]]
     """
     A `query_string_condition` block as defined below.
     """
-    remote_address_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgs']]]]]
+    remote_address_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRemoteAddressConditionArgsDict']]]]]
     """
     A `remote_address_condition` block as defined below.
     """
-    request_body_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgs']]]]]
+    request_body_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestBodyConditionArgsDict']]]]]
     """
     A `request_body_condition` block as defined below.
     """
-    request_header_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgs']]]]]
+    request_header_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestHeaderConditionArgsDict']]]]]
     """
     A `request_header_condition` block as defined below.
     """
-    request_method_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgs']]]]]
+    request_method_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestMethodConditionArgsDict']]]]]
     """
     A `request_method_condition` block as defined below.
     """
-    request_scheme_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgs']]]]]
+    request_scheme_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestSchemeConditionArgsDict']]]]]
     """
     A `request_scheme_condition` block as defined below.
     """
-    request_uri_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgs']]]]]
+    request_uri_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsRequestUriConditionArgsDict']]]]]
     """
     A `request_uri_condition` block as defined below.
     """
-    server_port_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgs']]]]]
+    server_port_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsServerPortConditionArgsDict']]]]]
     """
     A `server_port_condition` block as defined below.
     """
-    socket_address_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgs']]]]]
+    socket_address_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsSocketAddressConditionArgsDict']]]]]
     """
     A `socket_address_condition` block as defined below.
     """
-    ssl_protocol_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgs']]]]]
+    ssl_protocol_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsSslProtocolConditionArgsDict']]]]]
     """
     A `ssl_protocol_condition` block as defined below.
     """
-    url_file_extension_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgs']]]]]
+    url_file_extension_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFileExtensionConditionArgsDict']]]]]
     """
     A `url_file_extension_condition` block as defined below.
     """
-    url_filename_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgs']]]]]
+    url_filename_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlFilenameConditionArgsDict']]]]]
     """
     A `url_filename_condition` block as defined below.
     """
-    url_path_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgs']]]]]
+    url_path_conditions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorRuleConditionsUrlPathConditionArgsDict']]]]]
     """
     A `url_path_condition` block as defined below.
     """

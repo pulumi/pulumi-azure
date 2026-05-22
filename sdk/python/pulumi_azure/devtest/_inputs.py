@@ -459,7 +459,7 @@ class VirtualNetworkSubnetArgsDict(TypedDict):
     """
     Specifies the name of the Dev Test Virtual Network. Changing this forces a new resource to be created.
     """
-    shared_public_ip_address: NotRequired[pulumi.Input[Optional['VirtualNetworkSubnetSharedPublicIpAddressArgs']]]
+    shared_public_ip_address: NotRequired[pulumi.Input[Optional['VirtualNetworkSubnetSharedPublicIpAddressArgsDict']]]
     """
     A `shared_public_ip_address` block as defined below.
     """
@@ -544,7 +544,7 @@ class VirtualNetworkSubnetArgs:
 
 
 class VirtualNetworkSubnetSharedPublicIpAddressArgsDict(TypedDict):
-    allowed_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgs']]]]]
+    allowed_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetSharedPublicIpAddressAllowedPortArgsDict']]]]]
     """
     A list of `allowed_ports` blocks as defined below.
     """

@@ -40,7 +40,7 @@ class HubEventHandlerArgsDict(TypedDict):
     """
     The Event Handler URL Template. Two predefined parameters `{hub}` and `{event}` are available to use in the template. The value of the EventHandler URL is dynamically calculated when the client request comes in. Example: `http://example.com/api/{hub}/{event}`.
     """
-    auth: NotRequired[pulumi.Input[Optional['HubEventHandlerAuthArgs']]]
+    auth: NotRequired[pulumi.Input[Optional['HubEventHandlerAuthArgsDict']]]
     """
     An `auth` block as defined below.
     """

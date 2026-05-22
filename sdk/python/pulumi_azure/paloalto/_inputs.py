@@ -370,11 +370,11 @@ class NextGenerationFirewallVirtualHubLocalRulestackDestinationNatArgsDict(Typed
     """
     The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
     """
-    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgs']]]
+    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatBackendConfigArgsDict']]]
     """
     A `backend_config` block as defined above.
     """
-    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgs']]]
+    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubLocalRulestackDestinationNatFrontendConfigArgsDict']]]
     """
     A `frontend_config` block as defined below.
     """
@@ -784,11 +784,11 @@ class NextGenerationFirewallVirtualHubPanoramaDestinationNatArgsDict(TypedDict):
     """
     The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
     """
-    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgs']]]
+    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubPanoramaDestinationNatBackendConfigArgsDict']]]
     """
     A `backend_config` block as defined above.
     """
-    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgs']]]
+    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubPanoramaDestinationNatFrontendConfigArgsDict']]]
     """
     A `frontend_config` block as defined below.
     """
@@ -1305,11 +1305,11 @@ class NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatArgsDict(T
     """
     The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
     """
-    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgs']]]
+    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatBackendConfigArgsDict']]]
     """
     One or more `backend_config` block as defined below.
     """
-    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgs']]]
+    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualHubStrataCloudManagerDestinationNatFrontendConfigArgsDict']]]
     """
     One or more `frontend_config` block as defined below.
     """
@@ -1801,11 +1801,11 @@ class NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatArgsDict(T
     """
     The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
     """
-    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgs']]]
+    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBackendConfigArgsDict']]]
     """
     A `backend_config` block as defined above.
     """
-    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgs']]]
+    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatFrontendConfigArgsDict']]]
     """
     A `frontend_config` block as defined below.
     """
@@ -2244,11 +2244,11 @@ class NextGenerationFirewallVirtualNetworkPanoramaDestinationNatArgsDict(TypedDi
     """
     The Protocol for this Destination NAT configuration. Possible values include `TCP` and `UDP`.
     """
-    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgs']]]
+    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatBackendConfigArgsDict']]]
     """
     A `backend_config` block as defined above.
     """
-    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgs']]]
+    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkPanoramaDestinationNatFrontendConfigArgsDict']]]
     """
     A `frontend_config` block as defined below.
     """
@@ -2836,11 +2836,11 @@ class NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatArgsDi
     """
     The protocol used for this Destination NAT. Possible values include `TCP` and `UDP`.
     """
-    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgs']]]
+    backend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatBackendConfigArgsDict']]]
     """
     One or more `backend_config` block as defined below.
     """
-    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgs']]]
+    frontend_config: NotRequired[pulumi.Input[Optional['NextGenerationFirewallVirtualNetworkStrataCloudManagerDestinationNatFrontendConfigArgsDict']]]
     """
     One or more `frontend_config` block as defined below.
     """
