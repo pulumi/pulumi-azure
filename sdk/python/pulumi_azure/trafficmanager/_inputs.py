@@ -79,7 +79,7 @@ class ProfileMonitorConfigArgsDict(TypedDict):
     """
     The protocol used by the monitoring checks, supported values are `HTTP`, `HTTPS` and `TCP`.
     """
-    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgs']]]]]
+    custom_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProfileMonitorConfigCustomHeaderArgsDict']]]]]
     """
     One or more `custom_header` blocks as defined below.
     """

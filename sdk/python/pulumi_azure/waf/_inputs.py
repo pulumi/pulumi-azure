@@ -394,7 +394,7 @@ class PolicyManagedRulesArgsDict(TypedDict):
     """
     One or more `managed_rule_set` block defined below.
     """
-    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgs']]]]]
+    exclusions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExclusionArgsDict']]]]]
     """
     One or more `exclusion` block defined below.
     """
@@ -450,7 +450,7 @@ class PolicyManagedRulesExclusionArgsDict(TypedDict):
     """
     Describes operator to be matched. Possible values: `Contains`, `EndsWith`, `Equals`, `EqualsAny`, `StartsWith`.
     """
-    excluded_rule_set: NotRequired[pulumi.Input[Optional['PolicyManagedRulesExclusionExcludedRuleSetArgs']]]
+    excluded_rule_set: NotRequired[pulumi.Input[Optional['PolicyManagedRulesExclusionExcludedRuleSetArgsDict']]]
     """
     One or more `excluded_rule_set` block defined below.
     """
@@ -524,7 +524,7 @@ class PolicyManagedRulesExclusionArgs:
 
 
 class PolicyManagedRulesExclusionExcludedRuleSetArgsDict(TypedDict):
-    rule_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgs']]]]]
+    rule_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesExclusionExcludedRuleSetRuleGroupArgsDict']]]]]
     """
     One or more `rule_group` block defined below.
     """
@@ -645,7 +645,7 @@ class PolicyManagedRulesManagedRuleSetArgsDict(TypedDict):
     """
     The rule set version. Possible values: `0.1`, `1.0`, `1.1`, `2.1`, `2.2`, `2.2.9`, `3.0`, `3.1` and `3.2`.
     """
-    rule_group_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgs']]]]]
+    rule_group_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgsDict']]]]]
     """
     One or more `rule_group_override` block defined below.
     """
@@ -713,7 +713,7 @@ class PolicyManagedRulesManagedRuleSetRuleGroupOverrideArgsDict(TypedDict):
     """
     The name of the Rule Group. Possible values are `BadBots`, `crs_20_protocol_violations`, `crs_21_protocol_anomalies`, `crs_23_request_limits`, `crs_30_http_policy`, `crs_35_bad_robots`, `crs_40_generic_attacks`, `crs_41_sql_injection_attacks`, `crs_41_xss_attacks`, `crs_42_tight_security`, `crs_45_trojans`, `crs_49_inbound_blocking`, `General`, `GoodBots`, `KnownBadBots`, `Known-CVEs`, `REQUEST-911-METHOD-ENFORCEMENT`, `REQUEST-913-SCANNER-DETECTION`, `REQUEST-920-PROTOCOL-ENFORCEMENT`, `REQUEST-921-PROTOCOL-ATTACK`, `REQUEST-930-APPLICATION-ATTACK-LFI`, `REQUEST-931-APPLICATION-ATTACK-RFI`, `REQUEST-932-APPLICATION-ATTACK-RCE`, `REQUEST-933-APPLICATION-ATTACK-PHP`, `REQUEST-941-APPLICATION-ATTACK-XSS`, `REQUEST-942-APPLICATION-ATTACK-SQLI`, `REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION`, `REQUEST-944-APPLICATION-ATTACK-JAVA`, `UnknownBots`, `METHOD-ENFORCEMENT`, `PROTOCOL-ENFORCEMENT`, `PROTOCOL-ATTACK`, `LFI`, `RFI`, `RCE`, `PHP`, `NODEJS`, `XSS`, `SQLI`, `FIX`, `JAVA`, `MS-ThreatIntel-WebShells`, `MS-ThreatIntel-AppSec`, `MS-ThreatIntel-SQLI`, `MS-ThreatIntel-CVEs` and `MS-ThreatIntel-XSS`.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArgsDict']]]]]
     """
     One or more `rule` block defined below.
     """
@@ -841,7 +841,7 @@ class PolicyPolicySettingsArgsDict(TypedDict):
     """
     Specifies the JavaScript challenge cookie validity lifetime in minutes. The user is challenged after the lifetime expires. Accepted values are in the range `5` to `1440`. Defaults to `30`.
     """
-    log_scrubbing: NotRequired[pulumi.Input[Optional['PolicyPolicySettingsLogScrubbingArgs']]]
+    log_scrubbing: NotRequired[pulumi.Input[Optional['PolicyPolicySettingsLogScrubbingArgsDict']]]
     """
     One `log_scrubbing` block as defined below.
     """
@@ -1038,7 +1038,7 @@ class PolicyPolicySettingsLogScrubbingArgsDict(TypedDict):
     """
     Whether the log scrubbing is enabled or disabled. Defaults to `true`.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PolicyPolicySettingsLogScrubbingRuleArgsDict']]]]]
     """
     One or more `scrubbing_rule` blocks as define below.
     """

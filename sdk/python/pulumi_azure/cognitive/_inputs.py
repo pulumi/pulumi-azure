@@ -227,7 +227,7 @@ class AIServicesNetworkAclsArgsDict(TypedDict):
     """
     One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
     """
-    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgs']]]]]
+    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgsDict']]]]]
     """
     A `virtual_network_rules` block as defined below.
     """
@@ -561,7 +561,7 @@ class AccountNetworkAclsArgsDict(TypedDict):
     """
     One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
     """
-    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgs']]]]]
+    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountNetworkAclsVirtualNetworkRuleArgsDict']]]]]
     """
     A `virtual_network_rules` block as defined below.
     """

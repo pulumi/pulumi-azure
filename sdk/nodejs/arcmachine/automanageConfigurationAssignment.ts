@@ -20,10 +20,10 @@ import * as utilities from "../utilities";
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const example = exampleResourceGroup.name.apply(name => azure.arcmachine.getOutput({
+ * const example = azure.arcmachine.getOutput({
  *     name: arcMachineName,
- *     resourceGroupName: name,
- * }));
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
  * const exampleConfiguration = new azure.automanage.Configuration("example", {
  *     name: "example-configuration",
  *     resourceGroupName: exampleResourceGroup.name,

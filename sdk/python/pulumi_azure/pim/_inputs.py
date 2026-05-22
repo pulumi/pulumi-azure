@@ -66,7 +66,7 @@ __all__ = [
 ]
 
 class ActiveRoleAssignmentScheduleArgsDict(TypedDict):
-    expiration: NotRequired[pulumi.Input[Optional['ActiveRoleAssignmentScheduleExpirationArgs']]]
+    expiration: NotRequired[pulumi.Input[Optional['ActiveRoleAssignmentScheduleExpirationArgsDict']]]
     """
     An `expiration` block as defined above.
     """
@@ -239,7 +239,7 @@ class ActiveRoleAssignmentTicketArgs:
 
 
 class EligibleRoleAssignmentScheduleArgsDict(TypedDict):
-    expiration: NotRequired[pulumi.Input[Optional['EligibleRoleAssignmentScheduleExpirationArgs']]]
+    expiration: NotRequired[pulumi.Input[Optional['EligibleRoleAssignmentScheduleExpirationArgsDict']]]
     """
     An `expiration` block as defined above.
     """
@@ -412,7 +412,7 @@ class EligibleRoleAssignmentTicketArgs:
 
 
 class RoleManagementPolicyActivationRulesArgsDict(TypedDict):
-    approval_stage: NotRequired[pulumi.Input[Optional['RoleManagementPolicyActivationRulesApprovalStageArgs']]]
+    approval_stage: NotRequired[pulumi.Input[Optional['RoleManagementPolicyActivationRulesApprovalStageArgsDict']]]
     """
     An `approval_stage` block as defined below.
     """
@@ -806,15 +806,15 @@ class RoleManagementPolicyEligibleAssignmentRulesArgs:
 
 
 class RoleManagementPolicyNotificationRulesArgsDict(TypedDict):
-    active_assignments: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsArgs']]]
+    active_assignments: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsArgsDict']]]
     """
     A `notification_target` block as defined below to configure notfications on active role assignments.
     """
-    eligible_activations: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsArgs']]]
+    eligible_activations: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsArgsDict']]]
     """
     A `notification_target` block as defined below for configuring notifications on activation of eligible role.
     """
-    eligible_assignments: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgs']]]
+    eligible_assignments: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleAssignmentsArgsDict']]]
     """
     A `notification_target` block as defined below to configure notification on eligible role assignments.
     """
@@ -875,15 +875,15 @@ class RoleManagementPolicyNotificationRulesArgs:
 
 
 class RoleManagementPolicyNotificationRulesActiveAssignmentsArgsDict(TypedDict):
-    admin_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgs']]]
+    admin_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsAdminNotificationsArgsDict']]]
     """
     Admin notification settings
     """
-    approver_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgs']]]
+    approver_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsApproverNotificationsArgsDict']]]
     """
     Approver notification settings
     """
-    assignee_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgs']]]
+    assignee_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotificationsArgsDict']]]
     """
     Assignee notification settings
     """
@@ -1145,15 +1145,15 @@ class RoleManagementPolicyNotificationRulesActiveAssignmentsAssigneeNotification
 
 
 class RoleManagementPolicyNotificationRulesEligibleActivationsArgsDict(TypedDict):
-    admin_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgs']]]
+    admin_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsAdminNotificationsArgsDict']]]
     """
     Admin notification settings
     """
-    approver_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgs']]]
+    approver_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsApproverNotificationsArgsDict']]]
     """
     Approver notification settings
     """
-    assignee_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgs']]]
+    assignee_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificationsArgsDict']]]
     """
     Assignee notification settings
     """
@@ -1415,15 +1415,15 @@ class RoleManagementPolicyNotificationRulesEligibleActivationsAssigneeNotificati
 
 
 class RoleManagementPolicyNotificationRulesEligibleAssignmentsArgsDict(TypedDict):
-    admin_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgs']]]
+    admin_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleAssignmentsAdminNotificationsArgsDict']]]
     """
     Admin notification settings
     """
-    approver_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgs']]]
+    approver_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleAssignmentsApproverNotificationsArgsDict']]]
     """
     Approver notification settings
     """
-    assignee_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgs']]]
+    assignee_notifications: NotRequired[pulumi.Input[Optional['RoleManagementPolicyNotificationRulesEligibleAssignmentsAssigneeNotificationsArgsDict']]]
     """
     Assignee notification settings
     """

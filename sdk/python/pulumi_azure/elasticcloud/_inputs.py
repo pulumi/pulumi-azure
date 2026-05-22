@@ -26,7 +26,7 @@ __all__ = [
 ]
 
 class ElasticsearchLogsArgsDict(TypedDict):
-    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgs']]]]]
+    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ElasticsearchLogsFilteringTagArgsDict']]]]]
     """
     A list of `filtering_tag` blocks as defined above.
     """

@@ -202,7 +202,7 @@ class AutomationSourceArgsDict(TypedDict):
     """
     Type of data that will trigger this automation. Must be one of `Alerts`, `Assessments`, `AssessmentsSnapshot`, `RegulatoryComplianceAssessment`, `RegulatoryComplianceAssessmentSnapshot`, `SecureScoreControls`, `SecureScoreControlsSnapshot`, `SecureScores`, `SecureScoresSnapshot`, `SubAssessments` or `SubAssessmentsSnapshot`. Note. assessments are also referred to as recommendations
     """
-    rule_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationSourceRuleSetArgs']]]]]
+    rule_sets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomationSourceRuleSetArgsDict']]]]]
     """
     A set of rules which evaluate upon event and data interception. This is defined in one or more `rule_set` blocks as defined below.
 

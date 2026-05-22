@@ -200,11 +200,11 @@ namespace Pulumi.Azure.Network
     ///         RemoteVirtualNetworkId = example_2.Id,
     ///         Triggers = 
     ///         {
-    ///             { "remote_address_space", example_2.AddressSpaces.Apply(addressSpaces =&gt; Std.Join.Invoke(new()
+    ///             { "remote_address_space", Std.Join.Invoke(new()
     ///             {
     ///                 Separator = ",",
-    ///                 Input = addressSpaces,
-    ///             })).Apply(invoke =&gt; invoke.Result) },
+    ///                 Input = example_2.AddressSpaces,
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 
@@ -216,11 +216,11 @@ namespace Pulumi.Azure.Network
     ///         RemoteVirtualNetworkId = example_1.Id,
     ///         Triggers = 
     ///         {
-    ///             { "remote_address_space", example_1.AddressSpaces.Apply(addressSpaces =&gt; Std.Join.Invoke(new()
+    ///             { "remote_address_space", Std.Join.Invoke(new()
     ///             {
     ///                 Separator = ",",
-    ///                 Input = addressSpaces,
-    ///             })).Apply(invoke =&gt; invoke.Result) },
+    ///                 Input = example_1.AddressSpaces,
+    ///             }).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 

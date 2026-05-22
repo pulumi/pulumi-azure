@@ -256,7 +256,7 @@ class AadDiagnosticSettingEnabledLogArgsDict(TypedDict):
     """
     The log category for the Azure Active Directory Diagnostic.
     """
-    retention_policy: NotRequired[pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgs']]]
+    retention_policy: NotRequired[pulumi.Input[Optional['AadDiagnosticSettingEnabledLogRetentionPolicyArgsDict']]]
 
 @pulumi.input_type
 class AadDiagnosticSettingEnabledLogArgs:
@@ -1221,7 +1221,7 @@ class ActionGroupWebhookReceiverArgsDict(TypedDict):
     """
     The URI where webhooks should be sent.
     """
-    aad_auth: NotRequired[pulumi.Input[Optional['ActionGroupWebhookReceiverAadAuthArgs']]]
+    aad_auth: NotRequired[pulumi.Input[Optional['ActionGroupWebhookReceiverAadAuthArgsDict']]]
     """
     The `aad_auth` block as defined below.
 
@@ -1468,7 +1468,7 @@ class ActivityLogAlertCriteriaArgsDict(TypedDict):
 
     > **Note:** `resource_group` and `resource_groups` are mutually exclusive.
     """
-    resource_health: NotRequired[pulumi.Input[Optional['ActivityLogAlertCriteriaResourceHealthArgs']]]
+    resource_health: NotRequired[pulumi.Input[Optional['ActivityLogAlertCriteriaResourceHealthArgsDict']]]
     """
     A block to define fine grain resource health settings.
     """
@@ -1502,7 +1502,7 @@ class ActivityLogAlertCriteriaArgsDict(TypedDict):
 
     > **Note:** `resource_type` and `resource_types` are mutually exclusive.
     """
-    service_health: NotRequired[pulumi.Input[Optional['ActivityLogAlertCriteriaServiceHealthArgs']]]
+    service_health: NotRequired[pulumi.Input[Optional['ActivityLogAlertCriteriaServiceHealthArgsDict']]]
     """
     A block to define fine grain service health settings.
     """
@@ -2056,47 +2056,47 @@ class ActivityLogAlertCriteriaServiceHealthArgs:
 
 
 class AlertProcessingRuleActionGroupConditionArgsDict(TypedDict):
-    alert_context: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionAlertContextArgs']]]
+    alert_context: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionAlertContextArgsDict']]]
     """
     A `alert_context` block as defined above.
     """
-    alert_rule_id: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionAlertRuleIdArgs']]]
+    alert_rule_id: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionAlertRuleIdArgsDict']]]
     """
     A `alert_rule_id` block as defined above.
     """
-    alert_rule_name: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionAlertRuleNameArgs']]]
+    alert_rule_name: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionAlertRuleNameArgsDict']]]
     """
     A `alert_rule_name` block as defined above.
     """
-    description: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionDescriptionArgs']]]
+    description: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionDescriptionArgsDict']]]
     """
     A `description` block as defined below.
     """
-    monitor_condition: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionMonitorConditionArgs']]]
+    monitor_condition: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionMonitorConditionArgsDict']]]
     """
     A `monitor_condition` block as defined below.
     """
-    monitor_service: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionMonitorServiceArgs']]]
+    monitor_service: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionMonitorServiceArgsDict']]]
     """
     A `monitor_service` block as defined below.
     """
-    severity: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionSeverityArgs']]]
+    severity: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionSeverityArgsDict']]]
     """
     A `severity` block as defined below.
     """
-    signal_type: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionSignalTypeArgs']]]
+    signal_type: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionSignalTypeArgsDict']]]
     """
     A `signal_type` block as defined below.
     """
-    target_resource: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionTargetResourceArgs']]]
+    target_resource: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionTargetResourceArgsDict']]]
     """
     A `target_resource` block as defined below.
     """
-    target_resource_group: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionTargetResourceGroupArgs']]]
+    target_resource_group: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionTargetResourceGroupArgsDict']]]
     """
     A `target_resource_group` block as defined below.
     """
-    target_resource_type: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs']]]
+    target_resource_type: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupConditionTargetResourceTypeArgsDict']]]
     """
     A `target_resource_type` block as defined below.
 
@@ -2816,7 +2816,7 @@ class AlertProcessingRuleActionGroupScheduleArgsDict(TypedDict):
     """
     Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
     """
-    recurrence: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupScheduleRecurrenceArgs']]]
+    recurrence: NotRequired[pulumi.Input[Optional['AlertProcessingRuleActionGroupScheduleRecurrenceArgsDict']]]
     """
     A `recurrence` block as defined above.
     """
@@ -2897,15 +2897,15 @@ class AlertProcessingRuleActionGroupScheduleArgs:
 
 
 class AlertProcessingRuleActionGroupScheduleRecurrenceArgsDict(TypedDict):
-    dailies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgs']]]]]
+    dailies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceDailyArgsDict']]]]]
     """
     One or more `daily` blocks as defined above.
     """
-    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgs']]]]]
+    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceMonthlyArgsDict']]]]]
     """
     One or more `monthly` blocks as defined above.
     """
-    weeklies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs']]]]]
+    weeklies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgsDict']]]]]
     """
     One or more `weekly` blocks as defined below.
     """
@@ -3149,47 +3149,47 @@ class AlertProcessingRuleActionGroupScheduleRecurrenceWeeklyArgs:
 
 
 class AlertProcessingRuleSuppressionConditionArgsDict(TypedDict):
-    alert_context: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionAlertContextArgs']]]
+    alert_context: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionAlertContextArgsDict']]]
     """
     A `alert_context` block as defined above.
     """
-    alert_rule_id: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionAlertRuleIdArgs']]]
+    alert_rule_id: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionAlertRuleIdArgsDict']]]
     """
     A `alert_rule_id` block as defined above.
     """
-    alert_rule_name: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionAlertRuleNameArgs']]]
+    alert_rule_name: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionAlertRuleNameArgsDict']]]
     """
     A `alert_rule_name` block as defined above.
     """
-    description: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionDescriptionArgs']]]
+    description: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionDescriptionArgsDict']]]
     """
     A `description` block as defined below.
     """
-    monitor_condition: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionMonitorConditionArgs']]]
+    monitor_condition: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionMonitorConditionArgsDict']]]
     """
     A `monitor_condition` block as defined below.
     """
-    monitor_service: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionMonitorServiceArgs']]]
+    monitor_service: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionMonitorServiceArgsDict']]]
     """
     A `monitor_service` block as defined below.
     """
-    severity: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionSeverityArgs']]]
+    severity: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionSeverityArgsDict']]]
     """
     A `severity` block as defined below.
     """
-    signal_type: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionSignalTypeArgs']]]
+    signal_type: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionSignalTypeArgsDict']]]
     """
     A `signal_type` block as defined below.
     """
-    target_resource: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionTargetResourceArgs']]]
+    target_resource: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionTargetResourceArgsDict']]]
     """
     A `target_resource` block as defined below.
     """
-    target_resource_group: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionTargetResourceGroupArgs']]]
+    target_resource_group: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionTargetResourceGroupArgsDict']]]
     """
     A `target_resource_group` block as defined below.
     """
-    target_resource_type: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs']]]
+    target_resource_type: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionConditionTargetResourceTypeArgsDict']]]
     """
     A `target_resource_type` block as defined below.
     """
@@ -3903,7 +3903,7 @@ class AlertProcessingRuleSuppressionScheduleArgsDict(TypedDict):
     """
     Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
     """
-    recurrence: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionScheduleRecurrenceArgs']]]
+    recurrence: NotRequired[pulumi.Input[Optional['AlertProcessingRuleSuppressionScheduleRecurrenceArgsDict']]]
     """
     A `recurrence` block as defined above.
     """
@@ -3984,15 +3984,15 @@ class AlertProcessingRuleSuppressionScheduleArgs:
 
 
 class AlertProcessingRuleSuppressionScheduleRecurrenceArgsDict(TypedDict):
-    dailies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs']]]]]
+    dailies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgsDict']]]]]
     """
     One or more `daily` blocks as defined above.
     """
-    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgs']]]]]
+    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceMonthlyArgsDict']]]]]
     """
     One or more `monthly` blocks as defined above.
     """
-    weeklies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs']]]]]
+    weeklies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgsDict']]]]]
     """
     One or more `weekly` blocks as defined below.
     """
@@ -4240,7 +4240,7 @@ class AlertPrometheusRuleGroupRuleArgsDict(TypedDict):
     """
     Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by `interval` and record the result as a new set of time series with the metric name given by `record`.
     """
-    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleActionArgs']]]]]
+    actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AlertPrometheusRuleGroupRuleActionArgsDict']]]]]
     """
     An `action` block as defined below.
     """
@@ -4248,7 +4248,7 @@ class AlertPrometheusRuleGroupRuleArgsDict(TypedDict):
     """
     Specifies the Alert rule name.
     """
-    alert_resolution: NotRequired[pulumi.Input[Optional['AlertPrometheusRuleGroupRuleAlertResolutionArgs']]]
+    alert_resolution: NotRequired[pulumi.Input[Optional['AlertPrometheusRuleGroupRuleAlertResolutionArgsDict']]]
     """
     An `alert_resolution` block as defined below.
     """
@@ -4547,11 +4547,11 @@ class AlertPrometheusRuleGroupRuleAlertResolutionArgs:
 
 
 class AutoscaleSettingNotificationArgsDict(TypedDict):
-    email: NotRequired[pulumi.Input[Optional['AutoscaleSettingNotificationEmailArgs']]]
+    email: NotRequired[pulumi.Input[Optional['AutoscaleSettingNotificationEmailArgsDict']]]
     """
     A `email` block as defined below.
     """
-    webhooks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleSettingNotificationWebhookArgs']]]]]
+    webhooks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleSettingNotificationWebhookArgsDict']]]]]
     """
     One or more `webhook` blocks as defined below.
     """
@@ -4769,15 +4769,15 @@ class AutoscaleSettingProfileArgsDict(TypedDict):
     """
     Specifies the name of the profile.
     """
-    fixed_date: NotRequired[pulumi.Input[Optional['AutoscaleSettingProfileFixedDateArgs']]]
+    fixed_date: NotRequired[pulumi.Input[Optional['AutoscaleSettingProfileFixedDateArgsDict']]]
     """
     A `fixed_date` block as defined below. This cannot be specified if a `recurrence` block is specified.
     """
-    recurrence: NotRequired[pulumi.Input[Optional['AutoscaleSettingProfileRecurrenceArgs']]]
+    recurrence: NotRequired[pulumi.Input[Optional['AutoscaleSettingProfileRecurrenceArgsDict']]]
     """
     A `recurrence` block as defined below. This cannot be specified if a `fixed_date` block is specified.
     """
-    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleSettingProfileRuleArgs']]]]]
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleSettingProfileRuleArgsDict']]]]]
     """
     One or more (up to 10) `rule` blocks as defined below.
     """
@@ -5174,7 +5174,7 @@ class AutoscaleSettingProfileRuleMetricTriggerArgsDict(TypedDict):
     """
     Specifies the time range for which data is collected, which must be greater than the delay in metric collection (which varies from resource to resource). This value must be between 5 minutes and 12 hours and be formatted as an ISO 8601 string.
     """
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutoscaleSettingProfileRuleMetricTriggerDimensionArgsDict']]]]]
     """
     One or more `dimensions` block as defined below.
     """
@@ -5625,43 +5625,43 @@ class DataCollectionRuleDataFlowArgs:
 
 
 class DataCollectionRuleDataSourcesArgsDict(TypedDict):
-    data_import: NotRequired[pulumi.Input[Optional['DataCollectionRuleDataSourcesDataImportArgs']]]
+    data_import: NotRequired[pulumi.Input[Optional['DataCollectionRuleDataSourcesDataImportArgsDict']]]
     """
     A `data_import` block as defined above.
     """
-    extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesExtensionArgs']]]]]
+    extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesExtensionArgsDict']]]]]
     """
     One or more `extension` blocks as defined below.
     """
-    iis_logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesIisLogArgs']]]]]
+    iis_logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesIisLogArgsDict']]]]]
     """
     One or more `iis_log` blocks as defined below.
     """
-    log_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesLogFileArgs']]]]]
+    log_files: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesLogFileArgsDict']]]]]
     """
     One or more `log_file` blocks as defined below.
     """
-    performance_counters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPerformanceCounterArgs']]]]]
+    performance_counters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPerformanceCounterArgsDict']]]]]
     """
     One or more `performance_counter` blocks as defined below.
     """
-    platform_telemetries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPlatformTelemetryArgs']]]]]
+    platform_telemetries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPlatformTelemetryArgsDict']]]]]
     """
     One or more `platform_telemetry` blocks as defined below.
     """
-    prometheus_forwarders: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPrometheusForwarderArgs']]]]]
+    prometheus_forwarders: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPrometheusForwarderArgsDict']]]]]
     """
     One or more `prometheus_forwarder` blocks as defined below.
     """
-    syslogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesSyslogArgs']]]]]
+    syslogs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesSyslogArgsDict']]]]]
     """
     One or more `syslog` blocks as defined below.
     """
-    windows_event_logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsEventLogArgs']]]]]
+    windows_event_logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsEventLogArgsDict']]]]]
     """
     One or more `windows_event_log` blocks as defined below.
     """
-    windows_firewall_logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsFirewallLogArgs']]]]]
+    windows_firewall_logs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesWindowsFirewallLogArgsDict']]]]]
     """
     One or more `windows_firewall_log` blocks as defined below.
     """
@@ -6118,7 +6118,7 @@ class DataCollectionRuleDataSourcesLogFileArgsDict(TypedDict):
     """
     Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value should be custom stream names.
     """
-    settings: NotRequired[pulumi.Input[Optional['DataCollectionRuleDataSourcesLogFileSettingsArgs']]]
+    settings: NotRequired[pulumi.Input[Optional['DataCollectionRuleDataSourcesLogFileSettingsArgsDict']]]
     """
     A `settings` block as defined below.
     """
@@ -6403,7 +6403,7 @@ class DataCollectionRuleDataSourcesPrometheusForwarderArgsDict(TypedDict):
     """
     Specifies a list of streams that this data source will be sent to. A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to. Possible value is `Microsoft-PrometheusMetrics`.
     """
-    label_include_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgs']]]]]
+    label_include_filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDataSourcesPrometheusForwarderLabelIncludeFilterArgsDict']]]]]
     """
     One or more `label_include_filter` blocks as defined above.
     """
@@ -6707,35 +6707,35 @@ class DataCollectionRuleDataSourcesWindowsFirewallLogArgs:
 
 
 class DataCollectionRuleDestinationsArgsDict(TypedDict):
-    azure_monitor_metrics: NotRequired[pulumi.Input[Optional['DataCollectionRuleDestinationsAzureMonitorMetricsArgs']]]
+    azure_monitor_metrics: NotRequired[pulumi.Input[Optional['DataCollectionRuleDestinationsAzureMonitorMetricsArgsDict']]]
     """
     A `azure_monitor_metrics` block as defined above.
     """
-    event_hub: NotRequired[pulumi.Input[Optional['DataCollectionRuleDestinationsEventHubArgs']]]
+    event_hub: NotRequired[pulumi.Input[Optional['DataCollectionRuleDestinationsEventHubArgsDict']]]
     """
     One or more `event_hub` blocks as defined below.
     """
-    event_hub_direct: NotRequired[pulumi.Input[Optional['DataCollectionRuleDestinationsEventHubDirectArgs']]]
+    event_hub_direct: NotRequired[pulumi.Input[Optional['DataCollectionRuleDestinationsEventHubDirectArgsDict']]]
     """
     One or more `event_hub` blocks as defined below.
     """
-    log_analytics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsLogAnalyticArgs']]]]]
+    log_analytics: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsLogAnalyticArgsDict']]]]]
     """
     One or more `log_analytics` blocks as defined below.
     """
-    monitor_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsMonitorAccountArgs']]]]]
+    monitor_accounts: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsMonitorAccountArgsDict']]]]]
     """
     One or more `monitor_account` blocks as defined below.
     """
-    storage_blob_directs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobDirectArgs']]]]]
+    storage_blob_directs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobDirectArgsDict']]]]]
     """
     One or more `storage_blob_direct` blocks as defined below.
     """
-    storage_blobs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobArgs']]]]]
+    storage_blobs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageBlobArgsDict']]]]]
     """
     One or more `storage_blob` blocks as defined below.
     """
-    storage_table_directs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageTableDirectArgs']]]]]
+    storage_table_directs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DataCollectionRuleDestinationsStorageTableDirectArgsDict']]]]]
     """
     One or more `storage_table_direct` blocks as defined below.
 
@@ -7504,7 +7504,7 @@ class DiagnosticSettingEnabledLogArgsDict(TypedDict):
 
     > **NOTE:** Exactly one of `category` or `category_group` must be specified.
     """
-    retention_policy: NotRequired[pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgs']]]
+    retention_policy: NotRequired[pulumi.Input[Optional['DiagnosticSettingEnabledLogRetentionPolicyArgsDict']]]
 
 @pulumi.input_type
 class DiagnosticSettingEnabledLogArgs:
@@ -7642,7 +7642,7 @@ class DiagnosticSettingEnabledMetricArgs:
 class DiagnosticSettingMetricArgsDict(TypedDict):
     category: pulumi.Input[_builtins.str]
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    retention_policy: NotRequired[pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgs']]]
+    retention_policy: NotRequired[pulumi.Input[Optional['DiagnosticSettingMetricRetentionPolicyArgsDict']]]
 
 @pulumi.input_type
 class DiagnosticSettingMetricArgs:
@@ -7855,7 +7855,7 @@ class MetricAlertCriteriaArgsDict(TypedDict):
     """
     The criteria threshold value that activates the alert.
     """
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricAlertCriteriaDimensionArgsDict']]]]]
     """
     One or more `dimension` blocks as defined below.
     """
@@ -8065,7 +8065,7 @@ class MetricAlertDynamicCriteriaArgsDict(TypedDict):
     """
     The criteria operator. Possible values are `LessThan`, `GreaterThan` and `GreaterOrLessThan`.
     """
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricAlertDynamicCriteriaDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MetricAlertDynamicCriteriaDimensionArgsDict']]]]]
     """
     One or more `dimension` blocks as defined below.
     """
@@ -8391,7 +8391,7 @@ class ScheduledQueryRulesAlertTriggerArgsDict(TypedDict):
     """
     Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
     """
-    metric_trigger: NotRequired[pulumi.Input[Optional['ScheduledQueryRulesAlertTriggerMetricTriggerArgs']]]
+    metric_trigger: NotRequired[pulumi.Input[Optional['ScheduledQueryRulesAlertTriggerMetricTriggerArgsDict']]]
     """
     A `metric_trigger` block as defined above. Trigger condition for metric query rule.
     """
@@ -8621,11 +8621,11 @@ class ScheduledQueryRulesAlertV2CriteriaArgsDict(TypedDict):
     """
     The type of aggregation to apply to the data points in aggregation granularity. Possible values are `Average`, `Count`, `Maximum`, `Minimum`,and `Total`.
     """
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ScheduledQueryRulesAlertV2CriteriaDimensionArgsDict']]]]]
     """
     A `dimension` block as defined below.
     """
-    failing_periods: NotRequired[pulumi.Input[Optional['ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs']]]
+    failing_periods: NotRequired[pulumi.Input[Optional['ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgsDict']]]
     """
     A `failing_periods` block as defined below.
     """

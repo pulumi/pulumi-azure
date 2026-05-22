@@ -1183,7 +1183,7 @@ class EventHubNamespaceNetworkRulesetsArgsDict(TypedDict):
     """
     The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
     """
-    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgs']]]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsIpRuleArgsDict']]]]]
     """
     One or more `ip_rule` blocks as defined below.
     """
@@ -1197,7 +1197,7 @@ class EventHubNamespaceNetworkRulesetsArgsDict(TypedDict):
     """
     Whether Trusted Microsoft Services are allowed to bypass firewall.
     """
-    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgs']]]]]
+    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventHubNamespaceNetworkRulesetsVirtualNetworkRuleArgsDict']]]]]
     """
     One or more `virtual_network_rule` blocks as defined below.
     """
@@ -1457,81 +1457,81 @@ class EventHubRetentionDescriptionArgs:
 
 
 class EventSubscriptionAdvancedFilterArgsDict(TypedDict):
-    bool_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgs']]]]]
+    bool_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterBoolEqualArgsDict']]]]]
     """
     Compares a value of an event using a single boolean value.
     """
-    is_not_nulls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgs']]]]]
+    is_not_nulls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNotNullArgsDict']]]]]
     """
     Evaluates if a value of an event isn't NULL or undefined.
     """
-    is_null_or_undefineds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgs']]]]]
+    is_null_or_undefineds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterIsNullOrUndefinedArgsDict']]]]]
     """
     Evaluates if a value of an event is NULL or undefined.
 
     Each nested block consists of a key and a value(s) element.
     """
-    number_greater_than_or_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgs']]]]]
+    number_greater_than_or_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanOrEqualArgsDict']]]]]
     """
     Compares a value of an event using a single floating point number.
     """
-    number_greater_thans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgs']]]]]
+    number_greater_thans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberGreaterThanArgsDict']]]]]
     """
     Compares a value of an event using a single floating point number.
     """
-    number_in_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgs']]]]]
+    number_in_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInRangeArgsDict']]]]]
     """
     Compares a value of an event using multiple floating point number ranges.
     """
-    number_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgs']]]]]
+    number_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberInArgsDict']]]]]
     """
     Compares a value of an event using multiple floating point numbers.
     """
-    number_less_than_or_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgs']]]]]
+    number_less_than_or_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanOrEqualArgsDict']]]]]
     """
     Compares a value of an event using a single floating point number.
     """
-    number_less_thans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgs']]]]]
+    number_less_thans: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberLessThanArgsDict']]]]]
     """
     Compares a value of an event using a single floating point number.
     """
-    number_not_in_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgs']]]]]
+    number_not_in_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInRangeArgsDict']]]]]
     """
     Compares a value of an event using multiple floating point number ranges.
     """
-    number_not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgs']]]]]
+    number_not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterNumberNotInArgsDict']]]]]
     """
     Compares a value of an event using multiple floating point numbers.
     """
-    string_begins_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgs']]]]]
+    string_begins_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringBeginsWithArgsDict']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_contains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgs']]]]]
+    string_contains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringContainArgsDict']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_ends_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgs']]]]]
+    string_ends_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringEndsWithArgsDict']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgs']]]]]
+    string_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringInArgsDict']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_not_begins_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgs']]]]]
+    string_not_begins_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotBeginsWithArgsDict']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_not_contains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgs']]]]]
+    string_not_contains: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotContainArgsDict']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_not_ends_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgs']]]]]
+    string_not_ends_withs: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotEndsWithArgsDict']]]]]
     """
     Compares a value of an event using multiple string values.
     """
-    string_not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgs']]]]]
+    string_not_ins: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['EventSubscriptionAdvancedFilterStringNotInArgsDict']]]]]
     """
     Compares a value of an event using multiple string values.
     """
@@ -3542,7 +3542,7 @@ class NamespaceNetworkRuleSetArgsDict(TypedDict):
     """
     One or more IP Addresses, or CIDR Blocks which should be able to access the Service Bus Namespace.
     """
-    network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgs']]]]]
+    network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['NamespaceNetworkRuleSetNetworkRuleArgsDict']]]]]
     """
     One or more `network_rules` blocks as defined below.
     """

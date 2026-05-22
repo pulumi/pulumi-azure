@@ -42,7 +42,7 @@ class StandardWebTestRequestArgsDict(TypedDict):
     """
     Should the following of redirects be enabled? Defaults to `true`.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['StandardWebTestRequestHeaderArgsDict']]]]]
     """
     One or more `header` blocks as defined above.
     """
@@ -205,7 +205,7 @@ class StandardWebTestRequestHeaderArgs:
 
 
 class StandardWebTestValidationRulesArgsDict(TypedDict):
-    content: NotRequired[pulumi.Input[Optional['StandardWebTestValidationRulesContentArgs']]]
+    content: NotRequired[pulumi.Input[Optional['StandardWebTestValidationRulesContentArgsDict']]]
     """
     A `content` block as defined above.
     """

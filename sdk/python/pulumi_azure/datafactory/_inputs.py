@@ -347,7 +347,7 @@ class DataFlowSinkArgsDict(TypedDict):
     """
     The name for the Data Flow Source.
     """
-    dataset: NotRequired[pulumi.Input[Optional['DataFlowSinkDatasetArgs']]]
+    dataset: NotRequired[pulumi.Input[Optional['DataFlowSinkDatasetArgsDict']]]
     """
     A `dataset` block as defined below.
     """
@@ -355,19 +355,19 @@ class DataFlowSinkArgsDict(TypedDict):
     """
     The description for the Data Flow Source.
     """
-    flowlet: NotRequired[pulumi.Input[Optional['DataFlowSinkFlowletArgs']]]
+    flowlet: NotRequired[pulumi.Input[Optional['DataFlowSinkFlowletArgsDict']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input[Optional['DataFlowSinkLinkedServiceArgs']]]
+    linked_service: NotRequired[pulumi.Input[Optional['DataFlowSinkLinkedServiceArgsDict']]]
     """
     A `linked_service` block as defined below.
     """
-    rejected_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSinkRejectedLinkedServiceArgs']]]
+    rejected_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSinkRejectedLinkedServiceArgsDict']]]
     """
     A `rejected_linked_service` block as defined below.
     """
-    schema_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSinkSchemaLinkedServiceArgs']]]
+    schema_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSinkSchemaLinkedServiceArgsDict']]]
     """
     A `schema_linked_service` block as defined below.
     """
@@ -755,7 +755,7 @@ class DataFlowSourceArgsDict(TypedDict):
     """
     The name for the Data Flow Source.
     """
-    dataset: NotRequired[pulumi.Input[Optional['DataFlowSourceDatasetArgs']]]
+    dataset: NotRequired[pulumi.Input[Optional['DataFlowSourceDatasetArgsDict']]]
     """
     A `dataset` block as defined below.
     """
@@ -763,19 +763,19 @@ class DataFlowSourceArgsDict(TypedDict):
     """
     The description for the Data Flow Source.
     """
-    flowlet: NotRequired[pulumi.Input[Optional['DataFlowSourceFlowletArgs']]]
+    flowlet: NotRequired[pulumi.Input[Optional['DataFlowSourceFlowletArgsDict']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input[Optional['DataFlowSourceLinkedServiceArgs']]]
+    linked_service: NotRequired[pulumi.Input[Optional['DataFlowSourceLinkedServiceArgsDict']]]
     """
     A `linked_service` block as defined below.
     """
-    rejected_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSourceRejectedLinkedServiceArgs']]]
+    rejected_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSourceRejectedLinkedServiceArgsDict']]]
     """
     A `rejected_linked_service` block as defined below.
     """
-    schema_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSourceSchemaLinkedServiceArgs']]]
+    schema_linked_service: NotRequired[pulumi.Input[Optional['DataFlowSourceSchemaLinkedServiceArgsDict']]]
     """
     A `schema_linked_service` block as defined below.
     """
@@ -1163,7 +1163,7 @@ class DataFlowTransformationArgsDict(TypedDict):
     """
     The name for the Data Flow transformation.
     """
-    dataset: NotRequired[pulumi.Input[Optional['DataFlowTransformationDatasetArgs']]]
+    dataset: NotRequired[pulumi.Input[Optional['DataFlowTransformationDatasetArgsDict']]]
     """
     A `dataset` block as defined below.
     """
@@ -1171,11 +1171,11 @@ class DataFlowTransformationArgsDict(TypedDict):
     """
     The description for the Data Flow transformation.
     """
-    flowlet: NotRequired[pulumi.Input[Optional['DataFlowTransformationFlowletArgs']]]
+    flowlet: NotRequired[pulumi.Input[Optional['DataFlowTransformationFlowletArgsDict']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input[Optional['DataFlowTransformationLinkedServiceArgs']]]
+    linked_service: NotRequired[pulumi.Input[Optional['DataFlowTransformationLinkedServiceArgsDict']]]
     """
     A `linked_service` block as defined below.
     """
@@ -3971,7 +3971,7 @@ class FlowletDataFlowSinkArgsDict(TypedDict):
     """
     The name for the Data Flow Source.
     """
-    dataset: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkDatasetArgs']]]
+    dataset: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkDatasetArgsDict']]]
     """
     A `dataset` block as defined below.
     """
@@ -3979,19 +3979,19 @@ class FlowletDataFlowSinkArgsDict(TypedDict):
     """
     The description for the Data Flow Source.
     """
-    flowlet: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkFlowletArgs']]]
+    flowlet: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkFlowletArgsDict']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkLinkedServiceArgs']]]
+    linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkLinkedServiceArgsDict']]]
     """
     A `linked_service` block as defined below.
     """
-    rejected_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkRejectedLinkedServiceArgs']]]
+    rejected_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkRejectedLinkedServiceArgsDict']]]
     """
     A `rejected_linked_service` block as defined below.
     """
-    schema_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkSchemaLinkedServiceArgs']]]
+    schema_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSinkSchemaLinkedServiceArgsDict']]]
     """
     A `schema_linked_service` block as defined below.
     """
@@ -4379,7 +4379,7 @@ class FlowletDataFlowSourceArgsDict(TypedDict):
     """
     The name for the Data Flow Source.
     """
-    dataset: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceDatasetArgs']]]
+    dataset: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceDatasetArgsDict']]]
     """
     A `dataset` block as defined below.
     """
@@ -4387,19 +4387,19 @@ class FlowletDataFlowSourceArgsDict(TypedDict):
     """
     The description for the Data Flow Source.
     """
-    flowlet: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceFlowletArgs']]]
+    flowlet: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceFlowletArgsDict']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceLinkedServiceArgs']]]
+    linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceLinkedServiceArgsDict']]]
     """
     A `linked_service` block as defined below.
     """
-    rejected_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceRejectedLinkedServiceArgs']]]
+    rejected_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceRejectedLinkedServiceArgsDict']]]
     """
     A `rejected_linked_service` block as defined below.
     """
-    schema_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceSchemaLinkedServiceArgs']]]
+    schema_linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowSourceSchemaLinkedServiceArgsDict']]]
     """
     A `schema_linked_service` block as defined below.
     """
@@ -4787,7 +4787,7 @@ class FlowletDataFlowTransformationArgsDict(TypedDict):
     """
     The name for the Data Flow transformation.
     """
-    dataset: NotRequired[pulumi.Input[Optional['FlowletDataFlowTransformationDatasetArgs']]]
+    dataset: NotRequired[pulumi.Input[Optional['FlowletDataFlowTransformationDatasetArgsDict']]]
     """
     A `dataset` block as defined below.
     """
@@ -4795,11 +4795,11 @@ class FlowletDataFlowTransformationArgsDict(TypedDict):
     """
     The description for the Data Flow transformation.
     """
-    flowlet: NotRequired[pulumi.Input[Optional['FlowletDataFlowTransformationFlowletArgs']]]
+    flowlet: NotRequired[pulumi.Input[Optional['FlowletDataFlowTransformationFlowletArgsDict']]]
     """
     A `flowlet` block as defined below.
     """
-    linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowTransformationLinkedServiceArgs']]]
+    linked_service: NotRequired[pulumi.Input[Optional['FlowletDataFlowTransformationLinkedServiceArgsDict']]]
     """
     A `linked_service` block as defined below.
     """
@@ -5319,11 +5319,11 @@ class IntegrationRuntimeSsisCustomSetupScriptArgs:
 
 
 class IntegrationRuntimeSsisExpressCustomSetupArgsDict(TypedDict):
-    command_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgs']]]]]
+    command_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgsDict']]]]]
     """
     One or more `command_key` blocks as defined below.
     """
-    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgs']]]]]
+    components: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntegrationRuntimeSsisExpressCustomSetupComponentArgsDict']]]]]
     """
     One or more `component` blocks as defined below.
     """
@@ -5422,7 +5422,7 @@ class IntegrationRuntimeSsisExpressCustomSetupCommandKeyArgsDict(TypedDict):
     """
     The username for the target device.
     """
-    key_vault_password: NotRequired[pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgs']]]
+    key_vault_password: NotRequired[pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupCommandKeyKeyVaultPasswordArgsDict']]]
     """
     A `key_vault_secret_reference` block as defined below.
     """
@@ -5585,7 +5585,7 @@ class IntegrationRuntimeSsisExpressCustomSetupComponentArgsDict(TypedDict):
     """
     The Component Name installed for the Azure-SSIS Integration Runtime.
     """
-    key_vault_license: NotRequired[pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgs']]]
+    key_vault_license: NotRequired[pulumi.Input[Optional['IntegrationRuntimeSsisExpressCustomSetupComponentKeyVaultLicenseArgsDict']]]
     """
     A `key_vault_secret_reference` block as defined below.
     """
@@ -7414,7 +7414,7 @@ class TriggerScheduleScheduleArgsDict(TypedDict):
     """
     Minutes of the hour on which the trigger is scheduled.
     """
-    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgs']]]]]
+    monthlies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TriggerScheduleScheduleMonthlyArgsDict']]]]]
     """
     A `monthly` block as documented below, which specifies the days of the month on which the trigger is scheduled. The value can be specified only with a monthly frequency.
     """

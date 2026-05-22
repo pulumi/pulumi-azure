@@ -163,7 +163,7 @@ class ReplicatedVMManagedDiskArgsDict(TypedDict):
     """
     Resource group disk should belong to when a failover is done. Changing this forces a new resource to be created.
     """
-    target_disk_encryption: NotRequired[pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionArgs']]]
+    target_disk_encryption: NotRequired[pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict']]]
     """
     A `target_disk_encryption` block as defined below.
     """
@@ -297,7 +297,7 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionArgsDict(TypedDict):
     """
     A `disk_encryption_key` block as defined below.
     """
-    key_encryption_key: NotRequired[pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs']]]
+    key_encryption_key: NotRequired[pulumi.Input[Optional['ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgsDict']]]
     """
     A `key_encryption_key` block as defined below.
     """
@@ -771,11 +771,11 @@ class ReplicationRecoveryPlanAzureToAzureSettingsArgs:
 
 
 class ReplicationRecoveryPlanBootRecoveryGroupArgsDict(TypedDict):
-    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgs']]]]]
+    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPostActionArgsDict']]]]]
     """
     one or more `action` block as defined below. which will be executed after the group recovery.
     """
-    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs']]]]]
+    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanBootRecoveryGroupPreActionArgsDict']]]]]
     """
     one or more `action` block as defined below. which will be executed before the group recovery.
     """
@@ -1218,11 +1218,11 @@ class ReplicationRecoveryPlanBootRecoveryGroupPreActionArgs:
 
 
 class ReplicationRecoveryPlanFailoverRecoveryGroupArgsDict(TypedDict):
-    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgs']]]]]
+    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPostActionArgsDict']]]]]
     """
     one or more `action` block as defined below. which will be executed after the group recovery.
     """
-    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs']]]]]
+    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgsDict']]]]]
     """
     one or more `action` block as defined below. which will be executed before the group recovery.
     """
@@ -1645,11 +1645,11 @@ class ReplicationRecoveryPlanFailoverRecoveryGroupPreActionArgs:
 
 
 class ReplicationRecoveryPlanShutdownRecoveryGroupArgsDict(TypedDict):
-    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgs']]]]]
+    post_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPostActionArgsDict']]]]]
     """
     one or more `action` block as defined below. which will be executed after the group recovery.
     """
-    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgs']]]]]
+    pre_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicationRecoveryPlanShutdownRecoveryGroupPreActionArgsDict']]]]]
     """
     one or more `action` block as defined below. which will be executed before the group recovery.
     """

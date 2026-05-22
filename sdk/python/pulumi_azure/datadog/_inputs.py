@@ -277,7 +277,7 @@ class MonitorTagRuleLogArgsDict(TypedDict):
     """
     Whether AAD logs should be sent for the Monitor resource?
     """
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleLogFilterArgsDict']]]]]
     """
     A `filter` block as defined below.
 
@@ -434,7 +434,7 @@ class MonitorTagRuleLogFilterArgs:
 
 
 class MonitorTagRuleMetricArgsDict(TypedDict):
-    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgs']]]]]
+    filters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitorTagRuleMetricFilterArgsDict']]]]]
     """
     A `filter` block as defined below.
 

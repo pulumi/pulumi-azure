@@ -321,8 +321,8 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             scope_access="SecurityAdmin",
             configuration_ids=[example_network_manager_security_admin_configuration.id],
             triggers={
-                "source_port_ranges": example_network_manager_admin_rule.source_port_ranges.apply(lambda source_port_ranges: std.join_output(separator=",",
-                    input=source_port_ranges)).apply(lambda invoke: invoke.result),
+                "source_port_ranges": std.join_output(separator=",",
+                    input=example_network_manager_admin_rule.source_port_ranges).apply(lambda invoke: invoke.result),
             },
             opts = pulumi.ResourceOptions(depends_on=[example_network_manager_admin_rule]))
         ```
@@ -475,8 +475,8 @@ class NetworkManagerDeployment(pulumi.CustomResource):
             scope_access="SecurityAdmin",
             configuration_ids=[example_network_manager_security_admin_configuration.id],
             triggers={
-                "source_port_ranges": example_network_manager_admin_rule.source_port_ranges.apply(lambda source_port_ranges: std.join_output(separator=",",
-                    input=source_port_ranges)).apply(lambda invoke: invoke.result),
+                "source_port_ranges": std.join_output(separator=",",
+                    input=example_network_manager_admin_rule.source_port_ranges).apply(lambda invoke: invoke.result),
             },
             opts = pulumi.ResourceOptions(depends_on=[example_network_manager_admin_rule]))
         ```

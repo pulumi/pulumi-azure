@@ -340,7 +340,7 @@ class MonitorUserArgs:
 
 
 class TagRulesLogRuleArgsDict(TypedDict):
-    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgs']]]]]
+    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesLogRuleFilteringTagArgsDict']]]]]
     """
     Filtering tag for the log rule. A `filtering_tag` block as defined below.
     """
@@ -495,7 +495,7 @@ class TagRulesLogRuleFilteringTagArgs:
 
 
 class TagRulesMetricRuleArgsDict(TypedDict):
-    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgs']]]]]
+    filtering_tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TagRulesMetricRuleFilteringTagArgsDict']]]]]
     """
     Filtering tag for the metric rule. A `filtering_tag` block as defined below.
     """

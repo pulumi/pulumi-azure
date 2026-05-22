@@ -206,7 +206,7 @@ class SingleNodeVirtualInstanceSingleServerConfigurationArgsDict(TypedDict):
     """
     The supported SAP database type. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
     """
-    disk_volume_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgs']]]]]
+    disk_volume_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationDiskVolumeConfigurationArgsDict']]]]]
     """
     One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -214,7 +214,7 @@ class SingleNodeVirtualInstanceSingleServerConfigurationArgsDict(TypedDict):
     """
     Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    virtual_machine_resource_names: NotRequired[pulumi.Input[Optional['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgs']]]
+    virtual_machine_resource_names: NotRequired[pulumi.Input[Optional['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgsDict']]]
     """
     A `virtual_machine_resource_names` block as defined below. Changing this forces a new resource to be created.
     """
@@ -642,7 +642,7 @@ class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurat
 
 
 class SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesArgsDict(TypedDict):
-    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgs']]]]]
+    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineResourceNamesDataDiskArgsDict']]]]]
     """
     (Optional) One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -867,7 +867,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationArgsDict(TypedDict):
     """
     The high availability type for the three tier configuration. Possible values are `AvailabilitySet` and `AvailabilityZone`. Changing this forces a new resource to be created.
     """
-    resource_names: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgs']]]
+    resource_names: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict']]]
     """
     A `resource_names` block as defined below. Changing this forces a new resource to be created.
     """
@@ -875,7 +875,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationArgsDict(TypedDict):
     """
     Specifies whether a secondary IP address should be added to the network interface on all VMs of the SAP system being deployed. Defaults to `false`. Changing this forces a new resource to be created.
     """
-    transport_create_and_mount: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs']]]
+    transport_create_and_mount: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgsDict']]]
     """
     A `transport_create_and_mount` block as defined below. Changing this forces a new resource to be created.
 
@@ -1610,7 +1610,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationA
     """
     The database type for the Database Server. Possible values are `DB2` and `HANA`. Changing this forces a new resource to be created.
     """
-    disk_volume_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgs']]]]]
+    disk_volume_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationDiskVolumeConfigurationArgsDict']]]]]
     """
     One or more `disk_volume_configuration` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -2002,19 +2002,19 @@ class ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationV
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesArgsDict(TypedDict):
-    application_server: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgs']]]
+    application_server: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerArgsDict']]]
     """
     An `application_server` block as defined below. Changing this forces a new resource to be created.
     """
-    central_server: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgs']]]
+    central_server: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerArgsDict']]]
     """
     A `central_server` block as defined below. Changing this forces a new resource to be created.
     """
-    database_server: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgs']]]
+    database_server: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerArgsDict']]]
     """
     A `database_server` block as defined below. Changing this forces a new resource to be created.
     """
-    shared_storage: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgs']]]
+    shared_storage: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesSharedStorageArgsDict']]]
     """
     A `shared_storage` block as defined below. Changing this forces a new resource to be created.
     """
@@ -2095,7 +2095,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
     """
     The full name for the availability set. Changing this forces a new resource to be created.
     """
-    virtual_machines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgs']]]]]
+    virtual_machines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgsDict']]]]]
     """
     One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -2140,7 +2140,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServ
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineArgsDict(TypedDict):
-    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgs']]]]]
+    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesApplicationServerVirtualMachineDataDiskArgsDict']]]]]
     """
     One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -2312,11 +2312,11 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerAr
     """
     The full name for the availability set. Changing this forces a new resource to be created.
     """
-    load_balancer: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgs']]]
+    load_balancer: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLoadBalancerArgsDict']]]
     """
     A `load_balancer` block as defined below. Changing this forces a new resource to be created.
     """
-    virtual_machines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgs']]]]]
+    virtual_machines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgsDict']]]]]
     """
     One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -2466,7 +2466,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerLo
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineArgsDict(TypedDict):
-    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgs']]]]]
+    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesCentralServerVirtualMachineDataDiskArgsDict']]]]]
     """
     One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -2638,11 +2638,11 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerA
     """
     The full name for the availability set. Changing this forces a new resource to be created.
     """
-    load_balancer: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgs']]]
+    load_balancer: NotRequired[pulumi.Input[Optional['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerLoadBalancerArgsDict']]]
     """
     A `load_balancer` block as defined below. Changing this forces a new resource to be created.
     """
-    virtual_machines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgs']]]]]
+    virtual_machines: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgsDict']]]]]
     """
     One or more `virtual_machine` blocks as defined below. Changing this forces a new resource to be created.
     """
@@ -2792,7 +2792,7 @@ class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerL
 
 
 class ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineArgsDict(TypedDict):
-    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgs']]]]]
+    data_disks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ThreeTierVirtualInstanceThreeTierConfigurationResourceNamesDatabaseServerVirtualMachineDataDiskArgsDict']]]]]
     """
     One or more `data_disk` blocks as defined below. Changing this forces a new resource to be created.
     """

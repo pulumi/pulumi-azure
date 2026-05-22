@@ -322,7 +322,7 @@ class ManagedDevOpsPoolAzureDevopsOrganizationArgsDict(TypedDict):
     """
     One or more `organization` blocks as defined below.
     """
-    permission: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs']]]
+    permission: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgsDict']]]
     """
     A `permission` block as defined below. Changing this forces a new resource to be created.
     """
@@ -449,7 +449,7 @@ class ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgsDict(TypedDict):
     """
     Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
     """
-    administrator_account: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs']]]
+    administrator_account: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgsDict']]]
     """
     An `administrator_account` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
     """
@@ -595,7 +595,7 @@ class ManagedDevOpsPoolIdentityArgs:
 
 
 class ManagedDevOpsPoolStatefulAgentArgsDict(TypedDict):
-    automatic_resource_prediction: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgs']]]
+    automatic_resource_prediction: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentAutomaticResourcePredictionArgsDict']]]
     """
     An `automatic_resource_prediction` block as defined below.
     """
@@ -603,7 +603,7 @@ class ManagedDevOpsPoolStatefulAgentArgsDict(TypedDict):
     """
     Configures the amount of time an agent in a `stateful` pool waits for new jobs before shutting down after all current and queued jobs are complete. The format for Grace Period is `dd.hh:mm:ss` or `hh:mm:ss`. Defaults to `00:00:00`.
     """
-    manual_resource_prediction: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgs']]]
+    manual_resource_prediction: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgsDict']]]
     """
     A `manual_resource_prediction` block as defined below.
     """
@@ -723,23 +723,23 @@ class ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgsDict(TypedDict):
     """
     A number of agents available 24/7 all week. Possible values range between `1` and `maximum_concurrency`.
     """
-    friday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgs']]]]]
+    friday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionFridayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    monday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgs']]]]]
+    monday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionMondayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    saturday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgs']]]]]
+    saturday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSaturdayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    sunday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgs']]]]]
+    sunday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionSundayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    thursday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgs']]]]]
+    thursday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionThursdayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
@@ -749,11 +749,11 @@ class ManagedDevOpsPoolStatefulAgentManualResourcePredictionArgsDict(TypedDict):
 
     > **Note:** A list of possible values for `time_zone_name` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
     """
-    tuesday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgs']]]]]
+    tuesday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionTuesdayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    wednesday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgs']]]]]
+    wednesday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
 
@@ -1255,11 +1255,11 @@ class ManagedDevOpsPoolStatefulAgentManualResourcePredictionWednesdayScheduleArg
 
 
 class ManagedDevOpsPoolStatelessAgentArgsDict(TypedDict):
-    automatic_resource_prediction: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgs']]]
+    automatic_resource_prediction: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentAutomaticResourcePredictionArgsDict']]]
     """
     An `automatic_resource_prediction` block as defined below.
     """
-    manual_resource_prediction: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgs']]]
+    manual_resource_prediction: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgsDict']]]
     """
     A `manual_resource_prediction` block as defined below.
 
@@ -1343,23 +1343,23 @@ class ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgsDict(TypedDict)
     """
     A number of agents available 24/7 all week. Possible values range between `1` and `maximum_concurrency`.
     """
-    friday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgs']]]]]
+    friday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionFridayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    monday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgs']]]]]
+    monday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionMondayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    saturday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgs']]]]]
+    saturday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSaturdayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    sunday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgs']]]]]
+    sunday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionSundayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    thursday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgs']]]]]
+    thursday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionThursdayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
@@ -1369,11 +1369,11 @@ class ManagedDevOpsPoolStatelessAgentManualResourcePredictionArgsDict(TypedDict)
 
     > **Note:** A list of possible values for `time_zone_name` are available by executing `[System.TimeZoneInfo]::GetSystemTimeZones()` in PowerShell.
     """
-    tuesday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgs']]]]]
+    tuesday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionTuesdayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
     """
-    wednesday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgs']]]]]
+    wednesday_schedules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ManagedDevOpsPoolStatelessAgentManualResourcePredictionWednesdayScheduleArgsDict']]]]]
     """
     One or more `daily_schedule` blocks as defined below.
 
@@ -1889,11 +1889,11 @@ class ManagedDevOpsPoolVirtualMachineScaleSetFabricArgsDict(TypedDict):
     """
     The storage account type for the OS disk. Possible values are `Premium`, `Standard`, and `StandardSSD`. Defaults to `Standard`.
     """
-    security: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgs']]]
+    security: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgsDict']]]
     """
     A `security` block as defined below.
     """
-    storage: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgs']]]
+    storage: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolVirtualMachineScaleSetFabricStorageArgsDict']]]
     """
     A `storage` block as defined below.
     """
@@ -2113,7 +2113,7 @@ class ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityArgsDict(TypedDict):
     """
     Specifies whether the agent should run in interactive mode. Defaults to `false`.
     """
-    key_vault_management: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgs']]]
+    key_vault_management: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolVirtualMachineScaleSetFabricSecurityKeyVaultManagementArgsDict']]]
     """
     A `key_vault_management` block as defined below.
     """

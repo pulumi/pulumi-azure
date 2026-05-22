@@ -371,7 +371,7 @@ class ModuleModuleLinkArgsDict(TypedDict):
     """
     The URI of the module content (zip or nupkg).
     """
-    hash: NotRequired[pulumi.Input[Optional['ModuleModuleLinkHashArgs']]]
+    hash: NotRequired[pulumi.Input[Optional['ModuleModuleLinkHashArgsDict']]]
     """
     A `hash` block as defined below.
     """
@@ -466,7 +466,7 @@ class Powershell72ModuleModuleLinkArgsDict(TypedDict):
     """
     The URI of the module content (zip or nupkg).
     """
-    hash: NotRequired[pulumi.Input[Optional['Powershell72ModuleModuleLinkHashArgs']]]
+    hash: NotRequired[pulumi.Input[Optional['Powershell72ModuleModuleLinkHashArgsDict']]]
     """
     A `hash` block as defined below.
     """
@@ -557,7 +557,7 @@ class Powershell72ModuleModuleLinkHashArgs:
 
 
 class RunBookDraftArgsDict(TypedDict):
-    content_link: NotRequired[pulumi.Input[Optional['RunBookDraftContentLinkArgs']]]
+    content_link: NotRequired[pulumi.Input[Optional['RunBookDraftContentLinkArgsDict']]]
     """
     A `publish_content_link` block as defined above.
     """
@@ -571,7 +571,7 @@ class RunBookDraftArgsDict(TypedDict):
     """
     Specifies the output types of the runbook.
     """
-    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RunBookDraftParameterArgs']]]]]
+    parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RunBookDraftParameterArgsDict']]]]]
     """
     A list of `parameters` block as defined below.
     """
@@ -676,7 +676,7 @@ class RunBookDraftContentLinkArgsDict(TypedDict):
     """
     The URI of the runbook content.
     """
-    hash: NotRequired[pulumi.Input[Optional['RunBookDraftContentLinkHashArgs']]]
+    hash: NotRequired[pulumi.Input[Optional['RunBookDraftContentLinkHashArgsDict']]]
     """
     A `hash` block as defined below.
     """
@@ -992,7 +992,7 @@ class RunBookPublishContentLinkArgsDict(TypedDict):
     """
     The URI of the runbook content.
     """
-    hash: NotRequired[pulumi.Input[Optional['RunBookPublishContentLinkHashArgs']]]
+    hash: NotRequired[pulumi.Input[Optional['RunBookPublishContentLinkHashArgsDict']]]
     """
     A `hash` block as defined below.
     """
@@ -1370,7 +1370,7 @@ class SoftwareUpdateConfigurationScheduleArgsDict(TypedDict):
     Whether the schedule is enabled. Defaults to `true`.
     """
     last_modified_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    monthly_occurrence: NotRequired[pulumi.Input[Optional['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs']]]
+    monthly_occurrence: NotRequired[pulumi.Input[Optional['SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgsDict']]]
     """
     List of `monthly_occurrence` blocks as defined below to specifies occurrences of days within a month. Only valid when frequency is `Month`. The `monthly_occurrence` block supports fields as defined below.
     """
@@ -1690,11 +1690,11 @@ class SoftwareUpdateConfigurationScheduleMonthlyOccurrenceArgs:
 
 
 class SoftwareUpdateConfigurationTargetArgsDict(TypedDict):
-    azure_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgs']]]]]
+    azure_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryArgsDict']]]]]
     """
     One or more `azure_query` blocks as defined above.
     """
-    non_azure_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgs']]]]]
+    non_azure_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetNonAzureQueryArgsDict']]]]]
     """
     One or more `non_azure_query` blocks as defined above.
     """
@@ -1751,7 +1751,7 @@ class SoftwareUpdateConfigurationTargetAzureQueryArgsDict(TypedDict):
     """
     Specifies how the specified tags to filter VMs. Possible values are `Any` and `All`.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SoftwareUpdateConfigurationTargetAzureQueryTagArgsDict']]]]]
     """
     A mapping of tags used for query filter. One or more `tags` block as defined below.
     """

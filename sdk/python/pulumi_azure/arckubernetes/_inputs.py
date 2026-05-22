@@ -188,7 +188,7 @@ class FluxConfigurationBlobStorageArgsDict(TypedDict):
     """
     Specifies the shared access token to access the storage container.
     """
-    service_principal: NotRequired[pulumi.Input[Optional['FluxConfigurationBlobStorageServicePrincipalArgs']]]
+    service_principal: NotRequired[pulumi.Input[Optional['FluxConfigurationBlobStorageServicePrincipalArgsDict']]]
     """
     A `service_principal` block as defined below.
     """

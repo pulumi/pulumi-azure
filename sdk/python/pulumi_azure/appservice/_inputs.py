@@ -1134,7 +1134,7 @@ class AppFlexConsumptionAuthSettingsArgsDict(TypedDict):
     """
     Should the Authentication / Authorization feature be enabled for the Linux Web App?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsActiveDirectoryArgsDict']]]
     """
     An `active_directory` block as defined above.
     """
@@ -1152,15 +1152,15 @@ class AppFlexConsumptionAuthSettingsArgsDict(TypedDict):
 
     > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
     """
-    facebook: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    github: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsGithubArgs']]]
+    github: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsGithubArgsDict']]]
     """
     A `github` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -1170,7 +1170,7 @@ class AppFlexConsumptionAuthSettingsArgsDict(TypedDict):
 
     > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -1186,7 +1186,7 @@ class AppFlexConsumptionAuthSettingsArgsDict(TypedDict):
     """
     Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -1968,11 +1968,11 @@ class AppFlexConsumptionAuthSettingsV2ArgsDict(TypedDict):
     """
     A `login` block as defined below.
     """
-    active_directory_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2Args']]]
+    active_directory_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2ActiveDirectoryV2ArgsDict']]]
     """
     An `active_directory_v2` block as defined below.
     """
-    apple_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2AppleV2Args']]]
+    apple_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2AppleV2ArgsDict']]]
     """
     An `apple_v2` block as defined below.
     """
@@ -1980,7 +1980,7 @@ class AppFlexConsumptionAuthSettingsV2ArgsDict(TypedDict):
     """
     Should the AuthV2 Settings be enabled. Defaults to `false`.
     """
-    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2Args']]]
+    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2AzureStaticWebAppV2ArgsDict']]]
     """
     An `azure_static_web_app_v2` block as defined below.
     """
@@ -1990,7 +1990,7 @@ class AppFlexConsumptionAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** Relative Paths are evaluated from the Site Root directory.
     """
-    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionAuthSettingsV2CustomOidcV2Args']]]]]
+    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionAuthSettingsV2CustomOidcV2ArgsDict']]]]]
     """
     Zero or more `custom_oidc_v2` blocks as defined below.
     """
@@ -2006,7 +2006,7 @@ class AppFlexConsumptionAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
     """
-    facebook_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2FacebookV2Args']]]
+    facebook_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2FacebookV2ArgsDict']]]
     """
     A `facebook_v2` block as defined below.
     """
@@ -2022,11 +2022,11 @@ class AppFlexConsumptionAuthSettingsV2ArgsDict(TypedDict):
     """
     The name of the custom header containing the scheme of the request.
     """
-    github_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2GithubV2Args']]]
+    github_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2GithubV2ArgsDict']]]
     """
     A `github_v2` block as defined below.
     """
-    google_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2GoogleV2Args']]]
+    google_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2GoogleV2ArgsDict']]]
     """
     A `google_v2` block as defined below.
     """
@@ -2034,7 +2034,7 @@ class AppFlexConsumptionAuthSettingsV2ArgsDict(TypedDict):
     """
     The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
     """
-    microsoft_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2MicrosoftV2Args']]]
+    microsoft_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2MicrosoftV2ArgsDict']]]
     """
     A `microsoft_v2` block as defined below.
     """
@@ -2050,7 +2050,7 @@ class AppFlexConsumptionAuthSettingsV2ArgsDict(TypedDict):
     """
     The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
     """
-    twitter_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2TwitterV2Args']]]
+    twitter_v2: NotRequired[pulumi.Input[Optional['AppFlexConsumptionAuthSettingsV2TwitterV2ArgsDict']]]
     """
     A `twitter_v2` block as defined below.
     """
@@ -3852,7 +3852,7 @@ class AppFlexConsumptionSiteConfigArgsDict(TypedDict):
     """
     The App command line to launch.
     """
-    app_service_logs: NotRequired[pulumi.Input[Optional['AppFlexConsumptionSiteConfigAppServiceLogsArgs']]]
+    app_service_logs: NotRequired[pulumi.Input[Optional['AppFlexConsumptionSiteConfigAppServiceLogsArgsDict']]]
     """
     An `app_service_logs` block as defined above.
     """
@@ -3872,7 +3872,7 @@ class AppFlexConsumptionSiteConfigArgsDict(TypedDict):
     """
     Should connections for Azure Container Registry use Managed Identity.
     """
-    cors: NotRequired[pulumi.Input[Optional['AppFlexConsumptionSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['AppFlexConsumptionSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined above.
     """
@@ -3904,7 +3904,7 @@ class AppFlexConsumptionSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigIpRestrictionArgsDict']]]]]
     """
     One or more `ip_restriction` blocks as defined above.
     """
@@ -3938,7 +3938,7 @@ class AppFlexConsumptionSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppFlexConsumptionSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     One or more `scm_ip_restriction` blocks as defined above.
     """
@@ -4607,7 +4607,7 @@ class AppFlexConsumptionSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['AppFlexConsumptionSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['AppFlexConsumptionSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -4871,7 +4871,7 @@ class AppFlexConsumptionSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['AppFlexConsumptionSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -5229,7 +5229,7 @@ class AppServiceAuthSettingsArgsDict(TypedDict):
     """
     Is Authentication enabled?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsActiveDirectoryArgsDict']]]
     """
     A `active_directory` block as defined below.
     """
@@ -5247,11 +5247,11 @@ class AppServiceAuthSettingsArgsDict(TypedDict):
 
     > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
     """
-    facebook: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -5259,7 +5259,7 @@ class AppServiceAuthSettingsArgsDict(TypedDict):
     """
     Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -5275,7 +5275,7 @@ class AppServiceAuthSettingsArgsDict(TypedDict):
     """
     If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['AppServiceAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -6188,7 +6188,7 @@ class AppServiceIdentityArgs:
 
 
 class AppServiceLogsArgsDict(TypedDict):
-    application_logs: NotRequired[pulumi.Input[Optional['AppServiceLogsApplicationLogsArgs']]]
+    application_logs: NotRequired[pulumi.Input[Optional['AppServiceLogsApplicationLogsArgsDict']]]
     """
     An `application_logs` block as defined below.
     """
@@ -6200,7 +6200,7 @@ class AppServiceLogsArgsDict(TypedDict):
     """
     Should `Failed request tracing` be enabled on this App Service? Defaults to `false`.
     """
-    http_logs: NotRequired[pulumi.Input[Optional['AppServiceLogsHttpLogsArgs']]]
+    http_logs: NotRequired[pulumi.Input[Optional['AppServiceLogsHttpLogsArgsDict']]]
     """
     An `http_logs` block as defined below.
     """
@@ -6277,7 +6277,7 @@ class AppServiceLogsArgs:
 
 
 class AppServiceLogsApplicationLogsArgsDict(TypedDict):
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['AppServiceLogsApplicationLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['AppServiceLogsApplicationLogsAzureBlobStorageArgsDict']]]
     """
     An `azure_blob_storage` block as defined below.
     """
@@ -6398,11 +6398,11 @@ class AppServiceLogsApplicationLogsAzureBlobStorageArgs:
 
 
 class AppServiceLogsHttpLogsArgsDict(TypedDict):
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['AppServiceLogsHttpLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['AppServiceLogsHttpLogsAzureBlobStorageArgsDict']]]
     """
     An `azure_blob_storage` block as defined below.
     """
-    file_system: NotRequired[pulumi.Input[Optional['AppServiceLogsHttpLogsFileSystemArgs']]]
+    file_system: NotRequired[pulumi.Input[Optional['AppServiceLogsHttpLogsFileSystemArgsDict']]]
     """
     A `file_system` block as defined below.
     """
@@ -6571,7 +6571,7 @@ class AppServiceSiteConfigArgsDict(TypedDict):
     """
     The name of the slot to automatically swap to during deployment
     """
-    cors: NotRequired[pulumi.Input[Optional['AppServiceSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['AppServiceSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined below.
     """
@@ -6595,7 +6595,7 @@ class AppServiceSiteConfigArgsDict(TypedDict):
     """
     Is HTTP2 Enabled on this App Service? Defaults to `false`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppServiceSiteConfigIpRestrictionArgsDict']]]]]
     """
     A list of objects representing ip restrictions as defined below.
 
@@ -6653,7 +6653,7 @@ class AppServiceSiteConfigArgsDict(TypedDict):
     """
     Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AppServiceSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
 
@@ -7282,7 +7282,7 @@ class AppServiceSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
     """
-    headers: NotRequired[pulumi.Input[Optional['AppServiceSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['AppServiceSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific `ip_restriction` as defined below.
     """
@@ -7526,7 +7526,7 @@ class AppServiceSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     Allow or Deny access for this IP range. Defaults to `Allow`.
     """
-    headers: NotRequired[pulumi.Input[Optional['AppServiceSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['AppServiceSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific `scm_ip_restriction` as defined below.
     """
@@ -8433,7 +8433,7 @@ class FunctionAppAuthSettingsArgsDict(TypedDict):
     """
     Is Authentication enabled?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsActiveDirectoryArgsDict']]]
     """
     A `active_directory` block as defined below.
     """
@@ -8451,11 +8451,11 @@ class FunctionAppAuthSettingsArgsDict(TypedDict):
 
     > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
     """
-    facebook: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -8463,7 +8463,7 @@ class FunctionAppAuthSettingsArgsDict(TypedDict):
     """
     Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -8479,7 +8479,7 @@ class FunctionAppAuthSettingsArgsDict(TypedDict):
     """
     If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['FunctionAppAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -9260,7 +9260,7 @@ class FunctionAppSiteConfigArgsDict(TypedDict):
 
     > **NOTE:** This attribute is only used for slots.
     """
-    cors: NotRequired[pulumi.Input[Optional['FunctionAppSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['FunctionAppSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined below.
     """
@@ -9284,7 +9284,7 @@ class FunctionAppSiteConfigArgsDict(TypedDict):
     """
     Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSiteConfigIpRestrictionArgsDict']]]]]
     """
     A list of `ip_restriction` objects representing IP restrictions as defined below.
 
@@ -9310,7 +9310,7 @@ class FunctionAppSiteConfigArgsDict(TypedDict):
     """
     Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
 
@@ -9769,7 +9769,7 @@ class FunctionAppSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
     """
-    headers: NotRequired[pulumi.Input[Optional['FunctionAppSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['FunctionAppSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific `ip_restriction` as defined below.
     """
@@ -10013,7 +10013,7 @@ class FunctionAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     Allow or Deny access for this IP range. Defaults to `Allow`.
     """
-    headers: NotRequired[pulumi.Input[Optional['FunctionAppSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['FunctionAppSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific `scm_ip_restriction` as defined below.
     """
@@ -10306,7 +10306,7 @@ class FunctionAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Is Authentication enabled?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsActiveDirectoryArgsDict']]]
     """
     An `active_directory` block as defined below.
     """
@@ -10324,11 +10324,11 @@ class FunctionAppSlotAuthSettingsArgsDict(TypedDict):
 
     > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
     """
-    facebook: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -10336,7 +10336,7 @@ class FunctionAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -10352,7 +10352,7 @@ class FunctionAppSlotAuthSettingsArgsDict(TypedDict):
     """
     If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['FunctionAppSlotAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -11084,7 +11084,7 @@ class FunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The name of the slot to automatically swap to during deployment
     """
-    cors: NotRequired[pulumi.Input[Optional['FunctionAppSlotSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['FunctionAppSlotSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined below.
     """
@@ -11108,7 +11108,7 @@ class FunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     Specifies whether or not the HTTP2 protocol should be enabled. Defaults to `false`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSlotSiteConfigIpRestrictionArgsDict']]]]]
     """
     A list of `ip_restriction` objects representing IP restrictions as defined below.
     """
@@ -11132,7 +11132,7 @@ class FunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FunctionAppSlotSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
 
@@ -11570,7 +11570,7 @@ class FunctionAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
     """
-    headers: NotRequired[pulumi.Input[Optional['FunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['FunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific `ip_restriction` as defined below.
     """
@@ -11814,7 +11814,7 @@ class FunctionAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     Allow or Deny access for this IP range. Defaults to `Allow`.
     """
-    headers: NotRequired[pulumi.Input[Optional['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['FunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific `scm_ip_restriction` as defined below.
     """
@@ -12216,7 +12216,7 @@ class LinuxFunctionAppAuthSettingsArgsDict(TypedDict):
     """
     Should the Authentication / Authorization feature be enabled for the Linux Web App?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsActiveDirectoryArgsDict']]]
     """
     An `active_directory` block as defined above.
     """
@@ -12234,15 +12234,15 @@ class LinuxFunctionAppAuthSettingsArgsDict(TypedDict):
 
     > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
     """
-    facebook: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    github: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsGithubArgs']]]
+    github: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsGithubArgsDict']]]
     """
     A `github` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -12252,7 +12252,7 @@ class LinuxFunctionAppAuthSettingsArgsDict(TypedDict):
 
     > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -12268,7 +12268,7 @@ class LinuxFunctionAppAuthSettingsArgsDict(TypedDict):
     """
     Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -13050,11 +13050,11 @@ class LinuxFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     A `login` block as defined below.
     """
-    active_directory_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]]
+    active_directory_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict']]]
     """
     An `active_directory_v2` block as defined below.
     """
-    apple_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2AppleV2Args']]]
+    apple_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2AppleV2ArgsDict']]]
     """
     An `apple_v2` block as defined below.
     """
@@ -13062,7 +13062,7 @@ class LinuxFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     Should the AuthV2 Settings be enabled. Defaults to `false`.
     """
-    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]]
+    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict']]]
     """
     An `azure_static_web_app_v2` block as defined below.
     """
@@ -13072,7 +13072,7 @@ class LinuxFunctionAppAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** Relative Paths are evaluated from the Site Root directory.
     """
-    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2Args']]]]]
+    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppAuthSettingsV2CustomOidcV2ArgsDict']]]]]
     """
     Zero or more `custom_oidc_v2` blocks as defined below.
     """
@@ -13088,7 +13088,7 @@ class LinuxFunctionAppAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
     """
-    facebook_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2FacebookV2Args']]]
+    facebook_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2FacebookV2ArgsDict']]]
     """
     A `facebook_v2` block as defined below.
     """
@@ -13104,11 +13104,11 @@ class LinuxFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The name of the custom header containing the scheme of the request.
     """
-    github_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2GithubV2Args']]]
+    github_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2GithubV2ArgsDict']]]
     """
     A `github_v2` block as defined below.
     """
-    google_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2GoogleV2Args']]]
+    google_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2GoogleV2ArgsDict']]]
     """
     A `google_v2` block as defined below.
     """
@@ -13116,7 +13116,7 @@ class LinuxFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
     """
-    microsoft_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2MicrosoftV2Args']]]
+    microsoft_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2MicrosoftV2ArgsDict']]]
     """
     A `microsoft_v2` block as defined below.
     """
@@ -13132,7 +13132,7 @@ class LinuxFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
     """
-    twitter_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2TwitterV2Args']]]
+    twitter_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppAuthSettingsV2TwitterV2ArgsDict']]]
     """
     A `twitter_v2` block as defined below.
     """
@@ -15163,7 +15163,7 @@ class LinuxFunctionAppSiteConfigArgsDict(TypedDict):
     """
     The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
     """
-    app_service_logs: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigAppServiceLogsArgs']]]
+    app_service_logs: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigAppServiceLogsArgsDict']]]
     """
     An `app_service_logs` block as defined above.
     """
@@ -15175,7 +15175,7 @@ class LinuxFunctionAppSiteConfigArgsDict(TypedDict):
     """
     The Instrumentation Key for connecting the Linux Function App to Application Insights.
     """
-    application_stack: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigApplicationStackArgs']]]
+    application_stack: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigApplicationStackArgsDict']]]
     """
     An `application_stack` block as defined above.
 
@@ -15189,7 +15189,7 @@ class LinuxFunctionAppSiteConfigArgsDict(TypedDict):
     """
     Should connections for Azure Container Registry use Managed Identity.
     """
-    cors: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined above.
     """
@@ -15225,7 +15225,7 @@ class LinuxFunctionAppSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigIpRestrictionArgsDict']]]]]
     """
     One or more `ip_restriction` blocks as defined above.
     """
@@ -15267,7 +15267,7 @@ class LinuxFunctionAppSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     One or more `scm_ip_restriction` blocks as defined above.
     """
@@ -15983,7 +15983,7 @@ class LinuxFunctionAppSiteConfigAppServiceLogsArgs:
 
 
 class LinuxFunctionAppSiteConfigApplicationStackArgsDict(TypedDict):
-    dockers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgs']]]]]
+    dockers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSiteConfigApplicationStackDockerArgsDict']]]]]
     """
     One or more `docker` blocks as defined below.
     """
@@ -16333,7 +16333,7 @@ class LinuxFunctionAppSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -16597,7 +16597,7 @@ class LinuxFunctionAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -16906,7 +16906,7 @@ class LinuxFunctionAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Should the Authentication / Authorization feature be enabled?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsActiveDirectoryArgsDict']]]
     """
     an `active_directory` block as detailed below.
     """
@@ -16924,15 +16924,15 @@ class LinuxFunctionAppSlotAuthSettingsArgsDict(TypedDict):
 
     > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
     """
-    facebook: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsFacebookArgsDict']]]
     """
     a `facebook` block as detailed below.
     """
-    github: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsGithubArgs']]]
+    github: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsGithubArgsDict']]]
     """
     a `github` block as detailed below.
     """
-    google: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsGoogleArgsDict']]]
     """
     a `google` block as detailed below.
     """
@@ -16942,7 +16942,7 @@ class LinuxFunctionAppSlotAuthSettingsArgsDict(TypedDict):
 
     > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsMicrosoftArgsDict']]]
     """
     a `microsoft` block as detailed below.
     """
@@ -16958,7 +16958,7 @@ class LinuxFunctionAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsTwitterArgsDict']]]
     """
     a `twitter` block as detailed below.
     """
@@ -17740,11 +17740,11 @@ class LinuxFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     A `login` block as defined below.
     """
-    active_directory_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]]
+    active_directory_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict']]]
     """
     An `active_directory_v2` block as defined below.
     """
-    apple_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2AppleV2Args']]]
+    apple_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2AppleV2ArgsDict']]]
     """
     An `apple_v2` block as defined below.
     """
@@ -17752,7 +17752,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     Should the AuthV2 Settings be enabled. Defaults to `false`.
     """
-    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]]
+    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict']]]
     """
     An `azure_static_web_app_v2` block as defined below.
     """
@@ -17762,7 +17762,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** Relative Paths are evaluated from the Site Root directory.
     """
-    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]]
+    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict']]]]]
     """
     Zero or more `custom_oidc_v2` blocks as defined below.
     """
@@ -17778,7 +17778,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
     """
-    facebook_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2FacebookV2Args']]]
+    facebook_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict']]]
     """
     A `facebook_v2` block as defined below.
     """
@@ -17794,11 +17794,11 @@ class LinuxFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The name of the custom header containing the scheme of the request.
     """
-    github_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2GithubV2Args']]]
+    github_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2GithubV2ArgsDict']]]
     """
     A `github_v2` block as defined below.
     """
-    google_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2GoogleV2Args']]]
+    google_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict']]]
     """
     A `google_v2` block as defined below.
     """
@@ -17806,7 +17806,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
     """
-    microsoft_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]]
+    microsoft_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict']]]
     """
     A `microsoft_v2` block as defined below.
     """
@@ -17822,7 +17822,7 @@ class LinuxFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
     """
-    twitter_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2TwitterV2Args']]]
+    twitter_v2: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict']]]
     """
     A `twitter_v2` block as defined below.
     """
@@ -19851,7 +19851,7 @@ class LinuxFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
     """
-    app_service_logs: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs']]]
+    app_service_logs: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigAppServiceLogsArgsDict']]]
     """
     an `app_service_logs` block as detailed below.
     """
@@ -19863,7 +19863,7 @@ class LinuxFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Instrumentation Key for connecting the Linux Function App to Application Insights.
     """
-    application_stack: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigApplicationStackArgs']]]
+    application_stack: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigApplicationStackArgsDict']]]
     """
     an `application_stack` block as detailed below.
     """
@@ -19879,7 +19879,7 @@ class LinuxFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     Should connections for Azure Container Registry use Managed Identity.
     """
-    cors: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigCorsArgsDict']]]
     """
     a `cors` block as detailed below.
     """
@@ -19915,7 +19915,7 @@ class LinuxFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigIpRestrictionArgsDict']]]]]
     """
     an `ip_restriction` block as detailed below.
     """
@@ -19957,7 +19957,7 @@ class LinuxFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     a `scm_ip_restriction` block as detailed below.
     """
@@ -20681,7 +20681,7 @@ class LinuxFunctionAppSlotSiteConfigAppServiceLogsArgs:
 
 
 class LinuxFunctionAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
-    dockers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgs']]]]]
+    dockers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxFunctionAppSlotSiteConfigApplicationStackDockerArgsDict']]]]]
     """
     a `docker` block as detailed below.
     """
@@ -21025,7 +21025,7 @@ class LinuxFunctionAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     a `headers` block as detailed below.
     """
@@ -21289,7 +21289,7 @@ class LinuxFunctionAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['LinuxFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     a `headers` block as detailed below.
     """
@@ -21895,7 +21895,7 @@ class LinuxWebAppAuthSettingsArgsDict(TypedDict):
     """
     Should the Authentication / Authorization feature be enabled for the Linux Web App?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsActiveDirectoryArgsDict']]]
     """
     An `active_directory` block as defined above.
     """
@@ -21913,15 +21913,15 @@ class LinuxWebAppAuthSettingsArgsDict(TypedDict):
 
     > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
     """
-    facebook: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    github: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsGithubArgs']]]
+    github: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsGithubArgsDict']]]
     """
     A `github` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -21931,7 +21931,7 @@ class LinuxWebAppAuthSettingsArgsDict(TypedDict):
 
     > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -21947,7 +21947,7 @@ class LinuxWebAppAuthSettingsArgsDict(TypedDict):
     """
     Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -22729,11 +22729,11 @@ class LinuxWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     A `login` block as defined below.
     """
-    active_directory_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2ActiveDirectoryV2Args']]]
+    active_directory_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict']]]
     """
     An `active_directory_v2` block as defined below.
     """
-    apple_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2AppleV2Args']]]
+    apple_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2AppleV2ArgsDict']]]
     """
     An `apple_v2` block as defined below.
     """
@@ -22741,7 +22741,7 @@ class LinuxWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     Should the AuthV2 Settings be enabled. Defaults to `false`.
     """
-    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2Args']]]
+    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict']]]
     """
     An `azure_static_web_app_v2` block as defined below.
     """
@@ -22751,7 +22751,7 @@ class LinuxWebAppAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** Relative Paths are evaluated from the Site Root directory.
     """
-    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2Args']]]]]
+    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppAuthSettingsV2CustomOidcV2ArgsDict']]]]]
     """
     Zero or more `custom_oidc_v2` blocks as defined below.
     """
@@ -22767,7 +22767,7 @@ class LinuxWebAppAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
     """
-    facebook_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2FacebookV2Args']]]
+    facebook_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2FacebookV2ArgsDict']]]
     """
     A `facebook_v2` block as defined below.
     """
@@ -22783,11 +22783,11 @@ class LinuxWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The name of the custom header containing the scheme of the request.
     """
-    github_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2GithubV2Args']]]
+    github_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2GithubV2ArgsDict']]]
     """
     A `github_v2` block as defined below.
     """
-    google_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2GoogleV2Args']]]
+    google_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2GoogleV2ArgsDict']]]
     """
     A `google_v2` block as defined below.
     """
@@ -22795,7 +22795,7 @@ class LinuxWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
     """
-    microsoft_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2MicrosoftV2Args']]]
+    microsoft_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2MicrosoftV2ArgsDict']]]
     """
     A `microsoft_v2` block as defined below.
     """
@@ -22811,7 +22811,7 @@ class LinuxWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
     """
-    twitter_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2TwitterV2Args']]]
+    twitter_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppAuthSettingsV2TwitterV2ArgsDict']]]
     """
     A `twitter_v2` block as defined below.
     """
@@ -24820,7 +24820,7 @@ class LinuxWebAppIdentityArgs:
 
 
 class LinuxWebAppLogsArgsDict(TypedDict):
-    application_logs: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsApplicationLogsArgs']]]
+    application_logs: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsApplicationLogsArgsDict']]]
     """
     A `application_logs` block as defined above.
     """
@@ -24832,7 +24832,7 @@ class LinuxWebAppLogsArgsDict(TypedDict):
     """
     Should the failed request tracing be enabled?
     """
-    http_logs: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsHttpLogsArgs']]]
+    http_logs: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsHttpLogsArgsDict']]]
     """
     An `http_logs` block as defined above.
     """
@@ -24913,7 +24913,7 @@ class LinuxWebAppLogsApplicationLogsArgsDict(TypedDict):
     """
     Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
     """
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgsDict']]]
     """
     An `azure_blob_storage` block as defined below.
     """
@@ -25029,11 +25029,11 @@ class LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs:
 
 
 class LinuxWebAppLogsHttpLogsArgsDict(TypedDict):
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsHttpLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsHttpLogsAzureBlobStorageArgsDict']]]
     """
     A `azure_blob_storage_http` block as defined above.
     """
-    file_system: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsHttpLogsFileSystemArgs']]]
+    file_system: NotRequired[pulumi.Input[Optional['LinuxWebAppLogsHttpLogsFileSystemArgsDict']]]
     """
     A `file_system` block as defined above.
     """
@@ -25197,11 +25197,11 @@ class LinuxWebAppSiteConfigArgsDict(TypedDict):
     """
     The App command line to launch.
     """
-    application_stack: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigApplicationStackArgs']]]
+    application_stack: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigApplicationStackArgsDict']]]
     """
     A `application_stack` block as defined above.
     """
-    auto_heal_setting: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingArgs']]]
+    auto_heal_setting: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingArgsDict']]]
     """
     A `auto_heal_setting` block as defined above. Required with `auto_heal`.
     """
@@ -25213,7 +25213,7 @@ class LinuxWebAppSiteConfigArgsDict(TypedDict):
     """
     Should connections for Azure Container Registry use Managed Identity.
     """
-    cors: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined above.
     """
@@ -25244,7 +25244,7 @@ class LinuxWebAppSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteConfigIpRestrictionArgsDict']]]]]
     """
     One or more `ip_restriction` blocks as defined above.
     """
@@ -25277,7 +25277,7 @@ class LinuxWebAppSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     One or more `scm_ip_restriction` blocks as defined above.
     """
@@ -26144,11 +26144,11 @@ class LinuxWebAppSiteConfigApplicationStackArgs:
 
 
 class LinuxWebAppSiteConfigAutoHealSettingArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingActionArgs']]]
+    action: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingActionArgsDict']]]
     """
     A `action` block as defined above.
     """
-    trigger: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingTriggerArgs']]]
+    trigger: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingTriggerArgsDict']]]
     """
     A `trigger` block as defined below.
     """
@@ -26241,19 +26241,19 @@ class LinuxWebAppSiteConfigAutoHealSettingActionArgs:
 
 
 class LinuxWebAppSiteConfigAutoHealSettingTriggerArgsDict(TypedDict):
-    requests: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]]
+    requests: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict']]]
     """
     A `requests` block as defined above.
     """
-    slow_request: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]
+    slow_request: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]
     """
     A `slow_request` blocks as defined above.
     """
-    slow_request_with_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]]
+    slow_request_with_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]]
     """
     One or more `slow_request_with_path` blocks as defined above.
     """
-    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]]
+    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]]
     """
     One or more `status_code` blocks as defined above.
     """
@@ -26712,7 +26712,7 @@ class LinuxWebAppSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -26976,7 +26976,7 @@ class LinuxWebAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['LinuxWebAppSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -27291,7 +27291,7 @@ class LinuxWebAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Should the Authentication / Authorization feature be enabled for the Linux Web App?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsActiveDirectoryArgsDict']]]
     """
     An `active_directory` block as defined above.
     """
@@ -27309,15 +27309,15 @@ class LinuxWebAppSlotAuthSettingsArgsDict(TypedDict):
 
     > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
     """
-    facebook: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    github: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsGithubArgs']]]
+    github: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsGithubArgsDict']]]
     """
     A `github` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -27327,7 +27327,7 @@ class LinuxWebAppSlotAuthSettingsArgsDict(TypedDict):
 
     > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -27343,7 +27343,7 @@ class LinuxWebAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Should the Linux Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -28125,11 +28125,11 @@ class LinuxWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     A `login` block as defined below.
     """
-    active_directory_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']]]
+    active_directory_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict']]]
     """
     An `active_directory_v2` block as defined below.
     """
-    apple_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2AppleV2Args']]]
+    apple_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2AppleV2ArgsDict']]]
     """
     An `apple_v2` block as defined below.
     """
@@ -28137,7 +28137,7 @@ class LinuxWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     Should the AuthV2 Settings be enabled. Defaults to `false`.
     """
-    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]]
+    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict']]]
     """
     An `azure_static_web_app_v2` block as defined below.
     """
@@ -28147,7 +28147,7 @@ class LinuxWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** Relative Paths are evaluated from the Site Root directory.
     """
-    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2Args']]]]]
+    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict']]]]]
     """
     Zero or more `custom_oidc_v2` blocks as defined below.
     """
@@ -28163,7 +28163,7 @@ class LinuxWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
     """
-    facebook_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2FacebookV2Args']]]
+    facebook_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2FacebookV2ArgsDict']]]
     """
     A `facebook_v2` block as defined below.
     """
@@ -28179,11 +28179,11 @@ class LinuxWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The name of the custom header containing the scheme of the request.
     """
-    github_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2GithubV2Args']]]
+    github_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2GithubV2ArgsDict']]]
     """
     A `github_v2` block as defined below.
     """
-    google_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2GoogleV2Args']]]
+    google_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2GoogleV2ArgsDict']]]
     """
     A `google_v2` block as defined below.
     """
@@ -28191,7 +28191,7 @@ class LinuxWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
     """
-    microsoft_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2MicrosoftV2Args']]]
+    microsoft_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict']]]
     """
     A `microsoft_v2` block as defined below.
     """
@@ -28207,7 +28207,7 @@ class LinuxWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
     """
-    twitter_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2TwitterV2Args']]]
+    twitter_v2: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotAuthSettingsV2TwitterV2ArgsDict']]]
     """
     A `twitter_v2` block as defined below.
     """
@@ -30216,7 +30216,7 @@ class LinuxWebAppSlotIdentityArgs:
 
 
 class LinuxWebAppSlotLogsArgsDict(TypedDict):
-    application_logs: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsApplicationLogsArgs']]]
+    application_logs: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsApplicationLogsArgsDict']]]
     """
     A `application_logs` block as defined above.
     """
@@ -30228,7 +30228,7 @@ class LinuxWebAppSlotLogsArgsDict(TypedDict):
     """
     Should the failed request tracing be enabled?
     """
-    http_logs: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsHttpLogsArgs']]]
+    http_logs: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsHttpLogsArgsDict']]]
     """
     An `http_logs` block as defined above.
     """
@@ -30309,7 +30309,7 @@ class LinuxWebAppSlotLogsApplicationLogsArgsDict(TypedDict):
     """
     Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
     """
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict']]]
     """
     An `azure_blob_storage` block as defined below.
     """
@@ -30425,11 +30425,11 @@ class LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
 
 
 class LinuxWebAppSlotLogsHttpLogsArgsDict(TypedDict):
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict']]]
     """
     A `azure_blob_storage_http` block as defined above.
     """
-    file_system: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsHttpLogsFileSystemArgs']]]
+    file_system: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotLogsHttpLogsFileSystemArgsDict']]]
     """
     A `file_system` block as defined above.
     """
@@ -30591,11 +30591,11 @@ class LinuxWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     The App command line to launch.
     """
-    application_stack: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigApplicationStackArgs']]]
+    application_stack: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigApplicationStackArgsDict']]]
     """
     A `application_stack` block as defined above.
     """
-    auto_heal_setting: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingArgs']]]
+    auto_heal_setting: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingArgsDict']]]
     """
     A `auto_heal_setting` block as defined above. Required with `auto_heal`.
     """
@@ -30613,7 +30613,7 @@ class LinuxWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     Should connections for Azure Container Registry use Managed Identity.
     """
-    cors: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined above.
     """
@@ -30644,7 +30644,7 @@ class LinuxWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigIpRestrictionArgsDict']]]]]
     """
     One or more `ip_restriction` blocks as defined above.
     """
@@ -30677,7 +30677,7 @@ class LinuxWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     One or more `scm_ip_restriction` blocks as defined above.
     """
@@ -31554,11 +31554,11 @@ class LinuxWebAppSlotSiteConfigApplicationStackArgs:
 
 
 class LinuxWebAppSlotSiteConfigAutoHealSettingArgsDict(TypedDict):
-    action: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs']]]
+    action: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingActionArgsDict']]]
     """
     A `action` block as defined above.
     """
-    trigger: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgs']]]
+    trigger: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict']]]
     """
     A `trigger` block as defined below.
     """
@@ -31651,19 +31651,19 @@ class LinuxWebAppSlotSiteConfigAutoHealSettingActionArgs:
 
 
 class LinuxWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict(TypedDict):
-    requests: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]]
+    requests: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict']]]
     """
     A `requests` block as defined above.
     """
-    slow_request: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]
+    slow_request: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]
     """
     A `slow_request` block as defined above.
     """
-    slow_request_with_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]]
+    slow_request_with_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]]
     """
     One or more `slow_request_with_path` blocks as defined above.
     """
-    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]]
+    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['LinuxWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]]
     """
     One or more `status_code` blocks as defined above.
     """
@@ -32122,7 +32122,7 @@ class LinuxWebAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -32386,7 +32386,7 @@ class LinuxWebAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['LinuxWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -33065,7 +33065,7 @@ class SlotAuthSettingsArgsDict(TypedDict):
     """
     Is Authentication enabled?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['SlotAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['SlotAuthSettingsActiveDirectoryArgsDict']]]
     """
     A `active_directory` block as defined below.
     """
@@ -33083,11 +33083,11 @@ class SlotAuthSettingsArgsDict(TypedDict):
 
     > **NOTE:** When using multiple providers, the default provider must be set for settings like `unauthenticated_client_action` to work.
     """
-    facebook: NotRequired[pulumi.Input[Optional['SlotAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['SlotAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['SlotAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['SlotAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -33095,7 +33095,7 @@ class SlotAuthSettingsArgsDict(TypedDict):
     """
     Issuer URI. When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['SlotAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['SlotAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -33111,7 +33111,7 @@ class SlotAuthSettingsArgsDict(TypedDict):
     """
     If enabled the module will durably store platform-specific security tokens that are obtained during login flows. Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['SlotAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['SlotAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -33831,7 +33831,7 @@ class SlotIdentityArgs:
 
 
 class SlotLogsArgsDict(TypedDict):
-    application_logs: NotRequired[pulumi.Input[Optional['SlotLogsApplicationLogsArgs']]]
+    application_logs: NotRequired[pulumi.Input[Optional['SlotLogsApplicationLogsArgsDict']]]
     """
     An `application_logs` block as defined below.
     """
@@ -33843,7 +33843,7 @@ class SlotLogsArgsDict(TypedDict):
     """
     Should `Failed request tracing` be enabled on this App Service slot? Defaults to `false`.
     """
-    http_logs: NotRequired[pulumi.Input[Optional['SlotLogsHttpLogsArgs']]]
+    http_logs: NotRequired[pulumi.Input[Optional['SlotLogsHttpLogsArgsDict']]]
     """
     An `http_logs` block as defined below.
     """
@@ -33920,7 +33920,7 @@ class SlotLogsArgs:
 
 
 class SlotLogsApplicationLogsArgsDict(TypedDict):
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['SlotLogsApplicationLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['SlotLogsApplicationLogsAzureBlobStorageArgsDict']]]
     """
     An `azure_blob_storage` block as defined below.
     """
@@ -34041,11 +34041,11 @@ class SlotLogsApplicationLogsAzureBlobStorageArgs:
 
 
 class SlotLogsHttpLogsArgsDict(TypedDict):
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['SlotLogsHttpLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['SlotLogsHttpLogsAzureBlobStorageArgsDict']]]
     """
     An `azure_blob_storage` block as defined below.
     """
-    file_system: NotRequired[pulumi.Input[Optional['SlotLogsHttpLogsFileSystemArgs']]]
+    file_system: NotRequired[pulumi.Input[Optional['SlotLogsHttpLogsFileSystemArgsDict']]]
     """
     A `file_system` block as defined below.
     """
@@ -34214,7 +34214,7 @@ class SlotSiteConfigArgsDict(TypedDict):
     """
     The name of the slot to automatically swap to during deployment
     """
-    cors: NotRequired[pulumi.Input[Optional['SlotSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['SlotSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined below.
     """
@@ -34238,7 +34238,7 @@ class SlotSiteConfigArgsDict(TypedDict):
     """
     Is HTTP2 Enabled on this App Service? Defaults to `false`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SlotSiteConfigIpRestrictionArgsDict']]]]]
     """
     A list of objects representing ip restrictions as defined below.
 
@@ -34296,7 +34296,7 @@ class SlotSiteConfigArgsDict(TypedDict):
     """
     Which version of Visual Studio should the Remote Debugger be compatible with? Currently only `VS2022` is supported.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SlotSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     A list of `scm_ip_restriction` objects representing IP restrictions as defined below.
 
@@ -34931,7 +34931,7 @@ class SlotSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     Does this restriction `Allow` or `Deny` access for this IP range. Defaults to `Allow`.
     """
-    headers: NotRequired[pulumi.Input[Optional['SlotSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['SlotSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific `ip_restriction` as defined below. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
     """
@@ -35175,7 +35175,7 @@ class SlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     Allow or Deny access for this IP range. Defaults to `Allow`.
     """
-    headers: NotRequired[pulumi.Input[Optional['SlotSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['SlotSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     The `headers` block for this specific `scm_ip_restriction` as defined below.
     """
@@ -35588,11 +35588,11 @@ class SlotStorageAccountArgs:
 
 
 class SourceControlGithubActionConfigurationArgsDict(TypedDict):
-    code_configuration: NotRequired[pulumi.Input[Optional['SourceControlGithubActionConfigurationCodeConfigurationArgs']]]
+    code_configuration: NotRequired[pulumi.Input[Optional['SourceControlGithubActionConfigurationCodeConfigurationArgsDict']]]
     """
     A `code_configuration` block as defined above. Changing this forces a new resource to be created.
     """
-    container_configuration: NotRequired[pulumi.Input[Optional['SourceControlGithubActionConfigurationContainerConfigurationArgs']]]
+    container_configuration: NotRequired[pulumi.Input[Optional['SourceControlGithubActionConfigurationContainerConfigurationArgsDict']]]
     """
     A `container_configuration` block as defined above.
     """
@@ -35811,11 +35811,11 @@ class SourceControlGithubActionConfigurationContainerConfigurationArgs:
 
 
 class SourceControlSlotGithubActionConfigurationArgsDict(TypedDict):
-    code_configuration: NotRequired[pulumi.Input[Optional['SourceControlSlotGithubActionConfigurationCodeConfigurationArgs']]]
+    code_configuration: NotRequired[pulumi.Input[Optional['SourceControlSlotGithubActionConfigurationCodeConfigurationArgsDict']]]
     """
     A `code_configuration` block as detailed below. Changing this forces a new resource to be created.
     """
-    container_configuration: NotRequired[pulumi.Input[Optional['SourceControlSlotGithubActionConfigurationContainerConfigurationArgs']]]
+    container_configuration: NotRequired[pulumi.Input[Optional['SourceControlSlotGithubActionConfigurationContainerConfigurationArgsDict']]]
     """
     A `container_configuration` block as detailed below.
     """
@@ -36240,7 +36240,7 @@ class WindowsFunctionAppAuthSettingsArgsDict(TypedDict):
     """
     Should the Authentication / Authorization feature be enabled for the Windows Function App?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsActiveDirectoryArgsDict']]]
     """
     An `active_directory` block as defined above.
     """
@@ -36258,15 +36258,15 @@ class WindowsFunctionAppAuthSettingsArgsDict(TypedDict):
 
     > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
     """
-    facebook: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    github: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsGithubArgs']]]
+    github: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsGithubArgsDict']]]
     """
     A `github` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -36276,7 +36276,7 @@ class WindowsFunctionAppAuthSettingsArgsDict(TypedDict):
 
     > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -36292,7 +36292,7 @@ class WindowsFunctionAppAuthSettingsArgsDict(TypedDict):
     """
     Should the Windows Function App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -37074,11 +37074,11 @@ class WindowsFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     A `login` block as defined below.
     """
-    active_directory_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2Args']]]
+    active_directory_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2ActiveDirectoryV2ArgsDict']]]
     """
     An `active_directory_v2` block as defined below.
     """
-    apple_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2AppleV2Args']]]
+    apple_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2AppleV2ArgsDict']]]
     """
     An `apple_v2` block as defined below.
     """
@@ -37086,7 +37086,7 @@ class WindowsFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     Should the AuthV2 Settings be enabled. Defaults to `false`.
     """
-    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2Args']]]
+    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2AzureStaticWebAppV2ArgsDict']]]
     """
     An `azure_static_web_app_v2` block as defined below.
     """
@@ -37096,7 +37096,7 @@ class WindowsFunctionAppAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** Relative Paths are evaluated from the Site Root directory.
     """
-    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2Args']]]]]
+    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppAuthSettingsV2CustomOidcV2ArgsDict']]]]]
     """
     Zero or more `custom_oidc_v2` blocks as defined below.
     """
@@ -37112,7 +37112,7 @@ class WindowsFunctionAppAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
     """
-    facebook_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2FacebookV2Args']]]
+    facebook_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2FacebookV2ArgsDict']]]
     """
     A `facebook_v2` block as defined below.
     """
@@ -37128,11 +37128,11 @@ class WindowsFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The name of the custom header containing the scheme of the request.
     """
-    github_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2GithubV2Args']]]
+    github_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2GithubV2ArgsDict']]]
     """
     A `github_v2` block as defined below.
     """
-    google_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2GoogleV2Args']]]
+    google_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2GoogleV2ArgsDict']]]
     """
     A `google_v2` block as defined below.
     """
@@ -37140,7 +37140,7 @@ class WindowsFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
     """
-    microsoft_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2MicrosoftV2Args']]]
+    microsoft_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2MicrosoftV2ArgsDict']]]
     """
     A `microsoft_v2` block as defined below.
     """
@@ -37156,7 +37156,7 @@ class WindowsFunctionAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
     """
-    twitter_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2TwitterV2Args']]]
+    twitter_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppAuthSettingsV2TwitterV2ArgsDict']]]
     """
     A `twitter_v2` block as defined below.
     """
@@ -39187,7 +39187,7 @@ class WindowsFunctionAppSiteConfigArgsDict(TypedDict):
     """
     The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
     """
-    app_service_logs: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigAppServiceLogsArgs']]]
+    app_service_logs: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigAppServiceLogsArgsDict']]]
     """
     An `app_service_logs` block as defined above.
     """
@@ -39199,13 +39199,13 @@ class WindowsFunctionAppSiteConfigArgsDict(TypedDict):
     """
     The Instrumentation Key for connecting the Windows Function App to Application Insights.
     """
-    application_stack: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigApplicationStackArgs']]]
+    application_stack: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigApplicationStackArgsDict']]]
     """
     An `application_stack` block as defined above.
 
     > **Note:** If this is set, there must not be an application setting `FUNCTIONS_WORKER_RUNTIME`.
     """
-    cors: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined above.
     """
@@ -39241,7 +39241,7 @@ class WindowsFunctionAppSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgsDict']]]]]
     """
     One or more `ip_restriction` blocks as defined above.
     """
@@ -39279,7 +39279,7 @@ class WindowsFunctionAppSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     One or more `scm_ip_restriction` blocks as defined above.
     """
@@ -40159,7 +40159,7 @@ class WindowsFunctionAppSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -40423,7 +40423,7 @@ class WindowsFunctionAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -40732,7 +40732,7 @@ class WindowsFunctionAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Should the Authentication / Authorization feature be enabled?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsActiveDirectoryArgsDict']]]
     """
     an `active_directory` block as detailed below.
     """
@@ -40750,15 +40750,15 @@ class WindowsFunctionAppSlotAuthSettingsArgsDict(TypedDict):
 
     > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
     """
-    facebook: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsFacebookArgsDict']]]
     """
     a `facebook` block as detailed below.
     """
-    github: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsGithubArgs']]]
+    github: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsGithubArgsDict']]]
     """
     a `github` block as detailed below.
     """
-    google: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsGoogleArgsDict']]]
     """
     a `google` block as detailed below.
     """
@@ -40768,7 +40768,7 @@ class WindowsFunctionAppSlotAuthSettingsArgsDict(TypedDict):
 
     > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsMicrosoftArgsDict']]]
     """
     a `microsoft` block as detailed below.
     """
@@ -40784,7 +40784,7 @@ class WindowsFunctionAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsTwitterArgsDict']]]
     """
     a `twitter` block as detailed below.
     """
@@ -41566,11 +41566,11 @@ class WindowsFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     A `login` block as defined below.
     """
-    active_directory_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2Args']]]
+    active_directory_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict']]]
     """
     An `active_directory_v2` block as defined below.
     """
-    apple_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2AppleV2Args']]]
+    apple_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2AppleV2ArgsDict']]]
     """
     An `apple_v2` block as defined below.
     """
@@ -41578,7 +41578,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     Should the AuthV2 Settings be enabled. Defaults to `false`.
     """
-    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]]
+    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict']]]
     """
     An `azure_static_web_app_v2` block as defined below.
     """
@@ -41588,7 +41588,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** Relative Paths are evaluated from the Site Root directory.
     """
-    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2Args']]]]]
+    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSlotAuthSettingsV2CustomOidcV2ArgsDict']]]]]
     """
     Zero or more `custom_oidc_v2` blocks as defined below.
     """
@@ -41604,7 +41604,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
     """
-    facebook_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args']]]
+    facebook_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2FacebookV2ArgsDict']]]
     """
     A `facebook_v2` block as defined below.
     """
@@ -41620,11 +41620,11 @@ class WindowsFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The name of the custom header containing the scheme of the request.
     """
-    github_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2GithubV2Args']]]
+    github_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2GithubV2ArgsDict']]]
     """
     A `github_v2` block as defined below.
     """
-    google_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2GoogleV2Args']]]
+    google_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2GoogleV2ArgsDict']]]
     """
     A `google_v2` block as defined below.
     """
@@ -41632,7 +41632,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
     """
-    microsoft_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2Args']]]
+    microsoft_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2MicrosoftV2ArgsDict']]]
     """
     A `microsoft_v2` block as defined below.
     """
@@ -41648,7 +41648,7 @@ class WindowsFunctionAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
     """
-    twitter_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2TwitterV2Args']]]
+    twitter_v2: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotAuthSettingsV2TwitterV2ArgsDict']]]
     """
     A `twitter_v2` block as defined below.
     """
@@ -43677,7 +43677,7 @@ class WindowsFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The number of workers this function app can scale out to. Only applicable to apps on the Consumption and Premium plan.
     """
-    app_service_logs: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgs']]]
+    app_service_logs: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigAppServiceLogsArgsDict']]]
     """
     an `app_service_logs` block as detailed below.
     """
@@ -43689,7 +43689,7 @@ class WindowsFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Instrumentation Key for connecting the Windows Function App to Application Insights.
     """
-    application_stack: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigApplicationStackArgs']]]
+    application_stack: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigApplicationStackArgsDict']]]
     """
     an `application_stack` block as detailed below.
     """
@@ -43697,7 +43697,7 @@ class WindowsFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The name of the slot to automatically swap with when this slot is successfully deployed.
     """
-    cors: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigCorsArgsDict']]]
     """
     a `cors` block as detailed below.
     """
@@ -43733,7 +43733,7 @@ class WindowsFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgsDict']]]]]
     """
     an `ip_restriction` block as detailed below.
     """
@@ -43771,7 +43771,7 @@ class WindowsFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     a `scm_ip_restriction` block as detailed below.
     """
@@ -44653,7 +44653,7 @@ class WindowsFunctionAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     a `headers` block as detailed below.
     """
@@ -44917,7 +44917,7 @@ class WindowsFunctionAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['WindowsFunctionAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     a `headers` block as detailed below.
     """
@@ -45523,7 +45523,7 @@ class WindowsWebAppAuthSettingsArgsDict(TypedDict):
     """
     Should the Authentication / Authorization feature is enabled for the Windows Web App be enabled?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsActiveDirectoryArgsDict']]]
     """
     An `active_directory` block as defined above.
     """
@@ -45541,15 +45541,15 @@ class WindowsWebAppAuthSettingsArgsDict(TypedDict):
 
     > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
     """
-    facebook: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    github: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsGithubArgs']]]
+    github: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsGithubArgsDict']]]
     """
     A `github` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -45559,7 +45559,7 @@ class WindowsWebAppAuthSettingsArgsDict(TypedDict):
 
     > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -45575,7 +45575,7 @@ class WindowsWebAppAuthSettingsArgsDict(TypedDict):
     """
     Should the Windows Web App durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -46357,11 +46357,11 @@ class WindowsWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     A `login` block as defined below.
     """
-    active_directory_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2ActiveDirectoryV2Args']]]
+    active_directory_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2ActiveDirectoryV2ArgsDict']]]
     """
     An `active_directory_v2` block as defined below.
     """
-    apple_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2AppleV2Args']]]
+    apple_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2AppleV2ArgsDict']]]
     """
     An `apple_v2` block as defined below.
     """
@@ -46369,7 +46369,7 @@ class WindowsWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     Should the AuthV2 Settings be enabled. Defaults to `false`.
     """
-    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2Args']]]
+    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2AzureStaticWebAppV2ArgsDict']]]
     """
     An `azure_static_web_app_v2` block as defined below.
     """
@@ -46379,7 +46379,7 @@ class WindowsWebAppAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** Relative Paths are evaluated from the Site Root directory.
     """
-    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2Args']]]]]
+    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppAuthSettingsV2CustomOidcV2ArgsDict']]]]]
     """
     Zero or more `custom_oidc_v2` blocks as defined below.
     """
@@ -46395,7 +46395,7 @@ class WindowsWebAppAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
     """
-    facebook_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2FacebookV2Args']]]
+    facebook_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2FacebookV2ArgsDict']]]
     """
     A `facebook_v2` block as defined below.
     """
@@ -46411,11 +46411,11 @@ class WindowsWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The name of the custom header containing the scheme of the request.
     """
-    github_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2GithubV2Args']]]
+    github_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2GithubV2ArgsDict']]]
     """
     A `github_v2` block as defined below.
     """
-    google_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2GoogleV2Args']]]
+    google_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2GoogleV2ArgsDict']]]
     """
     A `google_v2` block as defined below.
     """
@@ -46423,7 +46423,7 @@ class WindowsWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
     """
-    microsoft_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2MicrosoftV2Args']]]
+    microsoft_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2MicrosoftV2ArgsDict']]]
     """
     A `microsoft_v2` block as defined below.
     """
@@ -46439,7 +46439,7 @@ class WindowsWebAppAuthSettingsV2ArgsDict(TypedDict):
     """
     The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
     """
-    twitter_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2TwitterV2Args']]]
+    twitter_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppAuthSettingsV2TwitterV2ArgsDict']]]
     """
     A `twitter_v2` block as defined below.
     """
@@ -48448,7 +48448,7 @@ class WindowsWebAppIdentityArgs:
 
 
 class WindowsWebAppLogsArgsDict(TypedDict):
-    application_logs: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsApplicationLogsArgs']]]
+    application_logs: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsApplicationLogsArgsDict']]]
     """
     A `application_logs` block as defined above.
     """
@@ -48460,7 +48460,7 @@ class WindowsWebAppLogsArgsDict(TypedDict):
     """
     Should tracing be enabled for failed requests.
     """
-    http_logs: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsHttpLogsArgs']]]
+    http_logs: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsHttpLogsArgsDict']]]
     """
     A `http_logs` block as defined above.
     """
@@ -48541,7 +48541,7 @@ class WindowsWebAppLogsApplicationLogsArgsDict(TypedDict):
     """
     Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
     """
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgsDict']]]
     """
     An `azure_blob_storage` block as defined below.
     """
@@ -48657,11 +48657,11 @@ class WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs:
 
 
 class WindowsWebAppLogsHttpLogsArgsDict(TypedDict):
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsHttpLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsHttpLogsAzureBlobStorageArgsDict']]]
     """
     A `azure_blob_storage_http` block as defined below.
     """
-    file_system: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsHttpLogsFileSystemArgs']]]
+    file_system: NotRequired[pulumi.Input[Optional['WindowsWebAppLogsHttpLogsFileSystemArgsDict']]]
     """
     A `file_system` block as defined above.
     """
@@ -48825,11 +48825,11 @@ class WindowsWebAppSiteConfigArgsDict(TypedDict):
     """
     The App command line to launch.
     """
-    application_stack: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigApplicationStackArgs']]]
+    application_stack: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigApplicationStackArgsDict']]]
     """
     A `application_stack` block as defined above.
     """
-    auto_heal_setting: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigAutoHealSettingArgs']]]
+    auto_heal_setting: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigAutoHealSettingArgsDict']]]
     """
     A `auto_heal_setting` block as defined above. Required with `auto_heal`.
     """
@@ -48841,7 +48841,7 @@ class WindowsWebAppSiteConfigArgsDict(TypedDict):
     """
     Should connections for Azure Container Registry use Managed Identity.
     """
-    cors: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined above.
     """
@@ -48856,7 +48856,7 @@ class WindowsWebAppSiteConfigArgsDict(TypedDict):
 
     > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
     """
-    handler_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigHandlerMappingArgs']]]]]
+    handler_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigHandlerMappingArgsDict']]]]]
     """
     One or more `handler_mapping` blocks as defined below.
     """
@@ -48876,7 +48876,7 @@ class WindowsWebAppSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigIpRestrictionArgsDict']]]]]
     """
     One or more `ip_restriction` blocks as defined above.
     """
@@ -48909,7 +48909,7 @@ class WindowsWebAppSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     One or more `scm_ip_restriction` blocks as defined above.
     """
@@ -48926,7 +48926,7 @@ class WindowsWebAppSiteConfigArgsDict(TypedDict):
     """
     Should the Windows Web App use a 32-bit worker. Defaults to `true`.
     """
-    virtual_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgs']]]]]
+    virtual_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationArgsDict']]]]]
     """
     One or more `virtual_application` blocks as defined below.
     """
@@ -49949,7 +49949,7 @@ class WindowsWebAppSiteConfigAutoHealSettingActionArgsDict(TypedDict):
     """
     Predefined action to be taken to an Auto Heal trigger. Possible values include: `Recycle`, `LogEvent`, and `CustomAction`.
     """
-    custom_action: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgs']]]
+    custom_action: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigAutoHealSettingActionCustomActionArgsDict']]]
     """
     A `custom_action` block as defined below.
     """
@@ -50065,19 +50065,19 @@ class WindowsWebAppSiteConfigAutoHealSettingTriggerArgsDict(TypedDict):
     """
     The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
     """
-    requests: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgs']]]
+    requests: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigAutoHealSettingTriggerRequestsArgsDict']]]
     """
     A `requests` block as defined above.
     """
-    slow_request: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]
+    slow_request: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]
     """
     A `slow_request` block as defined above.
     """
-    slow_request_with_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]]
+    slow_request_with_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]]
     """
     One or more `slow_request_with_path` blocks as defined above.
     """
-    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]]
+    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]]
     """
     One or more `status_code` blocks as defined above.
     """
@@ -50619,7 +50619,7 @@ class WindowsWebAppSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -50883,7 +50883,7 @@ class WindowsWebAppSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['WindowsWebAppSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -51151,7 +51151,7 @@ class WindowsWebAppSiteConfigVirtualApplicationArgsDict(TypedDict):
     """
     The Virtual Path for the Virtual Application.
     """
-    virtual_directories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]]
+    virtual_directories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSiteConfigVirtualApplicationVirtualDirectoryArgsDict']]]]]
     """
     One or more `virtual_directory` blocks as defined below.
     """
@@ -51327,7 +51327,7 @@ class WindowsWebAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Should the Authentication / Authorization feature be enabled for the Windows Web App?
     """
-    active_directory: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsActiveDirectoryArgs']]]
+    active_directory: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsActiveDirectoryArgsDict']]]
     """
     An `active_directory` block as defined above.
     """
@@ -51345,15 +51345,15 @@ class WindowsWebAppSlotAuthSettingsArgsDict(TypedDict):
 
     > **Note:** This setting is only needed if multiple providers are configured, and the `unauthenticated_client_action` is set to "RedirectToLoginPage".
     """
-    facebook: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsFacebookArgs']]]
+    facebook: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsFacebookArgsDict']]]
     """
     A `facebook` block as defined below.
     """
-    github: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsGithubArgs']]]
+    github: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsGithubArgsDict']]]
     """
     A `github` block as defined below.
     """
-    google: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsGoogleArgs']]]
+    google: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsGoogleArgsDict']]]
     """
     A `google` block as defined below.
     """
@@ -51363,7 +51363,7 @@ class WindowsWebAppSlotAuthSettingsArgsDict(TypedDict):
 
     > **Note:** When using Azure Active Directory, this value is the URI of the directory tenant, e.g. <https://sts.windows.net/{tenant-guid}/>.
     """
-    microsoft: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsMicrosoftArgs']]]
+    microsoft: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsMicrosoftArgsDict']]]
     """
     A `microsoft` block as defined below.
     """
@@ -51379,7 +51379,7 @@ class WindowsWebAppSlotAuthSettingsArgsDict(TypedDict):
     """
     Should the Windows Web App Slot durably store platform-specific security tokens that are obtained during login flows? Defaults to `false`.
     """
-    twitter: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsTwitterArgs']]]
+    twitter: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsTwitterArgsDict']]]
     """
     A `twitter` block as defined below.
     """
@@ -52161,11 +52161,11 @@ class WindowsWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     A `login` block as defined below.
     """
-    active_directory_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2Args']]]
+    active_directory_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2ActiveDirectoryV2ArgsDict']]]
     """
     An `active_directory_v2` block as defined below.
     """
-    apple_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2AppleV2Args']]]
+    apple_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2AppleV2ArgsDict']]]
     """
     An `apple_v2` block as defined below.
     """
@@ -52173,7 +52173,7 @@ class WindowsWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     Should the AuthV2 Settings be enabled. Defaults to `false`.
     """
-    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2Args']]]
+    azure_static_web_app_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2AzureStaticWebAppV2ArgsDict']]]
     """
     An `azure_static_web_app_v2` block as defined below.
     """
@@ -52183,7 +52183,7 @@ class WindowsWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** Relative Paths are evaluated from the Site Root directory.
     """
-    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2Args']]]]]
+    custom_oidc_v2s: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotAuthSettingsV2CustomOidcV2ArgsDict']]]]]
     """
     Zero or more `custom_oidc_v2` blocks as defined below.
     """
@@ -52199,7 +52199,7 @@ class WindowsWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
 
     > **Note:** This list should be used instead of setting `WEBSITE_WARMUP_PATH` in `app_settings` as it takes priority.
     """
-    facebook_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2FacebookV2Args']]]
+    facebook_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2FacebookV2ArgsDict']]]
     """
     A `facebook_v2` block as defined below.
     """
@@ -52215,11 +52215,11 @@ class WindowsWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The name of the custom header containing the scheme of the request.
     """
-    github_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2GithubV2Args']]]
+    github_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2GithubV2ArgsDict']]]
     """
     A `github_v2` block as defined below.
     """
-    google_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2GoogleV2Args']]]
+    google_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2GoogleV2ArgsDict']]]
     """
     A `google_v2` block as defined below.
     """
@@ -52227,7 +52227,7 @@ class WindowsWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The prefix that should precede all the authentication and authorisation paths. Defaults to `/.auth`.
     """
-    microsoft_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2MicrosoftV2Args']]]
+    microsoft_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2MicrosoftV2ArgsDict']]]
     """
     A `microsoft_v2` block as defined below.
     """
@@ -52243,7 +52243,7 @@ class WindowsWebAppSlotAuthSettingsV2ArgsDict(TypedDict):
     """
     The Runtime Version of the Authentication and Authorisation feature of this App. Defaults to `~1`.
     """
-    twitter_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2TwitterV2Args']]]
+    twitter_v2: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotAuthSettingsV2TwitterV2ArgsDict']]]
     """
     A `twitter_v2` block as defined below.
     """
@@ -54252,7 +54252,7 @@ class WindowsWebAppSlotIdentityArgs:
 
 
 class WindowsWebAppSlotLogsArgsDict(TypedDict):
-    application_logs: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsApplicationLogsArgs']]]
+    application_logs: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsApplicationLogsArgsDict']]]
     """
     A `application_logs` block as defined above.
     """
@@ -54264,7 +54264,7 @@ class WindowsWebAppSlotLogsArgsDict(TypedDict):
     """
     Should failed request tracing be enabled.
     """
-    http_logs: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsHttpLogsArgs']]]
+    http_logs: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsHttpLogsArgsDict']]]
     """
     An `http_logs` block as defined above.
     """
@@ -54345,7 +54345,7 @@ class WindowsWebAppSlotLogsApplicationLogsArgsDict(TypedDict):
     """
     Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
     """
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgsDict']]]
     """
     An `azure_blob_storage` block as defined below.
     """
@@ -54461,11 +54461,11 @@ class WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs:
 
 
 class WindowsWebAppSlotLogsHttpLogsArgsDict(TypedDict):
-    azure_blob_storage: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgs']]]
+    azure_blob_storage: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsHttpLogsAzureBlobStorageArgsDict']]]
     """
     A `azure_blob_storage_http` block as defined above.
     """
-    file_system: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsHttpLogsFileSystemArgs']]]
+    file_system: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotLogsHttpLogsFileSystemArgsDict']]]
     """
     A `file_system` block as defined above.
     """
@@ -54627,11 +54627,11 @@ class WindowsWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     The App command line to launch.
     """
-    application_stack: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigApplicationStackArgs']]]
+    application_stack: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigApplicationStackArgsDict']]]
     """
     A `application_stack` block as defined above.
     """
-    auto_heal_setting: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigAutoHealSettingArgs']]]
+    auto_heal_setting: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigAutoHealSettingArgsDict']]]
     """
     A `auto_heal_setting` block as defined above. Required with `auto_heal`.
     """
@@ -54649,7 +54649,7 @@ class WindowsWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     Should connections for Azure Container Registry use Managed Identity.
     """
-    cors: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigCorsArgs']]]
+    cors: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigCorsArgsDict']]]
     """
     A `cors` block as defined above.
     """
@@ -54664,7 +54664,7 @@ class WindowsWebAppSlotSiteConfigArgsDict(TypedDict):
 
     > **Note:** Azure defaults this value to `AllAllowed`, however, in the interests of security Terraform will default this to `Disabled` to ensure the user makes a conscious choice to enable it.
     """
-    handler_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigHandlerMappingArgs']]]]]
+    handler_mappings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigHandlerMappingArgsDict']]]]]
     """
     One or more `handler_mapping` blocks as defined below.
     """
@@ -54684,7 +54684,7 @@ class WindowsWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgs']]]]]
+    ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigIpRestrictionArgsDict']]]]]
     """
     One or more `ip_restriction` blocks as defined above.
     """
@@ -54716,7 +54716,7 @@ class WindowsWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Default action for traffic that does not match any `scm_ip_restriction` rule. possible values include `Allow` and `Deny`. Defaults to `Allow`.
     """
-    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgs']]]]]
+    scm_ip_restrictions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigScmIpRestrictionArgsDict']]]]]
     """
     One or more `scm_ip_restriction` blocks as defined above.
     """
@@ -54733,7 +54733,7 @@ class WindowsWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     Should the Windows Web App Slot use a 32-bit worker. The default value varies from different service plans.
     """
-    virtual_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgs']]]]]
+    virtual_applications: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationArgsDict']]]]]
     """
     One or more `virtual_application` blocks as defined below.
     """
@@ -55721,7 +55721,7 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingActionArgsDict(TypedDict):
     """
     Predefined action to be taken to an Auto Heal trigger. Possible values are `CustomAction`, `LogEvent` and `Recycle`.
     """
-    custom_action: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgs']]]
+    custom_action: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigAutoHealSettingActionCustomActionArgsDict']]]
     """
     A `custom_action` block as defined below.
     """
@@ -55837,19 +55837,19 @@ class WindowsWebAppSlotSiteConfigAutoHealSettingTriggerArgsDict(TypedDict):
     """
     The amount of Private Memory to be consumed for this rule to trigger. Possible values are between `102400` and `13631488`.
     """
-    requests: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgs']]]
+    requests: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerRequestsArgsDict']]]
     """
     A `requests` block as defined above.
     """
-    slow_request: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgs']]]
+    slow_request: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestArgsDict']]]
     """
     A `slow_request` block as defined above.
     """
-    slow_request_with_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgs']]]]]
+    slow_request_with_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerSlowRequestWithPathArgsDict']]]]]
     """
     One or more `slow_request_with_path` blocks as defined above.
     """
-    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgs']]]]]
+    status_codes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigAutoHealSettingTriggerStatusCodeArgsDict']]]]]
     """
     One or more `status_code` blocks as defined above.
     """
@@ -56391,7 +56391,7 @@ class WindowsWebAppSlotSiteConfigIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -56655,7 +56655,7 @@ class WindowsWebAppSlotSiteConfigScmIpRestrictionArgsDict(TypedDict):
     """
     The Description of this IP Restriction.
     """
-    headers: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgs']]]
+    headers: NotRequired[pulumi.Input[Optional['WindowsWebAppSlotSiteConfigScmIpRestrictionHeadersArgsDict']]]
     """
     A `headers` block as defined above.
     """
@@ -56923,7 +56923,7 @@ class WindowsWebAppSlotSiteConfigVirtualApplicationArgsDict(TypedDict):
     """
     The Virtual Path for the Virtual Application.
     """
-    virtual_directories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgs']]]]]
+    virtual_directories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['WindowsWebAppSlotSiteConfigVirtualApplicationVirtualDirectoryArgsDict']]]]]
     """
     One or more `virtual_directory` blocks as defined below.
     """

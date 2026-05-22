@@ -38,7 +38,7 @@ __all__ = [
 ]
 
 class ConfigurationAntimalwareArgsDict(TypedDict):
-    exclusions: NotRequired[pulumi.Input[Optional['ConfigurationAntimalwareExclusionsArgs']]]
+    exclusions: NotRequired[pulumi.Input[Optional['ConfigurationAntimalwareExclusionsArgsDict']]]
     """
     A `exclusions` block as defined below.
     """
@@ -273,11 +273,11 @@ class ConfigurationBackupArgsDict(TypedDict):
     """
     The name of the backup policy.
     """
-    retention_policy: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyArgs']]]
+    retention_policy: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyArgsDict']]]
     """
     A `retention_policy` block as defined below.
     """
-    schedule_policy: NotRequired[pulumi.Input[Optional['ConfigurationBackupSchedulePolicyArgs']]]
+    schedule_policy: NotRequired[pulumi.Input[Optional['ConfigurationBackupSchedulePolicyArgsDict']]]
     """
     A `schedule_policy` block as defined below.
     """
@@ -374,7 +374,7 @@ class ConfigurationBackupArgs:
 
 
 class ConfigurationBackupRetentionPolicyArgsDict(TypedDict):
-    daily_schedule: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyDailyScheduleArgs']]]
+    daily_schedule: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyDailyScheduleArgsDict']]]
     """
     A `daily_schedule` block as defined below.
     """
@@ -382,7 +382,7 @@ class ConfigurationBackupRetentionPolicyArgsDict(TypedDict):
     """
     The retention policy type of the backup policy. Possible value is `LongTermRetentionPolicy`. Defaults to `LongTermRetentionPolicy`.
     """
-    weekly_schedule: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyWeeklyScheduleArgs']]]
+    weekly_schedule: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyWeeklyScheduleArgsDict']]]
     """
     A `weekly_schedule` block as defined below.
     """
@@ -443,7 +443,7 @@ class ConfigurationBackupRetentionPolicyArgs:
 
 
 class ConfigurationBackupRetentionPolicyDailyScheduleArgsDict(TypedDict):
-    retention_duration: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs']]]
+    retention_duration: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgsDict']]]
     """
     A `retention_duration` block as defined below.
     """
@@ -541,7 +541,7 @@ class ConfigurationBackupRetentionPolicyDailyScheduleRetentionDurationArgs:
 
 
 class ConfigurationBackupRetentionPolicyWeeklyScheduleArgsDict(TypedDict):
-    retention_duration: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgs']]]
+    retention_duration: NotRequired[pulumi.Input[Optional['ConfigurationBackupRetentionPolicyWeeklyScheduleRetentionDurationArgsDict']]]
     """
     A `retention_duration` block as defined below.
     """

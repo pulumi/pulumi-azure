@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  *     name: "CustomRoleDef",
  *     scope: primary.then(primary => primary.id),
  * });
- * const custom = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinitionOutput({
- *     roleDefinitionId: roleDefinitionId,
- *     scope: primary.id,
- * }));
- * const custom_byname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinitionOutput({
- *     name: name,
- *     scope: primary.id,
- * }));
+ * const custom = azure.authorization.getRoleDefinitionOutput({
+ *     roleDefinitionId: customRoleDefinition.roleDefinitionId,
+ *     scope: primary.then(primary => primary.id),
+ * });
+ * const custom_byname = azure.authorization.getRoleDefinitionOutput({
+ *     name: customRoleDefinition.name,
+ *     scope: primary.then(primary => primary.id),
+ * });
  * const builtin = azure.authorization.getRoleDefinition({
  *     name: "Contributor",
  * });
@@ -120,14 +120,14 @@ export interface GetRoleDefinitionResult {
  *     name: "CustomRoleDef",
  *     scope: primary.then(primary => primary.id),
  * });
- * const custom = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinitionOutput({
- *     roleDefinitionId: roleDefinitionId,
- *     scope: primary.id,
- * }));
- * const custom_byname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinitionOutput({
- *     name: name,
- *     scope: primary.id,
- * }));
+ * const custom = azure.authorization.getRoleDefinitionOutput({
+ *     roleDefinitionId: customRoleDefinition.roleDefinitionId,
+ *     scope: primary.then(primary => primary.id),
+ * });
+ * const custom_byname = azure.authorization.getRoleDefinitionOutput({
+ *     name: customRoleDefinition.name,
+ *     scope: primary.then(primary => primary.id),
+ * });
  * const builtin = azure.authorization.getRoleDefinition({
  *     name: "Contributor",
  * });

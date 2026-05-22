@@ -42,12 +42,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example := exampleResourceGroup.Name.ApplyT(func(name string) (arcmachine.GetResult, error) {
-//				return arcmachine.GetResult(interface{}(arcmachine.Get(ctx, &arcmachine.GetArgs{
-//					Name:              arcMachineName,
-//					ResourceGroupName: name,
-//				}, nil))), nil
-//			}).(arcmachine.GetResultOutput)
+//			example := arcmachine.GetOutput(ctx, arcmachine.GetOutputArgs{
+//				Name:              pulumi.Any(arcMachineName),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
 //			exampleConfiguration, err := automanage.NewConfiguration(ctx, "example", &automanage.ConfigurationArgs{
 //				Name:              pulumi.String("example-configuration"),
 //				ResourceGroupName: exampleResourceGroup.Name,

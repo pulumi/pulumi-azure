@@ -283,7 +283,7 @@ class ApiDiagnosticBackendRequestArgsDict(TypedDict):
     """
     Number of payload bytes to log (up to 8192).
     """
-    data_masking: NotRequired[pulumi.Input[Optional['ApiDiagnosticBackendRequestDataMaskingArgs']]]
+    data_masking: NotRequired[pulumi.Input[Optional['ApiDiagnosticBackendRequestDataMaskingArgsDict']]]
     """
     A `data_masking` block as defined below.
     """
@@ -348,11 +348,11 @@ class ApiDiagnosticBackendRequestArgs:
 
 
 class ApiDiagnosticBackendRequestDataMaskingArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingHeaderArgsDict']]]]]
     """
     A `headers` block as defined below.
     """
-    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgs']]]]]
+    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticBackendRequestDataMaskingQueryParamArgsDict']]]]]
     """
     A `query_params` block as defined below.
     """
@@ -495,7 +495,7 @@ class ApiDiagnosticBackendResponseArgsDict(TypedDict):
     """
     Number of payload bytes to log (up to 8192).
     """
-    data_masking: NotRequired[pulumi.Input[Optional['ApiDiagnosticBackendResponseDataMaskingArgs']]]
+    data_masking: NotRequired[pulumi.Input[Optional['ApiDiagnosticBackendResponseDataMaskingArgsDict']]]
     """
     A `data_masking` block as defined below.
     """
@@ -560,11 +560,11 @@ class ApiDiagnosticBackendResponseArgs:
 
 
 class ApiDiagnosticBackendResponseDataMaskingArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingHeaderArgsDict']]]]]
     """
     A `headers` block as defined below.
     """
-    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgs']]]]]
+    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticBackendResponseDataMaskingQueryParamArgsDict']]]]]
     """
     A `query_params` block as defined below.
     """
@@ -707,7 +707,7 @@ class ApiDiagnosticFrontendRequestArgsDict(TypedDict):
     """
     Number of payload bytes to log (up to 8192).
     """
-    data_masking: NotRequired[pulumi.Input[Optional['ApiDiagnosticFrontendRequestDataMaskingArgs']]]
+    data_masking: NotRequired[pulumi.Input[Optional['ApiDiagnosticFrontendRequestDataMaskingArgsDict']]]
     """
     A `data_masking` block as defined below.
     """
@@ -772,11 +772,11 @@ class ApiDiagnosticFrontendRequestArgs:
 
 
 class ApiDiagnosticFrontendRequestDataMaskingArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingHeaderArgsDict']]]]]
     """
     A `headers` block as defined below.
     """
-    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]]
+    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticFrontendRequestDataMaskingQueryParamArgsDict']]]]]
     """
     A `query_params` block as defined below.
     """
@@ -919,7 +919,7 @@ class ApiDiagnosticFrontendResponseArgsDict(TypedDict):
     """
     Number of payload bytes to log (up to 8192).
     """
-    data_masking: NotRequired[pulumi.Input[Optional['ApiDiagnosticFrontendResponseDataMaskingArgs']]]
+    data_masking: NotRequired[pulumi.Input[Optional['ApiDiagnosticFrontendResponseDataMaskingArgsDict']]]
     """
     A `data_masking` block as defined below.
     """
@@ -984,11 +984,11 @@ class ApiDiagnosticFrontendResponseArgs:
 
 
 class ApiDiagnosticFrontendResponseDataMaskingArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingHeaderArgsDict']]]]]
     """
     A `headers` block as defined below.
     """
-    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]]
+    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiDiagnosticFrontendResponseDataMaskingQueryParamArgsDict']]]]]
     """
     A `query_params` block as defined below.
     """
@@ -1135,7 +1135,7 @@ class ApiImportArgsDict(TypedDict):
     """
     The Content from which the API Definition should be imported. When a `content_format` of `*-link-*` is specified this must be a URL, otherwise this must be defined inline. The URL must be accessible and return a valid document; otherwise, deployment may fail.
     """
-    wsdl_selector: NotRequired[pulumi.Input[Optional['ApiImportWsdlSelectorArgs']]]
+    wsdl_selector: NotRequired[pulumi.Input[Optional['ApiImportWsdlSelectorArgsDict']]]
     """
     A `wsdl_selector` block as defined below, which allows you to limit the import of a WSDL to only a subset of the document. This can only be specified when `content_format` is `wsdl` or `wsdl-link`.
     """
@@ -1390,15 +1390,15 @@ class ApiOperationRequestArgsDict(TypedDict):
     """
     A description of the HTTP Request, which may include HTML tags.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestHeaderArgsDict']]]]]
     """
     One or more `header` blocks as defined above.
     """
-    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgs']]]]]
+    query_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestQueryParameterArgsDict']]]]]
     """
     One or more `query_parameter` blocks as defined above.
     """
-    representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgs']]]]]
+    representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestRepresentationArgsDict']]]]]
     """
     One or more `representation` blocks as defined below.
     """
@@ -1495,7 +1495,7 @@ class ApiOperationRequestHeaderArgsDict(TypedDict):
     """
     A description of this Header.
     """
-    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgs']]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestHeaderExampleArgsDict']]]]]
     """
     One or more `example` blocks as defined above.
     """
@@ -1789,7 +1789,7 @@ class ApiOperationRequestQueryParameterArgsDict(TypedDict):
     """
     A description of this Query Parameter.
     """
-    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArgs']]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestQueryParameterExampleArgsDict']]]]]
     """
     One or more `example` blocks as defined above.
     """
@@ -2067,11 +2067,11 @@ class ApiOperationRequestRepresentationArgsDict(TypedDict):
     """
     The Content Type of this representation, such as `application/json`.
     """
-    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArgs']]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestRepresentationExampleArgsDict']]]]]
     """
     One or more `example` blocks as defined above.
     """
-    form_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgs']]]]]
+    form_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterArgsDict']]]]]
     """
     One or more `form_parameter` block as defined above.
 
@@ -2317,7 +2317,7 @@ class ApiOperationRequestRepresentationFormParameterArgsDict(TypedDict):
     """
     A description of this Form Parameter.
     """
-    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArgs']]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationRequestRepresentationFormParameterExampleArgsDict']]]]]
     """
     One or more `example` blocks as defined above.
     """
@@ -2599,11 +2599,11 @@ class ApiOperationResponseArgsDict(TypedDict):
     """
     A description of the HTTP Response, which may include HTML tags.
     """
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseHeaderArgsDict']]]]]
     """
     One or more `header` blocks as defined above.
     """
-    representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgs']]]]]
+    representations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseRepresentationArgsDict']]]]]
     """
     One or more `representation` blocks as defined above.
     """
@@ -2699,7 +2699,7 @@ class ApiOperationResponseHeaderArgsDict(TypedDict):
     """
     A description of this Header.
     """
-    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgs']]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseHeaderExampleArgsDict']]]]]
     """
     One or more `example` blocks as defined above.
     """
@@ -2977,11 +2977,11 @@ class ApiOperationResponseRepresentationArgsDict(TypedDict):
     """
     The Content Type of this representation, such as `application/json`.
     """
-    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArgs']]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseRepresentationExampleArgsDict']]]]]
     """
     One or more `example` blocks as defined above.
     """
-    form_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgs']]]]]
+    form_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterArgsDict']]]]]
     """
     One or more `form_parameter` block as defined above.
 
@@ -3227,7 +3227,7 @@ class ApiOperationResponseRepresentationFormParameterArgsDict(TypedDict):
     """
     A description of this Form Parameter.
     """
-    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArgs']]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationResponseRepresentationFormParameterExampleArgsDict']]]]]
     """
     One or more `example` blocks as defined above.
     """
@@ -3521,7 +3521,7 @@ class ApiOperationTemplateParameterArgsDict(TypedDict):
     """
     A description of this Template Parameter.
     """
-    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArgs']]]]]
+    examples: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApiOperationTemplateParameterExampleArgsDict']]]]]
     """
     One or more `example` blocks as defined above.
     """
@@ -3993,7 +3993,7 @@ class BackendCircuitBreakerRuleFailureConditionArgsDict(TypedDict):
 
     > **Note:** Exactly one of `percentage` or `count` must be specified.
     """
-    status_code_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs']]]]]
+    status_code_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgsDict']]]]]
     """
     One or more `status_code_range` blocks as defined below.
 
@@ -4142,7 +4142,7 @@ class BackendCircuitBreakerRuleFailureConditionStatusCodeRangeArgs:
 
 
 class BackendCredentialsArgsDict(TypedDict):
-    authorization: NotRequired[pulumi.Input[Optional['BackendCredentialsAuthorizationArgs']]]
+    authorization: NotRequired[pulumi.Input[Optional['BackendCredentialsAuthorizationArgsDict']]]
     """
     An `authorization` block as defined below.
     """
@@ -4369,7 +4369,7 @@ class BackendServiceFabricClusterArgsDict(TypedDict):
     """
     A list of thumbprints of the server certificates of the Service Fabric cluster.
     """
-    server_x509_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgs']]]]]
+    server_x509_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BackendServiceFabricClusterServerX509NameArgsDict']]]]]
     """
     One or more `server_x509_name` blocks as documented below.
     """
@@ -5680,7 +5680,7 @@ class DiagnosticBackendRequestArgsDict(TypedDict):
     """
     Number of payload bytes to log (up to 8192).
     """
-    data_masking: NotRequired[pulumi.Input[Optional['DiagnosticBackendRequestDataMaskingArgs']]]
+    data_masking: NotRequired[pulumi.Input[Optional['DiagnosticBackendRequestDataMaskingArgsDict']]]
     """
     A `data_masking` block as defined below.
     """
@@ -5745,11 +5745,11 @@ class DiagnosticBackendRequestArgs:
 
 
 class DiagnosticBackendRequestDataMaskingArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingHeaderArgsDict']]]]]
     """
     A `headers` block as defined below.
     """
-    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgs']]]]]
+    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticBackendRequestDataMaskingQueryParamArgsDict']]]]]
     """
     A `query_params` block as defined below.
     """
@@ -5892,7 +5892,7 @@ class DiagnosticBackendResponseArgsDict(TypedDict):
     """
     Number of payload bytes to log (up to 8192).
     """
-    data_masking: NotRequired[pulumi.Input[Optional['DiagnosticBackendResponseDataMaskingArgs']]]
+    data_masking: NotRequired[pulumi.Input[Optional['DiagnosticBackendResponseDataMaskingArgsDict']]]
     """
     A `data_masking` block as defined below.
     """
@@ -5957,11 +5957,11 @@ class DiagnosticBackendResponseArgs:
 
 
 class DiagnosticBackendResponseDataMaskingArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingHeaderArgsDict']]]]]
     """
     A `headers` block as defined below.
     """
-    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgs']]]]]
+    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticBackendResponseDataMaskingQueryParamArgsDict']]]]]
     """
     A `query_params` block as defined below.
     """
@@ -6104,7 +6104,7 @@ class DiagnosticFrontendRequestArgsDict(TypedDict):
     """
     Number of payload bytes to log (up to 8192).
     """
-    data_masking: NotRequired[pulumi.Input[Optional['DiagnosticFrontendRequestDataMaskingArgs']]]
+    data_masking: NotRequired[pulumi.Input[Optional['DiagnosticFrontendRequestDataMaskingArgsDict']]]
     """
     A `data_masking` block as defined below.
     """
@@ -6169,11 +6169,11 @@ class DiagnosticFrontendRequestArgs:
 
 
 class DiagnosticFrontendRequestDataMaskingArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingHeaderArgsDict']]]]]
     """
     A `headers` block as defined below.
     """
-    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgs']]]]]
+    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticFrontendRequestDataMaskingQueryParamArgsDict']]]]]
     """
     A `query_params` block as defined below.
     """
@@ -6316,7 +6316,7 @@ class DiagnosticFrontendResponseArgsDict(TypedDict):
     """
     Number of payload bytes to log (up to 8192).
     """
-    data_masking: NotRequired[pulumi.Input[Optional['DiagnosticFrontendResponseDataMaskingArgs']]]
+    data_masking: NotRequired[pulumi.Input[Optional['DiagnosticFrontendResponseDataMaskingArgsDict']]]
     """
     A `data_masking` block as defined below.
     """
@@ -6381,11 +6381,11 @@ class DiagnosticFrontendResponseArgs:
 
 
 class DiagnosticFrontendResponseDataMaskingArgsDict(TypedDict):
-    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgs']]]]]
+    headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingHeaderArgsDict']]]]]
     """
     A `headers` block as defined below.
     """
-    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgs']]]]]
+    query_params: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticFrontendResponseDataMaskingQueryParamArgsDict']]]]]
     """
     A `query_params` block as defined below.
     """
@@ -6839,7 +6839,7 @@ class ServiceAdditionalLocationArgsDict(TypedDict):
     """
     Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard and Premium SKU.
     """
-    virtual_network_configuration: NotRequired[pulumi.Input[Optional['ServiceAdditionalLocationVirtualNetworkConfigurationArgs']]]
+    virtual_network_configuration: NotRequired[pulumi.Input[Optional['ServiceAdditionalLocationVirtualNetworkConfigurationArgsDict']]]
     """
     A `virtual_network_configuration` block as defined below. Required when `virtual_network_type` is `External` or `Internal`.
     """
@@ -7247,23 +7247,23 @@ class ServiceDelegationArgs:
 
 
 class ServiceHostnameConfigurationArgsDict(TypedDict):
-    developer_portals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgs']]]]]
+    developer_portals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationDeveloperPortalArgsDict']]]]]
     """
     One or more `developer_portal` blocks as documented below.
     """
-    managements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgs']]]]]
+    managements: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationManagementArgsDict']]]]]
     """
     One or more `management` blocks as documented below.
     """
-    portals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgs']]]]]
+    portals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationPortalArgsDict']]]]]
     """
     One or more `portal` blocks as documented below.
     """
-    proxies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgs']]]]]
+    proxies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationProxyArgsDict']]]]]
     """
     One or more `proxy` blocks as documented below.
     """
-    scms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgs']]]]]
+    scms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceHostnameConfigurationScmArgsDict']]]]]
     """
     One or more `scm` blocks as documented below.
     """

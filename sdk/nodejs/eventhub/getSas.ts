@@ -45,10 +45,10 @@ import * as utilities from "../utilities";
  *     eventhubName: exampleEventHub.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleGetSas = example.apply(example => azure.eventhub.getSasOutput({
- *     connectionString: example.primaryConnectionString,
+ * const exampleGetSas = azure.eventhub.getSasOutput({
+ *     connectionString: example.apply(example => example.primaryConnectionString),
  *     expiry: "2023-06-23T00:00:00Z",
- * }));
+ * });
  * ```
  */
 export function getSas(args: GetSasArgs, opts?: pulumi.InvokeOptions): Promise<GetSasResult> {
@@ -129,10 +129,10 @@ export interface GetSasResult {
  *     eventhubName: exampleEventHub.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleGetSas = example.apply(example => azure.eventhub.getSasOutput({
- *     connectionString: example.primaryConnectionString,
+ * const exampleGetSas = azure.eventhub.getSasOutput({
+ *     connectionString: example.apply(example => example.primaryConnectionString),
  *     expiry: "2023-06-23T00:00:00Z",
- * }));
+ * });
  * ```
  */
 export function getSasOutput(args: GetSasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSasResult> {

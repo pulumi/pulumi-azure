@@ -1867,10 +1867,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(_example.primaryConnectionString())
+     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(example.applyValue(_example -> _example.primaryConnectionString()))
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1954,10 +1954,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(_example.primaryConnectionString())
+     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(example.applyValue(_example -> _example.primaryConnectionString()))
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2041,10 +2041,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(_example.primaryConnectionString())
+     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(example.applyValue(_example -> _example.primaryConnectionString()))
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2128,10 +2128,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(_example.primaryConnectionString())
+     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(example.applyValue(_example -> _example.primaryConnectionString()))
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2215,10 +2215,10 @@ public final class EventhubFunctions {
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
-     *         final var exampleGetSas = example.applyValue(_example -> EventhubFunctions.getSas(GetSasArgs.builder()
-     *             .connectionString(_example.primaryConnectionString())
+     *         final var exampleGetSas = EventhubFunctions.getSas(GetSasArgs.builder()
+     *             .connectionString(example.applyValue(_example -> _example.primaryConnectionString()))
      *             .expiry("2023-06-23T00:00:00Z")
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

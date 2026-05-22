@@ -232,10 +232,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_1.name())
  *             .remoteVirtualNetworkId(example_2.id())
- *             .triggers(Map.of("remote_address_space", example_2.addressSpaces().applyValue(_addressSpaces -> StdFunctions.join(JoinArgs.builder()
+ *             .triggers(Map.of("remote_address_space", StdFunctions.join(JoinArgs.builder()
  *                 .separator(",")
- *                 .input(_addressSpaces)
- *                 .build())).applyValue(_invoke -> _invoke.result())))
+ *                 .input(example_2.addressSpaces())
+ *                 .build()).applyValue(_invoke -> _invoke.result())))
  *             .build());
  * 
  *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering("example-2VirtualNetworkPeering", VirtualNetworkPeeringArgs.builder()
@@ -243,10 +243,10 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(example_2.name())
  *             .remoteVirtualNetworkId(example_1.id())
- *             .triggers(Map.of("remote_address_space", example_1.addressSpaces().applyValue(_addressSpaces -> StdFunctions.join(JoinArgs.builder()
+ *             .triggers(Map.of("remote_address_space", StdFunctions.join(JoinArgs.builder()
  *                 .separator(",")
- *                 .input(_addressSpaces)
- *                 .build())).applyValue(_invoke -> _invoke.result())))
+ *                 .input(example_1.addressSpaces())
+ *                 .build()).applyValue(_invoke -> _invoke.result())))
  *             .build());
  * 
  *     }

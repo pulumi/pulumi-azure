@@ -48,11 +48,11 @@ __all__ = [
 ]
 
 class BudgetManagementGroupFilterArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterDimensionArgsDict']]]]]
     """
     One or more `dimension` blocks as defined below to filter the budget on.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetManagementGroupFilterTagArgsDict']]]]]
     """
     One or more `tag` blocks as defined below to filter the budget on.
     """
@@ -385,11 +385,11 @@ class BudgetManagementGroupTimePeriodArgs:
 
 
 class BudgetResourceGroupFilterArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterDimensionArgsDict']]]]]
     """
     One or more `dimension` blocks as defined below to filter the budget on.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetResourceGroupFilterTagArgsDict']]]]]
     """
     One or more `tag` blocks as defined below to filter the budget on.
     """
@@ -769,11 +769,11 @@ class BudgetResourceGroupTimePeriodArgs:
 
 
 class BudgetSubscriptionFilterArgsDict(TypedDict):
-    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgs']]]]]
+    dimensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterDimensionArgsDict']]]]]
     """
     One or more `dimension` blocks as defined below to filter the budget on.
     """
-    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgs']]]]]
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BudgetSubscriptionFilterTagArgsDict']]]]]
     """
     One or more `tag` blocks as defined below to filter the budget on.
     """

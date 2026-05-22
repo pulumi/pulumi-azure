@@ -53,10 +53,10 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         final var example = exampleResourceGroup.name().applyValue(_name -> ArcmachineFunctions.get(GetArgs.builder()
+ *         final var example = ArcmachineFunctions.get(GetArgs.builder()
  *             .name(arcMachineName)
- *             .resourceGroupName(_name)
- *             .build()));
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
  * 
  *         var exampleConfiguration = new Configuration("exampleConfiguration", ConfigurationArgs.builder()
  *             .name("example-configuration")

@@ -64,7 +64,7 @@ class IoTHubCloudToDeviceArgsDict(TypedDict):
     """
     The default time to live for cloud-to-device messages, specified as an [ISO 8601 timespan duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). This value must be between 1 minute and 48 hours. Defaults to `PT1H`.
     """
-    feedbacks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgs']]]]]
+    feedbacks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IoTHubCloudToDeviceFeedbackArgsDict']]]]]
     """
     A `feedback` block as defined below.
     """
@@ -959,7 +959,7 @@ class IoTHubNetworkRuleSetArgsDict(TypedDict):
     """
     Default Action for Network Rule Set. Possible values are `DefaultActionDeny`, `DefaultActionAllow`. Defaults to `DefaultActionDeny`.
     """
-    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgs']]]]]
+    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IoTHubNetworkRuleSetIpRuleArgsDict']]]]]
     """
     One or more `ip_rule` blocks as defined below.
     """

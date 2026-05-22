@@ -1233,7 +1233,7 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgsDict(TypedDict):
     """
     Specifies Git repository URL for the accelerator.
     """
-    basic_auth: NotRequired[pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgs']]]
+    basic_auth: NotRequired[pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositoryBasicAuthArgsDict']]]
     """
     A `basic_auth` block as defined below. Conflicts with `git_repository[0].ssh_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
     """
@@ -1261,7 +1261,7 @@ class SpringCloudCustomizedAcceleratorGitRepositoryArgsDict(TypedDict):
     """
     Specifies the path under the git repository to be treated as the root directory of the accelerator or the fragment (depending on `accelerator_type`).
     """
-    ssh_auth: NotRequired[pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgs']]]
+    ssh_auth: NotRequired[pulumi.Input[Optional['SpringCloudCustomizedAcceleratorGitRepositorySshAuthArgsDict']]]
     """
     A `ssh_auth` block as defined below. Conflicts with `git_repository[0].basic_auth`. Changing this forces a new Spring Cloud Customized Accelerator to be created.
     """
@@ -2458,7 +2458,7 @@ class SpringCloudServiceConfigServerGitSettingArgsDict(TypedDict):
     """
     The URI of the default Git repository used as the Config Server back end, should be started with `http://`, `https://`, `git@`, or `ssh://`.
     """
-    http_basic_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgs']]]
+    http_basic_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingHttpBasicAuthArgsDict']]]
     """
     A `http_basic_auth` block as defined below.
     """
@@ -2466,7 +2466,7 @@ class SpringCloudServiceConfigServerGitSettingArgsDict(TypedDict):
     """
     The default label of the Git repository, should be the branch name, tag name, or commit-id of the repository.
     """
-    repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgs']]]]]
+    repositories: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['SpringCloudServiceConfigServerGitSettingRepositoryArgsDict']]]]]
     """
     One or more `repository` blocks as defined below.
     """
@@ -2474,7 +2474,7 @@ class SpringCloudServiceConfigServerGitSettingArgsDict(TypedDict):
     """
     An array of strings used to search subdirectories of the Git repository.
     """
-    ssh_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingSshAuthArgs']]]
+    ssh_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingSshAuthArgsDict']]]
     """
     A `ssh_auth` block as defined below.
     """
@@ -2637,7 +2637,7 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgsDict(TypedDict):
     """
     The URI of the Git repository that's used as the Config Server back end should be started with `http://`, `https://`, `git@`, or `ssh://`.
     """
-    http_basic_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgs']]]
+    http_basic_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositoryHttpBasicAuthArgsDict']]]
     """
     A `http_basic_auth` block as defined below.
     """
@@ -2653,7 +2653,7 @@ class SpringCloudServiceConfigServerGitSettingRepositoryArgsDict(TypedDict):
     """
     An array of strings used to search subdirectories of the Git repository.
     """
-    ssh_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgs']]]
+    ssh_auth: NotRequired[pulumi.Input[Optional['SpringCloudServiceConfigServerGitSettingRepositorySshAuthArgsDict']]]
     """
     A `ssh_auth` block as defined below.
     """

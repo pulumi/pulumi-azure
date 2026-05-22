@@ -332,11 +332,11 @@ class CertifiateCertificatePolicyArgsDict(TypedDict):
     """
     A `secret_properties` block as defined below.
     """
-    lifetime_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgs']]]]]
+    lifetime_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertifiateCertificatePolicyLifetimeActionArgsDict']]]]]
     """
     A `lifetime_action` block as defined below.
     """
-    x509_certificate_properties: NotRequired[pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesArgs']]]
+    x509_certificate_properties: NotRequired[pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesArgsDict']]]
     """
     A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
     """
@@ -728,7 +728,7 @@ class CertifiateCertificatePolicyX509CertificatePropertiesArgsDict(TypedDict):
     """
     A list of Extended/Enhanced Key Usages.
     """
-    subject_alternative_names: NotRequired[pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional['CertifiateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict']]]
     """
     A `subject_alternative_names` block as defined below.
     """
@@ -1139,11 +1139,11 @@ class CertificateCertificatePolicyArgsDict(TypedDict):
     """
     A `secret_properties` block as defined below.
     """
-    lifetime_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgs']]]]]
+    lifetime_actions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['CertificateCertificatePolicyLifetimeActionArgsDict']]]]]
     """
     A `lifetime_action` block as defined below.
     """
-    x509_certificate_properties: NotRequired[pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesArgs']]]
+    x509_certificate_properties: NotRequired[pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesArgsDict']]]
     """
     A `x509_certificate_properties` block as defined below. Required when `certificate` block is not specified.
     """
@@ -1535,7 +1535,7 @@ class CertificateCertificatePolicyX509CertificatePropertiesArgsDict(TypedDict):
     """
     A list of Extended/Enhanced Key Usages.
     """
-    subject_alternative_names: NotRequired[pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgs']]]
+    subject_alternative_names: NotRequired[pulumi.Input[Optional['CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNamesArgsDict']]]
     """
     A `subject_alternative_names` block as defined below.
     """
@@ -1850,7 +1850,7 @@ class CertificateIssuerAdminArgs:
 
 
 class KeyRotationPolicyArgsDict(TypedDict):
-    automatic: NotRequired[pulumi.Input[Optional['KeyRotationPolicyAutomaticArgs']]]
+    automatic: NotRequired[pulumi.Input[Optional['KeyRotationPolicyAutomaticArgsDict']]]
     """
     An `automatic` block as defined below.
     """

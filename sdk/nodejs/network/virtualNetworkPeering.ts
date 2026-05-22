@@ -133,10 +133,10 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: example_1.name,
  *     remoteVirtualNetworkId: example_2.id,
  *     triggers: {
- *         remote_address_space: example_2.addressSpaces.apply(addressSpaces => std.joinOutput({
+ *         remote_address_space: std.joinOutput({
  *             separator: ",",
- *             input: addressSpaces,
- *         })).apply(invoke => invoke.result),
+ *             input: example_2.addressSpaces,
+ *         }).apply(invoke => invoke.result),
  *     },
  * });
  * const example_2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-2", {
@@ -145,10 +145,10 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: example_2.name,
  *     remoteVirtualNetworkId: example_1.id,
  *     triggers: {
- *         remote_address_space: example_1.addressSpaces.apply(addressSpaces => std.joinOutput({
+ *         remote_address_space: std.joinOutput({
  *             separator: ",",
- *             input: addressSpaces,
- *         })).apply(invoke => invoke.result),
+ *             input: example_1.addressSpaces,
+ *         }).apply(invoke => invoke.result),
  *     },
  * });
  * ```
