@@ -156,6 +156,18 @@ namespace Pulumi.Azure.Advisor
             set => _filterByCategories = value;
         }
 
+        [Input("filterByRecommendationTypeGuids")]
+        private List<string>? _filterByRecommendationTypeGuids;
+
+        /// <summary>
+        /// Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+        /// </summary>
+        public List<string> FilterByRecommendationTypeGuids
+        {
+            get => _filterByRecommendationTypeGuids ?? (_filterByRecommendationTypeGuids = new List<string>());
+            set => _filterByRecommendationTypeGuids = value;
+        }
+
         [Input("filterByResourceGroups")]
         private List<string>? _filterByResourceGroups;
 
@@ -166,6 +178,18 @@ namespace Pulumi.Azure.Advisor
         {
             get => _filterByResourceGroups ?? (_filterByResourceGroups = new List<string>());
             set => _filterByResourceGroups = value;
+        }
+
+        [Input("filterByResourceIds")]
+        private List<string>? _filterByResourceIds;
+
+        /// <summary>
+        /// Specifies a list of resource about which the Advisor Recommendations will be listed.
+        /// </summary>
+        public List<string> FilterByResourceIds
+        {
+            get => _filterByResourceIds ?? (_filterByResourceIds = new List<string>());
+            set => _filterByResourceIds = value;
         }
 
         public GetRecommendationsArgs()
@@ -188,6 +212,18 @@ namespace Pulumi.Azure.Advisor
             set => _filterByCategories = value;
         }
 
+        [Input("filterByRecommendationTypeGuids")]
+        private InputList<string>? _filterByRecommendationTypeGuids;
+
+        /// <summary>
+        /// Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+        /// </summary>
+        public InputList<string> FilterByRecommendationTypeGuids
+        {
+            get => _filterByRecommendationTypeGuids ?? (_filterByRecommendationTypeGuids = new InputList<string>());
+            set => _filterByRecommendationTypeGuids = value;
+        }
+
         [Input("filterByResourceGroups")]
         private InputList<string>? _filterByResourceGroups;
 
@@ -198,6 +234,18 @@ namespace Pulumi.Azure.Advisor
         {
             get => _filterByResourceGroups ?? (_filterByResourceGroups = new InputList<string>());
             set => _filterByResourceGroups = value;
+        }
+
+        [Input("filterByResourceIds")]
+        private InputList<string>? _filterByResourceIds;
+
+        /// <summary>
+        /// Specifies a list of resource about which the Advisor Recommendations will be listed.
+        /// </summary>
+        public InputList<string> FilterByResourceIds
+        {
+            get => _filterByResourceIds ?? (_filterByResourceIds = new InputList<string>());
+            set => _filterByResourceIds = value;
         }
 
         public GetRecommendationsInvokeArgs()
@@ -211,7 +259,9 @@ namespace Pulumi.Azure.Advisor
     public sealed class GetRecommendationsResult
     {
         public readonly ImmutableArray<string> FilterByCategories;
+        public readonly ImmutableArray<string> FilterByRecommendationTypeGuids;
         public readonly ImmutableArray<string> FilterByResourceGroups;
+        public readonly ImmutableArray<string> FilterByResourceIds;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -225,14 +275,20 @@ namespace Pulumi.Azure.Advisor
         private GetRecommendationsResult(
             ImmutableArray<string> filterByCategories,
 
+            ImmutableArray<string> filterByRecommendationTypeGuids,
+
             ImmutableArray<string> filterByResourceGroups,
+
+            ImmutableArray<string> filterByResourceIds,
 
             string id,
 
             ImmutableArray<Outputs.GetRecommendationsRecommendationResult> recommendations)
         {
             FilterByCategories = filterByCategories;
+            FilterByRecommendationTypeGuids = filterByRecommendationTypeGuids;
             FilterByResourceGroups = filterByResourceGroups;
+            FilterByResourceIds = filterByResourceIds;
             Id = id;
             Recommendations = recommendations;
         }

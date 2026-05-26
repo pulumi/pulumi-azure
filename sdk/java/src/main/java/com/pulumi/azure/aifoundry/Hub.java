@@ -43,8 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.AccessPolicyArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.cognitive.AIServices;
- * import com.pulumi.azure.cognitive.AIServicesArgs;
  * import com.pulumi.azure.aifoundry.Hub;
  * import com.pulumi.azure.aifoundry.HubArgs;
  * import com.pulumi.azure.aifoundry.inputs.HubIdentityArgs;
@@ -97,16 +95,9 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var exampleAIServices = new AIServices("exampleAIServices", AIServicesArgs.builder()
- *             .name("exampleaiservices")
- *             .location(example.location())
- *             .resourceGroupName(example.name())
- *             .skuName("S0")
- *             .build());
- * 
  *         var exampleHub = new Hub("exampleHub", HubArgs.builder()
  *             .name("exampleaihub")
- *             .location(exampleAIServices.location())
+ *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccountId(exampleAccount.id())
  *             .keyVaultId(exampleKeyVault.id())

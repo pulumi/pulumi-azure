@@ -50,15 +50,9 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAIServices = new azure.cognitive.AIServices("example", {
- *     name: "exampleaiservices",
- *     location: example.location,
- *     resourceGroupName: example.name,
- *     skuName: "S0",
- * });
  * const exampleHub = new azure.aifoundry.Hub("example", {
  *     name: "exampleaihub",
- *     location: exampleAIServices.location,
+ *     location: example.location,
  *     resourceGroupName: example.name,
  *     storageAccountId: exampleAccount.id,
  *     keyVaultId: exampleKeyVault.id,

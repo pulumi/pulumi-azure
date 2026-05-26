@@ -104,6 +104,8 @@ export class WindowsWebApp extends pulumi.CustomResource {
     declare public readonly clientCertificateEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
+     *
+     * > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
      */
     declare public readonly clientCertificateExclusionPaths: pulumi.Output<string | undefined>;
     /**
@@ -381,6 +383,8 @@ export interface WindowsWebAppState {
     clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
+     *
+     * > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
      */
     clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**
@@ -551,6 +555,8 @@ export interface WindowsWebAppArgs {
     clientCertificateEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Paths to exclude when using client certificates, separated by ;
+     *
+     * > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
      */
     clientCertificateExclusionPaths?: pulumi.Input<string | undefined>;
     /**

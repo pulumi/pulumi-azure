@@ -81,6 +81,8 @@ class LinuxFunctionAppArgs:
                > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
@@ -316,6 +318,8 @@ class LinuxFunctionAppArgs:
     def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
@@ -709,6 +713,8 @@ class _LinuxFunctionAppState:
                > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
@@ -941,6 +947,8 @@ class _LinuxFunctionAppState:
     def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
@@ -1524,6 +1532,8 @@ class LinuxFunctionApp(pulumi.CustomResource):
                > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppConnectionStringArgs', 'LinuxFunctionAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
@@ -1818,6 +1828,8 @@ class LinuxFunctionApp(pulumi.CustomResource):
                > **Note:** `builtin_logging_enabled` is only supported for function app whose function runtime is running on version 1.x.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppConnectionStringArgs', 'LinuxFunctionAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Should the settings for linking the Function App to storage be suppressed.
@@ -1987,6 +1999,8 @@ class LinuxFunctionApp(pulumi.CustomResource):
     def client_certificate_exclusion_paths(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 

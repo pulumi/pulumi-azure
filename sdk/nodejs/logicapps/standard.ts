@@ -66,22 +66,18 @@ import * as utilities from "../utilities";
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
  *     name: "example-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     kind: "Linux",
- *     reserved: true,
- *     sku: {
- *         tier: "WorkflowStandard",
- *         size: "WS1",
- *     },
+ *     osType: "Linux",
+ *     skuName: "WS1",
  * });
  * const exampleStandard = new azure.logicapps.Standard("example", {
  *     name: "example-logic-app",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     siteConfig: {
@@ -188,6 +184,12 @@ export class Standard extends pulumi.CustomResource {
      * An `identity` block as defined below.
      */
     declare public readonly identity: pulumi.Output<outputs.logicapps.StandardIdentity | undefined>;
+    /**
+     * The User Assigned Identity ID used for accessing KeyVault secrets. 
+     *
+     * > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     */
+    declare public readonly keyVaultReferenceIdentityId: pulumi.Output<string | undefined>;
     /**
      * The Logic App kind.
      */
@@ -296,6 +298,7 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["ftpPublishBasicAuthenticationEnabled"] = state?.ftpPublishBasicAuthenticationEnabled;
             resourceInputs["httpsOnly"] = state?.httpsOnly;
             resourceInputs["identity"] = state?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = state?.keyVaultReferenceIdentityId;
             resourceInputs["kind"] = state?.kind;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
@@ -338,6 +341,7 @@ export class Standard extends pulumi.CustomResource {
             resourceInputs["ftpPublishBasicAuthenticationEnabled"] = args?.ftpPublishBasicAuthenticationEnabled;
             resourceInputs["httpsOnly"] = args?.httpsOnly;
             resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultReferenceIdentityId"] = args?.keyVaultReferenceIdentityId;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
@@ -420,6 +424,12 @@ export interface StandardState {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.logicapps.StandardIdentity | undefined>;
+    /**
+     * The User Assigned Identity ID used for accessing KeyVault secrets. 
+     *
+     * > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     */
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * The Logic App kind.
      */
@@ -550,6 +560,12 @@ export interface StandardArgs {
      * An `identity` block as defined below.
      */
     identity?: pulumi.Input<inputs.logicapps.StandardIdentity | undefined>;
+    /**
+     * The User Assigned Identity ID used for accessing KeyVault secrets. 
+     *
+     * > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     */
+    keyVaultReferenceIdentityId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

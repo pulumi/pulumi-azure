@@ -295,6 +295,13 @@ class ManagedCertificate(pulumi.CustomResource):
             ssl_state="SniEnabled")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
+
         ## Import
 
         App Service Managed Certificates can be imported using the `resource id`, e.g.
@@ -375,6 +382,13 @@ class ManagedCertificate(pulumi.CustomResource):
             certificate_id=example_managed_certificate.id,
             ssl_state="SniEnabled")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
 
         ## Import
 

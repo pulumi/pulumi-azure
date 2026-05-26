@@ -191,12 +191,16 @@ public class LinuxWebApp extends com.pulumi.resources.CustomResource {
     /**
      * Paths to exclude when using client certificates, separated by ;
      * 
+     * &gt; **Note:** TLS 1.3 and HTTP 2.0 don&#39;t support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
+     * 
      */
     @Export(name="clientCertificateExclusionPaths", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateExclusionPaths;
 
     /**
      * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     * &gt; **Note:** TLS 1.3 and HTTP 2.0 don&#39;t support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
      * 
      */
     public Output<Optional<String>> clientCertificateExclusionPaths() {

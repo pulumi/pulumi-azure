@@ -207,6 +207,25 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The User Assigned Identity ID used for accessing KeyVault secrets.
+     * 
+     * &gt; **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * 
+     */
+    @Import(name="keyVaultReferenceIdentityId")
+    private @Nullable Output<String> keyVaultReferenceIdentityId;
+
+    /**
+     * @return The User Assigned Identity ID used for accessing KeyVault secrets.
+     * 
+     * &gt; **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * 
+     */
+    public Optional<Output<String>> keyVaultReferenceIdentityId() {
+        return Optional.ofNullable(this.keyVaultReferenceIdentityId);
+    }
+
+    /**
      * The Logic App kind.
      * 
      */
@@ -511,6 +530,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         this.ftpPublishBasicAuthenticationEnabled = $.ftpPublishBasicAuthenticationEnabled;
         this.httpsOnly = $.httpsOnly;
         this.identity = $.identity;
+        this.keyVaultReferenceIdentityId = $.keyVaultReferenceIdentityId;
         this.kind = $.kind;
         this.location = $.location;
         this.name = $.name;
@@ -813,6 +833,31 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder identity(StandardIdentityArgs identity) {
             return identity(Output.of(identity));
+        }
+
+        /**
+         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets.
+         * 
+         * &gt; **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultReferenceIdentityId(@Nullable Output<String> keyVaultReferenceIdentityId) {
+            $.keyVaultReferenceIdentityId = keyVaultReferenceIdentityId;
+            return this;
+        }
+
+        /**
+         * @param keyVaultReferenceIdentityId The User Assigned Identity ID used for accessing KeyVault secrets.
+         * 
+         * &gt; **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyVaultReferenceIdentityId(String keyVaultReferenceIdentityId) {
+            return keyVaultReferenceIdentityId(Output.of(keyVaultReferenceIdentityId));
         }
 
         /**

@@ -158,6 +158,24 @@ public class IntegrationRuntimeRule extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.description);
     }
     /**
+     * The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+     * 
+     * &gt; **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+     * 
+     */
+    @Export(name="interactiveAuthoringTimeToLiveInMinutes", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> interactiveAuthoringTimeToLiveInMinutes;
+
+    /**
+     * @return The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+     * 
+     * &gt; **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+     * 
+     */
+    public Output<Optional<Integer>> interactiveAuthoringTimeToLiveInMinutes() {
+        return Codegen.optional(this.interactiveAuthoringTimeToLiveInMinutes);
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      * 
      */

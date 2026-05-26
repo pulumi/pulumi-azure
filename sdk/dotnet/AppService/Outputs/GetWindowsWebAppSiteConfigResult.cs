@@ -97,6 +97,7 @@ namespace Pulumi.Azure.AppService.Outputs
         /// The Managed Pipeline Mode.
         /// </summary>
         public readonly string ManagedPipelineMode;
+        public readonly string MinimumTlsCipherSuite;
         /// <summary>
         /// The Minimum version of TLS for requests.
         /// </summary>
@@ -195,6 +196,8 @@ namespace Pulumi.Azure.AppService.Outputs
 
             string managedPipelineMode,
 
+            string minimumTlsCipherSuite,
+
             string minimumTlsVersion,
 
             bool remoteDebuggingEnabled,
@@ -244,6 +247,7 @@ namespace Pulumi.Azure.AppService.Outputs
             LoadBalancingMode = loadBalancingMode;
             LocalMysqlEnabled = localMysqlEnabled;
             ManagedPipelineMode = managedPipelineMode;
+            MinimumTlsCipherSuite = minimumTlsCipherSuite;
             MinimumTlsVersion = minimumTlsVersion;
             RemoteDebuggingEnabled = remoteDebuggingEnabled;
             RemoteDebuggingVersion = remoteDebuggingVersion;

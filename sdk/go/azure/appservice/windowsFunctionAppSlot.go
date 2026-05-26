@@ -113,6 +113,8 @@ type WindowsFunctionAppSlot struct {
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
@@ -254,6 +256,8 @@ type windowsFunctionAppSlotState struct {
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
@@ -351,6 +355,8 @@ type WindowsFunctionAppSlotState struct {
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode pulumi.StringPtrInput
@@ -452,6 +458,8 @@ type windowsFunctionAppSlotArgs struct {
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
@@ -532,6 +540,8 @@ type WindowsFunctionAppSlotArgs struct {
 	// Should the Function App Slot use Client Certificates.
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
 	ClientCertificateMode pulumi.StringPtrInput
@@ -715,6 +725,8 @@ func (o WindowsFunctionAppSlotOutput) ClientCertificateEnabled() pulumi.BoolPtrO
 }
 
 // Paths to exclude when using client certificates, separated by ;
+//
+// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 func (o WindowsFunctionAppSlotOutput) ClientCertificateExclusionPaths() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WindowsFunctionAppSlot) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }

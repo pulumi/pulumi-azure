@@ -27,13 +27,19 @@ class GetRecommendationsResult:
     """
     A collection of values returned by getRecommendations.
     """
-    def __init__(__self__, filter_by_categories=None, filter_by_resource_groups=None, id=None, recommendations=None):
+    def __init__(__self__, filter_by_categories=None, filter_by_recommendation_type_guids=None, filter_by_resource_groups=None, filter_by_resource_ids=None, id=None, recommendations=None):
         if filter_by_categories and not isinstance(filter_by_categories, list):
             raise TypeError("Expected argument 'filter_by_categories' to be a list")
         pulumi.set(__self__, "filter_by_categories", filter_by_categories)
+        if filter_by_recommendation_type_guids and not isinstance(filter_by_recommendation_type_guids, list):
+            raise TypeError("Expected argument 'filter_by_recommendation_type_guids' to be a list")
+        pulumi.set(__self__, "filter_by_recommendation_type_guids", filter_by_recommendation_type_guids)
         if filter_by_resource_groups and not isinstance(filter_by_resource_groups, list):
             raise TypeError("Expected argument 'filter_by_resource_groups' to be a list")
         pulumi.set(__self__, "filter_by_resource_groups", filter_by_resource_groups)
+        if filter_by_resource_ids and not isinstance(filter_by_resource_ids, list):
+            raise TypeError("Expected argument 'filter_by_resource_ids' to be a list")
+        pulumi.set(__self__, "filter_by_resource_ids", filter_by_resource_ids)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -47,9 +53,19 @@ class GetRecommendationsResult:
         return pulumi.get(self, "filter_by_categories")
 
     @_builtins.property
+    @pulumi.getter(name="filterByRecommendationTypeGuids")
+    def filter_by_recommendation_type_guids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "filter_by_recommendation_type_guids")
+
+    @_builtins.property
     @pulumi.getter(name="filterByResourceGroups")
     def filter_by_resource_groups(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "filter_by_resource_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="filterByResourceIds")
+    def filter_by_resource_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "filter_by_resource_ids")
 
     @_builtins.property
     @pulumi.getter
@@ -75,13 +91,17 @@ class AwaitableGetRecommendationsResult(GetRecommendationsResult):
             yield self
         return GetRecommendationsResult(
             filter_by_categories=self.filter_by_categories,
+            filter_by_recommendation_type_guids=self.filter_by_recommendation_type_guids,
             filter_by_resource_groups=self.filter_by_resource_groups,
+            filter_by_resource_ids=self.filter_by_resource_ids,
             id=self.id,
             recommendations=self.recommendations)
 
 
 def get_recommendations(filter_by_categories: Optional[Sequence[_builtins.str]] = None,
+                        filter_by_recommendation_type_guids: Optional[Sequence[_builtins.str]] = None,
                         filter_by_resource_groups: Optional[Sequence[_builtins.str]] = None,
+                        filter_by_resource_ids: Optional[Sequence[_builtins.str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRecommendationsResult:
     """
     Use this data source to access information about an existing Advisor Recommendations.
@@ -109,21 +129,29 @@ def get_recommendations(filter_by_categories: Optional[Sequence[_builtins.str]] 
 
 
     :param Sequence[_builtins.str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
+    :param Sequence[_builtins.str] filter_by_recommendation_type_guids: Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
     :param Sequence[_builtins.str] filter_by_resource_groups: Specifies a list of resource groups about which the Advisor Recommendations will be listed.
+    :param Sequence[_builtins.str] filter_by_resource_ids: Specifies a list of resource about which the Advisor Recommendations will be listed.
     """
     __args__ = dict()
     __args__['filterByCategories'] = filter_by_categories
+    __args__['filterByRecommendationTypeGuids'] = filter_by_recommendation_type_guids
     __args__['filterByResourceGroups'] = filter_by_resource_groups
+    __args__['filterByResourceIds'] = filter_by_resource_ids
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:advisor/getRecommendations:getRecommendations', __args__, opts=opts, typ=GetRecommendationsResult).value
 
     return AwaitableGetRecommendationsResult(
         filter_by_categories=pulumi.get(__ret__, 'filter_by_categories'),
+        filter_by_recommendation_type_guids=pulumi.get(__ret__, 'filter_by_recommendation_type_guids'),
         filter_by_resource_groups=pulumi.get(__ret__, 'filter_by_resource_groups'),
+        filter_by_resource_ids=pulumi.get(__ret__, 'filter_by_resource_ids'),
         id=pulumi.get(__ret__, 'id'),
         recommendations=pulumi.get(__ret__, 'recommendations'))
 def get_recommendations_output(filter_by_categories: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                               filter_by_recommendation_type_guids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                filter_by_resource_groups: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
+                               filter_by_resource_ids: pulumi.Input[Optional[Optional[Sequence[_builtins.str]]]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecommendationsResult]:
     """
     Use this data source to access information about an existing Advisor Recommendations.
@@ -151,15 +179,21 @@ def get_recommendations_output(filter_by_categories: pulumi.Input[Optional[Optio
 
 
     :param Sequence[_builtins.str] filter_by_categories: Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
+    :param Sequence[_builtins.str] filter_by_recommendation_type_guids: Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
     :param Sequence[_builtins.str] filter_by_resource_groups: Specifies a list of resource groups about which the Advisor Recommendations will be listed.
+    :param Sequence[_builtins.str] filter_by_resource_ids: Specifies a list of resource about which the Advisor Recommendations will be listed.
     """
     __args__ = dict()
     __args__['filterByCategories'] = filter_by_categories
+    __args__['filterByRecommendationTypeGuids'] = filter_by_recommendation_type_guids
     __args__['filterByResourceGroups'] = filter_by_resource_groups
+    __args__['filterByResourceIds'] = filter_by_resource_ids
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:advisor/getRecommendations:getRecommendations', __args__, opts=opts, typ=GetRecommendationsResult)
     return __ret__.apply(lambda __response__: GetRecommendationsResult(
         filter_by_categories=pulumi.get(__response__, 'filter_by_categories'),
+        filter_by_recommendation_type_guids=pulumi.get(__response__, 'filter_by_recommendation_type_guids'),
         filter_by_resource_groups=pulumi.get(__response__, 'filter_by_resource_groups'),
+        filter_by_resource_ids=pulumi.get(__response__, 'filter_by_resource_ids'),
         id=pulumi.get(__response__, 'id'),
         recommendations=pulumi.get(__response__, 'recommendations')))

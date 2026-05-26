@@ -3856,7 +3856,8 @@ type GetLinuxWebAppSiteConfig struct {
 	// Is the Local MySQL enabled.
 	LocalMysqlEnabled bool `pulumi:"localMysqlEnabled"`
 	// The Managed Pipeline Mode.
-	ManagedPipelineMode string `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode   string `pulumi:"managedPipelineMode"`
+	MinimumTlsCipherSuite string `pulumi:"minimumTlsCipherSuite"`
 	// The Minimum version of TLS for requests.
 	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
 	// Is Remote Debugging enabled.
@@ -3936,7 +3937,8 @@ type GetLinuxWebAppSiteConfigArgs struct {
 	// Is the Local MySQL enabled.
 	LocalMysqlEnabled pulumi.BoolInput `pulumi:"localMysqlEnabled"`
 	// The Managed Pipeline Mode.
-	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode   pulumi.StringInput `pulumi:"managedPipelineMode"`
+	MinimumTlsCipherSuite pulumi.StringInput `pulumi:"minimumTlsCipherSuite"`
 	// The Minimum version of TLS for requests.
 	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
 	// Is Remote Debugging enabled.
@@ -4119,6 +4121,10 @@ func (o GetLinuxWebAppSiteConfigOutput) LocalMysqlEnabled() pulumi.BoolOutput {
 // The Managed Pipeline Mode.
 func (o GetLinuxWebAppSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.ManagedPipelineMode }).(pulumi.StringOutput)
+}
+
+func (o GetLinuxWebAppSiteConfigOutput) MinimumTlsCipherSuite() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLinuxWebAppSiteConfig) string { return v.MinimumTlsCipherSuite }).(pulumi.StringOutput)
 }
 
 // The Minimum version of TLS for requests.
@@ -9679,7 +9685,8 @@ type GetWindowsFunctionAppSiteConfig struct {
 	// The Site load balancing mode.
 	LoadBalancingMode string `pulumi:"loadBalancingMode"`
 	// The Managed pipeline mode.
-	ManagedPipelineMode string `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode   string `pulumi:"managedPipelineMode"`
+	MinimumTlsCipherSuite string `pulumi:"minimumTlsCipherSuite"`
 	// The minimum version of TLS required for SSL requests.
 	MinimumTlsVersion string `pulumi:"minimumTlsVersion"`
 	// The number of pre-warmed instances for this Windows Function App.
@@ -9765,7 +9772,8 @@ type GetWindowsFunctionAppSiteConfigArgs struct {
 	// The Site load balancing mode.
 	LoadBalancingMode pulumi.StringInput `pulumi:"loadBalancingMode"`
 	// The Managed pipeline mode.
-	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode   pulumi.StringInput `pulumi:"managedPipelineMode"`
+	MinimumTlsCipherSuite pulumi.StringInput `pulumi:"minimumTlsCipherSuite"`
 	// The minimum version of TLS required for SSL requests.
 	MinimumTlsVersion pulumi.StringInput `pulumi:"minimumTlsVersion"`
 	// The number of pre-warmed instances for this Windows Function App.
@@ -9958,6 +9966,10 @@ func (o GetWindowsFunctionAppSiteConfigOutput) LoadBalancingMode() pulumi.String
 // The Managed pipeline mode.
 func (o GetWindowsFunctionAppSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.ManagedPipelineMode }).(pulumi.StringOutput)
+}
+
+func (o GetWindowsFunctionAppSiteConfigOutput) MinimumTlsCipherSuite() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsFunctionAppSiteConfig) string { return v.MinimumTlsCipherSuite }).(pulumi.StringOutput)
 }
 
 // The minimum version of TLS required for SSL requests.
@@ -15035,7 +15047,8 @@ type GetWindowsWebAppSiteConfig struct {
 	// Is the Local MySQL enabled.
 	LocalMysqlEnabled bool `pulumi:"localMysqlEnabled"`
 	// The Managed Pipeline Mode.
-	ManagedPipelineMode string `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode   string `pulumi:"managedPipelineMode"`
+	MinimumTlsCipherSuite string `pulumi:"minimumTlsCipherSuite"`
 	// The Minimum version of TLS for requests.
 	MinimumTlsVersion      string `pulumi:"minimumTlsVersion"`
 	RemoteDebuggingEnabled bool   `pulumi:"remoteDebuggingEnabled"`
@@ -15118,7 +15131,8 @@ type GetWindowsWebAppSiteConfigArgs struct {
 	// Is the Local MySQL enabled.
 	LocalMysqlEnabled pulumi.BoolInput `pulumi:"localMysqlEnabled"`
 	// The Managed Pipeline Mode.
-	ManagedPipelineMode pulumi.StringInput `pulumi:"managedPipelineMode"`
+	ManagedPipelineMode   pulumi.StringInput `pulumi:"managedPipelineMode"`
+	MinimumTlsCipherSuite pulumi.StringInput `pulumi:"minimumTlsCipherSuite"`
 	// The Minimum version of TLS for requests.
 	MinimumTlsVersion      pulumi.StringInput `pulumi:"minimumTlsVersion"`
 	RemoteDebuggingEnabled pulumi.BoolInput   `pulumi:"remoteDebuggingEnabled"`
@@ -15308,6 +15322,10 @@ func (o GetWindowsWebAppSiteConfigOutput) LocalMysqlEnabled() pulumi.BoolOutput 
 // The Managed Pipeline Mode.
 func (o GetWindowsWebAppSiteConfigOutput) ManagedPipelineMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.ManagedPipelineMode }).(pulumi.StringOutput)
+}
+
+func (o GetWindowsWebAppSiteConfigOutput) MinimumTlsCipherSuite() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWindowsWebAppSiteConfig) string { return v.MinimumTlsCipherSuite }).(pulumi.StringOutput)
 }
 
 // The Minimum version of TLS for requests.

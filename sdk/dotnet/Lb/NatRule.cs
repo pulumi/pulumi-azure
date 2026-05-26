@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Lb
     /// <summary>
     /// Manages a Load Balancer NAT Rule.
     /// 
-    /// &gt; **Note:** This resource cannot be used with with virtual machine scale sets, instead use the `azure.lb.NatPool` resource.
+    /// &gt; **Note:** To target a Virtual Machine Scale Set, set `FrontendPortStart`, `FrontendPortEnd` and `BackendAddressPoolId` to create an Inbound NAT rule v2. The legacy `azure.lb.NatPool` resource maps to Inbound NAT rule v1, which Azure has scheduled for retirement on September 30, 2027.
     /// 
     /// &gt; **Note:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
     /// 

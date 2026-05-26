@@ -115,16 +115,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
 //				Name:              pulumi.String("example-service-plan"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				Kind:              pulumi.Any("Linux"),
-//				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("WorkflowStandard"),
-//					Size: pulumi.String("WS1"),
-//				},
+//				OsType:            pulumi.String("Linux"),
+//				SkuName:           pulumi.String("WS1"),
 //			})
 //			if err != nil {
 //				return err
@@ -133,7 +129,7 @@ import (
 //				Name:                    pulumi.String("example-logic-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID(),
+//				AppServicePlanId:        exampleServicePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				SiteConfig: &logicapps.StandardSiteConfigArgs{
@@ -197,6 +193,10 @@ type Standard struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity StandardIdentityPtrOutput `pulumi:"identity"`
+	// The User Assigned Identity ID used for accessing KeyVault secrets.
+	//
+	// > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	KeyVaultReferenceIdentityId pulumi.StringPtrOutput `pulumi:"keyVaultReferenceIdentityId"`
 	// The Logic App kind.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -320,6 +320,10 @@ type standardState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *StandardIdentity `pulumi:"identity"`
+	// The User Assigned Identity ID used for accessing KeyVault secrets.
+	//
+	// > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// The Logic App kind.
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -395,6 +399,10 @@ type StandardState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity StandardIdentityPtrInput
+	// The User Assigned Identity ID used for accessing KeyVault secrets.
+	//
+	// > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// The Logic App kind.
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -470,6 +478,10 @@ type standardArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// An `identity` block as defined below.
 	Identity *StandardIdentity `pulumi:"identity"`
+	// The User Assigned Identity ID used for accessing KeyVault secrets.
+	//
+	// > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	KeyVaultReferenceIdentityId *string `pulumi:"keyVaultReferenceIdentityId"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Logic App. Changing this forces a new resource to be created.
@@ -534,6 +546,10 @@ type StandardArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// An `identity` block as defined below.
 	Identity StandardIdentityPtrInput
+	// The User Assigned Identity ID used for accessing KeyVault secrets.
+	//
+	// > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+	KeyVaultReferenceIdentityId pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Logic App. Changing this forces a new resource to be created.
@@ -721,6 +737,13 @@ func (o StandardOutput) HttpsOnly() pulumi.BoolPtrOutput {
 // An `identity` block as defined below.
 func (o StandardOutput) Identity() StandardIdentityPtrOutput {
 	return o.ApplyT(func(v *Standard) StandardIdentityPtrOutput { return v.Identity }).(StandardIdentityPtrOutput)
+}
+
+// The User Assigned Identity ID used for accessing KeyVault secrets.
+//
+// > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+func (o StandardOutput) KeyVaultReferenceIdentityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Standard) pulumi.StringPtrOutput { return v.KeyVaultReferenceIdentityId }).(pulumi.StringPtrOutput)
 }
 
 // The Logic App kind.

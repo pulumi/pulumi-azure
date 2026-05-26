@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Advisor.Outputs
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// The name of the Advisor Recommendation.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The business impact of the recommendation.
         /// </summary>
         public readonly string Impact;
@@ -56,6 +60,8 @@ namespace Pulumi.Azure.Advisor.Outputs
 
             string description,
 
+            string id,
+
             string impact,
 
             string recommendationName,
@@ -72,6 +78,7 @@ namespace Pulumi.Azure.Advisor.Outputs
         {
             Category = category;
             Description = description;
+            Id = id;
             Impact = impact;
             RecommendationName = recommendationName;
             RecommendationTypeId = recommendationTypeId;

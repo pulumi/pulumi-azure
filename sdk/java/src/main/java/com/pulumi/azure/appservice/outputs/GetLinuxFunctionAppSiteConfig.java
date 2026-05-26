@@ -132,6 +132,7 @@ public final class GetLinuxFunctionAppSiteConfig {
      * 
      */
     private String managedPipelineMode;
+    private String minimumTlsCipherSuite;
     /**
      * @return The minimum version of TLS required for SSL requests.
      * 
@@ -360,6 +361,9 @@ public final class GetLinuxFunctionAppSiteConfig {
     public String managedPipelineMode() {
         return this.managedPipelineMode;
     }
+    public String minimumTlsCipherSuite() {
+        return this.minimumTlsCipherSuite;
+    }
     /**
      * @return The minimum version of TLS required for SSL requests.
      * 
@@ -488,6 +492,7 @@ public final class GetLinuxFunctionAppSiteConfig {
         private String linuxFxVersion;
         private String loadBalancingMode;
         private String managedPipelineMode;
+        private String minimumTlsCipherSuite;
         private String minimumTlsVersion;
         private Integer preWarmedInstanceCount;
         private Boolean remoteDebuggingEnabled;
@@ -529,6 +534,7 @@ public final class GetLinuxFunctionAppSiteConfig {
     	      this.linuxFxVersion = defaults.linuxFxVersion;
     	      this.loadBalancingMode = defaults.loadBalancingMode;
     	      this.managedPipelineMode = defaults.managedPipelineMode;
+    	      this.minimumTlsCipherSuite = defaults.minimumTlsCipherSuite;
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.preWarmedInstanceCount = defaults.preWarmedInstanceCount;
     	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
@@ -753,6 +759,14 @@ public final class GetLinuxFunctionAppSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder minimumTlsCipherSuite(String minimumTlsCipherSuite) {
+            if (minimumTlsCipherSuite == null) {
+              throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfig", "minimumTlsCipherSuite");
+            }
+            this.minimumTlsCipherSuite = minimumTlsCipherSuite;
+            return this;
+        }
+        @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             if (minimumTlsVersion == null) {
               throw new MissingRequiredPropertyException("GetLinuxFunctionAppSiteConfig", "minimumTlsVersion");
@@ -891,6 +905,7 @@ public final class GetLinuxFunctionAppSiteConfig {
             _resultValue.linuxFxVersion = linuxFxVersion;
             _resultValue.loadBalancingMode = loadBalancingMode;
             _resultValue.managedPipelineMode = managedPipelineMode;
+            _resultValue.minimumTlsCipherSuite = minimumTlsCipherSuite;
             _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.preWarmedInstanceCount = preWarmedInstanceCount;
             _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;
