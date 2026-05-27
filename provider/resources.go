@@ -17,6 +17,7 @@ package provider
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -1021,8 +1022,9 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_resource_deployment_script_azure_cli":         {Tok: azureResource(azureCore, "ResourceDeploymentScriptAzureCli")},
 			"azurerm_resource_deployment_script_azure_power_shell": {Tok: azureResource(azureCore, "ResourceDeploymentScriptPowerShell")},
 			"azurerm_resource_group_template_deployment": {
-				Tok:     azureResource(azureCore, "ResourceGroupTemplateDeployment"),
-				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:core/templateDeployment:TemplateDeployment")}},
+				Tok:                azureResource(azureCore, "ResourceGroupTemplateDeployment"),
+				Aliases:            []tfbridge.AliasInfo{{Type: ref("azure:core/templateDeployment:TemplateDeployment")}},
+				TransformFromState: clearMetaSchemaVersion,
 			},
 			"azurerm_resource_group_policy_assignment": {Tok: azureResource(azureCore, "ResourceGroupPolicyAssignment")},
 			"azurerm_resource_group_policy_exemption": {
@@ -3785,6 +3787,31 @@ func fixEnumCase(pm resource.PropertyMap, fieldName string, allowedValues ...str
 
 func fixHdInsightTier(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 	fixEnumCase(pm, "tier", "Standard", "Premium")
+	return pm, nil
+}
+
+// clearMetaSchemaVersion strips schema_version from the __meta blob so v5 state with a
+// higher upstream schema version doesn't trip the bridge's state-version-greater-than-schema
+// check. The state then flows through normal upgrade as if it were at schema version 0.
+func clearMetaSchemaVersion(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
+	const metaKey = resource.PropertyKey("__meta")
+	metaVal, ok := pm[metaKey]
+	if !ok || !metaVal.IsString() {
+		return pm, nil
+	}
+	var meta map[string]any
+	if err := json.Unmarshal([]byte(metaVal.StringValue()), &meta); err != nil {
+		return pm, nil
+	}
+	if _, hasVersion := meta["schema_version"]; !hasVersion {
+		return pm, nil
+	}
+	delete(meta, "schema_version")
+	encoded, err := json.Marshal(meta)
+	if err != nil {
+		return pm, nil
+	}
+	pm[metaKey] = resource.NewStringProperty(string(encoded))
 	return pm, nil
 }
 
