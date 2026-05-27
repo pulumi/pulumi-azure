@@ -14,7 +14,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetRecommendationsResult {
     private @Nullable List<String> filterByCategories;
+    private @Nullable List<String> filterByRecommendationTypeGuids;
     private @Nullable List<String> filterByResourceGroups;
+    private @Nullable List<String> filterByResourceIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -30,8 +32,14 @@ public final class GetRecommendationsResult {
     public List<String> filterByCategories() {
         return this.filterByCategories == null ? List.of() : this.filterByCategories;
     }
+    public List<String> filterByRecommendationTypeGuids() {
+        return this.filterByRecommendationTypeGuids == null ? List.of() : this.filterByRecommendationTypeGuids;
+    }
     public List<String> filterByResourceGroups() {
         return this.filterByResourceGroups == null ? List.of() : this.filterByResourceGroups;
+    }
+    public List<String> filterByResourceIds() {
+        return this.filterByResourceIds == null ? List.of() : this.filterByResourceIds;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -58,14 +66,18 @@ public final class GetRecommendationsResult {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> filterByCategories;
+        private @Nullable List<String> filterByRecommendationTypeGuids;
         private @Nullable List<String> filterByResourceGroups;
+        private @Nullable List<String> filterByResourceIds;
         private String id;
         private List<GetRecommendationsRecommendation> recommendations;
         public Builder() {}
         public Builder(GetRecommendationsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.filterByCategories = defaults.filterByCategories;
+    	      this.filterByRecommendationTypeGuids = defaults.filterByRecommendationTypeGuids;
     	      this.filterByResourceGroups = defaults.filterByResourceGroups;
+    	      this.filterByResourceIds = defaults.filterByResourceIds;
     	      this.id = defaults.id;
     	      this.recommendations = defaults.recommendations;
         }
@@ -80,6 +92,15 @@ public final class GetRecommendationsResult {
             return filterByCategories(List.of(filterByCategories));
         }
         @CustomType.Setter
+        public Builder filterByRecommendationTypeGuids(@Nullable List<String> filterByRecommendationTypeGuids) {
+
+            this.filterByRecommendationTypeGuids = filterByRecommendationTypeGuids;
+            return this;
+        }
+        public Builder filterByRecommendationTypeGuids(String... filterByRecommendationTypeGuids) {
+            return filterByRecommendationTypeGuids(List.of(filterByRecommendationTypeGuids));
+        }
+        @CustomType.Setter
         public Builder filterByResourceGroups(@Nullable List<String> filterByResourceGroups) {
 
             this.filterByResourceGroups = filterByResourceGroups;
@@ -87,6 +108,15 @@ public final class GetRecommendationsResult {
         }
         public Builder filterByResourceGroups(String... filterByResourceGroups) {
             return filterByResourceGroups(List.of(filterByResourceGroups));
+        }
+        @CustomType.Setter
+        public Builder filterByResourceIds(@Nullable List<String> filterByResourceIds) {
+
+            this.filterByResourceIds = filterByResourceIds;
+            return this;
+        }
+        public Builder filterByResourceIds(String... filterByResourceIds) {
+            return filterByResourceIds(List.of(filterByResourceIds));
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -110,7 +140,9 @@ public final class GetRecommendationsResult {
         public GetRecommendationsResult build() {
             final var _resultValue = new GetRecommendationsResult();
             _resultValue.filterByCategories = filterByCategories;
+            _resultValue.filterByRecommendationTypeGuids = filterByRecommendationTypeGuids;
             _resultValue.filterByResourceGroups = filterByResourceGroups;
+            _resultValue.filterByResourceIds = filterByResourceIds;
             _resultValue.id = id;
             _resultValue.recommendations = recommendations;
             return _resultValue;

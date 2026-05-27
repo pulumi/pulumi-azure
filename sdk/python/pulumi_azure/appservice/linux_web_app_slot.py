@@ -60,6 +60,8 @@ class LinuxWebAppSlotArgs:
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
@@ -247,6 +249,8 @@ class LinuxWebAppSlotArgs:
     def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
@@ -537,6 +541,8 @@ class _LinuxWebAppSlotState:
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxWebAppSlotConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -756,6 +762,8 @@ class _LinuxWebAppSlotState:
     def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
@@ -1204,6 +1212,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Should the Linux Web App be enabled? Defaults to `true`.
@@ -1447,6 +1457,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should Client Affinity be enabled?
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should Client Certificates be enabled?
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `client_cert_enabled` is `false`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxWebAppSlotConnectionStringArgs', 'LinuxWebAppSlotConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: The identifier used by App Service to perform domain ownership verification via DNS TXT record.
@@ -1602,6 +1614,8 @@ class LinuxWebAppSlot(pulumi.CustomResource):
     def client_certificate_exclusion_paths(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 

@@ -272,6 +272,13 @@ class CustomHostnameBinding(pulumi.CustomResource):
             resource_group_name=example.name)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
+
         ## Import
 
         App Service Custom Hostname Bindings can be imported using the `resource id`, e.g.
@@ -335,6 +342,13 @@ class CustomHostnameBinding(pulumi.CustomResource):
             app_service_name=example_app_service.name,
             resource_group_name=example.name)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
 
         ## Import
 

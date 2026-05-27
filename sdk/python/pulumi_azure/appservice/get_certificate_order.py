@@ -289,6 +289,13 @@ def get_certificate_order(name: Optional[_builtins.str] = None,
     pulumi.export("certificateOrderId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.CertificateRegistration` - 2023-12-01
+
 
     :param _builtins.str name: The name of the App Service.
     :param _builtins.str resource_group_name: The Name of the Resource Group where the App Service exists.
@@ -336,6 +343,13 @@ def get_certificate_order_output(name: pulumi.Input[Optional[_builtins.str]] = N
         resource_group_name="example-resources")
     pulumi.export("certificateOrderId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.CertificateRegistration` - 2023-12-01
 
 
     :param _builtins.str name: The name of the App Service.

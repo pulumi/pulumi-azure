@@ -94,6 +94,14 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+        /// 
+        /// &gt; **Note:** `InteractiveAuthoringTimeToLiveInMinutes` can only be set when `VirtualNetworkEnabled` is `True`.
+        /// </summary>
+        [Output("interactiveAuthoringTimeToLiveInMinutes")]
+        public Output<int?> InteractiveAuthoringTimeToLiveInMinutes { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -194,6 +202,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+        /// 
+        /// &gt; **Note:** `InteractiveAuthoringTimeToLiveInMinutes` can only be set when `VirtualNetworkEnabled` is `True`.
+        /// </summary>
+        [Input("interactiveAuthoringTimeToLiveInMinutes")]
+        public Input<int>? InteractiveAuthoringTimeToLiveInMinutes { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -254,6 +270,14 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+        /// 
+        /// &gt; **Note:** `InteractiveAuthoringTimeToLiveInMinutes` can only be set when `VirtualNetworkEnabled` is `True`.
+        /// </summary>
+        [Input("interactiveAuthoringTimeToLiveInMinutes")]
+        public Input<int>? InteractiveAuthoringTimeToLiveInMinutes { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.

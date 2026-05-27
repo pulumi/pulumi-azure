@@ -354,6 +354,21 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
     }
 
     /**
+     * The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&#34;`, `TLS_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_256_GCM_SHA384&#34;`.
+     * 
+     */
+    @Import(name="minimumTlsCipherSuite")
+    private @Nullable Output<String> minimumTlsCipherSuite;
+
+    /**
+     * @return The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&#34;`, `TLS_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_256_GCM_SHA384&#34;`.
+     * 
+     */
+    public Optional<Output<String>> minimumTlsCipherSuite() {
+        return Optional.ofNullable(this.minimumTlsCipherSuite);
+    }
+
+    /**
      * The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
@@ -607,6 +622,7 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
         this.ipRestrictions = $.ipRestrictions;
         this.loadBalancingMode = $.loadBalancingMode;
         this.managedPipelineMode = $.managedPipelineMode;
+        this.minimumTlsCipherSuite = $.minimumTlsCipherSuite;
         this.minimumTlsVersion = $.minimumTlsVersion;
         this.preWarmedInstanceCount = $.preWarmedInstanceCount;
         this.remoteDebuggingEnabled = $.remoteDebuggingEnabled;
@@ -1122,6 +1138,27 @@ public final class WindowsFunctionAppSlotSiteConfigArgs extends com.pulumi.resou
          */
         public Builder managedPipelineMode(String managedPipelineMode) {
             return managedPipelineMode(Output.of(managedPipelineMode));
+        }
+
+        /**
+         * @param minimumTlsCipherSuite The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&#34;`, `TLS_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_256_GCM_SHA384&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsCipherSuite(@Nullable Output<String> minimumTlsCipherSuite) {
+            $.minimumTlsCipherSuite = minimumTlsCipherSuite;
+            return this;
+        }
+
+        /**
+         * @param minimumTlsCipherSuite The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&#34;`, `TLS_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_256_GCM_SHA384&#34;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumTlsCipherSuite(String minimumTlsCipherSuite) {
+            return minimumTlsCipherSuite(Output.of(minimumTlsCipherSuite));
         }
 
         /**

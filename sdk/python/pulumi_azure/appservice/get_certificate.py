@@ -187,6 +187,13 @@ def get_certificate(name: Optional[_builtins.str] = None,
     pulumi.export("appServiceCertificateId", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Web` - 2023-12-01
+
 
     :param _builtins.str name: Specifies the name of the certificate.
     :param _builtins.str resource_group_name: The name of the resource group in which to create the certificate.
@@ -228,6 +235,13 @@ def get_certificate_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         resource_group_name="example-rg")
     pulumi.export("appServiceCertificateId", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Web` - 2023-12-01
 
 
     :param _builtins.str name: Specifies the name of the certificate.

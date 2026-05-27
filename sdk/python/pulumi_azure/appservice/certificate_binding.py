@@ -240,6 +240,13 @@ class CertificateBinding(pulumi.CustomResource):
             ssl_state="SniEnabled")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
+
         ## Import
 
         App Service Certificate Bindings can be imported using the `hostname_binding_id` and the `app_service_certificate_id` , e.g.
@@ -315,6 +322,13 @@ class CertificateBinding(pulumi.CustomResource):
             certificate_id=example_managed_certificate.id,
             ssl_state="SniEnabled")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
 
         ## Import
 

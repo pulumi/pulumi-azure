@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const certificateOrderId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.CertificateRegistration` - 2023-12-01
  */
 export function getCertificateOrder(args: GetCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -138,6 +145,13 @@ export interface GetCertificateOrderResult {
  * });
  * export const certificateOrderId = example.then(example => example.id);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.CertificateRegistration` - 2023-12-01
  */
 export function getCertificateOrderOutput(args: GetCertificateOrderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateOrderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

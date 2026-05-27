@@ -18,6 +18,8 @@ type GetRecommendationsRecommendation struct {
 	Category string `pulumi:"category"`
 	// The description of the issue or the opportunity identified by the recommendation.
 	Description string `pulumi:"description"`
+	// The name of the Advisor Recommendation.
+	Id string `pulumi:"id"`
 	// The business impact of the recommendation.
 	Impact string `pulumi:"impact"`
 	// The name of the Advisor Recommendation.
@@ -50,6 +52,8 @@ type GetRecommendationsRecommendationArgs struct {
 	Category pulumi.StringInput `pulumi:"category"`
 	// The description of the issue or the opportunity identified by the recommendation.
 	Description pulumi.StringInput `pulumi:"description"`
+	// The name of the Advisor Recommendation.
+	Id pulumi.StringInput `pulumi:"id"`
 	// The business impact of the recommendation.
 	Impact pulumi.StringInput `pulumi:"impact"`
 	// The name of the Advisor Recommendation.
@@ -125,6 +129,11 @@ func (o GetRecommendationsRecommendationOutput) Category() pulumi.StringOutput {
 // The description of the issue or the opportunity identified by the recommendation.
 func (o GetRecommendationsRecommendationOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRecommendationsRecommendation) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The name of the Advisor Recommendation.
+func (o GetRecommendationsRecommendationOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRecommendationsRecommendation) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The business impact of the recommendation.

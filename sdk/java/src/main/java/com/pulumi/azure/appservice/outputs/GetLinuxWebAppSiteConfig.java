@@ -123,6 +123,7 @@ public final class GetLinuxWebAppSiteConfig {
      * 
      */
     private String managedPipelineMode;
+    private String minimumTlsCipherSuite;
     /**
      * @return The Minimum version of TLS for requests.
      * 
@@ -332,6 +333,9 @@ public final class GetLinuxWebAppSiteConfig {
     public String managedPipelineMode() {
         return this.managedPipelineMode;
     }
+    public String minimumTlsCipherSuite() {
+        return this.minimumTlsCipherSuite;
+    }
     /**
      * @return The Minimum version of TLS for requests.
      * 
@@ -447,6 +451,7 @@ public final class GetLinuxWebAppSiteConfig {
         private String loadBalancingMode;
         private Boolean localMysqlEnabled;
         private String managedPipelineMode;
+        private String minimumTlsCipherSuite;
         private String minimumTlsVersion;
         private Boolean remoteDebuggingEnabled;
         private String remoteDebuggingVersion;
@@ -483,6 +488,7 @@ public final class GetLinuxWebAppSiteConfig {
     	      this.loadBalancingMode = defaults.loadBalancingMode;
     	      this.localMysqlEnabled = defaults.localMysqlEnabled;
     	      this.managedPipelineMode = defaults.managedPipelineMode;
+    	      this.minimumTlsCipherSuite = defaults.minimumTlsCipherSuite;
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
     	      this.remoteDebuggingVersion = defaults.remoteDebuggingVersion;
@@ -681,6 +687,14 @@ public final class GetLinuxWebAppSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder minimumTlsCipherSuite(String minimumTlsCipherSuite) {
+            if (minimumTlsCipherSuite == null) {
+              throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "minimumTlsCipherSuite");
+            }
+            this.minimumTlsCipherSuite = minimumTlsCipherSuite;
+            return this;
+        }
+        @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             if (minimumTlsVersion == null) {
               throw new MissingRequiredPropertyException("GetLinuxWebAppSiteConfig", "minimumTlsVersion");
@@ -802,6 +816,7 @@ public final class GetLinuxWebAppSiteConfig {
             _resultValue.loadBalancingMode = loadBalancingMode;
             _resultValue.localMysqlEnabled = localMysqlEnabled;
             _resultValue.managedPipelineMode = managedPipelineMode;
+            _resultValue.minimumTlsCipherSuite = minimumTlsCipherSuite;
             _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;
             _resultValue.remoteDebuggingVersion = remoteDebuggingVersion;

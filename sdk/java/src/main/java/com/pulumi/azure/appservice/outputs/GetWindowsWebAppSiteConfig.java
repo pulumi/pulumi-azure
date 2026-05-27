@@ -125,6 +125,7 @@ public final class GetWindowsWebAppSiteConfig {
      * 
      */
     private String managedPipelineMode;
+    private String minimumTlsCipherSuite;
     /**
      * @return The Minimum version of TLS for requests.
      * 
@@ -340,6 +341,9 @@ public final class GetWindowsWebAppSiteConfig {
     public String managedPipelineMode() {
         return this.managedPipelineMode;
     }
+    public String minimumTlsCipherSuite() {
+        return this.minimumTlsCipherSuite;
+    }
     /**
      * @return The Minimum version of TLS for requests.
      * 
@@ -465,6 +469,7 @@ public final class GetWindowsWebAppSiteConfig {
         private String loadBalancingMode;
         private Boolean localMysqlEnabled;
         private String managedPipelineMode;
+        private String minimumTlsCipherSuite;
         private String minimumTlsVersion;
         private Boolean remoteDebuggingEnabled;
         private String remoteDebuggingVersion;
@@ -503,6 +508,7 @@ public final class GetWindowsWebAppSiteConfig {
     	      this.loadBalancingMode = defaults.loadBalancingMode;
     	      this.localMysqlEnabled = defaults.localMysqlEnabled;
     	      this.managedPipelineMode = defaults.managedPipelineMode;
+    	      this.minimumTlsCipherSuite = defaults.minimumTlsCipherSuite;
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
     	      this.remoteDebuggingVersion = defaults.remoteDebuggingVersion;
@@ -706,6 +712,14 @@ public final class GetWindowsWebAppSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder minimumTlsCipherSuite(String minimumTlsCipherSuite) {
+            if (minimumTlsCipherSuite == null) {
+              throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "minimumTlsCipherSuite");
+            }
+            this.minimumTlsCipherSuite = minimumTlsCipherSuite;
+            return this;
+        }
+        @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             if (minimumTlsVersion == null) {
               throw new MissingRequiredPropertyException("GetWindowsWebAppSiteConfig", "minimumTlsVersion");
@@ -846,6 +860,7 @@ public final class GetWindowsWebAppSiteConfig {
             _resultValue.loadBalancingMode = loadBalancingMode;
             _resultValue.localMysqlEnabled = localMysqlEnabled;
             _resultValue.managedPipelineMode = managedPipelineMode;
+            _resultValue.minimumTlsCipherSuite = minimumTlsCipherSuite;
             _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;
             _resultValue.remoteDebuggingVersion = remoteDebuggingVersion;

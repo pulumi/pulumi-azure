@@ -532,6 +532,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
+     * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
         return getCertificate(args, InvokeOptions.Empty);
@@ -573,6 +580,13 @@ public final class AppserviceFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -616,6 +630,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
+     * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
@@ -657,6 +678,13 @@ public final class AppserviceFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOutputOptions options) {
@@ -700,6 +728,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
+     * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:appservice/getCertificate:getCertificate", TypeShape.of(GetCertificateResult.class), args, Utilities.withVersion(options));
@@ -741,6 +776,13 @@ public final class AppserviceFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.CertificateRegistration` - 2023-12-01
      * 
      */
     public static Output<GetCertificateOrderResult> getCertificateOrder(GetCertificateOrderArgs args) {
@@ -784,6 +826,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.CertificateRegistration` - 2023-12-01
+     * 
      */
     public static CompletableFuture<GetCertificateOrderResult> getCertificateOrderPlain(GetCertificateOrderPlainArgs args) {
         return getCertificateOrderPlain(args, InvokeOptions.Empty);
@@ -825,6 +874,13 @@ public final class AppserviceFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.CertificateRegistration` - 2023-12-01
      * 
      */
     public static Output<GetCertificateOrderResult> getCertificateOrder(GetCertificateOrderArgs args, InvokeOptions options) {
@@ -868,6 +924,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.CertificateRegistration` - 2023-12-01
+     * 
      */
     public static Output<GetCertificateOrderResult> getCertificateOrder(GetCertificateOrderArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getCertificateOrder:getCertificateOrder", TypeShape.of(GetCertificateOrderResult.class), args, Utilities.withVersion(options));
@@ -909,6 +972,13 @@ public final class AppserviceFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.CertificateRegistration` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetCertificateOrderResult> getCertificateOrderPlain(GetCertificateOrderPlainArgs args, InvokeOptions options) {
@@ -1411,6 +1481,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
+     * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args) {
         return getFunctionAppHostKeys(args, InvokeOptions.Empty);
@@ -1451,6 +1528,13 @@ public final class AppserviceFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetFunctionAppHostKeysResult> getFunctionAppHostKeysPlain(GetFunctionAppHostKeysPlainArgs args) {
@@ -1493,6 +1577,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
+     * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", TypeShape.of(GetFunctionAppHostKeysResult.class), args, Utilities.withVersion(options));
@@ -1534,6 +1625,13 @@ public final class AppserviceFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
+     * 
      */
     public static Output<GetFunctionAppHostKeysResult> getFunctionAppHostKeys(GetFunctionAppHostKeysArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", TypeShape.of(GetFunctionAppHostKeysResult.class), args, Utilities.withVersion(options));
@@ -1574,6 +1672,13 @@ public final class AppserviceFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Web` - 2023-12-01
      * 
      */
     public static CompletableFuture<GetFunctionAppHostKeysResult> getFunctionAppHostKeysPlain(GetFunctionAppHostKeysPlainArgs args, InvokeOptions options) {

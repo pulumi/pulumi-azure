@@ -23,6 +23,7 @@ class GetRecommendationsRecommendationResult(dict):
     def __init__(__self__, *,
                  category: _builtins.str,
                  description: _builtins.str,
+                 id: _builtins.str,
                  impact: _builtins.str,
                  recommendation_name: _builtins.str,
                  recommendation_type_id: _builtins.str,
@@ -33,6 +34,7 @@ class GetRecommendationsRecommendationResult(dict):
         """
         :param _builtins.str category: The category of the recommendation.
         :param _builtins.str description: The description of the issue or the opportunity identified by the recommendation.
+        :param _builtins.str id: The name of the Advisor Recommendation.
         :param _builtins.str impact: The business impact of the recommendation.
         :param _builtins.str recommendation_name: The name of the Advisor Recommendation.
         :param _builtins.str recommendation_type_id: The recommendation type id of the Advisor Recommendation.
@@ -43,6 +45,7 @@ class GetRecommendationsRecommendationResult(dict):
         """
         pulumi.set(__self__, "category", category)
         pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "impact", impact)
         pulumi.set(__self__, "recommendation_name", recommendation_name)
         pulumi.set(__self__, "recommendation_type_id", recommendation_type_id)
@@ -66,6 +69,14 @@ class GetRecommendationsRecommendationResult(dict):
         The description of the issue or the opportunity identified by the recommendation.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        """
+        The name of the Advisor Recommendation.
+        """
+        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter

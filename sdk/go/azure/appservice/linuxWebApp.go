@@ -92,6 +92,8 @@ type LinuxWebApp struct {
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrOutput `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths pulumi.StringPtrOutput `pulumi:"clientCertificateExclusionPaths"`
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrOutput `pulumi:"clientCertificateMode"`
@@ -226,6 +228,8 @@ type linuxWebAppState struct {
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
@@ -317,6 +321,8 @@ type LinuxWebAppState struct {
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrInput
@@ -412,6 +418,8 @@ type linuxWebAppArgs struct {
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled *bool `pulumi:"clientCertificateEnabled"`
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths *string `pulumi:"clientCertificateExclusionPaths"`
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode *string `pulumi:"clientCertificateMode"`
@@ -486,6 +494,8 @@ type LinuxWebAppArgs struct {
 	// Should Client Certificates be enabled?
 	ClientCertificateEnabled pulumi.BoolPtrInput
 	// Paths to exclude when using client certificates, separated by ;
+	//
+	// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 	ClientCertificateExclusionPaths pulumi.StringPtrInput
 	// The Client Certificate mode. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. This property has no effect when `clientCertificateEnabled` is `false`. Defaults to `Required`.
 	ClientCertificateMode pulumi.StringPtrInput
@@ -663,6 +673,8 @@ func (o LinuxWebAppOutput) ClientCertificateEnabled() pulumi.BoolPtrOutput {
 }
 
 // Paths to exclude when using client certificates, separated by ;
+//
+// > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
 func (o LinuxWebAppOutput) ClientCertificateExclusionPaths() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinuxWebApp) pulumi.StringPtrOutput { return v.ClientCertificateExclusionPaths }).(pulumi.StringPtrOutput)
 }

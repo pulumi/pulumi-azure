@@ -85,6 +85,10 @@ type IntegrationRuntimeRule struct {
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+	//
+	// > **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+	InteractiveAuthoringTimeToLiveInMinutes pulumi.IntPtrOutput `pulumi:"interactiveAuthoringTimeToLiveInMinutes"`
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -138,6 +142,10 @@ type integrationRuntimeRuleState struct {
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+	//
+	// > **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+	InteractiveAuthoringTimeToLiveInMinutes *int `pulumi:"interactiveAuthoringTimeToLiveInMinutes"`
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -159,6 +167,10 @@ type IntegrationRuntimeRuleState struct {
 	DataFactoryId pulumi.StringPtrInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
+	// The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+	//
+	// > **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+	InteractiveAuthoringTimeToLiveInMinutes pulumi.IntPtrInput
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -184,6 +196,10 @@ type integrationRuntimeRuleArgs struct {
 	DataFactoryId string `pulumi:"dataFactoryId"`
 	// Integration runtime description.
 	Description *string `pulumi:"description"`
+	// The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+	//
+	// > **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+	InteractiveAuthoringTimeToLiveInMinutes *int `pulumi:"interactiveAuthoringTimeToLiveInMinutes"`
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -206,6 +222,10 @@ type IntegrationRuntimeRuleArgs struct {
 	DataFactoryId pulumi.StringInput
 	// Integration runtime description.
 	Description pulumi.StringPtrInput
+	// The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+	//
+	// > **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+	InteractiveAuthoringTimeToLiveInMinutes pulumi.IntPtrInput
 	// Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -326,6 +346,13 @@ func (o IntegrationRuntimeRuleOutput) DataFactoryId() pulumi.StringOutput {
 // Integration runtime description.
 func (o IntegrationRuntimeRuleOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IntegrationRuntimeRule) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+//
+// > **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+func (o IntegrationRuntimeRuleOutput) InteractiveAuthoringTimeToLiveInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationRuntimeRule) pulumi.IntPtrOutput { return v.InteractiveAuthoringTimeToLiveInMinutes }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.

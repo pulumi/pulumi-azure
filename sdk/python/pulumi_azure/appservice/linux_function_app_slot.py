@@ -65,6 +65,8 @@ class LinuxFunctionAppSlotArgs:
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotConnectionStringArgs']]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Force disable the content share settings.
@@ -265,6 +267,8 @@ class LinuxFunctionAppSlotArgs:
     def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
@@ -615,6 +619,8 @@ class _LinuxFunctionAppSlotState:
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxFunctionAppSlotConnectionStringArgs']]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Force disable the content share settings.
@@ -822,6 +828,8 @@ class _LinuxFunctionAppSlotState:
     def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
@@ -1352,6 +1360,8 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Force disable the content share settings.
@@ -1618,6 +1628,8 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the Function App Slot use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App Slot's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxFunctionAppSlotConnectionStringArgs', 'LinuxFunctionAppSlotConnectionStringArgsDict']]]] connection_strings: a `connection_string` block as detailed below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Force disable the content share settings.
@@ -1765,6 +1777,8 @@ class LinuxFunctionAppSlot(pulumi.CustomResource):
     def client_certificate_exclusion_paths(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 

@@ -66,14 +66,20 @@ func GetRecommendations(ctx *pulumi.Context, args *GetRecommendationsArgs, opts 
 type GetRecommendationsArgs struct {
 	// Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
 	FilterByCategories []string `pulumi:"filterByCategories"`
+	// Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+	FilterByRecommendationTypeGuids []string `pulumi:"filterByRecommendationTypeGuids"`
 	// Specifies a list of resource groups about which the Advisor Recommendations will be listed.
 	FilterByResourceGroups []string `pulumi:"filterByResourceGroups"`
+	// Specifies a list of resource about which the Advisor Recommendations will be listed.
+	FilterByResourceIds []string `pulumi:"filterByResourceIds"`
 }
 
 // A collection of values returned by getRecommendations.
 type GetRecommendationsResult struct {
-	FilterByCategories     []string `pulumi:"filterByCategories"`
-	FilterByResourceGroups []string `pulumi:"filterByResourceGroups"`
+	FilterByCategories              []string `pulumi:"filterByCategories"`
+	FilterByRecommendationTypeGuids []string `pulumi:"filterByRecommendationTypeGuids"`
+	FilterByResourceGroups          []string `pulumi:"filterByResourceGroups"`
+	FilterByResourceIds             []string `pulumi:"filterByResourceIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// One or more `recommendations` blocks as defined below.
@@ -93,8 +99,12 @@ func GetRecommendationsOutput(ctx *pulumi.Context, args GetRecommendationsOutput
 type GetRecommendationsOutputArgs struct {
 	// Specifies a list of categories in which the Advisor Recommendations will be listed. Possible values are `HighAvailability`, `Security`, `Performance`, `Cost` and `OperationalExcellence`.
 	FilterByCategories pulumi.StringArrayInput `pulumi:"filterByCategories"`
+	// Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+	FilterByRecommendationTypeGuids pulumi.StringArrayInput `pulumi:"filterByRecommendationTypeGuids"`
 	// Specifies a list of resource groups about which the Advisor Recommendations will be listed.
 	FilterByResourceGroups pulumi.StringArrayInput `pulumi:"filterByResourceGroups"`
+	// Specifies a list of resource about which the Advisor Recommendations will be listed.
+	FilterByResourceIds pulumi.StringArrayInput `pulumi:"filterByResourceIds"`
 }
 
 func (GetRecommendationsOutputArgs) ElementType() reflect.Type {
@@ -120,8 +130,16 @@ func (o GetRecommendationsResultOutput) FilterByCategories() pulumi.StringArrayO
 	return o.ApplyT(func(v GetRecommendationsResult) []string { return v.FilterByCategories }).(pulumi.StringArrayOutput)
 }
 
+func (o GetRecommendationsResultOutput) FilterByRecommendationTypeGuids() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRecommendationsResult) []string { return v.FilterByRecommendationTypeGuids }).(pulumi.StringArrayOutput)
+}
+
 func (o GetRecommendationsResultOutput) FilterByResourceGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetRecommendationsResult) []string { return v.FilterByResourceGroups }).(pulumi.StringArrayOutput)
+}
+
+func (o GetRecommendationsResultOutput) FilterByResourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRecommendationsResult) []string { return v.FilterByResourceIds }).(pulumi.StringArrayOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

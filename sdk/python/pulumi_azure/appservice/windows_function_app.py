@@ -79,6 +79,8 @@ class WindowsFunctionAppArgs:
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Should Content Share Settings be disabled. Defaults to `false`.
@@ -312,6 +314,8 @@ class WindowsFunctionAppArgs:
     def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
@@ -703,6 +707,8 @@ class _WindowsFunctionAppState:
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppConnectionStringArgs']]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Should Content Share Settings be disabled. Defaults to `false`.
@@ -933,6 +939,8 @@ class _WindowsFunctionAppState:
     def client_certificate_exclusion_paths(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 
@@ -1512,6 +1520,8 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsFunctionAppConnectionStringArgs', 'WindowsFunctionAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Should Content Share Settings be disabled. Defaults to `false`.
@@ -1802,6 +1812,8 @@ class WindowsFunctionApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] builtin_logging_enabled: Should built in logging be enabled. Configures `AzureWebJobsDashboard` app setting based on the configured storage setting. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] client_certificate_enabled: Should the function app use Client Certificates.
         :param pulumi.Input[_builtins.str] client_certificate_exclusion_paths: Paths to exclude when using client certificates, separated by ;
+               
+               > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Function App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Optional`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsFunctionAppConnectionStringArgs', 'WindowsFunctionAppConnectionStringArgsDict']]]] connection_strings: One or more `connection_string` blocks as defined below.
         :param pulumi.Input[_builtins.bool] content_share_force_disabled: Should Content Share Settings be disabled. Defaults to `false`.
@@ -1969,6 +1981,8 @@ class WindowsFunctionApp(pulumi.CustomResource):
     def client_certificate_exclusion_paths(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Paths to exclude when using client certificates, separated by ;
+
+        > **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `client_certificate_enabled` to `false`, or set `client_certificate_mode` to `Optional` or `Required` and remove all `client_certificate_exclusion_paths`.
         """
         return pulumi.get(self, "client_certificate_exclusion_paths")
 

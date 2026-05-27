@@ -67,18 +67,10 @@ namespace Pulumi.Azure.AIFoundry
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleAIServices = new Azure.Cognitive.AIServices("example", new()
-    ///     {
-    ///         Name = "exampleaiservices",
-    ///         Location = example.Location,
-    ///         ResourceGroupName = example.Name,
-    ///         SkuName = "S0",
-    ///     });
-    /// 
     ///     var exampleHub = new Azure.AIFoundry.Hub("example", new()
     ///     {
     ///         Name = "exampleaihub",
-    ///         Location = exampleAIServices.Location,
+    ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccountId = exampleAccount.Id,
     ///         KeyVaultId = exampleKeyVault.Id,

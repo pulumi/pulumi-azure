@@ -37,7 +37,9 @@ export function getRecommendations(args?: GetRecommendationsArgs, opts?: pulumi.
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:advisor/getRecommendations:getRecommendations", {
         "filterByCategories": args.filterByCategories,
+        "filterByRecommendationTypeGuids": args.filterByRecommendationTypeGuids,
         "filterByResourceGroups": args.filterByResourceGroups,
+        "filterByResourceIds": args.filterByResourceIds,
     }, opts);
 }
 
@@ -50,9 +52,17 @@ export interface GetRecommendationsArgs {
      */
     filterByCategories?: string[];
     /**
+     * Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+     */
+    filterByRecommendationTypeGuids?: string[];
+    /**
      * Specifies a list of resource groups about which the Advisor Recommendations will be listed.
      */
     filterByResourceGroups?: string[];
+    /**
+     * Specifies a list of resource about which the Advisor Recommendations will be listed.
+     */
+    filterByResourceIds?: string[];
 }
 
 /**
@@ -60,7 +70,9 @@ export interface GetRecommendationsArgs {
  */
 export interface GetRecommendationsResult {
     readonly filterByCategories?: string[];
+    readonly filterByRecommendationTypeGuids?: string[];
     readonly filterByResourceGroups?: string[];
+    readonly filterByResourceIds?: string[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -101,7 +113,9 @@ export function getRecommendationsOutput(args?: GetRecommendationsOutputArgs, op
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:advisor/getRecommendations:getRecommendations", {
         "filterByCategories": args.filterByCategories,
+        "filterByRecommendationTypeGuids": args.filterByRecommendationTypeGuids,
         "filterByResourceGroups": args.filterByResourceGroups,
+        "filterByResourceIds": args.filterByResourceIds,
     }, opts);
 }
 
@@ -114,7 +128,15 @@ export interface GetRecommendationsOutputArgs {
      */
     filterByCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
+     * Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+     */
+    filterByRecommendationTypeGuids?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
      * Specifies a list of resource groups about which the Advisor Recommendations will be listed.
      */
     filterByResourceGroups?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Specifies a list of resource about which the Advisor Recommendations will be listed.
+     */
+    filterByResourceIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

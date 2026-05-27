@@ -126,6 +126,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Paths to exclude when using client certificates, separated by ;
+        /// 
+        /// &gt; **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `ClientCertificateEnabled` to `False`, or set `ClientCertificateMode` to `Optional` or `Required` and remove all `ClientCertificateExclusionPaths`.
         /// </summary>
         [Output("clientCertificateExclusionPaths")]
         public Output<string?> ClientCertificateExclusionPaths { get; private set; } = null!;
@@ -474,6 +476,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Paths to exclude when using client certificates, separated by ;
+        /// 
+        /// &gt; **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `ClientCertificateEnabled` to `False`, or set `ClientCertificateMode` to `Optional` or `Required` and remove all `ClientCertificateExclusionPaths`.
         /// </summary>
         [Input("clientCertificateExclusionPaths")]
         public Input<string>? ClientCertificateExclusionPaths { get; set; }
@@ -752,6 +756,8 @@ namespace Pulumi.Azure.AppService
 
         /// <summary>
         /// Paths to exclude when using client certificates, separated by ;
+        /// 
+        /// &gt; **Note:** TLS 1.3 and HTTP 2.0 don't support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `ClientCertificateEnabled` to `False`, or set `ClientCertificateMode` to `Optional` or `Required` and remove all `ClientCertificateExclusionPaths`.
         /// </summary>
         [Input("clientCertificateExclusionPaths")]
         public Input<string>? ClientCertificateExclusionPaths { get; set; }

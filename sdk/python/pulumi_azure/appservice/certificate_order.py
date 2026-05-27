@@ -544,6 +544,13 @@ class CertificateOrder(pulumi.CustomResource):
             product_type="Standard")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CertificateRegistration` - 2023-12-01
+
         ## Import
 
         App Service Certificate Orders can be imported using the `resource id`, e.g.
@@ -593,6 +600,13 @@ class CertificateOrder(pulumi.CustomResource):
             distinguished_name="CN=example.com",
             product_type="Standard")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.CertificateRegistration` - 2023-12-01
 
         ## Import
 

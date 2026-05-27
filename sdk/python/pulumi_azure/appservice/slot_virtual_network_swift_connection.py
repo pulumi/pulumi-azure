@@ -191,6 +191,13 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             subnet_id=example_subnet.id)
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
+
         ## Import
 
         App Service Slot Virtual Network Associations can be imported using the `resource id`, e.g.
@@ -265,6 +272,13 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
             app_service_id=example_app_service.id,
             subnet_id=example_subnet.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
 
         ## Import
 

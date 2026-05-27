@@ -121,6 +121,11 @@ public final class LinuxWebAppSiteConfig {
      */
     private @Nullable String managedPipelineMode;
     /**
+     * @return The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&#34;`, `TLS_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_256_GCM_SHA384&#34;`.
+     * 
+     */
+    private @Nullable String minimumTlsCipherSuite;
+    /**
      * @return The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
@@ -322,6 +327,13 @@ public final class LinuxWebAppSiteConfig {
         return Optional.ofNullable(this.managedPipelineMode);
     }
     /**
+     * @return The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384&#34;`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384&#34;`, `TLS_RSA_WITH_AES_128_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_128_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_128_GCM_SHA256&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA&#34;`,`TLS_RSA_WITH_AES_256_CBC_SHA256&#34;`,`TLS_RSA_WITH_AES_256_GCM_SHA384&#34;`.
+     * 
+     */
+    public Optional<String> minimumTlsCipherSuite() {
+        return Optional.ofNullable(this.minimumTlsCipherSuite);
+    }
+    /**
      * @return The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
      * 
      */
@@ -432,6 +444,7 @@ public final class LinuxWebAppSiteConfig {
         private @Nullable String loadBalancingMode;
         private @Nullable Boolean localMysqlEnabled;
         private @Nullable String managedPipelineMode;
+        private @Nullable String minimumTlsCipherSuite;
         private @Nullable String minimumTlsVersion;
         private @Nullable Boolean remoteDebuggingEnabled;
         private @Nullable String remoteDebuggingVersion;
@@ -468,6 +481,7 @@ public final class LinuxWebAppSiteConfig {
     	      this.loadBalancingMode = defaults.loadBalancingMode;
     	      this.localMysqlEnabled = defaults.localMysqlEnabled;
     	      this.managedPipelineMode = defaults.managedPipelineMode;
+    	      this.minimumTlsCipherSuite = defaults.minimumTlsCipherSuite;
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
     	      this.remoteDebuggingVersion = defaults.remoteDebuggingVersion;
@@ -615,6 +629,12 @@ public final class LinuxWebAppSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder minimumTlsCipherSuite(@Nullable String minimumTlsCipherSuite) {
+
+            this.minimumTlsCipherSuite = minimumTlsCipherSuite;
+            return this;
+        }
+        @CustomType.Setter
         public Builder minimumTlsVersion(@Nullable String minimumTlsVersion) {
 
             this.minimumTlsVersion = minimumTlsVersion;
@@ -712,6 +732,7 @@ public final class LinuxWebAppSiteConfig {
             _resultValue.loadBalancingMode = loadBalancingMode;
             _resultValue.localMysqlEnabled = localMysqlEnabled;
             _resultValue.managedPipelineMode = managedPipelineMode;
+            _resultValue.minimumTlsCipherSuite = minimumTlsCipherSuite;
             _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;
             _resultValue.remoteDebuggingVersion = remoteDebuggingVersion;

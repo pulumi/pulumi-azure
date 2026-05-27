@@ -22,6 +22,11 @@ public final class GetRecommendationsRecommendation {
      */
     private String description;
     /**
+     * @return The name of the Advisor Recommendation.
+     * 
+     */
+    private String id;
+    /**
      * @return The business impact of the recommendation.
      * 
      */
@@ -71,6 +76,13 @@ public final class GetRecommendationsRecommendation {
      */
     public String description() {
         return this.description;
+    }
+    /**
+     * @return The name of the Advisor Recommendation.
+     * 
+     */
+    public String id() {
+        return this.id;
     }
     /**
      * @return The business impact of the recommendation.
@@ -133,6 +145,7 @@ public final class GetRecommendationsRecommendation {
     public static final class Builder {
         private String category;
         private String description;
+        private String id;
         private String impact;
         private String recommendationName;
         private String recommendationTypeId;
@@ -145,6 +158,7 @@ public final class GetRecommendationsRecommendation {
     	      Objects.requireNonNull(defaults);
     	      this.category = defaults.category;
     	      this.description = defaults.description;
+    	      this.id = defaults.id;
     	      this.impact = defaults.impact;
     	      this.recommendationName = defaults.recommendationName;
     	      this.recommendationTypeId = defaults.recommendationTypeId;
@@ -168,6 +182,14 @@ public final class GetRecommendationsRecommendation {
               throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "description");
             }
             this.description = description;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder id(String id) {
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRecommendationsRecommendation", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -233,6 +255,7 @@ public final class GetRecommendationsRecommendation {
             final var _resultValue = new GetRecommendationsRecommendation();
             _resultValue.category = category;
             _resultValue.description = description;
+            _resultValue.id = id;
             _resultValue.impact = impact;
             _resultValue.recommendationName = recommendationName;
             _resultValue.recommendationTypeId = recommendationTypeId;

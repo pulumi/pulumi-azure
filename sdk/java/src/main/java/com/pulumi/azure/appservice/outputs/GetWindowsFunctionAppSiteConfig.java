@@ -123,6 +123,7 @@ public final class GetWindowsFunctionAppSiteConfig {
      * 
      */
     private String managedPipelineMode;
+    private String minimumTlsCipherSuite;
     /**
      * @return The minimum version of TLS required for SSL requests.
      * 
@@ -347,6 +348,9 @@ public final class GetWindowsFunctionAppSiteConfig {
     public String managedPipelineMode() {
         return this.managedPipelineMode;
     }
+    public String minimumTlsCipherSuite() {
+        return this.minimumTlsCipherSuite;
+    }
     /**
      * @return The minimum version of TLS required for SSL requests.
      * 
@@ -483,6 +487,7 @@ public final class GetWindowsFunctionAppSiteConfig {
         private List<GetWindowsFunctionAppSiteConfigIpRestriction> ipRestrictions;
         private String loadBalancingMode;
         private String managedPipelineMode;
+        private String minimumTlsCipherSuite;
         private String minimumTlsVersion;
         private Integer preWarmedInstanceCount;
         private Boolean remoteDebuggingEnabled;
@@ -522,6 +527,7 @@ public final class GetWindowsFunctionAppSiteConfig {
     	      this.ipRestrictions = defaults.ipRestrictions;
     	      this.loadBalancingMode = defaults.loadBalancingMode;
     	      this.managedPipelineMode = defaults.managedPipelineMode;
+    	      this.minimumTlsCipherSuite = defaults.minimumTlsCipherSuite;
     	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.preWarmedInstanceCount = defaults.preWarmedInstanceCount;
     	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
@@ -723,6 +729,14 @@ public final class GetWindowsFunctionAppSiteConfig {
             return this;
         }
         @CustomType.Setter
+        public Builder minimumTlsCipherSuite(String minimumTlsCipherSuite) {
+            if (minimumTlsCipherSuite == null) {
+              throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfig", "minimumTlsCipherSuite");
+            }
+            this.minimumTlsCipherSuite = minimumTlsCipherSuite;
+            return this;
+        }
+        @CustomType.Setter
         public Builder minimumTlsVersion(String minimumTlsVersion) {
             if (minimumTlsVersion == null) {
               throw new MissingRequiredPropertyException("GetWindowsFunctionAppSiteConfig", "minimumTlsVersion");
@@ -868,6 +882,7 @@ public final class GetWindowsFunctionAppSiteConfig {
             _resultValue.ipRestrictions = ipRestrictions;
             _resultValue.loadBalancingMode = loadBalancingMode;
             _resultValue.managedPipelineMode = managedPipelineMode;
+            _resultValue.minimumTlsCipherSuite = minimumTlsCipherSuite;
             _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.preWarmedInstanceCount = preWarmedInstanceCount;
             _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;

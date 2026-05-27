@@ -55,11 +55,21 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("radiusServerAddress")]
         public Input<string>? RadiusServerAddress { get; set; }
 
+        [Input("radiusServerSecret")]
+        private Input<string>? _radiusServerSecret;
+
         /// <summary>
         /// The secret used by the Radius server.
         /// </summary>
-        [Input("radiusServerSecret")]
-        public Input<string>? RadiusServerSecret { get; set; }
+        public Input<string>? RadiusServerSecret
+        {
+            get => _radiusServerSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _radiusServerSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("radiusServers")]
         private InputList<Inputs.VirtualNetworkGatewayVpnClientConfigurationRadiusServerArgs>? _radiusServers;
