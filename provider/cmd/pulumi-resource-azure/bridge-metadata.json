@@ -24949,7 +24949,13 @@
                     "filter_by_category": {
                         "maxItemsOne": false
                     },
+                    "filter_by_recommendation_type_guids": {
+                        "maxItemsOne": false
+                    },
                     "filter_by_resource_groups": {
+                        "maxItemsOne": false
+                    },
+                    "filter_by_resource_ids": {
                         "maxItemsOne": false
                     },
                     "recommendations": {

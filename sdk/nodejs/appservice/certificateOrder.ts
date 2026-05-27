@@ -28,6 +28,13 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.CertificateRegistration` - 2023-12-01
+ *
  * ## Import
  *
  * App Service Certificate Orders can be imported using the `resource id`, e.g.

@@ -25,7 +25,6 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/aifoundry"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cognitive"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
 //	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
@@ -82,18 +81,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAIServices, err := cognitive.NewAIServices(ctx, "example", &cognitive.AIServicesArgs{
-//				Name:              pulumi.String("exampleaiservices"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				SkuName:           pulumi.String("S0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			exampleHub, err := aifoundry.NewHub(ctx, "example", &aifoundry.HubArgs{
 //				Name:              pulumi.String("exampleaihub"),
-//				Location:          exampleAIServices.Location,
+//				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				StorageAccountId:  exampleAccount.ID(),
 //				KeyVaultId:        exampleKeyVault.ID(),

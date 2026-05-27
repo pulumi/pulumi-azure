@@ -120,12 +120,16 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
     /**
      * Paths to exclude when using client certificates, separated by ;
      * 
+     * &gt; **Note:** TLS 1.3 and HTTP 2.0 don&#39;t support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
+     * 
      */
     @Import(name="clientCertificateExclusionPaths")
     private @Nullable Output<String> clientCertificateExclusionPaths;
 
     /**
      * @return Paths to exclude when using client certificates, separated by ;
+     * 
+     * &gt; **Note:** TLS 1.3 and HTTP 2.0 don&#39;t support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
      * 
      */
     public Optional<Output<String>> clientCertificateExclusionPaths() {
@@ -715,6 +719,8 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
         /**
          * @param clientCertificateExclusionPaths Paths to exclude when using client certificates, separated by ;
          * 
+         * &gt; **Note:** TLS 1.3 and HTTP 2.0 don&#39;t support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
+         * 
          * @return builder
          * 
          */
@@ -725,6 +731,8 @@ public final class WindowsFunctionAppSlotArgs extends com.pulumi.resources.Resou
 
         /**
          * @param clientCertificateExclusionPaths Paths to exclude when using client certificates, separated by ;
+         * 
+         * &gt; **Note:** TLS 1.3 and HTTP 2.0 don&#39;t support TLS renegotiation. These protocols will not work if your app is configured with client certificate settings that use TLS renegotiation. Either set `clientCertificateEnabled` to `false`, or set `clientCertificateMode` to `Optional` or `Required` and remove all `clientCertificateExclusionPaths`.
          * 
          * @return builder
          * 

@@ -108,9 +108,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.storage.Account;
  * import com.pulumi.azure.storage.AccountArgs;
- * import com.pulumi.azure.appservice.Plan;
- * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
+ * import com.pulumi.azure.appservice.ServicePlan;
+ * import com.pulumi.azure.appservice.ServicePlanArgs;
  * import com.pulumi.azure.logicapps.Standard;
  * import com.pulumi.azure.logicapps.StandardArgs;
  * import com.pulumi.azure.logicapps.inputs.StandardSiteConfigArgs;
@@ -140,23 +139,19 @@ import javax.annotation.Nullable;
  *             .accountReplicationType("LRS")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *         var exampleServicePlan = new ServicePlan("exampleServicePlan", ServicePlanArgs.builder()
  *             .name("example-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .kind("Linux")
- *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("WorkflowStandard")
- *                 .size("WS1")
- *                 .build())
+ *             .osType("Linux")
+ *             .skuName("WS1")
  *             .build());
  * 
  *         var exampleStandard = new Standard("exampleStandard", StandardArgs.builder()
  *             .name("example-logic-app")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(examplePlan.id())
+ *             .appServicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .siteConfig(StandardSiteConfigArgs.builder()
@@ -363,6 +358,24 @@ public class Standard extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<StandardIdentity>> identity() {
         return Codegen.optional(this.identity);
+    }
+    /**
+     * The User Assigned Identity ID used for accessing KeyVault secrets.
+     * 
+     * &gt; **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * 
+     */
+    @Export(name="keyVaultReferenceIdentityId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> keyVaultReferenceIdentityId;
+
+    /**
+     * @return The User Assigned Identity ID used for accessing KeyVault secrets.
+     * 
+     * &gt; **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+     * 
+     */
+    public Output<Optional<String>> keyVaultReferenceIdentityId() {
+        return Codegen.optional(this.keyVaultReferenceIdentityId);
     }
     /**
      * The Logic App kind.

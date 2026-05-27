@@ -93,6 +93,12 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+     *
+     * > **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+     */
+    declare public readonly interactiveAuthoringTimeToLiveInMinutes: pulumi.Output<number | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      */
     declare public readonly location: pulumi.Output<string>;
@@ -127,6 +133,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             resourceInputs["coreCount"] = state?.coreCount;
             resourceInputs["dataFactoryId"] = state?.dataFactoryId;
             resourceInputs["description"] = state?.description;
+            resourceInputs["interactiveAuthoringTimeToLiveInMinutes"] = state?.interactiveAuthoringTimeToLiveInMinutes;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
             resourceInputs["timeToLiveMin"] = state?.timeToLiveMin;
@@ -141,6 +148,7 @@ export class IntegrationRuntimeRule extends pulumi.CustomResource {
             resourceInputs["coreCount"] = args?.coreCount;
             resourceInputs["dataFactoryId"] = args?.dataFactoryId;
             resourceInputs["description"] = args?.description;
+            resourceInputs["interactiveAuthoringTimeToLiveInMinutes"] = args?.interactiveAuthoringTimeToLiveInMinutes;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["timeToLiveMin"] = args?.timeToLiveMin;
@@ -175,6 +183,12 @@ export interface IntegrationRuntimeRuleState {
      * Integration runtime description.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+     *
+     * > **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+     */
+    interactiveAuthoringTimeToLiveInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      */
@@ -217,6 +231,12 @@ export interface IntegrationRuntimeRuleArgs {
      * Integration runtime description.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+     *
+     * > **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+     */
+    interactiveAuthoringTimeToLiveInMinutes?: pulumi.Input<number | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      */

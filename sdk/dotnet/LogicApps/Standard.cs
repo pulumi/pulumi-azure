@@ -91,18 +91,13 @@ namespace Pulumi.Azure.LogicApps
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
     ///     {
     ///         Name = "example-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Kind = "Linux",
-    ///         Reserved = true,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
-    ///         {
-    ///             Tier = "WorkflowStandard",
-    ///             Size = "WS1",
-    ///         },
+    ///         OsType = "Linux",
+    ///         SkuName = "WS1",
     ///     });
     /// 
     ///     var exampleStandard = new Azure.LogicApps.Standard("example", new()
@@ -110,7 +105,7 @@ namespace Pulumi.Azure.LogicApps
     ///         Name = "example-logic-app",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         SiteConfig = new Azure.LogicApps.Inputs.StandardSiteConfigArgs
@@ -219,6 +214,14 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Output("identity")]
         public Output<Outputs.StandardIdentity?> Identity { get; private set; } = null!;
+
+        /// <summary>
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. 
+        /// 
+        /// &gt; **Note:** The identity must be assigned to the Logic App in the `Identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// </summary>
+        [Output("keyVaultReferenceIdentityId")]
+        public Output<string?> KeyVaultReferenceIdentityId { get; private set; } = null!;
 
         /// <summary>
         /// The Logic App kind.
@@ -463,6 +466,14 @@ namespace Pulumi.Azure.LogicApps
         public Input<Inputs.StandardIdentityArgs>? Identity { get; set; }
 
         /// <summary>
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. 
+        /// 
+        /// &gt; **Note:** The identity must be assigned to the Logic App in the `Identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// </summary>
+        [Input("keyVaultReferenceIdentityId")]
+        public Input<string>? KeyVaultReferenceIdentityId { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -665,6 +676,14 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         [Input("identity")]
         public Input<Inputs.StandardIdentityGetArgs>? Identity { get; set; }
+
+        /// <summary>
+        /// The User Assigned Identity ID used for accessing KeyVault secrets. 
+        /// 
+        /// &gt; **Note:** The identity must be assigned to the Logic App in the `Identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        /// </summary>
+        [Input("keyVaultReferenceIdentityId")]
+        public Input<string>? KeyVaultReferenceIdentityId { get; set; }
 
         /// <summary>
         /// The Logic App kind.

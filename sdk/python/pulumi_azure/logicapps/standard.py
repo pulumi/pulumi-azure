@@ -34,6 +34,7 @@ class StandardArgs:
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional['StandardIdentityArgs']] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -63,6 +64,9 @@ class StandardArgs:
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['StandardIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. 
+               
+               > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
@@ -107,6 +111,8 @@ class StandardArgs:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if key_vault_reference_identity_id is not None:
+            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -289,6 +295,20 @@ class StandardArgs:
         pulumi.set(self, "identity", value)
 
     @_builtins.property
+    @pulumi.getter(name="keyVaultReferenceIdentityId")
+    def key_vault_reference_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The User Assigned Identity ID used for accessing KeyVault secrets. 
+
+        > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        """
+        return pulumi.get(self, "key_vault_reference_identity_id")
+
+    @key_vault_reference_identity_id.setter
+    def key_vault_reference_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_vault_reference_identity_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -446,6 +466,7 @@ class _StandardState:
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional['StandardIdentityArgs']] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -481,6 +502,9 @@ class _StandardState:
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input['StandardIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. 
+               
+               > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] kind: The Logic App kind.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Logic App. Changing this forces a new resource to be created.
@@ -534,6 +558,8 @@ class _StandardState:
             pulumi.set(__self__, "https_only", https_only)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
+        if key_vault_reference_identity_id is not None:
+            pulumi.set(__self__, "key_vault_reference_identity_id", key_vault_reference_identity_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -716,6 +742,20 @@ class _StandardState:
     @identity.setter
     def identity(self, value: pulumi.Input[Optional['StandardIdentityArgs']]):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultReferenceIdentityId")
+    def key_vault_reference_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The User Assigned Identity ID used for accessing KeyVault secrets. 
+
+        > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        """
+        return pulumi.get(self, "key_vault_reference_identity_id")
+
+    @key_vault_reference_identity_id.setter
+    def key_vault_reference_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_vault_reference_identity_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -960,6 +1000,7 @@ class Standard(pulumi.CustomResource):
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1029,21 +1070,17 @@ class Standard(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
+        example_service_plan = azure.appservice.ServicePlan("example",
             name="example-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            kind="Linux",
-            reserved=True,
-            sku={
-                "tier": "WorkflowStandard",
-                "size": "WS1",
-            })
+            os_type="Linux",
+            sku_name="WS1")
         example_standard = azure.logicapps.Standard("example",
             name="example-logic-app",
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            app_service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             site_config={
@@ -1086,6 +1123,9 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. 
+               
+               > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_network_access: Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
@@ -1171,21 +1211,17 @@ class Standard(pulumi.CustomResource):
             location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_plan = azure.appservice.Plan("example",
+        example_service_plan = azure.appservice.ServicePlan("example",
             name="example-service-plan",
             location=example.location,
             resource_group_name=example.name,
-            kind="Linux",
-            reserved=True,
-            sku={
-                "tier": "WorkflowStandard",
-                "size": "WS1",
-            })
+            os_type="Linux",
+            sku_name="WS1")
         example_standard = azure.logicapps.Standard("example",
             name="example-logic-app",
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id,
+            app_service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
             site_config={
@@ -1239,6 +1275,7 @@ class Standard(pulumi.CustomResource):
                  ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  https_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
+                 key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1274,6 +1311,7 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
             __props__.__dict__["https_only"] = https_only
             __props__.__dict__["identity"] = identity
+            __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access"] = public_network_access
@@ -1324,6 +1362,7 @@ class Standard(pulumi.CustomResource):
             ftp_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             https_only: pulumi.Input[Optional[_builtins.bool]] = None,
             identity: pulumi.Input[Optional[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']]] = None,
+            key_vault_reference_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1363,6 +1402,9 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] https_only: Can the Logic App only be accessed via HTTPS? Defaults to `false`.
         :param pulumi.Input[Union['StandardIdentityArgs', 'StandardIdentityArgsDict']] identity: An `identity` block as defined below.
+        :param pulumi.Input[_builtins.str] key_vault_reference_identity_id: The User Assigned Identity ID used for accessing KeyVault secrets. 
+               
+               > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
         :param pulumi.Input[_builtins.str] kind: The Logic App kind.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Logic App. Changing this forces a new resource to be created.
@@ -1408,6 +1450,7 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["ftp_publish_basic_authentication_enabled"] = ftp_publish_basic_authentication_enabled
         __props__.__dict__["https_only"] = https_only
         __props__.__dict__["identity"] = identity
+        __props__.__dict__["key_vault_reference_identity_id"] = key_vault_reference_identity_id
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -1525,6 +1568,16 @@ class Standard(pulumi.CustomResource):
         An `identity` block as defined below.
         """
         return pulumi.get(self, "identity")
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultReferenceIdentityId")
+    def key_vault_reference_identity_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The User Assigned Identity ID used for accessing KeyVault secrets. 
+
+        > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
+        """
+        return pulumi.get(self, "key_vault_reference_identity_id")
 
     @_builtins.property
     @pulumi.getter

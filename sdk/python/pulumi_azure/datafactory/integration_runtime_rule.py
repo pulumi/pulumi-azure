@@ -24,6 +24,7 @@ class IntegrationRuntimeRuleArgs:
                  compute_type: pulumi.Input[Optional[_builtins.str]] = None,
                  core_count: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 interactive_authoring_time_to_live_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
@@ -36,6 +37,9 @@ class IntegrationRuntimeRuleArgs:
         :param pulumi.Input[_builtins.str] compute_type: Compute type of the cluster which will execute data flow job. Valid values are `General`, `ComputeOptimized` and `MemoryOptimized`. Defaults to `General`.
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
+        :param pulumi.Input[_builtins.int] interactive_authoring_time_to_live_in_minutes: The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+               
+               > **Note:** `interactive_authoring_time_to_live_in_minutes` can only be set when `virtual_network_enabled` is `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[_builtins.int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
@@ -50,6 +54,8 @@ class IntegrationRuntimeRuleArgs:
             pulumi.set(__self__, "core_count", core_count)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if interactive_authoring_time_to_live_in_minutes is not None:
+            pulumi.set(__self__, "interactive_authoring_time_to_live_in_minutes", interactive_authoring_time_to_live_in_minutes)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -120,6 +126,20 @@ class IntegrationRuntimeRuleArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="interactiveAuthoringTimeToLiveInMinutes")
+    def interactive_authoring_time_to_live_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+
+        > **Note:** `interactive_authoring_time_to_live_in_minutes` can only be set when `virtual_network_enabled` is `true`.
+        """
+        return pulumi.get(self, "interactive_authoring_time_to_live_in_minutes")
+
+    @interactive_authoring_time_to_live_in_minutes.setter
+    def interactive_authoring_time_to_live_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "interactive_authoring_time_to_live_in_minutes", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -176,6 +196,7 @@ class _IntegrationRuntimeRuleState:
                  core_count: pulumi.Input[Optional[_builtins.int]] = None,
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 interactive_authoring_time_to_live_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
@@ -188,6 +209,9 @@ class _IntegrationRuntimeRuleState:
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
+        :param pulumi.Input[_builtins.int] interactive_authoring_time_to_live_in_minutes: The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+               
+               > **Note:** `interactive_authoring_time_to_live_in_minutes` can only be set when `virtual_network_enabled` is `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[_builtins.int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
@@ -203,6 +227,8 @@ class _IntegrationRuntimeRuleState:
             pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if interactive_authoring_time_to_live_in_minutes is not None:
+            pulumi.set(__self__, "interactive_authoring_time_to_live_in_minutes", interactive_authoring_time_to_live_in_minutes)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -273,6 +299,20 @@ class _IntegrationRuntimeRuleState:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="interactiveAuthoringTimeToLiveInMinutes")
+    def interactive_authoring_time_to_live_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+
+        > **Note:** `interactive_authoring_time_to_live_in_minutes` can only be set when `virtual_network_enabled` is `true`.
+        """
+        return pulumi.get(self, "interactive_authoring_time_to_live_in_minutes")
+
+    @interactive_authoring_time_to_live_in_minutes.setter
+    def interactive_authoring_time_to_live_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "interactive_authoring_time_to_live_in_minutes", value)
+
+    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -332,6 +372,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
                  core_count: pulumi.Input[Optional[_builtins.int]] = None,
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 interactive_authoring_time_to_live_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
@@ -382,6 +423,9 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
+        :param pulumi.Input[_builtins.int] interactive_authoring_time_to_live_in_minutes: The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+               
+               > **Note:** `interactive_authoring_time_to_live_in_minutes` can only be set when `virtual_network_enabled` is `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[_builtins.int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
@@ -451,6 +495,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
                  core_count: pulumi.Input[Optional[_builtins.int]] = None,
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 interactive_authoring_time_to_live_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
@@ -471,6 +516,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
+            __props__.__dict__["interactive_authoring_time_to_live_in_minutes"] = interactive_authoring_time_to_live_in_minutes
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["time_to_live_min"] = time_to_live_min
@@ -490,6 +536,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
             core_count: pulumi.Input[Optional[_builtins.int]] = None,
             data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
+            interactive_authoring_time_to_live_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             time_to_live_min: pulumi.Input[Optional[_builtins.int]] = None,
@@ -506,6 +553,9 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] core_count: Core count of the cluster which will execute data flow job. Valid values are `8`, `16`, `32`, `48`, `80`, `144` and `272`. Defaults to `8`.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] description: Integration runtime description.
+        :param pulumi.Input[_builtins.int] interactive_authoring_time_to_live_in_minutes: The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+               
+               > **Note:** `interactive_authoring_time_to_live_in_minutes` can only be set when `virtual_network_enabled` is `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Integration Runtime. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[_builtins.int] time_to_live_min: Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`.
@@ -520,6 +570,7 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         __props__.__dict__["core_count"] = core_count
         __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["description"] = description
+        __props__.__dict__["interactive_authoring_time_to_live_in_minutes"] = interactive_authoring_time_to_live_in_minutes
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["time_to_live_min"] = time_to_live_min
@@ -565,6 +616,16 @@ class IntegrationRuntimeRule(pulumi.CustomResource):
         Integration runtime description.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="interactiveAuthoringTimeToLiveInMinutes")
+    def interactive_authoring_time_to_live_in_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+
+        > **Note:** `interactive_authoring_time_to_live_in_minutes` can only be set when `virtual_network_enabled` is `true`.
+        """
+        return pulumi.get(self, "interactive_authoring_time_to_live_in_minutes")
 
     @_builtins.property
     @pulumi.getter

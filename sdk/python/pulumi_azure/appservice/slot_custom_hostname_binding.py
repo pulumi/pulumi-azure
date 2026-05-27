@@ -239,6 +239,13 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
             hostname="www.mywebsite.com")
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
+
         ## Import
 
         App Service Custom Hostname Bindings can be imported using the `resource id`, e.g.
@@ -300,6 +307,13 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
             app_service_slot_id=example_slot.id,
             hostname="www.mywebsite.com")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Web` - 2023-12-01
 
         ## Import
 

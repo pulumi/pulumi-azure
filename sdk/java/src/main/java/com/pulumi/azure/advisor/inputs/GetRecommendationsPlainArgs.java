@@ -31,6 +31,21 @@ public final class GetRecommendationsPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
+     * Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+     * 
+     */
+    @Import(name="filterByRecommendationTypeGuids")
+    private @Nullable List<String> filterByRecommendationTypeGuids;
+
+    /**
+     * @return Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+     * 
+     */
+    public Optional<List<String>> filterByRecommendationTypeGuids() {
+        return Optional.ofNullable(this.filterByRecommendationTypeGuids);
+    }
+
+    /**
      * Specifies a list of resource groups about which the Advisor Recommendations will be listed.
      * 
      */
@@ -45,11 +60,28 @@ public final class GetRecommendationsPlainArgs extends com.pulumi.resources.Invo
         return Optional.ofNullable(this.filterByResourceGroups);
     }
 
+    /**
+     * Specifies a list of resource about which the Advisor Recommendations will be listed.
+     * 
+     */
+    @Import(name="filterByResourceIds")
+    private @Nullable List<String> filterByResourceIds;
+
+    /**
+     * @return Specifies a list of resource about which the Advisor Recommendations will be listed.
+     * 
+     */
+    public Optional<List<String>> filterByResourceIds() {
+        return Optional.ofNullable(this.filterByResourceIds);
+    }
+
     private GetRecommendationsPlainArgs() {}
 
     private GetRecommendationsPlainArgs(GetRecommendationsPlainArgs $) {
         this.filterByCategories = $.filterByCategories;
+        this.filterByRecommendationTypeGuids = $.filterByRecommendationTypeGuids;
         this.filterByResourceGroups = $.filterByResourceGroups;
+        this.filterByResourceIds = $.filterByResourceIds;
     }
 
     public static Builder builder() {
@@ -92,6 +124,27 @@ public final class GetRecommendationsPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
+         * @param filterByRecommendationTypeGuids Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByRecommendationTypeGuids(@Nullable List<String> filterByRecommendationTypeGuids) {
+            $.filterByRecommendationTypeGuids = filterByRecommendationTypeGuids;
+            return this;
+        }
+
+        /**
+         * @param filterByRecommendationTypeGuids Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByRecommendationTypeGuids(String... filterByRecommendationTypeGuids) {
+            return filterByRecommendationTypeGuids(List.of(filterByRecommendationTypeGuids));
+        }
+
+        /**
          * @param filterByResourceGroups Specifies a list of resource groups about which the Advisor Recommendations will be listed.
          * 
          * @return builder
@@ -110,6 +163,27 @@ public final class GetRecommendationsPlainArgs extends com.pulumi.resources.Invo
          */
         public Builder filterByResourceGroups(String... filterByResourceGroups) {
             return filterByResourceGroups(List.of(filterByResourceGroups));
+        }
+
+        /**
+         * @param filterByResourceIds Specifies a list of resource about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByResourceIds(@Nullable List<String> filterByResourceIds) {
+            $.filterByResourceIds = filterByResourceIds;
+            return this;
+        }
+
+        /**
+         * @param filterByResourceIds Specifies a list of resource about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByResourceIds(String... filterByResourceIds) {
+            return filterByResourceIds(List.of(filterByResourceIds));
         }
 
         public GetRecommendationsPlainArgs build() {

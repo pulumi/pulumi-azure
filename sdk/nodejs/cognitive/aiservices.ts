@@ -9,6 +9,22 @@ import * as utilities from "../utilities";
 /**
  * Manages an AI Services Account.
  *
+ * > **Note:** The `azure.cognitive.AIServices` resource has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use `azure.cognitive.Account` resource instead.
+ *
+ * ## Migration to `azure.cognitive.Account`
+ *
+ * The `azure.cognitive.AIServices` resource is superseded by `azure.cognitive.Account`. The table below lists the attributes that have changed; all other attributes are carried over unchanged.
+ *
+ * | `azure.cognitive.AIServices` | `azure.cognitive.Account` | Notes |
+ * |-----------------------|-----------------------------|-------|
+ * | (not present) | `kind` | **Required**. Set to `"AIServices"` to match the behaviour of `azure.cognitive.AIServices`. |
+ * | `localAuthenticationEnabled` | `localAuthEnabled` | **Renamed**. Both default to `true`. |
+ * | `publicNetworkAccess` | `publicNetworkAccessEnabled` | **Changed type**. String (`"Enabled"` / `"Disabled"`) → Boolean (`true` / `false`). Defaults to `true`. |
+ * | (not present) | `projectManagementEnabled` |**Required**. Set to `true` to match the behaviour of `azure.cognitive.AIServices`. |
+ * | `customer_managed_key.managed_hsm_key_id`  | (not present) | Use `customer_managed_key.key_vault_key_id` property, it can accept both regular and HSM key id. |
+ *
+ * > **Note:** If your configuration included a `storage` block under `azure.cognitive.AIServices`, `pulumi preview` may show changes after migration even though the Azure resource itself has not changed. This occurs because `azure.cognitive.AIServices` silently ignored the `storage` block and never sent those values to the API, so the imported state does not reflect them. Running `pulumi up` will reconcile the state by applying the storage configuration for the first time.
+ *
  * ## Example Usage
  *
  * ```typescript

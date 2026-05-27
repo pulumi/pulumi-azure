@@ -94,6 +94,25 @@ public final class IntegrationRuntimeRuleArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+     * 
+     * &gt; **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+     * 
+     */
+    @Import(name="interactiveAuthoringTimeToLiveInMinutes")
+    private @Nullable Output<Integer> interactiveAuthoringTimeToLiveInMinutes;
+
+    /**
+     * @return The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+     * 
+     * &gt; **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+     * 
+     */
+    public Optional<Output<Integer>> interactiveAuthoringTimeToLiveInMinutes() {
+        return Optional.ofNullable(this.interactiveAuthoringTimeToLiveInMinutes);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource exists. Use `AutoResolve` to create an auto-resolve integration runtime. Changing this forces a new resource to be created.
      * 
      */
@@ -161,6 +180,7 @@ public final class IntegrationRuntimeRuleArgs extends com.pulumi.resources.Resou
         this.coreCount = $.coreCount;
         this.dataFactoryId = $.dataFactoryId;
         this.description = $.description;
+        this.interactiveAuthoringTimeToLiveInMinutes = $.interactiveAuthoringTimeToLiveInMinutes;
         this.location = $.location;
         this.name = $.name;
         this.timeToLiveMin = $.timeToLiveMin;
@@ -288,6 +308,31 @@ public final class IntegrationRuntimeRuleArgs extends com.pulumi.resources.Resou
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param interactiveAuthoringTimeToLiveInMinutes The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+         * 
+         * &gt; **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interactiveAuthoringTimeToLiveInMinutes(@Nullable Output<Integer> interactiveAuthoringTimeToLiveInMinutes) {
+            $.interactiveAuthoringTimeToLiveInMinutes = interactiveAuthoringTimeToLiveInMinutes;
+            return this;
+        }
+
+        /**
+         * @param interactiveAuthoringTimeToLiveInMinutes The time to live in minutes for the interactive authoring feature, setting this enables interactive authoring. Possible values are `10`, `30`, `60`, and `120`.
+         * 
+         * &gt; **Note:** `interactiveAuthoringTimeToLiveInMinutes` can only be set when `virtualNetworkEnabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder interactiveAuthoringTimeToLiveInMinutes(Integer interactiveAuthoringTimeToLiveInMinutes) {
+            return interactiveAuthoringTimeToLiveInMinutes(Output.of(interactiveAuthoringTimeToLiveInMinutes));
         }
 
         /**

@@ -15241,6 +15241,10 @@ class LinuxFunctionAppSiteConfigArgsDict(TypedDict):
     """
     Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
     """
+    minimum_tls_cipher_suite: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+    """
     minimum_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -15327,6 +15331,7 @@ class LinuxFunctionAppSiteConfigArgs:
                  linux_fx_version: pulumi.Input[Optional[_builtins.str]] = None,
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_pipeline_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_cipher_suite: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  pre_warmed_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -15370,6 +15375,7 @@ class LinuxFunctionAppSiteConfigArgs:
         :param pulumi.Input[_builtins.str] linux_fx_version: The Linux FX Version
         :param pulumi.Input[_builtins.str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[_builtins.str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[_builtins.str] minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[_builtins.int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[_builtins.bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
@@ -15435,6 +15441,8 @@ class LinuxFunctionAppSiteConfigArgs:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if managed_pipeline_mode is not None:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_cipher_suite is not None:
+            pulumi.set(__self__, "minimum_tls_cipher_suite", minimum_tls_cipher_suite)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if pre_warmed_instance_count is not None:
@@ -15755,6 +15763,18 @@ class LinuxFunctionAppSiteConfigArgs:
     @managed_pipeline_mode.setter
     def managed_pipeline_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_pipeline_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsCipherSuite")
+    def minimum_tls_cipher_suite(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+        """
+        return pulumi.get(self, "minimum_tls_cipher_suite")
+
+    @minimum_tls_cipher_suite.setter
+    def minimum_tls_cipher_suite(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_cipher_suite", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
@@ -19931,6 +19951,10 @@ class LinuxFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
     """
+    minimum_tls_cipher_suite: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+    """
     minimum_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -20018,6 +20042,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
                  linux_fx_version: pulumi.Input[Optional[_builtins.str]] = None,
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_pipeline_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_cipher_suite: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  pre_warmed_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -20058,6 +20083,7 @@ class LinuxFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[_builtins.str] linux_fx_version: The Linux FX Version
         :param pulumi.Input[_builtins.str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[_builtins.str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[_builtins.str] minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[_builtins.int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[_builtins.bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
@@ -20125,6 +20151,8 @@ class LinuxFunctionAppSlotSiteConfigArgs:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if managed_pipeline_mode is not None:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_cipher_suite is not None:
+            pulumi.set(__self__, "minimum_tls_cipher_suite", minimum_tls_cipher_suite)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if pre_warmed_instance_count is not None:
@@ -20453,6 +20481,18 @@ class LinuxFunctionAppSlotSiteConfigArgs:
     @managed_pipeline_mode.setter
     def managed_pipeline_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_pipeline_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsCipherSuite")
+    def minimum_tls_cipher_suite(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+        """
+        return pulumi.get(self, "minimum_tls_cipher_suite")
+
+    @minimum_tls_cipher_suite.setter
+    def minimum_tls_cipher_suite(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_cipher_suite", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
@@ -25261,6 +25301,10 @@ class LinuxWebAppSiteConfigArgsDict(TypedDict):
     """
     Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
     """
+    minimum_tls_cipher_suite: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+    """
     minimum_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -25331,6 +25375,7 @@ class LinuxWebAppSiteConfigArgs:
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  local_mysql_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_pipeline_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_cipher_suite: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  remote_debugging_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -25367,6 +25412,7 @@ class LinuxWebAppSiteConfigArgs:
         :param pulumi.Input[_builtins.str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[_builtins.bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[_builtins.str] managed_pipeline_mode: Managed pipeline mode. Possible values include `Integrated`, and `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[_builtins.str] minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[_builtins.bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
@@ -25421,6 +25467,8 @@ class LinuxWebAppSiteConfigArgs:
             pulumi.set(__self__, "local_mysql_enabled", local_mysql_enabled)
         if managed_pipeline_mode is not None:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_cipher_suite is not None:
+            pulumi.set(__self__, "minimum_tls_cipher_suite", minimum_tls_cipher_suite)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if remote_debugging_enabled is not None:
@@ -25695,6 +25743,18 @@ class LinuxWebAppSiteConfigArgs:
     @managed_pipeline_mode.setter
     def managed_pipeline_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_pipeline_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsCipherSuite")
+    def minimum_tls_cipher_suite(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+        """
+        return pulumi.get(self, "minimum_tls_cipher_suite")
+
+    @minimum_tls_cipher_suite.setter
+    def minimum_tls_cipher_suite(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_cipher_suite", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
@@ -30661,6 +30721,10 @@ class LinuxWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
     """
+    minimum_tls_cipher_suite: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+    """
     minimum_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configures the minimum version of TLS required for SSL requests. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -30732,6 +30796,7 @@ class LinuxWebAppSlotSiteConfigArgs:
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  local_mysql_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_pipeline_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_cipher_suite: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  remote_debugging_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -30769,6 +30834,7 @@ class LinuxWebAppSlotSiteConfigArgs:
         :param pulumi.Input[_builtins.str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[_builtins.bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[_builtins.str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[_builtins.str] minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[_builtins.bool] remote_debugging_enabled: Should Remote Debugging be enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
@@ -30825,6 +30891,8 @@ class LinuxWebAppSlotSiteConfigArgs:
             pulumi.set(__self__, "local_mysql_enabled", local_mysql_enabled)
         if managed_pipeline_mode is not None:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_cipher_suite is not None:
+            pulumi.set(__self__, "minimum_tls_cipher_suite", minimum_tls_cipher_suite)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if remote_debugging_enabled is not None:
@@ -31111,6 +31179,18 @@ class LinuxWebAppSlotSiteConfigArgs:
     @managed_pipeline_mode.setter
     def managed_pipeline_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_pipeline_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsCipherSuite")
+    def minimum_tls_cipher_suite(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+        """
+        return pulumi.get(self, "minimum_tls_cipher_suite")
+
+    @minimum_tls_cipher_suite.setter
+    def minimum_tls_cipher_suite(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_cipher_suite", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
@@ -39253,6 +39333,10 @@ class WindowsFunctionAppSiteConfigArgsDict(TypedDict):
     """
     Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
     """
+    minimum_tls_cipher_suite: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+    """
     minimum_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -39340,6 +39424,7 @@ class WindowsFunctionAppSiteConfigArgs:
                  ip_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]]] = None,
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_pipeline_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_cipher_suite: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  pre_warmed_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -39381,6 +39466,7 @@ class WindowsFunctionAppSiteConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSiteConfigIpRestrictionArgs']]] ip_restrictions: One or more `ip_restriction` blocks as defined above.
         :param pulumi.Input[_builtins.str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[_builtins.str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[_builtins.str] minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: Configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[_builtins.int] pre_warmed_instance_count: The number of pre-warmed instances for this Windows Function App. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[_builtins.bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
@@ -39441,6 +39527,8 @@ class WindowsFunctionAppSiteConfigArgs:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if managed_pipeline_mode is not None:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_cipher_suite is not None:
+            pulumi.set(__self__, "minimum_tls_cipher_suite", minimum_tls_cipher_suite)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if pre_warmed_instance_count is not None:
@@ -39727,6 +39815,18 @@ class WindowsFunctionAppSiteConfigArgs:
     @managed_pipeline_mode.setter
     def managed_pipeline_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_pipeline_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsCipherSuite")
+    def minimum_tls_cipher_suite(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+        """
+        return pulumi.get(self, "minimum_tls_cipher_suite")
+
+    @minimum_tls_cipher_suite.setter
+    def minimum_tls_cipher_suite(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_cipher_suite", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
@@ -43745,6 +43845,10 @@ class WindowsFunctionAppSlotSiteConfigArgsDict(TypedDict):
     """
     The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
     """
+    minimum_tls_cipher_suite: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+    """
     minimum_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -43833,6 +43937,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
                  ip_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]]] = None,
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_pipeline_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_cipher_suite: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  pre_warmed_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -43871,6 +43976,7 @@ class WindowsFunctionAppSlotSiteConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsFunctionAppSlotSiteConfigIpRestrictionArgs']]] ip_restrictions: an `ip_restriction` block as detailed below.
         :param pulumi.Input[_builtins.str] load_balancing_mode: The Site load balancing mode. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[_builtins.str] managed_pipeline_mode: The Managed Pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[_builtins.str] minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[_builtins.int] pre_warmed_instance_count: The number of pre-warmed instances for this function app. Only affects apps on an Elastic Premium plan.
         :param pulumi.Input[_builtins.bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
@@ -43933,6 +44039,8 @@ class WindowsFunctionAppSlotSiteConfigArgs:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if managed_pipeline_mode is not None:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_cipher_suite is not None:
+            pulumi.set(__self__, "minimum_tls_cipher_suite", minimum_tls_cipher_suite)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if pre_warmed_instance_count is not None:
@@ -44227,6 +44335,18 @@ class WindowsFunctionAppSlotSiteConfigArgs:
     @managed_pipeline_mode.setter
     def managed_pipeline_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_pipeline_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsCipherSuite")
+    def minimum_tls_cipher_suite(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+        """
+        return pulumi.get(self, "minimum_tls_cipher_suite")
+
+    @minimum_tls_cipher_suite.setter
+    def minimum_tls_cipher_suite(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_cipher_suite", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
@@ -48893,6 +49013,10 @@ class WindowsWebAppSiteConfigArgsDict(TypedDict):
     """
     Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
     """
+    minimum_tls_cipher_suite: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+    """
     minimum_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
@@ -48969,6 +49093,7 @@ class WindowsWebAppSiteConfigArgs:
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  local_mysql_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_pipeline_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_cipher_suite: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  remote_debugging_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -49008,6 +49133,7 @@ class WindowsWebAppSiteConfigArgs:
         :param pulumi.Input[_builtins.str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[_builtins.bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[_builtins.str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[_builtins.str] minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values include: `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2`.
         :param pulumi.Input[_builtins.bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
@@ -49065,6 +49191,8 @@ class WindowsWebAppSiteConfigArgs:
             pulumi.set(__self__, "local_mysql_enabled", local_mysql_enabled)
         if managed_pipeline_mode is not None:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_cipher_suite is not None:
+            pulumi.set(__self__, "minimum_tls_cipher_suite", minimum_tls_cipher_suite)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if remote_debugging_enabled is not None:
@@ -49355,6 +49483,18 @@ class WindowsWebAppSiteConfigArgs:
     @managed_pipeline_mode.setter
     def managed_pipeline_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_pipeline_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsCipherSuite")
+    def minimum_tls_cipher_suite(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+        """
+        return pulumi.get(self, "minimum_tls_cipher_suite")
+
+    @minimum_tls_cipher_suite.setter
+    def minimum_tls_cipher_suite(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_cipher_suite", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")
@@ -54700,6 +54840,10 @@ class WindowsWebAppSlotSiteConfigArgsDict(TypedDict):
     """
     Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
     """
+    minimum_tls_cipher_suite: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+    """
     minimum_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The configures the minimum version of TLS required for SSL requests. Possible values are `1.1`, `1.3`, `1.2` and `1.0`. Defaults to `1.2`.
@@ -54776,6 +54920,7 @@ class WindowsWebAppSlotSiteConfigArgs:
                  load_balancing_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  local_mysql_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  managed_pipeline_mode: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimum_tls_cipher_suite: pulumi.Input[Optional[_builtins.str]] = None,
                  minimum_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_debugging_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  remote_debugging_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -54816,6 +54961,7 @@ class WindowsWebAppSlotSiteConfigArgs:
         :param pulumi.Input[_builtins.str] load_balancing_mode: The Site load balancing. Possible values include: `WeightedRoundRobin`, `LeastRequests`, `LeastResponseTime`, `WeightedTotalTraffic`, `RequestHash`, `PerSiteRoundRobin`. Defaults to `LeastRequests` if omitted.
         :param pulumi.Input[_builtins.bool] local_mysql_enabled: Use Local MySQL. Defaults to `false`.
         :param pulumi.Input[_builtins.str] managed_pipeline_mode: Managed pipeline mode. Possible values include: `Integrated`, `Classic`. Defaults to `Integrated`.
+        :param pulumi.Input[_builtins.str] minimum_tls_cipher_suite: The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
         :param pulumi.Input[_builtins.str] minimum_tls_version: The configures the minimum version of TLS required for SSL requests. Possible values are `1.1`, `1.3`, `1.2` and `1.0`. Defaults to `1.2`.
         :param pulumi.Input[_builtins.bool] remote_debugging_enabled: Should Remote Debugging be enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.str] remote_debugging_version: The Remote Debugging Version. Currently only `VS2022` is supported.
@@ -54873,6 +55019,8 @@ class WindowsWebAppSlotSiteConfigArgs:
             pulumi.set(__self__, "local_mysql_enabled", local_mysql_enabled)
         if managed_pipeline_mode is not None:
             pulumi.set(__self__, "managed_pipeline_mode", managed_pipeline_mode)
+        if minimum_tls_cipher_suite is not None:
+            pulumi.set(__self__, "minimum_tls_cipher_suite", minimum_tls_cipher_suite)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if remote_debugging_enabled is not None:
@@ -55166,6 +55314,18 @@ class WindowsWebAppSlotSiteConfigArgs:
     @managed_pipeline_mode.setter
     def managed_pipeline_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "managed_pipeline_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumTlsCipherSuite")
+    def minimum_tls_cipher_suite(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The configures the minimum cipher suite of TLS required for SSL requests. Possible values include: `TLS_AES_128_GCM_SHA256`,`TLS_AES_256_GCM_SHA384"`,`TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"`,`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384"`,`TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384"`, `TLS_RSA_WITH_AES_128_CBC_SHA"`,`TLS_RSA_WITH_AES_128_CBC_SHA256"`,`TLS_RSA_WITH_AES_128_GCM_SHA256"`,`TLS_RSA_WITH_AES_256_CBC_SHA"`,`TLS_RSA_WITH_AES_256_CBC_SHA256"`,`TLS_RSA_WITH_AES_256_GCM_SHA384"`.
+        """
+        return pulumi.get(self, "minimum_tls_cipher_suite")
+
+    @minimum_tls_cipher_suite.setter
+    def minimum_tls_cipher_suite(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "minimum_tls_cipher_suite", value)
 
     @_builtins.property
     @pulumi.getter(name="minimumTlsVersion")

@@ -176,6 +176,13 @@ def get_function_app_host_keys(name: Optional[_builtins.str] = None,
         resource_group_name=example_azurerm_resource_group["name"])
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Web` - 2023-12-01
+
 
     :param _builtins.str name: The name of the Function App.
     :param _builtins.str resource_group_name: The name of the Resource Group where the Function App exists.
@@ -213,6 +220,13 @@ def get_function_app_host_keys_output(name: pulumi.Input[Optional[_builtins.str]
     example = azure.appservice.get_function_app_host_keys(name="example-function",
         resource_group_name=example_azurerm_resource_group["name"])
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Web` - 2023-12-01
 
 
     :param _builtins.str name: The name of the Function App.

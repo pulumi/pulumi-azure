@@ -32,6 +32,21 @@ public final class GetRecommendationsArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
+     * Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+     * 
+     */
+    @Import(name="filterByRecommendationTypeGuids")
+    private @Nullable Output<List<String>> filterByRecommendationTypeGuids;
+
+    /**
+     * @return Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+     * 
+     */
+    public Optional<Output<List<String>>> filterByRecommendationTypeGuids() {
+        return Optional.ofNullable(this.filterByRecommendationTypeGuids);
+    }
+
+    /**
      * Specifies a list of resource groups about which the Advisor Recommendations will be listed.
      * 
      */
@@ -46,11 +61,28 @@ public final class GetRecommendationsArgs extends com.pulumi.resources.InvokeArg
         return Optional.ofNullable(this.filterByResourceGroups);
     }
 
+    /**
+     * Specifies a list of resource about which the Advisor Recommendations will be listed.
+     * 
+     */
+    @Import(name="filterByResourceIds")
+    private @Nullable Output<List<String>> filterByResourceIds;
+
+    /**
+     * @return Specifies a list of resource about which the Advisor Recommendations will be listed.
+     * 
+     */
+    public Optional<Output<List<String>>> filterByResourceIds() {
+        return Optional.ofNullable(this.filterByResourceIds);
+    }
+
     private GetRecommendationsArgs() {}
 
     private GetRecommendationsArgs(GetRecommendationsArgs $) {
         this.filterByCategories = $.filterByCategories;
+        this.filterByRecommendationTypeGuids = $.filterByRecommendationTypeGuids;
         this.filterByResourceGroups = $.filterByResourceGroups;
+        this.filterByResourceIds = $.filterByResourceIds;
     }
 
     public static Builder builder() {
@@ -103,6 +135,37 @@ public final class GetRecommendationsArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
+         * @param filterByRecommendationTypeGuids Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByRecommendationTypeGuids(@Nullable Output<List<String>> filterByRecommendationTypeGuids) {
+            $.filterByRecommendationTypeGuids = filterByRecommendationTypeGuids;
+            return this;
+        }
+
+        /**
+         * @param filterByRecommendationTypeGuids Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByRecommendationTypeGuids(List<String> filterByRecommendationTypeGuids) {
+            return filterByRecommendationTypeGuids(Output.of(filterByRecommendationTypeGuids));
+        }
+
+        /**
+         * @param filterByRecommendationTypeGuids Specifies a list of recommendation types about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByRecommendationTypeGuids(String... filterByRecommendationTypeGuids) {
+            return filterByRecommendationTypeGuids(List.of(filterByRecommendationTypeGuids));
+        }
+
+        /**
          * @param filterByResourceGroups Specifies a list of resource groups about which the Advisor Recommendations will be listed.
          * 
          * @return builder
@@ -131,6 +194,37 @@ public final class GetRecommendationsArgs extends com.pulumi.resources.InvokeArg
          */
         public Builder filterByResourceGroups(String... filterByResourceGroups) {
             return filterByResourceGroups(List.of(filterByResourceGroups));
+        }
+
+        /**
+         * @param filterByResourceIds Specifies a list of resource about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByResourceIds(@Nullable Output<List<String>> filterByResourceIds) {
+            $.filterByResourceIds = filterByResourceIds;
+            return this;
+        }
+
+        /**
+         * @param filterByResourceIds Specifies a list of resource about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByResourceIds(List<String> filterByResourceIds) {
+            return filterByResourceIds(Output.of(filterByResourceIds));
+        }
+
+        /**
+         * @param filterByResourceIds Specifies a list of resource about which the Advisor Recommendations will be listed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder filterByResourceIds(String... filterByResourceIds) {
+            return filterByResourceIds(List.of(filterByResourceIds));
         }
 
         public GetRecommendationsArgs build() {
