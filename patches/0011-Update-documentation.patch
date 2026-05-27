@@ -5,7 +5,7 @@ Subject: [PATCH] Update-documentation
 
 
 diff --git a/website/docs/d/function_app_host_keys.html.markdown b/website/docs/d/function_app_host_keys.html.markdown
-index 19499f28d1..0999a50d8e 100644
+index 61003cfba8..5b7677fb1b 100644
 --- a/website/docs/d/function_app_host_keys.html.markdown
 +++ b/website/docs/d/function_app_host_keys.html.markdown
 @@ -19,8 +19,6 @@ data "azurerm_function_app_host_keys" "example" {
@@ -724,7 +724,7 @@ index 526e1e9527..a46f14774e 100644
  
  * `min_tls_version` - (Optional) The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 diff --git a/website/docs/r/app_service_certificate.html.markdown b/website/docs/r/app_service_certificate.html.markdown
-index 7739e7b064..537f56c5d6 100644
+index e54f53f56a..e8cf682a80 100644
 --- a/website/docs/r/app_service_certificate.html.markdown
 +++ b/website/docs/r/app_service_certificate.html.markdown
 @@ -13,7 +13,7 @@ Manages an App Service certificate.
@@ -4702,13 +4702,13 @@ index 0e31c3541e..a6079eb72e 100644
  
 --> **Note:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
 +-> **NOTE:** To update `virtual_machine_scale_set_id` the Preview Feature `Microsoft.Compute/SingleFDAttachDetachVMToVmss` needs to be enabled, see [the documentation](https://review.learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm#enroll-in-the-preview) for more information.
- 
--~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
++
 +~> **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
  
--~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
+-~> **Note:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `azurerm_orchestrated_virtual_machine_scale_set` resource](/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
 +~> **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-+
+ 
+-~> **Note:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
 +* `vm_agent_platform_updates_enabled` - (Optional) Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
  
  * `vtpm_enabled` - (Optional) Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
