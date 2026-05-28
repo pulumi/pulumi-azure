@@ -25,7 +25,7 @@ public final class ServicesCommunicationsGatewayServiceLocation {
     /**
      * @return IP address to use to contact the ESRP from this region.
      * 
-     * !&gt; **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
+     * &gt; **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
      * 
      */
     private @Nullable List<String> esrpAddresses;
@@ -58,7 +58,7 @@ public final class ServicesCommunicationsGatewayServiceLocation {
     /**
      * @return IP address to use to contact the ESRP from this region.
      * 
-     * !&gt; **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
+     * &gt; **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
      * 
      */
     public List<String> esrpAddresses() {

@@ -256,7 +256,7 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      *
-     * !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * > **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      */
     declare public readonly serviceSideEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -455,7 +455,7 @@ export interface WorkspaceState {
     /**
      * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      *
-     * !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * > **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      */
     serviceSideEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -565,7 +565,7 @@ export interface WorkspaceArgs {
     /**
      * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      *
-     * !> **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * > **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      */
     serviceSideEncryptionEnabled?: pulumi.Input<boolean | undefined>;
     /**

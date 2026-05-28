@@ -37,10 +37,10 @@ class PrefixArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which to create the Custom IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] commissioning_enabled: Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
                
-               !> **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+               > **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         :param pulumi.Input[_builtins.bool] internet_advertising_disabled: Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
                
-               !> **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+               > **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         :param pulumi.Input[_builtins.str] location: The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Custom IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parent_custom_ip_prefix_id: Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
@@ -102,7 +102,7 @@ class PrefixArgs:
         """
         Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 
-        !> **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        > **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         """
         return pulumi.get(self, "commissioning_enabled")
 
@@ -116,7 +116,7 @@ class PrefixArgs:
         """
         Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 
-        !> **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        > **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         """
         return pulumi.get(self, "internet_advertising_disabled")
 
@@ -231,10 +231,10 @@ class _PrefixState:
         :param pulumi.Input[_builtins.str] cidr: The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] commissioning_enabled: Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
                
-               !> **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+               > **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         :param pulumi.Input[_builtins.bool] internet_advertising_disabled: Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
                
-               !> **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+               > **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         :param pulumi.Input[_builtins.str] location: The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Custom IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parent_custom_ip_prefix_id: Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
@@ -287,7 +287,7 @@ class _PrefixState:
         """
         Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 
-        !> **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        > **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         """
         return pulumi.get(self, "commissioning_enabled")
 
@@ -301,7 +301,7 @@ class _PrefixState:
         """
         Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 
-        !> **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        > **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         """
         return pulumi.get(self, "internet_advertising_disabled")
 
@@ -498,10 +498,10 @@ class Prefix(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cidr: The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] commissioning_enabled: Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
                
-               !> **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+               > **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         :param pulumi.Input[_builtins.bool] internet_advertising_disabled: Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
                
-               !> **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+               > **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         :param pulumi.Input[_builtins.str] location: The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Custom IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parent_custom_ip_prefix_id: Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
@@ -667,10 +667,10 @@ class Prefix(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cidr: The `cidr` of the Custom IP Prefix, either IPv4 or IPv6. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] commissioning_enabled: Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
                
-               !> **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+               > **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         :param pulumi.Input[_builtins.bool] internet_advertising_disabled: Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
                
-               !> **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+               > **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         :param pulumi.Input[_builtins.str] location: The location where the Custom IP Prefix should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Custom IP Prefix. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parent_custom_ip_prefix_id: Specifies the ID of the parent prefix. Only needed when creating a regional/child IPv6 prefix. Changing this forces a new resource to be created.
@@ -713,7 +713,7 @@ class Prefix(pulumi.CustomResource):
         """
         Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to `false`.
 
-        !> **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        > **Note:** Changing the value of `commissioning_enabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         """
         return pulumi.get(self, "commissioning_enabled")
 
@@ -723,7 +723,7 @@ class Prefix(pulumi.CustomResource):
         """
         Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to `false`.
 
-        !> **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
+        > **Note:** Changing the value of `internet_advertising_disabled` from `true` to `false` causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting.
         """
         return pulumi.get(self, "internet_advertising_disabled")
 

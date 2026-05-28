@@ -261,7 +261,7 @@ def get_function_app(name: Optional[_builtins.str] = None,
     """
     Use this data source to access information about a Function App.
 
-    !> **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` data sources instead.
+    > **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` data sources instead.
 
     ## Example Usage
 
@@ -311,7 +311,7 @@ def get_function_app_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     """
     Use this data source to access information about a Function App.
 
-    !> **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` data sources instead.
+    > **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` data sources instead.
 
     ## Example Usage
 

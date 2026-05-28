@@ -203,7 +203,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
      * 
-     * !&gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * &gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
      * 
      */
     @Import(name="sharingScope")
@@ -214,7 +214,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
      * 
-     * !&gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * &gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
      * 
      */
     public Optional<Output<String>> sharingScope() {
@@ -558,7 +558,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
          * 
-         * !&gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+         * &gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
          * 
          * @return builder
          * 
@@ -573,7 +573,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
          * 
-         * !&gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+         * &gt; **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
          * 
          * @return builder
          * 

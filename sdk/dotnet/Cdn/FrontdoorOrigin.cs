@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages a Front Door (standard/premium) Origin.
     /// 
-    /// !&gt; **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `DependsOn` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+    /// &gt; **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `DependsOn` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
     /// 
     /// ## Example Usage
     /// 
@@ -315,7 +315,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
         /// 
-        /// !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+        /// &gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         /// </summary>
         [Output("hostName")]
         public Output<string> HostName { get; private set; } = null!;
@@ -433,7 +433,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
         /// 
-        /// !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+        /// &gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         /// </summary>
         [Input("hostName", required: true)]
         public Input<string> HostName { get; set; } = null!;
@@ -513,7 +513,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// The IPv4 address, IPv6 address or Domain name of the Origin.
         /// 
-        /// !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+        /// &gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }

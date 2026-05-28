@@ -4063,13 +4063,13 @@ export namespace appservice {
         /**
          * The thumbprint of the certificate used for signing purposes.
          *
-         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * > **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -4104,7 +4104,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Apple Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -4179,7 +4179,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `appSecret` value used for Facebook Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         appSecretSettingName: string;
         /**
@@ -4200,7 +4200,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for GitHub Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -4221,7 +4221,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Google Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -4291,7 +4291,7 @@ export namespace appservice {
         /**
          * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -4308,7 +4308,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         consumerSecretSettingName: string;
     }
@@ -11206,13 +11206,13 @@ export namespace appservice {
         /**
          * The thumbprint of the certificate used for signing purposes.
          *
-         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * > **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -11247,7 +11247,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Apple Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -11322,7 +11322,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `appSecret` value used for Facebook Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         appSecretSettingName: string;
         /**
@@ -11343,7 +11343,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for GitHub Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -11364,7 +11364,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Google Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -11434,7 +11434,7 @@ export namespace appservice {
         /**
          * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -11451,7 +11451,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         consumerSecretSettingName: string;
     }
@@ -12218,13 +12218,13 @@ export namespace appservice {
         /**
          * The thumbprint of the certificate used for signing purposes.
          *
-         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * > **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -12259,7 +12259,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Apple Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -12334,7 +12334,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `appSecret` value used for Facebook Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         appSecretSettingName: string;
         /**
@@ -12355,7 +12355,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for GitHub Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -12376,7 +12376,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Google Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -12446,7 +12446,7 @@ export namespace appservice {
         /**
          * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -12463,7 +12463,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         consumerSecretSettingName: string;
     }
@@ -13293,13 +13293,13 @@ export namespace appservice {
         /**
          * The thumbprint of the certificate used for signing purposes.
          *
-         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * > **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -13334,7 +13334,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Apple Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -13409,7 +13409,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `appSecret` value used for Facebook Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         appSecretSettingName: string;
         /**
@@ -13430,7 +13430,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for GitHub Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -13451,7 +13451,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Google Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -13521,7 +13521,7 @@ export namespace appservice {
         /**
          * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -13538,7 +13538,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         consumerSecretSettingName: string;
     }
@@ -14461,13 +14461,13 @@ export namespace appservice {
         /**
          * The thumbprint of the certificate used for signing purposes.
          *
-         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * > **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -14502,7 +14502,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Apple Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -14577,7 +14577,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `appSecret` value used for Facebook Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         appSecretSettingName: string;
         /**
@@ -14598,7 +14598,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for GitHub Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -14619,7 +14619,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Google Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -14689,7 +14689,7 @@ export namespace appservice {
         /**
          * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -14706,7 +14706,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         consumerSecretSettingName: string;
     }
@@ -16399,13 +16399,13 @@ export namespace appservice {
         /**
          * The thumbprint of the certificate used for signing purposes.
          *
-         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * > **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -16440,7 +16440,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Apple Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -16515,7 +16515,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `appSecret` value used for Facebook Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         appSecretSettingName: string;
         /**
@@ -16536,7 +16536,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for GitHub Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -16557,7 +16557,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Google Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -16627,7 +16627,7 @@ export namespace appservice {
         /**
          * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -16644,7 +16644,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         consumerSecretSettingName: string;
     }
@@ -17368,13 +17368,13 @@ export namespace appservice {
         /**
          * The thumbprint of the certificate used for signing purposes.
          *
-         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * > **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -17409,7 +17409,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Apple Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -17484,7 +17484,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `appSecret` value used for Facebook Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         appSecretSettingName: string;
         /**
@@ -17505,7 +17505,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for GitHub Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -17526,7 +17526,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Google Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -17596,7 +17596,7 @@ export namespace appservice {
         /**
          * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -17613,7 +17613,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         consumerSecretSettingName: string;
     }
@@ -18400,13 +18400,13 @@ export namespace appservice {
         /**
          * The thumbprint of the certificate used for signing purposes.
          *
-         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * > **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -18441,7 +18441,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Apple Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -18516,7 +18516,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `appSecret` value used for Facebook Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         appSecretSettingName: string;
         /**
@@ -18537,7 +18537,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for GitHub Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -18558,7 +18558,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Google Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -18628,7 +18628,7 @@ export namespace appservice {
         /**
          * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -18645,7 +18645,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         consumerSecretSettingName: string;
     }
@@ -19660,13 +19660,13 @@ export namespace appservice {
         /**
          * The thumbprint of the certificate used for signing purposes.
          *
-         * !> **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+         * > **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
          */
         clientSecretCertificateThumbprint?: string;
         /**
          * The App Setting name that contains the client secret of the Client.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName?: string;
         /**
@@ -19701,7 +19701,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Apple Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -19776,7 +19776,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `appSecret` value used for Facebook Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         appSecretSettingName: string;
         /**
@@ -19797,7 +19797,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for GitHub Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -19818,7 +19818,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the `clientSecret` value used for Google Login.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -19888,7 +19888,7 @@ export namespace appservice {
         /**
          * The app setting name containing the OAuth 2.0 client secret that was created for the app used for authentication.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         clientSecretSettingName: string;
         /**
@@ -19905,7 +19905,7 @@ export namespace appservice {
         /**
          * The app setting name that contains the OAuth 1.0a consumer secret of the Twitter application used for sign-in.
          *
-         * !> **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * > **Note:** A setting with this name must exist in `appSettings` to function correctly.
          */
         consumerSecretSettingName: string;
     }
@@ -24420,7 +24420,7 @@ export namespace cdn {
         /**
          * The action to perform when the rule is matched. Possible values are `Allow`, `Block`, `Log`, `Redirect`, `JSChallenge`, or `CAPTCHA`.
          *
-         * !> **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * > **Note:** Setting the `action` field to `JSChallenge` or `CAPTCHA` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          */
         action: string;
         /**
@@ -24606,7 +24606,7 @@ export namespace cdn {
          *
          * > **Note:** Please see the `DefaultRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) or the `Microsoft_BotManagerRuleSet` [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview) for more information.
          *
-         * !> **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+         * > **Note:** Setting the `action` field to `JSChallenge` is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
          */
         action: string;
         /**
@@ -31198,13 +31198,13 @@ export namespace containerapp {
         /**
          * The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
          *
-         * !> **Note:** `identity` must be used together with `keyVaultSecretId`
+         * > **Note:** `identity` must be used together with `keyVaultSecretId`
          */
         identity?: string;
         /**
          * The ID of a Key Vault secret. This can be a versioned or version-less ID.
          *
-         * !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+         * > **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
          */
         keyVaultSecretId?: string;
         /**
@@ -31214,7 +31214,7 @@ export namespace containerapp {
         /**
          * The value for this secret.
          *
-         * !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+         * > **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
          */
         value?: string;
     }
@@ -32599,13 +32599,13 @@ export namespace containerapp {
         /**
          * The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
          *
-         * !> **Note:** `identity` must be used together with `keyVaultSecretId`
+         * > **Note:** `identity` must be used together with `keyVaultSecretId`
          */
         identity?: string;
         /**
          * The ID of a Key Vault secret. This can be a versioned or version-less ID.
          *
-         * !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+         * > **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
          */
         keyVaultSecretId?: string;
         /**
@@ -32615,7 +32615,7 @@ export namespace containerapp {
         /**
          * The value for this secret.
          *
-         * !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+         * > **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
          */
         value?: string;
     }
@@ -35796,7 +35796,7 @@ export namespace containerservice {
         /**
          * Whether to force upgrade the cluster. Possible values are `true` or `false`.
          *
-         * !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+         * > **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
          */
         forceUpgradeEnabled: boolean;
     }
@@ -51927,7 +51927,7 @@ export namespace managedredis {
         /**
          * Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
          *
-         * !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+         * > **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          */
         clusteringPolicy?: string;
         /**
@@ -51937,7 +51937,7 @@ export namespace managedredis {
         /**
          * The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azure.managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
          *
-         * !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+         * > **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          */
         geoReplicationGroupName?: string;
         /**
@@ -51974,7 +51974,7 @@ export namespace managedredis {
         /**
          * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
          *
-         * !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+         * > **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          *
          * > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
          */
@@ -51982,7 +51982,7 @@ export namespace managedredis {
         /**
          * The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
          *
-         * !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+         * > **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          */
         name: string;
         /**
@@ -66106,9 +66106,9 @@ export namespace recoveryservices {
         /**
          * Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `userAssignedIdentityId` is set.
          *
-         * !> **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+         * > **Note:** `useSystemAssignedIdentity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
          *
-         * !> **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
+         * > **Note:** Once `infrastructureEncryptionEnabled` has been set it's not possible to change it.
          */
         useSystemAssignedIdentity?: boolean;
         /**
@@ -71357,7 +71357,7 @@ export namespace voice {
         /**
          * IP address to use to contact the ESRP from this region.
          *
-         * !> **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
+         * > **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
          */
         esrpAddresses?: string[];
         /**

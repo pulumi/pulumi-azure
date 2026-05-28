@@ -45,14 +45,14 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The thumbprint of the certificate used for signing purposes.
      * 
-     * !&gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+     * &gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
      * 
      */
     private @Nullable String clientSecretCertificateThumbprint;
     /**
      * @return The App Setting name that contains the client secret of the Client.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     private @Nullable String clientSecretSettingName;
@@ -125,7 +125,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The thumbprint of the certificate used for signing purposes.
      * 
-     * !&gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
+     * &gt; **Note:** If one `clientSecretSettingName` or `clientSecretCertificateThumbprint` is specified, terraform won&#39;t write the client secret or secret certificate thumbprint back to `appSetting`, so make sure they are existed in `appSettings` to function correctly.
      * 
      */
     public Optional<String> clientSecretCertificateThumbprint() {
@@ -134,7 +134,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2ActiveDirectoryV2 {
     /**
      * @return The App Setting name that contains the client secret of the Client.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Optional<String> clientSecretSettingName() {

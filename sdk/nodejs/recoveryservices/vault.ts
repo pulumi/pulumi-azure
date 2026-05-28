@@ -83,7 +83,7 @@ export class Vault extends pulumi.CustomResource {
     /**
      * An `encryption` block as defined below. Required with `identity`.
      *
-     * !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+     * > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
      */
     declare public readonly encryption: pulumi.Output<outputs.recoveryservices.VaultEncryption | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface VaultState {
     /**
      * An `encryption` block as defined below. Required with `identity`.
      *
-     * !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+     * > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
      */
     encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption | undefined>;
     /**
@@ -273,7 +273,7 @@ export interface VaultArgs {
     /**
      * An `encryption` block as defined below. Required with `identity`.
      *
-     * !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+     * > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
      */
     encryption?: pulumi.Input<inputs.recoveryservices.VaultEncryption | undefined>;
     /**

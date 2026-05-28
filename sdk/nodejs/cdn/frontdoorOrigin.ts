@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Front Door (standard/premium) Origin.
  *
- * !> **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `dependsOn` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+ * > **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `dependsOn` meta-argument which references the `azure.privatedns.LinkService`, see `Example Usage With Private Link Service` below.
  *
  * ## Example Usage
  *
@@ -250,7 +250,7 @@ export class FrontdoorOrigin extends pulumi.CustomResource {
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      *
-     * !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+     * > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      */
     declare public readonly hostName: pulumi.Output<string>;
     /**
@@ -357,7 +357,7 @@ export interface FrontdoorOriginState {
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      *
-     * !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+     * > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      */
     hostName?: pulumi.Input<string | undefined>;
     /**
@@ -413,7 +413,7 @@ export interface FrontdoorOriginArgs {
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      *
-     * !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+     * > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      */
     hostName: pulumi.Input<string>;
     /**

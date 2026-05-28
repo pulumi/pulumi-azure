@@ -170,7 +170,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note:** This property cannot be set if `DefaultOutboundAccessEnabled` is set to `True`.
         /// 
-        /// !&gt; **Note:** The `SharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+        /// &gt; **Note:** The `SharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         /// </summary>
         [Output("sharingScope")]
         public Output<string?> SharingScope { get; private set; } = null!;
@@ -330,7 +330,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note:** This property cannot be set if `DefaultOutboundAccessEnabled` is set to `True`.
         /// 
-        /// !&gt; **Note:** The `SharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+        /// &gt; **Note:** The `SharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         /// </summary>
         [Input("sharingScope")]
         public Input<string>? SharingScope { get; set; }
@@ -452,7 +452,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note:** This property cannot be set if `DefaultOutboundAccessEnabled` is set to `True`.
         /// 
-        /// !&gt; **Note:** The `SharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+        /// &gt; **Note:** The `SharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         /// </summary>
         [Input("sharingScope")]
         public Input<string>? SharingScope { get; set; }

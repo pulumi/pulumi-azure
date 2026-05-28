@@ -206,7 +206,7 @@ import javax.annotation.Nullable;
  * $ pulumi import azure:core/subscription:Subscription example &#34;/providers/Microsoft.Subscription/aliases/subscription1&#34;
  * ```
  * 
- * !&gt; **Note:** When importing a Subscription that was not created programmatically, either via this resource or using the Alias API, it will have no Alias ID to import via `pulumi import`. In this scenario, the `subscriptionId` property can be completed and the resource will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. An alias is required to correctly manage Subscription resources due to Azure Subscription API design.
+ * &gt; **Note:** When importing a Subscription that was not created programmatically, either via this resource or using the Alias API, it will have no Alias ID to import via `pulumi import`. In this scenario, the `subscriptionId` property can be completed and the resource will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. An alias is required to correctly manage Subscription resources due to Azure Subscription API design.
  * 
  */
 @ResourceType(type="azure:core/subscription:Subscription")

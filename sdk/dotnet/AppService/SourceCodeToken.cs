@@ -12,7 +12,7 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service source control token.
     /// 
-    /// !&gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.ServicePlan` resource instead.
+    /// &gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.ServicePlan` resource instead.
     /// 
     /// &gt; **NOTE:** Source Control Tokens are configured at the subscription level, not on each App Service - as such this can only be configured Subscription-wide
     /// 

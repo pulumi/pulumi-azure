@@ -34,7 +34,7 @@ class ChannelDirectLineSpeechArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group where the Direct Line Speech Channel should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
                
-               !> **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
+               > **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_service_access_key: The access key to access the Cognitive Service. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
         :param pulumi.Input[_builtins.str] cognitive_service_location: Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
         :param pulumi.Input[_builtins.str] custom_speech_model_id: The custom speech model id for the Direct Line Speech Channel.
@@ -86,7 +86,7 @@ class ChannelDirectLineSpeechArgs:
         """
         The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
 
-        !> **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
+        > **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
         """
         return pulumi.get(self, "cognitive_account_id")
 
@@ -172,7 +172,7 @@ class _ChannelDirectLineSpeechState:
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
                
-               !> **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
+               > **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_service_access_key: The access key to access the Cognitive Service. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
         :param pulumi.Input[_builtins.str] cognitive_service_location: Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
         :param pulumi.Input[_builtins.str] custom_speech_model_id: The custom speech model id for the Direct Line Speech Channel.
@@ -215,7 +215,7 @@ class _ChannelDirectLineSpeechState:
         """
         The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
 
-        !> **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
+        > **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
         """
         return pulumi.get(self, "cognitive_account_id")
 
@@ -358,7 +358,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
                
-               !> **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
+               > **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_service_access_key: The access key to access the Cognitive Service. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
         :param pulumi.Input[_builtins.str] cognitive_service_location: Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
         :param pulumi.Input[_builtins.str] custom_speech_model_id: The custom speech model id for the Direct Line Speech Channel.
@@ -488,7 +488,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bot_name: The name of the Bot Resource this channel will be associated with. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_account_id: The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
                
-               !> **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
+               > **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cognitive_service_access_key: The access key to access the Cognitive Service. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
         :param pulumi.Input[_builtins.str] cognitive_service_location: Specifies the supported Azure location where the Cognitive Service resource exists. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
         :param pulumi.Input[_builtins.str] custom_speech_model_id: The custom speech model id for the Direct Line Speech Channel.
@@ -524,7 +524,7 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         """
         The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitive_account_id` or both `cognitive_service_access_key` and `cognitive_service_location` must be specified.
 
-        !> **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
+        > **Note:** Once added, `cognitive_account_id` cannot be removed, doing so forces a new resource to be created.
         """
         return pulumi.get(self, "cognitive_account_id")
 

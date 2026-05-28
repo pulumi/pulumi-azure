@@ -339,7 +339,7 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
 
         Manages a Spring Cloud Application Performance Monitoring resource for Dynatrace.
 
-        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+        > **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 
@@ -406,7 +406,7 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
 
         Manages a Spring Cloud Application Performance Monitoring resource for Dynatrace.
 
-        !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+        > **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring` resource is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
         ## Example Usage
 

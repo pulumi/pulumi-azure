@@ -221,7 +221,7 @@ type FrontdoorFirewallPolicy struct {
 	JsChallengeCookieExpirationInMinutes pulumi.IntOutput `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// A `logScrubbing` block as defined below.
 	//
-	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// > **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	LogScrubbing FrontdoorFirewallPolicyLogScrubbingPtrOutput `pulumi:"logScrubbing"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayOutput `pulumi:"managedRules"`
@@ -308,7 +308,7 @@ type frontdoorFirewallPolicyState struct {
 	JsChallengeCookieExpirationInMinutes *int `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// A `logScrubbing` block as defined below.
 	//
-	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// > **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	LogScrubbing *FrontdoorFirewallPolicyLogScrubbing `pulumi:"logScrubbing"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
@@ -357,7 +357,7 @@ type FrontdoorFirewallPolicyState struct {
 	JsChallengeCookieExpirationInMinutes pulumi.IntPtrInput
 	// A `logScrubbing` block as defined below.
 	//
-	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// > **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	LogScrubbing FrontdoorFirewallPolicyLogScrubbingPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
@@ -408,7 +408,7 @@ type frontdoorFirewallPolicyArgs struct {
 	JsChallengeCookieExpirationInMinutes *int `pulumi:"jsChallengeCookieExpirationInMinutes"`
 	// A `logScrubbing` block as defined below.
 	//
-	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// > **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	LogScrubbing *FrontdoorFirewallPolicyLogScrubbing `pulumi:"logScrubbing"`
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules []FrontdoorFirewallPolicyManagedRule `pulumi:"managedRules"`
@@ -456,7 +456,7 @@ type FrontdoorFirewallPolicyArgs struct {
 	JsChallengeCookieExpirationInMinutes pulumi.IntPtrInput
 	// A `logScrubbing` block as defined below.
 	//
-	// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+	// > **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 	LogScrubbing FrontdoorFirewallPolicyLogScrubbingPtrInput
 	// One or more `managedRule` blocks as defined below.
 	ManagedRules FrontdoorFirewallPolicyManagedRuleArrayInput
@@ -612,7 +612,7 @@ func (o FrontdoorFirewallPolicyOutput) JsChallengeCookieExpirationInMinutes() pu
 
 // A `logScrubbing` block as defined below.
 //
-// !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+// > **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 func (o FrontdoorFirewallPolicyOutput) LogScrubbing() FrontdoorFirewallPolicyLogScrubbingPtrOutput {
 	return o.ApplyT(func(v *FrontdoorFirewallPolicy) FrontdoorFirewallPolicyLogScrubbingPtrOutput { return v.LogScrubbing }).(FrontdoorFirewallPolicyLogScrubbingPtrOutput)
 }

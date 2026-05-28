@@ -135,7 +135,7 @@ type Subnet struct {
 	//
 	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
 	//
-	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	// > **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
 	SharingScope pulumi.StringPtrOutput `pulumi:"sharingScope"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringOutput `pulumi:"virtualNetworkName"`
@@ -215,7 +215,7 @@ type subnetState struct {
 	//
 	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
 	//
-	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	// > **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
 	SharingScope *string `pulumi:"sharingScope"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName *string `pulumi:"virtualNetworkName"`
@@ -260,7 +260,7 @@ type SubnetState struct {
 	//
 	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
 	//
-	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	// > **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
 	SharingScope pulumi.StringPtrInput
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringPtrInput
@@ -309,7 +309,7 @@ type subnetArgs struct {
 	//
 	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
 	//
-	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	// > **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
 	SharingScope *string `pulumi:"sharingScope"`
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName string `pulumi:"virtualNetworkName"`
@@ -355,7 +355,7 @@ type SubnetArgs struct {
 	//
 	// > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
 	//
-	// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+	// > **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
 	SharingScope pulumi.StringPtrInput
 	// The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
 	VirtualNetworkName pulumi.StringInput
@@ -516,7 +516,7 @@ func (o SubnetOutput) ServiceEndpoints() pulumi.StringArrayOutput {
 //
 // > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
 //
-// !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+// > **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
 func (o SubnetOutput) SharingScope() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.SharingScope }).(pulumi.StringPtrOutput)
 }

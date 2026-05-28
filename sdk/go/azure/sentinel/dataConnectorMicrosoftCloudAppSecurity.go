@@ -14,7 +14,7 @@ import (
 
 // Manages a Microsoft Cloud App Security Data Connector.
 //
-// !> **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+// > **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
 //
 // ## Example Usage
 //

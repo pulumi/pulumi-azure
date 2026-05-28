@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Voice.Inputs
         /// <summary>
         /// IP address to use to contact the ESRP from this region.
         /// 
-        /// !&gt; **Note:** The `EsrpAddresses` must be specified for each `ServiceLocation` when the`E911Type` is set to `DirectToEsrp`.  The `EsrpAddresses` must not be specified for each `ServiceLocation` when the`E911Type` is set to `Standard`.
+        /// &gt; **Note:** The `EsrpAddresses` must be specified for each `ServiceLocation` when the`E911Type` is set to `DirectToEsrp`.  The `EsrpAddresses` must not be specified for each `ServiceLocation` when the`E911Type` is set to `Standard`.
         /// </summary>
         public InputList<string> EsrpAddresses
         {

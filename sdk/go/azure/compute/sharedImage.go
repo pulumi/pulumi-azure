@@ -139,7 +139,7 @@ type SharedImage struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	//
-	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+	// > **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized pulumi.BoolPtrOutput `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -243,7 +243,7 @@ type sharedImageState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	//
-	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+	// > **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
@@ -306,7 +306,7 @@ type SharedImageState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	//
-	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+	// > **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
@@ -373,7 +373,7 @@ type sharedImageArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	//
-	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+	// > **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized *bool `pulumi:"specialized"`
 	// A mapping of tags to assign to the Shared Image.
 	Tags map[string]string `pulumi:"tags"`
@@ -437,7 +437,7 @@ type SharedImageArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 	//
-	// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+	// > **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 	Specialized pulumi.BoolPtrInput
 	// A mapping of tags to assign to the Shared Image.
 	Tags pulumi.StringMapInput
@@ -658,7 +658,7 @@ func (o SharedImageOutput) ResourceGroupName() pulumi.StringOutput {
 
 // Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
 //
-// !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+// > **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
 func (o SharedImageOutput) Specialized() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SharedImage) pulumi.BoolPtrOutput { return v.Specialized }).(pulumi.BoolPtrOutput)
 }

@@ -74,7 +74,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// <summary>
         /// An `Encryption` block as defined below. Required with `Identity`.
         /// 
-        /// !&gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+        /// &gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         /// </summary>
         [Output("encryption")]
         public Output<Outputs.VaultEncryption?> Encryption { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// <summary>
         /// An `Encryption` block as defined below. Required with `Identity`.
         /// 
-        /// !&gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+        /// &gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VaultEncryptionArgs>? Encryption { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.RecoveryServices
         /// <summary>
         /// An `Encryption` block as defined below. Required with `Identity`.
         /// 
-        /// !&gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+        /// &gt; **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         /// </summary>
         [Input("encryption")]
         public Input<Inputs.VaultEncryptionGetArgs>? Encryption { get; set; }

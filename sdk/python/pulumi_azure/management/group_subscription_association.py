@@ -108,7 +108,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         """
         Manages a Management Group Subscription Association.
 
-        !> **Note:** When using this resource, configuring `subscription_ids` on the `management.Group` resource is not supported.
+        > **Note:** When using this resource, configuring `subscription_ids` on the `management.Group` resource is not supported.
 
         ## Example Usage
 
@@ -153,7 +153,7 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         """
         Manages a Management Group Subscription Association.
 
-        !> **Note:** When using this resource, configuring `subscription_ids` on the `management.Group` resource is not supported.
+        > **Note:** When using this resource, configuring `subscription_ids` on the `management.Group` resource is not supported.
 
         ## Example Usage
 

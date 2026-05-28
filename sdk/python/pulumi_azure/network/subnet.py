@@ -65,7 +65,7 @@ class SubnetArgs:
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
                
-               !> **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+               > **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "virtual_network_name", virtual_network_name)
@@ -244,7 +244,7 @@ class SubnetArgs:
 
         > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
 
-        !> **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+        > **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         """
         return pulumi.get(self, "sharing_scope")
 
@@ -299,7 +299,7 @@ class _SubnetState:
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
                
-               !> **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+               > **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
         if address_prefixes is not None:
@@ -469,7 +469,7 @@ class _SubnetState:
 
         > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
 
-        !> **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+        > **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         """
         return pulumi.get(self, "sharing_scope")
 
@@ -593,7 +593,7 @@ class Subnet(pulumi.CustomResource):
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
                
-               !> **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+               > **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
         ...
@@ -765,7 +765,7 @@ class Subnet(pulumi.CustomResource):
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
                
-               !> **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+               > **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         :param pulumi.Input[_builtins.str] virtual_network_name: The name of the virtual network to which to attach the subnet. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -888,7 +888,7 @@ class Subnet(pulumi.CustomResource):
 
         > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
 
-        !> **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+        > **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
         """
         return pulumi.get(self, "sharing_scope")
 

@@ -20,7 +20,7 @@ public final class WindowsFunctionAppAuthSettingsV2AppleV2 {
     /**
      * @return The app setting name that contains the `clientSecret` value used for Apple Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     private String clientSecretSettingName;
@@ -43,7 +43,7 @@ public final class WindowsFunctionAppAuthSettingsV2AppleV2 {
     /**
      * @return The app setting name that contains the `clientSecret` value used for Apple Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public String clientSecretSettingName() {

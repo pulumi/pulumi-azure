@@ -14,7 +14,7 @@ import (
 
 // Manages a Management Group Subscription Association.
 //
-// !> **Note:** When using this resource, configuring `subscriptionIds` on the `management.Group` resource is not supported.
+// > **Note:** When using this resource, configuring `subscriptionIds` on the `management.Group` resource is not supported.
 //
 // ## Example Usage
 //

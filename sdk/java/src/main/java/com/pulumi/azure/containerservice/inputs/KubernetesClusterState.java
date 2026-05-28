@@ -113,7 +113,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      * 
-     * !&gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+     * &gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
      * 
      * &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      * 
@@ -124,7 +124,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * @return The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      * 
-     * !&gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+     * &gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
      * 
      * &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      * 
@@ -388,7 +388,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * &gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     @Import(name="identity")
@@ -397,7 +397,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * @return An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * &gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     public Optional<Output<KubernetesClusterIdentityArgs>> identity() {
@@ -810,7 +810,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
      * 
-     * !&gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+     * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
      */
     @Import(name="oidcIssuerEnabled")
@@ -819,7 +819,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
      * 
-     * !&gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+     * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> oidcIssuerEnabled() {
@@ -1151,7 +1151,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * &gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     @Import(name="servicePrincipal")
@@ -1160,7 +1160,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
     /**
      * @return A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      * 
-     * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * &gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      * 
      */
     public Optional<Output<KubernetesClusterServicePrincipalArgs>> servicePrincipal() {
@@ -1494,7 +1494,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param automaticUpgradeChannel The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
          * 
-         * !&gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+         * &gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
          * 
          * &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
          * 
@@ -1509,7 +1509,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param automaticUpgradeChannel The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
          * 
-         * !&gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+         * &gt; **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
          * 
          * &gt; **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
          * 
@@ -1881,7 +1881,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param identity An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
          * 
-         * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+         * &gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
          * 
          * @return builder
          * 
@@ -1894,7 +1894,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param identity An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
          * 
-         * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+         * &gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
          * 
          * @return builder
          * 
@@ -2479,7 +2479,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
          * 
-         * !&gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+         * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -2492,7 +2492,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
          * 
-         * !&gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+         * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -2898,7 +2898,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param servicePrincipal A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
          * 
-         * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+         * &gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
          * 
          * @return builder
          * 
@@ -2911,7 +2911,7 @@ public final class KubernetesClusterState extends com.pulumi.resources.ResourceA
         /**
          * @param servicePrincipal A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
          * 
-         * !&gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+         * &gt; **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster&#39;s control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
          * 
          * @return builder
          * 

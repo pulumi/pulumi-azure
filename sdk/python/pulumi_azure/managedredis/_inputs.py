@@ -85,7 +85,7 @@ class ManagedRedisDefaultDatabaseArgsDict(TypedDict):
     """
     Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
 
-    !> **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+    > **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
     """
     eviction_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -95,7 +95,7 @@ class ManagedRedisDefaultDatabaseArgsDict(TypedDict):
     """
     The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 
-    !> **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+    > **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
     """
     id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -146,11 +146,11 @@ class ManagedRedisDefaultDatabaseArgs:
         :param pulumi.Input[_builtins.str] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Possible values are `Encrypted` and `Plaintext`. Defaults to `Encrypted`.
         :param pulumi.Input[_builtins.str] clustering_policy: Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
                
-               !> **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+               > **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
         :param pulumi.Input[_builtins.str] geo_replication_group_name: The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
                
-               !> **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+               > **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         :param pulumi.Input[_builtins.str] id: The ID of the Managed Redis Database Instance.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedRedisDefaultDatabaseModuleArgs']]] modules: A `module` block as defined below. Refer to [the modules documentation](https://learn.microsoft.com/azure/redis/redis-modules) to learn more.
         :param pulumi.Input[_builtins.str] persistence_append_only_file_backup_frequency: The frequency of Append Only File (AOF) backups. The only possible value is `1s`. Providing this value implies AOF persistence method is enabled. Conflicts with `persistence_redis_database_backup_frequency`, only one persistence method is allowed. Conflicts with `geo_replication_group_name`, persistence can only be enabled on non-geo-replicated databases. Refer to [the persistence documentation](https://learn.microsoft.com/azure/redis/how-to-persistence) to learn more.
@@ -214,7 +214,7 @@ class ManagedRedisDefaultDatabaseArgs:
         """
         Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
 
-        !> **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        > **Note:** Changing `clustering_policy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         """
         return pulumi.get(self, "clustering_policy")
 
@@ -240,7 +240,7 @@ class ManagedRedisDefaultDatabaseArgs:
         """
         The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 
-        !> **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        > **Note:** Changing `geo_replication_group_name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         """
         return pulumi.get(self, "geo_replication_group_name")
 
@@ -338,13 +338,13 @@ class ManagedRedisDefaultDatabaseModuleArgsDict(TypedDict):
     """
     The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
 
-    !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+    > **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
     """
     args: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
 
-    !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+    > **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 
     > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
     """
@@ -362,10 +362,10 @@ class ManagedRedisDefaultDatabaseModuleArgs:
         """
         :param pulumi.Input[_builtins.str] name: The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
                
-               !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+               > **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         :param pulumi.Input[_builtins.str] args: Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
                
-               !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+               > **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
                
                > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
         :param pulumi.Input[_builtins.str] version: Version of the module to be used.
@@ -382,7 +382,7 @@ class ManagedRedisDefaultDatabaseModuleArgs:
         """
         The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
 
-        !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        > **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         """
         return pulumi.get(self, "name")
 
@@ -396,7 +396,7 @@ class ManagedRedisDefaultDatabaseModuleArgs:
         """
         Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
 
-        !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        > **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 
         > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
         """

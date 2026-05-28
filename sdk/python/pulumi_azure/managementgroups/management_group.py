@@ -205,7 +205,7 @@ class ManagementGroup(pulumi.CustomResource):
         """
         Manages a Management Group.
 
-        !> **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
+        > **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
 
         ## Example Usage
 
@@ -257,7 +257,7 @@ class ManagementGroup(pulumi.CustomResource):
         """
         Manages a Management Group.
 
-        !> **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
+        > **Note:** Configuring `subscription_ids` is not supported when using the `management.GroupSubscriptionAssociation` resource, results will be unpredictable.
 
         ## Example Usage
 

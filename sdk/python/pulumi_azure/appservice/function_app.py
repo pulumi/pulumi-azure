@@ -863,7 +863,7 @@ class FunctionApp(pulumi.CustomResource):
         """
         Manages a Function App.
 
-        !> **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` resources instead.
+        > **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` resources instead.
 
         > **Note:** To connect an Azure Function App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
         For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.
@@ -1027,7 +1027,7 @@ class FunctionApp(pulumi.CustomResource):
         """
         Manages a Function App.
 
-        !> **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` resources instead.
+        > **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxFunctionApp` and `appservice.WindowsFunctionApp` resources instead.
 
         > **Note:** To connect an Azure Function App and a subnet within the same region `appservice.VirtualNetworkSwiftConnection` can be used.
         For an example, check the `appservice.VirtualNetworkSwiftConnection` documentation.

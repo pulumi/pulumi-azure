@@ -118,7 +118,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
     /**
      * An `encryption` block as defined below. Required with `identity`.
      * 
-     * !&gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
+     * &gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
      * 
      */
     @Export(name="encryption", refs={VaultEncryption.class}, tree="[0]")
@@ -127,7 +127,7 @@ public class Vault extends com.pulumi.resources.CustomResource {
     /**
      * @return An `encryption` block as defined below. Required with `identity`.
      * 
-     * !&gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
+     * &gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
      * 
      */
     public Output<Optional<VaultEncryption>> encryption() {

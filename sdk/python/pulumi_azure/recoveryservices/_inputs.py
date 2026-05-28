@@ -36,9 +36,9 @@ class VaultEncryptionArgsDict(TypedDict):
     """
     Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
 
-    !> **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+    > **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 
-    !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
+    > **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
     """
     user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -57,9 +57,9 @@ class VaultEncryptionArgs:
         :param pulumi.Input[_builtins.str] key_id: The Key Vault key id used to encrypt this vault. Key managed by Vault Managed Hardware Security Module is also supported.
         :param pulumi.Input[_builtins.bool] use_system_assigned_identity: Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
                
-               !> **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+               > **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
                
-               !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
+               > **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: Specifies the user assigned identity ID to be used.
         """
         pulumi.set(__self__, "infrastructure_encryption_enabled", infrastructure_encryption_enabled)
@@ -99,9 +99,9 @@ class VaultEncryptionArgs:
         """
         Indicate that system assigned identity should be used or not. Defaults to `true`. Must be set to `false` when `user_assigned_identity_id` is set.
 
-        !> **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+        > **Note:** `use_system_assigned_identity` only be able to set to `false` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
 
-        !> **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
+        > **Note:** Once `infrastructure_encryption_enabled` has been set it's not possible to change it.
         """
         return pulumi.get(self, "use_system_assigned_identity")
 

@@ -18220,7 +18220,7 @@ type KubernetesClusterUpgradeOverride struct {
 	EffectiveUntil *string `pulumi:"effectiveUntil"`
 	// Whether to force upgrade the cluster. Possible values are `true` or `false`.
 	//
-	// !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+	// > **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
 	ForceUpgradeEnabled bool `pulumi:"forceUpgradeEnabled"`
 }
 
@@ -18242,7 +18242,7 @@ type KubernetesClusterUpgradeOverrideArgs struct {
 	EffectiveUntil pulumi.StringPtrInput `pulumi:"effectiveUntil"`
 	// Whether to force upgrade the cluster. Possible values are `true` or `false`.
 	//
-	// !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+	// > **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
 	ForceUpgradeEnabled pulumi.BoolInput `pulumi:"forceUpgradeEnabled"`
 }
 
@@ -18332,7 +18332,7 @@ func (o KubernetesClusterUpgradeOverrideOutput) EffectiveUntil() pulumi.StringPt
 
 // Whether to force upgrade the cluster. Possible values are `true` or `false`.
 //
-// !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+// > **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
 func (o KubernetesClusterUpgradeOverrideOutput) ForceUpgradeEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v KubernetesClusterUpgradeOverride) bool { return v.ForceUpgradeEnabled }).(pulumi.BoolOutput)
 }
@@ -18375,7 +18375,7 @@ func (o KubernetesClusterUpgradeOverridePtrOutput) EffectiveUntil() pulumi.Strin
 
 // Whether to force upgrade the cluster. Possible values are `true` or `false`.
 //
-// !> **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+// > **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
 func (o KubernetesClusterUpgradeOverridePtrOutput) ForceUpgradeEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterUpgradeOverride) *bool {
 		if v == nil {

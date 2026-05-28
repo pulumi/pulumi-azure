@@ -46,7 +46,7 @@ class VaultArgs:
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
                
-               !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+               > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
                
@@ -144,7 +144,7 @@ class VaultArgs:
         """
         An `encryption` block as defined below. Required with `identity`.
 
-        !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+        > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         """
         return pulumi.get(self, "encryption")
 
@@ -287,7 +287,7 @@ class _VaultState:
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         :param pulumi.Input['VaultEncryptionArgs'] encryption: An `encryption` block as defined below. Required with `identity`.
                
-               !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+               > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input['VaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
                
@@ -365,7 +365,7 @@ class _VaultState:
         """
         An `encryption` block as defined below. Required with `identity`.
 
-        !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+        > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         """
         return pulumi.get(self, "encryption")
 
@@ -570,7 +570,7 @@ class Vault(pulumi.CustomResource):
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         :param pulumi.Input[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']] encryption: An `encryption` block as defined below. Required with `identity`.
                
-               !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+               > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
                
@@ -718,7 +718,7 @@ class Vault(pulumi.CustomResource):
                > **Note:** Once `cross_region_restore_enabled` is set to `true`, changing it back to `false` forces a new Recovery Service Vault to be created.
         :param pulumi.Input[Union['VaultEncryptionArgs', 'VaultEncryptionArgsDict']] encryption: An `encryption` block as defined below. Required with `identity`.
                
-               !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+               > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         :param pulumi.Input[Union['VaultIdentityArgs', 'VaultIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: Immutability Settings of vault, possible values include: `Locked`, `Unlocked` and `Disabled`.
                
@@ -776,7 +776,7 @@ class Vault(pulumi.CustomResource):
         """
         An `encryption` block as defined below. Required with `identity`.
 
-        !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+        > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
         """
         return pulumi.get(self, "encryption")
 

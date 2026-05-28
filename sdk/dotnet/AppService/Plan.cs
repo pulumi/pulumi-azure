@@ -12,7 +12,7 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Plan component.
     /// 
-    /// !&gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.ServicePlan` resource instead.
+    /// &gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.ServicePlan` resource instead.
     /// 
     /// ## Example Usage
     /// 

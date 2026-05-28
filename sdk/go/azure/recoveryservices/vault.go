@@ -76,7 +76,7 @@ type Vault struct {
 	CrossRegionRestoreEnabled pulumi.BoolPtrOutput `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
 	//
-	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+	// > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption VaultEncryptionPtrOutput `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrOutput `pulumi:"identity"`
@@ -148,7 +148,7 @@ type vaultState struct {
 	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
 	//
-	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+	// > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
@@ -185,7 +185,7 @@ type VaultState struct {
 	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below. Required with `identity`.
 	//
-	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+	// > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
@@ -226,7 +226,7 @@ type vaultArgs struct {
 	CrossRegionRestoreEnabled *bool `pulumi:"crossRegionRestoreEnabled"`
 	// An `encryption` block as defined below. Required with `identity`.
 	//
-	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+	// > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption *VaultEncryption `pulumi:"encryption"`
 	// An `identity` block as defined below.
 	Identity *VaultIdentity `pulumi:"identity"`
@@ -264,7 +264,7 @@ type VaultArgs struct {
 	CrossRegionRestoreEnabled pulumi.BoolPtrInput
 	// An `encryption` block as defined below. Required with `identity`.
 	//
-	// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+	// > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 	Encryption VaultEncryptionPtrInput
 	// An `identity` block as defined below.
 	Identity VaultIdentityPtrInput
@@ -393,7 +393,7 @@ func (o VaultOutput) CrossRegionRestoreEnabled() pulumi.BoolPtrOutput {
 
 // An `encryption` block as defined below. Required with `identity`.
 //
-// !> **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
+// > **Note:** Once Encryption with your own key has been Enabled it's not possible to Disable it.
 func (o VaultOutput) Encryption() VaultEncryptionPtrOutput {
 	return o.ApplyT(func(v *Vault) VaultEncryptionPtrOutput { return v.Encryption }).(VaultEncryptionPtrOutput)
 }

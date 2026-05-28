@@ -56,7 +56,7 @@ class ServicesCommunicationsGatewayServiceLocation(dict):
         :param Sequence[_builtins.str] allowed_signaling_source_address_prefixes: Specifies the allowed source IP address or CIDR ranges for signaling.
         :param Sequence[_builtins.str] esrp_addresses: IP address to use to contact the ESRP from this region.
                
-               !> **Note:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
+               > **Note:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
         """
         pulumi.set(__self__, "location", location)
         pulumi.set(__self__, "operator_addresses", operator_addresses)
@@ -105,7 +105,7 @@ class ServicesCommunicationsGatewayServiceLocation(dict):
         """
         IP address to use to contact the ESRP from this region.
 
-        !> **Note:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
+        > **Note:** The `esrp_addresses` must be specified for each `service_location` when the`e911_type` is set to `DirectToEsrp`.  The `esrp_addresses` must not be specified for each `service_location` when the`e911_type` is set to `Standard`.
         """
         return pulumi.get(self, "esrp_addresses")
 

@@ -19,7 +19,7 @@ import javax.annotation.Nullable;
 /**
  * Manages an App Service Hybrid Connection for an existing App Service, Relay and Service Bus.
  * 
- * !&gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.FunctionAppHybridConnection` and `azure.appservice.WebAppHybridConnection` resources instead.
+ * &gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.FunctionAppHybridConnection` and `azure.appservice.WebAppHybridConnection` resources instead.
  * 
  * ## Example Usage
  * 

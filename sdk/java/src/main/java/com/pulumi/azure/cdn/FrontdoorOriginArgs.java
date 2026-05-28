@@ -67,7 +67,7 @@ public final class FrontdoorOriginArgs extends com.pulumi.resources.ResourceArgs
     /**
      * The IPv4 address, IPv6 address or Domain name of the Origin.
      * 
-     * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+     * &gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      * 
      */
     @Import(name="hostName", required=true)
@@ -76,7 +76,7 @@ public final class FrontdoorOriginArgs extends com.pulumi.resources.ResourceArgs
     /**
      * @return The IPv4 address, IPv6 address or Domain name of the Origin.
      * 
-     * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+     * &gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
      * 
      */
     public Output<String> hostName() {
@@ -296,7 +296,7 @@ public final class FrontdoorOriginArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param hostName The IPv4 address, IPv6 address or Domain name of the Origin.
          * 
-         * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+         * &gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class FrontdoorOriginArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param hostName The IPv4 address, IPv6 address or Domain name of the Origin.
          * 
-         * !&gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+         * &gt; **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
          * 
          * @return builder
          * 

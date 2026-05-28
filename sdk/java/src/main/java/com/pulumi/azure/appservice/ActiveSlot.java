@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 /**
  * Promotes an App Service Slot to Production within an App Service.
  * 
- * !&gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.WebAppActiveSlot` resource instead.
+ * &gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.WebAppActiveSlot` resource instead.
  * 
  * &gt; **Note:** When using Slots - the `appSettings`, `connectionString` and `siteConfig` blocks on the `azure.appservice.AppService` resource will be overwritten when promoting a Slot using the `azure.appservice.ActiveSlot` resource.
  * 

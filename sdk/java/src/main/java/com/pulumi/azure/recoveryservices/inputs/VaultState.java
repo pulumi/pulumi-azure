@@ -57,7 +57,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     /**
      * An `encryption` block as defined below. Required with `identity`.
      * 
-     * !&gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
+     * &gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
      * 
      */
     @Import(name="encryption")
@@ -66,7 +66,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return An `encryption` block as defined below. Required with `identity`.
      * 
-     * !&gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
+     * &gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
      * 
      */
     public Optional<Output<VaultEncryptionArgs>> encryption() {
@@ -332,7 +332,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryption An `encryption` block as defined below. Required with `identity`.
          * 
-         * !&gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
+         * &gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class VaultState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param encryption An `encryption` block as defined below. Required with `identity`.
          * 
-         * !&gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
+         * &gt; **Note:** Once Encryption with your own key has been Enabled it&#39;s not possible to Disable it.
          * 
          * @return builder
          * 

@@ -235,7 +235,7 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      *
-     * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+     * > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
     declare public readonly purgeProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -388,7 +388,7 @@ export interface ConfigurationStoreState {
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      *
-     * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+     * > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -468,7 +468,7 @@ export interface ConfigurationStoreArgs {
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      *
-     * !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+     * > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      */
     purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**

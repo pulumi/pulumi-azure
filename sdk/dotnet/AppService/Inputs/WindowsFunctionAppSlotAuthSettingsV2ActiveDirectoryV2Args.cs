@@ -71,7 +71,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The thumbprint of the certificate used for signing purposes.
         /// 
-        /// !&gt; **Note:** If one `ClientSecretSettingName` or `ClientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `AppSetting`, so make sure they are existed in `AppSettings` to function correctly.
+        /// &gt; **Note:** If one `ClientSecretSettingName` or `ClientSecretCertificateThumbprint` is specified, terraform won't write the client secret or secret certificate thumbprint back to `AppSetting`, so make sure they are existed in `AppSettings` to function correctly.
         /// </summary>
         [Input("clientSecretCertificateThumbprint")]
         public Input<string>? ClientSecretCertificateThumbprint { get; set; }
@@ -79,7 +79,7 @@ namespace Pulumi.Azure.AppService.Inputs
         /// <summary>
         /// The App Setting name that contains the client secret of the Client.
         /// 
-        /// !&gt; **Note:** A setting with this name must exist in `AppSettings` to function correctly.
+        /// &gt; **Note:** A setting with this name must exist in `AppSettings` to function correctly.
         /// </summary>
         [Input("clientSecretSettingName")]
         public Input<string>? ClientSecretSettingName { get; set; }

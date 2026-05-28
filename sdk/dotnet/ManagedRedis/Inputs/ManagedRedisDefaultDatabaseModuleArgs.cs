@@ -15,7 +15,7 @@ namespace Pulumi.Azure.ManagedRedis.Inputs
         /// <summary>
         /// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
         /// 
-        /// !&gt; **Note:** Changing `Args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        /// &gt; **Note:** Changing `Args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         /// 
         /// &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
         /// </summary>
@@ -25,7 +25,7 @@ namespace Pulumi.Azure.ManagedRedis.Inputs
         /// <summary>
         /// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
         /// 
-        /// !&gt; **Note:** Changing `Name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        /// &gt; **Note:** Changing `Name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

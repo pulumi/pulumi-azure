@@ -14,7 +14,7 @@ import (
 
 // Manages a Static Web App Custom Domain.
 //
-// !> **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
+// > **Note:** DNS validation polling is only done for CNAME records, terraform will not validate TXT validation records are complete.
 //
 // ## Example Usage
 //

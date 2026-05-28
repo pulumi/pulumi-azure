@@ -14,7 +14,7 @@ import (
 
 // Manages a Front Door (standard/premium) Origin.
 //
-// !> **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `dependsOn` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+// > **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `dependsOn` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
 //
 // ## Example Usage
 //
@@ -336,7 +336,7 @@ type FrontdoorOrigin struct {
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName pulumi.StringOutput `pulumi:"hostName"`
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort pulumi.IntPtrOutput `pulumi:"httpPort"`
@@ -405,7 +405,7 @@ type frontdoorOriginState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName *string `pulumi:"hostName"`
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort *int `pulumi:"httpPort"`
@@ -436,7 +436,7 @@ type FrontdoorOriginState struct {
 	Enabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName pulumi.StringPtrInput
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort pulumi.IntPtrInput
@@ -471,7 +471,7 @@ type frontdoorOriginArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName string `pulumi:"hostName"`
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort *int `pulumi:"httpPort"`
@@ -503,7 +503,7 @@ type FrontdoorOriginArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// The IPv4 address, IPv6 address or Domain name of the Origin.
 	//
-	// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+	// > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 	HostName pulumi.StringInput
 	// The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
 	HttpPort pulumi.IntPtrInput
@@ -629,7 +629,7 @@ func (o FrontdoorOriginOutput) Enabled() pulumi.BoolPtrOutput {
 
 // The IPv4 address, IPv6 address or Domain name of the Origin.
 //
-// !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+// > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
 func (o FrontdoorOriginOutput) HostName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorOrigin) pulumi.StringOutput { return v.HostName }).(pulumi.StringOutput)
 }

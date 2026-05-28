@@ -35,7 +35,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args extends com.p
     /**
      * The app setting name that contains the `clientSecret` value used for Apple Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
@@ -44,7 +44,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args extends com.p
     /**
      * @return The app setting name that contains the `clientSecret` value used for Apple Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -120,7 +120,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args extends com.p
         /**
          * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Apple Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2AppleV2Args extends com.p
         /**
          * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Apple Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 

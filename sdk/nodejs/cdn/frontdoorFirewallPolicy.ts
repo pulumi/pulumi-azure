@@ -219,7 +219,7 @@ export class FrontdoorFirewallPolicy extends pulumi.CustomResource {
     /**
      * A `logScrubbing` block as defined below.
      *
-     * !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * > **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      */
     declare public readonly logScrubbing: pulumi.Output<outputs.cdn.FrontdoorFirewallPolicyLogScrubbing | undefined>;
     /**
@@ -364,7 +364,7 @@ export interface FrontdoorFirewallPolicyState {
     /**
      * A `logScrubbing` block as defined below.
      *
-     * !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * > **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      */
     logScrubbing?: pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyLogScrubbing | undefined>;
     /**
@@ -444,7 +444,7 @@ export interface FrontdoorFirewallPolicyArgs {
     /**
      * A `logScrubbing` block as defined below.
      *
-     * !> **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * > **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      */
     logScrubbing?: pulumi.Input<inputs.cdn.FrontdoorFirewallPolicyLogScrubbing | undefined>;
     /**

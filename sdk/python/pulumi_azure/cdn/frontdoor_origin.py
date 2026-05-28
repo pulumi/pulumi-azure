@@ -39,7 +39,7 @@ class FrontdoorOriginArgs:
         :param pulumi.Input[_builtins.bool] certificate_name_check_enabled: Specifies whether certificate name checks are enabled for this origin.
         :param pulumi.Input[_builtins.str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
-               !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+               > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         :param pulumi.Input[_builtins.bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[_builtins.int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
@@ -103,7 +103,7 @@ class FrontdoorOriginArgs:
         """
         The IPv4 address, IPv6 address or Domain name of the Origin.
 
-        !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+        > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         """
         return pulumi.get(self, "host_name")
 
@@ -234,7 +234,7 @@ class _FrontdoorOriginState:
         :param pulumi.Input[_builtins.bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
-               !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+               > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         :param pulumi.Input[_builtins.int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[_builtins.int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
@@ -312,7 +312,7 @@ class _FrontdoorOriginState:
         """
         The IPv4 address, IPv6 address or Domain name of the Origin.
 
-        !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+        > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         """
         return pulumi.get(self, "host_name")
 
@@ -430,7 +430,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Origin.
 
-        !> **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+        > **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
 
         ## Example Usage
 
@@ -617,7 +617,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
-               !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+               > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         :param pulumi.Input[_builtins.int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[_builtins.int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
@@ -639,7 +639,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         Manages a Front Door (standard/premium) Origin.
 
-        !> **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
+        > **Note:** If you are attempting to implement an Origin that uses its own Private Link Service with a Load Balancer the Profile resource in your configuration file **must** have a `depends_on` meta-argument which references the `privatedns.LinkService`, see `Example Usage With Private Link Service` below.
 
         ## Example Usage
 
@@ -904,7 +904,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enabled: Should the origin be enabled? Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] host_name: The IPv4 address, IPv6 address or Domain name of the Origin.
                
-               !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+               > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         :param pulumi.Input[_builtins.int] http_port: The value of the HTTP port. Must be between `1` and `65535`. Defaults to `80`.
         :param pulumi.Input[_builtins.int] https_port: The value of the HTTPS port. Must be between `1` and `65535`. Defaults to `443`.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Origin. Changing this forces a new Front Door Origin to be created.
@@ -964,7 +964,7 @@ class FrontdoorOrigin(pulumi.CustomResource):
         """
         The IPv4 address, IPv6 address or Domain name of the Origin.
 
-        !> **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
+        > **Note:** This must be unique across all Front Door Origins within a Front Door Endpoint.
         """
         return pulumi.get(self, "host_name")
 
