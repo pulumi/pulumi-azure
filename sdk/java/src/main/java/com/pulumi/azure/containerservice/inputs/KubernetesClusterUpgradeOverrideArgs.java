@@ -39,7 +39,7 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
     /**
      * Whether to force upgrade the cluster. Possible values are `true` or `false`.
      * 
-     * !&gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+     * &gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
      * 
      */
     @Import(name="forceUpgradeEnabled", required=true)
@@ -48,7 +48,7 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
     /**
      * @return Whether to force upgrade the cluster. Possible values are `true` or `false`.
      * 
-     * !&gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+     * &gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
      * 
      */
     public Output<Boolean> forceUpgradeEnabled() {
@@ -108,7 +108,7 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
         /**
          * @param forceUpgradeEnabled Whether to force upgrade the cluster. Possible values are `true` or `false`.
          * 
-         * !&gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+         * &gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class KubernetesClusterUpgradeOverrideArgs extends com.pulumi.resou
         /**
          * @param forceUpgradeEnabled Whether to force upgrade the cluster. Possible values are `true` or `false`.
          * 
-         * !&gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
+         * &gt; **Note:** The `forceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `forceUpgradeEnabled` option with extreme caution only.
          * 
          * @return builder
          * 

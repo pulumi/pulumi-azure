@@ -128,7 +128,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
         /// 
-        /// !&gt; **Note:** Once set, `JobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+        /// &gt; **Note:** Once set, `JobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
         /// </summary>
         [Output("jobCredentialId")]
         public Output<string?> JobCredentialId { get; private set; } = null!;
@@ -254,7 +254,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
         /// 
-        /// !&gt; **Note:** Once set, `JobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+        /// &gt; **Note:** Once set, `JobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
         /// </summary>
         [Input("jobCredentialId")]
         public Input<string>? JobCredentialId { get; set; }
@@ -342,7 +342,7 @@ namespace Pulumi.Azure.MSSql
         /// <summary>
         /// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
         /// 
-        /// !&gt; **Note:** Once set, `JobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+        /// &gt; **Note:** Once set, `JobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
         /// </summary>
         [Input("jobCredentialId")]
         public Input<string>? JobCredentialId { get; set; }

@@ -315,7 +315,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `False`. Changing this forces a new resource to be created.
         /// 
-        /// !&gt; **Note:** Setting `ServiceSideEncryptionEnabled` requires the `Encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        /// &gt; **Note:** Setting `ServiceSideEncryptionEnabled` requires the `Encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         /// </summary>
         [Output("serviceSideEncryptionEnabled")]
         public Output<bool?> ServiceSideEncryptionEnabled { get; private set; } = null!;
@@ -513,7 +513,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `False`. Changing this forces a new resource to be created.
         /// 
-        /// !&gt; **Note:** Setting `ServiceSideEncryptionEnabled` requires the `Encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        /// &gt; **Note:** Setting `ServiceSideEncryptionEnabled` requires the `Encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         /// </summary>
         [Input("serviceSideEncryptionEnabled")]
         public Input<bool>? ServiceSideEncryptionEnabled { get; set; }
@@ -679,7 +679,7 @@ namespace Pulumi.Azure.MachineLearning
         /// <summary>
         /// Whether to enable service-side encryption with customer-managed keys (CMK). Default to `False`. Changing this forces a new resource to be created.
         /// 
-        /// !&gt; **Note:** Setting `ServiceSideEncryptionEnabled` requires the `Encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+        /// &gt; **Note:** Setting `ServiceSideEncryptionEnabled` requires the `Encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         /// </summary>
         [Input("serviceSideEncryptionEnabled")]
         public Input<bool>? ServiceSideEncryptionEnabled { get; set; }

@@ -91,7 +91,7 @@ type ChannelDirectLineSpeech struct {
 	BotName pulumi.StringOutput `pulumi:"botName"`
 	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	//
-	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+	// > **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId pulumi.StringPtrOutput `pulumi:"cognitiveAccountId"`
 	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	CognitiveServiceAccessKey pulumi.StringPtrOutput `pulumi:"cognitiveServiceAccessKey"`
@@ -154,7 +154,7 @@ type channelDirectLineSpeechState struct {
 	BotName *string `pulumi:"botName"`
 	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	//
-	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+	// > **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId *string `pulumi:"cognitiveAccountId"`
 	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	CognitiveServiceAccessKey *string `pulumi:"cognitiveServiceAccessKey"`
@@ -175,7 +175,7 @@ type ChannelDirectLineSpeechState struct {
 	BotName pulumi.StringPtrInput
 	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	//
-	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+	// > **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId pulumi.StringPtrInput
 	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	CognitiveServiceAccessKey pulumi.StringPtrInput
@@ -200,7 +200,7 @@ type channelDirectLineSpeechArgs struct {
 	BotName string `pulumi:"botName"`
 	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	//
-	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+	// > **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId *string `pulumi:"cognitiveAccountId"`
 	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	CognitiveServiceAccessKey *string `pulumi:"cognitiveServiceAccessKey"`
@@ -222,7 +222,7 @@ type ChannelDirectLineSpeechArgs struct {
 	BotName pulumi.StringInput
 	// The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	//
-	// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+	// > **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 	CognitiveAccountId pulumi.StringPtrInput
 	// The access key to access the Cognitive Service. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 	CognitiveServiceAccessKey pulumi.StringPtrInput
@@ -332,7 +332,7 @@ func (o ChannelDirectLineSpeechOutput) BotName() pulumi.StringOutput {
 
 // The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
 //
-// !> **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+// > **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
 func (o ChannelDirectLineSpeechOutput) CognitiveAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ChannelDirectLineSpeech) pulumi.StringPtrOutput { return v.CognitiveAccountId }).(pulumi.StringPtrOutput)
 }

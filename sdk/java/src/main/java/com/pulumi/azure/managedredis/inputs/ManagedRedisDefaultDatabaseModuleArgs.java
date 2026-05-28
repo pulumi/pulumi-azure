@@ -19,7 +19,7 @@ public final class ManagedRedisDefaultDatabaseModuleArgs extends com.pulumi.reso
     /**
      * Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
      * 
-     * !&gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+     * &gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      * &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
      * 
@@ -30,7 +30,7 @@ public final class ManagedRedisDefaultDatabaseModuleArgs extends com.pulumi.reso
     /**
      * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
      * 
-     * !&gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+     * &gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      * &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
      * 
@@ -42,7 +42,7 @@ public final class ManagedRedisDefaultDatabaseModuleArgs extends com.pulumi.reso
     /**
      * The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
      * 
-     * !&gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+     * &gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     @Import(name="name", required=true)
@@ -51,7 +51,7 @@ public final class ManagedRedisDefaultDatabaseModuleArgs extends com.pulumi.reso
     /**
      * @return The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
      * 
-     * !&gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+     * &gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     public Output<String> name() {
@@ -102,7 +102,7 @@ public final class ManagedRedisDefaultDatabaseModuleArgs extends com.pulumi.reso
         /**
          * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
          * 
-         * !&gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+         * &gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          * 
          * &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
          * 
@@ -117,7 +117,7 @@ public final class ManagedRedisDefaultDatabaseModuleArgs extends com.pulumi.reso
         /**
          * @param args Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
          * 
-         * !&gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+         * &gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          * 
          * &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
          * 
@@ -131,7 +131,7 @@ public final class ManagedRedisDefaultDatabaseModuleArgs extends com.pulumi.reso
         /**
          * @param name The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
          * 
-         * !&gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+         * &gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ManagedRedisDefaultDatabaseModuleArgs extends com.pulumi.reso
         /**
          * @param name The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
          * 
-         * !&gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+         * &gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
          * 
          * @return builder
          * 

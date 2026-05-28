@@ -266,7 +266,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// A `LogScrubbing` block as defined below.
         /// 
-        /// !&gt; **Note:** Setting the`LogScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// &gt; **Note:** Setting the`LogScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         /// </summary>
         [Output("logScrubbing")]
         public Output<Outputs.FrontdoorFirewallPolicyLogScrubbing?> LogScrubbing { get; private set; } = null!;
@@ -422,7 +422,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// A `LogScrubbing` block as defined below.
         /// 
-        /// !&gt; **Note:** Setting the`LogScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// &gt; **Note:** Setting the`LogScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         /// </summary>
         [Input("logScrubbing")]
         public Input<Inputs.FrontdoorFirewallPolicyLogScrubbingArgs>? LogScrubbing { get; set; }
@@ -564,7 +564,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// A `LogScrubbing` block as defined below.
         /// 
-        /// !&gt; **Note:** Setting the`LogScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+        /// &gt; **Note:** Setting the`LogScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
         /// </summary>
         [Input("logScrubbing")]
         public Input<Inputs.FrontdoorFirewallPolicyLogScrubbingGetArgs>? LogScrubbing { get; set; }

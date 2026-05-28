@@ -33,7 +33,7 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
     /**
      * The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
-     * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+     * &gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      * 
      */
     @Import(name="cognitiveAccountId")
@@ -42,7 +42,7 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
     /**
      * @return The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
-     * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+     * &gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> cognitiveAccountId() {
@@ -194,7 +194,7 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
         /**
          * @param cognitiveAccountId The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
          * 
-         * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+         * &gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class ChannelDirectLineSpeechState extends com.pulumi.resources.Res
         /**
          * @param cognitiveAccountId The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
          * 
-         * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+         * &gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
          * 
          * @return builder
          * 

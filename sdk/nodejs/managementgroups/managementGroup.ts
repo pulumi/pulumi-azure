@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Manages a Management Group.
  *
- * !> **Note:** Configuring `subscriptionIds` is not supported when using the `azure.management.GroupSubscriptionAssociation` resource, results will be unpredictable.
+ * > **Note:** Configuring `subscriptionIds` is not supported when using the `azure.management.GroupSubscriptionAssociation` resource, results will be unpredictable.
  *
  * ## Example Usage
  *

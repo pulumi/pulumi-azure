@@ -68,7 +68,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `IpAddress` argument.
         /// 
-        /// !&gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `Sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
+        /// &gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `Sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         /// </summary>
         [Output("allocationMethod")]
         public Output<string> AllocationMethod { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `AllocationMethod` to be set to `Static`.
         /// 
-        /// !&gt; **Note:** `Sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `AllocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+        /// &gt; **Note:** `Sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `AllocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         /// </summary>
         [Output("sku")]
         public Output<string?> Sku { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `IpAddress` argument.
         /// 
-        /// !&gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `Sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
+        /// &gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `Sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         /// </summary>
         [Input("allocationMethod", required: true)]
         public Input<string> AllocationMethod { get; set; } = null!;
@@ -352,7 +352,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `AllocationMethod` to be set to `Static`.
         /// 
-        /// !&gt; **Note:** `Sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `AllocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+        /// &gt; **Note:** `Sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `AllocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
@@ -404,7 +404,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note** `Dynamic` Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See `IpAddress` argument.
         /// 
-        /// !&gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `Sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
+        /// &gt; **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `Sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         /// </summary>
         [Input("allocationMethod")]
         public Input<string>? AllocationMethod { get; set; }
@@ -516,7 +516,7 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note** Public IP `Standard` and `StandardV2` SKUs require `AllocationMethod` to be set to `Static`.
         /// 
-        /// !&gt; **Note:** `Sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `AllocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
+        /// &gt; **Note:** `Sku` can no longer be set to `Basic` as of 31 March 2025 for new resources. This also affects `AllocationMethod` set to `Dynamic`, as it is only available with the `Basic` SKU. Please see the Azure Update [retirement notification](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) for more information.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

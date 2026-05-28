@@ -57,7 +57,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -101,7 +101,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -145,7 +145,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -189,7 +189,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -233,7 +233,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxWebApp` and `azure.appservice.WindowsWebApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -277,7 +277,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
      * ## Example Usage
      * 
@@ -321,7 +321,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
      * ## Example Usage
      * 
@@ -365,7 +365,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
      * ## Example Usage
      * 
@@ -409,7 +409,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
      * ## Example Usage
      * 
@@ -453,7 +453,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
      * 
      * ## Example Usage
      * 
@@ -1232,7 +1232,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about a Function App.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -1275,7 +1275,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about a Function App.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -1318,7 +1318,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about a Function App.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -1361,7 +1361,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about a Function App.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
      * 
      * ## Example Usage
      * 
@@ -1404,7 +1404,7 @@ public final class AppserviceFunctions {
     /**
      * Use this data source to access information about a Function App.
      * 
-     * !&gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
+     * &gt; **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
      * 
      * ## Example Usage
      * 

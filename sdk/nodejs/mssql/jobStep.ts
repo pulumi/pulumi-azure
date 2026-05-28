@@ -123,7 +123,7 @@ export class JobStep extends pulumi.CustomResource {
     /**
      * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
      *
-     * !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+     * > **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      */
     declare public readonly jobCredentialId: pulumi.Output<string | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface JobStepState {
     /**
      * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
      *
-     * !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+     * > **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      */
     jobCredentialId?: pulumi.Input<string | undefined>;
     /**
@@ -303,7 +303,7 @@ export interface JobStepArgs {
     /**
      * The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
      *
-     * !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+     * > **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
      */
     jobCredentialId?: pulumi.Input<string | undefined>;
     /**

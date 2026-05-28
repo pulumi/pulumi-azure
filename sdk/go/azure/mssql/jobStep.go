@@ -140,7 +140,7 @@ type JobStep struct {
 	InitialRetryIntervalSeconds pulumi.IntPtrOutput `pulumi:"initialRetryIntervalSeconds"`
 	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 	//
-	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+	// > **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
 	JobCredentialId pulumi.StringPtrOutput `pulumi:"jobCredentialId"`
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId pulumi.StringOutput `pulumi:"jobId"`
@@ -216,7 +216,7 @@ type jobStepState struct {
 	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
 	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 	//
-	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+	// > **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
 	JobCredentialId *string `pulumi:"jobCredentialId"`
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId *string `pulumi:"jobId"`
@@ -251,7 +251,7 @@ type JobStepState struct {
 	InitialRetryIntervalSeconds pulumi.IntPtrInput
 	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 	//
-	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+	// > **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
 	JobCredentialId pulumi.StringPtrInput
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId pulumi.StringPtrInput
@@ -290,7 +290,7 @@ type jobStepArgs struct {
 	InitialRetryIntervalSeconds *int `pulumi:"initialRetryIntervalSeconds"`
 	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 	//
-	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+	// > **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
 	JobCredentialId *string `pulumi:"jobCredentialId"`
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId string `pulumi:"jobId"`
@@ -326,7 +326,7 @@ type JobStepArgs struct {
 	InitialRetryIntervalSeconds pulumi.IntPtrInput
 	// The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 	//
-	// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+	// > **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
 	JobCredentialId pulumi.StringPtrInput
 	// The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
 	JobId pulumi.StringInput
@@ -450,7 +450,7 @@ func (o JobStepOutput) InitialRetryIntervalSeconds() pulumi.IntPtrOutput {
 
 // The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 //
-// !> **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
+// > **Note:** Once set, `jobCredentialId` cannot be removed. Removing the credential will force a new resource to be created.
 func (o JobStepOutput) JobCredentialId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *JobStep) pulumi.StringPtrOutput { return v.JobCredentialId }).(pulumi.StringPtrOutput)
 }

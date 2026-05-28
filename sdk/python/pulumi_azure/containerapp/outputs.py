@@ -842,13 +842,13 @@ class AppSecret(dict):
         :param _builtins.str name: The secret name.
         :param _builtins.str identity: The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
                
-               !> **Note:** `identity` must be used together with `key_vault_secret_id`
+               > **Note:** `identity` must be used together with `key_vault_secret_id`
         :param _builtins.str key_vault_secret_id: The ID of a Key Vault secret. This can be a versioned or version-less ID.
                
-               !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+               > **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         :param _builtins.str value: The value for this secret.
                
-               !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+               > **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
         """
         pulumi.set(__self__, "name", name)
         if identity is not None:
@@ -872,7 +872,7 @@ class AppSecret(dict):
         """
         The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 
-        !> **Note:** `identity` must be used together with `key_vault_secret_id`
+        > **Note:** `identity` must be used together with `key_vault_secret_id`
         """
         return pulumi.get(self, "identity")
 
@@ -882,7 +882,7 @@ class AppSecret(dict):
         """
         The ID of a Key Vault secret. This can be a versioned or version-less ID.
 
-        !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+        > **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -892,7 +892,7 @@ class AppSecret(dict):
         """
         The value for this secret.
 
-        !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+        > **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
         """
         return pulumi.get(self, "value")
 
@@ -3619,13 +3619,13 @@ class JobSecret(dict):
         :param _builtins.str name: The secret name.
         :param _builtins.str identity: The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
                
-               !> **Note:** `identity` must be used together with `key_vault_secret_id`
+               > **Note:** `identity` must be used together with `key_vault_secret_id`
         :param _builtins.str key_vault_secret_id: The ID of a Key Vault secret. This can be a versioned or version-less ID.
                
-               !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+               > **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         :param _builtins.str value: The value for this secret.
                
-               !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+               > **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
         """
         pulumi.set(__self__, "name", name)
         if identity is not None:
@@ -3649,7 +3649,7 @@ class JobSecret(dict):
         """
         The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 
-        !> **Note:** `identity` must be used together with `key_vault_secret_id`
+        > **Note:** `identity` must be used together with `key_vault_secret_id`
         """
         return pulumi.get(self, "identity")
 
@@ -3659,7 +3659,7 @@ class JobSecret(dict):
         """
         The ID of a Key Vault secret. This can be a versioned or version-less ID.
 
-        !> **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
+        > **Note:** When using `key_vault_secret_id`, `ignore_changes` should be used to ignore any changes to `value`.
         """
         return pulumi.get(self, "key_vault_secret_id")
 
@@ -3669,7 +3669,7 @@ class JobSecret(dict):
         """
         The value for this secret.
 
-        !> **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
+        > **Note:** `value` will be ignored if `key_vault_secret_id` and `identity` are provided.
         """
         return pulumi.get(self, "value")
 

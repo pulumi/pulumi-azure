@@ -27,7 +27,7 @@ namespace Pulumi.Azure.ManagedRedis.Inputs
         /// <summary>
         /// Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
         /// 
-        /// !&gt; **Note:** Changing `ClusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        /// &gt; **Note:** Changing `ClusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         /// </summary>
         [Input("clusteringPolicy")]
         public Input<string>? ClusteringPolicy { get; set; }
@@ -41,7 +41,7 @@ namespace Pulumi.Azure.ManagedRedis.Inputs
         /// <summary>
         /// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `azure.managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
         /// 
-        /// !&gt; **Note:** Changing `GeoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+        /// &gt; **Note:** Changing `GeoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
         /// </summary>
         [Input("geoReplicationGroupName")]
         public Input<string>? GeoReplicationGroupName { get; set; }

@@ -1469,17 +1469,17 @@ func (o AppRegistryArrayOutput) Index(i pulumi.IntInput) AppRegistryOutput {
 type AppSecret struct {
 	// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 	//
-	// !> **Note:** `identity` must be used together with `keyVaultSecretId`
+	// > **Note:** `identity` must be used together with `keyVaultSecretId`
 	Identity *string `pulumi:"identity"`
 	// The ID of a Key Vault secret. This can be a versioned or version-less ID.
 	//
-	// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+	// > **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The secret name.
 	Name string `pulumi:"name"`
 	// The value for this secret.
 	//
-	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+	// > **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
 	Value *string `pulumi:"value"`
 }
 
@@ -1497,17 +1497,17 @@ type AppSecretInput interface {
 type AppSecretArgs struct {
 	// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 	//
-	// !> **Note:** `identity` must be used together with `keyVaultSecretId`
+	// > **Note:** `identity` must be used together with `keyVaultSecretId`
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
 	// The ID of a Key Vault secret. This can be a versioned or version-less ID.
 	//
-	// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+	// > **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The secret name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value for this secret.
 	//
-	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+	// > **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -1564,14 +1564,14 @@ func (o AppSecretOutput) ToAppSecretOutputWithContext(ctx context.Context) AppSe
 
 // The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 //
-// !> **Note:** `identity` must be used together with `keyVaultSecretId`
+// > **Note:** `identity` must be used together with `keyVaultSecretId`
 func (o AppSecretOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSecret) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Key Vault secret. This can be a versioned or version-less ID.
 //
-// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+// > **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
 func (o AppSecretOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSecret) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -1583,7 +1583,7 @@ func (o AppSecretOutput) Name() pulumi.StringOutput {
 
 // The value for this secret.
 //
-// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+// > **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
 func (o AppSecretOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppSecret) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -6662,17 +6662,17 @@ func (o JobScheduleTriggerConfigPtrOutput) ReplicaCompletionCount() pulumi.IntPt
 type JobSecret struct {
 	// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 	//
-	// !> **Note:** `identity` must be used together with `keyVaultSecretId`
+	// > **Note:** `identity` must be used together with `keyVaultSecretId`
 	Identity *string `pulumi:"identity"`
 	// The ID of a Key Vault secret. This can be a versioned or version-less ID.
 	//
-	// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+	// > **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
 	KeyVaultSecretId *string `pulumi:"keyVaultSecretId"`
 	// The secret name.
 	Name string `pulumi:"name"`
 	// The value for this secret.
 	//
-	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+	// > **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
 	Value *string `pulumi:"value"`
 }
 
@@ -6690,17 +6690,17 @@ type JobSecretInput interface {
 type JobSecretArgs struct {
 	// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 	//
-	// !> **Note:** `identity` must be used together with `keyVaultSecretId`
+	// > **Note:** `identity` must be used together with `keyVaultSecretId`
 	Identity pulumi.StringPtrInput `pulumi:"identity"`
 	// The ID of a Key Vault secret. This can be a versioned or version-less ID.
 	//
-	// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+	// > **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
 	KeyVaultSecretId pulumi.StringPtrInput `pulumi:"keyVaultSecretId"`
 	// The secret name.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value for this secret.
 	//
-	// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+	// > **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -6757,14 +6757,14 @@ func (o JobSecretOutput) ToJobSecretOutputWithContext(ctx context.Context) JobSe
 
 // The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
 //
-// !> **Note:** `identity` must be used together with `keyVaultSecretId`
+// > **Note:** `identity` must be used together with `keyVaultSecretId`
 func (o JobSecretOutput) Identity() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.Identity }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a Key Vault secret. This can be a versioned or version-less ID.
 //
-// !> **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
+// > **Note:** When using `keyVaultSecretId`, `ignoreChanges` should be used to ignore any changes to `value`.
 func (o JobSecretOutput) KeyVaultSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.KeyVaultSecretId }).(pulumi.StringPtrOutput)
 }
@@ -6776,7 +6776,7 @@ func (o JobSecretOutput) Name() pulumi.StringOutput {
 
 // The value for this secret.
 //
-// !> **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
+// > **Note:** `value` will be ignored if `keyVaultSecretId` and `identity` are provided.
 func (o JobSecretOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v JobSecret) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

@@ -188,7 +188,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Is Purge Protection enabled for this Key Vault?
      * 
-     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+     * &gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      * 
      */
     @Import(name="purgeProtectionEnabled")
@@ -197,7 +197,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Is Purge Protection enabled for this Key Vault?
      * 
-     * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+     * &gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
      * 
      */
     public Optional<Output<Boolean>> purgeProtectionEnabled() {
@@ -591,7 +591,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault?
          * 
-         * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+         * &gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
          * 
          * @return builder
          * 
@@ -604,7 +604,7 @@ public final class KeyVaultArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param purgeProtectionEnabled Is Purge Protection enabled for this Key Vault?
          * 
-         * !&gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
+         * &gt; **Note:** Once Purge Protection has been Enabled it&#39;s not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
          * 
          * @return builder
          * 

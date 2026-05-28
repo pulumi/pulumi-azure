@@ -304,7 +304,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      * 
-     * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * &gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      * 
      */
     @Import(name="serviceSideEncryptionEnabled")
@@ -313,7 +313,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
      * 
-     * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+     * &gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
      * 
      */
     public Optional<Output<Boolean>> serviceSideEncryptionEnabled() {
@@ -819,7 +819,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param serviceSideEncryptionEnabled Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
          * 
-         * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+         * &gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
          * 
          * @return builder
          * 
@@ -832,7 +832,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param serviceSideEncryptionEnabled Whether to enable service-side encryption with customer-managed keys (CMK). Default to `false`. Changing this forces a new resource to be created.
          * 
-         * !&gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
+         * &gt; **Note:** Setting `serviceSideEncryptionEnabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
          * 
          * @return builder
          * 

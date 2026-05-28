@@ -97,7 +97,7 @@ type KubernetesCluster struct {
 	AutoScalerProfile KubernetesClusterAutoScalerProfileOutput `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	//
-	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	// > **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticUpgradeChannel pulumi.StringPtrOutput `pulumi:"automaticUpgradeChannel"`
@@ -141,7 +141,7 @@ type KubernetesCluster struct {
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrOutput `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity KubernetesClusterIdentityPtrOutput `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrOutput `pulumi:"imageCleanerEnabled"`
@@ -209,7 +209,7 @@ type KubernetesCluster struct {
 	NodeResourceGroupId pulumi.StringOutput `pulumi:"nodeResourceGroupId"`
 	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
 	//
-	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled pulumi.BoolOutput `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl pulumi.StringOutput `pulumi:"oidcIssuerUrl"`
@@ -300,7 +300,7 @@ type KubernetesCluster struct {
 	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrOutput `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
@@ -381,7 +381,7 @@ type kubernetesClusterState struct {
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	//
-	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	// > **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
@@ -425,7 +425,7 @@ type kubernetesClusterState struct {
 	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
@@ -493,7 +493,7 @@ type kubernetesClusterState struct {
 	NodeResourceGroupId *string `pulumi:"nodeResourceGroupId"`
 	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
 	//
-	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl *string `pulumi:"oidcIssuerUrl"`
@@ -584,7 +584,7 @@ type kubernetesClusterState struct {
 	ServiceMeshProfile *KubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
@@ -623,7 +623,7 @@ type KubernetesClusterState struct {
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	//
-	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	// > **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticUpgradeChannel pulumi.StringPtrInput
@@ -667,7 +667,7 @@ type KubernetesClusterState struct {
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
@@ -735,7 +735,7 @@ type KubernetesClusterState struct {
 	NodeResourceGroupId pulumi.StringPtrInput
 	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
 	//
-	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled pulumi.BoolPtrInput
 	// The OIDC issuer URL that is associated with the cluster.
 	OidcIssuerUrl pulumi.StringPtrInput
@@ -826,7 +826,7 @@ type KubernetesClusterState struct {
 	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
@@ -869,7 +869,7 @@ type kubernetesClusterArgs struct {
 	AutoScalerProfile *KubernetesClusterAutoScalerProfile `pulumi:"autoScalerProfile"`
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	//
-	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	// > **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticUpgradeChannel *string `pulumi:"automaticUpgradeChannel"`
@@ -907,7 +907,7 @@ type kubernetesClusterArgs struct {
 	HttpProxyConfig *KubernetesClusterHttpProxyConfig `pulumi:"httpProxyConfig"`
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity *KubernetesClusterIdentity `pulumi:"identity"`
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled *bool `pulumi:"imageCleanerEnabled"`
@@ -965,7 +965,7 @@ type kubernetesClusterArgs struct {
 	NodeResourceGroup *string `pulumi:"nodeResourceGroup"`
 	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
 	//
-	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled *bool `pulumi:"oidcIssuerEnabled"`
 	// A `omsAgent` block as defined below.
 	OmsAgent *KubernetesClusterOmsAgent `pulumi:"omsAgent"`
@@ -1050,7 +1050,7 @@ type kubernetesClusterArgs struct {
 	ServiceMeshProfile *KubernetesClusterServiceMeshProfile `pulumi:"serviceMeshProfile"`
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal *KubernetesClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
@@ -1090,7 +1090,7 @@ type KubernetesClusterArgs struct {
 	AutoScalerProfile KubernetesClusterAutoScalerProfilePtrInput
 	// The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 	//
-	// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+	// > **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 	//
 	// > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 	AutomaticUpgradeChannel pulumi.StringPtrInput
@@ -1128,7 +1128,7 @@ type KubernetesClusterArgs struct {
 	HttpProxyConfig KubernetesClusterHttpProxyConfigPtrInput
 	// An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	Identity KubernetesClusterIdentityPtrInput
 	// Specifies whether Image Cleaner is enabled.
 	ImageCleanerEnabled pulumi.BoolPtrInput
@@ -1186,7 +1186,7 @@ type KubernetesClusterArgs struct {
 	NodeResourceGroup pulumi.StringPtrInput
 	// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
 	//
-	// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+	// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 	OidcIssuerEnabled pulumi.BoolPtrInput
 	// A `omsAgent` block as defined below.
 	OmsAgent KubernetesClusterOmsAgentPtrInput
@@ -1271,7 +1271,7 @@ type KubernetesClusterArgs struct {
 	ServiceMeshProfile KubernetesClusterServiceMeshProfilePtrInput
 	// A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 	//
-	// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+	// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 	ServicePrincipal KubernetesClusterServicePrincipalPtrInput
 	// The SKU Tier that should be used for this Kubernetes Cluster. Possible values are `Free`, `Standard` (which includes the Uptime SLA) and `Premium`. Defaults to `Free`.
 	//
@@ -1410,7 +1410,7 @@ func (o KubernetesClusterOutput) AutoScalerProfile() KubernetesClusterAutoScaler
 
 // The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
 //
-// !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+// > **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
 //
 // > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
 func (o KubernetesClusterOutput) AutomaticUpgradeChannel() pulumi.StringPtrOutput {
@@ -1509,7 +1509,7 @@ func (o KubernetesClusterOutput) HttpProxyConfig() KubernetesClusterHttpProxyCon
 
 // An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
 //
-// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 func (o KubernetesClusterOutput) Identity() KubernetesClusterIdentityPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterIdentityPtrOutput { return v.Identity }).(KubernetesClusterIdentityPtrOutput)
 }
@@ -1667,7 +1667,7 @@ func (o KubernetesClusterOutput) NodeResourceGroupId() pulumi.StringOutput {
 
 // Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
 //
-// !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+// > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
 func (o KubernetesClusterOutput) OidcIssuerEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *KubernetesCluster) pulumi.BoolOutput { return v.OidcIssuerEnabled }).(pulumi.BoolOutput)
 }
@@ -1800,7 +1800,7 @@ func (o KubernetesClusterOutput) ServiceMeshProfile() KubernetesClusterServiceMe
 
 // A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
 //
-// !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+// > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
 func (o KubernetesClusterOutput) ServicePrincipal() KubernetesClusterServicePrincipalPtrOutput {
 	return o.ApplyT(func(v *KubernetesCluster) KubernetesClusterServicePrincipalPtrOutput { return v.ServicePrincipal }).(KubernetesClusterServicePrincipalPtrOutput)
 }

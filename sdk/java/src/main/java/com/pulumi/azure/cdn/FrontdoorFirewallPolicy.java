@@ -311,7 +311,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
     /**
      * A `logScrubbing` block as defined below.
      * 
-     * !&gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * &gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     @Export(name="logScrubbing", refs={FrontdoorFirewallPolicyLogScrubbing.class}, tree="[0]")
@@ -320,7 +320,7 @@ public class FrontdoorFirewallPolicy extends com.pulumi.resources.CustomResource
     /**
      * @return A `logScrubbing` block as defined below.
      * 
-     * !&gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+     * &gt; **Note:** Setting the`logScrubbing` block is currently in **PREVIEW**. Please see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
      * 
      */
     public Output<Optional<FrontdoorFirewallPolicyLogScrubbing>> logScrubbing() {

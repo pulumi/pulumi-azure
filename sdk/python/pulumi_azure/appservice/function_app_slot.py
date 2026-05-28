@@ -780,7 +780,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         """
         Manages a Function App deployment Slot.
 
-        !> **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxFunctionAppSlot` and `appservice.WindowsFunctionAppSlot` resources instead.
+        > **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxFunctionAppSlot` and `appservice.WindowsFunctionAppSlot` resources instead.
 
         ## Example Usage
 
@@ -872,7 +872,7 @@ class FunctionAppSlot(pulumi.CustomResource):
         """
         Manages a Function App deployment Slot.
 
-        !> **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxFunctionAppSlot` and `appservice.WindowsFunctionAppSlot` resources instead.
+        > **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxFunctionAppSlot` and `appservice.WindowsFunctionAppSlot` resources instead.
 
         ## Example Usage
 

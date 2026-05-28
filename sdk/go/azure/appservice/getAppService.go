@@ -13,7 +13,7 @@ import (
 
 // Use this data source to access information about an existing App Service.
 //
-// !> **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `appservice.LinuxWebApp` and `appservice.WindowsWebApp` data sources instead.
+// > **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `appservice.LinuxWebApp` and `appservice.WindowsWebApp` data sources instead.
 //
 // ## Example Usage
 //

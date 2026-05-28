@@ -16,13 +16,13 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// <summary>
         /// The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or `System` for the System Assigned Identity.
         /// 
-        /// !&gt; **Note:** `Identity` must be used together with `KeyVaultSecretId`
+        /// &gt; **Note:** `Identity` must be used together with `KeyVaultSecretId`
         /// </summary>
         public readonly string? Identity;
         /// <summary>
         /// The ID of a Key Vault secret. This can be a versioned or version-less ID.
         /// 
-        /// !&gt; **Note:** When using `KeyVaultSecretId`, `IgnoreChanges` should be used to ignore any changes to `Value`.
+        /// &gt; **Note:** When using `KeyVaultSecretId`, `IgnoreChanges` should be used to ignore any changes to `Value`.
         /// </summary>
         public readonly string? KeyVaultSecretId;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// <summary>
         /// The value for this secret.
         /// 
-        /// !&gt; **Note:** `Value` will be ignored if `KeyVaultSecretId` and `Identity` are provided.
+        /// &gt; **Note:** `Value` will be ignored if `KeyVaultSecretId` and `Identity` are provided.
         /// </summary>
         public readonly string? Value;
 

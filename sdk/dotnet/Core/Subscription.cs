@@ -137,7 +137,7 @@ namespace Pulumi.Azure.Core
     /// $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
     /// ```
     /// 
-    /// !&gt; **Note:** When importing a Subscription that was not created programmatically, either via this resource or using the Alias API, it will have no Alias ID to import via `pulumi import`. In this scenario, the `SubscriptionId` property can be completed and the resource will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. An alias is required to correctly manage Subscription resources due to Azure Subscription API design.
+    /// &gt; **Note:** When importing a Subscription that was not created programmatically, either via this resource or using the Alias API, it will have no Alias ID to import via `pulumi import`. In this scenario, the `SubscriptionId` property can be completed and the resource will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. An alias is required to correctly manage Subscription resources due to Azure Subscription API design.
     /// </summary>
     [AzureResourceType("azure:core/subscription:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource

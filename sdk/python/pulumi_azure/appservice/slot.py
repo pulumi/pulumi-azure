@@ -636,7 +636,7 @@ class Slot(pulumi.CustomResource):
         """
         Manages an App Service Slot (within an App Service).
 
-        !> **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxWebAppSlot` and `appservice.WindowsWebAppSlot` resources instead.
+        > **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxWebAppSlot` and `appservice.WindowsWebAppSlot` resources instead.
 
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 
@@ -784,7 +784,7 @@ class Slot(pulumi.CustomResource):
         """
         Manages an App Service Slot (within an App Service).
 
-        !> **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxWebAppSlot` and `appservice.WindowsWebAppSlot` resources instead.
+        > **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.LinuxWebAppSlot` and `appservice.WindowsWebAppSlot` resources instead.
 
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 

@@ -253,7 +253,7 @@ type ConfigurationStore struct {
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
-	// !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+	// > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
 	PurgeProtectionEnabled pulumi.BoolPtrOutput `pulumi:"purgeProtectionEnabled"`
 	// One or more `replica` blocks as defined below.
 	Replicas ConfigurationStoreReplicaArrayOutput `pulumi:"replicas"`
@@ -336,7 +336,7 @@ type configurationStoreState struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
-	// !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+	// > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// One or more `replica` blocks as defined below.
 	Replicas []ConfigurationStoreReplica `pulumi:"replicas"`
@@ -387,7 +387,7 @@ type ConfigurationStoreState struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
-	// !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+	// > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// One or more `replica` blocks as defined below.
 	Replicas ConfigurationStoreReplicaArrayInput
@@ -436,7 +436,7 @@ type configurationStoreArgs struct {
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
-	// !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+	// > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
 	PurgeProtectionEnabled *bool `pulumi:"purgeProtectionEnabled"`
 	// One or more `replica` blocks as defined below.
 	Replicas []ConfigurationStoreReplica `pulumi:"replicas"`
@@ -478,7 +478,7 @@ type ConfigurationStoreArgs struct {
 	PublicNetworkAccess pulumi.StringPtrInput
 	// Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 	//
-	// !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+	// > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
 	PurgeProtectionEnabled pulumi.BoolPtrInput
 	// One or more `replica` blocks as defined below.
 	Replicas ConfigurationStoreReplicaArrayInput
@@ -644,7 +644,7 @@ func (o ConfigurationStoreOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 
 // Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
 //
-// !> **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+// > **Note:** Once Purge Protection has been enabled it's not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
 func (o ConfigurationStoreOutput) PurgeProtectionEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ConfigurationStore) pulumi.BoolPtrOutput { return v.PurgeProtectionEnabled }).(pulumi.BoolPtrOutput)
 }

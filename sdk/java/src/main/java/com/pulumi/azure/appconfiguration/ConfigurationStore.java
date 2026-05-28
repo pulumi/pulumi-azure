@@ -405,7 +405,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      * 
-     * !&gt; **Note:** Once Purge Protection has been enabled it&#39;s not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+     * &gt; **Note:** Once Purge Protection has been enabled it&#39;s not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      * 
      */
     @Export(name="purgeProtectionEnabled", refs={Boolean.class}, tree="[0]")
@@ -414,7 +414,7 @@ public class ConfigurationStore extends com.pulumi.resources.CustomResource {
     /**
      * @return Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`.
      * 
-     * !&gt; **Note:** Once Purge Protection has been enabled it&#39;s not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
+     * &gt; **Note:** Once Purge Protection has been enabled it&#39;s not possible to disable it. Deleting the App Configuration with Purge Protection enabled will schedule the App Configuration to be deleted (which will happen by Azure in the configured number of days).
      * 
      */
     public Output<Optional<Boolean>> purgeProtectionEnabled() {

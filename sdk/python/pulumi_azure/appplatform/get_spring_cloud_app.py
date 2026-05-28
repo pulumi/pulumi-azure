@@ -168,7 +168,7 @@ def get_spring_cloud_app(name: Optional[_builtins.str] = None,
     """
     Use this data source to access information about an existing Spring Cloud Application.
 
-    !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudApp` data source is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+    > **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudApp` data source is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
     ## Example Usage
 
@@ -213,7 +213,7 @@ def get_spring_cloud_app_output(name: pulumi.Input[Optional[_builtins.str]] = No
     """
     Use this data source to access information about an existing Spring Cloud Application.
 
-    !> **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudApp` data source is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
+    > **Note:** Azure Spring Apps is now deprecated and will be retired on 2028-05-31 - as such the `appplatform.SpringCloudApp` data source is deprecated and will be removed in a future major version of the AzureRM Provider. See https://aka.ms/asaretirement for more information.
 
     ## Example Usage
 

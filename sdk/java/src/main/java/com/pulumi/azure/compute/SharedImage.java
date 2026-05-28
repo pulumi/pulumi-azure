@@ -447,7 +447,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
     /**
      * Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      * 
-     * !&gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+     * &gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      * 
      */
     @Export(name="specialized", refs={Boolean.class}, tree="[0]")
@@ -456,7 +456,7 @@ public class SharedImage extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created.
      * 
-     * !&gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+     * &gt; **Note:** It&#39;s recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
      * 
      */
     public Output<Optional<Boolean>> specialized() {

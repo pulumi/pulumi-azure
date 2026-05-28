@@ -140,7 +140,7 @@ class ActiveSlot(pulumi.CustomResource):
         """
         Promotes an App Service Slot to Production within an App Service.
 
-        !> **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.WebAppActiveSlot` resource instead.
+        > **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.WebAppActiveSlot` resource instead.
 
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 
@@ -178,7 +178,7 @@ class ActiveSlot(pulumi.CustomResource):
         """
         Promotes an App Service Slot to Production within an App Service.
 
-        !> **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.WebAppActiveSlot` resource instead.
+        > **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `appservice.WebAppActiveSlot` resource instead.
 
         > **Note:** When using Slots - the `app_settings`, `connection_string` and `site_config` blocks on the `appservice.AppService` resource will be overwritten when promoting a Slot using the `appservice.ActiveSlot` resource.
 

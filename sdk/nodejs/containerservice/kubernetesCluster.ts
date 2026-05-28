@@ -106,7 +106,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      *
-     * !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+     * > **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
      *
      * > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      */
@@ -184,7 +184,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      *
-     * !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      */
     declare public readonly identity: pulumi.Output<outputs.containerservice.KubernetesClusterIdentity | undefined>;
     /**
@@ -304,7 +304,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
      *
-     * !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+     * > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
     declare public readonly oidcIssuerEnabled: pulumi.Output<boolean>;
     /**
@@ -394,7 +394,7 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      *
-     * !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      */
     declare public readonly servicePrincipal: pulumi.Output<outputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**
@@ -632,7 +632,7 @@ export interface KubernetesClusterState {
     /**
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      *
-     * !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+     * > **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
      *
      * > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      */
@@ -710,7 +710,7 @@ export interface KubernetesClusterState {
     /**
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      *
-     * !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      */
     identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity | undefined>;
     /**
@@ -830,7 +830,7 @@ export interface KubernetesClusterState {
     /**
      * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
      *
-     * !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+     * > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
     oidcIssuerEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -920,7 +920,7 @@ export interface KubernetesClusterState {
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      *
-     * !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**
@@ -990,7 +990,7 @@ export interface KubernetesClusterArgs {
     /**
      * The upgrade channel for this Kubernetes Cluster. Possible values are `patch`, `rapid`, `node-image` and `stable`. Omitting this field sets this value to `none`.
      *
-     * !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+     * > **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
      *
      * > **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions.
      */
@@ -1056,7 +1056,7 @@ export interface KubernetesClusterArgs {
     /**
      * An `identity` block as defined below. One of either `identity` or `servicePrincipal` must be specified.
      *
-     * !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      */
     identity?: pulumi.Input<inputs.containerservice.KubernetesClusterIdentity | undefined>;
     /**
@@ -1156,7 +1156,7 @@ export interface KubernetesClusterArgs {
     /**
      * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
      *
-     * !> **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
+     * > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
     oidcIssuerEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -1234,7 +1234,7 @@ export interface KubernetesClusterArgs {
     /**
      * A `servicePrincipal` block as documented below. One of either `identity` or `servicePrincipal` must be specified.
      *
-     * !> **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
+     * > **Note:** A migration scenario from `servicePrincipal` to `identity` is supported. When upgrading `servicePrincipal` to `identity`, your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured `servicePrincipal` until you upgrade your Node Pool.
      */
     servicePrincipal?: pulumi.Input<inputs.containerservice.KubernetesClusterServicePrincipal | undefined>;
     /**

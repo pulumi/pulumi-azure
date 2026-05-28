@@ -113,7 +113,7 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
     /**
      * The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
-     * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+     * &gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      * 
      */
     @Export(name="cognitiveAccountId", refs={String.class}, tree="[0]")
@@ -122,7 +122,7 @@ public class ChannelDirectLineSpeech extends com.pulumi.resources.CustomResource
     /**
      * @return The ID of the Cognitive Account this Bot Channel should be associated with. Either `cognitiveAccountId` or both `cognitiveServiceAccessKey` and `cognitiveServiceLocation` must be specified.
      * 
-     * !&gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+     * &gt; **Note:** Once added, `cognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> cognitiveAccountId() {

@@ -35,7 +35,7 @@ public final class WindowsWebAppAuthSettingsV2AppleV2Args extends com.pulumi.res
     /**
      * The app setting name that contains the `clientSecret` value used for Apple Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
@@ -44,7 +44,7 @@ public final class WindowsWebAppAuthSettingsV2AppleV2Args extends com.pulumi.res
     /**
      * @return The app setting name that contains the `clientSecret` value used for Apple Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -120,7 +120,7 @@ public final class WindowsWebAppAuthSettingsV2AppleV2Args extends com.pulumi.res
         /**
          * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Apple Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class WindowsWebAppAuthSettingsV2AppleV2Args extends com.pulumi.res
         /**
          * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Apple Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 

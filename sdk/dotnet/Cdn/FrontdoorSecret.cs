@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// ## Required Key Vault Permissions
     /// 
-    /// !&gt; **Note:** You must add an `Access Policy` to your `azure.keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
+    /// &gt; **Note:** You must add an `Access Policy` to your `azure.keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
     /// 
     /// This can be created by running Az Powershell command like this:
     /// 

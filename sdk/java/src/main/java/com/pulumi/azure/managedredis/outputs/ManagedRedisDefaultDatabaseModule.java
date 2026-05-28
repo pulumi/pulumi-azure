@@ -15,7 +15,7 @@ public final class ManagedRedisDefaultDatabaseModule {
     /**
      * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
      * 
-     * !&gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+     * &gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      * &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
      * 
@@ -24,7 +24,7 @@ public final class ManagedRedisDefaultDatabaseModule {
     /**
      * @return The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
      * 
-     * !&gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+     * &gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     private String name;
@@ -38,7 +38,7 @@ public final class ManagedRedisDefaultDatabaseModule {
     /**
      * @return Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
      * 
-     * !&gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+     * &gt; **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      * &gt; **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
      * 
@@ -49,7 +49,7 @@ public final class ManagedRedisDefaultDatabaseModule {
     /**
      * @return The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
      * 
-     * !&gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+     * &gt; **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
      * 
      */
     public String name() {

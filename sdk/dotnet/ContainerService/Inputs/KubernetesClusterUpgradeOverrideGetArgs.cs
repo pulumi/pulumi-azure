@@ -23,7 +23,7 @@ namespace Pulumi.Azure.ContainerService.Inputs
         /// <summary>
         /// Whether to force upgrade the cluster. Possible values are `True` or `False`.
         /// 
-        /// !&gt; **Note:** The `ForceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `ForceUpgradeEnabled` option with extreme caution only.
+        /// &gt; **Note:** The `ForceUpgradeEnabled` field instructs the upgrade operation to bypass upgrade protections (e.g. checking for deprecated API usage) which may render the cluster inoperative after the upgrade process has completed. Use the `ForceUpgradeEnabled` option with extreme caution only.
         /// </summary>
         [Input("forceUpgradeEnabled", required: true)]
         public Input<bool> ForceUpgradeEnabled { get; set; } = null!;

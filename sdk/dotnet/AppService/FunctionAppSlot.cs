@@ -12,7 +12,7 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages a Function App deployment Slot.
     /// 
-    /// !&gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.LinuxFunctionAppSlot` and `azure.appservice.WindowsFunctionAppSlot` resources instead.
+    /// &gt; **NOTE:** This resource has been deprecated and will be removed in version 6.0 of the provider. Please use `azure.appservice.LinuxFunctionAppSlot` and `azure.appservice.WindowsFunctionAppSlot` resources instead.
     /// 
     /// ## Example Usage
     /// 

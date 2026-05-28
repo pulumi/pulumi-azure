@@ -12,7 +12,7 @@ namespace Pulumi.Azure.Sentinel
     /// <summary>
     /// Manages a Azure Advanced Threat Protection Data Connector.
     /// 
-    /// !&gt; **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
+    /// &gt; **Note:** This resource requires that [Enterprise Mobility + Security E5](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security) is enabled on the tenant being connected to.
     /// 
     /// ## Example Usage
     /// 

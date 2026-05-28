@@ -12,7 +12,7 @@ namespace Pulumi.Azure.DataProtection
     /// <summary>
     /// Manages a Backup Vault Customer Managed Key.
     /// 
-    /// !&gt; **Note:** It is not possible to remove the Customer Managed Key from the Backup Vault once it's been added. To remove the Customer Managed Key, the parent Data Protection Backup Vault must be deleted and recreated.
+    /// &gt; **Note:** It is not possible to remove the Customer Managed Key from the Backup Vault once it's been added. To remove the Customer Managed Key, the parent Data Protection Backup Vault must be deleted and recreated.
     /// 
     /// ## Example Usage
     /// 

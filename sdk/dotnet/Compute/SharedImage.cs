@@ -226,7 +226,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `Sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         /// 
-        /// !&gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+        /// &gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         /// </summary>
         [Output("specialized")]
         public Output<bool?> Specialized { get; private set; } = null!;
@@ -450,7 +450,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `Sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         /// 
-        /// !&gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+        /// &gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         /// </summary>
         [Input("specialized")]
         public Input<bool>? Specialized { get; set; }
@@ -642,7 +642,7 @@ namespace Pulumi.Azure.Compute
         /// <summary>
         /// Specifies that the Operating System used inside this Image has not been Generalized (for example, `Sysprep` on Windows has not been run). Changing this forces a new resource to be created.
         /// 
-        /// !&gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
+        /// &gt; **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects.
         /// </summary>
         [Input("specialized")]
         public Input<bool>? Specialized { get; set; }

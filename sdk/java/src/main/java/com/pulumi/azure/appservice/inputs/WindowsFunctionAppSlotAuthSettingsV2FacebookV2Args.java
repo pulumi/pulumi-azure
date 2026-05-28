@@ -35,7 +35,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args extends co
     /**
      * The app setting name that contains the `appSecret` value used for Facebook Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     @Import(name="appSecretSettingName", required=true)
@@ -44,7 +44,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args extends co
     /**
      * @return The app setting name that contains the `appSecret` value used for Facebook Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Output<String> appSecretSettingName() {
@@ -132,7 +132,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args extends co
         /**
          * @param appSecretSettingName The app setting name that contains the `appSecret` value used for Facebook Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class WindowsFunctionAppSlotAuthSettingsV2FacebookV2Args extends co
         /**
          * @param appSecretSettingName The app setting name that contains the `appSecret` value used for Facebook Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 

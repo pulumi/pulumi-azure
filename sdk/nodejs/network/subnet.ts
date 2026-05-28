@@ -149,7 +149,7 @@ export class Subnet extends pulumi.CustomResource {
      *
      * > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
      *
-     * !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * > **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
      */
     declare public readonly sharingScope: pulumi.Output<string | undefined>;
     /**
@@ -271,7 +271,7 @@ export interface SubnetState {
      *
      * > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
      *
-     * !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * > **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
      */
     sharingScope?: pulumi.Input<string | undefined>;
     /**
@@ -343,7 +343,7 @@ export interface SubnetArgs {
      *
      * > **Note:** This property cannot be set if `defaultOutboundAccessEnabled` is set to `true`.
      *
-     * !> **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
+     * > **Note:** The `sharingScope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
      */
     sharingScope?: pulumi.Input<string | undefined>;
     /**

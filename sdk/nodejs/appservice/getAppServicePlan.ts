@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
  *
- * !> **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
+ * > **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
  *
  * ## Example Usage
  *
@@ -104,7 +104,7 @@ export interface GetAppServicePlanResult {
 /**
  * Use this data source to access information about an existing App Service Plan (formerly known as a `Server Farm`).
  *
- * !> **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
+ * > **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.ServicePlan` data source instead.
  *
  * ## Example Usage
  *

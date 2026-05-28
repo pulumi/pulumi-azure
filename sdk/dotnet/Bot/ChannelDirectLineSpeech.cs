@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// The ID of the Cognitive Account this Bot Channel should be associated with. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
         /// 
-        /// !&gt; **Note:** Once added, `CognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+        /// &gt; **Note:** Once added, `CognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
         /// </summary>
         [Output("cognitiveAccountId")]
         public Output<string?> CognitiveAccountId { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// The ID of the Cognitive Account this Bot Channel should be associated with. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
         /// 
-        /// !&gt; **Note:** Once added, `CognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+        /// &gt; **Note:** Once added, `CognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
         /// </summary>
         [Input("cognitiveAccountId")]
         public Input<string>? CognitiveAccountId { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Bot
         /// <summary>
         /// The ID of the Cognitive Account this Bot Channel should be associated with. Either `CognitiveAccountId` or both `CognitiveServiceAccessKey` and `CognitiveServiceLocation` must be specified.
         /// 
-        /// !&gt; **Note:** Once added, `CognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
+        /// &gt; **Note:** Once added, `CognitiveAccountId` cannot be removed, doing so forces a new resource to be created.
         /// </summary>
         [Input("cognitiveAccountId")]
         public Input<string>? CognitiveAccountId { get; set; }

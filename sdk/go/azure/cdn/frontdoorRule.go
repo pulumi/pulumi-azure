@@ -14,7 +14,7 @@ import (
 
 // Manages a Front Door (standard/premium) Rule.
 //
-// !> **Note:** The Rules resource **must** include a `dependsOn` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
+// > **Note:** The Rules resource **must** include a `dependsOn` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 //
 // > **Note:** Azure Front Door Rule operations are currently affected by a service-side regression where unattached rules or rule sets can fail with `400 Bad Request` until they are associated with a Front Door Route. As a result, unattached and attached scenarios can currently behave differently while the service-side fix is pending.
 //

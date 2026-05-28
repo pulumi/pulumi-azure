@@ -176,13 +176,13 @@ type ManagedRedisDefaultDatabase struct {
 	ClientProtocol *string `pulumi:"clientProtocol"`
 	// Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
 	//
-	// !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+	// > **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	ClusteringPolicy *string `pulumi:"clusteringPolicy"`
 	// Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
 	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 	//
-	// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+	// > **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	GeoReplicationGroupName *string `pulumi:"geoReplicationGroupName"`
 	// The ID of the Managed Redis Database Instance.
 	Id *string `pulumi:"id"`
@@ -218,13 +218,13 @@ type ManagedRedisDefaultDatabaseArgs struct {
 	ClientProtocol pulumi.StringPtrInput `pulumi:"clientProtocol"`
 	// Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
 	//
-	// !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+	// > **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	ClusteringPolicy pulumi.StringPtrInput `pulumi:"clusteringPolicy"`
 	// Specifies the Redis eviction policy. Possible values are `AllKeysLFU`, `AllKeysLRU`, `AllKeysRandom`, `VolatileLRU`, `VolatileLFU`, `VolatileTTL`, `VolatileRandom` and `NoEviction`. Defaults to `VolatileLRU`.
 	EvictionPolicy pulumi.StringPtrInput `pulumi:"evictionPolicy"`
 	// The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 	//
-	// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+	// > **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	GeoReplicationGroupName pulumi.StringPtrInput `pulumi:"geoReplicationGroupName"`
 	// The ID of the Managed Redis Database Instance.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -331,7 +331,7 @@ func (o ManagedRedisDefaultDatabaseOutput) ClientProtocol() pulumi.StringPtrOutp
 
 // Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
 //
-// !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+// > **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabaseOutput) ClusteringPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.ClusteringPolicy }).(pulumi.StringPtrOutput)
 }
@@ -343,7 +343,7 @@ func (o ManagedRedisDefaultDatabaseOutput) EvictionPolicy() pulumi.StringPtrOutp
 
 // The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 //
-// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+// > **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabaseOutput) GeoReplicationGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ManagedRedisDefaultDatabase) *string { return v.GeoReplicationGroupName }).(pulumi.StringPtrOutput)
 }
@@ -429,7 +429,7 @@ func (o ManagedRedisDefaultDatabasePtrOutput) ClientProtocol() pulumi.StringPtrO
 
 // Clustering policy specified at create time. Possible values are `EnterpriseCluster`, `OSSCluster` and `NoCluster`. Defaults to `OSSCluster`.
 //
-// !> **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+// > **Note:** Changing `clusteringPolicy` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabasePtrOutput) ClusteringPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedRedisDefaultDatabase) *string {
 		if v == nil {
@@ -451,7 +451,7 @@ func (o ManagedRedisDefaultDatabasePtrOutput) EvictionPolicy() pulumi.StringPtrO
 
 // The name of the geo-replication group. If provided, a geo-replication group will be created for this database with itself as the only member. Use `managedredis.GeoReplication` resource to manage group membership, linking and unlinking. All databases to be linked have to have the same group name. Refer to the [Managed Redis geo-replication documentation](https://learn.microsoft.com/azure/redis/how-to-active-geo-replication) for more information.
 //
-// !> **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+// > **Note:** Changing `geoReplicationGroupName` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabasePtrOutput) GeoReplicationGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedRedisDefaultDatabase) *string {
 		if v == nil {
@@ -534,13 +534,13 @@ func (o ManagedRedisDefaultDatabasePtrOutput) SecondaryAccessKey() pulumi.String
 type ManagedRedisDefaultDatabaseModule struct {
 	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
 	//
-	// !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+	// > **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	//
 	// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
 	Args *string `pulumi:"args"`
 	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
 	//
-	// !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+	// > **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	Name string `pulumi:"name"`
 	// Version of the module to be used.
 	Version *string `pulumi:"version"`
@@ -560,13 +560,13 @@ type ManagedRedisDefaultDatabaseModuleInput interface {
 type ManagedRedisDefaultDatabaseModuleArgs struct {
 	// Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
 	//
-	// !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+	// > **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	//
 	// > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
 	Args pulumi.StringPtrInput `pulumi:"args"`
 	// The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
 	//
-	// !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+	// > **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Version of the module to be used.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -625,7 +625,7 @@ func (o ManagedRedisDefaultDatabaseModuleOutput) ToManagedRedisDefaultDatabaseMo
 
 // Configuration options for the module (e.g. `ERROR_RATE 0.00 INITIAL_SIZE 400`).
 //
-// !> **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+// > **Note:** Changing `args` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 //
 // > **Note:** Only `RediSearch` and `RedisJSON` modules are allowed with geo-replication.
 func (o ManagedRedisDefaultDatabaseModuleOutput) Args() pulumi.StringPtrOutput {
@@ -634,7 +634,7 @@ func (o ManagedRedisDefaultDatabaseModuleOutput) Args() pulumi.StringPtrOutput {
 
 // The name which should be used for this module. Possible values are `RedisBloom`, `RedisTimeSeries`, `RediSearch` and `RedisJSON`.
 //
-// !> **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
+// > **Note:** Changing `name` forces database recreation. Data will be lost and Managed Redis will be unavailable during the operation.
 func (o ManagedRedisDefaultDatabaseModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedRedisDefaultDatabaseModule) string { return v.Name }).(pulumi.StringOutput)
 }

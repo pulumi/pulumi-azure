@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Required Key Vault Permissions
  *
- * !> **Note:** You must add an `Access Policy` to your `azure.keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
+ * > **Note:** You must add an `Access Policy` to your `azure.keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
  *
  * This can be created by running Az Powershell command like this:
  *

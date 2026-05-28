@@ -47,7 +47,7 @@ class JobStepArgs:
         :param pulumi.Input[_builtins.int] initial_retry_interval_seconds: The initial retry interval in seconds. Defaults to `1`.
         :param pulumi.Input[_builtins.str] job_credential_id: The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
                
-               !> **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+               > **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         :param pulumi.Input[_builtins.int] maximum_retry_interval_seconds: The maximum retry interval in seconds. Defaults to `120`.
                
                > **Note:** `maximum_retry_interval_seconds` must be greater than `initial_retry_interval_seconds`.
@@ -148,7 +148,7 @@ class JobStepArgs:
         """
         The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 
-        !> **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+        > **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         """
         return pulumi.get(self, "job_credential_id")
 
@@ -252,7 +252,7 @@ class _JobStepState:
         :param pulumi.Input[_builtins.int] initial_retry_interval_seconds: The initial retry interval in seconds. Defaults to `1`.
         :param pulumi.Input[_builtins.str] job_credential_id: The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
                
-               !> **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+               > **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         :param pulumi.Input[_builtins.str] job_id: The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
         :param pulumi.Input[_builtins.int] job_step_index: The index at which to insert this Elastic Job Step into the Elastic Job.
                
@@ -313,7 +313,7 @@ class _JobStepState:
         """
         The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 
-        !> **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+        > **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         """
         return pulumi.get(self, "job_credential_id")
 
@@ -547,7 +547,7 @@ class JobStep(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] initial_retry_interval_seconds: The initial retry interval in seconds. Defaults to `1`.
         :param pulumi.Input[_builtins.str] job_credential_id: The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
                
-               !> **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+               > **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         :param pulumi.Input[_builtins.str] job_id: The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
         :param pulumi.Input[_builtins.int] job_step_index: The index at which to insert this Elastic Job Step into the Elastic Job.
                
@@ -734,7 +734,7 @@ class JobStep(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] initial_retry_interval_seconds: The initial retry interval in seconds. Defaults to `1`.
         :param pulumi.Input[_builtins.str] job_credential_id: The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
                
-               !> **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+               > **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         :param pulumi.Input[_builtins.str] job_id: The ID of the Elastic Job. Changing this forces a new Elastic Job Step to be created.
         :param pulumi.Input[_builtins.int] job_step_index: The index at which to insert this Elastic Job Step into the Elastic Job.
                
@@ -784,7 +784,7 @@ class JobStep(pulumi.CustomResource):
         """
         The ID of the Elastic Job Credential to use when executing this Elastic Job Step. Omit this argument to run the step under the Job Agent's managed identity (user-assigned).
 
-        !> **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
+        > **Note:** Once set, `job_credential_id` cannot be removed. Removing the credential will force a new resource to be created.
         """
         return pulumi.get(self, "job_credential_id")
 

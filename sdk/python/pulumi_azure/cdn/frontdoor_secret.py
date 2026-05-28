@@ -161,7 +161,7 @@ class FrontdoorSecret(pulumi.CustomResource):
 
         ## Required Key Vault Permissions
 
-        !> **Note:** You must add an `Access Policy` to your `keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
+        > **Note:** You must add an `Access Policy` to your `keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
 
         This can be created by running Az Powershell command like this:
 
@@ -201,7 +201,7 @@ class FrontdoorSecret(pulumi.CustomResource):
 
         ## Required Key Vault Permissions
 
-        !> **Note:** You must add an `Access Policy` to your `keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
+        > **Note:** You must add an `Access Policy` to your `keyvault.KeyVault` for the `Microsoft.AzurefrontDoor-Cdn` Enterprise Application Object ID.
 
         This can be created by running Az Powershell command like this:
 

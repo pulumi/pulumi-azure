@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about a Function App.
  *
- * !> **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
+ * > **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
  *
  * ## Example Usage
  *
@@ -119,7 +119,7 @@ export interface GetFunctionAppResult {
 /**
  * Use this data source to access information about a Function App.
  *
- * !> **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
+ * > **Note:** This data source has been deprecated and will be removed in version 6.0 of the provider. Please use the `azure.appservice.LinuxFunctionApp` and `azure.appservice.WindowsFunctionApp` data sources instead.
  *
  * ## Example Usage
  *

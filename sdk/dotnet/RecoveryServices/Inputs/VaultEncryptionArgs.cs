@@ -27,9 +27,9 @@ namespace Pulumi.Azure.RecoveryServices.Inputs
         /// <summary>
         /// Indicate that system assigned identity should be used or not. Defaults to `True`. Must be set to `False` when `UserAssignedIdentityId` is set.
         /// 
-        /// !&gt; **Note:** `UseSystemAssignedIdentity` only be able to set to `False` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
+        /// &gt; **Note:** `UseSystemAssignedIdentity` only be able to set to `False` for **new** vaults. Any vaults containing existing items registered or attempted to be registered to it are not supported. Details can be found in [the document](https://learn.microsoft.com/en-us/azure/backup/encryption-at-rest-with-cmk?tabs=portal#before-you-start)
         /// 
-        /// !&gt; **Note:** Once `InfrastructureEncryptionEnabled` has been set it's not possible to change it.
+        /// &gt; **Note:** Once `InfrastructureEncryptionEnabled` has been set it's not possible to change it.
         /// </summary>
         [Input("useSystemAssignedIdentity")]
         public Input<bool>? UseSystemAssignedIdentity { get; set; }

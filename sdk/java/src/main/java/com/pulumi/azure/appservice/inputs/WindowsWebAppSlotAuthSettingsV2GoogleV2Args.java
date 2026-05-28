@@ -50,7 +50,7 @@ public final class WindowsWebAppSlotAuthSettingsV2GoogleV2Args extends com.pulum
     /**
      * The app setting name that contains the `clientSecret` value used for Google Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     @Import(name="clientSecretSettingName", required=true)
@@ -59,7 +59,7 @@ public final class WindowsWebAppSlotAuthSettingsV2GoogleV2Args extends com.pulum
     /**
      * @return The app setting name that contains the `clientSecret` value used for Google Login.
      * 
-     * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+     * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
      * 
      */
     public Output<String> clientSecretSettingName() {
@@ -163,7 +163,7 @@ public final class WindowsWebAppSlotAuthSettingsV2GoogleV2Args extends com.pulum
         /**
          * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Google Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class WindowsWebAppSlotAuthSettingsV2GoogleV2Args extends com.pulum
         /**
          * @param clientSecretSettingName The app setting name that contains the `clientSecret` value used for Google Login.
          * 
-         * !&gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
+         * &gt; **Note:** A setting with this name must exist in `appSettings` to function correctly.
          * 
          * @return builder
          * 
