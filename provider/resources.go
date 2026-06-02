@@ -455,6 +455,60 @@ func detectCloudShell() cloudShellProfile {
 	return negative
 }
 
+// resolvedCredentials holds the resolved authentication parameters after reading
+// config values, environment variables, and token files.
+type resolvedCredentials struct {
+	clientID  string
+	tenantID  string
+	oidcToken string
+	useOIDC   bool
+}
+
+// resolveCredentials resolves client ID, tenant ID, and OIDC token from Pulumi config,
+// environment variables, and token files. This mirrors the logic in the upstream
+// terraform-provider-azurerm's getOidcToken/getClientId/getTenantId helpers.
+func resolveCredentials(vars resource.PropertyMap) (*resolvedCredentials, error) {
+	useAksWorkloadIdentity := tfbridge.ConfigBoolValue(vars, "useAksWorkloadIdentity", []string{"ARM_USE_AKS_WORKLOAD_IDENTITY"})
+	useOIDC := tfbridge.ConfigBoolValue(vars, "useOidc", []string{"ARM_USE_OIDC"}) || useAksWorkloadIdentity
+
+	clientID := tfbridge.ConfigStringValue(vars, "clientId", []string{"ARM_CLIENT_ID"})
+	tenantID := tfbridge.ConfigStringValue(vars, "tenantId", []string{"ARM_TENANT_ID"})
+
+	// When using AKS Workload Identity, read client/tenant from the environment variables
+	// injected by the AKS workload identity webhook.
+	if useAksWorkloadIdentity {
+		if clientID == "" {
+			clientID = os.Getenv("AZURE_CLIENT_ID")
+		}
+		if tenantID == "" {
+			tenantID = os.Getenv("AZURE_TENANT_ID")
+		}
+	}
+
+	// Resolve OIDC token: direct value, file path, or AKS workload identity token file.
+	oidcToken := tfbridge.ConfigStringValue(vars, "oidcToken", []string{"ARM_OIDC_TOKEN"})
+	if oidcToken == "" {
+		oidcTokenFilePath := tfbridge.ConfigStringValue(vars, "oidcTokenFilePath", []string{"ARM_OIDC_TOKEN_FILE_PATH"})
+		if oidcTokenFilePath == "" && useAksWorkloadIdentity {
+			oidcTokenFilePath = os.Getenv("AZURE_FEDERATED_TOKEN_FILE")
+		}
+		if oidcTokenFilePath != "" {
+			tokenBytes, readErr := os.ReadFile(oidcTokenFilePath)
+			if readErr != nil {
+				return nil, fmt.Errorf("reading OIDC token from file %q: %v", oidcTokenFilePath, readErr)
+			}
+			oidcToken = strings.TrimSpace(string(tokenBytes))
+		}
+	}
+
+	return &resolvedCredentials{
+		clientID:  clientID,
+		tenantID:  tenantID,
+		oidcToken: oidcToken,
+		useOIDC:   useOIDC,
+	}, nil
+}
+
 // preConfigureCallback returns an error when cloud provider setup is misconfigured
 func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) error {
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
@@ -484,12 +538,16 @@ func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) er
 	auxTenants := tfbridge.ConfigArrayValue(vars, "auxiliaryTenantIDs", []string{"ARM_AUXILIARY_TENANT_IDS"})
 
 	// validate the azure config
-	useOIDC := tfbridge.ConfigBoolValue(vars, "useOidc", []string{"ARM_USE_OIDC"})
+	creds, err := resolveCredentials(vars)
+	if err != nil {
+		return err
+	}
+
 	authConfig := auth.Credentials{
 		// SubscriptionID: tfbridge.ConfigStringValue(vars, "subscriptionId", []string{"ARM_SUBSCRIPTION_ID"}),
-		ClientID:     tfbridge.ConfigStringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
+		ClientID:     creds.clientID,
 		ClientSecret: tfbridge.ConfigStringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
-		TenantID:     tfbridge.ConfigStringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
+		TenantID:     creds.tenantID,
 		Environment:  *env,
 		ClientCertificatePath: tfbridge.ConfigStringValue(vars, "clientCertificatePath", []string{
 			"ARM_CLIENT_CERTIFICATE_PATH",
@@ -507,15 +565,15 @@ func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) er
 		OIDCTokenRequestURL: tfbridge.ConfigStringValue(vars, "oidcRequestUrl", []string{
 			"ARM_OIDC_REQUEST_URL", "ACTIONS_ID_TOKEN_REQUEST_URL",
 		}),
-		OIDCAssertionToken: tfbridge.ConfigStringValue(vars, "oidcToken", []string{"ARM_OIDC_TOKEN"}),
+		OIDCAssertionToken: creds.oidcToken,
 
 		// Feature Toggles
 		EnableAuthenticatingUsingClientCertificate: true,
 		EnableAuthenticatingUsingClientSecret:      true,
 		EnableAuthenticatingUsingManagedIdentity:   tfbridge.ConfigBoolValue(vars, "useMsi", []string{"ARM_USE_MSI"}),
 		EnableAuthenticatingUsingAzureCLI:          true,
-		EnableAuthenticationUsingOIDC:              useOIDC,
-		EnableAuthenticationUsingGitHubOIDC:        useOIDC,
+		EnableAuthenticationUsingOIDC:              creds.useOIDC,
+		EnableAuthenticationUsingGitHubOIDC:        creds.useOIDC,
 	}
 
 	_, err = auth.NewAuthorizerFromCredentials(context.Background(), authConfig, env.MicrosoftGraph)
