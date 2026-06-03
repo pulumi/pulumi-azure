@@ -3186,7 +3186,7 @@ func Provider() tfbridge.ProviderInfo {
 				"@pulumi/pulumi":                "^3.0.0",
 				"@azure/eventgrid":              "^4.6.0",
 				"@azure/functions":              "=1.2.2",
-				"@azure/identity":               "^4.0.0",
+				"@azure/identity":               "~4.6.0",
 				"@azure/ms-rest-azure-js":       "^2.0.1",
 				"azure-functions-ts-essentials": "^1.3.2",
 				"moment":                        "2.29.4",
