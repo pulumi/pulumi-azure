@@ -2,7 +2,7 @@ module github.com/pulumi/pulumi-azure/provider/v5
 
 go 1.21.12
 
-toolchain go1.25.5
+toolchain go1.25.7
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
