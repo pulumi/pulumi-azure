@@ -7,7 +7,7 @@ Subject: [PATCH] Ensure servicebus queue & topic have namespaces and RG names
 These are computed attributes for use in the servicebus mixins in Pulumi.
 
 diff --git a/internal/services/servicebus/servicebus_queue_resource.go b/internal/services/servicebus/servicebus_queue_resource.go
-index 14f609eb46..0cedebecc1 100644
+index 1010de98c6..4d8b4914f3 100644
 --- a/internal/services/servicebus/servicebus_queue_resource.go
 +++ b/internal/services/servicebus/servicebus_queue_resource.go
 @@ -45,6 +45,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
@@ -36,7 +36,7 @@ index 14f609eb46..0cedebecc1 100644
  		"status": {
  			Type:     pluginsdk.TypeString,
  			Optional: true,
-@@ -378,6 +390,8 @@ func resourceServiceBusQueueRead(d *pluginsdk.ResourceData, meta interface{}) er
+@@ -381,6 +393,8 @@ func resourceServiceBusQueueRead(d *pluginsdk.ResourceData, meta interface{}) er
  
  	d.Set("name", id.QueueName)
  	d.Set("namespace_id", namespaceId.ID())
@@ -46,7 +46,7 @@ index 14f609eb46..0cedebecc1 100644
  	if model := resp.Model; model != nil {
  		if props := model.Properties; props != nil {
 diff --git a/internal/services/servicebus/servicebus_topic_resource.go b/internal/services/servicebus/servicebus_topic_resource.go
-index 5db150e4f9..2fdd7013fc 100644
+index b66efdde9f..15d44beaf6 100644
 --- a/internal/services/servicebus/servicebus_topic_resource.go
 +++ b/internal/services/servicebus/servicebus_topic_resource.go
 @@ -43,6 +43,8 @@ func resourceServiceBusTopic() *pluginsdk.Resource {
@@ -75,7 +75,7 @@ index 5db150e4f9..2fdd7013fc 100644
  	}
  }
  
-@@ -258,6 +270,10 @@ func resourceServiceBusTopicRead(d *pluginsdk.ResourceData, meta interface{}) er
+@@ -263,6 +275,10 @@ func resourceServiceBusTopicRead(d *pluginsdk.ResourceData, meta interface{}) er
  	d.Set("name", id.TopicName)
  	d.Set("namespace_id", topics.NewNamespaceID(id.SubscriptionId, id.ResourceGroupName, id.NamespaceName).ID())
  

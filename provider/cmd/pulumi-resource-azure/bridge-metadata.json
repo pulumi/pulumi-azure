@@ -17022,6 +17022,9 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "virtual_machine_size": {
+                                    "maxItemsOne": false
+                                },
                                 "vm_sizes": {
                                     "maxItemsOne": false
                                 }
@@ -30565,6 +30568,16 @@
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "sku_profile": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "virtual_machine_size": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
