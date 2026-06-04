@@ -78,6 +78,10 @@ type LinkedServiceMysql struct {
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service MySQL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	//
+	// > **Note:** New linked services must set `driverVersion` to `V2`.
+	DriverVersion pulumi.StringPtrOutput `pulumi:"driverVersion"`
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName pulumi.StringPtrOutput `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -132,6 +136,10 @@ type linkedServiceMysqlState struct {
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service MySQL.
 	Description *string `pulumi:"description"`
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	//
+	// > **Note:** New linked services must set `driverVersion` to `V2`.
+	DriverVersion *string `pulumi:"driverVersion"`
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -151,6 +159,10 @@ type LinkedServiceMysqlState struct {
 	DataFactoryId pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service MySQL.
 	Description pulumi.StringPtrInput
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	//
+	// > **Note:** New linked services must set `driverVersion` to `V2`.
+	DriverVersion pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -174,6 +186,10 @@ type linkedServiceMysqlArgs struct {
 	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service MySQL.
 	Description *string `pulumi:"description"`
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	//
+	// > **Note:** New linked services must set `driverVersion` to `V2`.
+	DriverVersion *string `pulumi:"driverVersion"`
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName *string `pulumi:"integrationRuntimeName"`
 	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -194,6 +210,10 @@ type LinkedServiceMysqlArgs struct {
 	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service MySQL.
 	Description pulumi.StringPtrInput
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	//
+	// > **Note:** New linked services must set `driverVersion` to `V2`.
+	DriverVersion pulumi.StringPtrInput
 	// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
 	IntegrationRuntimeName pulumi.StringPtrInput
 	// Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -312,6 +332,13 @@ func (o LinkedServiceMysqlOutput) DataFactoryId() pulumi.StringOutput {
 // The description for the Data Factory Linked Service MySQL.
 func (o LinkedServiceMysqlOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceMysql) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+//
+// > **Note:** New linked services must set `driverVersion` to `V2`.
+func (o LinkedServiceMysqlOutput) DriverVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LinkedServiceMysql) pulumi.StringPtrOutput { return v.DriverVersion }).(pulumi.StringPtrOutput)
 }
 
 // The integration runtime reference to associate with the Data Factory Linked Service MySQL.

@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs>? _additionalUnattendContents;
 
         /// <summary>
-        /// One or more `AdditionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+        /// One or more `AdditionalUnattendContent` blocks as defined above. Changing this forces a new resource to be created.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs> AdditionalUnattendContents
         {
@@ -59,9 +59,9 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<bool>? EnableAutomaticUpdates { get; set; }
 
         /// <summary>
-        /// Should the VM be patched without requiring a reboot? Possible values are `True` or `False`. Defaults to `False`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        /// Should the VM be patched without requiring a reboot? Possible values are `True` and `False`. Defaults to `False`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
         /// 
-        /// &gt; **Note:** Hotpatching can only be enabled if the `PatchMode` is set to `AutomaticByPlatform`, the `ProvisionVmAgent` is set to `True`, your `SourceImageReference` references a hotpatching enabled image, the VM's `SkuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `Extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+        /// &gt; **Note:** Hotpatching can only be enabled if `PatchMode` is set to `AutomaticByPlatform`, `ProvisionVmAgent` is set to `True`, `SourceImageReference` references a hotpatching enabled image, `SkuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `Extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
         /// </summary>
         [Input("hotpatchingEnabled")]
         public Input<bool>? HotpatchingEnabled { get; set; }
@@ -69,21 +69,21 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
-        /// &gt; **Note:** If the `PatchAssessmentMode` is set to `AutomaticByPlatform` then the `ProvisionVmAgent` field must be set to `True`.
+        /// &gt; **Note:** If `PatchAssessmentMode` is set to `AutomaticByPlatform`, `ProvisionVmAgent` must be set to `True`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
 
         /// <summary>
-        /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// 
-        /// &gt; **Note:** If `PatchMode` is set to `AutomaticByPlatform` the `ProvisionVmAgent` must be set to `True` and the `Extension` must contain at least one application health extension.
+        /// &gt; **Note:** If `PatchMode` is set to `AutomaticByPlatform`, `ProvisionVmAgent` must be set to `True` and the `Extension` block must contain at least one application health extension.
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `True`. Changing this value forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }
@@ -92,7 +92,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs>? _secrets;
 
         /// <summary>
-        /// One or more `Secret` blocks as defined below.
+        /// One or more `Secret` blocks as defined above.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs> Secrets
         {

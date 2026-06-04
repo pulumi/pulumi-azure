@@ -23,6 +23,7 @@ import com.pulumi.azure.config.outputs.FeaturesTemplateDeployment;
 import com.pulumi.azure.config.outputs.FeaturesVirtualMachine;
 import com.pulumi.azure.config.outputs.FeaturesVirtualMachineScaleSet;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -39,10 +40,20 @@ public final class Features {
     private @Nullable FeaturesMachineLearning machineLearning;
     private @Nullable FeaturesManagedDisk managedDisk;
     private @Nullable FeaturesNetapp netapp;
+    /**
+     * @return Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean persistIdOnCreateBeforePollingForCompletion;
     private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
     private @Nullable FeaturesRecoveryService recoveryService;
     private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
     private @Nullable FeaturesResourceGroup resourceGroup;
+    /**
+     * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+     * 
+     */
+    private @Nullable Boolean skipImportCheckOnCreateAndAllowOverwritingExistingResources;
     private @Nullable FeaturesStorage storage;
     private @Nullable FeaturesSubscription subscription;
     private @Nullable FeaturesTemplateDeployment templateDeployment;
@@ -80,6 +91,13 @@ public final class Features {
     public Optional<FeaturesNetapp> netapp() {
         return Optional.ofNullable(this.netapp);
     }
+    /**
+     * @return Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> persistIdOnCreateBeforePollingForCompletion() {
+        return Optional.ofNullable(this.persistIdOnCreateBeforePollingForCompletion);
+    }
     public Optional<FeaturesPostgresqlFlexibleServer> postgresqlFlexibleServer() {
         return Optional.ofNullable(this.postgresqlFlexibleServer);
     }
@@ -91,6 +109,13 @@ public final class Features {
     }
     public Optional<FeaturesResourceGroup> resourceGroup() {
         return Optional.ofNullable(this.resourceGroup);
+    }
+    /**
+     * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+     * 
+     */
+    public Optional<Boolean> skipImportCheckOnCreateAndAllowOverwritingExistingResources() {
+        return Optional.ofNullable(this.skipImportCheckOnCreateAndAllowOverwritingExistingResources);
     }
     public Optional<FeaturesStorage> storage() {
         return Optional.ofNullable(this.storage);
@@ -127,10 +152,12 @@ public final class Features {
         private @Nullable FeaturesMachineLearning machineLearning;
         private @Nullable FeaturesManagedDisk managedDisk;
         private @Nullable FeaturesNetapp netapp;
+        private @Nullable Boolean persistIdOnCreateBeforePollingForCompletion;
         private @Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer;
         private @Nullable FeaturesRecoveryService recoveryService;
         private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
         private @Nullable FeaturesResourceGroup resourceGroup;
+        private @Nullable Boolean skipImportCheckOnCreateAndAllowOverwritingExistingResources;
         private @Nullable FeaturesStorage storage;
         private @Nullable FeaturesSubscription subscription;
         private @Nullable FeaturesTemplateDeployment templateDeployment;
@@ -149,10 +176,12 @@ public final class Features {
     	      this.machineLearning = defaults.machineLearning;
     	      this.managedDisk = defaults.managedDisk;
     	      this.netapp = defaults.netapp;
+    	      this.persistIdOnCreateBeforePollingForCompletion = defaults.persistIdOnCreateBeforePollingForCompletion;
     	      this.postgresqlFlexibleServer = defaults.postgresqlFlexibleServer;
     	      this.recoveryService = defaults.recoveryService;
     	      this.recoveryServicesVaults = defaults.recoveryServicesVaults;
     	      this.resourceGroup = defaults.resourceGroup;
+    	      this.skipImportCheckOnCreateAndAllowOverwritingExistingResources = defaults.skipImportCheckOnCreateAndAllowOverwritingExistingResources;
     	      this.storage = defaults.storage;
     	      this.subscription = defaults.subscription;
     	      this.templateDeployment = defaults.templateDeployment;
@@ -221,6 +250,12 @@ public final class Features {
             return this;
         }
         @CustomType.Setter
+        public Builder persistIdOnCreateBeforePollingForCompletion(@Nullable Boolean persistIdOnCreateBeforePollingForCompletion) {
+
+            this.persistIdOnCreateBeforePollingForCompletion = persistIdOnCreateBeforePollingForCompletion;
+            return this;
+        }
+        @CustomType.Setter
         public Builder postgresqlFlexibleServer(@Nullable FeaturesPostgresqlFlexibleServer postgresqlFlexibleServer) {
 
             this.postgresqlFlexibleServer = postgresqlFlexibleServer;
@@ -242,6 +277,12 @@ public final class Features {
         public Builder resourceGroup(@Nullable FeaturesResourceGroup resourceGroup) {
 
             this.resourceGroup = resourceGroup;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder skipImportCheckOnCreateAndAllowOverwritingExistingResources(@Nullable Boolean skipImportCheckOnCreateAndAllowOverwritingExistingResources) {
+
+            this.skipImportCheckOnCreateAndAllowOverwritingExistingResources = skipImportCheckOnCreateAndAllowOverwritingExistingResources;
             return this;
         }
         @CustomType.Setter
@@ -286,10 +327,12 @@ public final class Features {
             _resultValue.machineLearning = machineLearning;
             _resultValue.managedDisk = managedDisk;
             _resultValue.netapp = netapp;
+            _resultValue.persistIdOnCreateBeforePollingForCompletion = persistIdOnCreateBeforePollingForCompletion;
             _resultValue.postgresqlFlexibleServer = postgresqlFlexibleServer;
             _resultValue.recoveryService = recoveryService;
             _resultValue.recoveryServicesVaults = recoveryServicesVaults;
             _resultValue.resourceGroup = resourceGroup;
+            _resultValue.skipImportCheckOnCreateAndAllowOverwritingExistingResources = skipImportCheckOnCreateAndAllowOverwritingExistingResources;
             _resultValue.storage = storage;
             _resultValue.subscription = subscription;
             _resultValue.templateDeployment = templateDeployment;

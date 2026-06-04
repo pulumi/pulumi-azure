@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// The ID of the Subnet which this IP Configuration should be connected to.
         /// 
-        /// &gt; **Note:** `SubnetId` is required if version is set to `IPv4`.
+        /// &gt; **Note:** `SubnetId` is required if `Version` is set to `IPv4`.
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>

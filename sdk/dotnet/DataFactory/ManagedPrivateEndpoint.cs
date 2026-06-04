@@ -97,6 +97,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `SubresourceName` must not be specified when `TargetResourceId` is a Private Link Service. For all other target resources, `SubresourceName` is required and must be at least 3 characters in length.
         /// </summary>
         [Output("subresourceName")]
         public Output<string?> SubresourceName { get; private set; } = null!;
@@ -181,6 +183,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `SubresourceName` must not be specified when `TargetResourceId` is a Private Link Service. For all other target resources, `SubresourceName` is required and must be at least 3 characters in length.
         /// </summary>
         [Input("subresourceName")]
         public Input<string>? SubresourceName { get; set; }
@@ -227,6 +231,8 @@ namespace Pulumi.Azure.DataFactory
 
         /// <summary>
         /// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `SubresourceName` must not be specified when `TargetResourceId` is a Private Link Service. For all other target resources, `SubresourceName` is required and must be at least 3 characters in length.
         /// </summary>
         [Input("subresourceName")]
         public Input<string>? SubresourceName { get; set; }

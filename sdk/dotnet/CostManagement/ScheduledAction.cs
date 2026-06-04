@@ -91,7 +91,7 @@ namespace Pulumi.Azure.CostManagement
         public Output<ImmutableArray<string>> EmailAddresses { get; private set; } = null!;
 
         /// <summary>
-        /// Subject of the email. Length is limited to 70 characters.
+        /// Subject of the email. Length is limited to 50 characters.
         /// </summary>
         [Output("emailSubject")]
         public Output<string> EmailSubject { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Azure.CostManagement
         }
 
         /// <summary>
-        /// Subject of the email. Length is limited to 70 characters.
+        /// Subject of the email. Length is limited to 50 characters.
         /// </summary>
         [Input("emailSubject", required: true)]
         public Input<string> EmailSubject { get; set; } = null!;
@@ -343,7 +343,7 @@ namespace Pulumi.Azure.CostManagement
         }
 
         /// <summary>
-        /// Subject of the email. Length is limited to 70 characters.
+        /// Subject of the email. Length is limited to 50 characters.
         /// </summary>
         [Input("emailSubject")]
         public Input<string>? EmailSubject { get; set; }

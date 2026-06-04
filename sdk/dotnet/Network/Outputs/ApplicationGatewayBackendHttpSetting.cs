@@ -22,6 +22,10 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate> AuthenticationCertificates;
         /// <summary>
+        /// Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `True`.
+        /// </summary>
+        public readonly bool? CertificateChainValidationEnabled;
+        /// <summary>
         /// A `ConnectionDraining` block as defined below.
         /// </summary>
         public readonly Outputs.ApplicationGatewayBackendHttpSettingConnectionDraining? ConnectionDraining;
@@ -74,6 +78,16 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int? RequestTimeout;
         /// <summary>
+        /// The Server Name Indication (SNI) hostname to send to the backend servers. 
+        /// 
+        /// &gt; **Note:** `SniName` can only be set when `SniValidationEnabled` is set to `True`.
+        /// </summary>
+        public readonly string? SniName;
+        /// <summary>
+        /// Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `True`.
+        /// </summary>
+        public readonly bool? SniValidationEnabled;
+        /// <summary>
         /// A list of `TrustedRootCertificate` names.
         /// </summary>
         public readonly ImmutableArray<string> TrustedRootCertificateNames;
@@ -83,6 +97,8 @@ namespace Pulumi.Azure.Network.Outputs
             string? affinityCookieName,
 
             ImmutableArray<Outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates,
+
+            bool? certificateChainValidationEnabled,
 
             Outputs.ApplicationGatewayBackendHttpSettingConnectionDraining? connectionDraining,
 
@@ -110,10 +126,15 @@ namespace Pulumi.Azure.Network.Outputs
 
             int? requestTimeout,
 
+            string? sniName,
+
+            bool? sniValidationEnabled,
+
             ImmutableArray<string> trustedRootCertificateNames)
         {
             AffinityCookieName = affinityCookieName;
             AuthenticationCertificates = authenticationCertificates;
+            CertificateChainValidationEnabled = certificateChainValidationEnabled;
             ConnectionDraining = connectionDraining;
             CookieBasedAffinity = cookieBasedAffinity;
             DedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
@@ -127,6 +148,8 @@ namespace Pulumi.Azure.Network.Outputs
             ProbeName = probeName;
             Protocol = protocol;
             RequestTimeout = requestTimeout;
+            SniName = sniName;
+            SniValidationEnabled = sniValidationEnabled;
             TrustedRootCertificateNames = trustedRootCertificateNames;
         }
     }

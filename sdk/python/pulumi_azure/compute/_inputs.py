@@ -167,6 +167,8 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict',
     'OrchestratedVirtualMachineScaleSetSkuProfileArgs',
     'OrchestratedVirtualMachineScaleSetSkuProfileArgsDict',
+    'OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs',
+    'OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgsDict',
     'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs',
     'OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict',
     'OrchestratedVirtualMachineScaleSetTerminationNotificationArgs',
@@ -4673,7 +4675,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgsDict(TypedDic
     """
     action: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+    The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
 
     > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 
@@ -4694,7 +4696,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
                  grace_period: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Should the automatic instance repair be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
-        :param pulumi.Input[_builtins.str] action: The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+        :param pulumi.Input[_builtins.str] action: The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
                
                > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
                
@@ -4725,7 +4727,7 @@ class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs:
     @pulumi.getter
     def action(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+        The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
 
         > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 
@@ -4784,15 +4786,15 @@ class OrchestratedVirtualMachineScaleSetBootDiagnosticsArgs:
 class OrchestratedVirtualMachineScaleSetDataDiskArgsDict(TypedDict):
     caching: pulumi.Input[_builtins.str]
     """
-    The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+    The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
     """
     storage_account_type: pulumi.Input[_builtins.str]
     """
-    The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+    The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
     """
     create_option: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+    The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
     """
     disk_encryption_set_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -4832,9 +4834,9 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
                  ultra_ssd_disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] caching: The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
-        :param pulumi.Input[_builtins.str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
-        :param pulumi.Input[_builtins.str] create_option: The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+        :param pulumi.Input[_builtins.str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
+        :param pulumi.Input[_builtins.str] storage_account_type: The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
+        :param pulumi.Input[_builtins.str] create_option: The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] disk_size_gb: The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
         :param pulumi.Input[_builtins.int] lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
@@ -4863,7 +4865,7 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @pulumi.getter
     def caching(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+        The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
         """
         return pulumi.get(self, "caching")
 
@@ -4875,7 +4877,7 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+        The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -4887,7 +4889,7 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+        The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
         """
         return pulumi.get(self, "create_option")
 
@@ -5013,7 +5015,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgsDict(TypedDict):
     """
     A `protected_settings_from_key_vault` block as defined below.
 
-    > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+    > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`.
     """
     settings: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -5050,7 +5052,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
                > **Note:** Keys within the `protected_settings` block are notoriously case-sensitive, where the casing required (e.g. `TitleCase` vs `snakeCase`) depends on the Extension being used. Please refer to the documentation for the specific Virtual Machine Extension you're looking to use for more information.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs'] protected_settings_from_key_vault: A `protected_settings_from_key_vault` block as defined below.
                
-               > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+               > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`.
         :param pulumi.Input[_builtins.str] settings: A JSON String which specifies Settings for the Extension.
         """
         pulumi.set(__self__, "name", name)
@@ -5190,7 +5192,7 @@ class OrchestratedVirtualMachineScaleSetExtensionArgs:
         """
         A `protected_settings_from_key_vault` block as defined below.
 
-        > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`
+        > **Note:** `protected_settings_from_key_vault` cannot be used with `protected_settings`.
         """
         return pulumi.get(self, "protected_settings_from_key_vault")
 
@@ -5261,11 +5263,11 @@ class OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultAr
 class OrchestratedVirtualMachineScaleSetIdentityArgsDict(TypedDict):
     identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+    Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Virtual Machine Scale Set.
     """
     type: pulumi.Input[_builtins.str]
     """
-    The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+    The type of Managed Identity that should be configured on this Orchestrated Virtual Machine Scale Set. The only possible value is `UserAssigned`.
     """
 
 @pulumi.input_type
@@ -5274,8 +5276,8 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
                  identity_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
-        :param pulumi.Input[_builtins.str] type: The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Virtual Machine Scale Set.
+        :param pulumi.Input[_builtins.str] type: The type of Managed Identity that should be configured on this Orchestrated Virtual Machine Scale Set. The only possible value is `UserAssigned`.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "type", type)
@@ -5284,7 +5286,7 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+        Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Virtual Machine Scale Set.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -5296,7 +5298,7 @@ class OrchestratedVirtualMachineScaleSetIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+        The type of Managed Identity that should be configured on this Orchestrated Virtual Machine Scale Set. The only possible value is `UserAssigned`.
         """
         return pulumi.get(self, "type")
 
@@ -5322,9 +5324,11 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict(TypedDict):
     """
     auxiliary_sku: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+    Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
 
     > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+
+    > **Note:** `auxiliary_mode` and `auxiliary_sku` must be specified together, and both fields require `network_api_version` later than `2020-11-01`.
     """
     dns_servers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -5367,9 +5371,11 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
         :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
                
                > **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
-        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+        :param pulumi.Input[_builtins.str] auxiliary_sku: Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
                
                > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+               
+               > **Note:** `auxiliary_mode` and `auxiliary_sku` must be specified together, and both fields require `network_api_version` later than `2020-11-01`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
         :param pulumi.Input[_builtins.bool] enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] enable_ip_forwarding: Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
@@ -5437,9 +5443,11 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @pulumi.getter(name="auxiliarySku")
     def auxiliary_sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+        Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
 
         > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+
+        > **Note:** `auxiliary_mode` and `auxiliary_sku` must be specified together, and both fields require `network_api_version` later than `2020-11-01`.
         """
         return pulumi.get(self, "auxiliary_sku")
 
@@ -5543,7 +5551,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgsDict(
     """
     The ID of the Subnet which this IP Configuration should be connected to.
 
-    > **Note:** `subnet_id` is required if version is set to `IPv4`.
+    > **Note:** `subnet_id` is required if `version` is set to `IPv4`.
     """
     version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -5574,7 +5582,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs']]] public_ip_addresses: A `public_ip_address` block as defined below.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet which this IP Configuration should be connected to.
                
-               > **Note:** `subnet_id` is required if version is set to `IPv4`.
+               > **Note:** `subnet_id` is required if `version` is set to `IPv4`.
         :param pulumi.Input[_builtins.str] version: The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
         """
         pulumi.set(__self__, "name", name)
@@ -5675,7 +5683,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs:
         """
         The ID of the Subnet which this IP Configuration should be connected to.
 
-        > **Note:** `subnet_id` is required if version is set to `IPv4`.
+        > **Note:** `subnet_id` is required if `version` is set to `IPv4`.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -5703,7 +5711,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     """
     domain_name_label: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+    The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance.
+
+    > **Note:** Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number, and contain only `a-z`, `0-9`, and `hyphens`.
     """
     idle_timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -5719,7 +5729,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     """
     sku_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+    Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible values are `Basic_Regional`, `Basic_Global`, `Standard_Regional`, and `Standard_Global`. Changing this forces a new resource to be created.
+
+    > **Note:** For more information about Public IP Address SKUs and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
     """
     version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -5738,11 +5750,15 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
                  version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The Name of the Public IP Address Configuration.
-        :param pulumi.Input[_builtins.str] domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+        :param pulumi.Input[_builtins.str] domain_name_label: The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance.
+               
+               > **Note:** Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number, and contain only `a-z`, `0-9`, and `hyphens`.
         :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs']]] ip_tags: One or more `ip_tag` blocks as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] public_ip_prefix_id: The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] sku_name: Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible values are `Basic_Regional`, `Basic_Global`, `Standard_Regional`, and `Standard_Global`. Changing this forces a new resource to be created.
+               
+               > **Note:** For more information about Public IP Address SKUs and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
         :param pulumi.Input[_builtins.str] version: The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "name", name)
@@ -5775,7 +5791,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @pulumi.getter(name="domainNameLabel")
     def domain_name_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+        The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance.
+
+        > **Note:** Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number, and contain only `a-z`, `0-9`, and `hyphens`.
         """
         return pulumi.get(self, "domain_name_label")
 
@@ -5823,7 +5841,9 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
     @pulumi.getter(name="skuName")
     def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+        Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible values are `Basic_Regional`, `Basic_Global`, `Standard_Regional`, and `Standard_Global`. Changing this forces a new resource to be created.
+
+        > **Note:** For more information about Public IP Address SKUs and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
         """
         return pulumi.get(self, "sku_name")
 
@@ -5894,11 +5914,11 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpA
 class OrchestratedVirtualMachineScaleSetOsDiskArgsDict(TypedDict):
     caching: pulumi.Input[_builtins.str]
     """
-    The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+    The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
     """
     storage_account_type: pulumi.Input[_builtins.str]
     """
-    The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+    The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
     """
     diff_disk_settings: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgsDict']]]
     """
@@ -5908,7 +5928,7 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgsDict(TypedDict):
     """
     The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
 
-    > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+    > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
     """
     disk_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -5929,12 +5949,12 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
                  disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
-        :param pulumi.Input[_builtins.str] storage_account_type: The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] caching: The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
+        :param pulumi.Input[_builtins.str] storage_account_type: The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
         :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsArgs'] diff_disk_settings: A `diff_disk_settings` block as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
                
-               > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+               > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
         :param pulumi.Input[_builtins.int] disk_size_gb: The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
         :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
         """
@@ -5953,7 +5973,7 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter
     def caching(self) -> pulumi.Input[_builtins.str]:
         """
-        The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
         """
         return pulumi.get(self, "caching")
 
@@ -5965,7 +5985,7 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
     @pulumi.getter(name="storageAccountType")
     def storage_account_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_type")
 
@@ -5991,7 +6011,7 @@ class OrchestratedVirtualMachineScaleSetOsDiskArgs:
         """
         The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
 
-        > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -6081,11 +6101,11 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgsDict(TypedDict):
     """
     linux_configuration: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgsDict']]]
     """
-    A `linux_configuration` block as documented below.
+    A `linux_configuration` block as defined above.
     """
     windows_configuration: NotRequired[pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgsDict']]]
     """
-    A `windows_configuration` block as documented below.
+    A `windows_configuration` block as defined below.
     """
 
 @pulumi.input_type
@@ -6098,8 +6118,8 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
         :param pulumi.Input[_builtins.str] custom_data: The Base64-Encoded Custom Data which should be used for this Virtual Machine Scale Set.
                
                > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
-        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs'] linux_configuration: A `linux_configuration` block as documented below.
-        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs'] windows_configuration: A `windows_configuration` block as documented below.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs'] linux_configuration: A `linux_configuration` block as defined above.
+        :param pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs'] windows_configuration: A `windows_configuration` block as defined below.
         """
         if custom_data is not None:
             pulumi.set(__self__, "custom_data", custom_data)
@@ -6126,7 +6146,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
     @pulumi.getter(name="linuxConfiguration")
     def linux_configuration(self) -> pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs']]:
         """
-        A `linux_configuration` block as documented below.
+        A `linux_configuration` block as defined above.
         """
         return pulumi.get(self, "linux_configuration")
 
@@ -6138,7 +6158,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileArgs:
     @pulumi.getter(name="windowsConfiguration")
     def windows_configuration(self) -> pulumi.Input[Optional['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs']]:
         """
-        A `windows_configuration` block as documented below.
+        A `windows_configuration` block as defined below.
         """
         return pulumi.get(self, "windows_configuration")
 
@@ -6158,7 +6178,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgsDict(Type
     """
     admin_ssh_keys: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgsDict']]]]]
     """
-    A `admin_ssh_key` block as documented below.
+    An `admin_ssh_key` block as defined above.
     """
     computer_name_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6174,17 +6194,17 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgsDict(Type
     """
     Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
-    > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+    > **Note:** If `patch_assessment_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true`.
     """
     patch_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+    Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
-    > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+    > **Note:** If `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
     """
     provision_vm_agent: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+    Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
     """
     secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgsDict']]]]]
     """
@@ -6206,18 +6226,18 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]] admin_ssh_keys: A `admin_ssh_key` block as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]] admin_ssh_keys: An `admin_ssh_key` block as defined above.
         :param pulumi.Input[_builtins.str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the name field. If the value of the name field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] disable_password_authentication: When an `admin_password` is specified `disable_password_authentication` must be set to `false`. Defaults to `true`.
                
                > **Note:** Either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
-               > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
-        :param pulumi.Input[_builtins.str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+               > **Note:** If `patch_assessment_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true`.
+        :param pulumi.Input[_builtins.str] patch_mode: Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
-               > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
-        :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+               > **Note:** If `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+        :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         """
         pulumi.set(__self__, "admin_username", admin_username)
@@ -6266,7 +6286,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @pulumi.getter(name="adminSshKeys")
     def admin_ssh_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs']]]]:
         """
-        A `admin_ssh_key` block as documented below.
+        An `admin_ssh_key` block as defined above.
         """
         return pulumi.get(self, "admin_ssh_keys")
 
@@ -6306,7 +6326,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
         """
         Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
-        > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        > **Note:** If `patch_assessment_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true`.
         """
         return pulumi.get(self, "patch_assessment_mode")
 
@@ -6318,9 +6338,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
-        > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+        > **Note:** If `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
         """
         return pulumi.get(self, "patch_mode")
 
@@ -6332,7 +6352,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs:
     @pulumi.getter(name="provisionVmAgent")
     def provision_vm_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "provision_vm_agent")
 
@@ -6409,7 +6429,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyAr
 class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgsDict(TypedDict):
     certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgsDict']]]
     """
-    One or more `certificate` blocks as defined below.
+    One or more `certificate` blocks as defined above.
     """
     key_vault_id: pulumi.Input[_builtins.str]
     """
@@ -6422,7 +6442,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
                  certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]],
                  key_vault_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined above.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -6432,7 +6452,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs:
     @pulumi.getter
     def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs']]]:
         """
-        One or more `certificate` blocks as defined below.
+        One or more `certificate` blocks as defined above.
         """
         return pulumi.get(self, "certificates")
 
@@ -6457,8 +6477,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertifi
     url: pulumi.Input[_builtins.str]
     """
     The Secret URL of a Key Vault Certificate.
-
-    > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
     """
 
 @pulumi.input_type
@@ -6467,8 +6485,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertifi
                  url: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] url: The Secret URL of a Key Vault Certificate.
-               
-               > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         pulumi.set(__self__, "url", url)
 
@@ -6477,8 +6493,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertifi
     def url(self) -> pulumi.Input[_builtins.str]:
         """
         The Secret URL of a Key Vault Certificate.
-
-        > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         return pulumi.get(self, "url")
 
@@ -6498,7 +6512,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgsDict(Ty
     """
     additional_unattend_contents: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgsDict']]]]]
     """
-    One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+    One or more `additional_unattend_content` blocks as defined above. Changing this forces a new resource to be created.
     """
     computer_name_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6510,29 +6524,29 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgsDict(Ty
     """
     hotpatching_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+    Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 
-    > **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM's `sku_name` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+    > **Note:** Hotpatching can only be enabled if `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` is set to `true`, `source_image_reference` references a hotpatching enabled image, `sku_name` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
     """
     patch_assessment_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
-    > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+    > **Note:** If `patch_assessment_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true`.
     """
     patch_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+    Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
-    > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
+    > **Note:** If `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true` and the `extension` block must contain at least one application health extension.
     """
     provision_vm_agent: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+    Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
     """
     secrets: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgsDict']]]]]
     """
-    One or more `secret` blocks as defined below.
+    One or more `secret` blocks as defined above.
     """
     timezone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6561,20 +6575,20 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        :param pulumi.Input[_builtins.bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
                
-               > **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM's `sku_name` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+               > **Note:** Hotpatching can only be enabled if `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` is set to `true`, `source_image_reference` references a hotpatching enabled image, `sku_name` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
         :param pulumi.Input[_builtins.str] patch_assessment_mode: Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
                
-               > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
-        :param pulumi.Input[_builtins.str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+               > **Note:** If `patch_assessment_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true`.
+        :param pulumi.Input[_builtins.str] patch_mode: Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
                
-               > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
-        :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]] secrets: One or more `secret` blocks as defined below.
+               > **Note:** If `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true` and the `extension` block must contain at least one application health extension.
+        :param pulumi.Input[_builtins.bool] provision_vm_agent: Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]] secrets: One or more `secret` blocks as defined above.
         :param pulumi.Input[_builtins.str] timezone: Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]] winrm_listeners: One or more `winrm_listener` blocks as defined below. Changing this forces a new resource to be created.
         """
@@ -6629,7 +6643,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @pulumi.getter(name="additionalUnattendContents")
     def additional_unattend_contents(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]]]:
         """
-        One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        One or more `additional_unattend_content` blocks as defined above. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "additional_unattend_contents")
 
@@ -6665,9 +6679,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @pulumi.getter(name="hotpatchingEnabled")
     def hotpatching_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+        Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 
-        > **Note:** Hotpatching can only be enabled if the `patch_mode` is set to `AutomaticByPlatform`, the `provision_vm_agent` is set to `true`, your `source_image_reference` references a hotpatching enabled image, the VM's `sku_name` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+        > **Note:** Hotpatching can only be enabled if `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` is set to `true`, `source_image_reference` references a hotpatching enabled image, `sku_name` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
         """
         return pulumi.get(self, "hotpatching_enabled")
 
@@ -6681,7 +6695,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
         """
         Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 
-        > **Note:** If the `patch_assessment_mode` is set to `AutomaticByPlatform` then the `provision_vm_agent` field must be set to `true`.
+        > **Note:** If `patch_assessment_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true`.
         """
         return pulumi.get(self, "patch_assessment_mode")
 
@@ -6693,9 +6707,9 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @pulumi.getter(name="patchMode")
     def patch_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
-        > **Note:** If `patch_mode` is set to `AutomaticByPlatform` the `provision_vm_agent` must be set to `true` and the `extension` must contain at least one application health extension.
+        > **Note:** If `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` must be set to `true` and the `extension` block must contain at least one application health extension.
         """
         return pulumi.get(self, "patch_mode")
 
@@ -6707,7 +6721,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @pulumi.getter(name="provisionVmAgent")
     def provision_vm_agent(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+        Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "provision_vm_agent")
 
@@ -6719,7 +6733,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @pulumi.getter
     def secrets(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs']]]]:
         """
-        One or more `secret` blocks as defined below.
+        One or more `secret` blocks as defined above.
         """
         return pulumi.get(self, "secrets")
 
@@ -6802,7 +6816,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalU
 class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgsDict(TypedDict):
     certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgsDict']]]
     """
-    One or more `certificate` blocks as defined below.
+    One or more `certificate` blocks as defined above.
     """
     key_vault_id: pulumi.Input[_builtins.str]
     """
@@ -6815,7 +6829,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
                  certificates: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]],
                  key_vault_id: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]] certificates: One or more `certificate` blocks as defined above.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault from which all Secrets should be sourced.
         """
         pulumi.set(__self__, "certificates", certificates)
@@ -6825,7 +6839,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs:
     @pulumi.getter
     def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs']]]:
         """
-        One or more `certificate` blocks as defined below.
+        One or more `certificate` blocks as defined above.
         """
         return pulumi.get(self, "certificates")
 
@@ -6854,8 +6868,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
     url: pulumi.Input[_builtins.str]
     """
     The Secret URL of a Key Vault Certificate.
-
-    > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
     """
 
 @pulumi.input_type
@@ -6866,8 +6878,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
         """
         :param pulumi.Input[_builtins.str] store: The certificate store on the Virtual Machine where the certificate should be added.
         :param pulumi.Input[_builtins.str] url: The Secret URL of a Key Vault Certificate.
-               
-               > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         pulumi.set(__self__, "store", store)
         pulumi.set(__self__, "url", url)
@@ -6889,8 +6899,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
     def url(self) -> pulumi.Input[_builtins.str]:
         """
         The Secret URL of a Key Vault Certificate.
-
-        > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
         """
         return pulumi.get(self, "url")
 
@@ -6902,7 +6910,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCerti
 class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgsDict(TypedDict):
     protocol: pulumi.Input[_builtins.str]
     """
-    Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+    Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
     """
     certificate_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -6917,7 +6925,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
                  protocol: pulumi.Input[_builtins.str],
                  certificate_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] protocol: Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] protocol: Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] certificate_url: The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to `Https`. Changing this forces a new resource to be created.
                
                > **Note:** This can be sourced from the `secret_id` field within the `keyvault.Certificate` Resource.
@@ -6930,7 +6938,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListen
     @pulumi.getter
     def protocol(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+        Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "protocol")
 
@@ -7087,15 +7095,17 @@ class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgsDict(TypedDict):
     """
     cross_zone_upgrades_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+    Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+
+    > **Note:** `cross_zone_upgrades_enabled` can only be set to `true` when `zones` is specified.
     """
     maximum_surge_instances_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+    Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
     """
     prioritize_unhealthy_instances_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+    Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
     """
 
 @pulumi.input_type
@@ -7113,9 +7123,11 @@ class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs:
         :param pulumi.Input[_builtins.int] max_unhealthy_instance_percent: The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
         :param pulumi.Input[_builtins.int] max_unhealthy_upgraded_instance_percent: The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
         :param pulumi.Input[_builtins.str] pause_time_between_batches: The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
-        :param pulumi.Input[_builtins.bool] cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
-        :param pulumi.Input[_builtins.bool] maximum_surge_instances_enabled: Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
-        :param pulumi.Input[_builtins.bool] prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+        :param pulumi.Input[_builtins.bool] cross_zone_upgrades_enabled: Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+               
+               > **Note:** `cross_zone_upgrades_enabled` can only be set to `true` when `zones` is specified.
+        :param pulumi.Input[_builtins.bool] maximum_surge_instances_enabled: Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
+        :param pulumi.Input[_builtins.bool] prioritize_unhealthy_instances_enabled: Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
         """
         pulumi.set(__self__, "max_batch_instance_percent", max_batch_instance_percent)
         pulumi.set(__self__, "max_unhealthy_instance_percent", max_unhealthy_instance_percent)
@@ -7180,7 +7192,9 @@ class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs:
     @pulumi.getter(name="crossZoneUpgradesEnabled")
     def cross_zone_upgrades_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+        Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+
+        > **Note:** `cross_zone_upgrades_enabled` can only be set to `true` when `zones` is specified.
         """
         return pulumi.get(self, "cross_zone_upgrades_enabled")
 
@@ -7192,7 +7206,7 @@ class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs:
     @pulumi.getter(name="maximumSurgeInstancesEnabled")
     def maximum_surge_instances_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+        Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "maximum_surge_instances_enabled")
 
@@ -7204,7 +7218,7 @@ class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs:
     @pulumi.getter(name="prioritizeUnhealthyInstancesEnabled")
     def prioritize_unhealthy_instances_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+        Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
         """
         return pulumi.get(self, "prioritize_unhealthy_instances_enabled")
 
@@ -7216,30 +7230,42 @@ class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs:
 class OrchestratedVirtualMachineScaleSetSkuProfileArgsDict(TypedDict):
     allocation_strategy: pulumi.Input[_builtins.str]
     """
-    Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+    Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
     """
-    vm_sizes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    virtual_machine_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgsDict']]]]]
     """
-    Specifies the VM sizes for the virtual machine scale set.
+    One or more `virtual_machine_size` blocks as defined below.
+
+    > **Note:** When `allocation_strategy` is set to `Prioritized`, you must use the `virtual_machine_size` block to specify rank values.
     """
+    vm_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class OrchestratedVirtualMachineScaleSetSkuProfileArgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[_builtins.str],
-                 vm_sizes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+                 virtual_machine_sizes: pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]]] = None,
+                 vm_sizes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.str] allocation_strategy: Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vm_sizes: Specifies the VM sizes for the virtual machine scale set.
+        :param pulumi.Input[_builtins.str] allocation_strategy: Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]] virtual_machine_sizes: One or more `virtual_machine_size` blocks as defined below.
+               
+               > **Note:** When `allocation_strategy` is set to `Prioritized`, you must use the `virtual_machine_size` block to specify rank values.
         """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
-        pulumi.set(__self__, "vm_sizes", vm_sizes)
+        if virtual_machine_sizes is not None:
+            pulumi.set(__self__, "virtual_machine_sizes", virtual_machine_sizes)
+        if vm_sizes is not None:
+            warnings.warn("""The `vm_sizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtual_machine_size` block instead.""", DeprecationWarning)
+            pulumi.log.warn("""vm_sizes is deprecated: The `vm_sizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtual_machine_size` block instead.""")
+        if vm_sizes is not None:
+            pulumi.set(__self__, "vm_sizes", vm_sizes)
 
     @_builtins.property
     @pulumi.getter(name="allocationStrategy")
     def allocation_strategy(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+        Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
         """
         return pulumi.get(self, "allocation_strategy")
 
@@ -7248,16 +7274,88 @@ class OrchestratedVirtualMachineScaleSetSkuProfileArgs:
         pulumi.set(self, "allocation_strategy", value)
 
     @_builtins.property
+    @pulumi.getter(name="virtualMachineSizes")
+    def virtual_machine_sizes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]]]:
+        """
+        One or more `virtual_machine_size` blocks as defined below.
+
+        > **Note:** When `allocation_strategy` is set to `Prioritized`, you must use the `virtual_machine_size` block to specify rank values.
+        """
+        return pulumi.get(self, "virtual_machine_sizes")
+
+    @virtual_machine_sizes.setter
+    def virtual_machine_sizes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]]]):
+        pulumi.set(self, "virtual_machine_sizes", value)
+
+    @_builtins.property
     @pulumi.getter(name="vmSizes")
-    def vm_sizes(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
-        """
-        Specifies the VM sizes for the virtual machine scale set.
-        """
+    @_utilities.deprecated("""The `vm_sizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtual_machine_size` block instead.""")
+    def vm_sizes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "vm_sizes")
 
     @vm_sizes.setter
-    def vm_sizes(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+    def vm_sizes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "vm_sizes", value)
+
+
+class OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the VM SKU which should be used for this Virtual Machine Scale Set, such as `Standard_B1ls` or `Standard_B2s`.
+
+    > **Note:** `sku_profile` currently supports `Standard_` VM size names from the general-purpose `A`, `B`, `D`, `E`, and `F` families. Specialized families such as `L`, `DC`, and `EC` are not supported. Additional Azure service compatibility limitations may still apply to valid-looking VM size combinations.
+    """
+    rank: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the priority rank of the VM size. Possible values are integers between `1` and `3`, inclusive. Lower values represent higher priority.
+
+    > **Note:** `rank` can only be set when the parent `sku_profile` block sets `allocation_strategy` to `Prioritized`.
+    """
+
+@pulumi.input_type
+class OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 rank: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The name of the VM SKU which should be used for this Virtual Machine Scale Set, such as `Standard_B1ls` or `Standard_B2s`.
+               
+               > **Note:** `sku_profile` currently supports `Standard_` VM size names from the general-purpose `A`, `B`, `D`, `E`, and `F` families. Specialized families such as `L`, `DC`, and `EC` are not supported. Additional Azure service compatibility limitations may still apply to valid-looking VM size combinations.
+        :param pulumi.Input[_builtins.int] rank: Specifies the priority rank of the VM size. Possible values are integers between `1` and `3`, inclusive. Lower values represent higher priority.
+               
+               > **Note:** `rank` can only be set when the parent `sku_profile` block sets `allocation_strategy` to `Prioritized`.
+        """
+        pulumi.set(__self__, "name", name)
+        if rank is not None:
+            pulumi.set(__self__, "rank", rank)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the VM SKU which should be used for this Virtual Machine Scale Set, such as `Standard_B1ls` or `Standard_B2s`.
+
+        > **Note:** `sku_profile` currently supports `Standard_` VM size names from the general-purpose `A`, `B`, `D`, `E`, and `F` families. Specialized families such as `L`, `DC`, and `EC` are not supported. Additional Azure service compatibility limitations may still apply to valid-looking VM size combinations.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def rank(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the priority rank of the VM size. Possible values are integers between `1` and `3`, inclusive. Lower values represent higher priority.
+
+        > **Note:** `rank` can only be set when the parent `sku_profile` block sets `allocation_strategy` to `Prioritized`.
+        """
+        return pulumi.get(self, "rank")
+
+    @rank.setter
+    def rank(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "rank", value)
 
 
 class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgsDict(TypedDict):
@@ -7348,7 +7446,7 @@ class OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs:
 class OrchestratedVirtualMachineScaleSetTerminationNotificationArgsDict(TypedDict):
     enabled: pulumi.Input[_builtins.bool]
     """
-    Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
+    Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
     """
     timeout: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -7361,7 +7459,7 @@ class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs:
                  enabled: pulumi.Input[_builtins.bool],
                  timeout: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.bool] enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
+        :param pulumi.Input[_builtins.bool] enabled: Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
         :param pulumi.Input[_builtins.str] timeout: Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -7372,7 +7470,7 @@ class OrchestratedVirtualMachineScaleSetTerminationNotificationArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
+        Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
         """
         return pulumi.get(self, "enabled")
 

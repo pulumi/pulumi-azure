@@ -19,14 +19,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     public static final OrchestratedVirtualMachineScaleSetDataDiskArgs Empty = new OrchestratedVirtualMachineScaleSetDataDiskArgs();
 
     /**
-     * The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+     * The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
      * 
      */
     @Import(name="caching", required=true)
     private Output<String> caching;
 
     /**
-     * @return The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+     * @return The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
      * 
      */
     public Output<String> caching() {
@@ -34,14 +34,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+     * The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
      * 
      */
     @Import(name="createOption")
     private @Nullable Output<String> createOption;
 
     /**
-     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+     * @return The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
      * 
      */
     public Optional<Output<String>> createOption() {
@@ -94,14 +94,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
     }
 
     /**
-     * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+     * The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
      * 
      */
     @Import(name="storageAccountType", required=true)
     private Output<String> storageAccountType;
 
     /**
-     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+     * @return The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
      * 
      */
     public Output<String> storageAccountType() {
@@ -186,7 +186,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param caching The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+         * @param caching The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param caching The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+         * @param caching The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param createOption The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+         * @param createOption The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param createOption The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+         * @param createOption The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDiskArgs extends com.pu
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+         * @param storageAccountType The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
          * 
          * @return builder
          * 

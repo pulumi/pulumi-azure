@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetOsDisk
     {
         /// <summary>
-        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+        /// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
         /// </summary>
         public readonly string Caching;
         /// <summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
         /// 
-        /// &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        /// &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int? DiskSizeGb;
         /// <summary>
-        /// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+        /// The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string StorageAccountType;
         /// <summary>

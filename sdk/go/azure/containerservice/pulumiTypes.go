@@ -12553,7 +12553,7 @@ func (o KubernetesClusterMaintenanceWindowPtrOutput) NotAlloweds() KubernetesClu
 type KubernetesClusterMaintenanceWindowAllowed struct {
 	// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	Day string `pulumi:"day"`
-	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
 	Hours []int `pulumi:"hours"`
 }
 
@@ -12571,7 +12571,7 @@ type KubernetesClusterMaintenanceWindowAllowedInput interface {
 type KubernetesClusterMaintenanceWindowAllowedArgs struct {
 	// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	Day pulumi.StringInput `pulumi:"day"`
-	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
 	Hours pulumi.IntArrayInput `pulumi:"hours"`
 }
 
@@ -12631,7 +12631,7 @@ func (o KubernetesClusterMaintenanceWindowAllowedOutput) Day() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAllowed) string { return v.Day }).(pulumi.StringOutput)
 }
 
-// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
 func (o KubernetesClusterMaintenanceWindowAllowedOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAllowed) []int { return v.Hours }).(pulumi.IntArrayOutput)
 }

@@ -98,6 +98,8 @@ type ManagedPrivateEndpoint struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
 	SubresourceName pulumi.StringPtrOutput `pulumi:"subresourceName"`
 	// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
@@ -148,6 +150,8 @@ type managedPrivateEndpointState struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
 	SubresourceName *string `pulumi:"subresourceName"`
 	// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId *string `pulumi:"targetResourceId"`
@@ -163,6 +167,8 @@ type ManagedPrivateEndpointState struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
 	SubresourceName pulumi.StringPtrInput
 	// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringPtrInput
@@ -182,6 +188,8 @@ type managedPrivateEndpointArgs struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
 	SubresourceName *string `pulumi:"subresourceName"`
 	// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId string `pulumi:"targetResourceId"`
@@ -198,6 +206,8 @@ type ManagedPrivateEndpointArgs struct {
 	// Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
 	SubresourceName pulumi.StringPtrInput
 	// The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
 	TargetResourceId pulumi.StringInput
@@ -308,6 +318,8 @@ func (o ManagedPrivateEndpointOutput) Name() pulumi.StringOutput {
 }
 
 // Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+//
+// > **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
 func (o ManagedPrivateEndpointOutput) SubresourceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedPrivateEndpoint) pulumi.StringPtrOutput { return v.SubresourceName }).(pulumi.StringPtrOutput)
 }

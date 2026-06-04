@@ -607,6 +607,8 @@ class ApplicationGatewayBackendHttpSetting(dict):
             suggest = "affinity_cookie_name"
         elif key == "authenticationCertificates":
             suggest = "authentication_certificates"
+        elif key == "certificateChainValidationEnabled":
+            suggest = "certificate_chain_validation_enabled"
         elif key == "connectionDraining":
             suggest = "connection_draining"
         elif key == "dedicatedBackendConnectionEnabled":
@@ -621,6 +623,10 @@ class ApplicationGatewayBackendHttpSetting(dict):
             suggest = "probe_name"
         elif key == "requestTimeout":
             suggest = "request_timeout"
+        elif key == "sniName":
+            suggest = "sni_name"
+        elif key == "sniValidationEnabled":
+            suggest = "sni_validation_enabled"
         elif key == "trustedRootCertificateNames":
             suggest = "trusted_root_certificate_names"
 
@@ -642,6 +648,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
                  protocol: _builtins.str,
                  affinity_cookie_name: Optional[_builtins.str] = None,
                  authentication_certificates: Optional[Sequence['outputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificate']] = None,
+                 certificate_chain_validation_enabled: Optional[_builtins.bool] = None,
                  connection_draining: Optional['outputs.ApplicationGatewayBackendHttpSettingConnectionDraining'] = None,
                  dedicated_backend_connection_enabled: Optional[_builtins.bool] = None,
                  host_name: Optional[_builtins.str] = None,
@@ -651,6 +658,8 @@ class ApplicationGatewayBackendHttpSetting(dict):
                  probe_id: Optional[_builtins.str] = None,
                  probe_name: Optional[_builtins.str] = None,
                  request_timeout: Optional[_builtins.int] = None,
+                 sni_name: Optional[_builtins.str] = None,
+                 sni_validation_enabled: Optional[_builtins.bool] = None,
                  trusted_root_certificate_names: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str cookie_based_affinity: Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
@@ -659,6 +668,7 @@ class ApplicationGatewayBackendHttpSetting(dict):
         :param _builtins.str protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param _builtins.str affinity_cookie_name: The name of the affinity cookie.
         :param Sequence['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate_backend` blocks as defined below.
+        :param _builtins.bool certificate_chain_validation_enabled: Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
         :param 'ApplicationGatewayBackendHttpSettingConnectionDrainingArgs' connection_draining: A `connection_draining` block as defined below.
         :param _builtins.bool dedicated_backend_connection_enabled: Whether to use a dedicated backend connection. Defaults to `false`.
         :param _builtins.str host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
@@ -668,6 +678,10 @@ class ApplicationGatewayBackendHttpSetting(dict):
         :param _builtins.str probe_id: The ID of the associated Probe.
         :param _builtins.str probe_name: The name of an associated HTTP Probe.
         :param _builtins.int request_timeout: The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
+        :param _builtins.str sni_name: The Server Name Indication (SNI) hostname to send to the backend servers. 
+               
+               > **Note:** `sni_name` can only be set when `sni_validation_enabled` is set to `true`.
+        :param _builtins.bool sni_validation_enabled: Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
         :param Sequence[_builtins.str] trusted_root_certificate_names: A list of `trusted_root_certificate` names.
         """
         pulumi.set(__self__, "cookie_based_affinity", cookie_based_affinity)
@@ -678,6 +692,8 @@ class ApplicationGatewayBackendHttpSetting(dict):
             pulumi.set(__self__, "affinity_cookie_name", affinity_cookie_name)
         if authentication_certificates is not None:
             pulumi.set(__self__, "authentication_certificates", authentication_certificates)
+        if certificate_chain_validation_enabled is not None:
+            pulumi.set(__self__, "certificate_chain_validation_enabled", certificate_chain_validation_enabled)
         if connection_draining is not None:
             pulumi.set(__self__, "connection_draining", connection_draining)
         if dedicated_backend_connection_enabled is not None:
@@ -696,6 +712,10 @@ class ApplicationGatewayBackendHttpSetting(dict):
             pulumi.set(__self__, "probe_name", probe_name)
         if request_timeout is not None:
             pulumi.set(__self__, "request_timeout", request_timeout)
+        if sni_name is not None:
+            pulumi.set(__self__, "sni_name", sni_name)
+        if sni_validation_enabled is not None:
+            pulumi.set(__self__, "sni_validation_enabled", sni_validation_enabled)
         if trusted_root_certificate_names is not None:
             pulumi.set(__self__, "trusted_root_certificate_names", trusted_root_certificate_names)
 
@@ -746,6 +766,14 @@ class ApplicationGatewayBackendHttpSetting(dict):
         One or more `authentication_certificate_backend` blocks as defined below.
         """
         return pulumi.get(self, "authentication_certificates")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateChainValidationEnabled")
+    def certificate_chain_validation_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+        """
+        return pulumi.get(self, "certificate_chain_validation_enabled")
 
     @_builtins.property
     @pulumi.getter(name="connectionDraining")
@@ -818,6 +846,24 @@ class ApplicationGatewayBackendHttpSetting(dict):
         The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
         """
         return pulumi.get(self, "request_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="sniName")
+    def sni_name(self) -> Optional[_builtins.str]:
+        """
+        The Server Name Indication (SNI) hostname to send to the backend servers. 
+
+        > **Note:** `sni_name` can only be set when `sni_validation_enabled` is set to `true`.
+        """
+        return pulumi.get(self, "sni_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sniValidationEnabled")
+    def sni_validation_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+        """
+        return pulumi.get(self, "sni_validation_enabled")
 
     @_builtins.property
     @pulumi.getter(name="trustedRootCertificateNames")
@@ -13930,7 +13976,7 @@ class GetApplicationGatewayBackendResult(dict):
         :param _builtins.str name: The name of this Application Gateway.
         :param _builtins.int port: Custom port which is used for probing the backend servers.
         :param _builtins.str probe_id: The ID of the associated Probe.
-        :param _builtins.str probe_name: The name of the associated HTTP Probe.
+        :param _builtins.str probe_name: The name of the associated Probe.
         :param _builtins.str protocol: The Protocol used for this Probe.
         :param _builtins.int timeout_in_seconds: The request timeout in seconds for the Backend Settings.
         :param Sequence[_builtins.str] trusted_root_certificate_names: A list of `trusted_root_certificate` names.
@@ -13998,7 +14044,7 @@ class GetApplicationGatewayBackendResult(dict):
     @pulumi.getter(name="probeName")
     def probe_name(self) -> _builtins.str:
         """
-        The name of the associated HTTP Probe.
+        The name of the associated Probe.
         """
         return pulumi.get(self, "probe_name")
 
@@ -14083,6 +14129,7 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
     def __init__(__self__, *,
                  affinity_cookie_name: _builtins.str,
                  authentication_certificates: Sequence['outputs.GetApplicationGatewayBackendHttpSettingAuthenticationCertificateResult'],
+                 certificate_chain_validation_enabled: _builtins.bool,
                  connection_drainings: Sequence['outputs.GetApplicationGatewayBackendHttpSettingConnectionDrainingResult'],
                  cookie_based_affinity: _builtins.str,
                  dedicated_backend_connection_enabled: _builtins.bool,
@@ -14096,27 +14143,33 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
                  probe_name: _builtins.str,
                  protocol: _builtins.str,
                  request_timeout: _builtins.int,
+                 sni_name: _builtins.str,
+                 sni_validation_enabled: _builtins.bool,
                  trusted_root_certificate_names: Sequence[_builtins.str]):
         """
         :param _builtins.str affinity_cookie_name: The name of the affinity cookie.
         :param Sequence['GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs'] authentication_certificates: One or more `authentication_certificate` blocks as defined below.
+        :param _builtins.bool certificate_chain_validation_enabled: Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
         :param Sequence['GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs'] connection_drainings: A `connection_draining` block as defined below.
-        :param _builtins.str cookie_based_affinity: Is Cookie-Based Affinity enabled?
+        :param _builtins.str cookie_based_affinity: Whether Cookie-Based Affinity is enabled.
         :param _builtins.bool dedicated_backend_connection_enabled: Whether a dedicated backend connection is used.
         :param _builtins.str host_name: The Hostname which is used for this HTTP Listener.
         :param _builtins.str id: The ID of the Rewrite Rule Set
         :param _builtins.str name: The name of this Application Gateway.
         :param _builtins.str path: The URL path to rewrite.
-        :param _builtins.bool pick_host_name_from_backend_address: Whether host header will be picked from the host name of the backend server.
+        :param _builtins.bool pick_host_name_from_backend_address: Whether the host header is picked from the host name of the backend server.
         :param _builtins.int port: Custom port which is used for probing the backend servers.
         :param _builtins.str probe_id: The ID of the associated Probe.
-        :param _builtins.str probe_name: The name of the associated HTTP Probe.
+        :param _builtins.str probe_name: The name of the associated Probe.
         :param _builtins.str protocol: The Protocol used for this Probe.
         :param _builtins.int request_timeout: The request timeout in seconds.
+        :param _builtins.str sni_name: The Server Name Indication (SNI) hostname sent to the backend servers.
+        :param _builtins.bool sni_validation_enabled: Whether Server Name Indication (SNI) validation on the backend HTTPS servers is enabled.
         :param Sequence[_builtins.str] trusted_root_certificate_names: A list of `trusted_root_certificate` names.
         """
         pulumi.set(__self__, "affinity_cookie_name", affinity_cookie_name)
         pulumi.set(__self__, "authentication_certificates", authentication_certificates)
+        pulumi.set(__self__, "certificate_chain_validation_enabled", certificate_chain_validation_enabled)
         pulumi.set(__self__, "connection_drainings", connection_drainings)
         pulumi.set(__self__, "cookie_based_affinity", cookie_based_affinity)
         pulumi.set(__self__, "dedicated_backend_connection_enabled", dedicated_backend_connection_enabled)
@@ -14130,6 +14183,8 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
         pulumi.set(__self__, "probe_name", probe_name)
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "request_timeout", request_timeout)
+        pulumi.set(__self__, "sni_name", sni_name)
+        pulumi.set(__self__, "sni_validation_enabled", sni_validation_enabled)
         pulumi.set(__self__, "trusted_root_certificate_names", trusted_root_certificate_names)
 
     @_builtins.property
@@ -14149,6 +14204,14 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
         return pulumi.get(self, "authentication_certificates")
 
     @_builtins.property
+    @pulumi.getter(name="certificateChainValidationEnabled")
+    def certificate_chain_validation_enabled(self) -> _builtins.bool:
+        """
+        Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
+        """
+        return pulumi.get(self, "certificate_chain_validation_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="connectionDrainings")
     def connection_drainings(self) -> Sequence['outputs.GetApplicationGatewayBackendHttpSettingConnectionDrainingResult']:
         """
@@ -14160,7 +14223,7 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
     @pulumi.getter(name="cookieBasedAffinity")
     def cookie_based_affinity(self) -> _builtins.str:
         """
-        Is Cookie-Based Affinity enabled?
+        Whether Cookie-Based Affinity is enabled.
         """
         return pulumi.get(self, "cookie_based_affinity")
 
@@ -14208,7 +14271,7 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
     @pulumi.getter(name="pickHostNameFromBackendAddress")
     def pick_host_name_from_backend_address(self) -> _builtins.bool:
         """
-        Whether host header will be picked from the host name of the backend server.
+        Whether the host header is picked from the host name of the backend server.
         """
         return pulumi.get(self, "pick_host_name_from_backend_address")
 
@@ -14232,7 +14295,7 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
     @pulumi.getter(name="probeName")
     def probe_name(self) -> _builtins.str:
         """
-        The name of the associated HTTP Probe.
+        The name of the associated Probe.
         """
         return pulumi.get(self, "probe_name")
 
@@ -14251,6 +14314,22 @@ class GetApplicationGatewayBackendHttpSettingResult(dict):
         The request timeout in seconds.
         """
         return pulumi.get(self, "request_timeout")
+
+    @_builtins.property
+    @pulumi.getter(name="sniName")
+    def sni_name(self) -> _builtins.str:
+        """
+        The Server Name Indication (SNI) hostname sent to the backend servers.
+        """
+        return pulumi.get(self, "sni_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sniValidationEnabled")
+    def sni_validation_enabled(self) -> _builtins.bool:
+        """
+        Whether Server Name Indication (SNI) validation on the backend HTTPS servers is enabled.
+        """
+        return pulumi.get(self, "sni_validation_enabled")
 
     @_builtins.property
     @pulumi.getter(name="trustedRootCertificateNames")

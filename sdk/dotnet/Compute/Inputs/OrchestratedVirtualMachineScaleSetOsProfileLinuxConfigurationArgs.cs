@@ -32,7 +32,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs>? _adminSshKeys;
 
         /// <summary>
-        /// A `AdminSshKey` block as documented below.
+        /// An `AdminSshKey` block as defined above.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArgs> AdminSshKeys
         {
@@ -63,21 +63,21 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
         /// 
-        /// &gt; **Note:** If the `PatchAssessmentMode` is set to `AutomaticByPlatform` then the `ProvisionVmAgent` field must be set to `True`.
+        /// &gt; **Note:** If `PatchAssessmentMode` is set to `AutomaticByPlatform`, `ProvisionVmAgent` must be set to `True`.
         /// </summary>
         [Input("patchAssessmentMode")]
         public Input<string>? PatchAssessmentMode { get; set; }
 
         /// <summary>
-        /// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+        /// Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
         /// 
-        /// &gt; **Note:** If `PatchMode` is set to `AutomaticByPlatform` the `ProvisionVmAgent` must be set to `True` and the `Extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+        /// &gt; **Note:** If `PatchMode` is set to `AutomaticByPlatform`, `ProvisionVmAgent` must be set to `True` and the `Extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
         /// </summary>
         [Input("patchMode")]
         public Input<string>? PatchMode { get; set; }
 
         /// <summary>
-        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `True`. Changing this value forces a new resource to be created.
+        /// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `True`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("provisionVmAgent")]
         public Input<bool>? ProvisionVmAgent { get; set; }

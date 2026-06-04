@@ -26,7 +26,7 @@ public final class BackendProxy {
      * @return The username to connect to the proxy server.
      * 
      */
-    private String username;
+    private @Nullable String username;
 
     private BackendProxy() {}
     /**
@@ -47,8 +47,8 @@ public final class BackendProxy {
      * @return The username to connect to the proxy server.
      * 
      */
-    public String username() {
-        return this.username;
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
     }
 
     public static Builder builder() {
@@ -62,7 +62,7 @@ public final class BackendProxy {
     public static final class Builder {
         private @Nullable String password;
         private String url;
-        private String username;
+        private @Nullable String username;
         public Builder() {}
         public Builder(BackendProxy defaults) {
     	      Objects.requireNonNull(defaults);
@@ -86,10 +86,8 @@ public final class BackendProxy {
             return this;
         }
         @CustomType.Setter
-        public Builder username(String username) {
-            if (username == null) {
-              throw new MissingRequiredPropertyException("BackendProxy", "username");
-            }
+        public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }

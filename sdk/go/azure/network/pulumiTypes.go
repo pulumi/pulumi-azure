@@ -591,6 +591,8 @@ type ApplicationGatewayBackendHttpSetting struct {
 	AffinityCookieName *string `pulumi:"affinityCookieName"`
 	// One or more `authenticationCertificateBackend` blocks as defined below.
 	AuthenticationCertificates []ApplicationGatewayBackendHttpSettingAuthenticationCertificate `pulumi:"authenticationCertificates"`
+	// Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+	CertificateChainValidationEnabled *bool `pulumi:"certificateChainValidationEnabled"`
 	// A `connectionDraining` block as defined below.
 	ConnectionDraining *ApplicationGatewayBackendHttpSettingConnectionDraining `pulumi:"connectionDraining"`
 	// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
@@ -617,6 +619,12 @@ type ApplicationGatewayBackendHttpSetting struct {
 	Protocol string `pulumi:"protocol"`
 	// The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
 	RequestTimeout *int `pulumi:"requestTimeout"`
+	// The Server Name Indication (SNI) hostname to send to the backend servers.
+	//
+	// > **Note:** `sniName` can only be set when `sniValidationEnabled` is set to `true`.
+	SniName *string `pulumi:"sniName"`
+	// Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+	SniValidationEnabled *bool `pulumi:"sniValidationEnabled"`
 	// A list of `trustedRootCertificate` names.
 	TrustedRootCertificateNames []string `pulumi:"trustedRootCertificateNames"`
 }
@@ -637,6 +645,8 @@ type ApplicationGatewayBackendHttpSettingArgs struct {
 	AffinityCookieName pulumi.StringPtrInput `pulumi:"affinityCookieName"`
 	// One or more `authenticationCertificateBackend` blocks as defined below.
 	AuthenticationCertificates ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput `pulumi:"authenticationCertificates"`
+	// Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+	CertificateChainValidationEnabled pulumi.BoolPtrInput `pulumi:"certificateChainValidationEnabled"`
 	// A `connectionDraining` block as defined below.
 	ConnectionDraining ApplicationGatewayBackendHttpSettingConnectionDrainingPtrInput `pulumi:"connectionDraining"`
 	// Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
@@ -663,6 +673,12 @@ type ApplicationGatewayBackendHttpSettingArgs struct {
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
 	RequestTimeout pulumi.IntPtrInput `pulumi:"requestTimeout"`
+	// The Server Name Indication (SNI) hostname to send to the backend servers.
+	//
+	// > **Note:** `sniName` can only be set when `sniValidationEnabled` is set to `true`.
+	SniName pulumi.StringPtrInput `pulumi:"sniName"`
+	// Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+	SniValidationEnabled pulumi.BoolPtrInput `pulumi:"sniValidationEnabled"`
 	// A list of `trustedRootCertificate` names.
 	TrustedRootCertificateNames pulumi.StringArrayInput `pulumi:"trustedRootCertificateNames"`
 }
@@ -730,6 +746,11 @@ func (o ApplicationGatewayBackendHttpSettingOutput) AuthenticationCertificates()
 	}).(ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput)
 }
 
+// Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+func (o ApplicationGatewayBackendHttpSettingOutput) CertificateChainValidationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *bool { return v.CertificateChainValidationEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // A `connectionDraining` block as defined below.
 func (o ApplicationGatewayBackendHttpSettingOutput) ConnectionDraining() ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *ApplicationGatewayBackendHttpSettingConnectionDraining {
@@ -795,6 +816,18 @@ func (o ApplicationGatewayBackendHttpSettingOutput) Protocol() pulumi.StringOutp
 // The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
 func (o ApplicationGatewayBackendHttpSettingOutput) RequestTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *int { return v.RequestTimeout }).(pulumi.IntPtrOutput)
+}
+
+// The Server Name Indication (SNI) hostname to send to the backend servers.
+//
+// > **Note:** `sniName` can only be set when `sniValidationEnabled` is set to `true`.
+func (o ApplicationGatewayBackendHttpSettingOutput) SniName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *string { return v.SniName }).(pulumi.StringPtrOutput)
+}
+
+// Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+func (o ApplicationGatewayBackendHttpSettingOutput) SniValidationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *bool { return v.SniValidationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A list of `trustedRootCertificate` names.
@@ -28288,7 +28321,7 @@ type GetApplicationGatewayBackend struct {
 	Port int `pulumi:"port"`
 	// The ID of the associated Probe.
 	ProbeId string `pulumi:"probeId"`
-	// The name of the associated HTTP Probe.
+	// The name of the associated Probe.
 	ProbeName string `pulumi:"probeName"`
 	// The Protocol used for this Probe.
 	Protocol string `pulumi:"protocol"`
@@ -28322,7 +28355,7 @@ type GetApplicationGatewayBackendArgs struct {
 	Port pulumi.IntInput `pulumi:"port"`
 	// The ID of the associated Probe.
 	ProbeId pulumi.StringInput `pulumi:"probeId"`
-	// The name of the associated HTTP Probe.
+	// The name of the associated Probe.
 	ProbeName pulumi.StringInput `pulumi:"probeName"`
 	// The Protocol used for this Probe.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
@@ -28413,7 +28446,7 @@ func (o GetApplicationGatewayBackendOutput) ProbeId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackend) string { return v.ProbeId }).(pulumi.StringOutput)
 }
 
-// The name of the associated HTTP Probe.
+// The name of the associated Probe.
 func (o GetApplicationGatewayBackendOutput) ProbeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackend) string { return v.ProbeName }).(pulumi.StringOutput)
 }
@@ -28582,9 +28615,11 @@ type GetApplicationGatewayBackendHttpSetting struct {
 	AffinityCookieName string `pulumi:"affinityCookieName"`
 	// One or more `authenticationCertificate` blocks as defined below.
 	AuthenticationCertificates []GetApplicationGatewayBackendHttpSettingAuthenticationCertificate `pulumi:"authenticationCertificates"`
+	// Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
+	CertificateChainValidationEnabled bool `pulumi:"certificateChainValidationEnabled"`
 	// A `connectionDraining` block as defined below.
 	ConnectionDrainings []GetApplicationGatewayBackendHttpSettingConnectionDraining `pulumi:"connectionDrainings"`
-	// Is Cookie-Based Affinity enabled?
+	// Whether Cookie-Based Affinity is enabled.
 	CookieBasedAffinity string `pulumi:"cookieBasedAffinity"`
 	// Whether a dedicated backend connection is used.
 	DedicatedBackendConnectionEnabled bool `pulumi:"dedicatedBackendConnectionEnabled"`
@@ -28596,18 +28631,22 @@ type GetApplicationGatewayBackendHttpSetting struct {
 	Name string `pulumi:"name"`
 	// The URL path to rewrite.
 	Path string `pulumi:"path"`
-	// Whether host header will be picked from the host name of the backend server.
+	// Whether the host header is picked from the host name of the backend server.
 	PickHostNameFromBackendAddress bool `pulumi:"pickHostNameFromBackendAddress"`
 	// Custom port which is used for probing the backend servers.
 	Port int `pulumi:"port"`
 	// The ID of the associated Probe.
 	ProbeId string `pulumi:"probeId"`
-	// The name of the associated HTTP Probe.
+	// The name of the associated Probe.
 	ProbeName string `pulumi:"probeName"`
 	// The Protocol used for this Probe.
 	Protocol string `pulumi:"protocol"`
 	// The request timeout in seconds.
 	RequestTimeout int `pulumi:"requestTimeout"`
+	// The Server Name Indication (SNI) hostname sent to the backend servers.
+	SniName string `pulumi:"sniName"`
+	// Whether Server Name Indication (SNI) validation on the backend HTTPS servers is enabled.
+	SniValidationEnabled bool `pulumi:"sniValidationEnabled"`
 	// A list of `trustedRootCertificate` names.
 	TrustedRootCertificateNames []string `pulumi:"trustedRootCertificateNames"`
 }
@@ -28628,9 +28667,11 @@ type GetApplicationGatewayBackendHttpSettingArgs struct {
 	AffinityCookieName pulumi.StringInput `pulumi:"affinityCookieName"`
 	// One or more `authenticationCertificate` blocks as defined below.
 	AuthenticationCertificates GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput `pulumi:"authenticationCertificates"`
+	// Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
+	CertificateChainValidationEnabled pulumi.BoolInput `pulumi:"certificateChainValidationEnabled"`
 	// A `connectionDraining` block as defined below.
 	ConnectionDrainings GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayInput `pulumi:"connectionDrainings"`
-	// Is Cookie-Based Affinity enabled?
+	// Whether Cookie-Based Affinity is enabled.
 	CookieBasedAffinity pulumi.StringInput `pulumi:"cookieBasedAffinity"`
 	// Whether a dedicated backend connection is used.
 	DedicatedBackendConnectionEnabled pulumi.BoolInput `pulumi:"dedicatedBackendConnectionEnabled"`
@@ -28642,18 +28683,22 @@ type GetApplicationGatewayBackendHttpSettingArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The URL path to rewrite.
 	Path pulumi.StringInput `pulumi:"path"`
-	// Whether host header will be picked from the host name of the backend server.
+	// Whether the host header is picked from the host name of the backend server.
 	PickHostNameFromBackendAddress pulumi.BoolInput `pulumi:"pickHostNameFromBackendAddress"`
 	// Custom port which is used for probing the backend servers.
 	Port pulumi.IntInput `pulumi:"port"`
 	// The ID of the associated Probe.
 	ProbeId pulumi.StringInput `pulumi:"probeId"`
-	// The name of the associated HTTP Probe.
+	// The name of the associated Probe.
 	ProbeName pulumi.StringInput `pulumi:"probeName"`
 	// The Protocol used for this Probe.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// The request timeout in seconds.
 	RequestTimeout pulumi.IntInput `pulumi:"requestTimeout"`
+	// The Server Name Indication (SNI) hostname sent to the backend servers.
+	SniName pulumi.StringInput `pulumi:"sniName"`
+	// Whether Server Name Indication (SNI) validation on the backend HTTPS servers is enabled.
+	SniValidationEnabled pulumi.BoolInput `pulumi:"sniValidationEnabled"`
 	// A list of `trustedRootCertificate` names.
 	TrustedRootCertificateNames pulumi.StringArrayInput `pulumi:"trustedRootCertificateNames"`
 }
@@ -28721,6 +28766,11 @@ func (o GetApplicationGatewayBackendHttpSettingOutput) AuthenticationCertificate
 	}).(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput)
 }
 
+// Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
+func (o GetApplicationGatewayBackendHttpSettingOutput) CertificateChainValidationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) bool { return v.CertificateChainValidationEnabled }).(pulumi.BoolOutput)
+}
+
 // A `connectionDraining` block as defined below.
 func (o GetApplicationGatewayBackendHttpSettingOutput) ConnectionDrainings() GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) []GetApplicationGatewayBackendHttpSettingConnectionDraining {
@@ -28728,7 +28778,7 @@ func (o GetApplicationGatewayBackendHttpSettingOutput) ConnectionDrainings() Get
 	}).(GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput)
 }
 
-// Is Cookie-Based Affinity enabled?
+// Whether Cookie-Based Affinity is enabled.
 func (o GetApplicationGatewayBackendHttpSettingOutput) CookieBasedAffinity() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.CookieBasedAffinity }).(pulumi.StringOutput)
 }
@@ -28758,7 +28808,7 @@ func (o GetApplicationGatewayBackendHttpSettingOutput) Path() pulumi.StringOutpu
 	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.Path }).(pulumi.StringOutput)
 }
 
-// Whether host header will be picked from the host name of the backend server.
+// Whether the host header is picked from the host name of the backend server.
 func (o GetApplicationGatewayBackendHttpSettingOutput) PickHostNameFromBackendAddress() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) bool { return v.PickHostNameFromBackendAddress }).(pulumi.BoolOutput)
 }
@@ -28773,7 +28823,7 @@ func (o GetApplicationGatewayBackendHttpSettingOutput) ProbeId() pulumi.StringOu
 	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.ProbeId }).(pulumi.StringOutput)
 }
 
-// The name of the associated HTTP Probe.
+// The name of the associated Probe.
 func (o GetApplicationGatewayBackendHttpSettingOutput) ProbeName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.ProbeName }).(pulumi.StringOutput)
 }
@@ -28786,6 +28836,16 @@ func (o GetApplicationGatewayBackendHttpSettingOutput) Protocol() pulumi.StringO
 // The request timeout in seconds.
 func (o GetApplicationGatewayBackendHttpSettingOutput) RequestTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) int { return v.RequestTimeout }).(pulumi.IntOutput)
+}
+
+// The Server Name Indication (SNI) hostname sent to the backend servers.
+func (o GetApplicationGatewayBackendHttpSettingOutput) SniName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.SniName }).(pulumi.StringOutput)
+}
+
+// Whether Server Name Indication (SNI) validation on the backend HTTPS servers is enabled.
+func (o GetApplicationGatewayBackendHttpSettingOutput) SniValidationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) bool { return v.SniValidationEnabled }).(pulumi.BoolOutput)
 }
 
 // A list of `trustedRootCertificate` names.

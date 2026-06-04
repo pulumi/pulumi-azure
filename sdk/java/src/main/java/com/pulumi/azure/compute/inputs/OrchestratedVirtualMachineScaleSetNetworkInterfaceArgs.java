@@ -39,18 +39,22 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
     }
 
     /**
-     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
      * 
      * &gt; **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     * &gt; **Note:** `auxiliaryMode` and `auxiliarySku` must be specified together, and both fields require `networkApiVersion` later than `2020-11-01`.
      * 
      */
     @Import(name="auxiliarySku")
     private @Nullable Output<String> auxiliarySku;
 
     /**
-     * @return Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+     * @return Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
      * 
      * &gt; **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+     * 
+     * &gt; **Note:** `auxiliaryMode` and `auxiliarySku` must be specified together, and both fields require `networkApiVersion` later than `2020-11-01`.
      * 
      */
     public Optional<Output<String>> auxiliarySku() {
@@ -224,9 +228,11 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
         }
 
         /**
-         * @param auxiliarySku Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+         * @param auxiliarySku Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
          * 
          * &gt; **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         * 
+         * &gt; **Note:** `auxiliaryMode` and `auxiliarySku` must be specified together, and both fields require `networkApiVersion` later than `2020-11-01`.
          * 
          * @return builder
          * 
@@ -237,9 +243,11 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
         }
 
         /**
-         * @param auxiliarySku Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+         * @param auxiliarySku Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
          * 
          * &gt; **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         * 
+         * &gt; **Note:** `auxiliaryMode` and `auxiliarySku` must be specified together, and both fields require `networkApiVersion` later than `2020-11-01`.
          * 
          * @return builder
          * 

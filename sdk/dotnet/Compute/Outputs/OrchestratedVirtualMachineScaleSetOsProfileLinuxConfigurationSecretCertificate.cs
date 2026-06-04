@@ -15,8 +15,6 @@ namespace Pulumi.Azure.Compute.Outputs
     {
         /// <summary>
         /// The Secret URL of a Key Vault Certificate.
-        /// 
-        /// &gt; **Note:** This can be sourced from the `SecretId` field within the `azure.keyvault.Certificate` Resource.
         /// </summary>
         public readonly string Url;
 

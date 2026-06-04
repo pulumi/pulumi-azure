@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsDisk {
     /**
-     * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+     * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
      * 
      */
     private String caching;
@@ -28,7 +28,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
     /**
      * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
      * 
      */
     private @Nullable String diskEncryptionSetId;
@@ -38,7 +38,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
      */
     private @Nullable Integer diskSizeGb;
     /**
-     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * @return The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      */
     private String storageAccountType;
@@ -50,7 +50,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
 
     private OrchestratedVirtualMachineScaleSetOsDisk() {}
     /**
-     * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+     * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
      * 
      */
     public String caching() {
@@ -66,7 +66,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
     /**
      * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
      * 
      */
     public Optional<String> diskEncryptionSetId() {
@@ -80,7 +80,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDisk {
         return Optional.ofNullable(this.diskSizeGb);
     }
     /**
-     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * @return The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      */
     public String storageAccountType() {

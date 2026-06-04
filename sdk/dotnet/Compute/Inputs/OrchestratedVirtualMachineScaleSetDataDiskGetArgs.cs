@@ -13,13 +13,13 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetDataDiskGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+        /// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
         /// </summary>
         [Input("caching", required: true)]
         public Input<string> Caching { get; set; } = null!;
 
         /// <summary>
-        /// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+        /// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
         /// </summary>
         [Input("createOption")]
         public Input<string>? CreateOption { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<int>? Lun { get; set; }
 
         /// <summary>
-        /// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+        /// The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
         /// </summary>
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
