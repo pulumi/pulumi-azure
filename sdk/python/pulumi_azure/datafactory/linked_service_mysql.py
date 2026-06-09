@@ -24,6 +24,7 @@ class LinkedServiceMysqlArgs:
                  additional_properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  annotations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 driver_version: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -35,6 +36,9 @@ class LinkedServiceMysqlArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service MySQL.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service MySQL.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service MySQL.
+        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+               
+               > **Note:** New linked services must set `driver_version` to `V2`.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service MySQL.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service MySQL.
@@ -47,6 +51,8 @@ class LinkedServiceMysqlArgs:
             pulumi.set(__self__, "annotations", annotations)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if driver_version is not None:
+            pulumi.set(__self__, "driver_version", driver_version)
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if name is not None:
@@ -115,6 +121,20 @@ class LinkedServiceMysqlArgs:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="driverVersion")
+    def driver_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+
+        > **Note:** New linked services must set `driver_version` to `V2`.
+        """
+        return pulumi.get(self, "driver_version")
+
+    @driver_version.setter
+    def driver_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "driver_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")
     def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -159,6 +179,7 @@ class _LinkedServiceMysqlState:
                  connection_string: pulumi.Input[Optional[_builtins.str]] = None,
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 driver_version: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -170,6 +191,9 @@ class _LinkedServiceMysqlState:
         :param pulumi.Input[_builtins.str] connection_string: The connection string in which to authenticate with MySQL.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service MySQL.
+        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+               
+               > **Note:** New linked services must set `driver_version` to `V2`.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service MySQL.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service MySQL.
@@ -184,6 +208,8 @@ class _LinkedServiceMysqlState:
             pulumi.set(__self__, "data_factory_id", data_factory_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if driver_version is not None:
+            pulumi.set(__self__, "driver_version", driver_version)
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
         if name is not None:
@@ -252,6 +278,20 @@ class _LinkedServiceMysqlState:
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="driverVersion")
+    def driver_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+
+        > **Note:** New linked services must set `driver_version` to `V2`.
+        """
+        return pulumi.get(self, "driver_version")
+
+    @driver_version.setter
+    def driver_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "driver_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")
     def integration_runtime_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -299,6 +339,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
                  connection_string: pulumi.Input[Optional[_builtins.str]] = None,
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 driver_version: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -341,6 +382,9 @@ class LinkedServiceMysql(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connection_string: The connection string in which to authenticate with MySQL.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service MySQL.
+        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+               
+               > **Note:** New linked services must set `driver_version` to `V2`.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service MySQL.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service MySQL.
@@ -402,6 +446,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
                  connection_string: pulumi.Input[Optional[_builtins.str]] = None,
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 driver_version: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -423,6 +468,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
                 raise TypeError("Missing required property 'data_factory_id'")
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
+            __props__.__dict__["driver_version"] = driver_version
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
@@ -441,6 +487,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
             connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
+            driver_version: pulumi.Input[Optional[_builtins.str]] = None,
             integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'LinkedServiceMysql':
@@ -456,6 +503,9 @@ class LinkedServiceMysql(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connection_string: The connection string in which to authenticate with MySQL.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service MySQL.
+        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+               
+               > **Note:** New linked services must set `driver_version` to `V2`.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service MySQL.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Linked Service MySQL. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Linked Service MySQL.
@@ -469,6 +519,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
         __props__.__dict__["connection_string"] = connection_string
         __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["description"] = description
+        __props__.__dict__["driver_version"] = driver_version
         __props__.__dict__["integration_runtime_name"] = integration_runtime_name
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
@@ -513,6 +564,16 @@ class LinkedServiceMysql(pulumi.CustomResource):
         The description for the Data Factory Linked Service MySQL.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="driverVersion")
+    def driver_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+
+        > **Note:** New linked services must set `driver_version` to `V2`.
+        """
+        return pulumi.get(self, "driver_version")
 
     @_builtins.property
     @pulumi.getter(name="integrationRuntimeName")

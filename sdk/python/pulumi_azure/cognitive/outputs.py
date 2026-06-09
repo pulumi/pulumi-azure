@@ -643,7 +643,7 @@ class AccountNetworkInjection(dict):
         :param _builtins.str scenario: Specifies what features network injection applies to. The only possible value is `agent`.
         :param _builtins.str subnet_id: The ID of the subnet which the Agent Client is injected into.
                
-               > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+               > **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
         """
         pulumi.set(__self__, "scenario", scenario)
         pulumi.set(__self__, "subnet_id", subnet_id)
@@ -662,7 +662,7 @@ class AccountNetworkInjection(dict):
         """
         The ID of the subnet which the Agent Client is injected into.
 
-        > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+        > **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
         """
         return pulumi.get(self, "subnet_id")
 

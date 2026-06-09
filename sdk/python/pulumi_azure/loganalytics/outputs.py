@@ -129,7 +129,7 @@ class WorkspaceTableCustomLogColumn(dict):
                  display_name: Optional[_builtins.str] = None):
         """
         :param _builtins.str name: Specifies the name of the column.
-        :param _builtins.str type: The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+        :param _builtins.str type: The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
         :param _builtins.str description: The description of the column.
         :param _builtins.str display_name: The display name of the column.
         """
@@ -152,7 +152,7 @@ class WorkspaceTableCustomLogColumn(dict):
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+        The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
         """
         return pulumi.get(self, "type")
 

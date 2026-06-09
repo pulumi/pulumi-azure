@@ -57,7 +57,7 @@ public final class RecoveryservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices` - 2024-01-01
+     * * `Microsoft.RecoveryServices` - 2025-08-01
      * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args) {
@@ -105,7 +105,7 @@ public final class RecoveryservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices` - 2024-01-01
+     * * `Microsoft.RecoveryServices` - 2025-08-01
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args) {
@@ -153,7 +153,7 @@ public final class RecoveryservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices` - 2024-01-01
+     * * `Microsoft.RecoveryServices` - 2025-08-01
      * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args, InvokeOptions options) {
@@ -201,7 +201,7 @@ public final class RecoveryservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices` - 2024-01-01
+     * * `Microsoft.RecoveryServices` - 2025-08-01
      * 
      */
     public static Output<GetVaultResult> getVault(GetVaultArgs args, InvokeOutputOptions options) {
@@ -249,7 +249,7 @@ public final class RecoveryservicesFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.RecoveryServices` - 2024-01-01
+     * * `Microsoft.RecoveryServices` - 2025-08-01
      * 
      */
     public static CompletableFuture<GetVaultResult> getVaultPlain(GetVaultPlainArgs args, InvokeOptions options) {

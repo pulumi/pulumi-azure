@@ -6065,7 +6065,7 @@ class KubernetesClusterMaintenanceWindowAllowed(dict):
                  hours: Sequence[_builtins.int]):
         """
         :param _builtins.str day: A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
-        :param Sequence[_builtins.int] hours: An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+        :param Sequence[_builtins.int] hours: An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
         """
         pulumi.set(__self__, "day", day)
         pulumi.set(__self__, "hours", hours)
@@ -6082,7 +6082,7 @@ class KubernetesClusterMaintenanceWindowAllowed(dict):
     @pulumi.getter
     def hours(self) -> Sequence[_builtins.int]:
         """
-        An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+        An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
         """
         return pulumi.get(self, "hours")
 

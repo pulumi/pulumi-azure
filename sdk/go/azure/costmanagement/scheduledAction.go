@@ -78,7 +78,7 @@ type ScheduledAction struct {
 	EmailAddressSender pulumi.StringOutput `pulumi:"emailAddressSender"`
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses pulumi.StringArrayOutput `pulumi:"emailAddresses"`
-	// Subject of the email. Length is limited to 70 characters.
+	// Subject of the email. Length is limited to 50 characters.
 	EmailSubject pulumi.StringOutput `pulumi:"emailSubject"`
 	// The end date and time of the Scheduled Action (UTC).
 	EndDate pulumi.StringOutput `pulumi:"endDate"`
@@ -162,7 +162,7 @@ type scheduledActionState struct {
 	EmailAddressSender *string `pulumi:"emailAddressSender"`
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses []string `pulumi:"emailAddresses"`
-	// Subject of the email. Length is limited to 70 characters.
+	// Subject of the email. Length is limited to 50 characters.
 	EmailSubject *string `pulumi:"emailSubject"`
 	// The end date and time of the Scheduled Action (UTC).
 	EndDate *string `pulumi:"endDate"`
@@ -193,7 +193,7 @@ type ScheduledActionState struct {
 	EmailAddressSender pulumi.StringPtrInput
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses pulumi.StringArrayInput
-	// Subject of the email. Length is limited to 70 characters.
+	// Subject of the email. Length is limited to 50 characters.
 	EmailSubject pulumi.StringPtrInput
 	// The end date and time of the Scheduled Action (UTC).
 	EndDate pulumi.StringPtrInput
@@ -228,7 +228,7 @@ type scheduledActionArgs struct {
 	EmailAddressSender string `pulumi:"emailAddressSender"`
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses []string `pulumi:"emailAddresses"`
-	// Subject of the email. Length is limited to 70 characters.
+	// Subject of the email. Length is limited to 50 characters.
 	EmailSubject string `pulumi:"emailSubject"`
 	// The end date and time of the Scheduled Action (UTC).
 	EndDate string `pulumi:"endDate"`
@@ -260,7 +260,7 @@ type ScheduledActionArgs struct {
 	EmailAddressSender pulumi.StringInput
 	// Specifies a list of email addresses that will receive the Scheduled Action.
 	EmailAddresses pulumi.StringArrayInput
-	// Subject of the email. Length is limited to 70 characters.
+	// Subject of the email. Length is limited to 50 characters.
 	EmailSubject pulumi.StringInput
 	// The end date and time of the Scheduled Action (UTC).
 	EndDate pulumi.StringInput
@@ -392,7 +392,7 @@ func (o ScheduledActionOutput) EmailAddresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringArrayOutput { return v.EmailAddresses }).(pulumi.StringArrayOutput)
 }
 
-// Subject of the email. Length is limited to 70 characters.
+// Subject of the email. Length is limited to 50 characters.
 func (o ScheduledActionOutput) EmailSubject() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScheduledAction) pulumi.StringOutput { return v.EmailSubject }).(pulumi.StringOutput)
 }

@@ -93,14 +93,14 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Subject of the email. Length is limited to 70 characters.
+     * Subject of the email. Length is limited to 50 characters.
      * 
      */
     @Import(name="emailSubject")
     private @Nullable Output<String> emailSubject;
 
     /**
-     * @return Subject of the email. Length is limited to 70 characters.
+     * @return Subject of the email. Length is limited to 50 characters.
      * 
      */
     public Optional<Output<String>> emailSubject() {
@@ -390,7 +390,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param emailSubject Subject of the email. Length is limited to 70 characters.
+         * @param emailSubject Subject of the email. Length is limited to 50 characters.
          * 
          * @return builder
          * 
@@ -401,7 +401,7 @@ public final class ScheduledActionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param emailSubject Subject of the email. Length is limited to 70 characters.
+         * @param emailSubject Subject of the email. Length is limited to 50 characters.
          * 
          * @return builder
          * 

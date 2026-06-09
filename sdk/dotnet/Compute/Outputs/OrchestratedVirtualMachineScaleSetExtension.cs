@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// <summary>
         /// A `ProtectedSettingsFromKeyVault` block as defined below.
         /// 
-        /// &gt; **Note:** `ProtectedSettingsFromKeyVault` cannot be used with `ProtectedSettings`
+        /// &gt; **Note:** `ProtectedSettingsFromKeyVault` cannot be used with `ProtectedSettings`.
         /// </summary>
         public readonly Outputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault? ProtectedSettingsFromKeyVault;
         /// <summary>

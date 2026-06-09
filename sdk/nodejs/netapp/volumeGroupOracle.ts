@@ -333,7 +333,7 @@ export class VolumeGroupOracle extends pulumi.CustomResource {
      */
     declare public readonly accountName: pulumi.Output<string>;
     /**
-     * The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
     declare public readonly applicationIdentifier: pulumi.Output<string>;
     /**
@@ -416,7 +416,7 @@ export interface VolumeGroupOracleState {
      */
     accountName?: pulumi.Input<string | undefined>;
     /**
-     * The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
     applicationIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -450,7 +450,7 @@ export interface VolumeGroupOracleArgs {
      */
     accountName: pulumi.Input<string>;
     /**
-     * The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
      */
     applicationIdentifier: pulumi.Input<string>;
     /**

@@ -170,25 +170,29 @@ func (o ProviderEnhancedValidationPtrOutput) ResourceProviders() pulumi.BoolPtrO
 }
 
 type ProviderFeatures struct {
-	ApiManagement            *ProviderFeaturesApiManagement            `pulumi:"apiManagement"`
-	AppConfiguration         *ProviderFeaturesAppConfiguration         `pulumi:"appConfiguration"`
-	ApplicationInsights      *ProviderFeaturesApplicationInsights      `pulumi:"applicationInsights"`
-	CognitiveAccount         *ProviderFeaturesCognitiveAccount         `pulumi:"cognitiveAccount"`
-	DatabricksWorkspace      *ProviderFeaturesDatabricksWorkspace      `pulumi:"databricksWorkspace"`
-	KeyVault                 *ProviderFeaturesKeyVault                 `pulumi:"keyVault"`
-	LogAnalyticsWorkspace    *ProviderFeaturesLogAnalyticsWorkspace    `pulumi:"logAnalyticsWorkspace"`
-	MachineLearning          *ProviderFeaturesMachineLearning          `pulumi:"machineLearning"`
-	ManagedDisk              *ProviderFeaturesManagedDisk              `pulumi:"managedDisk"`
-	Netapp                   *ProviderFeaturesNetapp                   `pulumi:"netapp"`
-	PostgresqlFlexibleServer *ProviderFeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
-	RecoveryService          *ProviderFeaturesRecoveryService          `pulumi:"recoveryService"`
-	RecoveryServicesVaults   *ProviderFeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
-	ResourceGroup            *ProviderFeaturesResourceGroup            `pulumi:"resourceGroup"`
-	Storage                  *ProviderFeaturesStorage                  `pulumi:"storage"`
-	Subscription             *ProviderFeaturesSubscription             `pulumi:"subscription"`
-	TemplateDeployment       *ProviderFeaturesTemplateDeployment       `pulumi:"templateDeployment"`
-	VirtualMachine           *ProviderFeaturesVirtualMachine           `pulumi:"virtualMachine"`
-	VirtualMachineScaleSet   *ProviderFeaturesVirtualMachineScaleSet   `pulumi:"virtualMachineScaleSet"`
+	ApiManagement         *ProviderFeaturesApiManagement         `pulumi:"apiManagement"`
+	AppConfiguration      *ProviderFeaturesAppConfiguration      `pulumi:"appConfiguration"`
+	ApplicationInsights   *ProviderFeaturesApplicationInsights   `pulumi:"applicationInsights"`
+	CognitiveAccount      *ProviderFeaturesCognitiveAccount      `pulumi:"cognitiveAccount"`
+	DatabricksWorkspace   *ProviderFeaturesDatabricksWorkspace   `pulumi:"databricksWorkspace"`
+	KeyVault              *ProviderFeaturesKeyVault              `pulumi:"keyVault"`
+	LogAnalyticsWorkspace *ProviderFeaturesLogAnalyticsWorkspace `pulumi:"logAnalyticsWorkspace"`
+	MachineLearning       *ProviderFeaturesMachineLearning       `pulumi:"machineLearning"`
+	ManagedDisk           *ProviderFeaturesManagedDisk           `pulumi:"managedDisk"`
+	Netapp                *ProviderFeaturesNetapp                `pulumi:"netapp"`
+	// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+	PersistIdOnCreateBeforePollingForCompletion *bool                                     `pulumi:"persistIdOnCreateBeforePollingForCompletion"`
+	PostgresqlFlexibleServer                    *ProviderFeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
+	RecoveryService                             *ProviderFeaturesRecoveryService          `pulumi:"recoveryService"`
+	RecoveryServicesVaults                      *ProviderFeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
+	ResourceGroup                               *ProviderFeaturesResourceGroup            `pulumi:"resourceGroup"`
+	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+	SkipImportCheckOnCreateAndAllowOverwritingExistingResources *bool                                   `pulumi:"skipImportCheckOnCreateAndAllowOverwritingExistingResources"`
+	Storage                                                     *ProviderFeaturesStorage                `pulumi:"storage"`
+	Subscription                                                *ProviderFeaturesSubscription           `pulumi:"subscription"`
+	TemplateDeployment                                          *ProviderFeaturesTemplateDeployment     `pulumi:"templateDeployment"`
+	VirtualMachine                                              *ProviderFeaturesVirtualMachine         `pulumi:"virtualMachine"`
+	VirtualMachineScaleSet                                      *ProviderFeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
 }
 
 // ProviderFeaturesInput is an input type that accepts ProviderFeaturesArgs and ProviderFeaturesOutput values.
@@ -203,25 +207,29 @@ type ProviderFeaturesInput interface {
 }
 
 type ProviderFeaturesArgs struct {
-	ApiManagement            ProviderFeaturesApiManagementPtrInput            `pulumi:"apiManagement"`
-	AppConfiguration         ProviderFeaturesAppConfigurationPtrInput         `pulumi:"appConfiguration"`
-	ApplicationInsights      ProviderFeaturesApplicationInsightsPtrInput      `pulumi:"applicationInsights"`
-	CognitiveAccount         ProviderFeaturesCognitiveAccountPtrInput         `pulumi:"cognitiveAccount"`
-	DatabricksWorkspace      ProviderFeaturesDatabricksWorkspacePtrInput      `pulumi:"databricksWorkspace"`
-	KeyVault                 ProviderFeaturesKeyVaultPtrInput                 `pulumi:"keyVault"`
-	LogAnalyticsWorkspace    ProviderFeaturesLogAnalyticsWorkspacePtrInput    `pulumi:"logAnalyticsWorkspace"`
-	MachineLearning          ProviderFeaturesMachineLearningPtrInput          `pulumi:"machineLearning"`
-	ManagedDisk              ProviderFeaturesManagedDiskPtrInput              `pulumi:"managedDisk"`
-	Netapp                   ProviderFeaturesNetappPtrInput                   `pulumi:"netapp"`
-	PostgresqlFlexibleServer ProviderFeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
-	RecoveryService          ProviderFeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
-	RecoveryServicesVaults   ProviderFeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
-	ResourceGroup            ProviderFeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
-	Storage                  ProviderFeaturesStoragePtrInput                  `pulumi:"storage"`
-	Subscription             ProviderFeaturesSubscriptionPtrInput             `pulumi:"subscription"`
-	TemplateDeployment       ProviderFeaturesTemplateDeploymentPtrInput       `pulumi:"templateDeployment"`
-	VirtualMachine           ProviderFeaturesVirtualMachinePtrInput           `pulumi:"virtualMachine"`
-	VirtualMachineScaleSet   ProviderFeaturesVirtualMachineScaleSetPtrInput   `pulumi:"virtualMachineScaleSet"`
+	ApiManagement         ProviderFeaturesApiManagementPtrInput         `pulumi:"apiManagement"`
+	AppConfiguration      ProviderFeaturesAppConfigurationPtrInput      `pulumi:"appConfiguration"`
+	ApplicationInsights   ProviderFeaturesApplicationInsightsPtrInput   `pulumi:"applicationInsights"`
+	CognitiveAccount      ProviderFeaturesCognitiveAccountPtrInput      `pulumi:"cognitiveAccount"`
+	DatabricksWorkspace   ProviderFeaturesDatabricksWorkspacePtrInput   `pulumi:"databricksWorkspace"`
+	KeyVault              ProviderFeaturesKeyVaultPtrInput              `pulumi:"keyVault"`
+	LogAnalyticsWorkspace ProviderFeaturesLogAnalyticsWorkspacePtrInput `pulumi:"logAnalyticsWorkspace"`
+	MachineLearning       ProviderFeaturesMachineLearningPtrInput       `pulumi:"machineLearning"`
+	ManagedDisk           ProviderFeaturesManagedDiskPtrInput           `pulumi:"managedDisk"`
+	Netapp                ProviderFeaturesNetappPtrInput                `pulumi:"netapp"`
+	// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+	PersistIdOnCreateBeforePollingForCompletion pulumi.BoolPtrInput                              `pulumi:"persistIdOnCreateBeforePollingForCompletion"`
+	PostgresqlFlexibleServer                    ProviderFeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
+	RecoveryService                             ProviderFeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
+	RecoveryServicesVaults                      ProviderFeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
+	ResourceGroup                               ProviderFeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
+	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+	SkipImportCheckOnCreateAndAllowOverwritingExistingResources pulumi.BoolPtrInput                            `pulumi:"skipImportCheckOnCreateAndAllowOverwritingExistingResources"`
+	Storage                                                     ProviderFeaturesStoragePtrInput                `pulumi:"storage"`
+	Subscription                                                ProviderFeaturesSubscriptionPtrInput           `pulumi:"subscription"`
+	TemplateDeployment                                          ProviderFeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
+	VirtualMachine                                              ProviderFeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
+	VirtualMachineScaleSet                                      ProviderFeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
 }
 
 func (ProviderFeaturesArgs) ElementType() reflect.Type {
@@ -341,6 +349,11 @@ func (o ProviderFeaturesOutput) Netapp() ProviderFeaturesNetappPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesNetapp { return v.Netapp }).(ProviderFeaturesNetappPtrOutput)
 }
 
+// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+func (o ProviderFeaturesOutput) PersistIdOnCreateBeforePollingForCompletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *bool { return v.PersistIdOnCreateBeforePollingForCompletion }).(pulumi.BoolPtrOutput)
+}
+
 func (o ProviderFeaturesOutput) PostgresqlFlexibleServer() ProviderFeaturesPostgresqlFlexibleServerPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesPostgresqlFlexibleServer { return v.PostgresqlFlexibleServer }).(ProviderFeaturesPostgresqlFlexibleServerPtrOutput)
 }
@@ -355,6 +368,11 @@ func (o ProviderFeaturesOutput) RecoveryServicesVaults() ProviderFeaturesRecover
 
 func (o ProviderFeaturesOutput) ResourceGroup() ProviderFeaturesResourceGroupPtrOutput {
 	return o.ApplyT(func(v ProviderFeatures) *ProviderFeaturesResourceGroup { return v.ResourceGroup }).(ProviderFeaturesResourceGroupPtrOutput)
+}
+
+// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+func (o ProviderFeaturesOutput) SkipImportCheckOnCreateAndAllowOverwritingExistingResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ProviderFeatures) *bool { return v.SkipImportCheckOnCreateAndAllowOverwritingExistingResources }).(pulumi.BoolPtrOutput)
 }
 
 func (o ProviderFeaturesOutput) Storage() ProviderFeaturesStoragePtrOutput {
@@ -491,6 +509,16 @@ func (o ProviderFeaturesPtrOutput) Netapp() ProviderFeaturesNetappPtrOutput {
 	}).(ProviderFeaturesNetappPtrOutput)
 }
 
+// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+func (o ProviderFeaturesPtrOutput) PersistIdOnCreateBeforePollingForCompletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PersistIdOnCreateBeforePollingForCompletion
+	}).(pulumi.BoolPtrOutput)
+}
+
 func (o ProviderFeaturesPtrOutput) PostgresqlFlexibleServer() ProviderFeaturesPostgresqlFlexibleServerPtrOutput {
 	return o.ApplyT(func(v *ProviderFeatures) *ProviderFeaturesPostgresqlFlexibleServer {
 		if v == nil {
@@ -525,6 +553,16 @@ func (o ProviderFeaturesPtrOutput) ResourceGroup() ProviderFeaturesResourceGroup
 		}
 		return v.ResourceGroup
 	}).(ProviderFeaturesResourceGroupPtrOutput)
+}
+
+// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+func (o ProviderFeaturesPtrOutput) SkipImportCheckOnCreateAndAllowOverwritingExistingResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ProviderFeatures) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipImportCheckOnCreateAndAllowOverwritingExistingResources
+	}).(pulumi.BoolPtrOutput)
 }
 
 func (o ProviderFeaturesPtrOutput) Storage() ProviderFeaturesStoragePtrOutput {

@@ -16,6 +16,21 @@ public final class VaultMonitoringArgs extends com.pulumi.resources.ResourceArgs
     public static final VaultMonitoringArgs Empty = new VaultMonitoringArgs();
 
     /**
+     * Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+     * 
+     */
+    @Import(name="alertsForAllFailoverIssuesEnabled")
+    private @Nullable Output<Boolean> alertsForAllFailoverIssuesEnabled;
+
+    /**
+     * @return Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> alertsForAllFailoverIssuesEnabled() {
+        return Optional.ofNullable(this.alertsForAllFailoverIssuesEnabled);
+    }
+
+    /**
      * Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
      * 
      */
@@ -28,6 +43,21 @@ public final class VaultMonitoringArgs extends com.pulumi.resources.ResourceArgs
      */
     public Optional<Output<Boolean>> alertsForAllJobFailuresEnabled() {
         return Optional.ofNullable(this.alertsForAllJobFailuresEnabled);
+    }
+
+    /**
+     * Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+     * 
+     */
+    @Import(name="alertsForAllReplicationIssuesEnabled")
+    private @Nullable Output<Boolean> alertsForAllReplicationIssuesEnabled;
+
+    /**
+     * @return Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> alertsForAllReplicationIssuesEnabled() {
+        return Optional.ofNullable(this.alertsForAllReplicationIssuesEnabled);
     }
 
     /**
@@ -45,11 +75,29 @@ public final class VaultMonitoringArgs extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.alertsForCriticalOperationFailuresEnabled);
     }
 
+    /**
+     * Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+     * 
+     */
+    @Import(name="emailNotificationsForSiteRecoveryEnabled")
+    private @Nullable Output<Boolean> emailNotificationsForSiteRecoveryEnabled;
+
+    /**
+     * @return Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> emailNotificationsForSiteRecoveryEnabled() {
+        return Optional.ofNullable(this.emailNotificationsForSiteRecoveryEnabled);
+    }
+
     private VaultMonitoringArgs() {}
 
     private VaultMonitoringArgs(VaultMonitoringArgs $) {
+        this.alertsForAllFailoverIssuesEnabled = $.alertsForAllFailoverIssuesEnabled;
         this.alertsForAllJobFailuresEnabled = $.alertsForAllJobFailuresEnabled;
+        this.alertsForAllReplicationIssuesEnabled = $.alertsForAllReplicationIssuesEnabled;
         this.alertsForCriticalOperationFailuresEnabled = $.alertsForCriticalOperationFailuresEnabled;
+        this.emailNotificationsForSiteRecoveryEnabled = $.emailNotificationsForSiteRecoveryEnabled;
     }
 
     public static Builder builder() {
@@ -68,6 +116,27 @@ public final class VaultMonitoringArgs extends com.pulumi.resources.ResourceArgs
 
         public Builder(VaultMonitoringArgs defaults) {
             $ = new VaultMonitoringArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param alertsForAllFailoverIssuesEnabled Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alertsForAllFailoverIssuesEnabled(@Nullable Output<Boolean> alertsForAllFailoverIssuesEnabled) {
+            $.alertsForAllFailoverIssuesEnabled = alertsForAllFailoverIssuesEnabled;
+            return this;
+        }
+
+        /**
+         * @param alertsForAllFailoverIssuesEnabled Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alertsForAllFailoverIssuesEnabled(Boolean alertsForAllFailoverIssuesEnabled) {
+            return alertsForAllFailoverIssuesEnabled(Output.of(alertsForAllFailoverIssuesEnabled));
         }
 
         /**
@@ -92,6 +161,27 @@ public final class VaultMonitoringArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param alertsForAllReplicationIssuesEnabled Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alertsForAllReplicationIssuesEnabled(@Nullable Output<Boolean> alertsForAllReplicationIssuesEnabled) {
+            $.alertsForAllReplicationIssuesEnabled = alertsForAllReplicationIssuesEnabled;
+            return this;
+        }
+
+        /**
+         * @param alertsForAllReplicationIssuesEnabled Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alertsForAllReplicationIssuesEnabled(Boolean alertsForAllReplicationIssuesEnabled) {
+            return alertsForAllReplicationIssuesEnabled(Output.of(alertsForAllReplicationIssuesEnabled));
+        }
+
+        /**
          * @param alertsForCriticalOperationFailuresEnabled Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
          * 
          * @return builder
@@ -110,6 +200,27 @@ public final class VaultMonitoringArgs extends com.pulumi.resources.ResourceArgs
          */
         public Builder alertsForCriticalOperationFailuresEnabled(Boolean alertsForCriticalOperationFailuresEnabled) {
             return alertsForCriticalOperationFailuresEnabled(Output.of(alertsForCriticalOperationFailuresEnabled));
+        }
+
+        /**
+         * @param emailNotificationsForSiteRecoveryEnabled Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailNotificationsForSiteRecoveryEnabled(@Nullable Output<Boolean> emailNotificationsForSiteRecoveryEnabled) {
+            $.emailNotificationsForSiteRecoveryEnabled = emailNotificationsForSiteRecoveryEnabled;
+            return this;
+        }
+
+        /**
+         * @param emailNotificationsForSiteRecoveryEnabled Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailNotificationsForSiteRecoveryEnabled(Boolean emailNotificationsForSiteRecoveryEnabled) {
+            return emailNotificationsForSiteRecoveryEnabled(Output.of(emailNotificationsForSiteRecoveryEnabled));
         }
 
         public VaultMonitoringArgs build() {

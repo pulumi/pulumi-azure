@@ -1483,7 +1483,7 @@ type AccountNetworkInjection struct {
 	Scenario string `pulumi:"scenario"`
 	// The ID of the subnet which the Agent Client is injected into.
 	//
-	// > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+	// > **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -1503,7 +1503,7 @@ type AccountNetworkInjectionArgs struct {
 	Scenario pulumi.StringInput `pulumi:"scenario"`
 	// The ID of the subnet which the Agent Client is injected into.
 	//
-	// > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+	// > **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -1591,7 +1591,7 @@ func (o AccountNetworkInjectionOutput) Scenario() pulumi.StringOutput {
 
 // The ID of the subnet which the Agent Client is injected into.
 //
-// > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+// > **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
 func (o AccountNetworkInjectionOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountNetworkInjection) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -1632,7 +1632,7 @@ func (o AccountNetworkInjectionPtrOutput) Scenario() pulumi.StringPtrOutput {
 
 // The ID of the subnet which the Agent Client is injected into.
 //
-// > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+// > **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
 func (o AccountNetworkInjectionPtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountNetworkInjection) *string {
 		if v == nil {

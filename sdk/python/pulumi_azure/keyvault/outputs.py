@@ -40,6 +40,7 @@ __all__ = [
     'CertificateCertificatePolicyX509CertificatePropertiesSubjectAlternativeNames',
     'CertificateContactsContact',
     'CertificateIssuerAdmin',
+    'KeyReleasePolicy',
     'KeyRotationPolicy',
     'KeyRotationPolicyAutomatic',
     'KeyVaultAccessPolicy',
@@ -1495,6 +1496,40 @@ class CertificateIssuerAdmin(dict):
         Phone number of the admin.
         """
         return pulumi.get(self, "phone")
+
+
+@pulumi.output_type
+class KeyReleasePolicy(dict):
+    def __init__(__self__, *,
+                 json: _builtins.str,
+                 immutable: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str json: The policy contents in JSON format.
+        :param _builtins.bool immutable: Whether this policy is immutable. Defaults to `false`.
+               
+               > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+        """
+        pulumi.set(__self__, "json", json)
+        if immutable is not None:
+            pulumi.set(__self__, "immutable", immutable)
+
+    @_builtins.property
+    @pulumi.getter
+    def json(self) -> _builtins.str:
+        """
+        The policy contents in JSON format.
+        """
+        return pulumi.get(self, "json")
+
+    @_builtins.property
+    @pulumi.getter
+    def immutable(self) -> Optional[_builtins.bool]:
+        """
+        Whether this policy is immutable. Defaults to `false`.
+
+        > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+        """
+        return pulumi.get(self, "immutable")
 
 
 @pulumi.output_type

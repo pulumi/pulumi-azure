@@ -13,17 +13,28 @@ namespace Pulumi.Azure.Compute.Inputs
     public sealed class OrchestratedVirtualMachineScaleSetSkuProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+        /// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
         /// </summary>
         [Input("allocationStrategy", required: true)]
         public Input<string> AllocationStrategy { get; set; } = null!;
 
-        [Input("vmSizes", required: true)]
-        private InputList<string>? _vmSizes;
+        [Input("virtualMachineSizes")]
+        private InputList<Inputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs>? _virtualMachineSizes;
 
         /// <summary>
-        /// Specifies the VM sizes for the virtual machine scale set.
+        /// One or more `VirtualMachineSize` blocks as defined below.
+        /// 
+        /// &gt; **Note:** When `AllocationStrategy` is set to `Prioritized`, you must use the `VirtualMachineSize` block to specify rank values.
         /// </summary>
+        public InputList<Inputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs> VirtualMachineSizes
+        {
+            get => _virtualMachineSizes ?? (_virtualMachineSizes = new InputList<Inputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs>());
+            set => _virtualMachineSizes = value;
+        }
+
+        [Input("vmSizes")]
+        private InputList<string>? _vmSizes;
+        [Obsolete(@"The `VmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `VirtualMachineSize` block instead.")]
         public InputList<string> VmSizes
         {
             get => _vmSizes ?? (_vmSizes = new InputList<string>());

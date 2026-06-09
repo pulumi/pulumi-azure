@@ -130,7 +130,7 @@ class WorkspaceTableCustomLogColumnArgsDict(TypedDict):
     """
     type: pulumi.Input[_builtins.str]
     """
-    The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+    The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -150,7 +150,7 @@ class WorkspaceTableCustomLogColumnArgs:
                  display_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Specifies the name of the column.
-        :param pulumi.Input[_builtins.str] type: The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+        :param pulumi.Input[_builtins.str] type: The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
         :param pulumi.Input[_builtins.str] description: The description of the column.
         :param pulumi.Input[_builtins.str] display_name: The display name of the column.
         """
@@ -177,7 +177,7 @@ class WorkspaceTableCustomLogColumnArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+        The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
         """
         return pulumi.get(self, "type")
 

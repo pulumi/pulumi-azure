@@ -68,7 +68,7 @@ export interface GetOrchestratedVirtualMachineScaleSetResult {
      */
     readonly location: string;
     /**
-     * The name of the public IP address configuration
+     * The name of the VM size.
      */
     readonly name: string;
     /**
@@ -76,6 +76,10 @@ export interface GetOrchestratedVirtualMachineScaleSetResult {
      */
     readonly networkInterfaces: outputs.compute.GetOrchestratedVirtualMachineScaleSetNetworkInterface[];
     readonly resourceGroupName: string;
+    /**
+     * A `skuProfile` block as defined below.
+     */
+    readonly skuProfiles: outputs.compute.GetOrchestratedVirtualMachineScaleSetSkuProfile[];
 }
 /**
  * Use this data source to access information about an existing Orchestrated Virtual Machine Scale Set.

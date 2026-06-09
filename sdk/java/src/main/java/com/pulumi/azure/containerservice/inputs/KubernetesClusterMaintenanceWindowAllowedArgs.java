@@ -32,14 +32,14 @@ public final class KubernetesClusterMaintenanceWindowAllowedArgs extends com.pul
     }
 
     /**
-     * An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+     * An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
      * 
      */
     @Import(name="hours", required=true)
     private Output<List<Integer>> hours;
 
     /**
-     * @return An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+     * @return An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
      * 
      */
     public Output<List<Integer>> hours() {
@@ -93,7 +93,7 @@ public final class KubernetesClusterMaintenanceWindowAllowedArgs extends com.pul
         }
 
         /**
-         * @param hours An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+         * @param hours An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class KubernetesClusterMaintenanceWindowAllowedArgs extends com.pul
         }
 
         /**
-         * @param hours An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+         * @param hours An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class KubernetesClusterMaintenanceWindowAllowedArgs extends com.pul
         }
 
         /**
-         * @param hours An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+         * @param hours An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
          * 
          * @return builder
          * 

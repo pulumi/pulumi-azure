@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .columns(WorkspaceTableCustomLogColumnArgs.builder()
  *                 .name("TimeGenerated")
- *                 .type("datetime")
+ *                 .type("dateTime")
  *                 .build())
  *             .build());
  * 

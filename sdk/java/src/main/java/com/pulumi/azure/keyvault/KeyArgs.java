@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.keyvault;
 
+import com.pulumi.azure.keyvault.inputs.KeyReleasePolicyArgs;
 import com.pulumi.azure.keyvault.inputs.KeyRotationPolicyArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -55,14 +56,14 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
      * 
      */
     @Import(name="keyOpts", required=true)
     private Output<List<String>> keyOpts;
 
     /**
-     * @return A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+     * @return A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
      * 
      */
     public Output<List<String>> keyOpts() {
@@ -149,6 +150,25 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+     * 
+     */
+    @Import(name="releasePolicy")
+    private @Nullable Output<KeyReleasePolicyArgs> releasePolicy;
+
+    /**
+     * @return A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+     * 
+     */
+    public Optional<Output<KeyReleasePolicyArgs>> releasePolicy() {
+        return Optional.ofNullable(this.releasePolicy);
+    }
+
+    /**
      * A `rotationPolicy` block as defined below.
      * 
      */
@@ -189,6 +209,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         this.keyVaultId = $.keyVaultId;
         this.name = $.name;
         this.notBeforeDate = $.notBeforeDate;
+        this.releasePolicy = $.releasePolicy;
         this.rotationPolicy = $.rotationPolicy;
         this.tags = $.tags;
     }
@@ -258,7 +279,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
          * 
          * @return builder
          * 
@@ -269,7 +290,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
          * 
          * @return builder
          * 
@@ -279,7 +300,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+         * @param keyOpts A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
          * 
          * @return builder
          * 
@@ -395,6 +416,31 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder notBeforeDate(String notBeforeDate) {
             return notBeforeDate(Output.of(notBeforeDate));
+        }
+
+        /**
+         * @param releasePolicy A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder releasePolicy(@Nullable Output<KeyReleasePolicyArgs> releasePolicy) {
+            $.releasePolicy = releasePolicy;
+            return this;
+        }
+
+        /**
+         * @param releasePolicy A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder releasePolicy(KeyReleasePolicyArgs releasePolicy) {
+            return releasePolicy(Output.of(releasePolicy));
         }
 
         /**

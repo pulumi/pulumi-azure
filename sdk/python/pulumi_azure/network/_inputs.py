@@ -809,6 +809,10 @@ class ApplicationGatewayBackendHttpSettingArgsDict(TypedDict):
     """
     One or more `authentication_certificate_backend` blocks as defined below.
     """
+    certificate_chain_validation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+    """
     connection_draining: NotRequired[pulumi.Input[Optional['ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict']]]
     """
     A `connection_draining` block as defined below.
@@ -845,6 +849,16 @@ class ApplicationGatewayBackendHttpSettingArgsDict(TypedDict):
     """
     The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
     """
+    sni_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Server Name Indication (SNI) hostname to send to the backend servers. 
+
+    > **Note:** `sni_name` can only be set when `sni_validation_enabled` is set to `true`.
+    """
+    sni_validation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+    """
     trusted_root_certificate_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of `trusted_root_certificate` names.
@@ -859,6 +873,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
                  protocol: pulumi.Input[_builtins.str],
                  affinity_cookie_name: pulumi.Input[Optional[_builtins.str]] = None,
                  authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]] = None,
+                 certificate_chain_validation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  connection_draining: pulumi.Input[Optional['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']] = None,
                  dedicated_backend_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  host_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -868,6 +883,8 @@ class ApplicationGatewayBackendHttpSettingArgs:
                  probe_id: pulumi.Input[Optional[_builtins.str]] = None,
                  probe_name: pulumi.Input[Optional[_builtins.str]] = None,
                  request_timeout: pulumi.Input[Optional[_builtins.int]] = None,
+                 sni_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 sni_validation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  trusted_root_certificate_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] cookie_based_affinity: Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
@@ -876,6 +893,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
         :param pulumi.Input[_builtins.str] protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param pulumi.Input[_builtins.str] affinity_cookie_name: The name of the affinity cookie.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate_backend` blocks as defined below.
+        :param pulumi.Input[_builtins.bool] certificate_chain_validation_enabled: Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
         :param pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs'] connection_draining: A `connection_draining` block as defined below.
         :param pulumi.Input[_builtins.bool] dedicated_backend_connection_enabled: Whether to use a dedicated backend connection. Defaults to `false`.
         :param pulumi.Input[_builtins.str] host_name: Host header to be sent to the backend servers. Cannot be set if `pick_host_name_from_backend_address` is set to `true`.
@@ -885,6 +903,10 @@ class ApplicationGatewayBackendHttpSettingArgs:
         :param pulumi.Input[_builtins.str] probe_id: The ID of the associated Probe.
         :param pulumi.Input[_builtins.str] probe_name: The name of an associated HTTP Probe.
         :param pulumi.Input[_builtins.int] request_timeout: The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
+        :param pulumi.Input[_builtins.str] sni_name: The Server Name Indication (SNI) hostname to send to the backend servers. 
+               
+               > **Note:** `sni_name` can only be set when `sni_validation_enabled` is set to `true`.
+        :param pulumi.Input[_builtins.bool] sni_validation_enabled: Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trusted_root_certificate_names: A list of `trusted_root_certificate` names.
         """
         pulumi.set(__self__, "cookie_based_affinity", cookie_based_affinity)
@@ -895,6 +917,8 @@ class ApplicationGatewayBackendHttpSettingArgs:
             pulumi.set(__self__, "affinity_cookie_name", affinity_cookie_name)
         if authentication_certificates is not None:
             pulumi.set(__self__, "authentication_certificates", authentication_certificates)
+        if certificate_chain_validation_enabled is not None:
+            pulumi.set(__self__, "certificate_chain_validation_enabled", certificate_chain_validation_enabled)
         if connection_draining is not None:
             pulumi.set(__self__, "connection_draining", connection_draining)
         if dedicated_backend_connection_enabled is not None:
@@ -913,6 +937,10 @@ class ApplicationGatewayBackendHttpSettingArgs:
             pulumi.set(__self__, "probe_name", probe_name)
         if request_timeout is not None:
             pulumi.set(__self__, "request_timeout", request_timeout)
+        if sni_name is not None:
+            pulumi.set(__self__, "sni_name", sni_name)
+        if sni_validation_enabled is not None:
+            pulumi.set(__self__, "sni_validation_enabled", sni_validation_enabled)
         if trusted_root_certificate_names is not None:
             pulumi.set(__self__, "trusted_root_certificate_names", trusted_root_certificate_names)
 
@@ -987,6 +1015,18 @@ class ApplicationGatewayBackendHttpSettingArgs:
     @authentication_certificates.setter
     def authentication_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]):
         pulumi.set(self, "authentication_certificates", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateChainValidationEnabled")
+    def certificate_chain_validation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+        """
+        return pulumi.get(self, "certificate_chain_validation_enabled")
+
+    @certificate_chain_validation_enabled.setter
+    def certificate_chain_validation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "certificate_chain_validation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="connectionDraining")
@@ -1095,6 +1135,32 @@ class ApplicationGatewayBackendHttpSettingArgs:
     @request_timeout.setter
     def request_timeout(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "request_timeout", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sniName")
+    def sni_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Server Name Indication (SNI) hostname to send to the backend servers. 
+
+        > **Note:** `sni_name` can only be set when `sni_validation_enabled` is set to `true`.
+        """
+        return pulumi.get(self, "sni_name")
+
+    @sni_name.setter
+    def sni_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sni_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sniValidationEnabled")
+    def sni_validation_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+        """
+        return pulumi.get(self, "sni_validation_enabled")
+
+    @sni_validation_enabled.setter
+    def sni_validation_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "sni_validation_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedRootCertificateNames")

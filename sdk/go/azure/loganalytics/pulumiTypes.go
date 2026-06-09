@@ -230,7 +230,7 @@ type WorkspaceTableCustomLogColumn struct {
 	DisplayName *string `pulumi:"displayName"`
 	// Specifies the name of the column.
 	Name string `pulumi:"name"`
-	// The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+	// The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
 	Type string `pulumi:"type"`
 }
 
@@ -252,7 +252,7 @@ type WorkspaceTableCustomLogColumnArgs struct {
 	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
 	// Specifies the name of the column.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+	// The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -322,7 +322,7 @@ func (o WorkspaceTableCustomLogColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceTableCustomLogColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+// The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
 func (o WorkspaceTableCustomLogColumnOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WorkspaceTableCustomLogColumn) string { return v.Type }).(pulumi.StringOutput)
 }

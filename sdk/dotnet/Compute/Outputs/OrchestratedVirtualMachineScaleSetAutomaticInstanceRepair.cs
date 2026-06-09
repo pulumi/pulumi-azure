@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair
     {
         /// <summary>
-        /// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+        /// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
         /// 
         /// &gt; **Note:** Once the `Action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
         /// 

@@ -75,25 +75,29 @@ func (o EnhancedValidationOutput) ResourceProviders() pulumi.BoolPtrOutput {
 }
 
 type Features struct {
-	ApiManagement            *FeaturesApiManagement            `pulumi:"apiManagement"`
-	AppConfiguration         *FeaturesAppConfiguration         `pulumi:"appConfiguration"`
-	ApplicationInsights      *FeaturesApplicationInsights      `pulumi:"applicationInsights"`
-	CognitiveAccount         *FeaturesCognitiveAccount         `pulumi:"cognitiveAccount"`
-	DatabricksWorkspace      *FeaturesDatabricksWorkspace      `pulumi:"databricksWorkspace"`
-	KeyVault                 *FeaturesKeyVault                 `pulumi:"keyVault"`
-	LogAnalyticsWorkspace    *FeaturesLogAnalyticsWorkspace    `pulumi:"logAnalyticsWorkspace"`
-	MachineLearning          *FeaturesMachineLearning          `pulumi:"machineLearning"`
-	ManagedDisk              *FeaturesManagedDisk              `pulumi:"managedDisk"`
-	Netapp                   *FeaturesNetapp                   `pulumi:"netapp"`
-	PostgresqlFlexibleServer *FeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
-	RecoveryService          *FeaturesRecoveryService          `pulumi:"recoveryService"`
-	RecoveryServicesVaults   *FeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
-	ResourceGroup            *FeaturesResourceGroup            `pulumi:"resourceGroup"`
-	Storage                  *FeaturesStorage                  `pulumi:"storage"`
-	Subscription             *FeaturesSubscription             `pulumi:"subscription"`
-	TemplateDeployment       *FeaturesTemplateDeployment       `pulumi:"templateDeployment"`
-	VirtualMachine           *FeaturesVirtualMachine           `pulumi:"virtualMachine"`
-	VirtualMachineScaleSet   *FeaturesVirtualMachineScaleSet   `pulumi:"virtualMachineScaleSet"`
+	ApiManagement         *FeaturesApiManagement         `pulumi:"apiManagement"`
+	AppConfiguration      *FeaturesAppConfiguration      `pulumi:"appConfiguration"`
+	ApplicationInsights   *FeaturesApplicationInsights   `pulumi:"applicationInsights"`
+	CognitiveAccount      *FeaturesCognitiveAccount      `pulumi:"cognitiveAccount"`
+	DatabricksWorkspace   *FeaturesDatabricksWorkspace   `pulumi:"databricksWorkspace"`
+	KeyVault              *FeaturesKeyVault              `pulumi:"keyVault"`
+	LogAnalyticsWorkspace *FeaturesLogAnalyticsWorkspace `pulumi:"logAnalyticsWorkspace"`
+	MachineLearning       *FeaturesMachineLearning       `pulumi:"machineLearning"`
+	ManagedDisk           *FeaturesManagedDisk           `pulumi:"managedDisk"`
+	Netapp                *FeaturesNetapp                `pulumi:"netapp"`
+	// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+	PersistIdOnCreateBeforePollingForCompletion *bool                             `pulumi:"persistIdOnCreateBeforePollingForCompletion"`
+	PostgresqlFlexibleServer                    *FeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
+	RecoveryService                             *FeaturesRecoveryService          `pulumi:"recoveryService"`
+	RecoveryServicesVaults                      *FeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
+	ResourceGroup                               *FeaturesResourceGroup            `pulumi:"resourceGroup"`
+	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+	SkipImportCheckOnCreateAndAllowOverwritingExistingResources *bool                           `pulumi:"skipImportCheckOnCreateAndAllowOverwritingExistingResources"`
+	Storage                                                     *FeaturesStorage                `pulumi:"storage"`
+	Subscription                                                *FeaturesSubscription           `pulumi:"subscription"`
+	TemplateDeployment                                          *FeaturesTemplateDeployment     `pulumi:"templateDeployment"`
+	VirtualMachine                                              *FeaturesVirtualMachine         `pulumi:"virtualMachine"`
+	VirtualMachineScaleSet                                      *FeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
 }
 
 // FeaturesInput is an input type that accepts FeaturesArgs and FeaturesOutput values.
@@ -108,25 +112,29 @@ type FeaturesInput interface {
 }
 
 type FeaturesArgs struct {
-	ApiManagement            FeaturesApiManagementPtrInput            `pulumi:"apiManagement"`
-	AppConfiguration         FeaturesAppConfigurationPtrInput         `pulumi:"appConfiguration"`
-	ApplicationInsights      FeaturesApplicationInsightsPtrInput      `pulumi:"applicationInsights"`
-	CognitiveAccount         FeaturesCognitiveAccountPtrInput         `pulumi:"cognitiveAccount"`
-	DatabricksWorkspace      FeaturesDatabricksWorkspacePtrInput      `pulumi:"databricksWorkspace"`
-	KeyVault                 FeaturesKeyVaultPtrInput                 `pulumi:"keyVault"`
-	LogAnalyticsWorkspace    FeaturesLogAnalyticsWorkspacePtrInput    `pulumi:"logAnalyticsWorkspace"`
-	MachineLearning          FeaturesMachineLearningPtrInput          `pulumi:"machineLearning"`
-	ManagedDisk              FeaturesManagedDiskPtrInput              `pulumi:"managedDisk"`
-	Netapp                   FeaturesNetappPtrInput                   `pulumi:"netapp"`
-	PostgresqlFlexibleServer FeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
-	RecoveryService          FeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
-	RecoveryServicesVaults   FeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
-	ResourceGroup            FeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
-	Storage                  FeaturesStoragePtrInput                  `pulumi:"storage"`
-	Subscription             FeaturesSubscriptionPtrInput             `pulumi:"subscription"`
-	TemplateDeployment       FeaturesTemplateDeploymentPtrInput       `pulumi:"templateDeployment"`
-	VirtualMachine           FeaturesVirtualMachinePtrInput           `pulumi:"virtualMachine"`
-	VirtualMachineScaleSet   FeaturesVirtualMachineScaleSetPtrInput   `pulumi:"virtualMachineScaleSet"`
+	ApiManagement         FeaturesApiManagementPtrInput         `pulumi:"apiManagement"`
+	AppConfiguration      FeaturesAppConfigurationPtrInput      `pulumi:"appConfiguration"`
+	ApplicationInsights   FeaturesApplicationInsightsPtrInput   `pulumi:"applicationInsights"`
+	CognitiveAccount      FeaturesCognitiveAccountPtrInput      `pulumi:"cognitiveAccount"`
+	DatabricksWorkspace   FeaturesDatabricksWorkspacePtrInput   `pulumi:"databricksWorkspace"`
+	KeyVault              FeaturesKeyVaultPtrInput              `pulumi:"keyVault"`
+	LogAnalyticsWorkspace FeaturesLogAnalyticsWorkspacePtrInput `pulumi:"logAnalyticsWorkspace"`
+	MachineLearning       FeaturesMachineLearningPtrInput       `pulumi:"machineLearning"`
+	ManagedDisk           FeaturesManagedDiskPtrInput           `pulumi:"managedDisk"`
+	Netapp                FeaturesNetappPtrInput                `pulumi:"netapp"`
+	// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+	PersistIdOnCreateBeforePollingForCompletion pulumi.BoolPtrInput                      `pulumi:"persistIdOnCreateBeforePollingForCompletion"`
+	PostgresqlFlexibleServer                    FeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
+	RecoveryService                             FeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
+	RecoveryServicesVaults                      FeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
+	ResourceGroup                               FeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
+	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+	SkipImportCheckOnCreateAndAllowOverwritingExistingResources pulumi.BoolPtrInput                    `pulumi:"skipImportCheckOnCreateAndAllowOverwritingExistingResources"`
+	Storage                                                     FeaturesStoragePtrInput                `pulumi:"storage"`
+	Subscription                                                FeaturesSubscriptionPtrInput           `pulumi:"subscription"`
+	TemplateDeployment                                          FeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
+	VirtualMachine                                              FeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
+	VirtualMachineScaleSet                                      FeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
 }
 
 func (FeaturesArgs) ElementType() reflect.Type {
@@ -195,6 +203,11 @@ func (o FeaturesOutput) Netapp() FeaturesNetappPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesNetapp { return v.Netapp }).(FeaturesNetappPtrOutput)
 }
 
+// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+func (o FeaturesOutput) PersistIdOnCreateBeforePollingForCompletion() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Features) *bool { return v.PersistIdOnCreateBeforePollingForCompletion }).(pulumi.BoolPtrOutput)
+}
+
 func (o FeaturesOutput) PostgresqlFlexibleServer() FeaturesPostgresqlFlexibleServerPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesPostgresqlFlexibleServer { return v.PostgresqlFlexibleServer }).(FeaturesPostgresqlFlexibleServerPtrOutput)
 }
@@ -209,6 +222,11 @@ func (o FeaturesOutput) RecoveryServicesVaults() FeaturesRecoveryServicesVaultsP
 
 func (o FeaturesOutput) ResourceGroup() FeaturesResourceGroupPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesResourceGroup { return v.ResourceGroup }).(FeaturesResourceGroupPtrOutput)
+}
+
+// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+func (o FeaturesOutput) SkipImportCheckOnCreateAndAllowOverwritingExistingResources() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v Features) *bool { return v.SkipImportCheckOnCreateAndAllowOverwritingExistingResources }).(pulumi.BoolPtrOutput)
 }
 
 func (o FeaturesOutput) Storage() FeaturesStoragePtrOutput {

@@ -7036,7 +7036,7 @@ type BackendProxy struct {
 	// The URL of the proxy server.
 	Url string `pulumi:"url"`
 	// The username to connect to the proxy server.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // BackendProxyInput is an input type that accepts BackendProxyArgs and BackendProxyOutput values.
@@ -7056,7 +7056,7 @@ type BackendProxyArgs struct {
 	// The URL of the proxy server.
 	Url pulumi.StringInput `pulumi:"url"`
 	// The username to connect to the proxy server.
-	Username pulumi.StringInput `pulumi:"username"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (BackendProxyArgs) ElementType() reflect.Type {
@@ -7147,8 +7147,8 @@ func (o BackendProxyOutput) Url() pulumi.StringOutput {
 }
 
 // The username to connect to the proxy server.
-func (o BackendProxyOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v BackendProxy) string { return v.Username }).(pulumi.StringOutput)
+func (o BackendProxyOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackendProxy) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type BackendProxyPtrOutput struct{ *pulumi.OutputState }
@@ -7201,7 +7201,7 @@ func (o BackendProxyPtrOutput) Username() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Username
+		return v.Username
 	}).(pulumi.StringPtrOutput)
 }
 

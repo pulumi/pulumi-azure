@@ -52,7 +52,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * @return The ID of the Subnet which this IP Configuration should be connected to.
      * 
-     * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
+     * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
      * 
      */
     private @Nullable String subnetId;
@@ -112,7 +112,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * @return The ID of the Subnet which this IP Configuration should be connected to.
      * 
-     * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
+     * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
      * 
      */
     public Optional<String> subnetId() {

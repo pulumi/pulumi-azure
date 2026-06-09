@@ -50,15 +50,15 @@ public final class BackendProxyArgs extends com.pulumi.resources.ResourceArgs {
      * The username to connect to the proxy server.
      * 
      */
-    @Import(name="username", required=true)
-    private Output<String> username;
+    @Import(name="username")
+    private @Nullable Output<String> username;
 
     /**
      * @return The username to connect to the proxy server.
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Optional<Output<String>> username() {
+        return Optional.ofNullable(this.username);
     }
 
     private BackendProxyArgs() {}
@@ -135,7 +135,7 @@ public final class BackendProxyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder username(Output<String> username) {
+        public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
@@ -153,9 +153,6 @@ public final class BackendProxyArgs extends com.pulumi.resources.ResourceArgs {
         public BackendProxyArgs build() {
             if ($.url == null) {
                 throw new MissingRequiredPropertyException("BackendProxyArgs", "url");
-            }
-            if ($.username == null) {
-                throw new MissingRequiredPropertyException("BackendProxyArgs", "username");
             }
             return $;
         }

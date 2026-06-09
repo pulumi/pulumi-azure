@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Compute.Inputs
         /// <summary>
         /// A `ProtectedSettingsFromKeyVault` block as defined below.
         /// 
-        /// &gt; **Note:** `ProtectedSettingsFromKeyVault` cannot be used with `ProtectedSettings`
+        /// &gt; **Note:** `ProtectedSettingsFromKeyVault` cannot be used with `ProtectedSettings`.
         /// </summary>
         [Input("protectedSettingsFromKeyVault")]
         public Input<Inputs.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultGetArgs>? ProtectedSettingsFromKeyVault { get; set; }

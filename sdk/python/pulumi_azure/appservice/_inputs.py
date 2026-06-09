@@ -40081,7 +40081,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgsDict(TypedDict):
     """
     powershell_core_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+    The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
 
     > **Note:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
     """
@@ -40107,7 +40107,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
         :param pulumi.Input[_builtins.str] dotnet_version: The version of .NET to use. Possible values include `v3.0`, `v4.0` `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
         :param pulumi.Input[_builtins.str] java_version: The Version of Java to use. Supported versions include `1.8`, `11`, `17`, `21`, `25` (In-Preview).
         :param pulumi.Input[_builtins.str] node_version: The version of Node to run. Possible values include `~12`, `~14`, `~16`, `~18` `~20`, `~22` and `~24`.
-        :param pulumi.Input[_builtins.str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+        :param pulumi.Input[_builtins.str] powershell_core_version: The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
                
                > **Note:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
         :param pulumi.Input[_builtins.bool] use_custom_runtime: Should the Windows Function App use a custom runtime?
@@ -40166,7 +40166,7 @@ class WindowsFunctionAppSiteConfigApplicationStackArgs:
     @pulumi.getter(name="powershellCoreVersion")
     def powershell_core_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+        The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
 
         > **Note:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
         """
@@ -44601,7 +44601,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgsDict(TypedDict):
     """
     powershell_core_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
+    The PowerShell Core version to use. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
     """
     use_custom_runtime: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -44625,7 +44625,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
         :param pulumi.Input[_builtins.str] dotnet_version: The version of .Net. Possible values are `v3.0`, `v4.0`, `v6.0`, `v7.0`, `v8.0`, `v9.0` and `v10.0`. Defaults to `v4.0`.
         :param pulumi.Input[_builtins.str] java_version: The version of Java to use. Possible values are `1.8`, `11`, `17` and `21`.
         :param pulumi.Input[_builtins.str] node_version: The version of Node to use. Possible values are `~12`, `~14`, `~16`, `~18`, `~20`, `~22` and `~24`.
-        :param pulumi.Input[_builtins.str] powershell_core_version: The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
+        :param pulumi.Input[_builtins.str] powershell_core_version: The PowerShell Core version to use. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
         :param pulumi.Input[_builtins.bool] use_custom_runtime: Does the Function App use a custom Application Stack?
         :param pulumi.Input[_builtins.bool] use_dotnet_isolated_runtime: Should the DotNet process use an isolated runtime. Defaults to `false`.
         """
@@ -44682,7 +44682,7 @@ class WindowsFunctionAppSlotSiteConfigApplicationStackArgs:
     @pulumi.getter(name="powershellCoreVersion")
     def powershell_core_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
+        The PowerShell Core version to use. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
         """
         return pulumi.get(self, "powershell_core_version")
 

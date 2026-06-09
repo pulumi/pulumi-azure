@@ -124,7 +124,7 @@ type Key struct {
 	//
 	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate pulumi.StringPtrOutput `pulumi:"expirationDate"`
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
 	KeyOpts pulumi.StringArrayOutput `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrOutput `pulumi:"keySize"`
@@ -144,6 +144,10 @@ type Key struct {
 	PublicKeyOpenssh pulumi.StringOutput `pulumi:"publicKeyOpenssh"`
 	// The PEM encoded public key of this Key Vault Key.
 	PublicKeyPem pulumi.StringOutput `pulumi:"publicKeyPem"`
+	// A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+	ReleasePolicy KeyReleasePolicyPtrOutput `pulumi:"releasePolicy"`
 	// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
 	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
@@ -209,7 +213,7 @@ type keyState struct {
 	//
 	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
@@ -229,6 +233,10 @@ type keyState struct {
 	PublicKeyOpenssh *string `pulumi:"publicKeyOpenssh"`
 	// The PEM encoded public key of this Key Vault Key.
 	PublicKeyPem *string `pulumi:"publicKeyPem"`
+	// A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+	ReleasePolicy *KeyReleasePolicy `pulumi:"releasePolicy"`
 	// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
 	ResourceId *string `pulumi:"resourceId"`
 	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
@@ -256,7 +264,7 @@ type KeyState struct {
 	//
 	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate pulumi.StringPtrInput
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput
@@ -276,6 +284,10 @@ type KeyState struct {
 	PublicKeyOpenssh pulumi.StringPtrInput
 	// The PEM encoded public key of this Key Vault Key.
 	PublicKeyPem pulumi.StringPtrInput
+	// A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+	ReleasePolicy KeyReleasePolicyPtrInput
 	// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
 	ResourceId pulumi.StringPtrInput
 	// The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
@@ -305,7 +317,7 @@ type keyArgs struct {
 	//
 	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
 	KeyOpts []string `pulumi:"keyOpts"`
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize *int `pulumi:"keySize"`
@@ -319,6 +331,10 @@ type keyArgs struct {
 	//
 	// > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
 	NotBeforeDate *string `pulumi:"notBeforeDate"`
+	// A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+	ReleasePolicy *KeyReleasePolicy `pulumi:"releasePolicy"`
 	// A `rotationPolicy` block as defined below.
 	RotationPolicy *KeyRotationPolicy `pulumi:"rotationPolicy"`
 	// A mapping of tags to assign to the resource.
@@ -333,7 +349,7 @@ type KeyArgs struct {
 	//
 	// > **Note:** Removing this field from the config forces a new resource to be created.
 	ExpirationDate pulumi.StringPtrInput
-	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+	// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
 	KeyOpts pulumi.StringArrayInput
 	// Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `keyType` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
 	KeySize pulumi.IntPtrInput
@@ -347,6 +363,10 @@ type KeyArgs struct {
 	//
 	// > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
 	NotBeforeDate pulumi.StringPtrInput
+	// A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+	ReleasePolicy KeyReleasePolicyPtrInput
 	// A `rotationPolicy` block as defined below.
 	RotationPolicy KeyRotationPolicyPtrInput
 	// A mapping of tags to assign to the resource.
@@ -457,7 +477,7 @@ func (o KeyOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+// A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
 func (o KeyOutput) KeyOpts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringArrayOutput { return v.KeyOpts }).(pulumi.StringArrayOutput)
 }
@@ -502,6 +522,13 @@ func (o KeyOutput) PublicKeyOpenssh() pulumi.StringOutput {
 // The PEM encoded public key of this Key Vault Key.
 func (o KeyOutput) PublicKeyPem() pulumi.StringOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.PublicKeyPem }).(pulumi.StringOutput)
+}
+
+// A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+func (o KeyOutput) ReleasePolicy() KeyReleasePolicyPtrOutput {
+	return o.ApplyT(func(v *Key) KeyReleasePolicyPtrOutput { return v.ReleasePolicy }).(KeyReleasePolicyPtrOutput)
 }
 
 // The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.

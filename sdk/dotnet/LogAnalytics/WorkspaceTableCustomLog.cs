@@ -46,7 +46,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///             new Azure.LogAnalytics.Inputs.WorkspaceTableCustomLogColumnArgs
     ///             {
     ///                 Name = "TimeGenerated",
-    ///                 Type = "datetime",
+    ///                 Type = "dateTime",
     ///             },
     ///         },
     ///     });
