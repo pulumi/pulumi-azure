@@ -10850,6 +10850,9 @@
                     "key_opts": {
                         "maxItemsOne": false
                     },
+                    "release_policy": {
+                        "maxItemsOne": true
+                    },
                     "rotation_policy": {
                         "maxItemsOne": true,
                         "elem": {
@@ -17022,6 +17025,9 @@
                         "maxItemsOne": true,
                         "elem": {
                             "fields": {
+                                "virtual_machine_size": {
+                                    "maxItemsOne": false
+                                },
                                 "vm_sizes": {
                                     "maxItemsOne": false
                                 }
@@ -30565,6 +30571,16 @@
                                             }
                                         }
                                     }
+                                }
+                            }
+                        }
+                    },
+                    "sku_profile": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "virtual_machine_size": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
