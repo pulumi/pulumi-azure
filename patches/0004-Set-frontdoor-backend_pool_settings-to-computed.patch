@@ -5,10 +5,10 @@ Subject: [PATCH] Set frontdoor backend_pool_settings to computed
 
 
 diff --git a/internal/services/frontdoor/frontdoor_resource.go b/internal/services/frontdoor/frontdoor_resource.go
-index e916319910..c2a8dbd2ba 100644
+index 627ffe880c..7c2f16876b 100644
 --- a/internal/services/frontdoor/frontdoor_resource.go
 +++ b/internal/services/frontdoor/frontdoor_resource.go
-@@ -2069,6 +2069,7 @@ func resourceFrontDoorSchema() map[string]*pluginsdk.Schema {
+@@ -2072,6 +2072,7 @@ func resourceFrontDoorSchema() map[string]*pluginsdk.Schema {
  		"backend_pool_settings": {
  			Type:     pluginsdk.TypeList,
  			Optional: true,

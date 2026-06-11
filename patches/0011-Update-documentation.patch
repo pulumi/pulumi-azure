@@ -362,7 +362,7 @@ index 2963f70e6c..b727ae172b 100644
  * `xml_link` - (Optional) A link to a Policy XML Document, which must be publicly available.
  
 diff --git a/website/docs/r/api_management_backend.html.markdown b/website/docs/r/api_management_backend.html.markdown
-index 0e786770e5..17fed56a59 100644
+index ff68f83311..c74a0560c5 100644
 --- a/website/docs/r/api_management_backend.html.markdown
 +++ b/website/docs/r/api_management_backend.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -1607,7 +1607,7 @@ index db31072123..f49cea8d68 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_mysql.html.markdown b/website/docs/r/data_factory_linked_service_mysql.html.markdown
-index e88621bede..ed9062f2c2 100644
+index 728a5f0e20..f0e2eabc24 100644
 --- a/website/docs/r/data_factory_linked_service_mysql.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_mysql.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -2145,7 +2145,7 @@ index e32bd341dd..3d783894ed 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index aa7514a107..8f1465075d 100644
+index 8eff6e1d5a..546eeb684e 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
@@ -3361,10 +3361,10 @@ index 8db03cba4b..a3aae2da47 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index 8de4436d4d..9b315a1cf6 100644
+index ff944f9b57..037edddadb 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
-@@ -344,7 +344,7 @@ A `record_sets` block exports:
+@@ -335,7 +335,7 @@ A `record_sets` block exports:
  
  ## Example HCL Configurations
  
@@ -3445,7 +3445,7 @@ index 0846f0af18..816b8ee036 100644
  
  ## Import
 diff --git a/website/docs/r/recovery_services_vault.html.markdown b/website/docs/r/recovery_services_vault.html.markdown
-index 344ce4b819..75a683807a 100644
+index babe94392d..6c33ee97a9 100644
 --- a/website/docs/r/recovery_services_vault.html.markdown
 +++ b/website/docs/r/recovery_services_vault.html.markdown
 @@ -49,6 +49,7 @@ The following arguments are supported:
