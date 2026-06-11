@@ -377,10 +377,18 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesMachineLearning? MachineLearning { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesManagedDisk? ManagedDisk { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesNetapp? Netapp { get; set; } = null!;
+            /// <summary>
+            /// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `False`.
+            /// </summary>
+                public bool? PersistIdOnCreateBeforePollingForCompletion { get; set; }
                 public Pulumi.Azure.Config.Types.FeaturesPostgresqlFlexibleServer? PostgresqlFlexibleServer { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryService? RecoveryService { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryServicesVaults? RecoveryServicesVaults { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesResourceGroup? ResourceGroup { get; set; } = null!;
+            /// <summary>
+            /// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `False`.
+            /// </summary>
+                public bool? SkipImportCheckOnCreateAndAllowOverwritingExistingResources { get; set; }
                 public Pulumi.Azure.Config.Types.FeaturesStorage? Storage { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesSubscription? Subscription { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesTemplateDeployment? TemplateDeployment { get; set; } = null!;

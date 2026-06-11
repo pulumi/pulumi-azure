@@ -34,6 +34,8 @@ class ManagedPrivateEndpointArgs:
                > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subresource_name: Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+               
+               > **Note:** `subresource_name` must not be specified when `target_resource_id` is a Private Link Service. For all other target resources, `subresource_name` is required and must be at least 3 characters in length.
         """
         pulumi.set(__self__, "data_factory_id", data_factory_id)
         pulumi.set(__self__, "target_resource_id", target_resource_id)
@@ -99,6 +101,8 @@ class ManagedPrivateEndpointArgs:
     def subresource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+
+        > **Note:** `subresource_name` must not be specified when `target_resource_id` is a Private Link Service. For all other target resources, `subresource_name` is required and must be at least 3 characters in length.
         """
         return pulumi.get(self, "subresource_name")
 
@@ -124,6 +128,8 @@ class _ManagedPrivateEndpointState:
                > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subresource_name: Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+               
+               > **Note:** `subresource_name` must not be specified when `target_resource_id` is a Private Link Service. For all other target resources, `subresource_name` is required and must be at least 3 characters in length.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
         if data_factory_id is not None:
@@ -180,6 +186,8 @@ class _ManagedPrivateEndpointState:
     def subresource_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+
+        > **Note:** `subresource_name` must not be specified when `target_resource_id` is a Private Link Service. For all other target resources, `subresource_name` is required and must be at least 3 characters in length.
         """
         return pulumi.get(self, "subresource_name")
 
@@ -267,6 +275,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subresource_name: Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+               
+               > **Note:** `subresource_name` must not be specified when `target_resource_id` is a Private Link Service. For all other target resources, `subresource_name` is required and must be at least 3 characters in length.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
         ...
@@ -388,6 +398,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                > **Note:** Possible values are listed in [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration).
         :param pulumi.Input[_builtins.str] name: Specifies the name which should be used for this Managed Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subresource_name: Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+               
+               > **Note:** `subresource_name` must not be specified when `target_resource_id` is a Private Link Service. For all other target resources, `subresource_name` is required and must be at least 3 characters in length.
         :param pulumi.Input[_builtins.str] target_resource_id: The ID of the Private Link Enabled Remote Resource which this Data Factory Private Endpoint should be connected to. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -432,6 +444,8 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
     def subresource_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+
+        > **Note:** `subresource_name` must not be specified when `target_resource_id` is a Private Link Service. For all other target resources, `subresource_name` is required and must be at least 3 characters in length.
         """
         return pulumi.get(self, "subresource_name")
 

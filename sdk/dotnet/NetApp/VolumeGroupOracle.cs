@@ -439,7 +439,7 @@ namespace Pulumi.Azure.NetApp
         public Output<string> AccountName { get; private set; } = null!;
 
         /// <summary>
-        /// The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         [Output("applicationIdentifier")]
         public Output<string> ApplicationIdentifier { get; private set; } = null!;
@@ -527,7 +527,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string> AccountName { get; set; } = null!;
 
         /// <summary>
-        /// The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         [Input("applicationIdentifier", required: true)]
         public Input<string> ApplicationIdentifier { get; set; } = null!;
@@ -583,7 +583,7 @@ namespace Pulumi.Azure.NetApp
         public Input<string>? AccountName { get; set; }
 
         /// <summary>
-        /// The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        /// The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         /// </summary>
         [Input("applicationIdentifier")]
         public Input<string>? ApplicationIdentifier { get; set; }

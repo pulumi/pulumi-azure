@@ -12,17 +12,39 @@ import javax.annotation.Nullable;
 @CustomType
 public final class VaultMonitoring {
     /**
+     * @return Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean alertsForAllFailoverIssuesEnabled;
+    /**
      * @return Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
      * 
      */
     private @Nullable Boolean alertsForAllJobFailuresEnabled;
     /**
+     * @return Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean alertsForAllReplicationIssuesEnabled;
+    /**
      * @return Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
      * 
      */
     private @Nullable Boolean alertsForCriticalOperationFailuresEnabled;
+    /**
+     * @return Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+     * 
+     */
+    private @Nullable Boolean emailNotificationsForSiteRecoveryEnabled;
 
     private VaultMonitoring() {}
+    /**
+     * @return Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> alertsForAllFailoverIssuesEnabled() {
+        return Optional.ofNullable(this.alertsForAllFailoverIssuesEnabled);
+    }
     /**
      * @return Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
      * 
@@ -31,11 +53,25 @@ public final class VaultMonitoring {
         return Optional.ofNullable(this.alertsForAllJobFailuresEnabled);
     }
     /**
+     * @return Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> alertsForAllReplicationIssuesEnabled() {
+        return Optional.ofNullable(this.alertsForAllReplicationIssuesEnabled);
+    }
+    /**
      * @return Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
      * 
      */
     public Optional<Boolean> alertsForCriticalOperationFailuresEnabled() {
         return Optional.ofNullable(this.alertsForCriticalOperationFailuresEnabled);
+    }
+    /**
+     * @return Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+     * 
+     */
+    public Optional<Boolean> emailNotificationsForSiteRecoveryEnabled() {
+        return Optional.ofNullable(this.emailNotificationsForSiteRecoveryEnabled);
     }
 
     public static Builder builder() {
@@ -47,19 +83,37 @@ public final class VaultMonitoring {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean alertsForAllFailoverIssuesEnabled;
         private @Nullable Boolean alertsForAllJobFailuresEnabled;
+        private @Nullable Boolean alertsForAllReplicationIssuesEnabled;
         private @Nullable Boolean alertsForCriticalOperationFailuresEnabled;
+        private @Nullable Boolean emailNotificationsForSiteRecoveryEnabled;
         public Builder() {}
         public Builder(VaultMonitoring defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.alertsForAllFailoverIssuesEnabled = defaults.alertsForAllFailoverIssuesEnabled;
     	      this.alertsForAllJobFailuresEnabled = defaults.alertsForAllJobFailuresEnabled;
+    	      this.alertsForAllReplicationIssuesEnabled = defaults.alertsForAllReplicationIssuesEnabled;
     	      this.alertsForCriticalOperationFailuresEnabled = defaults.alertsForCriticalOperationFailuresEnabled;
+    	      this.emailNotificationsForSiteRecoveryEnabled = defaults.emailNotificationsForSiteRecoveryEnabled;
         }
 
+        @CustomType.Setter
+        public Builder alertsForAllFailoverIssuesEnabled(@Nullable Boolean alertsForAllFailoverIssuesEnabled) {
+
+            this.alertsForAllFailoverIssuesEnabled = alertsForAllFailoverIssuesEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder alertsForAllJobFailuresEnabled(@Nullable Boolean alertsForAllJobFailuresEnabled) {
 
             this.alertsForAllJobFailuresEnabled = alertsForAllJobFailuresEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder alertsForAllReplicationIssuesEnabled(@Nullable Boolean alertsForAllReplicationIssuesEnabled) {
+
+            this.alertsForAllReplicationIssuesEnabled = alertsForAllReplicationIssuesEnabled;
             return this;
         }
         @CustomType.Setter
@@ -68,10 +122,19 @@ public final class VaultMonitoring {
             this.alertsForCriticalOperationFailuresEnabled = alertsForCriticalOperationFailuresEnabled;
             return this;
         }
+        @CustomType.Setter
+        public Builder emailNotificationsForSiteRecoveryEnabled(@Nullable Boolean emailNotificationsForSiteRecoveryEnabled) {
+
+            this.emailNotificationsForSiteRecoveryEnabled = emailNotificationsForSiteRecoveryEnabled;
+            return this;
+        }
         public VaultMonitoring build() {
             final var _resultValue = new VaultMonitoring();
+            _resultValue.alertsForAllFailoverIssuesEnabled = alertsForAllFailoverIssuesEnabled;
             _resultValue.alertsForAllJobFailuresEnabled = alertsForAllJobFailuresEnabled;
+            _resultValue.alertsForAllReplicationIssuesEnabled = alertsForAllReplicationIssuesEnabled;
             _resultValue.alertsForCriticalOperationFailuresEnabled = alertsForCriticalOperationFailuresEnabled;
+            _resultValue.emailNotificationsForSiteRecoveryEnabled = emailNotificationsForSiteRecoveryEnabled;
             return _resultValue;
         }
     }

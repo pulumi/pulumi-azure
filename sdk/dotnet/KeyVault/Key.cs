@@ -130,7 +130,7 @@ namespace Pulumi.Azure.KeyVault
         public Output<string?> ExpirationDate { get; private set; } = null!;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify` and `wrapKey`. Please note these values are case sensitive.
+        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify` and `wrapKey`. Please note these values are case-sensitive.
         /// </summary>
         [Output("keyOpts")]
         public Output<ImmutableArray<string>> KeyOpts { get; private set; } = null!;
@@ -184,6 +184,14 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Output("publicKeyPem")]
         public Output<string> PublicKeyPem { get; private set; } = null!;
+
+        /// <summary>
+        /// A `ReleasePolicy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `ReleasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+        /// </summary>
+        [Output("releasePolicy")]
+        public Output<Outputs.KeyReleasePolicy?> ReleasePolicy { get; private set; } = null!;
 
         /// <summary>
         /// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
@@ -297,7 +305,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _keyOpts;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify` and `wrapKey`. Please note these values are case sensitive.
+        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify` and `wrapKey`. Please note these values are case-sensitive.
         /// </summary>
         public InputList<string> KeyOpts
         {
@@ -336,6 +344,14 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("notBeforeDate")]
         public Input<string>? NotBeforeDate { get; set; }
+
+        /// <summary>
+        /// A `ReleasePolicy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `ReleasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+        /// </summary>
+        [Input("releasePolicy")]
+        public Input<Inputs.KeyReleasePolicyArgs>? ReleasePolicy { get; set; }
 
         /// <summary>
         /// A `RotationPolicy` block as defined below.
@@ -387,7 +403,7 @@ namespace Pulumi.Azure.KeyVault
         private InputList<string>? _keyOpts;
 
         /// <summary>
-        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify` and `wrapKey`. Please note these values are case sensitive.
+        /// A list of JSON web key operations. Possible values include: `Decrypt`, `Encrypt`, `Sign`, `unwrapKey`, `Verify` and `wrapKey`. Please note these values are case-sensitive.
         /// </summary>
         public InputList<string> KeyOpts
         {
@@ -444,6 +460,14 @@ namespace Pulumi.Azure.KeyVault
         /// </summary>
         [Input("publicKeyPem")]
         public Input<string>? PublicKeyPem { get; set; }
+
+        /// <summary>
+        /// A `ReleasePolicy` block as defined below. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** When `ReleasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+        /// </summary>
+        [Input("releasePolicy")]
+        public Input<Inputs.KeyReleasePolicyGetArgs>? ReleasePolicy { get; set; }
 
         /// <summary>
         /// The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.

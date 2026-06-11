@@ -26,12 +26,17 @@ public final class GetApplicationGatewayBackendHttpSetting {
      */
     private List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
     /**
+     * @return Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
+     * 
+     */
+    private Boolean certificateChainValidationEnabled;
+    /**
      * @return A `connectionDraining` block as defined below.
      * 
      */
     private List<GetApplicationGatewayBackendHttpSettingConnectionDraining> connectionDrainings;
     /**
-     * @return Is Cookie-Based Affinity enabled?
+     * @return Whether Cookie-Based Affinity is enabled.
      * 
      */
     private String cookieBasedAffinity;
@@ -61,7 +66,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
      */
     private String path;
     /**
-     * @return Whether host header will be picked from the host name of the backend server.
+     * @return Whether the host header is picked from the host name of the backend server.
      * 
      */
     private Boolean pickHostNameFromBackendAddress;
@@ -76,7 +81,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
      */
     private String probeId;
     /**
-     * @return The name of the associated HTTP Probe.
+     * @return The name of the associated Probe.
      * 
      */
     private String probeName;
@@ -90,6 +95,16 @@ public final class GetApplicationGatewayBackendHttpSetting {
      * 
      */
     private Integer requestTimeout;
+    /**
+     * @return The Server Name Indication (SNI) hostname sent to the backend servers.
+     * 
+     */
+    private String sniName;
+    /**
+     * @return Whether Server Name Indication (SNI) validation on the backend HTTPS servers is enabled.
+     * 
+     */
+    private Boolean sniValidationEnabled;
     /**
      * @return A list of `trustedRootCertificate` names.
      * 
@@ -112,6 +127,13 @@ public final class GetApplicationGatewayBackendHttpSetting {
         return this.authenticationCertificates;
     }
     /**
+     * @return Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
+     * 
+     */
+    public Boolean certificateChainValidationEnabled() {
+        return this.certificateChainValidationEnabled;
+    }
+    /**
      * @return A `connectionDraining` block as defined below.
      * 
      */
@@ -119,7 +141,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
         return this.connectionDrainings;
     }
     /**
-     * @return Is Cookie-Based Affinity enabled?
+     * @return Whether Cookie-Based Affinity is enabled.
      * 
      */
     public String cookieBasedAffinity() {
@@ -161,7 +183,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
         return this.path;
     }
     /**
-     * @return Whether host header will be picked from the host name of the backend server.
+     * @return Whether the host header is picked from the host name of the backend server.
      * 
      */
     public Boolean pickHostNameFromBackendAddress() {
@@ -182,7 +204,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
         return this.probeId;
     }
     /**
-     * @return The name of the associated HTTP Probe.
+     * @return The name of the associated Probe.
      * 
      */
     public String probeName() {
@@ -203,6 +225,20 @@ public final class GetApplicationGatewayBackendHttpSetting {
         return this.requestTimeout;
     }
     /**
+     * @return The Server Name Indication (SNI) hostname sent to the backend servers.
+     * 
+     */
+    public String sniName() {
+        return this.sniName;
+    }
+    /**
+     * @return Whether Server Name Indication (SNI) validation on the backend HTTPS servers is enabled.
+     * 
+     */
+    public Boolean sniValidationEnabled() {
+        return this.sniValidationEnabled;
+    }
+    /**
      * @return A list of `trustedRootCertificate` names.
      * 
      */
@@ -221,6 +257,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
     public static final class Builder {
         private String affinityCookieName;
         private List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
+        private Boolean certificateChainValidationEnabled;
         private List<GetApplicationGatewayBackendHttpSettingConnectionDraining> connectionDrainings;
         private String cookieBasedAffinity;
         private Boolean dedicatedBackendConnectionEnabled;
@@ -234,12 +271,15 @@ public final class GetApplicationGatewayBackendHttpSetting {
         private String probeName;
         private String protocol;
         private Integer requestTimeout;
+        private String sniName;
+        private Boolean sniValidationEnabled;
         private List<String> trustedRootCertificateNames;
         public Builder() {}
         public Builder(GetApplicationGatewayBackendHttpSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.affinityCookieName = defaults.affinityCookieName;
     	      this.authenticationCertificates = defaults.authenticationCertificates;
+    	      this.certificateChainValidationEnabled = defaults.certificateChainValidationEnabled;
     	      this.connectionDrainings = defaults.connectionDrainings;
     	      this.cookieBasedAffinity = defaults.cookieBasedAffinity;
     	      this.dedicatedBackendConnectionEnabled = defaults.dedicatedBackendConnectionEnabled;
@@ -253,6 +293,8 @@ public final class GetApplicationGatewayBackendHttpSetting {
     	      this.probeName = defaults.probeName;
     	      this.protocol = defaults.protocol;
     	      this.requestTimeout = defaults.requestTimeout;
+    	      this.sniName = defaults.sniName;
+    	      this.sniValidationEnabled = defaults.sniValidationEnabled;
     	      this.trustedRootCertificateNames = defaults.trustedRootCertificateNames;
         }
 
@@ -274,6 +316,14 @@ public final class GetApplicationGatewayBackendHttpSetting {
         }
         public Builder authenticationCertificates(GetApplicationGatewayBackendHttpSettingAuthenticationCertificate... authenticationCertificates) {
             return authenticationCertificates(List.of(authenticationCertificates));
+        }
+        @CustomType.Setter
+        public Builder certificateChainValidationEnabled(Boolean certificateChainValidationEnabled) {
+            if (certificateChainValidationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "certificateChainValidationEnabled");
+            }
+            this.certificateChainValidationEnabled = certificateChainValidationEnabled;
+            return this;
         }
         @CustomType.Setter
         public Builder connectionDrainings(List<GetApplicationGatewayBackendHttpSettingConnectionDraining> connectionDrainings) {
@@ -383,6 +433,22 @@ public final class GetApplicationGatewayBackendHttpSetting {
             return this;
         }
         @CustomType.Setter
+        public Builder sniName(String sniName) {
+            if (sniName == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "sniName");
+            }
+            this.sniName = sniName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sniValidationEnabled(Boolean sniValidationEnabled) {
+            if (sniValidationEnabled == null) {
+              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "sniValidationEnabled");
+            }
+            this.sniValidationEnabled = sniValidationEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder trustedRootCertificateNames(List<String> trustedRootCertificateNames) {
             if (trustedRootCertificateNames == null) {
               throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "trustedRootCertificateNames");
@@ -397,6 +463,7 @@ public final class GetApplicationGatewayBackendHttpSetting {
             final var _resultValue = new GetApplicationGatewayBackendHttpSetting();
             _resultValue.affinityCookieName = affinityCookieName;
             _resultValue.authenticationCertificates = authenticationCertificates;
+            _resultValue.certificateChainValidationEnabled = certificateChainValidationEnabled;
             _resultValue.connectionDrainings = connectionDrainings;
             _resultValue.cookieBasedAffinity = cookieBasedAffinity;
             _resultValue.dedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
@@ -410,6 +477,8 @@ public final class GetApplicationGatewayBackendHttpSetting {
             _resultValue.probeName = probeName;
             _resultValue.protocol = protocol;
             _resultValue.requestTimeout = requestTimeout;
+            _resultValue.sniName = sniName;
+            _resultValue.sniValidationEnabled = sniValidationEnabled;
             _resultValue.trustedRootCertificateNames = trustedRootCertificateNames;
             return _resultValue;
         }

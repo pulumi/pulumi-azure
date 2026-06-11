@@ -19,14 +19,18 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs ex
     public static final OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs Empty = new OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs();
 
     /**
-     * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+     * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+     * 
+     * &gt; **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
      * 
      */
     @Import(name="crossZoneUpgradesEnabled")
     private @Nullable Output<Boolean> crossZoneUpgradesEnabled;
 
     /**
-     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+     * 
+     * &gt; **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
      * 
      */
     public Optional<Output<Boolean>> crossZoneUpgradesEnabled() {
@@ -79,14 +83,14 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs ex
     }
 
     /**
-     * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+     * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
      * 
      */
     @Import(name="maximumSurgeInstancesEnabled")
     private @Nullable Output<Boolean> maximumSurgeInstancesEnabled;
 
     /**
-     * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+     * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
      * 
      */
     public Optional<Output<Boolean>> maximumSurgeInstancesEnabled() {
@@ -109,14 +113,14 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs ex
     }
 
     /**
-     * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+     * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
      * 
      */
     @Import(name="prioritizeUnhealthyInstancesEnabled")
     private @Nullable Output<Boolean> prioritizeUnhealthyInstancesEnabled;
 
     /**
-     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
      * 
      */
     public Optional<Output<Boolean>> prioritizeUnhealthyInstancesEnabled() {
@@ -154,7 +158,9 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs ex
         }
 
         /**
-         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+         * 
+         * &gt; **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
          * 
          * @return builder
          * 
@@ -165,7 +171,9 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs ex
         }
 
         /**
-         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+         * @param crossZoneUpgradesEnabled Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+         * 
+         * &gt; **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
          * 
          * @return builder
          * 
@@ -238,7 +246,7 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs ex
         }
 
         /**
-         * @param maximumSurgeInstancesEnabled Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+         * @param maximumSurgeInstancesEnabled Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
          * 
          * @return builder
          * 
@@ -249,7 +257,7 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs ex
         }
 
         /**
-         * @param maximumSurgeInstancesEnabled Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+         * @param maximumSurgeInstancesEnabled Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
          * 
          * @return builder
          * 
@@ -280,7 +288,7 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs ex
         }
 
         /**
-         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
          * 
          * @return builder
          * 
@@ -291,7 +299,7 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs ex
         }
 
         /**
-         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+         * @param prioritizeUnhealthyInstancesEnabled Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
          * 
          * @return builder
          * 

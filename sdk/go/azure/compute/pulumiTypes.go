@@ -8505,7 +8505,7 @@ func (o OrchestratedVirtualMachineScaleSetAdditionalCapabilitiesPtrOutput) Ultra
 }
 
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair struct {
-	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
 	//
 	// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	//
@@ -8531,7 +8531,7 @@ type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs struct {
-	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+	// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
 	//
 	// > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 	//
@@ -8622,7 +8622,7 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput) ToOrche
 	}).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput)
 }
 
-// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
 //
 // > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 //
@@ -8667,7 +8667,7 @@ func (o OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairPtrOutput) Elem
 	}).(OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairOutput)
 }
 
-// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+// The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
 //
 // > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
 //
@@ -8841,9 +8841,9 @@ func (o OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput) StorageAccou
 }
 
 type OrchestratedVirtualMachineScaleSetDataDisk struct {
-	// The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
 	Caching string `pulumi:"caching"`
-	// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
 	CreateOption *string `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
@@ -8851,7 +8851,7 @@ type OrchestratedVirtualMachineScaleSetDataDisk struct {
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
 	Lun *int `pulumi:"lun"`
-	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+	// The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
 	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
@@ -8873,9 +8873,9 @@ type OrchestratedVirtualMachineScaleSetDataDiskInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
-	// The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+	// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
-	// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+	// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
 	CreateOption pulumi.StringPtrInput `pulumi:"createOption"`
 	// The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
@@ -8883,7 +8883,7 @@ type OrchestratedVirtualMachineScaleSetDataDiskArgs struct {
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `createOption` is specified as `Empty`.
 	Lun pulumi.IntPtrInput `pulumi:"lun"`
-	// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+	// The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
@@ -8944,12 +8944,12 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) ToOrchestratedVirtualM
 	return o
 }
 
-// The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+// The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) Caching() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
 
-// The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+// The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) CreateOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *string { return v.CreateOption }).(pulumi.StringPtrOutput)
 }
@@ -8969,7 +8969,7 @@ func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) Lun() pulumi.IntPtrOut
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) *int { return v.Lun }).(pulumi.IntPtrOutput)
 }
 
-// The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+// The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
 func (o OrchestratedVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -9028,7 +9028,7 @@ type OrchestratedVirtualMachineScaleSetExtension struct {
 	ProtectedSettings *string `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	//
-	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
 	ProtectedSettingsFromKeyVault *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault `pulumi:"protectedSettingsFromKeyVault"`
 	// Specifies the Publisher of the Extension.
 	Publisher string `pulumi:"publisher"`
@@ -9070,7 +9070,7 @@ type OrchestratedVirtualMachineScaleSetExtensionArgs struct {
 	ProtectedSettings pulumi.StringPtrInput `pulumi:"protectedSettings"`
 	// A `protectedSettingsFromKeyVault` block as defined below.
 	//
-	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+	// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
 	ProtectedSettingsFromKeyVault OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrInput `pulumi:"protectedSettingsFromKeyVault"`
 	// Specifies the Publisher of the Extension.
 	Publisher pulumi.StringInput `pulumi:"publisher"`
@@ -9171,7 +9171,7 @@ func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ProtectedSettings() p
 
 // A `protectedSettingsFromKeyVault` block as defined below.
 //
-// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+// > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
 func (o OrchestratedVirtualMachineScaleSetExtensionOutput) ProtectedSettingsFromKeyVault() OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetExtension) *OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault {
 		return v.ProtectedSettingsFromKeyVault
@@ -9379,9 +9379,9 @@ func (o OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
 }
 
 type OrchestratedVirtualMachineScaleSetIdentity struct {
-	// Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+	// Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Virtual Machine Scale Set.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+	// The type of Managed Identity that should be configured on this Orchestrated Virtual Machine Scale Set. The only possible value is `UserAssigned`.
 	Type string `pulumi:"type"`
 }
 
@@ -9397,9 +9397,9 @@ type OrchestratedVirtualMachineScaleSetIdentityInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetIdentityArgs struct {
-	// Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+	// Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Virtual Machine Scale Set.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+	// The type of Managed Identity that should be configured on this Orchestrated Virtual Machine Scale Set. The only possible value is `UserAssigned`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9480,12 +9480,12 @@ func (o OrchestratedVirtualMachineScaleSetIdentityOutput) ToOrchestratedVirtualM
 	}).(OrchestratedVirtualMachineScaleSetIdentityPtrOutput)
 }
 
-// Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+// Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Virtual Machine Scale Set.
 func (o OrchestratedVirtualMachineScaleSetIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+// The type of Managed Identity that should be configured on this Orchestrated Virtual Machine Scale Set. The only possible value is `UserAssigned`.
 func (o OrchestratedVirtualMachineScaleSetIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetIdentity) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -9514,7 +9514,7 @@ func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) Elem() Orchestrated
 	}).(OrchestratedVirtualMachineScaleSetIdentityOutput)
 }
 
-// Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+// Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Virtual Machine Scale Set.
 func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetIdentity) []string {
 		if v == nil {
@@ -9524,7 +9524,7 @@ func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) IdentityIds() pulum
 	}).(pulumi.StringArrayOutput)
 }
 
-// The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+// The type of Managed Identity that should be configured on this Orchestrated Virtual Machine Scale Set. The only possible value is `UserAssigned`.
 func (o OrchestratedVirtualMachineScaleSetIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetIdentity) *string {
 		if v == nil {
@@ -9539,9 +9539,11 @@ type OrchestratedVirtualMachineScaleSetNetworkInterface struct {
 	//
 	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
 	AuxiliaryMode *string `pulumi:"auxiliaryMode"`
-	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
 	//
 	// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	//
+	// > **Note:** `auxiliaryMode` and `auxiliarySku` must be specified together, and both fields require `networkApiVersion` later than `2020-11-01`.
 	AuxiliarySku *string `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers []string `pulumi:"dnsServers"`
@@ -9577,9 +9579,11 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs struct {
 	//
 	// > **Note:** `auxiliaryMode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
 	AuxiliaryMode pulumi.StringPtrInput `pulumi:"auxiliaryMode"`
-	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+	// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
 	//
 	// > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+	//
+	// > **Note:** `auxiliaryMode` and `auxiliarySku` must be specified together, and both fields require `networkApiVersion` later than `2020-11-01`.
 	AuxiliarySku pulumi.StringPtrInput `pulumi:"auxiliarySku"`
 	// A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 	DnsServers pulumi.StringArrayInput `pulumi:"dnsServers"`
@@ -9657,9 +9661,11 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliaryMode(
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *string { return v.AuxiliaryMode }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
 //
 // > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+//
+// > **Note:** `auxiliaryMode` and `auxiliarySku` must be specified together, and both fields require `networkApiVersion` later than `2020-11-01`.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) AuxiliarySku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *string { return v.AuxiliarySku }).(pulumi.StringPtrOutput)
 }
@@ -9742,7 +9748,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration struct {
 	PublicIpAddresses []OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress `pulumi:"publicIpAddresses"`
 	// The ID of the Subnet which this IP Configuration should be connected to.
 	//
-	// > **Note:** `subnetId` is required if version is set to `IPv4`.
+	// > **Note:** `subnetId` is required if `version` is set to `IPv4`.
 	SubnetId *string `pulumi:"subnetId"`
 	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version *string `pulumi:"version"`
@@ -9778,7 +9784,7 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs struc
 	PublicIpAddresses OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput `pulumi:"publicIpAddresses"`
 	// The ID of the Subnet which this IP Configuration should be connected to.
 	//
-	// > **Note:** `subnetId` is required if version is set to `IPv4`.
+	// > **Note:** `subnetId` is required if `version` is set to `IPv4`.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Internet Protocol Version which should be used for this IP Configuration. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -9879,7 +9885,7 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput)
 
 // The ID of the Subnet which this IP Configuration should be connected to.
 //
-// > **Note:** `subnetId` is required if version is set to `IPv4`.
+// > **Note:** `subnetId` is required if `version` is set to `IPv4`.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
@@ -9910,7 +9916,9 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArrayOu
 }
 
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress struct {
-	// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+	// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance.
+	//
+	// > **Note:** Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number, and contain only `a-z`, `0-9`, and `hyphens`.
 	DomainNameLabel *string `pulumi:"domainNameLabel"`
 	// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
 	IdleTimeoutInMinutes *int `pulumi:"idleTimeoutInMinutes"`
@@ -9920,7 +9928,9 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 	Name string `pulumi:"name"`
 	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId *string `pulumi:"publicIpPrefixId"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible values are `Basic_Regional`, `Basic_Global`, `Standard_Regional`, and `Standard_Global`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** For more information about Public IP Address SKUs and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
 	SkuName *string `pulumi:"skuName"`
 	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version *string `pulumi:"version"`
@@ -9938,7 +9948,9 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 }
 
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArgs struct {
-	// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+	// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance.
+	//
+	// > **Note:** Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number, and contain only `a-z`, `0-9`, and `hyphens`.
 	DomainNameLabel pulumi.StringPtrInput `pulumi:"domainNameLabel"`
 	// The Idle Timeout in Minutes for the Public IP Address. Possible values are in the range `4` to `32`.
 	IdleTimeoutInMinutes pulumi.IntPtrInput `pulumi:"idleTimeoutInMinutes"`
@@ -9948,7 +9960,9 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAd
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Public IP Address Prefix from where Public IP Addresses should be allocated. Changing this forces a new resource to be created.
 	PublicIpPrefixId pulumi.StringPtrInput `pulumi:"publicIpPrefixId"`
-	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+	// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible values are `Basic_Regional`, `Basic_Global`, `Standard_Regional`, and `Standard_Global`. Changing this forces a new resource to be created.
+	//
+	// > **Note:** For more information about Public IP Address SKUs and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
 	SkuName pulumi.StringPtrInput `pulumi:"skuName"`
 	// The Internet Protocol Version which should be used for this public IP address. Possible values are `IPv4` and `IPv6`. Defaults to `IPv4`. Changing this forces a new resource to be created.
 	Version pulumi.StringPtrInput `pulumi:"version"`
@@ -10005,7 +10019,9 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicI
 	return o
 }
 
-// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+// The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance.
+//
+// > **Note:** Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number, and contain only `a-z`, `0-9`, and `hyphens`.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) DomainNameLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
 		return v.DomainNameLabel
@@ -10040,7 +10056,9 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicI
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+// Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible values are `Basic_Regional`, `Basic_Global`, `Standard_Regional`, and `Standard_Global`. Changing this forces a new resource to be created.
+//
+// > **Note:** For more information about Public IP Address SKUs and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress) *string {
 		return v.SkuName
@@ -10185,17 +10203,17 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicI
 }
 
 type OrchestratedVirtualMachineScaleSetOsDisk struct {
-	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
 	Caching string `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings *OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettings `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+	// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb *int `pulumi:"diskSizeGb"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+	// The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType string `pulumi:"storageAccountType"`
 	// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
 	WriteAcceleratorEnabled *bool `pulumi:"writeAcceleratorEnabled"`
@@ -10213,17 +10231,17 @@ type OrchestratedVirtualMachineScaleSetOsDiskInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetOsDiskArgs struct {
-	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+	// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
 	Caching pulumi.StringInput `pulumi:"caching"`
 	// A `diffDiskSettings` block as defined above. Changing this forces a new resource to be created.
 	DiffDiskSettings OrchestratedVirtualMachineScaleSetOsDiskDiffDiskSettingsPtrInput `pulumi:"diffDiskSettings"`
 	// The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
 	//
-	// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+	// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
 	// The Size of the Internal OS Disk in GB, if you wish to vary from the size used in the image this Virtual Machine Scale Set is sourced from.
 	DiskSizeGb pulumi.IntPtrInput `pulumi:"diskSizeGb"`
-	// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+	// The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
 	// Specifies if Write Accelerator is enabled on the OS Disk. Defaults to `false`.
 	WriteAcceleratorEnabled pulumi.BoolPtrInput `pulumi:"writeAcceleratorEnabled"`
@@ -10306,7 +10324,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) ToOrchestratedVirtualMac
 	}).(OrchestratedVirtualMachineScaleSetOsDiskPtrOutput)
 }
 
-// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
 func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) Caching() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) string { return v.Caching }).(pulumi.StringOutput)
 }
@@ -10320,7 +10338,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) DiffDiskSettings() Orche
 
 // The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
 //
-// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
 func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
@@ -10330,7 +10348,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) DiskSizeGb() pulumi.IntP
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) *int { return v.DiskSizeGb }).(pulumi.IntPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+// The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsDiskOutput) StorageAccountType() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
@@ -10364,7 +10382,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) Elem() OrchestratedVi
 	}).(OrchestratedVirtualMachineScaleSetOsDiskOutput)
 }
 
-// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+// The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
 func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) Caching() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -10386,7 +10404,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) DiffDiskSettings() Or
 
 // The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
 //
-// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
 func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -10406,7 +10424,7 @@ func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) DiskSizeGb() pulumi.I
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+// The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsDiskPtrOutput) StorageAccountType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsDisk) *string {
 		if v == nil {
@@ -10587,9 +10605,9 @@ type OrchestratedVirtualMachineScaleSetOsProfile struct {
 	//
 	// > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
 	CustomData *string `pulumi:"customData"`
-	// A `linuxConfiguration` block as documented below.
+	// A `linuxConfiguration` block as defined above.
 	LinuxConfiguration *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration `pulumi:"linuxConfiguration"`
-	// A `windowsConfiguration` block as documented below.
+	// A `windowsConfiguration` block as defined below.
 	WindowsConfiguration *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration `pulumi:"windowsConfiguration"`
 }
 
@@ -10609,9 +10627,9 @@ type OrchestratedVirtualMachineScaleSetOsProfileArgs struct {
 	//
 	// > **Note:** When Custom Data has been configured, it's not possible to remove it without tainting the Virtual Machine Scale Set, due to a limitation of the Azure API.
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
-	// A `linuxConfiguration` block as documented below.
+	// A `linuxConfiguration` block as defined above.
 	LinuxConfiguration OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrInput `pulumi:"linuxConfiguration"`
-	// A `windowsConfiguration` block as documented below.
+	// A `windowsConfiguration` block as defined below.
 	WindowsConfiguration OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput `pulumi:"windowsConfiguration"`
 }
 
@@ -10699,14 +10717,14 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) CustomData() pulumi.S
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfile) *string { return v.CustomData }).(pulumi.StringPtrOutput)
 }
 
-// A `linuxConfiguration` block as documented below.
+// A `linuxConfiguration` block as defined above.
 func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) LinuxConfiguration() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfile) *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
 		return v.LinuxConfiguration
 	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput)
 }
 
-// A `windowsConfiguration` block as documented below.
+// A `windowsConfiguration` block as defined below.
 func (o OrchestratedVirtualMachineScaleSetOsProfileOutput) WindowsConfiguration() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfile) *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
 		return v.WindowsConfiguration
@@ -10749,7 +10767,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) CustomData() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `linuxConfiguration` block as documented below.
+// A `linuxConfiguration` block as defined above.
 func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) LinuxConfiguration() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfile) *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration {
 		if v == nil {
@@ -10759,7 +10777,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) LinuxConfiguration
 	}).(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput)
 }
 
-// A `windowsConfiguration` block as documented below.
+// A `windowsConfiguration` block as defined below.
 func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) WindowsConfiguration() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfile) *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
 		if v == nil {
@@ -10772,7 +10790,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfilePtrOutput) WindowsConfigurati
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration struct {
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword *string `pulumi:"adminPassword"`
-	// A `adminSshKey` block as documented below.
+	// An `adminSshKey` block as defined above.
 	AdminSshKeys []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey `pulumi:"adminSshKeys"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername string `pulumi:"adminUsername"`
@@ -10784,13 +10802,13 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration struct {
 	DisablePasswordAuthentication *bool `pulumi:"disablePasswordAuthentication"`
 	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
-	// > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+	// > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
 	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
-	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	// Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	//
-	// > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+	// > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
 	PatchMode *string `pulumi:"patchMode"`
-	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
 	// One or more `secret` blocks as defined below.
 	Secrets []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret `pulumi:"secrets"`
@@ -10810,7 +10828,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationInput interfac
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs struct {
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringPtrInput `pulumi:"adminPassword"`
-	// A `adminSshKey` block as documented below.
+	// An `adminSshKey` block as defined above.
 	AdminSshKeys OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayInput `pulumi:"adminSshKeys"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 	AdminUsername pulumi.StringInput `pulumi:"adminUsername"`
@@ -10822,13 +10840,13 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationArgs struct {
 	DisablePasswordAuthentication pulumi.BoolPtrInput `pulumi:"disablePasswordAuthentication"`
 	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
-	// > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+	// > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrInput `pulumi:"patchAssessmentMode"`
-	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	// Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	//
-	// > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+	// > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
 	PatchMode pulumi.StringPtrInput `pulumi:"patchMode"`
-	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent pulumi.BoolPtrInput `pulumi:"provisionVmAgent"`
 	// One or more `secret` blocks as defined below.
 	Secrets OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArrayInput `pulumi:"secrets"`
@@ -10916,7 +10934,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) Adm
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string { return v.AdminPassword }).(pulumi.StringPtrOutput)
 }
 
-// A `adminSshKey` block as documented below.
+// An `adminSshKey` block as defined above.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) AdminSshKeys() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey {
 		return v.AdminSshKeys
@@ -10946,21 +10964,21 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) Dis
 
 // Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 //
-// > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+// > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
 		return v.PatchAssessmentMode
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+// Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 //
-// > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+// > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
 
-// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *bool { return v.ProvisionVmAgent }).(pulumi.BoolPtrOutput)
 }
@@ -11006,7 +11024,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `adminSshKey` block as documented below.
+// An `adminSshKey` block as defined above.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) AdminSshKeys() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKeyArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey {
 		if v == nil {
@@ -11050,7 +11068,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 
 // Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 //
-// > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+// > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
 		if v == nil {
@@ -11060,9 +11078,9 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+// Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 //
-// > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+// > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *string {
 		if v == nil {
@@ -11072,7 +11090,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration) *bool {
 		if v == nil {
@@ -11209,7 +11227,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret struct {
-	// One or more `certificate` blocks as defined below.
+	// One or more `certificate` blocks as defined above.
 	Certificates []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate `pulumi:"certificates"`
 	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -11227,7 +11245,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretInput in
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs struct {
-	// One or more `certificate` blocks as defined below.
+	// One or more `certificate` blocks as defined above.
 	Certificates OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput `pulumi:"certificates"`
 	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
@@ -11284,7 +11302,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutpu
 	return o
 }
 
-// One or more `certificate` blocks as defined below.
+// One or more `certificate` blocks as defined above.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretOutput) Certificates() OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret) []OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate {
 		return v.Certificates
@@ -11320,8 +11338,6 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArray
 
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate struct {
 	// The Secret URL of a Key Vault Certificate.
-	//
-	// > **Note:** This can be sourced from the `secretId` field within the `keyvault.Certificate` Resource.
 	Url string `pulumi:"url"`
 }
 
@@ -11338,8 +11354,6 @@ type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertific
 
 type OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs struct {
 	// The Secret URL of a Key Vault Certificate.
-	//
-	// > **Note:** This can be sourced from the `secretId` field within the `keyvault.Certificate` Resource.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -11395,8 +11409,6 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCerti
 }
 
 // The Secret URL of a Key Vault Certificate.
-//
-// > **Note:** This can be sourced from the `secretId` field within the `keyvault.Certificate` Resource.
 func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate) string {
 		return v.Url
@@ -11424,7 +11436,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCerti
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
-	// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+	// One or more `additionalUnattendContent` blocks as defined above. Changing this forces a new resource to be created.
 	AdditionalUnattendContents []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent `pulumi:"additionalUnattendContents"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword string `pulumi:"adminPassword"`
@@ -11434,21 +11446,21 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
 	ComputerNamePrefix *string `pulumi:"computerNamePrefix"`
 	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
 	EnableAutomaticUpdates *bool `pulumi:"enableAutomaticUpdates"`
-	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	// Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	//
-	// > **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+	// > **Note:** Hotpatching can only be enabled if `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` is set to `true`, `sourceImageReference` references a hotpatching enabled image, `skuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
 	HotpatchingEnabled *bool `pulumi:"hotpatchingEnabled"`
 	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
-	// > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+	// > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
 	PatchAssessmentMode *string `pulumi:"patchAssessmentMode"`
-	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	//
-	// > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
+	// > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension.
 	PatchMode *string `pulumi:"patchMode"`
-	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent *bool `pulumi:"provisionVmAgent"`
-	// One or more `secret` blocks as defined below.
+	// One or more `secret` blocks as defined above.
 	Secrets []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret `pulumi:"secrets"`
 	// Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone *string `pulumi:"timezone"`
@@ -11468,7 +11480,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput interf
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs struct {
-	// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+	// One or more `additionalUnattendContent` blocks as defined above. Changing this forces a new resource to be created.
 	AdditionalUnattendContents OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayInput `pulumi:"additionalUnattendContents"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
@@ -11478,21 +11490,21 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs struct 
 	ComputerNamePrefix pulumi.StringPtrInput `pulumi:"computerNamePrefix"`
 	// Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
 	EnableAutomaticUpdates pulumi.BoolPtrInput `pulumi:"enableAutomaticUpdates"`
-	// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+	// Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 	//
-	// > **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+	// > **Note:** Hotpatching can only be enabled if `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` is set to `true`, `sourceImageReference` references a hotpatching enabled image, `skuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
 	HotpatchingEnabled pulumi.BoolPtrInput `pulumi:"hotpatchingEnabled"`
 	// Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 	//
-	// > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+	// > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
 	PatchAssessmentMode pulumi.StringPtrInput `pulumi:"patchAssessmentMode"`
-	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+	// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 	//
-	// > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
+	// > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension.
 	PatchMode pulumi.StringPtrInput `pulumi:"patchMode"`
-	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+	// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
 	ProvisionVmAgent pulumi.BoolPtrInput `pulumi:"provisionVmAgent"`
-	// One or more `secret` blocks as defined below.
+	// One or more `secret` blocks as defined above.
 	Secrets OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput `pulumi:"secrets"`
 	// Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -11577,7 +11589,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) T
 	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput)
 }
 
-// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+// One or more `additionalUnattendContent` blocks as defined above. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) AdditionalUnattendContents() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent {
 		return v.AdditionalUnattendContents
@@ -11608,9 +11620,9 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) E
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+// Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 //
-// > **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+// > **Note:** Hotpatching can only be enabled if `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` is set to `true`, `sourceImageReference` references a hotpatching enabled image, `skuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) HotpatchingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
 		return v.HotpatchingEnabled
@@ -11619,28 +11631,28 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) H
 
 // Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 //
-// > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+// > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
 		return v.PatchAssessmentMode
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 //
-// > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
+// > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string { return v.PatchMode }).(pulumi.StringPtrOutput)
 }
 
-// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
 		return v.ProvisionVmAgent
 	}).(pulumi.BoolPtrOutput)
 }
 
-// One or more `secret` blocks as defined below.
+// One or more `secret` blocks as defined above.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) Secrets() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
 		return v.Secrets
@@ -11683,7 +11695,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput)
 }
 
-// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+// One or more `additionalUnattendContent` blocks as defined above. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) AdditionalUnattendContents() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent {
 		if v == nil {
@@ -11733,9 +11745,9 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+// Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
 //
-// > **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+// > **Note:** Hotpatching can only be enabled if `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` is set to `true`, `sourceImageReference` references a hotpatching enabled image, `skuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) HotpatchingEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
 		if v == nil {
@@ -11747,7 +11759,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 
 // Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
 //
-// > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+// > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) PatchAssessmentMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
 		if v == nil {
@@ -11757,9 +11769,9 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+// Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 //
-// > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
+// > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) PatchMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *string {
 		if v == nil {
@@ -11769,7 +11781,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+// Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) ProvisionVmAgent() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) *bool {
 		if v == nil {
@@ -11779,7 +11791,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
-// One or more `secret` blocks as defined below.
+// One or more `secret` blocks as defined above.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) Secrets() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
 		if v == nil {
@@ -11920,7 +11932,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditiona
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret struct {
-	// One or more `certificate` blocks as defined below.
+	// One or more `certificate` blocks as defined above.
 	Certificates []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate `pulumi:"certificates"`
 	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId string `pulumi:"keyVaultId"`
@@ -11938,7 +11950,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput 
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs struct {
-	// One or more `certificate` blocks as defined below.
+	// One or more `certificate` blocks as defined above.
 	Certificates OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayInput `pulumi:"certificates"`
 	// The ID of the Key Vault from which all Secrets should be sourced.
 	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
@@ -11995,7 +12007,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOut
 	return o
 }
 
-// One or more `certificate` blocks as defined below.
+// One or more `certificate` blocks as defined above.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput) Certificates() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate {
 		return v.Certificates
@@ -12033,8 +12045,6 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertif
 	// The certificate store on the Virtual Machine where the certificate should be added.
 	Store string `pulumi:"store"`
 	// The Secret URL of a Key Vault Certificate.
-	//
-	// > **Note:** This can be sourced from the `secretId` field within the `keyvault.Certificate` Resource.
 	Url string `pulumi:"url"`
 }
 
@@ -12053,8 +12063,6 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertif
 	// The certificate store on the Virtual Machine where the certificate should be added.
 	Store pulumi.StringInput `pulumi:"store"`
 	// The Secret URL of a Key Vault Certificate.
-	//
-	// > **Note:** This can be sourced from the `secretId` field within the `keyvault.Certificate` Resource.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -12117,8 +12125,6 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCer
 }
 
 // The Secret URL of a Key Vault Certificate.
-//
-// > **Note:** This can be sourced from the `secretId` field within the `keyvault.Certificate` Resource.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate) string {
 		return v.Url
@@ -12150,7 +12156,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListene
 	//
 	// > **Note:** This can be sourced from the `secretId` field within the `keyvault.Certificate` Resource.
 	CertificateUrl *string `pulumi:"certificateUrl"`
-	// Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+	// Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Protocol string `pulumi:"protocol"`
 }
 
@@ -12170,7 +12176,7 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListene
 	//
 	// > **Note:** This can be sourced from the `secretId` field within the `keyvault.Certificate` Resource.
 	CertificateUrl pulumi.StringPtrInput `pulumi:"certificateUrl"`
-	// Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+	// Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 }
 
@@ -12234,7 +12240,7 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmList
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+// Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener) string {
 		return v.Protocol
@@ -12593,7 +12599,9 @@ func (o OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput) RegularPercentag
 }
 
 type OrchestratedVirtualMachineScaleSetRollingUpgradePolicy struct {
-	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+	//
+	// > **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
 	CrossZoneUpgradesEnabled *bool `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent int `pulumi:"maxBatchInstancePercent"`
@@ -12601,11 +12609,11 @@ type OrchestratedVirtualMachineScaleSetRollingUpgradePolicy struct {
 	MaxUnhealthyInstancePercent int `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent int `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
 	MaximumSurgeInstancesEnabled *bool `pulumi:"maximumSurgeInstancesEnabled"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
 	PauseTimeBetweenBatches string `pulumi:"pauseTimeBetweenBatches"`
-	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
 	PrioritizeUnhealthyInstancesEnabled *bool `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
@@ -12621,7 +12629,9 @@ type OrchestratedVirtualMachineScaleSetRollingUpgradePolicyInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
-	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+	// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+	//
+	// > **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
 	CrossZoneUpgradesEnabled pulumi.BoolPtrInput `pulumi:"crossZoneUpgradesEnabled"`
 	// The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 	MaxBatchInstancePercent pulumi.IntInput `pulumi:"maxBatchInstancePercent"`
@@ -12629,11 +12639,11 @@ type OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs struct {
 	MaxUnhealthyInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyInstancePercent"`
 	// The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 	MaxUnhealthyUpgradedInstancePercent pulumi.IntInput `pulumi:"maxUnhealthyUpgradedInstancePercent"`
-	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+	// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
 	MaximumSurgeInstancesEnabled pulumi.BoolPtrInput `pulumi:"maximumSurgeInstancesEnabled"`
 	// The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 duration format.
 	PauseTimeBetweenBatches pulumi.StringInput `pulumi:"pauseTimeBetweenBatches"`
-	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+	// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
 	PrioritizeUnhealthyInstancesEnabled pulumi.BoolPtrInput `pulumi:"prioritizeUnhealthyInstancesEnabled"`
 }
 
@@ -12714,7 +12724,9 @@ func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) ToOrchestr
 	}).(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput)
 }
 
-// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+//
+// > **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
 func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		return v.CrossZoneUpgradesEnabled
@@ -12740,7 +12752,7 @@ func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) MaxUnhealt
 	}).(pulumi.IntOutput)
 }
 
-// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
 func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) MaximumSurgeInstancesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		return v.MaximumSurgeInstancesEnabled
@@ -12754,7 +12766,7 @@ func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) PauseTimeB
 	}).(pulumi.StringOutput)
 }
 
-// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
 func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		return v.PrioritizeUnhealthyInstancesEnabled
@@ -12785,7 +12797,9 @@ func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Elem() 
 	}).(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyOutput)
 }
 
-// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+//
+// > **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
 func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) CrossZoneUpgradesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		if v == nil {
@@ -12825,7 +12839,7 @@ func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaxUnhe
 	}).(pulumi.IntPtrOutput)
 }
 
-// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
 func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) MaximumSurgeInstancesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		if v == nil {
@@ -12845,7 +12859,7 @@ func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PauseTi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
 func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) PrioritizeUnhealthyInstancesEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy) *bool {
 		if v == nil {
@@ -12856,9 +12870,13 @@ func (o OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput) Priorit
 }
 
 type OrchestratedVirtualMachineScaleSetSkuProfile struct {
-	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
 	AllocationStrategy string `pulumi:"allocationStrategy"`
-	// Specifies the VM sizes for the virtual machine scale set.
+	// One or more `virtualMachineSize` blocks as defined below.
+	//
+	// > **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
+	VirtualMachineSizes []OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize `pulumi:"virtualMachineSizes"`
+	// Deprecated: The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
 	VmSizes []string `pulumi:"vmSizes"`
 }
 
@@ -12874,9 +12892,13 @@ type OrchestratedVirtualMachineScaleSetSkuProfileInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetSkuProfileArgs struct {
-	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+	// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
 	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
-	// Specifies the VM sizes for the virtual machine scale set.
+	// One or more `virtualMachineSize` blocks as defined below.
+	//
+	// > **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
+	VirtualMachineSizes OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput `pulumi:"virtualMachineSizes"`
+	// Deprecated: The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
 	VmSizes pulumi.StringArrayInput `pulumi:"vmSizes"`
 }
 
@@ -12957,12 +12979,21 @@ func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) ToOrchestratedVirtua
 	}).(OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput)
 }
 
-// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
 func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) AllocationStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSkuProfile) string { return v.AllocationStrategy }).(pulumi.StringOutput)
 }
 
-// Specifies the VM sizes for the virtual machine scale set.
+// One or more `virtualMachineSize` blocks as defined below.
+//
+// > **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
+func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) VirtualMachineSizes() OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSkuProfile) []OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize {
+		return v.VirtualMachineSizes
+	}).(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput)
+}
+
+// Deprecated: The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
 func (o OrchestratedVirtualMachineScaleSetSkuProfileOutput) VmSizes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSkuProfile) []string { return v.VmSizes }).(pulumi.StringArrayOutput)
 }
@@ -12991,7 +13022,7 @@ func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) Elem() Orchestrat
 	}).(OrchestratedVirtualMachineScaleSetSkuProfileOutput)
 }
 
-// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
 func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSkuProfile) *string {
 		if v == nil {
@@ -13001,7 +13032,19 @@ func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) AllocationStrateg
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the VM sizes for the virtual machine scale set.
+// One or more `virtualMachineSize` blocks as defined below.
+//
+// > **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
+func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) VirtualMachineSizes() OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSkuProfile) []OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize {
+		if v == nil {
+			return nil
+		}
+		return v.VirtualMachineSizes
+	}).(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput)
+}
+
+// Deprecated: The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
 func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) VmSizes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetSkuProfile) []string {
 		if v == nil {
@@ -13009,6 +13052,124 @@ func (o OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput) VmSizes() pulumi.
 		}
 		return v.VmSizes
 	}).(pulumi.StringArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize struct {
+	// The name of the VM SKU which should be used for this Virtual Machine Scale Set, such as `Standard_B1ls` or `Standard_B2s`.
+	//
+	// > **Note:** `skuProfile` currently supports `Standard_` VM size names from the general-purpose `A`, `B`, `D`, `E`, and `F` families. Specialized families such as `L`, `DC`, and `EC` are not supported. Additional Azure service compatibility limitations may still apply to valid-looking VM size combinations.
+	Name string `pulumi:"name"`
+	// Specifies the priority rank of the VM size. Possible values are integers between `1` and `3`, inclusive. Lower values represent higher priority.
+	//
+	// > **Note:** `rank` can only be set when the parent `skuProfile` block sets `allocationStrategy` to `Prioritized`.
+	Rank *int `pulumi:"rank"`
+}
+
+// OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput is an input type that accepts OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs and OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput` via:
+//
+//	OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs{...}
+type OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput() OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput
+	ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput
+}
+
+type OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs struct {
+	// The name of the VM SKU which should be used for this Virtual Machine Scale Set, such as `Standard_B1ls` or `Standard_B2s`.
+	//
+	// > **Note:** `skuProfile` currently supports `Standard_` VM size names from the general-purpose `A`, `B`, `D`, `E`, and `F` families. Specialized families such as `L`, `DC`, and `EC` are not supported. Additional Azure service compatibility limitations may still apply to valid-looking VM size combinations.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the priority rank of the VM size. Possible values are integers between `1` and `3`, inclusive. Lower values represent higher priority.
+	//
+	// > **Note:** `rank` can only be set when the parent `skuProfile` block sets `allocationStrategy` to `Prioritized`.
+	Rank pulumi.IntPtrInput `pulumi:"rank"`
+}
+
+func (OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs) ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput() OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs) ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray and OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput` via:
+//
+//	OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray{ OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs{...} }
+type OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput() OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput
+	ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray []OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput
+
+func (OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray) ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput() OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray) ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput() OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return o
+}
+
+// The name of the VM SKU which should be used for this Virtual Machine Scale Set, such as `Standard_B1ls` or `Standard_B2s`.
+//
+// > **Note:** `skuProfile` currently supports `Standard_` VM size names from the general-purpose `A`, `B`, `D`, `E`, and `F` families. Specialized families such as `L`, `DC`, and `EC` are not supported. Additional Azure service compatibility limitations may still apply to valid-looking VM size combinations.
+func (o OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the priority rank of the VM size. Possible values are integers between `1` and `3`, inclusive. Lower values represent higher priority.
+//
+// > **Note:** `rank` can only be set when the parent `skuProfile` block sets `allocationStrategy` to `Prioritized`.
+func (o OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) Rank() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize) *int { return v.Rank }).(pulumi.IntPtrOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput) ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput() OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput) ToOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput)
 }
 
 type OrchestratedVirtualMachineScaleSetSourceImageReference struct {
@@ -13206,7 +13367,7 @@ func (o OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput) Version
 }
 
 type OrchestratedVirtualMachineScaleSetTerminationNotification struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 	Enabled bool `pulumi:"enabled"`
 	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
 	Timeout *string `pulumi:"timeout"`
@@ -13224,7 +13385,7 @@ type OrchestratedVirtualMachineScaleSetTerminationNotificationInput interface {
 }
 
 type OrchestratedVirtualMachineScaleSetTerminationNotificationArgs struct {
-	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
+	// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Length of time (in minutes, between `5` and `15`) a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in `ISO 8601` format. Defaults to `PT5M`.
 	Timeout pulumi.StringPtrInput `pulumi:"timeout"`
@@ -13307,7 +13468,7 @@ func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) ToOrche
 	}).(OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 func (o OrchestratedVirtualMachineScaleSetTerminationNotificationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetTerminationNotification) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -13341,7 +13502,7 @@ func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) Elem
 	}).(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput)
 }
 
-// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
+// Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
 func (o OrchestratedVirtualMachineScaleSetTerminationNotificationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetTerminationNotification) *bool {
 		if v == nil {
@@ -32315,6 +32476,220 @@ func (o GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPubl
 	}).(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput)
 }
 
+type GetOrchestratedVirtualMachineScaleSetSkuProfile struct {
+	// The allocation strategy used by this Orchestrated Virtual Machine Scale Set.
+	AllocationStrategy string `pulumi:"allocationStrategy"`
+	// A list of `virtualMachineSize` blocks as defined below.
+	VirtualMachineSizes []GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize `pulumi:"virtualMachineSizes"`
+}
+
+// GetOrchestratedVirtualMachineScaleSetSkuProfileInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetSkuProfileArgs and GetOrchestratedVirtualMachineScaleSetSkuProfileOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetSkuProfileInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetSkuProfileArgs{...}
+type GetOrchestratedVirtualMachineScaleSetSkuProfileInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetSkuProfileOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileOutput
+	ToGetOrchestratedVirtualMachineScaleSetSkuProfileOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetSkuProfileArgs struct {
+	// The allocation strategy used by this Orchestrated Virtual Machine Scale Set.
+	AllocationStrategy pulumi.StringInput `pulumi:"allocationStrategy"`
+	// A list of `virtualMachineSize` blocks as defined below.
+	VirtualMachineSizes GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput `pulumi:"virtualMachineSizes"`
+}
+
+func (GetOrchestratedVirtualMachineScaleSetSkuProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetSkuProfile)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetSkuProfileArgs) ToGetOrchestratedVirtualMachineScaleSetSkuProfileOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetSkuProfileOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetSkuProfileArgs) ToGetOrchestratedVirtualMachineScaleSetSkuProfileOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetSkuProfileOutput)
+}
+
+// GetOrchestratedVirtualMachineScaleSetSkuProfileArrayInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetSkuProfileArray and GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetSkuProfileArrayInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetSkuProfileArray{ GetOrchestratedVirtualMachineScaleSetSkuProfileArgs{...} }
+type GetOrchestratedVirtualMachineScaleSetSkuProfileArrayInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput
+	ToGetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetSkuProfileArray []GetOrchestratedVirtualMachineScaleSetSkuProfileInput
+
+func (GetOrchestratedVirtualMachineScaleSetSkuProfileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetSkuProfile)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetSkuProfileArray) ToGetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetSkuProfileArray) ToGetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetSkuProfileOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetSkuProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetSkuProfile)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileOutput) ToGetOrchestratedVirtualMachineScaleSetSkuProfileOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileOutput) ToGetOrchestratedVirtualMachineScaleSetSkuProfileOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return o
+}
+
+// The allocation strategy used by this Orchestrated Virtual Machine Scale Set.
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileOutput) AllocationStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetSkuProfile) string { return v.AllocationStrategy }).(pulumi.StringOutput)
+}
+
+// A list of `virtualMachineSize` blocks as defined below.
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileOutput) VirtualMachineSizes() GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetSkuProfile) []GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize {
+		return v.VirtualMachineSizes
+	}).(GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetSkuProfile)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput) ToGetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput) ToGetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput) Index(i pulumi.IntInput) GetOrchestratedVirtualMachineScaleSetSkuProfileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrchestratedVirtualMachineScaleSetSkuProfile {
+		return vs[0].([]GetOrchestratedVirtualMachineScaleSetSkuProfile)[vs[1].(int)]
+	}).(GetOrchestratedVirtualMachineScaleSetSkuProfileOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize struct {
+	// The name of this Orchestrated Virtual Machine Scale Set.
+	Name string `pulumi:"name"`
+	// The rank of the VM size when `allocationStrategy` is set to `Prioritized`.
+	Rank int `pulumi:"rank"`
+}
+
+// GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs and GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs{...}
+type GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput
+	ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs struct {
+	// The name of this Orchestrated Virtual Machine Scale Set.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The rank of the VM size when `allocationStrategy` is set to `Prioritized`.
+	Rank pulumi.IntInput `pulumi:"rank"`
+}
+
+func (GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs) ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs) ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput)
+}
+
+// GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput is an input type that accepts GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray and GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput values.
+// You can construct a concrete instance of `GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput` via:
+//
+//	GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray{ GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs{...} }
+type GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput interface {
+	pulumi.Input
+
+	ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput
+	ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutputWithContext(context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput
+}
+
+type GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray []GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput
+
+func (GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)(nil)).Elem()
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray) ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return i.ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutputWithContext(context.Background())
+}
+
+func (i GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray) ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return o
+}
+
+// The name of this Orchestrated Virtual Machine Scale Set.
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The rank of the VM size when `allocationStrategy` is set to `Prioritized`.
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput) Rank() pulumi.IntOutput {
+	return o.ApplyT(func(v GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize) int { return v.Rank }).(pulumi.IntOutput)
+}
+
+type GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)(nil)).Elem()
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput) ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput() GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput) ToGetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutputWithContext(ctx context.Context) GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput {
+	return o
+}
+
+func (o GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput) Index(i pulumi.IntInput) GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize {
+		return vs[0].([]GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize)[vs[1].(int)]
+	}).(GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput)
+}
+
 type GetSharedImageIdentifier struct {
 	// The Offer Name for this Shared Image.
 	Offer string `pulumi:"offer"`
@@ -34448,6 +34823,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfileInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSkuProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfilePtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSkuProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReferenceInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetTerminationNotificationInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetTerminationNotificationArgs{})
@@ -34688,6 +35065,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetSkuProfileInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetSkuProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetSkuProfileArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetSkuProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayInput)(nil)).Elem(), GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageIdentifierInput)(nil)).Elem(), GetSharedImageIdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImageIdentifierArrayInput)(nil)).Elem(), GetSharedImageIdentifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSharedImagePurchasePlanInput)(nil)).Elem(), GetSharedImagePurchasePlanArgs{})
@@ -34870,6 +35251,8 @@ func init() {
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSkuProfileOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSourceImageReferenceOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput{})
@@ -35110,6 +35493,10 @@ func init() {
 	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressArrayOutput{})
 	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagOutput{})
 	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddressIpTagArrayOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetSkuProfileOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeOutput{})
+	pulumi.RegisterOutputType(GetOrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierOutput{})
 	pulumi.RegisterOutputType(GetSharedImageIdentifierArrayOutput{})
 	pulumi.RegisterOutputType(GetSharedImagePurchasePlanOutput{})

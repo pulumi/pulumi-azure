@@ -261,7 +261,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CognitiveServices` - 2025-06-01
+        * `Microsoft.CognitiveServices` - 2026-03-01
 
         ## Import
 
@@ -407,7 +407,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.CognitiveServices` - 2025-06-01
+        * `Microsoft.CognitiveServices` - 2026-03-01
 
         ## Import
 

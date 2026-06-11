@@ -120,7 +120,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
     /**
      * A `protectedSettingsFromKeyVault` block as defined below.
      * 
-     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
      * 
      */
     @Import(name="protectedSettingsFromKeyVault")
@@ -129,7 +129,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
     /**
      * @return A `protectedSettingsFromKeyVault` block as defined below.
      * 
-     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultArgs>> protectedSettingsFromKeyVault() {
@@ -377,7 +377,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         /**
          * @param protectedSettingsFromKeyVault A `protectedSettingsFromKeyVault` block as defined below.
          * 
-         * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+         * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
          * 
          * @return builder
          * 
@@ -390,7 +390,7 @@ public final class OrchestratedVirtualMachineScaleSetExtensionArgs extends com.p
         /**
          * @param protectedSettingsFromKeyVault A `protectedSettingsFromKeyVault` block as defined below.
          * 
-         * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+         * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
          * 
          * @return builder
          * 

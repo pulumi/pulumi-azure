@@ -15,7 +15,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicy {
     /**
-     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+     * 
+     * &gt; **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
      * 
      */
     private @Nullable Boolean crossZoneUpgradesEnabled;
@@ -35,7 +37,7 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicy {
      */
     private Integer maxUnhealthyUpgradedInstancePercent;
     /**
-     * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+     * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
      * 
      */
     private @Nullable Boolean maximumSurgeInstancesEnabled;
@@ -45,14 +47,16 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicy {
      */
     private String pauseTimeBetweenBatches;
     /**
-     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
      * 
      */
     private @Nullable Boolean prioritizeUnhealthyInstancesEnabled;
 
     private OrchestratedVirtualMachineScaleSetRollingUpgradePolicy() {}
     /**
-     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+     * @return Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+     * 
+     * &gt; **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
      * 
      */
     public Optional<Boolean> crossZoneUpgradesEnabled() {
@@ -80,7 +84,7 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicy {
         return this.maxUnhealthyUpgradedInstancePercent;
     }
     /**
-     * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+     * @return Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
      * 
      */
     public Optional<Boolean> maximumSurgeInstancesEnabled() {
@@ -94,7 +98,7 @@ public final class OrchestratedVirtualMachineScaleSetRollingUpgradePolicy {
         return this.pauseTimeBetweenBatches;
     }
     /**
-     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+     * @return Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
      * 
      */
     public Optional<Boolean> prioritizeUnhealthyInstancesEnabled() {

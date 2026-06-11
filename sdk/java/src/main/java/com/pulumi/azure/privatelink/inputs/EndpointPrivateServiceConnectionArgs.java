@@ -83,14 +83,14 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
     }
 
     /**
-     * (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
+     * The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
      * 
      */
     @Import(name="privateIpAddress")
     private @Nullable Output<String> privateIpAddress;
 
     /**
-     * @return (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
+     * @return The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
      * 
      */
     public Optional<Output<String>> privateIpAddress() {
@@ -258,7 +258,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateIpAddress (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
+         * @param privateIpAddress The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class EndpointPrivateServiceConnectionArgs extends com.pulumi.resou
         }
 
         /**
-         * @param privateIpAddress (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
+         * @param privateIpAddress The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
          * 
          * @return builder
          * 

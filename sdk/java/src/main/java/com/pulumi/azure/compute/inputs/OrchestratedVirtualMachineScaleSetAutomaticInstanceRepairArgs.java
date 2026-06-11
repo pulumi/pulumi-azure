@@ -18,7 +18,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
     public static final OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs Empty = new OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs();
 
     /**
-     * The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+     * The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
      * 
      * &gt; **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
      * 
@@ -29,7 +29,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
     private @Nullable Output<String> action;
 
     /**
-     * @return The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+     * @return The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
      * 
      * &gt; **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
      * 
@@ -101,7 +101,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
         }
 
         /**
-         * @param action The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+         * @param action The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
          * 
          * &gt; **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
          * 
@@ -116,7 +116,7 @@ public final class OrchestratedVirtualMachineScaleSetAutomaticInstanceRepairArgs
         }
 
         /**
-         * @param action The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+         * @param action The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
          * 
          * &gt; **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
          * 

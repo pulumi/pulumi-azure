@@ -14,22 +14,43 @@ namespace Pulumi.Azure.RecoveryServices.Outputs
     public sealed class VaultMonitoring
     {
         /// <summary>
+        /// Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `True`.
+        /// </summary>
+        public readonly bool? AlertsForAllFailoverIssuesEnabled;
+        /// <summary>
         /// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `True`.
         /// </summary>
         public readonly bool? AlertsForAllJobFailuresEnabled;
         /// <summary>
+        /// Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `True`.
+        /// </summary>
+        public readonly bool? AlertsForAllReplicationIssuesEnabled;
+        /// <summary>
         /// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `True`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
         /// </summary>
         public readonly bool? AlertsForCriticalOperationFailuresEnabled;
+        /// <summary>
+        /// Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `True`.
+        /// </summary>
+        public readonly bool? EmailNotificationsForSiteRecoveryEnabled;
 
         [OutputConstructor]
         private VaultMonitoring(
+            bool? alertsForAllFailoverIssuesEnabled,
+
             bool? alertsForAllJobFailuresEnabled,
 
-            bool? alertsForCriticalOperationFailuresEnabled)
+            bool? alertsForAllReplicationIssuesEnabled,
+
+            bool? alertsForCriticalOperationFailuresEnabled,
+
+            bool? emailNotificationsForSiteRecoveryEnabled)
         {
+            AlertsForAllFailoverIssuesEnabled = alertsForAllFailoverIssuesEnabled;
             AlertsForAllJobFailuresEnabled = alertsForAllJobFailuresEnabled;
+            AlertsForAllReplicationIssuesEnabled = alertsForAllReplicationIssuesEnabled;
             AlertsForCriticalOperationFailuresEnabled = alertsForCriticalOperationFailuresEnabled;
+            EmailNotificationsForSiteRecoveryEnabled = emailNotificationsForSiteRecoveryEnabled;
         }
     }
 }

@@ -32,6 +32,8 @@ class ManagedInstanceTransparentDataEncryptionArgs:
                
                > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
+               > **Note:** When `auto_rotation_enabled` is `true`, `key_vault_key_id` can be either a versioned or versionless Key Vault Key ID. When using a versionless `key_vault_key_id`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `auto_rotation_enabled` is `false`, `key_vault_key_id` must be a versioned Key Vault Key ID.
+               
                > **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
         pulumi.set(__self__, "managed_instance_id", managed_instance_id)
@@ -74,6 +76,8 @@ class ManagedInstanceTransparentDataEncryptionArgs:
 
         > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 
+        > **Note:** When `auto_rotation_enabled` is `true`, `key_vault_key_id` can be either a versioned or versionless Key Vault Key ID. When using a versionless `key_vault_key_id`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `auto_rotation_enabled` is `false`, `key_vault_key_id` must be a versioned Key Vault Key ID.
+
         > **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
@@ -107,6 +111,8 @@ class _ManagedInstanceTransparentDataEncryptionState:
                
                > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
+               > **Note:** When `auto_rotation_enabled` is `true`, `key_vault_key_id` can be either a versioned or versionless Key Vault Key ID. When using a versionless `key_vault_key_id`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `auto_rotation_enabled` is `false`, `key_vault_key_id` must be a versioned Key Vault Key ID.
+               
                > **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         :param pulumi.Input[_builtins.str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         """
@@ -138,6 +144,8 @@ class _ManagedInstanceTransparentDataEncryptionState:
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 
         > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **Note:** When `auto_rotation_enabled` is `true`, `key_vault_key_id` can be either a versioned or versionless Key Vault Key ID. When using a versionless `key_vault_key_id`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `auto_rotation_enabled` is `false`, `key_vault_key_id` must be a versioned Key Vault Key ID.
 
         > **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
@@ -355,6 +363,8 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] key_vault_key_id: To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
                
                > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+               
+               > **Note:** When `auto_rotation_enabled` is `true`, `key_vault_key_id` can be either a versioned or versionless Key Vault Key ID. When using a versionless `key_vault_key_id`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `auto_rotation_enabled` is `false`, `key_vault_key_id` must be a versioned Key Vault Key ID.
                
                > **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         :param pulumi.Input[_builtins.str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
@@ -594,6 +604,8 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                
                > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
                
+               > **Note:** When `auto_rotation_enabled` is `true`, `key_vault_key_id` can be either a versioned or versionless Key Vault Key ID. When using a versionless `key_vault_key_id`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `auto_rotation_enabled` is `false`, `key_vault_key_id` must be a versioned Key Vault Key ID.
+               
                > **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         :param pulumi.Input[_builtins.str] managed_instance_id: Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
         """
@@ -622,6 +634,8 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 
         > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+
+        > **Note:** When `auto_rotation_enabled` is `true`, `key_vault_key_id` can be either a versioned or versionless Key Vault Key ID. When using a versionless `key_vault_key_id`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `auto_rotation_enabled` is `false`, `key_vault_key_id` must be a versioned Key Vault Key ID.
 
         > **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """

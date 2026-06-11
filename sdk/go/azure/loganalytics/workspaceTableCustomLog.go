@@ -53,7 +53,7 @@ import (
 //				Columns: loganalytics.WorkspaceTableCustomLogColumnArray{
 //					&loganalytics.WorkspaceTableCustomLogColumnArgs{
 //						Name: pulumi.String("TimeGenerated"),
-//						Type: pulumi.String("datetime"),
+//						Type: pulumi.String("dateTime"),
 //					},
 //				},
 //			})

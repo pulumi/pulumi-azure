@@ -3,39 +3,61 @@
 
 package com.pulumi.azure.compute.outputs;
 
+import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetSkuProfile {
     /**
-     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
      * 
      */
     private String allocationStrategy;
     /**
-     * @return Specifies the VM sizes for the virtual machine scale set.
+     * @return One or more `virtualMachineSize` blocks as defined below.
+     * 
+     * &gt; **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
      * 
      */
-    private List<String> vmSizes;
+    private @Nullable List<OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> virtualMachineSizes;
+    /**
+     * @deprecated
+     * The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+     * 
+     */
+    @Deprecated /* The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead. */
+    private @Nullable List<String> vmSizes;
 
     private OrchestratedVirtualMachineScaleSetSkuProfile() {}
     /**
-     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+     * @return Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
      * 
      */
     public String allocationStrategy() {
         return this.allocationStrategy;
     }
     /**
-     * @return Specifies the VM sizes for the virtual machine scale set.
+     * @return One or more `virtualMachineSize` blocks as defined below.
+     * 
+     * &gt; **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
      * 
      */
+    public List<OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> virtualMachineSizes() {
+        return this.virtualMachineSizes == null ? List.of() : this.virtualMachineSizes;
+    }
+    /**
+     * @deprecated
+     * The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+     * 
+     */
+    @Deprecated /* The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead. */
     public List<String> vmSizes() {
-        return this.vmSizes;
+        return this.vmSizes == null ? List.of() : this.vmSizes;
     }
 
     public static Builder builder() {
@@ -48,11 +70,13 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfile {
     @CustomType.Builder
     public static final class Builder {
         private String allocationStrategy;
-        private List<String> vmSizes;
+        private @Nullable List<OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> virtualMachineSizes;
+        private @Nullable List<String> vmSizes;
         public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetSkuProfile defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.allocationStrategy = defaults.allocationStrategy;
+    	      this.virtualMachineSizes = defaults.virtualMachineSizes;
     	      this.vmSizes = defaults.vmSizes;
         }
 
@@ -65,10 +89,17 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfile {
             return this;
         }
         @CustomType.Setter
-        public Builder vmSizes(List<String> vmSizes) {
-            if (vmSizes == null) {
-              throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetSkuProfile", "vmSizes");
-            }
+        public Builder virtualMachineSizes(@Nullable List<OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> virtualMachineSizes) {
+
+            this.virtualMachineSizes = virtualMachineSizes;
+            return this;
+        }
+        public Builder virtualMachineSizes(OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize... virtualMachineSizes) {
+            return virtualMachineSizes(List.of(virtualMachineSizes));
+        }
+        @CustomType.Setter
+        public Builder vmSizes(@Nullable List<String> vmSizes) {
+
             this.vmSizes = vmSizes;
             return this;
         }
@@ -78,6 +109,7 @@ public final class OrchestratedVirtualMachineScaleSetSkuProfile {
         public OrchestratedVirtualMachineScaleSetSkuProfile build() {
             final var _resultValue = new OrchestratedVirtualMachineScaleSetSkuProfile();
             _resultValue.allocationStrategy = allocationStrategy;
+            _resultValue.virtualMachineSizes = virtualMachineSizes;
             _resultValue.vmSizes = vmSizes;
             return _resultValue;
         }

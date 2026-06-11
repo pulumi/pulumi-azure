@@ -13,16 +13,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * @return The Secret URL of a Key Vault Certificate.
      * 
-     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
-     * 
      */
     private String url;
 
     private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate() {}
     /**
      * @return The Secret URL of a Key Vault Certificate.
-     * 
-     * &gt; **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
      * 
      */
     public String url() {

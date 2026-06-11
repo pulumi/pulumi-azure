@@ -36,6 +36,8 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
      * 
      * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
      * 
+     * &gt; **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
+     * 
      * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      * 
      */
@@ -46,6 +48,8 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
      * @return To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
      * 
      * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+     * 
+     * &gt; **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
      * 
      * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      * 
@@ -129,6 +133,8 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
          * 
          * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
          * 
+         * &gt; **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
+         * 
          * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
          * 
          * @return builder
@@ -143,6 +149,8 @@ public final class ManagedInstanceTransparentDataEncryptionState extends com.pul
          * @param keyVaultKeyId To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
          * 
          * &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: &#39;get&#39;, &#39;wrapKey&#39; and &#39;unwrapKey&#39;
+         * 
+         * &gt; **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
          * 
          * &gt; **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance&#39;s transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
          * 

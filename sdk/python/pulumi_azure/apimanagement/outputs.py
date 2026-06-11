@@ -3237,17 +3237,18 @@ class BackendCredentialsAuthorization(dict):
 class BackendProxy(dict):
     def __init__(__self__, *,
                  url: _builtins.str,
-                 username: _builtins.str,
-                 password: Optional[_builtins.str] = None):
+                 password: Optional[_builtins.str] = None,
+                 username: Optional[_builtins.str] = None):
         """
         :param _builtins.str url: The URL of the proxy server.
-        :param _builtins.str username: The username to connect to the proxy server.
         :param _builtins.str password: The password to connect to the proxy server.
+        :param _builtins.str username: The username to connect to the proxy server.
         """
         pulumi.set(__self__, "url", url)
-        pulumi.set(__self__, "username", username)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @_builtins.property
     @pulumi.getter
@@ -3259,19 +3260,19 @@ class BackendProxy(dict):
 
     @_builtins.property
     @pulumi.getter
-    def username(self) -> _builtins.str:
-        """
-        The username to connect to the proxy server.
-        """
-        return pulumi.get(self, "username")
-
-    @_builtins.property
-    @pulumi.getter
     def password(self) -> Optional[_builtins.str]:
         """
         The password to connect to the proxy server.
         """
         return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional[_builtins.str]:
+        """
+        The username to connect to the proxy server.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

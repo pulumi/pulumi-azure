@@ -33,14 +33,14 @@ public final class VolumeGroupOracleState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Import(name="applicationIdentifier")
     private @Nullable Output<String> applicationIdentifier;
 
     /**
-     * @return The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Optional<Output<String>> applicationIdentifier() {
@@ -174,7 +174,7 @@ public final class VolumeGroupOracleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param applicationIdentifier The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param applicationIdentifier The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class VolumeGroupOracleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param applicationIdentifier The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+         * @param applicationIdentifier The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
          * 
          * @return builder
          * 

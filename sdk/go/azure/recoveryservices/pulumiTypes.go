@@ -426,10 +426,16 @@ func (o VaultIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type VaultMonitoring struct {
+	// Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+	AlertsForAllFailoverIssuesEnabled *bool `pulumi:"alertsForAllFailoverIssuesEnabled"`
 	// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
 	AlertsForAllJobFailuresEnabled *bool `pulumi:"alertsForAllJobFailuresEnabled"`
+	// Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+	AlertsForAllReplicationIssuesEnabled *bool `pulumi:"alertsForAllReplicationIssuesEnabled"`
 	// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
 	AlertsForCriticalOperationFailuresEnabled *bool `pulumi:"alertsForCriticalOperationFailuresEnabled"`
+	// Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+	EmailNotificationsForSiteRecoveryEnabled *bool `pulumi:"emailNotificationsForSiteRecoveryEnabled"`
 }
 
 // VaultMonitoringInput is an input type that accepts VaultMonitoringArgs and VaultMonitoringOutput values.
@@ -444,10 +450,16 @@ type VaultMonitoringInput interface {
 }
 
 type VaultMonitoringArgs struct {
+	// Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+	AlertsForAllFailoverIssuesEnabled pulumi.BoolPtrInput `pulumi:"alertsForAllFailoverIssuesEnabled"`
 	// Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
 	AlertsForAllJobFailuresEnabled pulumi.BoolPtrInput `pulumi:"alertsForAllJobFailuresEnabled"`
+	// Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+	AlertsForAllReplicationIssuesEnabled pulumi.BoolPtrInput `pulumi:"alertsForAllReplicationIssuesEnabled"`
 	// Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
 	AlertsForCriticalOperationFailuresEnabled pulumi.BoolPtrInput `pulumi:"alertsForCriticalOperationFailuresEnabled"`
+	// Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+	EmailNotificationsForSiteRecoveryEnabled pulumi.BoolPtrInput `pulumi:"emailNotificationsForSiteRecoveryEnabled"`
 }
 
 func (VaultMonitoringArgs) ElementType() reflect.Type {
@@ -527,14 +539,29 @@ func (o VaultMonitoringOutput) ToVaultMonitoringPtrOutputWithContext(ctx context
 	}).(VaultMonitoringPtrOutput)
 }
 
+// Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+func (o VaultMonitoringOutput) AlertsForAllFailoverIssuesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VaultMonitoring) *bool { return v.AlertsForAllFailoverIssuesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
 func (o VaultMonitoringOutput) AlertsForAllJobFailuresEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultMonitoring) *bool { return v.AlertsForAllJobFailuresEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+func (o VaultMonitoringOutput) AlertsForAllReplicationIssuesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VaultMonitoring) *bool { return v.AlertsForAllReplicationIssuesEnabled }).(pulumi.BoolPtrOutput)
+}
+
 // Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
 func (o VaultMonitoringOutput) AlertsForCriticalOperationFailuresEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VaultMonitoring) *bool { return v.AlertsForCriticalOperationFailuresEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+func (o VaultMonitoringOutput) EmailNotificationsForSiteRecoveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VaultMonitoring) *bool { return v.EmailNotificationsForSiteRecoveryEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type VaultMonitoringPtrOutput struct{ *pulumi.OutputState }
@@ -561,6 +588,16 @@ func (o VaultMonitoringPtrOutput) Elem() VaultMonitoringOutput {
 	}).(VaultMonitoringOutput)
 }
 
+// Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+func (o VaultMonitoringPtrOutput) AlertsForAllFailoverIssuesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VaultMonitoring) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForAllFailoverIssuesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
 func (o VaultMonitoringPtrOutput) AlertsForAllJobFailuresEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultMonitoring) *bool {
@@ -571,6 +608,16 @@ func (o VaultMonitoringPtrOutput) AlertsForAllJobFailuresEnabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+func (o VaultMonitoringPtrOutput) AlertsForAllReplicationIssuesEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VaultMonitoring) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AlertsForAllReplicationIssuesEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
 func (o VaultMonitoringPtrOutput) AlertsForCriticalOperationFailuresEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VaultMonitoring) *bool {
@@ -578,6 +625,16 @@ func (o VaultMonitoringPtrOutput) AlertsForCriticalOperationFailuresEnabled() pu
 			return nil
 		}
 		return v.AlertsForCriticalOperationFailuresEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+func (o VaultMonitoringPtrOutput) EmailNotificationsForSiteRecoveryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VaultMonitoring) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EmailNotificationsForSiteRecoveryEnabled
 	}).(pulumi.BoolPtrOutput)
 }
 

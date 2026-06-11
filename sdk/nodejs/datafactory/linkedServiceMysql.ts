@@ -86,6 +86,12 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     *
+     * > **Note:** New linked services must set `driverVersion` to `V2`.
+     */
+    declare public readonly driverVersion: pulumi.Output<string | undefined>;
+    /**
      * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      */
     declare public readonly integrationRuntimeName: pulumi.Output<string | undefined>;
@@ -116,6 +122,7 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
             resourceInputs["connectionString"] = state?.connectionString;
             resourceInputs["dataFactoryId"] = state?.dataFactoryId;
             resourceInputs["description"] = state?.description;
+            resourceInputs["driverVersion"] = state?.driverVersion;
             resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
             resourceInputs["name"] = state?.name;
             resourceInputs["parameters"] = state?.parameters;
@@ -132,6 +139,7 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
             resourceInputs["connectionString"] = args?.connectionString;
             resourceInputs["dataFactoryId"] = args?.dataFactoryId;
             resourceInputs["description"] = args?.description;
+            resourceInputs["driverVersion"] = args?.driverVersion;
             resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
             resourceInputs["name"] = args?.name;
             resourceInputs["parameters"] = args?.parameters;
@@ -165,6 +173,12 @@ export interface LinkedServiceMysqlState {
      * The description for the Data Factory Linked Service MySQL.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     *
+     * > **Note:** New linked services must set `driverVersion` to `V2`.
+     */
+    driverVersion?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      */
@@ -203,6 +217,12 @@ export interface LinkedServiceMysqlArgs {
      * The description for the Data Factory Linked Service MySQL.
      */
     description?: pulumi.Input<string | undefined>;
+    /**
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     *
+     * > **Note:** New linked services must set `driverVersion` to `V2`.
+     */
+    driverVersion?: pulumi.Input<string | undefined>;
     /**
      * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      */

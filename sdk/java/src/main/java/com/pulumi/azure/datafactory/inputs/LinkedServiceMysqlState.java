@@ -93,6 +93,25 @@ public final class LinkedServiceMysqlState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * 
+     * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
+     * 
+     */
+    @Import(name="driverVersion")
+    private @Nullable Output<String> driverVersion;
+
+    /**
+     * @return The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * 
+     * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
+     * 
+     */
+    public Optional<Output<String>> driverVersion() {
+        return Optional.ofNullable(this.driverVersion);
+    }
+
+    /**
      * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      * 
      */
@@ -145,6 +164,7 @@ public final class LinkedServiceMysqlState extends com.pulumi.resources.Resource
         this.connectionString = $.connectionString;
         this.dataFactoryId = $.dataFactoryId;
         this.description = $.description;
+        this.driverVersion = $.driverVersion;
         this.integrationRuntimeName = $.integrationRuntimeName;
         this.name = $.name;
         this.parameters = $.parameters;
@@ -281,6 +301,31 @@ public final class LinkedServiceMysqlState extends com.pulumi.resources.Resource
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param driverVersion The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+         * 
+         * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder driverVersion(@Nullable Output<String> driverVersion) {
+            $.driverVersion = driverVersion;
+            return this;
+        }
+
+        /**
+         * @param driverVersion The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+         * 
+         * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder driverVersion(String driverVersion) {
+            return driverVersion(Output.of(driverVersion));
         }
 
         /**

@@ -26,7 +26,7 @@ namespace Pulumi.Azure.LogAnalytics.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The data type of the column. Possible values are `Boolean`, `Datetime`, `Dynamic`, `Guid`, `Int`, `Long`, `Real`, and `String`.
+        /// The data type of the column. Possible values are `Boolean`, `dateTime`, `Dynamic`, `Guid`, `Int`, `Long`, `Real`, and `String`.
         /// </summary>
         public readonly string Type;
 

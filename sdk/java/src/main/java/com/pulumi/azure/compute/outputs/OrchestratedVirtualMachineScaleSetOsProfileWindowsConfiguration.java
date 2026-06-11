@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
     /**
-     * @return One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `additionalUnattendContent` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> additionalUnattendContents;
@@ -43,33 +43,33 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      */
     private @Nullable Boolean enableAutomaticUpdates;
     /**
-     * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     * @return Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
-     * &gt; **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM&#39;s `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+     * &gt; **Note:** Hotpatching can only be enabled if `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` is set to `true`, `sourceImageReference` references a hotpatching enabled image, `skuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
      * 
      */
     private @Nullable Boolean hotpatchingEnabled;
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+     * &gt; **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
      * 
      */
     private @Nullable String patchAssessmentMode;
     /**
-     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
+     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension.
      * 
      */
     private @Nullable String patchMode;
     /**
-     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean provisionVmAgent;
     /**
-     * @return One or more `secret` blocks as defined below.
+     * @return One or more `secret` blocks as defined above.
      * 
      */
     private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets;
@@ -86,7 +86,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration() {}
     /**
-     * @return One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+     * @return One or more `additionalUnattendContent` blocks as defined above. Changing this forces a new resource to be created.
      * 
      */
     public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> additionalUnattendContents() {
@@ -121,9 +121,9 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         return Optional.ofNullable(this.enableAutomaticUpdates);
     }
     /**
-     * @return Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+     * @return Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
-     * &gt; **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM&#39;s `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+     * &gt; **Note:** Hotpatching can only be enabled if `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` is set to `true`, `sourceImageReference` references a hotpatching enabled image, `skuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
      * 
      */
     public Optional<Boolean> hotpatchingEnabled() {
@@ -132,30 +132,30 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+     * &gt; **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
      * 
      */
     public Optional<String> patchAssessmentMode() {
         return Optional.ofNullable(this.patchAssessmentMode);
     }
     /**
-     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
+     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension.
      * 
      */
     public Optional<String> patchMode() {
         return Optional.ofNullable(this.patchMode);
     }
     /**
-     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> provisionVmAgent() {
         return Optional.ofNullable(this.provisionVmAgent);
     }
     /**
-     * @return One or more `secret` blocks as defined below.
+     * @return One or more `secret` blocks as defined above.
      * 
      */
     public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret> secrets() {

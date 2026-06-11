@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret {
     /**
-     * @return One or more `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks as defined above.
      * 
      */
     private List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates;
@@ -25,7 +25,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
 
     private OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret() {}
     /**
-     * @return One or more `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks as defined above.
      * 
      */
     public List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate> certificates() {

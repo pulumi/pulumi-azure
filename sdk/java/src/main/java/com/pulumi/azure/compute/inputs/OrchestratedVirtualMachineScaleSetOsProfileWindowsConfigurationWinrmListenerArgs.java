@@ -36,14 +36,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     }
 
     /**
-     * Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+     * Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="protocol", required=true)
     private Output<String> protocol;
 
     /**
-     * @return Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+     * @return Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> protocol() {
@@ -101,7 +101,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param protocol Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+         * @param protocol Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -112,7 +112,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param protocol Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+         * @param protocol Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

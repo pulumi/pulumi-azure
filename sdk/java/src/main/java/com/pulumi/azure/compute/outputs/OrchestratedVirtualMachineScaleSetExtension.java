@@ -52,7 +52,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     /**
      * @return A `protectedSettingsFromKeyVault` block as defined below.
      * 
-     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
      * 
      */
     private @Nullable OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault protectedSettingsFromKeyVault;
@@ -127,7 +127,7 @@ public final class OrchestratedVirtualMachineScaleSetExtension {
     /**
      * @return A `protectedSettingsFromKeyVault` block as defined below.
      * 
-     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+     * &gt; **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
      * 
      */
     public Optional<OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault> protectedSettingsFromKeyVault() {
