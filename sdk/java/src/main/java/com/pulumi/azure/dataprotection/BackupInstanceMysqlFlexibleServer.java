@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.BackupPolicyMysqlFlexibleServer;
  * import com.pulumi.azure.dataprotection.BackupPolicyMysqlFlexibleServerArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyMysqlFlexibleServerDefaultRetentionRuleLifeCycleArgs;
  * import com.pulumi.azure.dataprotection.BackupInstanceMysqlFlexibleServer;
  * import com.pulumi.azure.dataprotection.BackupInstanceMysqlFlexibleServerArgs;
  * import com.pulumi.resources.CustomResourceOptions;

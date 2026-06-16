@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupCostManagementView;
  * import com.pulumi.azure.core.ResourceGroupCostManagementViewArgs;
  * import com.pulumi.azure.core.inputs.ResourceGroupCostManagementViewDatasetArgs;
+ * import com.pulumi.azure.core.inputs.ResourceGroupCostManagementViewDatasetAggregationArgs;
  * import com.pulumi.azure.core.inputs.ResourceGroupCostManagementViewPivotArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

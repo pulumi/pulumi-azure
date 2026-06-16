@@ -130,7 +130,7 @@ import (
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
 //				EnabledForDiskEncryption: pulumi.Bool(true),
-//				TenantId:                 pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:                 pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays:  pulumi.Int(7),
 //				PurgeProtectionEnabled:   pulumi.Bool(false),
 //				SkuName:                  pulumi.String("standard"),
@@ -151,10 +151,10 @@ import (
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (*string, error) {
-//							return &identity.TenantId, nil
+//							return identity.TenantId, nil
 //						}).(pulumi.StringPtrOutput),
 //						ObjectId: exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (*string, error) {
-//							return &identity.PrincipalId, nil
+//							return identity.PrincipalId, nil
 //						}).(pulumi.StringPtrOutput),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),

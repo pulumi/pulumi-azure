@@ -54,7 +54,7 @@ import (
 //				Name:              pulumi.String("example-connection"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				ManagedApiId: pulumi.String(example.ApplyT(func(example connections.GetManagedApiResult) (*string, error) {
-//					return &example.Id, nil
+//					return example.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				DisplayName: pulumi.String("Example 1"),
 //				ParameterValues: pulumi.StringMap{

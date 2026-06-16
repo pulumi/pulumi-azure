@@ -57,7 +57,7 @@ import (
 //				DisplayName:             pulumi.String("Potential data staging"),
 //			}, nil)
 //			ctx.Export("id", example.ApplyT(func(example sentinel.GetAlertRuleAnomalyResult) (*string, error) {
-//				return &example.Id, nil
+//				return example.Id, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})

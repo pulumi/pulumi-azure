@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.FleetUpdateStrategy;
  * import com.pulumi.azure.containerservice.FleetUpdateStrategyArgs;
  * import com.pulumi.azure.containerservice.inputs.FleetUpdateStrategyStageArgs;
+ * import com.pulumi.azure.containerservice.inputs.FleetUpdateStrategyStageGroupArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

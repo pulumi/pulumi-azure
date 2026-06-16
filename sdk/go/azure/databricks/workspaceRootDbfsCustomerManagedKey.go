@@ -45,7 +45,7 @@ import (
 //				Name:                    pulumi.String("examplekeyvault"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				TenantId:                pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:                pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				PurgeProtectionEnabled:  pulumi.Bool(true),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
@@ -56,7 +56,7 @@ import (
 //			terraform, err := keyvault.NewAccessPolicy(ctx, "terraform", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   exampleKeyVault.TenantId,
-//				ObjectId:   pulumi.String(pulumi.String(current.ObjectId)),
+//				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),
@@ -105,10 +105,10 @@ import (
 //			databricks2, err := keyvault.NewAccessPolicy(ctx, "databricks", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId: pulumi.String(exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
-//					return &storageAccountIdentities[0].TenantId, nil
+//					return storageAccountIdentities[0].TenantId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ObjectId: pulumi.String(exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
-//					return &storageAccountIdentities[0].PrincipalId, nil
+//					return storageAccountIdentities[0].PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),

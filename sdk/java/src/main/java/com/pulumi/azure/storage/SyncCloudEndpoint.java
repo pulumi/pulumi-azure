@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.Share;
  * import com.pulumi.azure.storage.ShareArgs;
  * import com.pulumi.azure.storage.inputs.ShareAclArgs;
+ * import com.pulumi.azure.storage.inputs.ShareAclAccessPolicyArgs;
  * import com.pulumi.azure.storage.SyncCloudEndpoint;
  * import com.pulumi.azure.storage.SyncCloudEndpointArgs;
  * import java.util.ArrayList;

@@ -61,7 +61,7 @@ import (
 //				Name:                   pulumi.String("example-kv"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
-//				TenantId:               pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:               pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})
@@ -125,7 +125,7 @@ import (
 //				VirtualMachineSize:         pulumi.String("STANDARD_DS2_V2"),
 //				AuthorizationType:          pulumi.String("personal"),
 //				Ssh: &machinelearning.ComputeInstanceSshArgs{
-//					PublicKey: pulumi.String(pulumi.String(sshKey)),
+//					PublicKey: pulumi.String(sshKey),
 //				},
 //				SubnetResourceId: exampleSubnet.ID(),
 //				Description:      pulumi.String("foo"),

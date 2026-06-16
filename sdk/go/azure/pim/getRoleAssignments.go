@@ -40,7 +40,7 @@ import (
 //			}, nil)
 //			ctx.Export("id", example.ApplyT(func(example pim.GetRoleAssignmentsResult) ([]pim.GetRoleAssignmentsRoleAssignment, error) {
 //				return []pim.GetRoleAssignmentsRoleAssignment(example.RoleAssignments), nil
-//			}).([]pim.GetRoleAssignmentsRoleAssignmentOutput))
+//			}).(pulumi.ArrayOutput))
 //			return nil
 //		})
 //	}

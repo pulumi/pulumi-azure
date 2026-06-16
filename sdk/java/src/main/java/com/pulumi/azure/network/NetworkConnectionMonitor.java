@@ -58,6 +58,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.NetworkConnectionMonitorArgs;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorEndpointArgs;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorEndpointFilterArgs;
+ * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorEndpointFilterItemArgs;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationArgs;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestGroupArgs;

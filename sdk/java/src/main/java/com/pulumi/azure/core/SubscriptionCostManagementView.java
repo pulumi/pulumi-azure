@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.SubscriptionCostManagementView;
  * import com.pulumi.azure.core.SubscriptionCostManagementViewArgs;
  * import com.pulumi.azure.core.inputs.SubscriptionCostManagementViewDatasetArgs;
+ * import com.pulumi.azure.core.inputs.SubscriptionCostManagementViewDatasetAggregationArgs;
  * import com.pulumi.azure.core.inputs.SubscriptionCostManagementViewPivotArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

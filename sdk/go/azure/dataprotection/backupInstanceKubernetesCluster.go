@@ -120,8 +120,8 @@ import (
 //					"configuration.backupStorageLocation.bucket":                exampleContainer.Name,
 //					"configuration.backupStorageLocation.config.resourceGroup":  example.Name,
 //					"configuration.backupStorageLocation.config.storageAccount": exampleAccount.Name,
-//					"configuration.backupStorageLocation.config.subscriptionId": pulumi.String(pulumi.String(current.SubscriptionId)),
-//					"credentials.tenantId":                                      pulumi.String(pulumi.String(current.TenantId)),
+//					"configuration.backupStorageLocation.config.subscriptionId": pulumi.String(current.SubscriptionId),
+//					"credentials.tenantId":                                      pulumi.String(current.TenantId),
 //				},
 //			})
 //			if err != nil {
@@ -131,7 +131,7 @@ import (
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Contributor"),
 //				PrincipalId: pulumi.String(exampleKubernetesClusterExtension.AksAssignedIdentities.ApplyT(func(aksAssignedIdentities []containerservice.KubernetesClusterExtensionAksAssignedIdentity) (*string, error) {
-//					return &aksAssignedIdentities[0].PrincipalId, nil
+//					return aksAssignedIdentities[0].PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -141,7 +141,7 @@ import (
 //				Scope:              exampleKubernetesCluster.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -151,7 +151,7 @@ import (
 //				Scope:              snap.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -161,7 +161,7 @@ import (
 //				Scope:              snap.ID(),
 //				RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -171,7 +171,7 @@ import (
 //				Scope:              snap.ID(),
 //				RoleDefinitionName: pulumi.String("Data Operator for Managed Disks"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -181,7 +181,7 @@ import (
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -191,7 +191,7 @@ import (
 //				Scope:              snap.ID(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //				PrincipalId: pulumi.String(exampleKubernetesCluster.Identity.ApplyT(func(identity containerservice.KubernetesClusterIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

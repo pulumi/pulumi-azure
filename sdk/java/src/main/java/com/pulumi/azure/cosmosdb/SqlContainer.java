@@ -39,6 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cosmosdb.SqlContainer;
  * import com.pulumi.azure.cosmosdb.SqlContainerArgs;
  * import com.pulumi.azure.cosmosdb.inputs.SqlContainerIndexingPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.SqlContainerIndexingPolicyIncludedPathArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.SqlContainerIndexingPolicyExcludedPathArgs;
  * import com.pulumi.azure.cosmosdb.inputs.SqlContainerUniqueKeyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

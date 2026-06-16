@@ -54,6 +54,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.batch.inputs.PoolAutoScaleArgs;
  * import com.pulumi.azure.batch.inputs.PoolStorageImageReferenceArgs;
  * import com.pulumi.azure.batch.inputs.PoolContainerConfigurationArgs;
+ * import com.pulumi.azure.batch.inputs.PoolContainerConfigurationContainerRegistryArgs;
  * import com.pulumi.azure.batch.inputs.PoolStartTaskArgs;
  * import com.pulumi.azure.batch.inputs.PoolStartTaskUserIdentityArgs;
  * import com.pulumi.azure.batch.inputs.PoolStartTaskUserIdentityAutoUserArgs;

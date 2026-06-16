@@ -56,8 +56,8 @@ import (
 //				Name:              pulumi.String("KustoPrincipalAssignment"),
 //				ResourceGroupName: example.Name,
 //				ClusterName:       exampleCluster.Name,
-//				TenantId:          pulumi.String(pulumi.String(current.TenantId)),
-//				PrincipalId:       pulumi.String(pulumi.Any(current.PrincipalId)),
+//				TenantId:          pulumi.String(current.TenantId),
+//				PrincipalId:       pulumi.Any(current.PrincipalId),
 //				PrincipalType:     pulumi.String("App"),
 //				Role:              pulumi.String("AllDatabasesAdmin"),
 //			})

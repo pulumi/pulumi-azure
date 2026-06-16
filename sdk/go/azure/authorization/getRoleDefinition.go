@@ -35,7 +35,7 @@ import (
 //			customRoleDefinition, err := authorization.NewRoleDefinition(ctx, "custom", &authorization.RoleDefinitionArgs{
 //				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				Name:             pulumi.String("CustomRoleDef"),
-//				Scope:            pulumi.String(pulumi.String(primary.Id)),
+//				Scope:            pulumi.String(primary.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("customRoleDefinitionId", custom.ApplyT(func(custom authorization.GetRoleDefinitionResult) (*string, error) {
-//				return &custom.Id, nil
+//				return custom.Id, nil
 //			}).(pulumi.StringPtrOutput))
 //			ctx.Export("contributorRoleDefinitionId", builtin.Id)
 //			return nil

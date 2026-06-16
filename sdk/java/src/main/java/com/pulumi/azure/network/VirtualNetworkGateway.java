@@ -48,6 +48,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkGatewayArgs;
  * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayIpConfigurationArgs;
  * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationArgs;
+ * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationRootCertificateArgs;
+ * import com.pulumi.azure.network.inputs.VirtualNetworkGatewayVpnClientConfigurationRevokedCertificateArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

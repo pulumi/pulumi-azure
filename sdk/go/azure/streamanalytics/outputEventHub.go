@@ -63,10 +63,10 @@ import (
 //			_, err = streamanalytics.NewOutputEventHub(ctx, "example", &streamanalytics.OutputEventHubArgs{
 //				Name: pulumi.String("output-to-eventhub"),
 //				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return &example.Name, nil
+//					return example.Name, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return &example.ResourceGroupName, nil
+//					return example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput)),
 //				EventhubName:           exampleEventHub.Name,
 //				ServicebusNamespace:    exampleEventHubNamespace.Name,

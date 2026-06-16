@@ -127,7 +127,7 @@ import javax.annotation.Nullable;
  *         final var vnetAddressSpace = config.get("vnetAddressSpace").orElse(Arrays.asList(        
  *             "10.0.0.0/16",
  *             "10.1.0.0/16"));
- *         for (var i = 0; i < location.length(); i++) {
+ *         for (var i = 0; i < location.size(); i++) {
  *             new ResourceGroup("example-" + i, ResourceGroupArgs.builder()
  *                 .name(String.format("rg-global-vnet-peering-%s", range.value()))
  *                 .location(location[range.value()])
@@ -135,7 +135,7 @@ import javax.annotation.Nullable;
  * 
  *         
  * }
- *         for (var i = 0; i < location.length(); i++) {
+ *         for (var i = 0; i < location.size(); i++) {
  *             new VirtualNetwork("vnet-" + i, VirtualNetworkArgs.builder()
  *                 .name(String.format("vnet-%s", range.value()))
  *                 .resourceGroupName(example.stream().map(element -> element.name()).collect(toList())[range.value()])
@@ -145,7 +145,7 @@ import javax.annotation.Nullable;
  * 
  *         
  * }
- *         for (var i = 0; i < location.length(); i++) {
+ *         for (var i = 0; i < location.size(); i++) {
  *             new Subnet("nva-" + i, SubnetArgs.builder()
  *                 .name("nva")
  *                 .resourceGroupName(example.stream().map(element -> element.name()).collect(toList())[range.value()])
@@ -160,7 +160,7 @@ import javax.annotation.Nullable;
  *         
  * }
  *         // enable global peering between the two virtual network
- *         for (var i = 0; i < location.length(); i++) {
+ *         for (var i = 0; i < location.size(); i++) {
  *             new VirtualNetworkPeering("peering-" + i, VirtualNetworkPeeringArgs.builder()
  *                 .name(vnet.stream().map(element -> element.name()).collect(toList())[1 - range.value()].applyValue(_names -> String.format("peering-to-%s", _names)))
  *                 .resourceGroupName(example.stream().map(element -> element.name()).collect(toList())[range.value()])

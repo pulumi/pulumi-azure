@@ -53,7 +53,7 @@ import (
 //				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
 //				ConnectionString: pulumi.String(example.ApplyT(func(example storage.GetAccountResult) (*string, error) {
-//					return &example.PrimaryConnectionString, nil
+//					return example.PrimaryConnectionString, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

@@ -46,6 +46,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2Args;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaDimensionArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2ActionArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2IdentityArgs;

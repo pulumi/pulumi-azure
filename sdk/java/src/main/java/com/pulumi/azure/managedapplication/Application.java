@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *                 .roleDefinitionId(StdFunctions.split(SplitArgs.builder()
  *                     .separator("/")
  *                     .text(builtin.id())
- *                     .build()).result().length().applyValue(_length -> StdFunctions.split(SplitArgs.builder()
+ *                     .build()).result().size().applyValue(_length -> StdFunctions.split(SplitArgs.builder()
  *                     .separator("/")
  *                     .text(builtin.id())
  *                     .build()).result()[_length - 1]))

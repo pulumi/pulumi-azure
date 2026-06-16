@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.FirewallApplicationRuleCollection;
  * import com.pulumi.azure.network.FirewallApplicationRuleCollectionArgs;
  * import com.pulumi.azure.network.inputs.FirewallApplicationRuleCollectionRuleArgs;
+ * import com.pulumi.azure.network.inputs.FirewallApplicationRuleCollectionRuleProtocolArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

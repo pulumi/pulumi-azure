@@ -82,7 +82,7 @@ import (
 //				Scope:              exampleCluster.ID(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //				PrincipalId: pulumi.String(exampleAccount.Identity.ApplyT(func(identity datashare.AccountIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

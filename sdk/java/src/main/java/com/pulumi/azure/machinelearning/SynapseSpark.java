@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  *             .applicationInsightsId(exampleInsights.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
- *             .identity(WorkspaceIdentityArgs.builder()
+ *             .identity(com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
  *             .build());
@@ -114,7 +114,7 @@ import javax.annotation.Nullable;
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin("sqladminuser")
  *             .sqlAdministratorLoginPassword("H}{@literal @}{@code Sh1CoR3!")
- *             .identity(WorkspaceIdentityArgs.builder()
+ *             .identity(com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs.builder()
  *                 .type("SystemAssigned")
  *                 .build())
  *             .build());

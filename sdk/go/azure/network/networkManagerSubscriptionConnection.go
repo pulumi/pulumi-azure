@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerSubscriptionConnection(ctx, "example", &network.NetworkManagerSubscriptionConnectionArgs{
 //				Name:             pulumi.String("example-nsnmc"),
-//				SubscriptionId:   pulumi.String(pulumi.String(current.Id)),
+//				SubscriptionId:   pulumi.String(current.Id),
 //				NetworkManagerId: exampleNetworkManager.ID(),
 //				Description:      pulumi.String("example"),
 //			})

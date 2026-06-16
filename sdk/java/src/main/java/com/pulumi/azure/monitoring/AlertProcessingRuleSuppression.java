@@ -41,6 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionConditionSeverityArgs;
  * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionScheduleArgs;
  * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionScheduleRecurrenceArgs;
+ * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionScheduleRecurrenceDailyArgs;
+ * import com.pulumi.azure.monitoring.inputs.AlertProcessingRuleSuppressionScheduleRecurrenceWeeklyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -84,7 +84,7 @@ import (
 //			_, err = streamanalytics.NewOutputCosmosdb(ctx, "example", &streamanalytics.OutputCosmosdbArgs{
 //				Name: pulumi.String("output-to-cosmosdb"),
 //				StreamAnalyticsJobId: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return &example.Id, nil
+//					return example.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				CosmosdbAccountKey:    exampleAccount.PrimaryKey,
 //				CosmosdbSqlDatabaseId: exampleSqlDatabase.ID(),

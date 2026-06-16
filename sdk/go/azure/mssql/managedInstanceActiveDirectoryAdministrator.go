@@ -91,7 +91,7 @@ import (
 //			_, err = azuread.NewDirectoryRoleMember(ctx, "example", &azuread.DirectoryRoleMemberArgs{
 //				RoleObjectId: reader.ObjectId,
 //				MemberObjectId: pulumi.String(exampleManagedInstance.Identity.ApplyT(func(identity mssql.ManagedInstanceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -110,7 +110,7 @@ import (
 //				ManagedInstanceId: exampleManagedInstance.ID(),
 //				LoginUsername:     pulumi.String("msadmin"),
 //				ObjectId:          admin.ObjectId,
-//				TenantId:          pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:          pulumi.String(current.TenantId),
 //			})
 //			if err != nil {
 //				return err

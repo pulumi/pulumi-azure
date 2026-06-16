@@ -66,7 +66,7 @@ import (
 //				Scope:              example.ID(),
 //				RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -76,7 +76,7 @@ import (
 //				Scope:              exampleManagedDisk.ID(),
 //				RoleDefinitionName: pulumi.String("Disk Backup Reader"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

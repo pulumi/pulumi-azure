@@ -108,10 +108,10 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				AutoApprovalSubscriptionIds: pulumi.StringArray{
-//					pulumi.String(pulumi.String(current.SubscriptionId)),
+//					pulumi.String(current.SubscriptionId),
 //				},
 //				VisibilitySubscriptionIds: pulumi.StringArray{
-//					pulumi.String(pulumi.String(current.SubscriptionId)),
+//					pulumi.String(current.SubscriptionId),
 //				},
 //				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
 //					&privatedns.LinkServiceNatIpConfigurationArgs{
@@ -122,7 +122,7 @@ import (
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
 //					pulumi.String(exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
-//						return &frontendIpConfigurations[0].Id, nil
+//						return frontendIpConfigurations[0].Id, nil
 //					}).(pulumi.StringPtrOutput)),
 //				},
 //			})

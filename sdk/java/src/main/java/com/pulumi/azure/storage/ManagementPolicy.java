@@ -36,6 +36,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.ManagementPolicyArgs;
  * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleArgs;
  * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleFiltersArgs;
+ * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleFiltersMatchBlobIndexTagArgs;
  * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleActionsArgs;
  * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleActionsBaseBlobArgs;
  * import com.pulumi.azure.storage.inputs.ManagementPolicyRuleActionsSnapshotArgs;

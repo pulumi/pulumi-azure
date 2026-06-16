@@ -147,7 +147,7 @@ import (
 //				Name:                    pulumi.String("example-keyvault"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				TenantId:                pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:                pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("standard"),
 //				EnableRbacAuthorization: pulumi.Bool(true),
 //			})
@@ -157,7 +157,7 @@ import (
 //			userKeyvaultAdmin, err := authorization.NewAssignment(ctx, "user_keyvault_admin", &authorization.AssignmentArgs{
 //				Scope:              exampleKeyVault.ID(),
 //				RoleDefinitionName: pulumi.String("Key Vault Administrator"),
-//				PrincipalId:        pulumi.String(pulumi.String(current.ObjectId)),
+//				PrincipalId:        pulumi.String(current.ObjectId),
 //			})
 //			if err != nil {
 //				return err
@@ -166,7 +166,7 @@ import (
 //				Scope:              exampleKeyVault.ID(),
 //				RoleDefinitionName: pulumi.String("Key Vault Secrets User"),
 //				PrincipalId: pulumi.String(exampleEnvironment.Identity.ApplyT(func(identity containerapp.EnvironmentIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

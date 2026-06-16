@@ -72,7 +72,7 @@ import (
 //				Scope:              example.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {
@@ -82,7 +82,7 @@ import (
 //				Scope:              exampleFlexibleServer.ID(),
 //				RoleDefinitionName: pulumi.String("PostgreSQL Flexible Server Long Term Retention Backup Role"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

@@ -68,7 +68,7 @@ import (
 //				Name:                    pulumi.String("example-rule"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 //				AlertRuleTemplateGuid: pulumi.String(example.ApplyT(func(example sentinel.GetAlertRuleTemplateResult) (*string, error) {
-//					return &example.Name, nil
+//					return example.Name, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

@@ -56,7 +56,7 @@ import (
 //			appconfDataowner, err := authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
 //				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
-//				PrincipalId:        pulumi.String(pulumi.String(current.ObjectId)),
+//				PrincipalId:        pulumi.String(current.ObjectId),
 //			})
 //			if err != nil {
 //				return err
@@ -118,7 +118,7 @@ import (
 //				Name:                    pulumi.String("kv"),
 //				Location:                pulumi.Any(testAzurermResourceGroup.Location),
 //				ResourceGroupName:       pulumi.Any(testAzurermResourceGroup.Name),
-//				TenantId:                pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:                pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
@@ -153,7 +153,7 @@ import (
 //			appconfDataowner, err := authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
 //				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
-//				PrincipalId:        pulumi.String(pulumi.String(current.ObjectId)),
+//				PrincipalId:        pulumi.String(current.ObjectId),
 //			})
 //			if err != nil {
 //				return err

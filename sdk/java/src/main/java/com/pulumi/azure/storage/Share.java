@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.Share;
  * import com.pulumi.azure.storage.ShareArgs;
  * import com.pulumi.azure.storage.inputs.ShareAclArgs;
+ * import com.pulumi.azure.storage.inputs.ShareAclAccessPolicyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -133,7 +133,7 @@ import (
 //				ResourceGroupName:             exampleResourceGroup.Name,
 //				Location:                      exampleResourceGroup.Location,
 //				Size:                          pulumi.String("Standard_M8ms"),
-//				AdminUsername:                 pulumi.String(pulumi.String(adminUsername)),
+//				AdminUsername:                 pulumi.String(adminUsername),
 //				AdminPassword:                 pulumi.Any(adminPassword),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
 //				ProximityPlacementGroupId:     examplePlacementGroup.ID(),
@@ -372,7 +372,7 @@ import (
 //				Name:                         pulumi.Sprintf("%vkv", prefix),
 //				Location:                     example.Location,
 //				ResourceGroupName:            example.Name,
-//				TenantId:                     pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:                     pulumi.String(current.TenantId),
 //				SkuName:                      pulumi.String("standard"),
 //				PurgeProtectionEnabled:       pulumi.Bool(true),
 //				SoftDeleteRetentionDays:      pulumi.Int(7),
@@ -395,10 +395,10 @@ import (
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: exampleAccount.Identity.ApplyT(func(identity netapp.AccountIdentity) (*string, error) {
-//							return &identity.TenantId, nil
+//							return identity.TenantId, nil
 //						}).(pulumi.StringPtrOutput),
 //						ObjectId: exampleAccount.Identity.ApplyT(func(identity netapp.AccountIdentity) (*string, error) {
-//							return &identity.PrincipalId, nil
+//							return identity.PrincipalId, nil
 //						}).(pulumi.StringPtrOutput),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
@@ -431,7 +431,7 @@ import (
 //			exampleAccountEncryption, err := netapp.NewAccountEncryption(ctx, "example", &netapp.AccountEncryptionArgs{
 //				NetappAccountId: exampleAccount.ID(),
 //				SystemAssignedIdentityPrincipalId: pulumi.String(exampleAccount.Identity.ApplyT(func(identity netapp.AccountIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				EncryptionKey: exampleKey.VersionlessId,
 //			})

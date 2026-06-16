@@ -39,6 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.consumption.BudgetResourceGroupArgs;
  * import com.pulumi.azure.consumption.inputs.BudgetResourceGroupTimePeriodArgs;
  * import com.pulumi.azure.consumption.inputs.BudgetResourceGroupFilterArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetResourceGroupFilterDimensionArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetResourceGroupFilterTagArgs;
  * import com.pulumi.azure.consumption.inputs.BudgetResourceGroupNotificationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

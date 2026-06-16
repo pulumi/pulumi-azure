@@ -81,7 +81,7 @@ import (
 //				EventhubNamespaceName:     pulumi.String("example-eventhub-namespace"),
 //				EventhubName:              pulumi.String("example-eventhub"),
 //				EventhubConsumerGroupName: pulumi.String("$Default"),
-//				DeviceMappingJson:         pulumi.String(pulumi.String(json0)),
+//				DeviceMappingJson:         pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err

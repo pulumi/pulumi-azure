@@ -52,9 +52,9 @@ import (
 //				return err
 //			}
 //			_, err = pim.NewActiveRoleAssignment(ctx, "example", &pim.ActiveRoleAssignmentArgs{
-//				Scope:            pulumi.String(pulumi.String(primary.Id)),
+//				Scope:            pulumi.String(primary.Id),
 //				RoleDefinitionId: pulumi.Sprintf("%v%v", primary.Id, exampleGetRoleDefinition.Id),
-//				PrincipalId:      pulumi.String(pulumi.String(example.ObjectId)),
+//				PrincipalId:      pulumi.String(example.ObjectId),
 //				Schedule: &pim.ActiveRoleAssignmentScheduleArgs{
 //					StartDateTime: exampleStatic.Rfc3339,
 //					Expiration: &pim.ActiveRoleAssignmentScheduleExpirationArgs{
@@ -116,8 +116,8 @@ import (
 //			}
 //			_, err = pim.NewActiveRoleAssignment(ctx, "example", &pim.ActiveRoleAssignmentArgs{
 //				Scope:            exampleGroup.ID(),
-//				RoleDefinitionId: pulumi.String(pulumi.String(exampleGetRoleDefinition.Id)),
-//				PrincipalId:      pulumi.String(pulumi.String(example.ObjectId)),
+//				RoleDefinitionId: pulumi.String(exampleGetRoleDefinition.Id),
+//				PrincipalId:      pulumi.String(example.ObjectId),
 //				Schedule: &pim.ActiveRoleAssignmentScheduleArgs{
 //					StartDateTime: exampleStatic.Rfc3339,
 //					Expiration: &pim.ActiveRoleAssignmentScheduleExpirationArgs{

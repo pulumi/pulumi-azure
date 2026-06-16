@@ -44,7 +44,7 @@ import (
 //				Name:              pulumi.String("example-api"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				ApiManagementName: pulumi.String(example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
-//					return &example.Name, nil
+//					return example.Name, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Revision: pulumi.String("1"),
 //			})
@@ -53,7 +53,7 @@ import (
 //			}
 //			exampleTag, err := apimanagement.NewTag(ctx, "example", &apimanagement.TagArgs{
 //				ApiManagementId: pulumi.String(example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
-//					return &example.Id, nil
+//					return example.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Name: pulumi.String("example-tag"),
 //			})

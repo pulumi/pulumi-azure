@@ -68,10 +68,10 @@ import (
 //			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
 //				Name: pulumi.String("www"),
 //				ZoneName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return &example.Name, nil
+//					return example.Name, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ResourceGroupName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return &example.ResourceGroupName, nil
+//					return example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Ttl:    pulumi.Int(300),
 //				Record: exampleAppService.DefaultSiteHostname,
@@ -84,10 +84,10 @@ import (
 //					return fmt.Sprintf("asuid.%v", name), nil
 //				}).(pulumi.StringOutput),
 //				ZoneName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return &example.Name, nil
+//					return example.Name, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ResourceGroupName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return &example.ResourceGroupName, nil
+//					return example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Ttl: pulumi.Int(300),
 //				Records: dns.TxtRecordRecordArray{

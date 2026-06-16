@@ -43,6 +43,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.AlertPrometheusRuleGroup;
  * import com.pulumi.azure.monitoring.AlertPrometheusRuleGroupArgs;
  * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleArgs;
+ * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleActionArgs;
  * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

@@ -77,7 +77,7 @@ import (
 //				ContentType:        pulumi.String("application/json"),
 //			}, nil)
 //			ctx.Export("sasUrlQueryString", example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (*string, error) {
-//				return &example.Sas, nil
+//				return example.Sas, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})
