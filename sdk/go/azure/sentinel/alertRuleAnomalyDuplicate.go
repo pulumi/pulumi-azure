@@ -61,7 +61,7 @@ import (
 //				DisplayName:             pulumi.String("example duplicated UEBA Anomalous Sign In"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //				BuiltInRuleId: pulumi.String(example.ApplyT(func(example sentinel.GetAlertRuleAnomalyResult) (*string, error) {
-//					return &example.Id, nil
+//					return example.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Enabled: pulumi.Bool(true),
 //				Mode:    pulumi.String("Flighting"),

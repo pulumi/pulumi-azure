@@ -69,7 +69,7 @@ import (
 //				Password:            pulumi.String("Pa$w0rd1234!"),
 //				LabVirtualNetworkId: exampleVirtualNetwork.ID(),
 //				LabSubnetName: pulumi.String(exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (*string, error) {
-//					return &subnet.Name, nil
+//					return subnet.Name, nil
 //				}).(pulumi.StringPtrOutput)),
 //				StorageType: pulumi.String("Premium"),
 //				Notes:       pulumi.String("Some notes about this Virtual Machine."),

@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesLog;
  * import com.pulumi.azure.monitoring.ScheduledQueryRulesLogArgs;
  * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesLogCriteriaArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesLogCriteriaDimensionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

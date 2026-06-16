@@ -263,7 +263,7 @@ import (
 //				ManagedDisks: siterecovery.ReplicatedVMManagedDiskArray{
 //					&siterecovery.ReplicatedVMManagedDiskArgs{
 //						DiskId: vm.StorageOsDisk.ApplyT(func(storageOsDisk compute.VirtualMachineStorageOsDisk) (*string, error) {
-//							return &storageOsDisk.ManagedDiskId, nil
+//							return storageOsDisk.ManagedDiskId, nil
 //						}).(pulumi.StringPtrOutput),
 //						StagingStorageAccountId: primaryAccount.ID(),
 //						TargetResourceGroupId:   secondary.ID(),

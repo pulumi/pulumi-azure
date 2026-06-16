@@ -46,7 +46,7 @@ import (
 // Name: pulumi.String("example-deploy"),
 // ResourceGroupName: pulumi.String("example-group"),
 // DeploymentMode: pulumi.String("Incremental"),
-// ParametersContent: pulumi.String(pulumi.String(json0)),
+// ParametersContent: pulumi.String(json0),
 //
 //	TemplateContent: pulumi.String(`{
 //	    \"$schema\": \"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#\",
@@ -123,7 +123,7 @@ import (
 //				Name:                  pulumi.String("example-deploy"),
 //				ResourceGroupName:     pulumi.String("example-group"),
 //				DeploymentMode:        pulumi.String("Incremental"),
-//				TemplateSpecVersionId: pulumi.String(pulumi.String(example.Id)),
+//				TemplateSpecVersionId: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

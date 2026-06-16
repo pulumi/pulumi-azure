@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.policy.VirtualMachineConfigurationAssignment;
  * import com.pulumi.azure.policy.VirtualMachineConfigurationAssignmentArgs;
  * import com.pulumi.azure.policy.inputs.VirtualMachineConfigurationAssignmentConfigurationArgs;
+ * import com.pulumi.azure.policy.inputs.VirtualMachineConfigurationAssignmentConfigurationParameterArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

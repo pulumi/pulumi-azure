@@ -103,7 +103,7 @@ import (
 //				Name:                    pulumi.String("example"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				TenantId:                pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:                pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
@@ -124,10 +124,10 @@ import (
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//							return &identity.TenantId, nil
+//							return identity.TenantId, nil
 //						}).(pulumi.StringPtrOutput),
 //						ObjectId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//							return &identity.PrincipalId, nil
+//							return identity.PrincipalId, nil
 //						}).(pulumi.StringPtrOutput),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
@@ -175,7 +175,7 @@ import (
 //				Scope:              exampleServer.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

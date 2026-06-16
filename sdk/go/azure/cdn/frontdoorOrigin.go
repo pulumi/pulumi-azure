@@ -238,11 +238,11 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				VisibilitySubscriptionIds: pulumi.StringArray{
-//					pulumi.String(pulumi.String(current.SubscriptionId)),
+//					pulumi.String(current.SubscriptionId),
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
 //					pulumi.String(exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
-//						return &frontendIpConfigurations[0].Id, nil
+//						return frontendIpConfigurations[0].Id, nil
 //					}).(pulumi.StringPtrOutput)),
 //				},
 //				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{

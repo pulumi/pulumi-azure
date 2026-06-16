@@ -56,16 +56,16 @@ import (
 //			_, err = streamanalytics.NewStreamInputIotHub(ctx, "example", &streamanalytics.StreamInputIotHubArgs{
 //				Name: pulumi.String("example-iothub-input"),
 //				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return &example.Name, nil
+//					return example.Name, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return &example.ResourceGroupName, nil
+//					return example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Endpoint:                  pulumi.String("messages/events"),
 //				EventhubConsumerGroupName: pulumi.String("$Default"),
 //				IothubNamespace:           exampleIoTHub.Name,
 //				SharedAccessPolicyKey: pulumi.String(exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {
-//					return &sharedAccessPolicies[0].PrimaryKey, nil
+//					return sharedAccessPolicies[0].PrimaryKey, nil
 //				}).(pulumi.StringPtrOutput)),
 //				SharedAccessPolicyName: pulumi.String("iothubowner"),
 //				Serialization: &streamanalytics.StreamInputIotHubSerializationArgs{

@@ -69,7 +69,7 @@ import (
 //				NetworkManagerId: exampleNetworkManager.ID(),
 //			}, nil)
 //			ctx.Export("id", example.ApplyT(func(example network.GetNetworkManagerIpamPoolResult) (*string, error) {
-//				return &example.Id, nil
+//				return example.Id, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})

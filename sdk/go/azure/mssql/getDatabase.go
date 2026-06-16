@@ -51,7 +51,7 @@ import (
 //				ServerId: exampleServer.ID(),
 //			}, nil)
 //			ctx.Export("databaseId", example.ApplyT(func(example mssql.GetDatabaseResult) (*string, error) {
-//				return &example.Id, nil
+//				return example.Id, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})

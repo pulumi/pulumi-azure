@@ -61,6 +61,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolLoadBalancingArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolHealthProbeArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolArgs;
+ * import com.pulumi.azure.frontdoor.inputs.FrontdoorBackendPoolBackendArgs;
  * import com.pulumi.azure.frontdoor.inputs.FrontdoorFrontendEndpointArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

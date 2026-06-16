@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.desktopvirtualization.HostPool;
  * import com.pulumi.azure.desktopvirtualization.HostPoolArgs;
  * import com.pulumi.azure.desktopvirtualization.inputs.HostPoolScheduledAgentUpdatesArgs;
+ * import com.pulumi.azure.desktopvirtualization.inputs.HostPoolScheduledAgentUpdatesScheduleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -44,6 +44,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.securitycenter.AutomationArgs;
  * import com.pulumi.azure.securitycenter.inputs.AutomationActionArgs;
  * import com.pulumi.azure.securitycenter.inputs.AutomationSourceArgs;
+ * import com.pulumi.azure.securitycenter.inputs.AutomationSourceRuleSetArgs;
+ * import com.pulumi.azure.securitycenter.inputs.AutomationSourceRuleSetRuleArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

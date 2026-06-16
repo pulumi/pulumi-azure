@@ -41,6 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.consumption.BudgetSubscriptionArgs;
  * import com.pulumi.azure.consumption.inputs.BudgetSubscriptionTimePeriodArgs;
  * import com.pulumi.azure.consumption.inputs.BudgetSubscriptionFilterArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetSubscriptionFilterDimensionArgs;
+ * import com.pulumi.azure.consumption.inputs.BudgetSubscriptionFilterTagArgs;
  * import com.pulumi.azure.consumption.inputs.BudgetSubscriptionNotificationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

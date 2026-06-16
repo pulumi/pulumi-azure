@@ -84,7 +84,7 @@ import (
 //				Name:              pulumi.String("example-keyvault"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          pulumi.String(pulumi.String(example.TenantId)),
+//				TenantId:          pulumi.String(example.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
@@ -126,7 +126,7 @@ import (
 //				ValidityPeriod:          pulumi.String("P1D"),
 //				ManagedStorageAccountId: exampleManagedStorageAccount.ID(),
 //				SasTemplateUri: pulumi.String(exampleGetAccountSAS.ApplyT(func(exampleGetAccountSAS storage.GetAccountSASResult) (*string, error) {
-//					return &exampleGetAccountSAS.Sas, nil
+//					return exampleGetAccountSAS.Sas, nil
 //				}).(pulumi.StringPtrOutput)),
 //				SasType: pulumi.String("account"),
 //			})

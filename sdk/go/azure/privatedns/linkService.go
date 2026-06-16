@@ -100,7 +100,7 @@ import (
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
 //					pulumi.String(exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
-//						return &frontendIpConfigurations[0].Id, nil
+//						return frontendIpConfigurations[0].Id, nil
 //					}).(pulumi.StringPtrOutput)),
 //				},
 //				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{

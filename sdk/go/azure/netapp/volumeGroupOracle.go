@@ -383,7 +383,7 @@ import (
 //							EndpointType:         pulumi.String("dst"),
 //							RemoteVolumeLocation: example.Location,
 //							RemoteVolumeResourceId: examplePrimaryVolumeGroupOracle.Volumes.ApplyT(func(volumes []netapp.VolumeGroupOracleVolume) (*string, error) {
-//								return &volumes[0].Id, nil
+//								return volumes[0].Id, nil
 //							}).(pulumi.StringPtrOutput),
 //							ReplicationFrequency: pulumi.String("10minutes"),
 //						},

@@ -62,10 +62,10 @@ import (
 //			_, err = streamanalytics.NewReferenceInputMssql(ctx, "example", &streamanalytics.ReferenceInputMssqlArgs{
 //				Name: pulumi.String("example-reference-input"),
 //				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return &example.ResourceGroupName, nil
+//					return example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput)),
 //				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return &example.Name, nil
+//					return example.Name, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Server:                  exampleServer.FullyQualifiedDomainName,
 //				Database:                exampleDatabase.Name,

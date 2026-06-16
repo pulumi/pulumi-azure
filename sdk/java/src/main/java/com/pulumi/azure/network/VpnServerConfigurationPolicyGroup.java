@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VpnServerConfiguration;
  * import com.pulumi.azure.network.VpnServerConfigurationArgs;
  * import com.pulumi.azure.network.inputs.VpnServerConfigurationRadiusArgs;
+ * import com.pulumi.azure.network.inputs.VpnServerConfigurationRadiusServerArgs;
  * import com.pulumi.azure.network.VpnServerConfigurationPolicyGroup;
  * import com.pulumi.azure.network.VpnServerConfigurationPolicyGroupArgs;
  * import com.pulumi.azure.network.inputs.VpnServerConfigurationPolicyGroupPolicyArgs;

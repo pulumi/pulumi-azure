@@ -54,6 +54,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.chaosstudio.inputs.ExperimentIdentityArgs;
  * import com.pulumi.azure.chaosstudio.inputs.ExperimentSelectorArgs;
  * import com.pulumi.azure.chaosstudio.inputs.ExperimentStepArgs;
+ * import com.pulumi.azure.chaosstudio.inputs.ExperimentStepBranchArgs;
+ * import com.pulumi.azure.chaosstudio.inputs.ExperimentStepBranchActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.App;
  * import com.pulumi.azure.containerapp.AppArgs;
  * import com.pulumi.azure.containerapp.inputs.AppTemplateArgs;
+ * import com.pulumi.azure.containerapp.inputs.AppTemplateContainerArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

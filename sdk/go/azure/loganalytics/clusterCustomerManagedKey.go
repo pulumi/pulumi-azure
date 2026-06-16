@@ -56,7 +56,7 @@ import (
 //				Name:              pulumi.String("keyvaultkeyexample"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				TenantId:          pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:          pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
@@ -73,10 +73,10 @@ import (
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (*string, error) {
-//							return &identity.TenantId, nil
+//							return identity.TenantId, nil
 //						}).(pulumi.StringPtrOutput),
 //						ObjectId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (*string, error) {
-//							return &identity.PrincipalId, nil
+//							return identity.PrincipalId, nil
 //						}).(pulumi.StringPtrOutput),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),

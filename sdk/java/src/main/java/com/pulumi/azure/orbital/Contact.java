@@ -41,6 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.orbital.ContactProfile;
  * import com.pulumi.azure.orbital.ContactProfileArgs;
  * import com.pulumi.azure.orbital.inputs.ContactProfileLinkArgs;
+ * import com.pulumi.azure.orbital.inputs.ContactProfileLinkChannelArgs;
+ * import com.pulumi.azure.orbital.inputs.ContactProfileLinkChannelEndPointArgs;
  * import com.pulumi.azure.orbital.Contact;
  * import com.pulumi.azure.orbital.ContactArgs;
  * import java.util.ArrayList;

@@ -89,7 +89,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				TenantId:          pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:          pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //			})
 //			if err != nil {

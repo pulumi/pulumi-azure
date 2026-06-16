@@ -44,6 +44,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.MetricAlert;
  * import com.pulumi.azure.monitoring.MetricAlertArgs;
  * import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaArgs;
+ * import com.pulumi.azure.monitoring.inputs.MetricAlertCriteriaDimensionArgs;
  * import com.pulumi.azure.monitoring.inputs.MetricAlertActionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;

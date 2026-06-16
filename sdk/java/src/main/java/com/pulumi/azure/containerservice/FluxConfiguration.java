@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.inputs.FluxConfigurationGitRepositoryArgs;
  * import com.pulumi.azure.containerservice.inputs.FluxConfigurationKustomizationArgs;
  * import com.pulumi.azure.containerservice.inputs.FluxConfigurationKustomizationPostBuildArgs;
+ * import com.pulumi.azure.containerservice.inputs.FluxConfigurationKustomizationPostBuildSubstituteFromArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;

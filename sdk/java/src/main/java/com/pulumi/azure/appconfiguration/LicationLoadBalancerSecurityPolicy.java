@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.waf.Policy;
  * import com.pulumi.azure.waf.PolicyArgs;
  * import com.pulumi.azure.waf.inputs.PolicyManagedRulesArgs;
+ * import com.pulumi.azure.waf.inputs.PolicyManagedRulesManagedRuleSetArgs;
  * import com.pulumi.azure.waf.inputs.PolicyPolicySettingsArgs;
  * import com.pulumi.azure.appconfiguration.LicationLoadBalancerSecurityPolicy;
  * import com.pulumi.azure.appconfiguration.LicationLoadBalancerSecurityPolicyArgs;

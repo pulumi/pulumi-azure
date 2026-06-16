@@ -45,9 +45,9 @@ import (
 //				Location:             pulumi.String("global"),
 //				ResourceGroupName:    example.Name,
 //				Sku:                  pulumi.String("F0"),
-//				MicrosoftAppId:       pulumi.String(pulumi.String(current.ClientId)),
+//				MicrosoftAppId:       pulumi.String(current.ClientId),
 //				MicrosoftAppType:     pulumi.String("SingleTenant"),
-//				MicrosoftAppTenantId: pulumi.String(pulumi.String(current.TenantId)),
+//				MicrosoftAppTenantId: pulumi.String(current.TenantId),
 //			})
 //			if err != nil {
 //				return err

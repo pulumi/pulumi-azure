@@ -40,9 +40,9 @@ import (
 //				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
 //				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 //				SkuName:           pulumi.String("Standard_B1"),
-//				TenantId:          pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:          pulumi.String(current.TenantId),
 //				AdminObjectIds: pulumi.StringArray{
-//					pulumi.String(pulumi.String(current.ObjectId)),
+//					pulumi.String(current.ObjectId),
 //				},
 //				PurgeProtectionEnabled: pulumi.Bool(false),
 //				ActiveConfig: []map[string]interface{}{
@@ -65,7 +65,7 @@ import (
 //				Name:             pulumi.String("1e243909-064c-6ac3-84e9-1c8bf8d6ad22"),
 //				Scope:            pulumi.String("/keys"),
 //				RoleDefinitionId: pulumi.String("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/21dbd100-6940-42c2-9190-5d6cb909625b"),
-//				PrincipalId:      pulumi.String(pulumi.String(current.ObjectId)),
+//				PrincipalId:      pulumi.String(current.ObjectId),
 //			})
 //			if err != nil {
 //				return err
@@ -76,7 +76,7 @@ import (
 //				Name:             pulumi.String("1e243909-064c-6ac3-84e9-1c8bf8d6ad23"),
 //				Scope:            pulumi.String("/keys"),
 //				RoleDefinitionId: pulumi.String("/Microsoft.KeyVault/providers/Microsoft.Authorization/roleDefinitions/515eb02d-2335-4d2d-92f2-b1cbdf9c3778"),
-//				PrincipalId:      pulumi.String(pulumi.String(current.ObjectId)),
+//				PrincipalId:      pulumi.String(current.ObjectId),
 //			})
 //			if err != nil {
 //				return err

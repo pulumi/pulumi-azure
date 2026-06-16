@@ -51,7 +51,7 @@ import (
 //				ApiManagementId: exampleService.ID(),
 //			}, nil)
 //			ctx.Export("id", example.ApplyT(func(example apimanagement.GetWorkspaceResult) (*string, error) {
-//				return &example.Id, nil
+//				return example.Id, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})

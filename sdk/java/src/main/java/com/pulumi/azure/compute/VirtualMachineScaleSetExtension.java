@@ -37,6 +37,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.LinuxVirtualMachineScaleSetArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceArgs;
+ * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetOsDiskArgs;
  * import com.pulumi.azure.compute.VirtualMachineScaleSetExtension;
  * import com.pulumi.azure.compute.VirtualMachineScaleSetExtensionArgs;

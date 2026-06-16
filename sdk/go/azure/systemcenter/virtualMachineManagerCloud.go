@@ -58,7 +58,7 @@ import (
 //				Location:          exampleResourceGroup.Location,
 //				CustomLocationId:  exampleVirtualMachineManagerServer.CustomLocationId,
 //				SystemCenterVirtualMachineManagerServerInventoryItemId: pulumi.String(example.ApplyT(func(example systemcenter.GetVirtualMachineManagerInventoryItemsResult) (*string, error) {
-//					return &example.InventoryItems[0].Id, nil
+//					return example.InventoryItems[0].Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //			})
 //			if err != nil {

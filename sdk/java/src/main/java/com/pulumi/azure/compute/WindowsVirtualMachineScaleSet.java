@@ -73,6 +73,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetSourceImageReferenceArgs;
  * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetNetworkInterfaceArgs;
+ * import com.pulumi.azure.compute.inputs.WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

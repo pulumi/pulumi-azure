@@ -61,10 +61,10 @@ import (
 //			_, err = streamanalytics.NewOutputServiceBusQueue(ctx, "example", &streamanalytics.OutputServiceBusQueueArgs{
 //				Name: pulumi.String("blob-storage-output"),
 //				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return &example.Name, nil
+//					return example.Name, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return &example.ResourceGroupName, nil
+//					return example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput)),
 //				QueueName:              exampleQueue.Name,
 //				ServicebusNamespace:    exampleNamespace.Name,

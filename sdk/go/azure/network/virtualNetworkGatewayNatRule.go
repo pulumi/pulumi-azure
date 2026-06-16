@@ -93,12 +93,12 @@ import (
 //				Name:              pulumi.String("example-vnetgwnatrule"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				VirtualNetworkGatewayId: pulumi.String(example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
-//					return &example.Id, nil
+//					return example.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Mode: pulumi.String("EgressSnat"),
 //				Type: pulumi.String("Dynamic"),
 //				IpConfigurationId: pulumi.String(example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
-//					return &example.IpConfigurations[0].Id, nil
+//					return example.IpConfigurations[0].Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ExternalMappings: network.VirtualNetworkGatewayNatRuleExternalMappingArray{
 //					&network.VirtualNetworkGatewayNatRuleExternalMappingArgs{

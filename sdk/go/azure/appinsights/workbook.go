@@ -63,7 +63,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				DisplayName:       pulumi.String("workbook1"),
-//				DataJson:          pulumi.String(pulumi.String(json0)),
+//				DataJson:          pulumi.String(json0),
 //				Tags: pulumi.StringMap{
 //					"ENV": pulumi.String("Test"),
 //				},

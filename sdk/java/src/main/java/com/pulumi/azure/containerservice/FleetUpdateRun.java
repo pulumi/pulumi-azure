@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.inputs.FleetUpdateRunManagedClusterUpdateUpgradeArgs;
  * import com.pulumi.azure.containerservice.inputs.FleetUpdateRunManagedClusterUpdateNodeImageSelectionArgs;
  * import com.pulumi.azure.containerservice.inputs.FleetUpdateRunStageArgs;
+ * import com.pulumi.azure.containerservice.inputs.FleetUpdateRunStageGroupArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

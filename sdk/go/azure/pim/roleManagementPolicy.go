@@ -45,7 +45,7 @@ import (
 //			_, err = pim.NewRoleManagementPolicy(ctx, "example", &pim.RoleManagementPolicyArgs{
 //				Scope: example.ID(),
 //				RoleDefinitionId: pulumi.String(mgContributor.ApplyT(func(mgContributor authorization.GetRoleDefinitionResult) (*string, error) {
-//					return &mgContributor.Id, nil
+//					return mgContributor.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				EligibleAssignmentRules: &pim.RoleManagementPolicyEligibleAssignmentRulesArgs{
 //					ExpirationRequired: pulumi.Bool(false),

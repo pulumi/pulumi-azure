@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.dataprotection.BackupPolicyPostgresqlFlexibleServer;
  * import com.pulumi.azure.dataprotection.BackupPolicyPostgresqlFlexibleServerArgs;
  * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleArgs;
+ * import com.pulumi.azure.dataprotection.inputs.BackupPolicyPostgresqlFlexibleServerDefaultRetentionRuleLifeCycleArgs;
  * import com.pulumi.azure.dataprotection.BackupInstancePostgresqlFlexibleServer;
  * import com.pulumi.azure.dataprotection.BackupInstancePostgresqlFlexibleServerArgs;
  * import com.pulumi.resources.CustomResourceOptions;

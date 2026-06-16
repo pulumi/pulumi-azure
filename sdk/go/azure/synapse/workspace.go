@@ -130,7 +130,7 @@ import (
 //				Name:                   pulumi.String("example"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
-//				TenantId:               pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:               pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //			})
@@ -139,8 +139,8 @@ import (
 //			}
 //			deployer, err := keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId:   pulumi.String(pulumi.String(current.TenantId)),
-//				ObjectId:   pulumi.String(pulumi.String(current.ObjectId)),
+//				TenantId:   pulumi.String(current.TenantId),
+//				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Get"),
@@ -191,10 +191,10 @@ import (
 //			workspacePolicy, err := keyvault.NewAccessPolicy(ctx, "workspace_policy", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId: pulumi.String(exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (*string, error) {
-//					return &identity.TenantId, nil
+//					return identity.TenantId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ObjectId: pulumi.String(exampleWorkspace.Identity.ApplyT(func(identity synapse.WorkspaceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),

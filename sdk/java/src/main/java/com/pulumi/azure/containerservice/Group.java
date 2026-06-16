@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.Group;
  * import com.pulumi.azure.containerservice.GroupArgs;
  * import com.pulumi.azure.containerservice.inputs.GroupContainerArgs;
+ * import com.pulumi.azure.containerservice.inputs.GroupContainerPortArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

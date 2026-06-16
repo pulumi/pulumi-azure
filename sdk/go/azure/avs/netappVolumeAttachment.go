@@ -197,7 +197,7 @@ import (
 //				Type:                    pulumi.String("ExpressRoute"),
 //				VirtualNetworkGatewayId: testVirtualNetworkGateway.ID(),
 //				ExpressRouteCircuitId: pulumi.String(testPrivateCloud.Circuits.ApplyT(func(circuits []avs.PrivateCloudCircuit) (*string, error) {
-//					return &circuits[0].ExpressRouteId, nil
+//					return circuits[0].ExpressRouteId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				AuthorizationKey: testExpressRouteAuthorization.ExpressRouteAuthorizationKey,
 //			})

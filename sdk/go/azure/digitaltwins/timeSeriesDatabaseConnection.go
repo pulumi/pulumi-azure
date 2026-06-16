@@ -103,7 +103,7 @@ import (
 //			databaseContributor, err := authorization.NewAssignment(ctx, "database_contributor", &authorization.AssignmentArgs{
 //				Scope: exampleDatabase.ID(),
 //				PrincipalId: pulumi.String(exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				RoleDefinitionName: pulumi.String("Contributor"),
 //			})
@@ -113,7 +113,7 @@ import (
 //			eventhubDataOwner, err := authorization.NewAssignment(ctx, "eventhub_data_owner", &authorization.AssignmentArgs{
 //				Scope: exampleEventHub.ID(),
 //				PrincipalId: pulumi.String(exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				RoleDefinitionName: pulumi.String("Azure Event Hubs Data Owner"),
 //			})
@@ -126,10 +126,10 @@ import (
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
 //				TenantId: pulumi.String(exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
-//					return &identity.TenantId, nil
+//					return identity.TenantId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				PrincipalId: pulumi.String(exampleInstance.Identity.ApplyT(func(identity digitaltwins.InstanceIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				PrincipalType: pulumi.String("App"),
 //				Role:          pulumi.String("Admin"),

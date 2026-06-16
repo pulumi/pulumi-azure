@@ -73,16 +73,16 @@ import (
 //				Name:                   pulumi.String("example-vault"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
-//				TenantId:               pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:               pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: exampleAccount.Identity.ApplyT(func(identity cognitive.AccountIdentity) (*string, error) {
-//							return &identity.TenantId, nil
+//							return identity.TenantId, nil
 //						}).(pulumi.StringPtrOutput),
 //						ObjectId: exampleAccount.Identity.ApplyT(func(identity cognitive.AccountIdentity) (*string, error) {
-//							return &identity.PrincipalId, nil
+//							return identity.PrincipalId, nil
 //						}).(pulumi.StringPtrOutput),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),

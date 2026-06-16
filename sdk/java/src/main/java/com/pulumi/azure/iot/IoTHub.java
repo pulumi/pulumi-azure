@@ -69,6 +69,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.iot.inputs.IoTHubRouteArgs;
  * import com.pulumi.azure.iot.inputs.IoTHubEnrichmentArgs;
  * import com.pulumi.azure.iot.inputs.IoTHubCloudToDeviceArgs;
+ * import com.pulumi.azure.iot.inputs.IoTHubCloudToDeviceFeedbackArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

@@ -53,7 +53,7 @@ import (
 //				Name:                    pulumi.String("example"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				TenantId:                pulumi.String(pulumi.String(current.TenantId)),
+//				TenantId:                pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
@@ -97,8 +97,8 @@ import (
 //				Name:               pulumi.String("example"),
 //				Description:        pulumi.String("example description"),
 //				DataFactoryId:      exampleFactory.ID(),
-//				TenantId:           pulumi.String(pulumi.String(current.TenantId)),
-//				ServicePrincipalId: pulumi.String(pulumi.String(current.ClientId)),
+//				TenantId:           pulumi.String(current.TenantId),
+//				ServicePrincipalId: pulumi.String(current.ClientId),
 //				ServicePrincipalKey: &datafactory.CredentialServicePrincipalServicePrincipalKeyArgs{
 //					LinkedServiceName: exampleLinkedServiceKeyVault.Name,
 //					SecretName:        exampleSecret.Name,

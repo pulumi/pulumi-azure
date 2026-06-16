@@ -45,7 +45,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
 //				AdministrationMembers: pulumi.StringArray{
-//					pulumi.String(pulumi.String(current.ObjectId)),
+//					pulumi.String(current.ObjectId),
 //				},
 //				Sku: &fabric.CapacitySkuArgs{
 //					Name: pulumi.String("F32"),

@@ -85,10 +85,10 @@ import (
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
 //				TenantId: pulumi.String(exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
-//					return &identity.TenantId, nil
+//					return identity.TenantId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				PrincipalId: pulumi.String(exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
-//					return &identity.PrincipalId, nil
+//					return identity.PrincipalId, nil
 //				}).(pulumi.StringPtrOutput)),
 //				PrincipalType: pulumi.String("App"),
 //				Role:          pulumi.String("Viewer"),

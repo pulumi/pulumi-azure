@@ -41,6 +41,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cosmosdb.CassandraTable;
  * import com.pulumi.azure.cosmosdb.CassandraTableArgs;
  * import com.pulumi.azure.cosmosdb.inputs.CassandraTableSchemaArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.CassandraTableSchemaColumnArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.CassandraTableSchemaPartitionKeyArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;

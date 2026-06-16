@@ -61,7 +61,7 @@ import (
 //				return err
 //			}
 //			ctx.Export("clientCertificate", exampleKubernetesCluster.KubeConfigs.ApplyT(func(kubeConfigs []containerservice.KubernetesClusterKubeConfig) (*string, error) {
-//				return &kubeConfigs[0].ClientCertificate, nil
+//				return kubeConfigs[0].ClientCertificate, nil
 //			}).(pulumi.StringPtrOutput))
 //			ctx.Export("kubeConfig", exampleKubernetesCluster.KubeConfigRaw)
 //			return nil

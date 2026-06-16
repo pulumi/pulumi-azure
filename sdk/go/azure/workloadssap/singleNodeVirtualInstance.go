@@ -67,7 +67,7 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              pulumi.String(pulumi.String(current.Id)),
+//				Scope:              pulumi.String(current.Id),
 //				RoleDefinitionName: pulumi.String("Azure Center for SAP solutions service role"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
 //			})

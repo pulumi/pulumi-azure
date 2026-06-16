@@ -106,7 +106,7 @@ import (
 //				DatabaseId: exampleDatabase.ID(),
 //				Url:        exampleBlob.ID(),
 //				SasToken: pulumi.String(example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (*string, error) {
-//					return &example.Sas, nil
+//					return example.Sas, nil
 //				}).(pulumi.StringPtrOutput)),
 //				ContinueOnErrorsEnabled:       pulumi.Bool(true),
 //				ForceAnUpdateWhenValueChanged: pulumi.String("first"),

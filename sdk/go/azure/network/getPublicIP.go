@@ -135,7 +135,7 @@ import (
 //				ResourceGroupName: exampleVirtualMachine.ResourceGroupName,
 //			}, nil)
 //			ctx.Export("publicIpAddress", example.ApplyT(func(example network.GetPublicIPResult) (*string, error) {
-//				return &example.IpAddress, nil
+//				return example.IpAddress, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})

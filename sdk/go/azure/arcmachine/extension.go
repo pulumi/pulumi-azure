@@ -44,7 +44,7 @@ import (
 //				Name:     pulumi.String("example"),
 //				Location: pulumi.String("West Europe"),
 //				ArcMachineId: pulumi.String(example.ApplyT(func(example arcmachine.GetResult) (*string, error) {
-//					return &example.Id, nil
+//					return example.Id, nil
 //				}).(pulumi.StringPtrOutput)),
 //				Publisher: pulumi.String("Microsoft.Azure.Monitor"),
 //				Type:      pulumi.String("AzureMonitorLinuxAgent"),

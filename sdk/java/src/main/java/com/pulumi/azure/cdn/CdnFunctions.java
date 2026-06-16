@@ -1633,6 +1633,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs;
      * import com.pulumi.azure.dns.Zone;
      * import com.pulumi.azure.dns.ZoneArgs;
      * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
@@ -1643,6 +1644,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
      * import java.util.ArrayList;
@@ -1766,6 +1768,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs;
      * import com.pulumi.azure.dns.Zone;
      * import com.pulumi.azure.dns.ZoneArgs;
      * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
@@ -1776,6 +1779,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
      * import java.util.ArrayList;
@@ -1899,6 +1903,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs;
      * import com.pulumi.azure.dns.Zone;
      * import com.pulumi.azure.dns.ZoneArgs;
      * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
@@ -1909,6 +1914,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
      * import java.util.ArrayList;
@@ -2032,6 +2038,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs;
      * import com.pulumi.azure.dns.Zone;
      * import com.pulumi.azure.dns.ZoneArgs;
      * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
@@ -2042,6 +2049,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
      * import java.util.ArrayList;
@@ -2165,6 +2173,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicy;
      * import com.pulumi.azure.cdn.FrontdoorFirewallPolicyArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorFirewallPolicyCustomRuleMatchConditionArgs;
      * import com.pulumi.azure.dns.Zone;
      * import com.pulumi.azure.dns.ZoneArgs;
      * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
@@ -2175,6 +2184,7 @@ public final class CdnFunctions {
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs;
      * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs;
+     * import com.pulumi.azure.cdn.inputs.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs;
      * import com.pulumi.azure.cdn.CdnFunctions;
      * import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
      * import java.util.ArrayList;
