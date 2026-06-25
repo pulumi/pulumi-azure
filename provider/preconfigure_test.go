@@ -5,9 +5,10 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+
+	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
@@ -55,9 +56,9 @@ func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
 		t.Setenv("AZURE_FEDERATED_TOKEN_FILE", "")
 
 		vars := resource.PropertyMap{
-			"useOidc":          resource.NewBoolProperty(true),
-			"clientId":         resource.NewStringProperty("test-client"),
-			"tenantId":         resource.NewStringProperty("test-tenant"),
+			"useOidc":           resource.NewBoolProperty(true),
+			"clientId":          resource.NewStringProperty("test-client"),
+			"tenantId":          resource.NewStringProperty("test-tenant"),
 			"oidcTokenFilePath": resource.NewStringProperty(tokenFile),
 		}
 

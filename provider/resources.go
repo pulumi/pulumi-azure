@@ -468,7 +468,8 @@ type resolvedCredentials struct {
 // environment variables, and token files. This mirrors the logic in the upstream
 // terraform-provider-azurerm's getOidcToken/getClientId/getTenantId helpers.
 func resolveCredentials(vars resource.PropertyMap) (*resolvedCredentials, error) {
-	useAksWorkloadIdentity := tfbridge.ConfigBoolValue(vars, "useAksWorkloadIdentity", []string{"ARM_USE_AKS_WORKLOAD_IDENTITY"})
+	aksEnvVars := []string{"ARM_USE_AKS_WORKLOAD_IDENTITY"}
+	useAksWorkloadIdentity := tfbridge.ConfigBoolValue(vars, "useAksWorkloadIdentity", aksEnvVars)
 	useOIDC := tfbridge.ConfigBoolValue(vars, "useOidc", []string{"ARM_USE_OIDC"}) || useAksWorkloadIdentity
 
 	clientID := tfbridge.ConfigStringValue(vars, "clientId", []string{"ARM_CLIENT_ID"})
