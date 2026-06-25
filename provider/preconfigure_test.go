@@ -32,7 +32,7 @@ func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
 		assert.True(t, creds.useOIDC)
 	})
 
-	t.Run("explicit config takes precedence over AZURE_* env vars", func(t *testing.T) {
+	t.Run("AZURE_* env vars take precedence over config when AKS WI enabled", func(t *testing.T) {
 		t.Setenv("AZURE_CLIENT_ID", "aks-client-id")
 		t.Setenv("AZURE_TENANT_ID", "aks-tenant-id")
 		t.Setenv("AZURE_FEDERATED_TOKEN_FILE", tokenFile)
@@ -45,8 +45,8 @@ func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
 
 		creds, err := resolveCredentials(vars)
 		require.NoError(t, err)
-		assert.Equal(t, "explicit-client", creds.clientID)
-		assert.Equal(t, "explicit-tenant", creds.tenantID)
+		assert.Equal(t, "aks-client-id", creds.clientID)
+		assert.Equal(t, "aks-tenant-id", creds.tenantID)
 	})
 
 	t.Run("oidcTokenFilePath reads token from file", func(t *testing.T) {

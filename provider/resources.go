@@ -474,14 +474,14 @@ func resolveCredentials(vars resource.PropertyMap) (*resolvedCredentials, error)
 	clientID := tfbridge.ConfigStringValue(vars, "clientId", []string{"ARM_CLIENT_ID"})
 	tenantID := tfbridge.ConfigStringValue(vars, "tenantId", []string{"ARM_TENANT_ID"})
 
-	// When using AKS Workload Identity, read client/tenant from the environment variables
-	// injected by the AKS workload identity webhook.
+	// When using AKS Workload Identity, the AZURE_* env vars injected by the webhook
+	// take precedence over ARM_* env vars, matching upstream terraform-provider-azurerm behavior.
 	if useAksWorkloadIdentity {
-		if clientID == "" {
-			clientID = os.Getenv("AZURE_CLIENT_ID")
+		if v := os.Getenv("AZURE_CLIENT_ID"); v != "" {
+			clientID = v
 		}
-		if tenantID == "" {
-			tenantID = os.Getenv("AZURE_TENANT_ID")
+		if v := os.Getenv("AZURE_TENANT_ID"); v != "" {
+			tenantID = v
 		}
 	}
 
