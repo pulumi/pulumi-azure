@@ -8929,7 +8929,7 @@ class ServiceSecurityArgsDict(TypedDict):
     """
     triple_des_ciphers_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+    Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 
     > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
     """
@@ -9009,7 +9009,7 @@ class ServiceSecurityArgs:
         :param pulumi.Input[_builtins.bool] tls_rsa_with_aes256_gcm_sha384_ciphers_enabled: Should the `TLS_RSA_WITH_AES_256_GCM_SHA384` cipher be enabled? Defaults to `false`.
                
                > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_256_GCM_SHA384` field
-        :param pulumi.Input[_builtins.bool] triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        :param pulumi.Input[_builtins.bool] triple_des_ciphers_enabled: Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
                
                > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """
@@ -9366,7 +9366,7 @@ class ServiceSecurityArgs:
     @pulumi.getter(name="tripleDesCiphersEnabled")
     def triple_des_ciphers_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+        Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
 
         > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
         """

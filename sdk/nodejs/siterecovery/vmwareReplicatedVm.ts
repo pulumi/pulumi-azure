@@ -128,7 +128,7 @@ export class VmwareReplicatedVm extends pulumi.CustomResource {
      */
     declare public readonly applianceName: pulumi.Output<string>;
     /**
-     * The ID of the stroage account that should be used for logging during replication. 
+     * The ID of the stroage account that should be used for logging during replication.
      *
      * > **Note:** Only standard types of storage accounts are allowed.
      *
@@ -331,7 +331,7 @@ export interface VmwareReplicatedVmState {
      */
     applianceName?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the stroage account that should be used for logging during replication. 
+     * The ID of the stroage account that should be used for logging during replication.
      *
      * > **Note:** Only standard types of storage accounts are allowed.
      *
@@ -449,7 +449,7 @@ export interface VmwareReplicatedVmArgs {
      */
     applianceName: pulumi.Input<string>;
     /**
-     * The ID of the stroage account that should be used for logging during replication. 
+     * The ID of the stroage account that should be used for logging during replication.
      *
      * > **Note:** Only standard types of storage accounts are allowed.
      *

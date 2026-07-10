@@ -5336,7 +5336,7 @@ class AppServiceSiteConfig(dict):
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param _builtins.str scm_type: The type of Source Control enabled for this App Service. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-        :param _builtins.bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`. 
+        :param _builtins.bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`.
                
                > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         :param _builtins.bool use32_bit_worker_process: Should the App Service run in 32 bit mode, rather than 64 bit mode?
@@ -5635,7 +5635,7 @@ class AppServiceSiteConfig(dict):
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[_builtins.bool]:
         """
-        IP security restrictions for scm to use main. Defaults to `false`. 
+        IP security restrictions for scm to use main. Defaults to `false`.
 
         > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         """
@@ -27250,7 +27250,7 @@ class SlotSiteConfig(dict):
                
                > **NOTE** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
         :param _builtins.str scm_type: The type of Source Control enabled for this App Service Slot. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
-        :param _builtins.bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`. 
+        :param _builtins.bool scm_use_main_ip_restriction: IP security restrictions for scm to use main. Defaults to `false`.
                
                > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         :param _builtins.bool use32_bit_worker_process: Should the App Service Slot run in 32 bit mode, rather than 64 bit mode?
@@ -27551,7 +27551,7 @@ class SlotSiteConfig(dict):
     @pulumi.getter(name="scmUseMainIpRestriction")
     def scm_use_main_ip_restriction(self) -> Optional[_builtins.bool]:
         """
-        IP security restrictions for scm to use main. Defaults to `false`. 
+        IP security restrictions for scm to use main. Defaults to `false`.
 
         > **NOTE** Any `scm_ip_restriction` blocks configured are ignored by the service when `scm_use_main_ip_restriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
         """
@@ -39346,7 +39346,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
                .NET 9 (STS) | v9.0
                .NET 10 (LTS) | v10.0
         :param _builtins.bool java_embedded_server_enabled: Should the Java Embedded Server (Java SE) be used to run the app.
-        :param _builtins.str java_version: The version of Java to use when `current_stack` is set to `java`. 
+        :param _builtins.str java_version: The version of Java to use when `current_stack` is set to `java`.
                
                > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
         :param _builtins.str node_version: The version of node to use when `current_stack` is set to `node`. Possible values are `~12`, `~14`, `~16`, `~18`, `~20` and `~22`.
@@ -39488,7 +39488,7 @@ class WindowsWebAppSiteConfigApplicationStack(dict):
     @pulumi.getter(name="javaVersion")
     def java_version(self) -> Optional[_builtins.str]:
         """
-        The version of Java to use when `current_stack` is set to `java`. 
+        The version of Java to use when `current_stack` is set to `java`.
 
         > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
         """

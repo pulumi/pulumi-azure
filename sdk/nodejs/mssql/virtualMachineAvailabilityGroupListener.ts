@@ -40,9 +40,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleVirtualMachine: azure.mssql.VirtualMachine[] = [];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     exampleVirtualMachine.push(new azure.mssql.VirtualMachine(`example-${range.value}`, {
- *         virtualMachineId: exampleGetVirtualMachine[range.value].then(exampleGetVirtualMachine => exampleGetVirtualMachine.id),
+ * for (let range = 0; range < 2; range++) {
+ *     exampleVirtualMachine.push(new azure.mssql.VirtualMachine(`example-${range}`, {
+ *         virtualMachineId: exampleGetVirtualMachine[range].then(exampleGetVirtualMachine => exampleGetVirtualMachine.id),
  *         sqlLicenseType: "PAYG",
  *         sqlVirtualMachineGroupId: exampleVirtualMachineGroup.id,
  *         wsfcDomainCredential: {

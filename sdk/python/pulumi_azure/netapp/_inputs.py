@@ -1371,7 +1371,7 @@ class VolumeGroupOracleVolumeArgsDict(TypedDict):
     """
     proximity_placement_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
+    The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
 
     > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
     """
@@ -1430,7 +1430,7 @@ class VolumeGroupOracleVolumeArgs:
         :param pulumi.Input[_builtins.str] id: The ID of the Application Volume Group.
         :param pulumi.Input[_builtins.str] key_vault_private_endpoint_id: The Private Endpoint ID for Key Vault, which is required when using customer-managed keys. This is required with `encryption_key_source`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_features: Indicates which network feature to use, Possible values are `Basic`, `Basic_Standard`, `Standard` and `Standard_Basic`. It defaults to `Basic` if not defined. This is a feature in public preview and for more information about it and how to register, please refer to [Configure network features for an Azure NetApp Files volume](https://docs.microsoft.com/en-us/azure/azure-netapp-files/configure-network-features). This is required if enabling customer managed keys encryption scenario.
-        :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
+        :param pulumi.Input[_builtins.str] proximity_placement_group_id: The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
                
                > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Application Volume Group.
@@ -1700,7 +1700,7 @@ class VolumeGroupOracleVolumeArgs:
     @pulumi.getter(name="proximityPlacementGroupId")
     def proximity_placement_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
+        The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
 
         > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
         """

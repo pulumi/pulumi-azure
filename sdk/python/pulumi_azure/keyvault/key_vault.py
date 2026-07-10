@@ -54,7 +54,7 @@ class KeyVaultArgs:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input['KeyVaultNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+        :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
                
                > **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[_builtins.bool] rbac_authorization_enabled: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
@@ -261,7 +261,7 @@ class KeyVaultArgs:
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Is Purge Protection enabled for this Key Vault? 
+        Is Purge Protection enabled for this Key Vault?
 
         > **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """
@@ -346,7 +346,7 @@ class _KeyVaultState:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input['KeyVaultNetworkAclsArgs'] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+        :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
                
                > **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[_builtins.bool] rbac_authorization_enabled: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
@@ -526,7 +526,7 @@ class _KeyVaultState:
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Is Purge Protection enabled for this Key Vault? 
+        Is Purge Protection enabled for this Key Vault?
 
         > **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """
@@ -707,7 +707,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+        :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
                
                > **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[_builtins.bool] rbac_authorization_enabled: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
@@ -883,7 +883,7 @@ class KeyVault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
         :param pulumi.Input[Union['KeyVaultNetworkAclsArgs', 'KeyVaultNetworkAclsArgsDict']] network_acls: A `network_acls` block as defined below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for this Key Vault. Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault? 
+        :param pulumi.Input[_builtins.bool] purge_protection_enabled: Is Purge Protection enabled for this Key Vault?
                
                > **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         :param pulumi.Input[_builtins.bool] rbac_authorization_enabled: Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
@@ -1004,7 +1004,7 @@ class KeyVault(pulumi.CustomResource):
     @pulumi.getter(name="purgeProtectionEnabled")
     def purge_protection_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Is Purge Protection enabled for this Key Vault? 
+        Is Purge Protection enabled for this Key Vault?
 
         > **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days).
         """

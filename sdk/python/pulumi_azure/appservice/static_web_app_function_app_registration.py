@@ -24,7 +24,7 @@ class StaticWebAppFunctionAppRegistrationArgs:
         """
         The set of arguments for constructing a StaticWebAppFunctionAppRegistration resource.
 
-        :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
                
                > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
                
@@ -38,7 +38,7 @@ class StaticWebAppFunctionAppRegistrationArgs:
     @pulumi.getter(name="functionAppId")
     def function_app_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
 
         > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
 
@@ -71,7 +71,7 @@ class _StaticWebAppFunctionAppRegistrationState:
         """
         Input properties used for looking up and filtering StaticWebAppFunctionAppRegistration resources.
 
-        :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
                
                > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
                
@@ -87,7 +87,7 @@ class _StaticWebAppFunctionAppRegistrationState:
     @pulumi.getter(name="functionAppId")
     def function_app_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
 
         > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
 
@@ -182,7 +182,7 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
                
                > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
                
@@ -305,7 +305,7 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        :param pulumi.Input[_builtins.str] function_app_id: The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
                
                > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
                
@@ -324,7 +324,7 @@ class StaticWebAppFunctionAppRegistration(pulumi.CustomResource):
     @pulumi.getter(name="functionAppId")
     def function_app_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created. 
+        The ID of a Linux or Windows Function App to connect to the Static Web App as a Backend. Changing this forces a new resource to be created.
 
         > **Note:** Only one Function App can be connected to a Static Web App. Multiple Function Apps are not currently supported.
 

@@ -45,14 +45,14 @@ class EnvironmentArgs:
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
-        :param pulumi.Input[_builtins.str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        :param pulumi.Input[_builtins.str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
                
                > **Note:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[_builtins.bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
                
                > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         :param pulumi.Input[_builtins.str] logs_destination: Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
@@ -151,7 +151,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 
         > **Note:** The Subnet must have a `/21` or larger address space.
         """
@@ -191,7 +191,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
 
         > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         """
@@ -325,14 +325,14 @@ class _EnvironmentState:
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
-        :param pulumi.Input[_builtins.str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        :param pulumi.Input[_builtins.str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
                
                > **Note:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[_builtins.bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
                
                > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         :param pulumi.Input[_builtins.str] logs_destination: Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
@@ -472,7 +472,7 @@ class _EnvironmentState:
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 
         > **Note:** The Subnet must have a `/21` or larger address space.
         """
@@ -512,7 +512,7 @@ class _EnvironmentState:
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
 
         > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         """
@@ -732,14 +732,14 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
-        :param pulumi.Input[_builtins.str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        :param pulumi.Input[_builtins.str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
                
                > **Note:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[_builtins.bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
                
                > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         :param pulumi.Input[_builtins.str] logs_destination: Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
@@ -915,14 +915,14 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
                
                > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
-        :param pulumi.Input[_builtins.str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        :param pulumi.Input[_builtins.str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
                
                > **Note:** The Subnet must have a `/21` or larger address space.
         :param pulumi.Input[_builtins.bool] internal_load_balancer_enabled: Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
                
                > **Note:** can only be set to `true` if `infrastructure_subnet_id` is specified.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the Container App Environment is to exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        :param pulumi.Input[_builtins.str] log_analytics_workspace_id: The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
                
                > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         :param pulumi.Input[_builtins.str] logs_destination: Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
@@ -1022,7 +1022,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="infrastructureSubnetId")
     def infrastructure_subnet_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
+        The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 
         > **Note:** The Subnet must have a `/21` or larger address space.
         """
@@ -1050,7 +1050,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="logAnalyticsWorkspaceId")
     def log_analytics_workspace_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to. 
+        The ID for the Log Analytics Workspace to link this Container Apps Managed Environment to.
 
         > **Note:** required if `logs_destination` is set to `log-analytics`. Cannot be set if `logs_destination` is set to `azure-monitor`.
         """

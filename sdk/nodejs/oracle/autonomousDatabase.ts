@@ -107,7 +107,7 @@ export class AutonomousDatabase extends pulumi.CustomResource {
     }
 
     /**
-     * The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+     * The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
      */
     declare public readonly adminPassword: pulumi.Output<string>;
     /**
@@ -151,7 +151,7 @@ export class AutonomousDatabase extends pulumi.CustomResource {
      * The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
      *
      * > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-     * > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
+     * **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
      */
     declare public readonly dbWorkload: pulumi.Output<string>;
     /**
@@ -314,7 +314,7 @@ export class AutonomousDatabase extends pulumi.CustomResource {
  */
 export interface AutonomousDatabaseState {
     /**
-     * The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+     * The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
      */
     adminPassword?: pulumi.Input<string | undefined>;
     /**
@@ -358,7 +358,7 @@ export interface AutonomousDatabaseState {
      * The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
      *
      * > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-     * > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
+     * **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
      */
     dbWorkload?: pulumi.Input<string | undefined>;
     /**
@@ -408,7 +408,7 @@ export interface AutonomousDatabaseState {
  */
 export interface AutonomousDatabaseArgs {
     /**
-     * The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+     * The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
      */
     adminPassword: pulumi.Input<string>;
     /**
@@ -452,7 +452,7 @@ export interface AutonomousDatabaseArgs {
      * The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
      *
      * > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-     * > **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
+     * **Note:** When Provisioning Database with `APEX` workload `mtlsConnectionRequired` must be set to `true`.
      */
     dbWorkload: pulumi.Input<string>;
     /**

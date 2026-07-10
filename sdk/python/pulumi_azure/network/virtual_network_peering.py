@@ -531,35 +531,35 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                 "10.0.0.0/16",
                 "10.1.0.0/16",
             ]
-        example: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(location))]:
-            example.append(azure.core.ResourceGroup(f"example-{range['value']}",
-                name=f"rg-global-vnet-peering-{range['value']}",
-                location=location[range["value"]]))
-        vnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(location))]:
-            vnet.append(azure.network.VirtualNetwork(f"vnet-{range['value']}",
-                name=f"vnet-{range['value']}",
-                resource_group_name=[__item.name for __item in example][range["value"]],
-                address_spaces=[vnet_address_space[range["value"]]],
-                location=[__item.location for __item in example][range["value"]]))
-        nva: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(location))]:
-            nva.append(azure.network.Subnet(f"nva-{range['value']}",
+        example: list[azure.core.ResourceGroup] = []
+        for example_range in [{"value": i} for i in range(0, len(location))]:
+            example.append(azure.core.ResourceGroup(f"example-{example_range['value']}",
+                name=f"rg-global-vnet-peering-{example_range['value']}",
+                location=location[example_range["value"]]))
+        vnet: list[azure.network.VirtualNetwork] = []
+        for vnet_range in [{"value": i} for i in range(0, len(location))]:
+            vnet.append(azure.network.VirtualNetwork(f"vnet-{vnet_range['value']}",
+                name=f"vnet-{vnet_range['value']}",
+                resource_group_name=[__item.name for __item in example][vnet_range["value"]],
+                address_spaces=[vnet_address_space[vnet_range["value"]]],
+                location=[__item.location for __item in example][vnet_range["value"]]))
+        nva: list[azure.network.Subnet] = []
+        for nva_range in [{"value": i} for i in range(0, len(location))]:
+            nva.append(azure.network.Subnet(f"nva-{nva_range['value']}",
                 name="nva",
-                resource_group_name=[__item.name for __item in example][range["value"]],
-                virtual_network_name=[__item.name for __item in vnet][range["value"]],
-                address_prefix=std.cidrsubnet(input=vnet[range["value"]].address_space[range["value"]],
+                resource_group_name=[__item.name for __item in example][nva_range["value"]],
+                virtual_network_name=[__item.name for __item in vnet][nva_range["value"]],
+                address_prefix=std.cidrsubnet(input=vnet[nva_range["value"]].address_space[nva_range["value"]],
                     newbits=13,
                     netnum=0).result))
         # enable global peering between the two virtual network
-        peering: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(location))]:
-            peering.append(azure.network.VirtualNetworkPeering(f"peering-{range['value']}",
-                name=[__item.name for __item in vnet][int(1 - range["value"])].apply(lambda names: f"peering-to-{names}"),
-                resource_group_name=[__item.name for __item in example][range["value"]],
-                virtual_network_name=[__item.name for __item in vnet][range["value"]],
-                remote_virtual_network_id=[__item.id for __item in vnet][int(1 - range["value"])],
+        peering: list[azure.network.VirtualNetworkPeering] = []
+        for peering_range in [{"value": i} for i in range(0, len(location))]:
+            peering.append(azure.network.VirtualNetworkPeering(f"peering-{peering_range['value']}",
+                name=[__item.name for __item in vnet][int(1 - peering_range["value"])].apply(lambda names: f"peering-to-{names}"),
+                resource_group_name=[__item.name for __item in example][peering_range["value"]],
+                virtual_network_name=[__item.name for __item in vnet][peering_range["value"]],
+                remote_virtual_network_id=[__item.id for __item in vnet][int(1 - peering_range["value"])],
                 allow_virtual_network_access=True,
                 allow_forwarded_traffic=True,
                 allow_gateway_transit=False))
@@ -705,35 +705,35 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                 "10.0.0.0/16",
                 "10.1.0.0/16",
             ]
-        example: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(location))]:
-            example.append(azure.core.ResourceGroup(f"example-{range['value']}",
-                name=f"rg-global-vnet-peering-{range['value']}",
-                location=location[range["value"]]))
-        vnet: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(location))]:
-            vnet.append(azure.network.VirtualNetwork(f"vnet-{range['value']}",
-                name=f"vnet-{range['value']}",
-                resource_group_name=[__item.name for __item in example][range["value"]],
-                address_spaces=[vnet_address_space[range["value"]]],
-                location=[__item.location for __item in example][range["value"]]))
-        nva: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(location))]:
-            nva.append(azure.network.Subnet(f"nva-{range['value']}",
+        example: list[azure.core.ResourceGroup] = []
+        for example_range in [{"value": i} for i in range(0, len(location))]:
+            example.append(azure.core.ResourceGroup(f"example-{example_range['value']}",
+                name=f"rg-global-vnet-peering-{example_range['value']}",
+                location=location[example_range["value"]]))
+        vnet: list[azure.network.VirtualNetwork] = []
+        for vnet_range in [{"value": i} for i in range(0, len(location))]:
+            vnet.append(azure.network.VirtualNetwork(f"vnet-{vnet_range['value']}",
+                name=f"vnet-{vnet_range['value']}",
+                resource_group_name=[__item.name for __item in example][vnet_range["value"]],
+                address_spaces=[vnet_address_space[vnet_range["value"]]],
+                location=[__item.location for __item in example][vnet_range["value"]]))
+        nva: list[azure.network.Subnet] = []
+        for nva_range in [{"value": i} for i in range(0, len(location))]:
+            nva.append(azure.network.Subnet(f"nva-{nva_range['value']}",
                 name="nva",
-                resource_group_name=[__item.name for __item in example][range["value"]],
-                virtual_network_name=[__item.name for __item in vnet][range["value"]],
-                address_prefix=std.cidrsubnet(input=vnet[range["value"]].address_space[range["value"]],
+                resource_group_name=[__item.name for __item in example][nva_range["value"]],
+                virtual_network_name=[__item.name for __item in vnet][nva_range["value"]],
+                address_prefix=std.cidrsubnet(input=vnet[nva_range["value"]].address_space[nva_range["value"]],
                     newbits=13,
                     netnum=0).result))
         # enable global peering between the two virtual network
-        peering: list[Any] = []
-        for range in [{"value": i} for i in range(0, len(location))]:
-            peering.append(azure.network.VirtualNetworkPeering(f"peering-{range['value']}",
-                name=[__item.name for __item in vnet][int(1 - range["value"])].apply(lambda names: f"peering-to-{names}"),
-                resource_group_name=[__item.name for __item in example][range["value"]],
-                virtual_network_name=[__item.name for __item in vnet][range["value"]],
-                remote_virtual_network_id=[__item.id for __item in vnet][int(1 - range["value"])],
+        peering: list[azure.network.VirtualNetworkPeering] = []
+        for peering_range in [{"value": i} for i in range(0, len(location))]:
+            peering.append(azure.network.VirtualNetworkPeering(f"peering-{peering_range['value']}",
+                name=[__item.name for __item in vnet][int(1 - peering_range["value"])].apply(lambda names: f"peering-to-{names}"),
+                resource_group_name=[__item.name for __item in example][peering_range["value"]],
+                virtual_network_name=[__item.name for __item in vnet][peering_range["value"]],
+                remote_virtual_network_id=[__item.id for __item in vnet][int(1 - peering_range["value"])],
                 allow_virtual_network_access=True,
                 allow_forwarded_traffic=True,
                 allow_gateway_transit=False))

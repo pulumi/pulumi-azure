@@ -185,7 +185,7 @@ export class Standard extends pulumi.CustomResource {
      */
     declare public readonly identity: pulumi.Output<outputs.logicapps.StandardIdentity | undefined>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. 
+     * The User Assigned Identity ID used for accessing KeyVault secrets.
      *
      * > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
@@ -425,7 +425,7 @@ export interface StandardState {
      */
     identity?: pulumi.Input<inputs.logicapps.StandardIdentity | undefined>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. 
+     * The User Assigned Identity ID used for accessing KeyVault secrets.
      *
      * > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */
@@ -561,7 +561,7 @@ export interface StandardArgs {
      */
     identity?: pulumi.Input<inputs.logicapps.StandardIdentity | undefined>;
     /**
-     * The User Assigned Identity ID used for accessing KeyVault secrets. 
+     * The User Assigned Identity ID used for accessing KeyVault secrets.
      *
      * > **Note:** The identity must be assigned to the Logic App in the `identity` block. [For more information see - Access vaults with a user-assigned identity](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#access-vaults-with-a-user-assigned-identity)
      */

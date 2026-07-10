@@ -2613,7 +2613,7 @@ class ApplicationGatewayProbeArgsDict(TypedDict):
     """
     host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+    The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
 
     > **Note:** Exactly one of `host` or `pick_host_name_from_backend_http_settings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
     """
@@ -2680,7 +2680,7 @@ class ApplicationGatewayProbeArgs:
                
                > **Note:** The `timeout` value should not be greater than the `interval` value.
         :param pulumi.Input[_builtins.int] unhealthy_threshold: The unhealthy threshold for this Probe, which indicates the amount of retries which should be attempted before a node is deemed unhealthy. Possible values range from `1` to `20`.
-        :param pulumi.Input[_builtins.str] host: The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+        :param pulumi.Input[_builtins.str] host: The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
                
                > **Note:** Exactly one of `host` or `pick_host_name_from_backend_http_settings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
         :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
@@ -2789,7 +2789,7 @@ class ApplicationGatewayProbeArgs:
     @pulumi.getter
     def host(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+        The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
 
         > **Note:** Exactly one of `host` or `pick_host_name_from_backend_http_settings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
         """

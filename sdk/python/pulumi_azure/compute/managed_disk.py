@@ -126,7 +126,6 @@ class ManagedDiskArgs:
                
                > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
                
-               
                > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
                
                > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
@@ -570,7 +569,6 @@ class ManagedDiskArgs:
 
         > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
 
-
         > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
 
         > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
@@ -788,7 +786,6 @@ class _ManagedDiskState:
         :param pulumi.Input[_builtins.str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
                
                > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
-               
                
                > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
                
@@ -1225,7 +1222,6 @@ class _ManagedDiskState:
 
         > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
 
-
         > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
 
         > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
@@ -1534,7 +1530,6 @@ class ManagedDisk(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] security_type: Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
                
                > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
-               
                
                > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
                
@@ -1853,7 +1848,6 @@ class ManagedDisk(pulumi.CustomResource):
                
                > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
                
-               
                > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
                
                > **NOTE:** `secure_vm_disk_encryption_set_id` must be specified when `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey`.
@@ -2158,7 +2152,6 @@ class ManagedDisk(pulumi.CustomResource):
         Security Type of the Managed Disk when it is used for a Confidential VM. Possible values are `ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey`, `ConfidentialVM_DiskEncryptedWithPlatformKey` and `ConfidentialVM_DiskEncryptedWithCustomerKey`. Changing this forces a new resource to be created.
 
         > **NOTE:** When `security_type` is set to `ConfidentialVM_DiskEncryptedWithCustomerKey` the value of `create_option` must be one of `FromImage` or `ImportSecure`.
-
 
         > **NOTE:** `security_type` cannot be specified when `trusted_launch_enabled` is set to true.
 

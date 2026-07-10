@@ -95,7 +95,7 @@ export class Job extends pulumi.CustomResource {
      */
     declare public readonly contentStoragePolicy: pulumi.Output<string | undefined>;
     /**
-     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
+     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>). Defaults to `en-US`.
      */
     declare public readonly dataLocale: pulumi.Output<string | undefined>;
     /**
@@ -243,7 +243,7 @@ export interface JobState {
      */
     contentStoragePolicy?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
+     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>). Defaults to `en-US`.
      */
     dataLocale?: pulumi.Input<string | undefined>;
     /**
@@ -327,7 +327,7 @@ export interface JobArgs {
      */
     contentStoragePolicy?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx). Defaults to `en-US`.
+     * Specifies the Data Locale of the Job, which [should be a supported .NET Culture](<https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx>). Defaults to `en-US`.
      */
     dataLocale?: pulumi.Input<string | undefined>;
     /**

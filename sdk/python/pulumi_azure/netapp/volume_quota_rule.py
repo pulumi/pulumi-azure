@@ -35,7 +35,7 @@ class VolumeQuotaRuleArgs:
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Volume Quota Rule. Changing this forces a new Volume Quota Rule to be created.
         :param pulumi.Input[_builtins.str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
                
-               > **Note:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+               > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
                > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         """
@@ -115,7 +115,7 @@ class VolumeQuotaRuleArgs:
         """
         Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 
-        > **Note:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+        > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
 
         > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         """
@@ -143,7 +143,7 @@ class _VolumeQuotaRuleState:
         :param pulumi.Input[_builtins.int] quota_size_in_kib: Quota size in kibibytes.
         :param pulumi.Input[_builtins.str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
                
-               > **Note:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+               > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
                > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         :param pulumi.Input[_builtins.str] quota_type: Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
@@ -204,7 +204,7 @@ class _VolumeQuotaRuleState:
         """
         Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 
-        > **Note:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+        > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
 
         > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         """
@@ -361,7 +361,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] quota_size_in_kib: Quota size in kibibytes.
         :param pulumi.Input[_builtins.str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
                
-               > **Note:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+               > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
                > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         :param pulumi.Input[_builtins.str] quota_type: Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
@@ -545,7 +545,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] quota_size_in_kib: Quota size in kibibytes.
         :param pulumi.Input[_builtins.str] quota_target: Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
                
-               > **Note:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+               > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
                
                > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         :param pulumi.Input[_builtins.str] quota_type: Quota type. Possible values are `DefaultGroupQuota`, `DefaultUserQuota`, `IndividualGroupQuota` and `IndividualUserQuota`. Please note that `IndividualGroupQuota` and `DefaultGroupQuota` are not applicable to SMB and dual-protocol volumes. Changing this forces a new resource to be created.
@@ -593,7 +593,7 @@ class VolumeQuotaRule(pulumi.CustomResource):
         """
         Quota Target. This can be Unix UID/GID for NFSv3/NFSv4.1 volumes and Windows User SID for CIFS based volumes. Changing this forces a new resource to be created.
 
-        > **Note:** `quota_target ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
+        > **Note:** ` quota_target  ` must be used when `quota_type` is `IndividualGroupQuota` or `IndividualUserQuota`
 
         > **Note:** more information about this resource can be found at [Understand default and individual user and group quotas](https://learn.microsoft.com/en-us/azure/azure-netapp-files/default-individual-user-group-quotas-introduction)
         """

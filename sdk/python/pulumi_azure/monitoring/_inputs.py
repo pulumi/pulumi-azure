@@ -2822,7 +2822,7 @@ class AlertProcessingRuleActionGroupScheduleArgsDict(TypedDict):
     """
     time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+    The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
     """
 
 @pulumi.input_type
@@ -2836,7 +2836,7 @@ class AlertProcessingRuleActionGroupScheduleArgs:
         :param pulumi.Input[_builtins.str] effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
         :param pulumi.Input[_builtins.str] effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
         :param pulumi.Input['AlertProcessingRuleActionGroupScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined above.
-        :param pulumi.Input[_builtins.str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        :param pulumi.Input[_builtins.str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         if effective_from is not None:
             pulumi.set(__self__, "effective_from", effective_from)
@@ -2887,7 +2887,7 @@ class AlertProcessingRuleActionGroupScheduleArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         return pulumi.get(self, "time_zone")
 
@@ -3909,7 +3909,7 @@ class AlertProcessingRuleSuppressionScheduleArgsDict(TypedDict):
     """
     time_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+    The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
     """
 
 @pulumi.input_type
@@ -3923,7 +3923,7 @@ class AlertProcessingRuleSuppressionScheduleArgs:
         :param pulumi.Input[_builtins.str] effective_from: Specifies the Alert Processing Rule effective start time (Y-m-d'T'H:M:S).
         :param pulumi.Input[_builtins.str] effective_until: Specifies the Alert Processing Rule effective end time (Y-m-d'T'H:M:S).
         :param pulumi.Input['AlertProcessingRuleSuppressionScheduleRecurrenceArgs'] recurrence: A `recurrence` block as defined above.
-        :param pulumi.Input[_builtins.str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        :param pulumi.Input[_builtins.str] time_zone: The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         if effective_from is not None:
             pulumi.set(__self__, "effective_from", effective_from)
@@ -3974,7 +3974,7 @@ class AlertProcessingRuleSuppressionScheduleArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+        The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
         """
         return pulumi.get(self, "time_zone")
 

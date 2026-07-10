@@ -47,7 +47,7 @@ class AutonomousDatabaseArgs:
         """
         The set of arguments for constructing a AutonomousDatabase resource.
 
-        :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage.
         :param pulumi.Input[_builtins.int] backup_retention_period_in_days: Retention period, in days, for backups.
@@ -59,7 +59,7 @@ class AutonomousDatabaseArgs:
         :param pulumi.Input[_builtins.str] db_workload: The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
                
                > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-               > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
+               **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Possible values are `LicenseIncluded` and `BringYourOwnLicense`. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.bool] mtls_connection_required: Specifies if the Autonomous Database requires mTLS connections. Changing this forces a new Autonomous Database to be created. Default value `false`.
@@ -109,7 +109,7 @@ class AutonomousDatabaseArgs:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Input[_builtins.str]:
         """
-        The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         """
         return pulumi.get(self, "admin_password")
 
@@ -220,7 +220,7 @@ class AutonomousDatabaseArgs:
         The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
 
         > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-        > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
+        **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         """
         return pulumi.get(self, "db_workload")
 
@@ -407,7 +407,7 @@ class _AutonomousDatabaseState:
         """
         Input properties used for looking up and filtering AutonomousDatabase resources.
 
-        :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ips: (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage.
@@ -420,7 +420,7 @@ class _AutonomousDatabaseState:
         :param pulumi.Input[_builtins.str] db_workload: The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
                
                > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-               > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
+               **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Possible values are `LicenseIncluded` and `BringYourOwnLicense`. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
@@ -484,7 +484,7 @@ class _AutonomousDatabaseState:
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         """
         return pulumi.get(self, "admin_password")
 
@@ -616,7 +616,7 @@ class _AutonomousDatabaseState:
         The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
 
         > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-        > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
+        **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         """
         return pulumi.get(self, "db_workload")
 
@@ -857,7 +857,7 @@ class AutonomousDatabase(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ips: (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage.
@@ -870,7 +870,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_workload: The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
                
                > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-               > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
+               **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Possible values are `LicenseIncluded` and `BringYourOwnLicense`. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
@@ -1103,7 +1103,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        :param pulumi.Input[_builtins.str] admin_password: The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_ips: (Optional) Defines the network access type for the Autonomous Database. If the property is explicitly set to an empty list, it allows secure public access to the database from any IP address. If specific ACL (Access Control List) values are provided, access will be restricted to only the specified IP addresses.
         :param pulumi.Input[_builtins.bool] auto_scaling_enabled: Indicates if auto scaling is enabled for the Autonomous Database CPU core count.
         :param pulumi.Input[_builtins.bool] auto_scaling_for_storage_enabled: Indicates if auto scaling is enabled for the Autonomous Database storage.
@@ -1116,7 +1116,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] db_workload: The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
                
                > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-               > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
+               **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Autonomous Database. The name does not have to be unique. Changing this forces a new Autonomous Database to be created.
         :param pulumi.Input[_builtins.str] license_model: The Oracle license model that applies to the Oracle Autonomous Database. Possible values are `LicenseIncluded` and `BringYourOwnLicense`. Changing this forces a new Autonomous Database to be created. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud. License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service. Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to `BRING_YOUR_OWN_LICENSE`. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Autonomous Database should exist. Changing this forces a new Autonomous Database to be created.
@@ -1162,7 +1162,7 @@ class AutonomousDatabase(pulumi.CustomResource):
     @pulumi.getter(name="adminPassword")
     def admin_password(self) -> pulumi.Output[_builtins.str]:
         """
-        The password must be between `12` and `30 `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
+        The password must be between `12` and ` 30  `characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (") or the username "admin", regardless of casing.
         """
         return pulumi.get(self, "admin_password")
 
@@ -1250,7 +1250,7 @@ class AutonomousDatabase(pulumi.CustomResource):
         The Autonomous Database workload type. Changing this forces a new Autonomous Database to be created. Possible values are `AJD`, `APEX`, `DW` and `OLTP`.
 
         > **Note:** `AJD` indicates an Autonomous JSON database; `APEX` indicates an Autonomous Database with the Oracle APEX Application Development workload type; `DW` indicates an Autonomous Data Warehouse database; `OLTP` indicates an Autonomous Transaction Processing database
-        > **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
+        **Note:** When Provisioning Database with `APEX` workload `mtls_connection_required` must be set to `true`.
         """
         return pulumi.get(self, "db_workload")
 
