@@ -2226,7 +2226,7 @@ export namespace apimanagement {
          */
         tlsRsaWithAes256GcmSha384CiphersEnabled?: pulumi.Input<boolean | undefined>;
         /**
-         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)? 
+         * Should the `TLS_RSA_WITH_3DES_EDE_CBC_SHA` cipher be enabled for alL TLS versions (1.0, 1.1 and 1.2)?
          *
          * > **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` field
          */
@@ -4675,7 +4675,7 @@ export namespace appservice {
          */
         scmType?: pulumi.Input<string | undefined>;
         /**
-         * IP security restrictions for scm to use main. Defaults to `false`. 
+         * IP security restrictions for scm to use main. Defaults to `false`.
          *
          * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          */
@@ -10649,7 +10649,7 @@ export namespace appservice {
          */
         scmType?: pulumi.Input<string | undefined>;
         /**
-         * IP security restrictions for scm to use main. Defaults to `false`. 
+         * IP security restrictions for scm to use main. Defaults to `false`.
          *
          * > **NOTE** Any `scmIpRestriction` blocks configured are ignored by the service when `scmUseMainIpRestriction` is set to `true`. Any scm restrictions will become active if this is subsequently set to `false` or removed.
          */
@@ -13890,7 +13890,7 @@ export namespace appservice {
          */
         javaEmbeddedServerEnabled?: pulumi.Input<boolean | undefined>;
         /**
-         * The version of Java to use when `currentStack` is set to `java`. 
+         * The version of Java to use when `currentStack` is set to `java`.
          *
          * > **Note:** For currently supported versions, please see the official documentation. Some example values include: `1.8`, `1.8.0_322`,  `11`, `11.0.14`, `17`, `17.0.2`, `21` and `25`
          */
@@ -16468,7 +16468,7 @@ export namespace avs {
 export namespace backup {
     export interface PolicyFileShareBackup {
         /**
-         * Sets the backup frequency. Possible values are `Daily` and `Hourly`. 
+         * Sets the backup frequency. Possible values are `Daily` and `Hourly`.
          *
          * > **Note:** This argument is made available for consistency with VM backup policies and to allow for potential future support of weekly backups
          */
@@ -33938,7 +33938,7 @@ export namespace eventhub {
          */
         storageAccountId: pulumi.Input<string>;
         /**
-         * The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived. 
+         * The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
          *
          * > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
          *
@@ -41531,7 +41531,7 @@ export namespace monitoring {
          */
         recurrence?: pulumi.Input<inputs.monitoring.AlertProcessingRuleActionGroupScheduleRecurrence | undefined>;
         /**
-         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
          */
         timeZone?: pulumi.Input<string | undefined>;
     }
@@ -41774,7 +41774,7 @@ export namespace monitoring {
          */
         recurrence?: pulumi.Input<inputs.monitoring.AlertProcessingRuleSuppressionScheduleRecurrence | undefined>;
         /**
-         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)).
+         * The time zone (e.g. Pacific Standard time, Eastern Standard Time). Defaults to `UTC`. [possible values are defined here](<https://docs.microsoft.com/en-us/previous-versions/windows/embedded/ms912391(v=winembedded.11)>).
          */
         timeZone?: pulumi.Input<string | undefined>;
     }
@@ -44131,7 +44131,7 @@ export namespace netapp {
          */
         protocols: pulumi.Input<string>;
         /**
-         * The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost. 
+         * The ID of the proximity placement group (PPG). Changing this forces a new Application Volume Group to be created and data will be lost.
          *
          * > **Note:** For Oracle application, it is required to have PPG enabled so Azure NetApp Files can pin the volumes next to your compute resources, please check [Requirements and considerations for application volume group for Oracle](https://learn.microsoft.com/en-us/azure/azure-netapp-files/application-volume-group-oracle-considerations) for details and other requirements. Note that this cannot be used together with `zone`.
          */
@@ -44861,7 +44861,7 @@ export namespace network {
 
     export interface ApplicationGatewayProbe {
         /**
-         * The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe. 
+         * The hostname used for this Probe. If the Application Gateway is configured for a single site, by default the hostname should be specified as `127.0.0.1`, unless otherwise configured in custom Probe.
          *
          * > **Note:** Exactly one of `host` or `pickHostNameFromBackendHttpSettings` must be set when `protocol` is `Http` or `Https`. Neither can be set when `protocol` is `Tcp` or `Tls`.
          */
@@ -49016,7 +49016,7 @@ export namespace paloalto {
          */
         port: pulumi.Input<number>;
         /**
-         * The ID of the Public IP Address on which to receive traffic. 
+         * The ID of the Public IP Address on which to receive traffic.
          *
          * > **Note:** This must be an Azure Public IP address ID also specified in the `publicIpAddressIds` list.
          */
@@ -50182,7 +50182,7 @@ export namespace privatelink {
          */
         requestMessage?: pulumi.Input<string | undefined>;
         /**
-         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
+         * A list of subresource names which the Private Endpoint is able to connect to. `subresourceNames` corresponds to `groupId`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
          *
          * > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
          *

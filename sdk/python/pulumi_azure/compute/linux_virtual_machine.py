@@ -82,7 +82,7 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
@@ -333,7 +333,7 @@ class LinuxVirtualMachineArgs:
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
         > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-        > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "admin_password")
 
@@ -974,7 +974,7 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineAdminSshKeyArgs']]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
@@ -1200,7 +1200,7 @@ class _LinuxVirtualMachineState:
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
         > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-        > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "admin_password")
 
@@ -2032,7 +2032,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineAdminSshKeyArgs', 'LinuxVirtualMachineAdminSshKeyArgsDict']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
@@ -2426,7 +2426,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
                > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-               > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+               **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineAdminSshKeyArgs', 'LinuxVirtualMachineAdminSshKeyArgsDict']]]] admin_ssh_keys: One or more `admin_ssh_key` blocks as defined below. Changing this forces a new resource to be created.
                
                > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
@@ -2595,7 +2595,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 
         > **NOTE:** When an `admin_password` is specified `disable_password_authentication` must be set to `false`.
-        > **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
+        **NOTE:** One of either `admin_password` or `admin_ssh_key` must be specified.
         """
         return pulumi.get(self, "admin_password")
 

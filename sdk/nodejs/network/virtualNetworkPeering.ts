@@ -61,29 +61,29 @@ import * as utilities from "../utilities";
  *     "10.1.0.0/16",
  * ];
  * const example: azure.core.ResourceGroup[] = [];
- * for (const range = {value: 0}; range.value < location.length; range.value++) {
- *     example.push(new azure.core.ResourceGroup(`example-${range.value}`, {
- *         name: `rg-global-vnet-peering-${range.value}`,
- *         location: location[range.value],
+ * for (let range = 0; range < location.length; range++) {
+ *     example.push(new azure.core.ResourceGroup(`example-${range}`, {
+ *         name: `rg-global-vnet-peering-${range}`,
+ *         location: location[range],
  *     }));
  * }
  * const vnet: azure.network.VirtualNetwork[] = [];
- * for (const range = {value: 0}; range.value < location.length; range.value++) {
- *     vnet.push(new azure.network.VirtualNetwork(`vnet-${range.value}`, {
- *         name: `vnet-${range.value}`,
- *         resourceGroupName: example.map(__item => __item.name)[range.value],
- *         addressSpaces: [vnetAddressSpace[range.value]],
- *         location: example.map(__item => __item.location)[range.value],
+ * for (let range = 0; range < location.length; range++) {
+ *     vnet.push(new azure.network.VirtualNetwork(`vnet-${range}`, {
+ *         name: `vnet-${range}`,
+ *         resourceGroupName: example.map(__item => __item.name)[range],
+ *         addressSpaces: [vnetAddressSpace[range]],
+ *         location: example.map(__item => __item.location)[range],
  *     }));
  * }
  * const nva: azure.network.Subnet[] = [];
- * for (const range = {value: 0}; range.value < location.length; range.value++) {
- *     nva.push(new azure.network.Subnet(`nva-${range.value}`, {
+ * for (let range = 0; range < location.length; range++) {
+ *     nva.push(new azure.network.Subnet(`nva-${range}`, {
  *         name: "nva",
- *         resourceGroupName: example.map(__item => __item.name)[range.value],
- *         virtualNetworkName: vnet.map(__item => __item.name)[range.value],
+ *         resourceGroupName: example.map(__item => __item.name)[range],
+ *         virtualNetworkName: vnet.map(__item => __item.name)[range],
  *         addressPrefix: std.cidrsubnet({
- *             input: vnet[range.value].addressSpace[range.value],
+ *             input: vnet[range].addressSpace[range],
  *             newbits: 13,
  *             netnum: 0,
  *         }).then(invoke => invoke.result),
@@ -91,12 +91,12 @@ import * as utilities from "../utilities";
  * }
  * // enable global peering between the two virtual network
  * const peering: azure.network.VirtualNetworkPeering[] = [];
- * for (const range = {value: 0}; range.value < location.length; range.value++) {
- *     peering.push(new azure.network.VirtualNetworkPeering(`peering-${range.value}`, {
- *         name: vnet.map(__item => __item.name)[1 - range.value].apply(names => `peering-to-${names}`),
- *         resourceGroupName: example.map(__item => __item.name)[range.value],
- *         virtualNetworkName: vnet.map(__item => __item.name)[range.value],
- *         remoteVirtualNetworkId: vnet.map(__item => __item.id)[1 - range.value],
+ * for (let range = 0; range < location.length; range++) {
+ *     peering.push(new azure.network.VirtualNetworkPeering(`peering-${range}`, {
+ *         name: vnet.map(__item => __item.name)[1 - range].apply(names => `peering-to-${names}`),
+ *         resourceGroupName: example.map(__item => __item.name)[range],
+ *         virtualNetworkName: vnet.map(__item => __item.name)[range],
+ *         remoteVirtualNetworkId: vnet.map(__item => __item.id)[1 - range],
  *         allowVirtualNetworkAccess: true,
  *         allowForwardedTraffic: true,
  *         allowGatewayTransit: false,

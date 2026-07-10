@@ -47,7 +47,7 @@ class PublicIpArgs:
                > **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where this Public IP should exist. Changing this forces a new Public IP to be created.
         :param pulumi.Input[_builtins.str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
-        :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP. 
+        :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
                
                > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         :param pulumi.Input[_builtins.str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
@@ -156,7 +156,7 @@ class PublicIpArgs:
     @pulumi.getter(name="ddosProtectionPlanId")
     def ddos_protection_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of DDoS protection plan associated with the public IP. 
+        The ID of DDoS protection plan associated with the public IP.
 
         > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         """
@@ -379,7 +379,7 @@ class _PublicIpState:
                
                > **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         :param pulumi.Input[_builtins.str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
-        :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP. 
+        :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
                
                > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         :param pulumi.Input[_builtins.str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
@@ -485,7 +485,7 @@ class _PublicIpState:
     @pulumi.getter(name="ddosProtectionPlanId")
     def ddos_protection_plan_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of DDoS protection plan associated with the public IP. 
+        The ID of DDoS protection plan associated with the public IP.
 
         > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         """
@@ -785,7 +785,7 @@ class PublicIp(pulumi.CustomResource):
                
                > **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         :param pulumi.Input[_builtins.str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
-        :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP. 
+        :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
                
                > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         :param pulumi.Input[_builtins.str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
@@ -971,7 +971,7 @@ class PublicIp(pulumi.CustomResource):
                
                > **Note:** `Dynamic` allocation is only available with `Basic` SKU public IP addresses. Since `Basic` SKU public IP addresses have been deprecated (see `sku` below), `Dynamic` allocation is no longer available for new public IP addresses.
         :param pulumi.Input[_builtins.str] ddos_protection_mode: The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`.
-        :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP. 
+        :param pulumi.Input[_builtins.str] ddos_protection_plan_id: The ID of DDoS protection plan associated with the public IP.
                
                > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         :param pulumi.Input[_builtins.str] domain_name_label: Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system.
@@ -1054,7 +1054,7 @@ class PublicIp(pulumi.CustomResource):
     @pulumi.getter(name="ddosProtectionPlanId")
     def ddos_protection_plan_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of DDoS protection plan associated with the public IP. 
+        The ID of DDoS protection plan associated with the public IP.
 
         > **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`.
         """

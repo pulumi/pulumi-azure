@@ -790,7 +790,7 @@ class EventHubCaptureDescriptionDestination(dict):
                
                > **Note:** At this time it's only possible to Capture EventHub messages to Blob Storage. There's [a Feature Request for the Azure SDK to add support for Capturing messages to Azure Data Lake here](https://github.com/Azure/azure-rest-api-specs/issues/2255).
         :param _builtins.str storage_account_id: The ID of the Blob Storage Account where messages should be archived.
-        :param _builtins.str storage_authentication_id: The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived. 
+        :param _builtins.str storage_authentication_id: The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
                
                > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
                
@@ -844,7 +844,7 @@ class EventHubCaptureDescriptionDestination(dict):
     @pulumi.getter(name="storageAuthenticationId")
     def storage_authentication_id(self) -> Optional[_builtins.str]:
         """
-        The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived. 
+        The id of the User Assigned Identity that is used to authenticate the Blob Storage Account where messages should be archived.
 
         > **Note:** The `SystemAssigned` or `UserAssigned` managed identity must be `enabled` on the parent eventhub namespace, in order for the capture feature to be configured.
 

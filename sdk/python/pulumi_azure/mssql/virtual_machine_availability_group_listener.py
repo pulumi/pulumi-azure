@@ -307,10 +307,10 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
                 "fqdn": "testdomain.com",
                 "cluster_subnet_type": "SingleSubnet",
             })
-        example_virtual_machine: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_virtual_machine.append(azure.mssql.VirtualMachine(f"example-{range['value']}",
-                virtual_machine_id=example_get_virtual_machine[range["value"]].id,
+        example_virtual_machine: list[azure.mssql.VirtualMachine] = []
+        for example_virtual_machine_range in [{"value": i} for i in range(0, 2)]:
+            example_virtual_machine.append(azure.mssql.VirtualMachine(f"example-{example_virtual_machine_range['value']}",
+                virtual_machine_id=example_get_virtual_machine[example_virtual_machine_range["value"]].id,
                 sql_license_type="PAYG",
                 sql_virtual_machine_group_id=example_virtual_machine_group.id,
                 wsfc_domain_credential={
@@ -412,10 +412,10 @@ class VirtualMachineAvailabilityGroupListener(pulumi.CustomResource):
                 "fqdn": "testdomain.com",
                 "cluster_subnet_type": "SingleSubnet",
             })
-        example_virtual_machine: list[Any] = []
-        for range in [{"value": i} for i in range(0, 2)]:
-            example_virtual_machine.append(azure.mssql.VirtualMachine(f"example-{range['value']}",
-                virtual_machine_id=example_get_virtual_machine[range["value"]].id,
+        example_virtual_machine: list[azure.mssql.VirtualMachine] = []
+        for example_virtual_machine_range in [{"value": i} for i in range(0, 2)]:
+            example_virtual_machine.append(azure.mssql.VirtualMachine(f"example-{example_virtual_machine_range['value']}",
+                virtual_machine_id=example_get_virtual_machine[example_virtual_machine_range["value"]].id,
                 sql_license_type="PAYG",
                 sql_virtual_machine_group_id=example_virtual_machine_group.id,
                 wsfc_domain_credential={

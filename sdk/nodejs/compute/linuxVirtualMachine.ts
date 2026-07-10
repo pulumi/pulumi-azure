@@ -133,7 +133,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
-     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
+     * **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     declare public readonly adminPassword: pulumi.Output<string | undefined>;
     /**
@@ -546,7 +546,7 @@ export interface LinuxVirtualMachineState {
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
-     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
+     * **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminPassword?: pulumi.Input<string | undefined>;
     /**
@@ -815,7 +815,7 @@ export interface LinuxVirtualMachineArgs {
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      *
      * > **NOTE:** When an `adminPassword` is specified `disablePasswordAuthentication` must be set to `false`.
-     * > **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
+     * **NOTE:** One of either `adminPassword` or `adminSshKey` must be specified.
      */
     adminPassword?: pulumi.Input<string | undefined>;
     /**

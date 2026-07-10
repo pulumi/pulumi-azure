@@ -107,7 +107,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     declare public readonly enabledMetrics: pulumi.Output<outputs.monitoring.DiagnosticSettingEnabledMetric[]>;
     /**
-     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      *
      * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      *
@@ -149,7 +149,7 @@ export class DiagnosticSetting extends pulumi.CustomResource {
      */
     declare public readonly partnerSolutionId: pulumi.Output<string | undefined>;
     /**
-     * The ID of the Storage Account where logs should be sent. 
+     * The ID of the Storage Account where logs should be sent.
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
@@ -222,7 +222,7 @@ export interface DiagnosticSettingState {
      */
     enabledMetrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledMetric>[] | undefined>;
     /**
-     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      *
      * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      *
@@ -264,7 +264,7 @@ export interface DiagnosticSettingState {
      */
     partnerSolutionId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Storage Account where logs should be sent. 
+     * The ID of the Storage Account where logs should be sent.
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */
@@ -292,7 +292,7 @@ export interface DiagnosticSettingArgs {
      */
     enabledMetrics?: pulumi.Input<pulumi.Input<inputs.monitoring.DiagnosticSettingEnabledMetric>[] | undefined>;
     /**
-     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data. 
+     * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
      *
      * > **NOTE:** This can be sourced from the `azure.eventhub.EventHubNamespaceAuthorizationRule` resource and is different from a `azure.eventhub.AuthorizationRule` resource.
      *
@@ -334,7 +334,7 @@ export interface DiagnosticSettingArgs {
      */
     partnerSolutionId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the Storage Account where logs should be sent. 
+     * The ID of the Storage Account where logs should be sent.
      *
      * > **NOTE:** At least one of `eventhubAuthorizationRuleId`, `logAnalyticsWorkspaceId`, `partnerSolutionId` and `storageAccountId` must be specified.
      */

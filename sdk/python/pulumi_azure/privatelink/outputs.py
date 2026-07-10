@@ -450,7 +450,7 @@ class EndpointPrivateServiceConnection(dict):
         :param _builtins.str request_message: A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The provider allows a maximum request message length of `140` characters, however the request message maximum length is dependent on the service the private endpoint is connected to. Only valid if `is_manual_connection` is set to `true`.
                
                > **Note:** When connected to an SQL resource the `request_message` maximum length is `128`.
-        :param Sequence[_builtins.str] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
+        :param Sequence[_builtins.str] subresource_names: A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
                
                > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
                
@@ -525,7 +525,7 @@ class EndpointPrivateServiceConnection(dict):
     @pulumi.getter(name="subresourceNames")
     def subresource_names(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created. 
+        A list of subresource names which the Private Endpoint is able to connect to. `subresource_names` corresponds to `group_id`. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the `Subresources` column. Changing this forces a new resource to be created.
 
         > **Note:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
 

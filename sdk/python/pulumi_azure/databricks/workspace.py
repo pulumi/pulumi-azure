@@ -48,7 +48,7 @@ class WorkspaceArgs:
         :param pulumi.Input[_builtins.str] sku: The `sku` to use for the Databricks Workspace. Possible values are `standard`, `premium`, or `trial`.
                
                > **Note:** Downgrading to a `trial sku` from a `standard` or `premium sku` will force a new resource to be created.
-        :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled. 
+        :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled.
                
                > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
@@ -148,7 +148,7 @@ class WorkspaceArgs:
     @pulumi.getter(name="accessConnectorId")
     def access_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Access Connector ID to use when default storage account firewall is enabled. 
+        Access Connector ID to use when default storage account firewall is enabled.
 
         > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         """
@@ -405,7 +405,7 @@ class _WorkspaceState:
         """
         Input properties used for looking up and filtering Workspace resources.
 
-        :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled. 
+        :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled.
                
                > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         :param pulumi.Input['WorkspaceCustomParametersArgs'] custom_parameters: A `custom_parameters` block as documented below.
@@ -503,7 +503,7 @@ class _WorkspaceState:
     @pulumi.getter(name="accessConnectorId")
     def access_connector_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Access Connector ID to use when default storage account firewall is enabled. 
+        Access Connector ID to use when default storage account firewall is enabled.
 
         > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         """
@@ -908,7 +908,7 @@ class Workspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled. 
+        :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled.
                
                > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         :param pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']] custom_parameters: A `custom_parameters` block as documented below.
@@ -1119,7 +1119,7 @@ class Workspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled. 
+        :param pulumi.Input[_builtins.str] access_connector_id: Access Connector ID to use when default storage account firewall is enabled.
                
                > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         :param pulumi.Input[Union['WorkspaceCustomParametersArgs', 'WorkspaceCustomParametersArgsDict']] custom_parameters: A `custom_parameters` block as documented below.
@@ -1196,7 +1196,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="accessConnectorId")
     def access_connector_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Access Connector ID to use when default storage account firewall is enabled. 
+        Access Connector ID to use when default storage account firewall is enabled.
 
         > **Note:** The `access_connector_id` field is only required if `default_storage_firewall_enabled` is set to `true`.
         """
