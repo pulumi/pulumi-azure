@@ -362,7 +362,7 @@ index 2963f70e6c..b727ae172b 100644
  * `xml_link` - (Optional) A link to a Policy XML Document, which must be publicly available.
  
 diff --git a/website/docs/r/api_management_backend.html.markdown b/website/docs/r/api_management_backend.html.markdown
-index 0e786770e5..17fed56a59 100644
+index ff68f83311..c74a0560c5 100644
 --- a/website/docs/r/api_management_backend.html.markdown
 +++ b/website/docs/r/api_management_backend.html.markdown
 @@ -23,7 +23,7 @@ resource "azurerm_api_management" "example" {
@@ -1322,7 +1322,7 @@ index 3a58319de5..631871e729 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index c0d300f67e..25741da51a 100644
+index c6468f3ae9..7db324a980 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1607,7 +1607,7 @@ index db31072123..f49cea8d68 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_mysql.html.markdown b/website/docs/r/data_factory_linked_service_mysql.html.markdown
-index e88621bede..ed9062f2c2 100644
+index 728a5f0e20..f0e2eabc24 100644
 --- a/website/docs/r/data_factory_linked_service_mysql.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_mysql.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -2145,7 +2145,7 @@ index e32bd341dd..3d783894ed 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index aa7514a107..8f1465075d 100644
+index e59c3790ee..77e27cc821 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
@@ -2186,7 +2186,7 @@ index aa7514a107..8f1465075d 100644
  
  * `ultra_ssd_enabled` - (Optional) Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. `temporary_name_for_rotation` must be specified when attempting a change.
  
-@@ -469,7 +463,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -471,7 +465,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist in this Node Pool. If specified this must be between `1` and `1000` and between `min_count` and `max_count`.
  
@@ -2195,7 +2195,7 @@ index aa7514a107..8f1465075d 100644
  
  ~> **Note:** If `auto_scaling_enabled` is set to `false` both `min_count` and `max_count` fields need to be set to `null` or omitted from the configuration.
  
-@@ -712,13 +706,11 @@ A `network_profile` block supports the following:
+@@ -714,13 +708,11 @@ A `network_profile` block supports the following:
  
  ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. `docker_bridge_cidr`, `dns_service_ip` and `service_cidr` should all be empty or all should be set.
  
@@ -2211,7 +2211,7 @@ index aa7514a107..8f1465075d 100644
  
  * `load_balancer_sku` - (Optional) Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are `basic` and `standard`. Defaults to `standard`. Changing this forces a new resource to be created.
  
-@@ -802,7 +794,7 @@ An `ingress_application_gateway` block supports the following:
+@@ -804,7 +796,7 @@ An `ingress_application_gateway` block supports the following:
  
  * `subnet_id` - (Optional) The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
  
@@ -2220,7 +2220,7 @@ index aa7514a107..8f1465075d 100644
  
  ~> **Note:** If specifying `ingress_application_gateway` in conjunction with `only_critical_addons_enabled`, the AGIC pod will fail to start. A separate `azurerm_kubernetes_cluster_node_pool` is required to run the AGIC pod successfully. This is because AGIC is classed as a "non-critical addon".
  
-@@ -814,13 +806,13 @@ A `service_mesh_profile` block supports the following:
+@@ -816,13 +808,13 @@ A `service_mesh_profile` block supports the following:
  
  * `revisions` - (Required) Specify 1 or 2 Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`, or leave it empty (the `revisions` will only be known after apply). To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
  
@@ -2236,7 +2236,7 @@ index aa7514a107..8f1465075d 100644
  
  * `certificate_authority` - (Optional) A `certificate_authority` block as defined below. When this property is specified, `key_vault_secrets_provider` is also required to be set. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
  
-@@ -870,7 +862,7 @@ A `storage_profile` block supports the following:
+@@ -872,7 +864,7 @@ A `storage_profile` block supports the following:
  
  A `sysctl_config` block supports the following:
  
@@ -2245,7 +2245,7 @@ index aa7514a107..8f1465075d 100644
  
  * `fs_aio_max_nr` - (Optional) The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
  
-@@ -1130,19 +1122,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
+@@ -1132,19 +1124,6 @@ The `kube_admin_config` and `kube_config` blocks export the following:
  
  * `password` - A password or token used to authenticate to the Kubernetes cluster.
  
@@ -2265,7 +2265,7 @@ index aa7514a107..8f1465075d 100644
  ---
  
  The `ingress_application_gateway` block exports the following:
-@@ -1216,8 +1195,8 @@ The `web_app_routing_identity` block exports the following:
+@@ -1218,8 +1197,8 @@ The `web_app_routing_identity` block exports the following:
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 90 minutes) Used when creating the Kubernetes Cluster.
@@ -2275,7 +2275,7 @@ index aa7514a107..8f1465075d 100644
  * `delete` - (Defaults to 90 minutes) Used when deleting the Kubernetes Cluster.
  
  ## Import
-@@ -1227,7 +1206,6 @@ Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
+@@ -1229,7 +1208,6 @@ Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_kubernetes_cluster.cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
  ```
@@ -2284,7 +2284,7 @@ index aa7514a107..8f1465075d 100644
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
 diff --git a/website/docs/r/kubernetes_cluster_node_pool.html.markdown b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
-index 8856c89f9b..ab59ee7f03 100644
+index 4c79bcdab1..2ffd594df5 100644
 --- a/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 +++ b/website/docs/r/kubernetes_cluster_node_pool.html.markdown
 @@ -10,15 +10,13 @@ description: |-
@@ -2346,7 +2346,7 @@ index 8856c89f9b..ab59ee7f03 100644
  
  * `windows_profile` - (Optional) A `windows_profile` block as documented below. Changing this forces a new resource to be created.
  
-@@ -176,7 +174,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
+@@ -178,7 +176,7 @@ If `auto_scaling_enabled` is set to `true`, then the following fields can also b
  
  * `node_count` - (Optional) The initial number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools and must be a value in the range `min_count` - `max_count`.
  
@@ -2355,7 +2355,7 @@ index 8856c89f9b..ab59ee7f03 100644
  
  If `auto_scaling_enabled` is set to `false`, then the following fields can also be configured:
  
-@@ -244,7 +242,7 @@ An `allowed_host_ports` block supports the following:
+@@ -246,7 +244,7 @@ An `allowed_host_ports` block supports the following:
  
  A `sysctl_config` block supports the following:
  
@@ -2364,7 +2364,7 @@ index 8856c89f9b..ab59ee7f03 100644
  
  * `fs_aio_max_nr` - (Optional) The sysctl setting fs.aio-max-nr. Must be between `65536` and `6553500`.
  
-@@ -340,10 +338,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -342,10 +340,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
@@ -2378,7 +2378,7 @@ index 8856c89f9b..ab59ee7f03 100644
  
  ## Import
  
-@@ -352,7 +350,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
+@@ -354,7 +352,6 @@ Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
  ```shell
  terraform import azurerm_kubernetes_cluster_node_pool.pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
  ```
@@ -2400,7 +2400,7 @@ index 5d9c74cce4..443a1a7761 100644
    scope              = "/subscriptions/00000000-0000-0000-0000-000000000000"
  
 diff --git a/website/docs/r/linux_virtual_machine.html.markdown b/website/docs/r/linux_virtual_machine.html.markdown
-index 8f77459179..22a90eb27a 100644
+index df810b0562..bcd0cd8fe8 100644
 --- a/website/docs/r/linux_virtual_machine.html.markdown
 +++ b/website/docs/r/linux_virtual_machine.html.markdown
 @@ -12,21 +12,19 @@ Manages a Linux Virtual Machine.
@@ -2664,7 +2664,7 @@ index 8f77459179..22a90eb27a 100644
  ## Import
  
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index 40abe71bce..6f2fd92e14 100644
+index e40a747a20..a127075a6f 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -14,13 +14,9 @@ Manages a Linux Virtual Machine Scale Set.
@@ -2689,7 +2689,7 @@ index 40abe71bce..6f2fd92e14 100644
 --> **Note:** If you are using AutoScaling, you may wish to use [Terraform's `ignore_changes` functionality](https://developer.hashicorp.com/terraform/language/block/resource#ignore_changes) to ignore changes to this field.
 +-> **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
  
- * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+ * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
  
 @@ -364,8 +360,6 @@ An `extension` block supports the following:
  
@@ -3361,10 +3361,10 @@ index 8db03cba4b..a3aae2da47 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index 8de4436d4d..9b315a1cf6 100644
+index ff944f9b57..037edddadb 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
-@@ -344,7 +344,7 @@ A `record_sets` block exports:
+@@ -335,7 +335,7 @@ A `record_sets` block exports:
  
  ## Example HCL Configurations
  
@@ -3445,7 +3445,7 @@ index 0846f0af18..816b8ee036 100644
  
  ## Import
 diff --git a/website/docs/r/recovery_services_vault.html.markdown b/website/docs/r/recovery_services_vault.html.markdown
-index 344ce4b819..75a683807a 100644
+index babe94392d..6c33ee97a9 100644
 --- a/website/docs/r/recovery_services_vault.html.markdown
 +++ b/website/docs/r/recovery_services_vault.html.markdown
 @@ -49,6 +49,7 @@ The following arguments are supported:
@@ -3952,10 +3952,10 @@ index 7b327f6a8b..ec15cedc6c 100644
  
  resource "azurerm_signalr_service" "example" {
 diff --git a/website/docs/r/storage_blob.html.markdown b/website/docs/r/storage_blob.html.markdown
-index 82adb747e5..da1980ec4f 100644
+index 4c7575fa46..aac113110a 100644
 --- a/website/docs/r/storage_blob.html.markdown
 +++ b/website/docs/r/storage_blob.html.markdown
-@@ -65,9 +65,7 @@ The following arguments are supported:
+@@ -70,9 +70,7 @@ The following arguments are supported:
  
  * `content_md5` - (Optional) The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
  
@@ -3966,7 +3966,7 @@ index 82adb747e5..da1980ec4f 100644
  
  * `source` - (Optional) An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
  
-@@ -77,7 +75,7 @@ The following arguments are supported:
+@@ -82,7 +80,7 @@ The following arguments are supported:
  
  * `parallelism` - (Optional) The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
  
@@ -3975,7 +3975,7 @@ index 82adb747e5..da1980ec4f 100644
  
  * `metadata` - (Optional) A map of custom blob metadata.
  
-@@ -93,8 +91,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -98,8 +96,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Storage Blob.
@@ -3999,7 +3999,7 @@ index 77f03ae919..916c180067 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index 7c69c8133b..e780a3bad9 100644
+index 2419584575..5d96eb3633 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -4160,7 +4160,7 @@ index 15523d4f3c..3cbe455aa7 100644
 --> **Note:** This ID is specific to Terraform - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
 +-> **NOTE:** This ID is specific to this provider - and is of the format `{synapseScope}|{synapseRoleAssignmentId}`.
 diff --git a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown b/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
-index 2eb7e8d5a0..89f3437f89 100644
+index b1541d7c03..fb0fced17d 100644
 --- a/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
 +++ b/website/docs/r/virtual_desktop_workspace_application_group_association.html.markdown
 @@ -68,9 +68,9 @@ In addition to the Arguments listed above - the following Attributes are exporte
@@ -4368,7 +4368,7 @@ index 70d9bd6dd1..9c9fa344f4 100644
  ## Import
  
 diff --git a/website/docs/r/virtual_machine_data_disk_attachment.html.markdown b/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
-index 05d78c0e69..6979c3bf5b 100644
+index 8b0e496679..45e7e97e11 100644
 --- a/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
 +++ b/website/docs/r/virtual_machine_data_disk_attachment.html.markdown
 @@ -10,9 +10,9 @@ description: |-
@@ -4403,7 +4403,7 @@ index 05d78c0e69..6979c3bf5b 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/virtual_machine_scale_set.html.markdown b/website/docs/r/virtual_machine_scale_set.html.markdown
-index 1d16cc2c39..01fc9a07e7 100644
+index 2f4d0f24dd..3217c8d6e9 100644
 --- a/website/docs/r/virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/virtual_machine_scale_set.html.markdown
 @@ -10,12 +10,6 @@ description: |-
@@ -4507,7 +4507,7 @@ index 1d16cc2c39..01fc9a07e7 100644
  ## Import
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index 7b9c228819..ffe8acda6b 100644
+index 45c6aebe03..2ac972826a 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-
@@ -4581,7 +4581,7 @@ index 7b9c228819..ffe8acda6b 100644
  
  ## Import
 diff --git a/website/docs/r/windows_virtual_machine.html.markdown b/website/docs/r/windows_virtual_machine.html.markdown
-index 0e31c3541e..a6079eb72e 100644
+index ea7ef16533..c661cb8054 100644
 --- a/website/docs/r/windows_virtual_machine.html.markdown
 +++ b/website/docs/r/windows_virtual_machine.html.markdown
 @@ -12,21 +12,19 @@ Manages a Windows Virtual Machine.
@@ -4820,7 +4820,7 @@ index 0e31c3541e..a6079eb72e 100644
  ## Import
  
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index 1df47232f2..39224daf5c 100644
+index 27913378c6..69f0261ddf 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,17 @@ Manages a Windows Virtual Machine Scale Set.
@@ -4851,7 +4851,7 @@ index 1df47232f2..39224daf5c 100644
 --> **Note:** If you're using AutoScaling, you may wish to use [Terraform's `ignore_changes` functionality](https://developer.hashicorp.com/terraform/language/block/resource#ignore_changes) to ignore changes to this field.
 +-> **NOTE:** If you're using AutoScaling, you may wish to use [`Ignore Changes` functionality](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to ignore changes to this field.
  
- * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+ * `sku` - (Required) The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
  
 @@ -353,8 +353,6 @@ An `extension` block supports the following:
  

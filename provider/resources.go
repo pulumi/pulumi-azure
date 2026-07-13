@@ -2490,12 +2490,6 @@ func Provider() tfbridge.ProviderInfo {
 			// Proximity
 			"azurerm_proximity_placement_group": {Tok: azureResource(azureProximity, "PlacementGroup")},
 
-			// Voice
-			"azurerm_voice_services_communications_gateway": {
-				Tok: azureResource(azureVoice, "ServicesCommunicationsGateway"),
-			},
-			"azurerm_voice_services_communications_gateway_test_line": {Tok: azureResource(azureVoice, "ServicesCommunicationsGatewayTestLine")},
-
 			// WAF
 			"azurerm_web_application_firewall_policy": {Tok: azureResource(azureWaf, "Policy")},
 
