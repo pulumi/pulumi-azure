@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
+const useAksWorkloadIdentityKey = "useAksWorkloadIdentity"
+
 func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
 	tokenContent := "my-federated-token"
 	tokenFile := filepath.Join(t.TempDir(), "azure-identity-token")
@@ -22,7 +24,7 @@ func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
 		t.Setenv("AZURE_FEDERATED_TOKEN_FILE", tokenFile)
 
 		vars := resource.PropertyMap{
-			"useAksWorkloadIdentity": resource.NewBoolProperty(true),
+			useAksWorkloadIdentityKey: resource.NewBoolProperty(true),
 		}
 
 		creds, err := resolveCredentials(vars)
@@ -39,9 +41,9 @@ func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
 		t.Setenv("AZURE_FEDERATED_TOKEN_FILE", tokenFile)
 
 		vars := resource.PropertyMap{
-			"useAksWorkloadIdentity": resource.NewBoolProperty(true),
-			"clientId":               resource.NewStringProperty("explicit-client"),
-			"tenantId":               resource.NewStringProperty("explicit-tenant"),
+			useAksWorkloadIdentityKey: resource.NewBoolProperty(true),
+			"clientId":                resource.NewStringProperty("explicit-client"),
+			"tenantId":                resource.NewStringProperty("explicit-tenant"),
 		}
 
 		creds, err := resolveCredentials(vars)
@@ -72,8 +74,8 @@ func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
 		t.Setenv("AZURE_FEDERATED_TOKEN_FILE", tokenFile)
 
 		vars := resource.PropertyMap{
-			"useAksWorkloadIdentity": resource.NewBoolProperty(true),
-			"oidcToken":              resource.NewStringProperty("inline-token"),
+			useAksWorkloadIdentityKey: resource.NewBoolProperty(true),
+			"oidcToken":               resource.NewStringProperty("inline-token"),
 		}
 
 		creds, err := resolveCredentials(vars)
@@ -85,7 +87,7 @@ func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
 		t.Setenv("AZURE_FEDERATED_TOKEN_FILE", "/nonexistent/path/token")
 
 		vars := resource.PropertyMap{
-			"useAksWorkloadIdentity": resource.NewBoolProperty(true),
+			useAksWorkloadIdentityKey: resource.NewBoolProperty(true),
 		}
 
 		_, err := resolveCredentials(vars)

@@ -12,6 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
+const (
+	metaKey     = "__meta"
+	timeoutsKey = "timeouts"
+)
+
 func TestClearMetaSchemaVersion(t *testing.T) {
 	t.Parallel()
 
@@ -23,15 +28,15 @@ func TestClearMetaSchemaVersion(t *testing.T) {
 	}{
 		{
 			name:    "v5 state strips schema_version, preserves other keys",
-			meta:    map[string]any{"schema_version": "1", "timeouts": map[string]any{"create": 600000000000.0}},
+			meta:    map[string]any{"schema_version": "1", timeoutsKey: map[string]any{"create": 600000000000.0}},
 			wantHas: false,
-			wantKey: "timeouts",
+			wantKey: timeoutsKey,
 		},
 		{
 			name:    "no schema_version is a no-op",
-			meta:    map[string]any{"timeouts": map[string]any{"create": 600000000000.0}},
+			meta:    map[string]any{timeoutsKey: map[string]any{"create": 600000000000.0}},
 			wantHas: false,
-			wantKey: "timeouts",
+			wantKey: timeoutsKey,
 		},
 		{
 			name:    "schema_version 0 is also stripped (any-version strip)",
@@ -46,14 +51,14 @@ func TestClearMetaSchemaVersion(t *testing.T) {
 			raw, err := json.Marshal(tc.meta)
 			require.NoError(t, err)
 			pm := resource.PropertyMap{
-				"__meta": resource.NewStringProperty(string(raw)),
+				metaKey: resource.NewStringProperty(string(raw)),
 			}
 
 			got, err := clearMetaSchemaVersion(context.Background(), pm)
 			require.NoError(t, err)
 
 			var parsed map[string]any
-			require.NoError(t, json.Unmarshal([]byte(got["__meta"].StringValue()), &parsed))
+			require.NoError(t, json.Unmarshal([]byte(got[metaKey].StringValue()), &parsed))
 			_, hasVer := parsed["schema_version"]
 			require.Equal(t, tc.wantHas, hasVer, "schema_version presence")
 			if tc.wantKey != "" {
@@ -78,7 +83,7 @@ func TestClearMetaSchemaVersion_NonStringMeta(t *testing.T) {
 	t.Parallel()
 
 	pm := resource.PropertyMap{
-		"__meta": resource.NewNumberProperty(42),
+		metaKey: resource.NewNumberProperty(42),
 	}
 	got, err := clearMetaSchemaVersion(context.Background(), pm)
 	require.NoError(t, err)
@@ -89,7 +94,7 @@ func TestClearMetaSchemaVersion_InvalidJSON(t *testing.T) {
 	t.Parallel()
 
 	pm := resource.PropertyMap{
-		"__meta": resource.NewStringProperty("not valid json"),
+		metaKey: resource.NewStringProperty("not valid json"),
 	}
 	got, err := clearMetaSchemaVersion(context.Background(), pm)
 	require.NoError(t, err)

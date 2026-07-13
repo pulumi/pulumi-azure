@@ -51,6 +51,9 @@ import (
 const (
 	azureName     = "name"
 	azureLocation = "location"
+	typeString    = "string"
+	fieldSku      = "sku"
+	zMixinsTsFile = "zMixins.ts"
 )
 
 // all of the Azure token components used below.
@@ -494,6 +497,9 @@ func resolveCredentials(vars resource.PropertyMap) (*resolvedCredentials, error)
 			oidcTokenFilePath = os.Getenv("AZURE_FEDERATED_TOKEN_FILE")
 		}
 		if oidcTokenFilePath != "" {
+			// #nosec G703 -- oidcTokenFilePath comes from the provider's own
+			// configuration (ARM_OIDC_TOKEN_FILE_PATH / AZURE_FEDERATED_TOKEN_FILE),
+			// not from untrusted request input, so path traversal is not a concern here.
 			tokenBytes, readErr := os.ReadFile(oidcTokenFilePath)
 			if readErr != nil {
 				return nil, fmt.Errorf("reading OIDC token from file %q: %v", oidcTokenFilePath, readErr)
@@ -851,7 +857,7 @@ func Provider() tfbridge.ProviderInfo {
 						Transform: strings.ToLower,
 					}),
 					"kind": {
-						Type:     "string",
+						Type:     typeString,
 						AltTypes: []tokens.Type{azureType(azureAppService, "Kind")},
 					},
 				},
@@ -1542,7 +1548,7 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
-					fixEnumCase(pm, "sku", "Basic", "Standard", "Gateway")
+					fixEnumCase(pm, fieldSku, "Basic", "Standard", "Gateway")
 					return pm, nil
 				},
 			},
@@ -2071,7 +2077,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					fixEnumCase(pm, "ipVersion", "IPv4", "IPv6")
-					fixEnumCase(pm, "sku", "Basic", "Standard")
+					fixEnumCase(pm, fieldSku, "Basic", "Standard")
 					return pm, nil
 				},
 			},
@@ -2909,7 +2915,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: ref(true)},
+					fieldSku: {Name: fieldSku, MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_api_management_api":                             {Tok: azureDataSource(azureAPIManagement, "getApi")},
@@ -2925,7 +2931,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: ref(true)},
+					fieldSku: {Name: fieldSku, MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_app_service_plan": {
@@ -2933,7 +2939,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: ref(true)},
+					fieldSku: {Name: fieldSku, MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_linux_function_app":   {Tok: azureDataSource(azureAppService, "getLinuxFunctionApp")},
@@ -2999,10 +3005,10 @@ func Provider() tfbridge.ProviderInfo {
 				// TODO: Added for backwards compatibility. Remove in pulumi-azure v6.
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"platform_fault_domain_count": {
-						Type: "string",
+						Type: typeString,
 					},
 					"platform_update_domain_count": {
-						Type: "string",
+						Type: typeString,
 					},
 				},
 			},
@@ -3086,7 +3092,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: ref(true)},
+					fieldSku: {Name: fieldSku, MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_key_vault_certificate_issuer": {Tok: azureDataSource(azureKeyVault, "getCertificateIssuer")},
@@ -3117,7 +3123,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: ref(true)},
+					fieldSku: {Name: fieldSku, MaxItemsOne: ref(true)},
 				},
 			},
 			"azurerm_virtual_hub_connection": {Tok: azureDataSource(azureNetwork, "getVirtualHubConnection")},
@@ -3158,7 +3164,7 @@ func Provider() tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Ensure "sku" is a singleton
 					// Can't have multiple SKUs on a resource in the Azure API
-					"sku": {Name: "sku", MaxItemsOne: ref(true)},
+					fieldSku: {Name: fieldSku, MaxItemsOne: ref(true)},
 				},
 			},
 
@@ -3406,7 +3412,7 @@ func Provider() tfbridge.ProviderInfo {
 					"appservice": {
 						DestFiles: []string{
 							"kind.ts",
-							"zMixins.ts",
+							zMixinsTsFile,
 							"zMixins_durable.ts",
 							"zMixins_http.ts",
 							"zMixins_timer.ts",
@@ -3414,37 +3420,37 @@ func Provider() tfbridge.ProviderInfo {
 					},
 					"core": {
 						DestFiles: []string{
-							"zMixins.ts",
+							zMixinsTsFile,
 						},
 					},
 					"cosmosdb": {
 						DestFiles: []string{
-							"zMixins.ts",
+							zMixinsTsFile,
 						},
 					},
 					"eventgrid": {
 						DestFiles: []string{
-							"zMixins.ts",
+							zMixinsTsFile,
 						},
 					},
 					"eventhub": {
 						DestFiles: []string{
-							"zMixins.ts",
+							zMixinsTsFile,
 						},
 					},
 					"iot": {
 						DestFiles: []string{
-							"zMixins.ts",
+							zMixinsTsFile,
 						},
 					},
 					"servicebus": {
 						DestFiles: []string{
-							"zMixins.ts",
+							zMixinsTsFile,
 						},
 					},
 					"storage": {
 						DestFiles: []string{
-							"zMixins.ts",
+							zMixinsTsFile,
 						},
 					},
 				},
