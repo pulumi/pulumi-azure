@@ -109,6 +109,8 @@ type Container struct {
 	//
 	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
+	// The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+	Url pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewContainer registers a new resource with the given unique name, arguments, and options.
@@ -171,6 +173,8 @@ type containerState struct {
 	//
 	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+	Url *string `pulumi:"url"`
 }
 
 type ContainerState struct {
@@ -204,6 +208,8 @@ type ContainerState struct {
 	//
 	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName pulumi.StringPtrInput
+	// The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+	Url pulumi.StringPtrInput
 }
 
 func (ContainerState) ElementType() reflect.Type {
@@ -406,6 +412,11 @@ func (o ContainerOutput) StorageAccountId() pulumi.StringPtrOutput {
 // Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 func (o ContainerOutput) StorageAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Container) pulumi.StringPtrOutput { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+func (o ContainerOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v *Container) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }
 
 type ContainerArrayOutput struct{ *pulumi.OutputState }

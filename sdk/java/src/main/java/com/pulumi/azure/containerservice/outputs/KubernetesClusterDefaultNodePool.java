@@ -200,7 +200,9 @@ public final class KubernetesClusterDefaultNodePool {
      */
     private @Nullable String vnetSubnetId;
     /**
-     * @return Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+     * @return Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+     * 
+     * &gt; **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
      * 
      */
     private @Nullable String workloadRuntime;
@@ -463,7 +465,9 @@ public final class KubernetesClusterDefaultNodePool {
         return Optional.ofNullable(this.vnetSubnetId);
     }
     /**
-     * @return Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+     * @return Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+     * 
+     * &gt; **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
      * 
      */
     public Optional<String> workloadRuntime() {

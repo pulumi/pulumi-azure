@@ -62,14 +62,14 @@ public final class WorkspaceTableCustomLogColumnArgs extends com.pulumi.resource
     }
 
     /**
-     * The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+     * The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+     * @return The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
      * 
      */
     public Output<String> type() {
@@ -167,7 +167,7 @@ public final class WorkspaceTableCustomLogColumnArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+         * @param type The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class WorkspaceTableCustomLogColumnArgs extends com.pulumi.resource
         }
 
         /**
-         * @param type The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+         * @param type The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
          * 
          * @return builder
          * 

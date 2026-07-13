@@ -200,32 +200,42 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dailyDataCapInGb);
     }
     /**
-     * Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
+     * @deprecated
+     * `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider
      * 
      */
+    @Deprecated /* `dailyDataCapNotificationsDisabled` has been deprecated in favour of `dailyDataCapNotificationsEnabled` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="dailyDataCapNotificationsDisabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> dailyDataCapNotificationsDisabled;
+    private Output<Boolean> dailyDataCapNotificationsDisabled;
 
-    /**
-     * @return Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> dailyDataCapNotificationsDisabled() {
-        return Codegen.optional(this.dailyDataCapNotificationsDisabled);
+    public Output<Boolean> dailyDataCapNotificationsDisabled() {
+        return this.dailyDataCapNotificationsDisabled;
     }
     /**
-     * By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
+     * Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
      * 
      */
-    @Export(name="disableIpMasking", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> disableIpMasking;
+    @Export(name="dailyDataCapNotificationsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> dailyDataCapNotificationsEnabled;
 
     /**
-     * @return By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
+     * @return Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> disableIpMasking() {
-        return Codegen.optional(this.disableIpMasking);
+    public Output<Boolean> dailyDataCapNotificationsEnabled() {
+        return this.dailyDataCapNotificationsEnabled;
+    }
+    /**
+     * @deprecated
+     * `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `disableIpMasking` has been deprecated in favour of `ipMaskingEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Export(name="disableIpMasking", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> disableIpMasking;
+
+    public Output<Boolean> disableIpMasking() {
+        return this.disableIpMasking;
     }
     /**
      * Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
@@ -284,18 +294,44 @@ public class Insights extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.internetQueryEnabled);
     }
     /**
-     * Disable Non-Azure AD based Auth. Defaults to `false`.
+     * By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
      * 
      */
-    @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> localAuthenticationDisabled;
+    @Export(name="ipMaskingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> ipMaskingEnabled;
 
     /**
-     * @return Disable Non-Azure AD based Auth. Defaults to `false`.
+     * @return By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
      * 
      */
-    public Output<Optional<Boolean>> localAuthenticationDisabled() {
-        return Codegen.optional(this.localAuthenticationDisabled);
+    public Output<Boolean> ipMaskingEnabled() {
+        return this.ipMaskingEnabled;
+    }
+    /**
+     * @deprecated
+     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
+    @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> localAuthenticationDisabled;
+
+    public Output<Boolean> localAuthenticationDisabled() {
+        return this.localAuthenticationDisabled;
+    }
+    /**
+     * Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
+     * 
+     */
+    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> localAuthenticationEnabled;
+
+    /**
+     * @return Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
+     * 
+     */
+    public Output<Boolean> localAuthenticationEnabled() {
+        return this.localAuthenticationEnabled;
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

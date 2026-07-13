@@ -6,6 +6,7 @@ package com.pulumi.azure.storage.inputs;
 import com.pulumi.azure.storage.inputs.ObjectReplicationRuleArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -45,6 +46,21 @@ public final class ObjectReplicationState extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<String>> destinationStorageAccountId() {
         return Optional.ofNullable(this.destinationStorageAccountId);
+    }
+
+    /**
+     * Whether metrics are enabled for this object replication. Defaults to `false`.
+     * 
+     */
+    @Import(name="metricsEnabled")
+    private @Nullable Output<Boolean> metricsEnabled;
+
+    /**
+     * @return Whether metrics are enabled for this object replication. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> metricsEnabled() {
+        return Optional.ofNullable(this.metricsEnabled);
     }
 
     /**
@@ -97,6 +113,7 @@ public final class ObjectReplicationState extends com.pulumi.resources.ResourceA
     private ObjectReplicationState(ObjectReplicationState $) {
         this.destinationObjectReplicationId = $.destinationObjectReplicationId;
         this.destinationStorageAccountId = $.destinationStorageAccountId;
+        this.metricsEnabled = $.metricsEnabled;
         this.rules = $.rules;
         this.sourceObjectReplicationId = $.sourceObjectReplicationId;
         this.sourceStorageAccountId = $.sourceStorageAccountId;
@@ -160,6 +177,27 @@ public final class ObjectReplicationState extends com.pulumi.resources.ResourceA
          */
         public Builder destinationStorageAccountId(String destinationStorageAccountId) {
             return destinationStorageAccountId(Output.of(destinationStorageAccountId));
+        }
+
+        /**
+         * @param metricsEnabled Whether metrics are enabled for this object replication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsEnabled(@Nullable Output<Boolean> metricsEnabled) {
+            $.metricsEnabled = metricsEnabled;
+            return this;
+        }
+
+        /**
+         * @param metricsEnabled Whether metrics are enabled for this object replication. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricsEnabled(Boolean metricsEnabled) {
+            return metricsEnabled(Output.of(metricsEnabled));
         }
 
         /**

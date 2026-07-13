@@ -406,7 +406,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2025-12-01
+// * `Microsoft.NetApp` - 2026-01-01
 //
 // ## Import
 //
@@ -420,7 +420,7 @@ type VolumeGroupOracle struct {
 
 	// Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
-	// The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ApplicationIdentifier pulumi.StringOutput `pulumi:"applicationIdentifier"`
 	// Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
 	GroupDescription pulumi.StringOutput `pulumi:"groupDescription"`
@@ -481,7 +481,7 @@ func GetVolumeGroupOracle(ctx *pulumi.Context,
 type volumeGroupOracleState struct {
 	// Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
 	AccountName *string `pulumi:"accountName"`
-	// The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ApplicationIdentifier *string `pulumi:"applicationIdentifier"`
 	// Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
 	GroupDescription *string `pulumi:"groupDescription"`
@@ -498,7 +498,7 @@ type volumeGroupOracleState struct {
 type VolumeGroupOracleState struct {
 	// Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
 	AccountName pulumi.StringPtrInput
-	// The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ApplicationIdentifier pulumi.StringPtrInput
 	// Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
 	GroupDescription pulumi.StringPtrInput
@@ -519,7 +519,7 @@ func (VolumeGroupOracleState) ElementType() reflect.Type {
 type volumeGroupOracleArgs struct {
 	// Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
 	AccountName string `pulumi:"accountName"`
-	// The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ApplicationIdentifier string `pulumi:"applicationIdentifier"`
 	// Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
 	GroupDescription string `pulumi:"groupDescription"`
@@ -537,7 +537,7 @@ type volumeGroupOracleArgs struct {
 type VolumeGroupOracleArgs struct {
 	// Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
 	AccountName pulumi.StringInput
-	// The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+	// The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
 	ApplicationIdentifier pulumi.StringInput
 	// Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
 	GroupDescription pulumi.StringInput
@@ -643,7 +643,7 @@ func (o VolumeGroupOracleOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *VolumeGroupOracle) pulumi.StringOutput { return v.AccountName }).(pulumi.StringOutput)
 }
 
-// The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+// The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
 func (o VolumeGroupOracleOutput) ApplicationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *VolumeGroupOracle) pulumi.StringOutput { return v.ApplicationIdentifier }).(pulumi.StringOutput)
 }

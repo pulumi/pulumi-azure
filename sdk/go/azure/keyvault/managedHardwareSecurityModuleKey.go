@@ -45,16 +45,12 @@ import (
 //					pulumi.String(current.ObjectId),
 //				},
 //				PurgeProtectionEnabled: pulumi.Bool(false),
-//				ActiveConfig: []map[string]interface{}{
-//					map[string]interface{}{
-//						"securityDomainCertificate": []interface{}{
-//							cert[0].Id,
-//							cert[1].Id,
-//							cert[2].Id,
-//						},
-//						"securityDomainQuorum": 2,
-//					},
+//				SecurityDomainKeyVaultCertificateIds: pulumi.StringArray{
+//					cers._1.Id,
+//					cers._2.Id,
+//					cers._3.Id,
 //				},
+//				SecurityDomainQuorum: pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err
@@ -107,7 +103,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.KeyVault` - 2023-07-01
+// * `Microsoft.KeyVault` - 2026-02-01
 //
 // ## Import
 //

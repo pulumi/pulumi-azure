@@ -181,7 +181,7 @@ namespace Pulumi.Azure.DevTest
         public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        /// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("size")]
         public Output<string> Size { get; private set; } = null!;
@@ -361,7 +361,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        /// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("size", required: true)]
         public Input<string> Size { get; set; } = null!;
@@ -505,7 +505,7 @@ namespace Pulumi.Azure.DevTest
         public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
-        /// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        /// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("size")]
         public Input<string>? Size { get; set; }

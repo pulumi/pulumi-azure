@@ -125,7 +125,7 @@ namespace Pulumi.Azure.Compute
     ///         HealthProbeId = exampleProbe.Id,
     ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
     ///         {
-    ///             Name = "Standard_F2",
+    ///             Name = "Standard_D4_v5",
     ///             Tier = "Standard",
     ///             Capacity = 2,
     ///         },
@@ -274,7 +274,7 @@ namespace Pulumi.Azure.Compute
     ///         UpgradePolicyMode = "Manual",
     ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
     ///         {
-    ///             Name = "Standard_F2",
+    ///             Name = "Standard_D4_v5",
     ///             Tier = "Standard",
     ///             Capacity = 2,
     ///         },

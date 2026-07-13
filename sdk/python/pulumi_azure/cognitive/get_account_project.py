@@ -186,7 +186,7 @@ def get_account_project(cognitive_account_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.CognitiveServices` - 2025-06-01
+    * `Microsoft.CognitiveServices` - 2026-03-01
 
 
     :param _builtins.str cognitive_account_name: The name of the Cognitive Services Account in which the Project exists.
@@ -237,7 +237,7 @@ def get_account_project_output(cognitive_account_name: pulumi.Input[Optional[_bu
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.CognitiveServices` - 2025-06-01
+    * `Microsoft.CognitiveServices` - 2026-03-01
 
 
     :param _builtins.str cognitive_account_name: The name of the Cognitive Services Account in which the Project exists.

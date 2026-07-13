@@ -69,6 +69,10 @@ type LookupNetworkManagerConnectivityConfigurationArgs struct {
 type LookupNetworkManagerConnectivityConfigurationResult struct {
 	// An `appliesToGroup` block as defined below.
 	AppliesToGroups []GetNetworkManagerConnectivityConfigurationAppliesToGroup `pulumi:"appliesToGroups"`
+	// Whether connected group address overlap is enabled.
+	ConnectedGroupAddressOverlapEnabled bool `pulumi:"connectedGroupAddressOverlapEnabled"`
+	// The scale of private endpoints allowed in the connected group.
+	ConnectedGroupPrivateEndpointsScale string `pulumi:"connectedGroupPrivateEndpointsScale"`
 	// The connectivity topology type.
 	ConnectivityTopology string `pulumi:"connectivityTopology"`
 	// Whether to current existing Virtual Network Peering in the Connectivity Configuration affected scope.
@@ -83,6 +87,8 @@ type LookupNetworkManagerConnectivityConfigurationResult struct {
 	Id               string `pulumi:"id"`
 	Name             string `pulumi:"name"`
 	NetworkManagerId string `pulumi:"networkManagerId"`
+	// Whether peering enforcement is enabled.
+	PeeringEnforcementEnabled bool `pulumi:"peeringEnforcementEnabled"`
 }
 
 func LookupNetworkManagerConnectivityConfigurationOutput(ctx *pulumi.Context, args LookupNetworkManagerConnectivityConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkManagerConnectivityConfigurationResultOutput {
@@ -128,6 +134,20 @@ func (o LookupNetworkManagerConnectivityConfigurationResultOutput) AppliesToGrou
 	}).(GetNetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput)
 }
 
+// Whether connected group address overlap is enabled.
+func (o LookupNetworkManagerConnectivityConfigurationResultOutput) ConnectedGroupAddressOverlapEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNetworkManagerConnectivityConfigurationResult) bool {
+		return v.ConnectedGroupAddressOverlapEnabled
+	}).(pulumi.BoolOutput)
+}
+
+// The scale of private endpoints allowed in the connected group.
+func (o LookupNetworkManagerConnectivityConfigurationResultOutput) ConnectedGroupPrivateEndpointsScale() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkManagerConnectivityConfigurationResult) string {
+		return v.ConnectedGroupPrivateEndpointsScale
+	}).(pulumi.StringOutput)
+}
+
 // The connectivity topology type.
 func (o LookupNetworkManagerConnectivityConfigurationResultOutput) ConnectivityTopology() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkManagerConnectivityConfigurationResult) string { return v.ConnectivityTopology }).(pulumi.StringOutput)
@@ -168,6 +188,11 @@ func (o LookupNetworkManagerConnectivityConfigurationResultOutput) Name() pulumi
 
 func (o LookupNetworkManagerConnectivityConfigurationResultOutput) NetworkManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkManagerConnectivityConfigurationResult) string { return v.NetworkManagerId }).(pulumi.StringOutput)
+}
+
+// Whether peering enforcement is enabled.
+func (o LookupNetworkManagerConnectivityConfigurationResultOutput) PeeringEnforcementEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupNetworkManagerConnectivityConfigurationResult) bool { return v.PeeringEnforcementEnabled }).(pulumi.BoolOutput)
 }
 
 func init() {

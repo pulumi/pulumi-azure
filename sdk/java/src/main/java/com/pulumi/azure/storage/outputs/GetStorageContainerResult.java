@@ -59,6 +59,11 @@ public final class GetStorageContainerResult {
     private String resourceManagerId;
     private @Nullable String storageAccountId;
     private @Nullable String storageAccountName;
+    /**
+     * @return The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+     * 
+     */
+    private String url;
 
     private GetStorageContainerResult() {}
     /**
@@ -128,6 +133,13 @@ public final class GetStorageContainerResult {
     public Optional<String> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
     }
+    /**
+     * @return The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+     * 
+     */
+    public String url() {
+        return this.url;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -149,6 +161,7 @@ public final class GetStorageContainerResult {
         private String resourceManagerId;
         private @Nullable String storageAccountId;
         private @Nullable String storageAccountName;
+        private String url;
         public Builder() {}
         public Builder(GetStorageContainerResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -163,6 +176,7 @@ public final class GetStorageContainerResult {
     	      this.resourceManagerId = defaults.resourceManagerId;
     	      this.storageAccountId = defaults.storageAccountId;
     	      this.storageAccountName = defaults.storageAccountName;
+    	      this.url = defaults.url;
         }
 
         @CustomType.Setter
@@ -249,6 +263,14 @@ public final class GetStorageContainerResult {
             this.storageAccountName = storageAccountName;
             return this;
         }
+        @CustomType.Setter
+        public Builder url(String url) {
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetStorageContainerResult", "url");
+            }
+            this.url = url;
+            return this;
+        }
         public GetStorageContainerResult build() {
             final var _resultValue = new GetStorageContainerResult();
             _resultValue.containerAccessType = containerAccessType;
@@ -262,6 +284,7 @@ public final class GetStorageContainerResult {
             _resultValue.resourceManagerId = resourceManagerId;
             _resultValue.storageAccountId = storageAccountId;
             _resultValue.storageAccountName = storageAccountName;
+            _resultValue.url = url;
             return _resultValue;
         }
     }

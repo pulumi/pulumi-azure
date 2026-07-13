@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Compute.Inputs
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs>? _certificates;
 
         /// <summary>
-        /// One or more `Certificate` blocks as defined below.
+        /// One or more `Certificate` blocks as defined above.
         /// </summary>
         public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs> Certificates
         {

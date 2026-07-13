@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .name("example-vmss")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku("Standard_F2")
+ *             .sku("Standard_D4_v5")
  *             .instances(4)
  *             .adminUsername("adminuser")
  *             .adminPassword("P}{@literal @}{@code ssword1234!")

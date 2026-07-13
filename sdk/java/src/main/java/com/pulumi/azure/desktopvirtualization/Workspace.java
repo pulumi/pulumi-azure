@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.DesktopVirtualization` - 2024-04-03
+ * * `Microsoft.DesktopVirtualization` - 2025-10-10
  * 
  * ## Import
  * 

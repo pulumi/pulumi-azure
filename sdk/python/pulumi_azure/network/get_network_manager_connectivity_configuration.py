@@ -27,10 +27,16 @@ class GetNetworkManagerConnectivityConfigurationResult:
     """
     A collection of values returned by getNetworkManagerConnectivityConfiguration.
     """
-    def __init__(__self__, applies_to_groups=None, connectivity_topology=None, delete_existing_peering_enabled=None, description=None, global_mesh_enabled=None, hubs=None, id=None, name=None, network_manager_id=None):
+    def __init__(__self__, applies_to_groups=None, connected_group_address_overlap_enabled=None, connected_group_private_endpoints_scale=None, connectivity_topology=None, delete_existing_peering_enabled=None, description=None, global_mesh_enabled=None, hubs=None, id=None, name=None, network_manager_id=None, peering_enforcement_enabled=None):
         if applies_to_groups and not isinstance(applies_to_groups, list):
             raise TypeError("Expected argument 'applies_to_groups' to be a list")
         pulumi.set(__self__, "applies_to_groups", applies_to_groups)
+        if connected_group_address_overlap_enabled and not isinstance(connected_group_address_overlap_enabled, bool):
+            raise TypeError("Expected argument 'connected_group_address_overlap_enabled' to be a bool")
+        pulumi.set(__self__, "connected_group_address_overlap_enabled", connected_group_address_overlap_enabled)
+        if connected_group_private_endpoints_scale and not isinstance(connected_group_private_endpoints_scale, str):
+            raise TypeError("Expected argument 'connected_group_private_endpoints_scale' to be a str")
+        pulumi.set(__self__, "connected_group_private_endpoints_scale", connected_group_private_endpoints_scale)
         if connectivity_topology and not isinstance(connectivity_topology, str):
             raise TypeError("Expected argument 'connectivity_topology' to be a str")
         pulumi.set(__self__, "connectivity_topology", connectivity_topology)
@@ -55,6 +61,9 @@ class GetNetworkManagerConnectivityConfigurationResult:
         if network_manager_id and not isinstance(network_manager_id, str):
             raise TypeError("Expected argument 'network_manager_id' to be a str")
         pulumi.set(__self__, "network_manager_id", network_manager_id)
+        if peering_enforcement_enabled and not isinstance(peering_enforcement_enabled, bool):
+            raise TypeError("Expected argument 'peering_enforcement_enabled' to be a bool")
+        pulumi.set(__self__, "peering_enforcement_enabled", peering_enforcement_enabled)
 
     @_builtins.property
     @pulumi.getter(name="appliesToGroups")
@@ -63,6 +72,22 @@ class GetNetworkManagerConnectivityConfigurationResult:
         An `applies_to_group` block as defined below.
         """
         return pulumi.get(self, "applies_to_groups")
+
+    @_builtins.property
+    @pulumi.getter(name="connectedGroupAddressOverlapEnabled")
+    def connected_group_address_overlap_enabled(self) -> _builtins.bool:
+        """
+        Whether connected group address overlap is enabled.
+        """
+        return pulumi.get(self, "connected_group_address_overlap_enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="connectedGroupPrivateEndpointsScale")
+    def connected_group_private_endpoints_scale(self) -> _builtins.str:
+        """
+        The scale of private endpoints allowed in the connected group.
+        """
+        return pulumi.get(self, "connected_group_private_endpoints_scale")
 
     @_builtins.property
     @pulumi.getter(name="connectivityTopology")
@@ -122,6 +147,14 @@ class GetNetworkManagerConnectivityConfigurationResult:
     def network_manager_id(self) -> _builtins.str:
         return pulumi.get(self, "network_manager_id")
 
+    @_builtins.property
+    @pulumi.getter(name="peeringEnforcementEnabled")
+    def peering_enforcement_enabled(self) -> _builtins.bool:
+        """
+        Whether peering enforcement is enabled.
+        """
+        return pulumi.get(self, "peering_enforcement_enabled")
+
 
 class AwaitableGetNetworkManagerConnectivityConfigurationResult(GetNetworkManagerConnectivityConfigurationResult):
     # pylint: disable=using-constant-test
@@ -130,6 +163,8 @@ class AwaitableGetNetworkManagerConnectivityConfigurationResult(GetNetworkManage
             yield self
         return GetNetworkManagerConnectivityConfigurationResult(
             applies_to_groups=self.applies_to_groups,
+            connected_group_address_overlap_enabled=self.connected_group_address_overlap_enabled,
+            connected_group_private_endpoints_scale=self.connected_group_private_endpoints_scale,
             connectivity_topology=self.connectivity_topology,
             delete_existing_peering_enabled=self.delete_existing_peering_enabled,
             description=self.description,
@@ -137,7 +172,8 @@ class AwaitableGetNetworkManagerConnectivityConfigurationResult(GetNetworkManage
             hubs=self.hubs,
             id=self.id,
             name=self.name,
-            network_manager_id=self.network_manager_id)
+            network_manager_id=self.network_manager_id,
+            peering_enforcement_enabled=self.peering_enforcement_enabled)
 
 
 def get_network_manager_connectivity_configuration(name: Optional[_builtins.str] = None,
@@ -176,6 +212,8 @@ def get_network_manager_connectivity_configuration(name: Optional[_builtins.str]
 
     return AwaitableGetNetworkManagerConnectivityConfigurationResult(
         applies_to_groups=pulumi.get(__ret__, 'applies_to_groups'),
+        connected_group_address_overlap_enabled=pulumi.get(__ret__, 'connected_group_address_overlap_enabled'),
+        connected_group_private_endpoints_scale=pulumi.get(__ret__, 'connected_group_private_endpoints_scale'),
         connectivity_topology=pulumi.get(__ret__, 'connectivity_topology'),
         delete_existing_peering_enabled=pulumi.get(__ret__, 'delete_existing_peering_enabled'),
         description=pulumi.get(__ret__, 'description'),
@@ -183,7 +221,8 @@ def get_network_manager_connectivity_configuration(name: Optional[_builtins.str]
         hubs=pulumi.get(__ret__, 'hubs'),
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
-        network_manager_id=pulumi.get(__ret__, 'network_manager_id'))
+        network_manager_id=pulumi.get(__ret__, 'network_manager_id'),
+        peering_enforcement_enabled=pulumi.get(__ret__, 'peering_enforcement_enabled'))
 def get_network_manager_connectivity_configuration_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                                           network_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkManagerConnectivityConfigurationResult]:
@@ -219,6 +258,8 @@ def get_network_manager_connectivity_configuration_output(name: pulumi.Input[Opt
     __ret__ = pulumi.runtime.invoke_output('azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration', __args__, opts=opts, typ=GetNetworkManagerConnectivityConfigurationResult)
     return __ret__.apply(lambda __response__: GetNetworkManagerConnectivityConfigurationResult(
         applies_to_groups=pulumi.get(__response__, 'applies_to_groups'),
+        connected_group_address_overlap_enabled=pulumi.get(__response__, 'connected_group_address_overlap_enabled'),
+        connected_group_private_endpoints_scale=pulumi.get(__response__, 'connected_group_private_endpoints_scale'),
         connectivity_topology=pulumi.get(__response__, 'connectivity_topology'),
         delete_existing_peering_enabled=pulumi.get(__response__, 'delete_existing_peering_enabled'),
         description=pulumi.get(__response__, 'description'),
@@ -226,4 +267,5 @@ def get_network_manager_connectivity_configuration_output(name: pulumi.Input[Opt
         hubs=pulumi.get(__response__, 'hubs'),
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
-        network_manager_id=pulumi.get(__response__, 'network_manager_id')))
+        network_manager_id=pulumi.get(__response__, 'network_manager_id'),
+        peering_enforcement_enabled=pulumi.get(__response__, 'peering_enforcement_enabled')))

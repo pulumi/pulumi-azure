@@ -69,7 +69,11 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
     /**
      * @return The version of Ruby in use.
      * 
+     * @deprecated
+     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
     private String rubyVersion;
 
     private GetLinuxWebAppSiteConfigApplicationStack() {}
@@ -156,7 +160,11 @@ public final class GetLinuxWebAppSiteConfigApplicationStack {
     /**
      * @return The version of Ruby in use.
      * 
+     * @deprecated
+     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
     public String rubyVersion() {
         return this.rubyVersion;
     }

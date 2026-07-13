@@ -20,14 +20,14 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
     public static final OrchestratedVirtualMachineScaleSetOsDiskArgs Empty = new OrchestratedVirtualMachineScaleSetOsDiskArgs();
 
     /**
-     * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+     * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
      * 
      */
     @Import(name="caching", required=true)
     private Output<String> caching;
 
     /**
-     * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+     * @return The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
      * 
      */
     public Output<String> caching() {
@@ -52,7 +52,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
     /**
      * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
      * 
      */
     @Import(name="diskEncryptionSetId")
@@ -61,7 +61,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
     /**
      * @return The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+     * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
      * 
      */
     public Optional<Output<String>> diskEncryptionSetId() {
@@ -84,14 +84,14 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
     }
 
     /**
-     * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountType", required=true)
     private Output<String> storageAccountType;
 
     /**
-     * @return The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+     * @return The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountType() {
@@ -143,7 +143,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         }
 
         /**
-         * @param caching The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         * @param caching The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         }
 
         /**
-         * @param caching The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         * @param caching The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
          * 
          * @return builder
          * 
@@ -187,7 +187,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         /**
          * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         /**
          * @param diskEncryptionSetId The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * &gt; **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * @param storageAccountType The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -242,7 +242,7 @@ public final class OrchestratedVirtualMachineScaleSetOsDiskArgs extends com.pulu
         }
 
         /**
-         * @param storageAccountType The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * @param storageAccountType The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

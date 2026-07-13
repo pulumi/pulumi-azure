@@ -90,7 +90,7 @@ import (
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					exampleNetworkInterface.ID(),
 //				},
-//				VmSize: pulumi.String("Standard_F2"),
+//				VmSize: pulumi.String("Standard_D4_v5"),
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
 //					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),

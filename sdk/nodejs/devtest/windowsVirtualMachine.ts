@@ -157,7 +157,7 @@ export class WindowsVirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+     * The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
      */
     declare public readonly size: pulumi.Output<string>;
     /**
@@ -324,7 +324,7 @@ export interface WindowsVirtualMachineState {
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
     /**
-     * The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+     * The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
      */
     size?: pulumi.Input<string | undefined>;
     /**
@@ -402,7 +402,7 @@ export interface WindowsVirtualMachineArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+     * The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
      */
     size: pulumi.Input<string>;
     /**

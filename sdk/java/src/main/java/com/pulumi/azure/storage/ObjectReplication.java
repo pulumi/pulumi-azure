@@ -11,8 +11,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -155,6 +157,20 @@ public class ObjectReplication extends com.pulumi.resources.CustomResource {
      */
     public Output<String> destinationStorageAccountId() {
         return this.destinationStorageAccountId;
+    }
+    /**
+     * Whether metrics are enabled for this object replication. Defaults to `false`.
+     * 
+     */
+    @Export(name="metricsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> metricsEnabled;
+
+    /**
+     * @return Whether metrics are enabled for this object replication. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> metricsEnabled() {
+        return Codegen.optional(this.metricsEnabled);
     }
     /**
      * One or more `rules` blocks as defined below.

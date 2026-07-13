@@ -71,7 +71,7 @@ import (
 //				Name:                          pulumi.String("example-vmss"),
 //				ResourceGroupName:             example.Name,
 //				Location:                      example.Location,
-//				Sku:                           pulumi.String("Standard_F2"),
+//				Sku:                           pulumi.String("Standard_D4_v5"),
 //				Instances:                     pulumi.Int(4),
 //				AdminUsername:                 pulumi.String("adminuser"),
 //				AdminPassword:                 pulumi.String("P@ssword1234!"),

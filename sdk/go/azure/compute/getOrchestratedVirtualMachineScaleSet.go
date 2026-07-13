@@ -73,11 +73,13 @@ type LookupOrchestratedVirtualMachineScaleSetResult struct {
 	Identities []GetOrchestratedVirtualMachineScaleSetIdentity `pulumi:"identities"`
 	// The Azure Region in which this Orchestrated Virtual Machine Scale Set exists.
 	Location string `pulumi:"location"`
-	// The name of the public IP address configuration
+	// The name of the VM size.
 	Name string `pulumi:"name"`
 	// A list of `networkInterface` blocks as defined below.
 	NetworkInterfaces []GetOrchestratedVirtualMachineScaleSetNetworkInterface `pulumi:"networkInterfaces"`
 	ResourceGroupName string                                                  `pulumi:"resourceGroupName"`
+	// A `skuProfile` block as defined below.
+	SkuProfiles []GetOrchestratedVirtualMachineScaleSetSkuProfile `pulumi:"skuProfiles"`
 }
 
 func LookupOrchestratedVirtualMachineScaleSetOutput(ctx *pulumi.Context, args LookupOrchestratedVirtualMachineScaleSetOutputArgs, opts ...pulumi.InvokeOption) LookupOrchestratedVirtualMachineScaleSetResultOutput {
@@ -133,7 +135,7 @@ func (o LookupOrchestratedVirtualMachineScaleSetResultOutput) Location() pulumi.
 	return o.ApplyT(func(v LookupOrchestratedVirtualMachineScaleSetResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the public IP address configuration
+// The name of the VM size.
 func (o LookupOrchestratedVirtualMachineScaleSetResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrchestratedVirtualMachineScaleSetResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -147,6 +149,13 @@ func (o LookupOrchestratedVirtualMachineScaleSetResultOutput) NetworkInterfaces(
 
 func (o LookupOrchestratedVirtualMachineScaleSetResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOrchestratedVirtualMachineScaleSetResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// A `skuProfile` block as defined below.
+func (o LookupOrchestratedVirtualMachineScaleSetResultOutput) SkuProfiles() GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput {
+	return o.ApplyT(func(v LookupOrchestratedVirtualMachineScaleSetResult) []GetOrchestratedVirtualMachineScaleSetSkuProfile {
+		return v.SkuProfiles
+	}).(GetOrchestratedVirtualMachineScaleSetSkuProfileArrayOutput)
 }
 
 func init() {

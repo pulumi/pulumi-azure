@@ -63,16 +63,43 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+     * Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
      * 
      */
+    @Import(name="storageAccountId")
+    private @Nullable Output<String> storageAccountId;
+
+    /**
+     * @return Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+
+    /**
+     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+     * 
+     */
+    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
     /**
      * @return Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+     * 
      */
+    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
     public Optional<Output<String>> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
     }
@@ -83,6 +110,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         this.acls = $.acls;
         this.name = $.name;
         this.resourceManagerId = $.resourceManagerId;
+        this.storageAccountId = $.storageAccountId;
         this.storageAccountName = $.storageAccountName;
     }
 
@@ -178,11 +206,38 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+         * @param storageAccountId Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
+        public Builder storageAccountId(@Nullable Output<String> storageAccountId) {
+            $.storageAccountId = storageAccountId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountId Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountId(String storageAccountId) {
+            return storageAccountId(Output.of(storageAccountId));
+        }
+
+        /**
+         * @param storageAccountName Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+         * 
+         */
+        @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
         public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
@@ -191,9 +246,15 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param storageAccountName Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+         * 
          * @return builder
          * 
+         * @deprecated
+         * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+         * 
          */
+        @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
         }

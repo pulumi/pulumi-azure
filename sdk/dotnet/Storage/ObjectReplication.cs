@@ -124,6 +124,12 @@ namespace Pulumi.Azure.Storage
         public Output<string> DestinationStorageAccountId { get; private set; } = null!;
 
         /// <summary>
+        /// Whether metrics are enabled for this object replication. Defaults to `False`.
+        /// </summary>
+        [Output("metricsEnabled")]
+        public Output<bool?> MetricsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `Rules` blocks as defined below.
         /// </summary>
         [Output("rules")]
@@ -193,6 +199,12 @@ namespace Pulumi.Azure.Storage
         [Input("destinationStorageAccountId", required: true)]
         public Input<string> DestinationStorageAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// Whether metrics are enabled for this object replication. Defaults to `False`.
+        /// </summary>
+        [Input("metricsEnabled")]
+        public Input<bool>? MetricsEnabled { get; set; }
+
         [Input("rules", required: true)]
         private InputList<Inputs.ObjectReplicationRuleArgs>? _rules;
 
@@ -230,6 +242,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("destinationStorageAccountId")]
         public Input<string>? DestinationStorageAccountId { get; set; }
+
+        /// <summary>
+        /// Whether metrics are enabled for this object replication. Defaults to `False`.
+        /// </summary>
+        [Input("metricsEnabled")]
+        public Input<bool>? MetricsEnabled { get; set; }
 
         [Input("rules")]
         private InputList<Inputs.ObjectReplicationRuleGetArgs>? _rules;

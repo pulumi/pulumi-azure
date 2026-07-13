@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Compute
     ///         Name = "example-vmss",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = "Standard_F2",
+    ///         Sku = "Standard_D4_v5",
     ///         Instances = 1,
     ///         AdminUsername = "adminuser",
     ///         AdminSshKeys = new[]
@@ -419,7 +419,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> SinglePlacementGroup { get; private set; } = null!;
 
         /// <summary>
-        /// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        /// The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         /// </summary>
         [Output("sku")]
         public Output<string> Sku { get; private set; } = null!;
@@ -900,7 +900,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        /// The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         /// </summary>
         [Input("sku", required: true)]
         public Input<string> Sku { get; set; } = null!;
@@ -1344,7 +1344,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SinglePlacementGroup { get; set; }
 
         /// <summary>
-        /// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        /// The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }

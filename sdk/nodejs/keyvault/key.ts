@@ -123,7 +123,7 @@ export class Key extends pulumi.CustomResource {
      */
     declare public readonly expirationDate: pulumi.Output<string | undefined>;
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
      */
     declare public readonly keyOpts: pulumi.Output<string[]>;
     /**
@@ -160,6 +160,12 @@ export class Key extends pulumi.CustomResource {
      * The PEM encoded public key of this Key Vault Key.
      */
     declare public /*out*/ readonly publicKeyPem: pulumi.Output<string>;
+    /**
+     * A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+     */
+    declare public readonly releasePolicy: pulumi.Output<outputs.keyvault.KeyReleasePolicy | undefined>;
     /**
      * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
      */
@@ -218,6 +224,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["notBeforeDate"] = state?.notBeforeDate;
             resourceInputs["publicKeyOpenssh"] = state?.publicKeyOpenssh;
             resourceInputs["publicKeyPem"] = state?.publicKeyPem;
+            resourceInputs["releasePolicy"] = state?.releasePolicy;
             resourceInputs["resourceId"] = state?.resourceId;
             resourceInputs["resourceVersionlessId"] = state?.resourceVersionlessId;
             resourceInputs["rotationPolicy"] = state?.rotationPolicy;
@@ -245,6 +252,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["keyVaultId"] = args?.keyVaultId;
             resourceInputs["name"] = args?.name;
             resourceInputs["notBeforeDate"] = args?.notBeforeDate;
+            resourceInputs["releasePolicy"] = args?.releasePolicy;
             resourceInputs["rotationPolicy"] = args?.rotationPolicy;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["e"] = undefined /*out*/;
@@ -282,7 +290,7 @@ export interface KeyState {
      */
     expirationDate?: pulumi.Input<string | undefined>;
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
      */
     keyOpts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -319,6 +327,12 @@ export interface KeyState {
      * The PEM encoded public key of this Key Vault Key.
      */
     publicKeyPem?: pulumi.Input<string | undefined>;
+    /**
+     * A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+     */
+    releasePolicy?: pulumi.Input<inputs.keyvault.KeyReleasePolicy | undefined>;
     /**
      * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
      */
@@ -368,7 +382,7 @@ export interface KeyArgs {
      */
     expirationDate?: pulumi.Input<string | undefined>;
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
      */
     keyOpts: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -393,6 +407,12 @@ export interface KeyArgs {
      * > **Note:** Once `expirationDate` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
      */
     notBeforeDate?: pulumi.Input<string | undefined>;
+    /**
+     * A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+     *
+     * > **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+     */
+    releasePolicy?: pulumi.Input<inputs.keyvault.KeyReleasePolicy | undefined>;
     /**
      * A `rotationPolicy` block as defined below.
      */

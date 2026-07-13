@@ -78,10 +78,18 @@ namespace Pulumi.Azure.Storage
         public Output<string> ResourceManagerId { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("storageAccountId")]
+        public Output<string?> StorageAccountId { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
         [Output("storageAccountName")]
-        public Output<string> StorageAccountName { get; private set; } = null!;
+        public Output<string?> StorageAccountName { get; private set; } = null!;
 
 
         /// <summary>
@@ -91,7 +99,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Table(string name, TableArgs args, CustomResourceOptions? options = null)
+        public Table(string name, TableArgs? args = null, CustomResourceOptions? options = null)
             : base("azure:storage/table:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -148,10 +156,18 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        /// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         public TableArgs()
         {
@@ -186,7 +202,15 @@ namespace Pulumi.Azure.Storage
         public Input<string>? ResourceManagerId { get; set; }
 
         /// <summary>
+        /// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
         /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

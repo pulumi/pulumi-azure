@@ -126,7 +126,7 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                     {
     ///                         Offer = "RHEL-SAP-HA",
     ///                         Publisher = "RedHat",
-    ///                         Sku = "82sapha-gen2",
+    ///                         Sku = "86sapha-gen2",
     ///                         Version = "latest",
     ///                     },
     ///                     OsProfile = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgs
@@ -148,7 +148,7 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                     {
     ///                         Offer = "RHEL-SAP-HA",
     ///                         Publisher = "RedHat",
-    ///                         Sku = "82sapha-gen2",
+    ///                         Sku = "86sapha-gen2",
     ///                         Version = "latest",
     ///                     },
     ///                     OsProfile = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgs
@@ -171,7 +171,7 @@ namespace Pulumi.Azure.WorkloadsSAP
     ///                     {
     ///                         Offer = "RHEL-SAP-HA",
     ///                         Publisher = "RedHat",
-    ///                         Sku = "82sapha-gen2",
+    ///                         Sku = "86sapha-gen2",
     ///                         Version = "latest",
     ///                     },
     ///                     OsProfile = new Azure.WorkloadsSAP.Inputs.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgs

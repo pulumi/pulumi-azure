@@ -83,15 +83,21 @@ class Features(dict):
                  machine_learning: Optional['outputs.FeaturesMachineLearning'] = None,
                  managed_disk: Optional['outputs.FeaturesManagedDisk'] = None,
                  netapp: Optional['outputs.FeaturesNetapp'] = None,
+                 persist_id_on_create_before_polling_for_completion: Optional[_builtins.bool] = None,
                  postgresql_flexible_server: Optional['outputs.FeaturesPostgresqlFlexibleServer'] = None,
                  recovery_service: Optional['outputs.FeaturesRecoveryService'] = None,
                  recovery_services_vaults: Optional['outputs.FeaturesRecoveryServicesVaults'] = None,
                  resource_group: Optional['outputs.FeaturesResourceGroup'] = None,
+                 skip_import_check_on_create_and_allow_overwriting_existing_resources: Optional[_builtins.bool] = None,
                  storage: Optional['outputs.FeaturesStorage'] = None,
                  subscription: Optional['outputs.FeaturesSubscription'] = None,
                  template_deployment: Optional['outputs.FeaturesTemplateDeployment'] = None,
                  virtual_machine: Optional['outputs.FeaturesVirtualMachine'] = None,
                  virtual_machine_scale_set: Optional['outputs.FeaturesVirtualMachineScaleSet'] = None):
+        """
+        :param _builtins.bool persist_id_on_create_before_polling_for_completion: Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+        :param _builtins.bool skip_import_check_on_create_and_allow_overwriting_existing_resources: Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+        """
         if api_management is not None:
             pulumi.set(__self__, "api_management", api_management)
         if app_configuration is not None:
@@ -112,6 +118,8 @@ class Features(dict):
             pulumi.set(__self__, "managed_disk", managed_disk)
         if netapp is not None:
             pulumi.set(__self__, "netapp", netapp)
+        if persist_id_on_create_before_polling_for_completion is not None:
+            pulumi.set(__self__, "persist_id_on_create_before_polling_for_completion", persist_id_on_create_before_polling_for_completion)
         if postgresql_flexible_server is not None:
             pulumi.set(__self__, "postgresql_flexible_server", postgresql_flexible_server)
         if recovery_service is not None:
@@ -120,6 +128,8 @@ class Features(dict):
             pulumi.set(__self__, "recovery_services_vaults", recovery_services_vaults)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if skip_import_check_on_create_and_allow_overwriting_existing_resources is not None:
+            pulumi.set(__self__, "skip_import_check_on_create_and_allow_overwriting_existing_resources", skip_import_check_on_create_and_allow_overwriting_existing_resources)
         if storage is not None:
             pulumi.set(__self__, "storage", storage)
         if subscription is not None:
@@ -182,6 +192,14 @@ class Features(dict):
         return pulumi.get(self, "netapp")
 
     @_builtins.property
+    @pulumi.getter(name="persistIdOnCreateBeforePollingForCompletion")
+    def persist_id_on_create_before_polling_for_completion(self) -> Optional[_builtins.bool]:
+        """
+        Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+        """
+        return pulumi.get(self, "persist_id_on_create_before_polling_for_completion")
+
+    @_builtins.property
     @pulumi.getter(name="postgresqlFlexibleServer")
     def postgresql_flexible_server(self) -> Optional['outputs.FeaturesPostgresqlFlexibleServer']:
         return pulumi.get(self, "postgresql_flexible_server")
@@ -200,6 +218,14 @@ class Features(dict):
     @pulumi.getter(name="resourceGroup")
     def resource_group(self) -> Optional['outputs.FeaturesResourceGroup']:
         return pulumi.get(self, "resource_group")
+
+    @_builtins.property
+    @pulumi.getter(name="skipImportCheckOnCreateAndAllowOverwritingExistingResources")
+    def skip_import_check_on_create_and_allow_overwriting_existing_resources(self) -> Optional[_builtins.bool]:
+        """
+        Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+        """
+        return pulumi.get(self, "skip_import_check_on_create_and_allow_overwriting_existing_resources")
 
     @_builtins.property
     @pulumi.getter

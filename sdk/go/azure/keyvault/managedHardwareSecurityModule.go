@@ -71,7 +71,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.KeyVault` - 2023-07-01
+// * `Microsoft.KeyVault` - 2026-02-01
 //
 // ## Import
 //

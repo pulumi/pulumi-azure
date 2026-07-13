@@ -32,6 +32,8 @@ public final class AccountGeoLocation {
     /**
      * @return Should zone redundancy be enabled for this region? Defaults to `false`.
      * 
+     * &gt; **Note:** You cannot change zone redundancy in a region that has already been added to a Cosmos DB account. If you wish to change this setting in a deployed region without recreating the account, you can [follow the steps outlined in the official documentation](https://learn.microsoft.com/azure/cosmos-db/enable-zone-redundancy?tabs=portal#enable-zone-redundancy-on-an-existing-account).
+     * 
      */
     private @Nullable Boolean zoneRedundant;
 
@@ -59,6 +61,8 @@ public final class AccountGeoLocation {
     }
     /**
      * @return Should zone redundancy be enabled for this region? Defaults to `false`.
+     * 
+     * &gt; **Note:** You cannot change zone redundancy in a region that has already been added to a Cosmos DB account. If you wish to change this setting in a deployed region without recreating the account, you can [follow the steps outlined in the official documentation](https://learn.microsoft.com/azure/cosmos-db/enable-zone-redundancy?tabs=portal#enable-zone-redundancy-on-an-existing-account).
      * 
      */
     public Optional<Boolean> zoneRedundant() {

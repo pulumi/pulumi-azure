@@ -6,6 +6,7 @@ package com.pulumi.azure.keyvault;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.keyvault.KeyArgs;
 import com.pulumi.azure.keyvault.inputs.KeyState;
+import com.pulumi.azure.keyvault.outputs.KeyReleasePolicy;
 import com.pulumi.azure.keyvault.outputs.KeyRotationPolicy;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -173,14 +174,14 @@ public class Key extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.expirationDate);
     }
     /**
-     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+     * A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
      * 
      */
     @Export(name="keyOpts", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> keyOpts;
 
     /**
-     * @return A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+     * @return A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
      * 
      */
     public Output<List<String>> keyOpts() {
@@ -301,6 +302,24 @@ public class Key extends com.pulumi.resources.CustomResource {
      */
     public Output<String> publicKeyPem() {
         return this.publicKeyPem;
+    }
+    /**
+     * A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+     * 
+     */
+    @Export(name="releasePolicy", refs={KeyReleasePolicy.class}, tree="[0]")
+    private Output</* @Nullable */ KeyReleasePolicy> releasePolicy;
+
+    /**
+     * @return A `releasePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** When `releasePolicy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+     * 
+     */
+    public Output<Optional<KeyReleasePolicy>> releasePolicy() {
+        return Codegen.optional(this.releasePolicy);
     }
     /**
      * The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won&#39;t auto-rotate values if used in other Azure Services.

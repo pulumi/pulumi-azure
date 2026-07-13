@@ -103,6 +103,10 @@ export interface GetStorageContainerResult {
     readonly resourceManagerId: string;
     readonly storageAccountId?: string;
     readonly storageAccountName?: string;
+    /**
+     * The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+     */
+    readonly url: string;
 }
 /**
  * Use this data source to access information about an existing Storage Container.

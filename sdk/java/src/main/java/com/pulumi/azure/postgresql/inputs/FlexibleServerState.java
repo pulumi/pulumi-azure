@@ -474,6 +474,8 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
      * 
      * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
      * 
+     * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
+     * 
      */
     @Import(name="version")
     private @Nullable Output<String> version;
@@ -486,6 +488,8 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
      * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
      * 
      * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
+     * 
+     * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
      * 
      */
     public Optional<Output<String>> version() {
@@ -1179,6 +1183,8 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
          * 
          * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
          * 
+         * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
+         * 
          * @return builder
          * 
          */
@@ -1195,6 +1201,8 @@ public final class FlexibleServerState extends com.pulumi.resources.ResourceArgs
          * &gt; **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
          * 
          * &gt; **Note:** Major version upgrades are not supported when `cluster` is specified.
+         * 
+         * &gt; **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
          * 
          * @return builder
          * 

@@ -23,11 +23,14 @@ class InsightsArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
                  daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_in_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -40,12 +43,12 @@ class InsightsArgs:
         :param pulumi.Input[_builtins.str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
-        :param pulumi.Input[_builtins.bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] daily_data_cap_notifications_enabled: Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_masking_enabled: By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_in_days: Specifies the retention period in days. Possible values are `30`, `60`, `90`, `120`, `180`, `270`, `365`, `550` or `730`. Defaults to `90`.
@@ -60,7 +63,15 @@ class InsightsArgs:
         if daily_data_cap_in_gb is not None:
             pulumi.set(__self__, "daily_data_cap_in_gb", daily_data_cap_in_gb)
         if daily_data_cap_notifications_disabled is not None:
+            warnings.warn("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""daily_data_cap_notifications_disabled is deprecated: `daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+        if daily_data_cap_notifications_disabled is not None:
             pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
+        if daily_data_cap_notifications_enabled is not None:
+            pulumi.set(__self__, "daily_data_cap_notifications_enabled", daily_data_cap_notifications_enabled)
+        if disable_ip_masking is not None:
+            warnings.warn("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""disable_ip_masking is deprecated: `disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
         if disable_ip_masking is not None:
             pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
         if force_customer_storage_for_profiler is not None:
@@ -69,8 +80,15 @@ class InsightsArgs:
             pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
             pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+        if ip_masking_enabled is not None:
+            pulumi.set(__self__, "ip_masking_enabled", ip_masking_enabled)
+        if local_authentication_disabled is not None:
+            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
         if local_authentication_disabled is not None:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -122,10 +140,8 @@ class InsightsArgs:
 
     @_builtins.property
     @pulumi.getter(name="dailyDataCapNotificationsDisabled")
+    @_utilities.deprecated("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def daily_data_cap_notifications_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
-        """
         return pulumi.get(self, "daily_data_cap_notifications_disabled")
 
     @daily_data_cap_notifications_disabled.setter
@@ -133,11 +149,21 @@ class InsightsArgs:
         pulumi.set(self, "daily_data_cap_notifications_disabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="dailyDataCapNotificationsEnabled")
+    def daily_data_cap_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
+        """
+        return pulumi.get(self, "daily_data_cap_notifications_enabled")
+
+    @daily_data_cap_notifications_enabled.setter
+    def daily_data_cap_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "daily_data_cap_notifications_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="disableIpMasking")
+    @_utilities.deprecated("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def disable_ip_masking(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
-        """
         return pulumi.get(self, "disable_ip_masking")
 
     @disable_ip_masking.setter
@@ -181,16 +207,38 @@ class InsightsArgs:
         pulumi.set(self, "internet_query_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipMaskingEnabled")
+    def ip_masking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
+        """
+        return pulumi.get(self, "ip_masking_enabled")
+
+    @ip_masking_enabled.setter
+    def ip_masking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ip_masking_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
+    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Disable Non-Azure AD based Auth. Defaults to `false`.
-        """
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
     def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -275,12 +323,15 @@ class _InsightsState:
                  connection_string: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
                  daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -295,13 +346,13 @@ class _InsightsState:
         :param pulumi.Input[_builtins.str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] connection_string: The Connection String for this Application Insights component. (Sensitive)
         :param pulumi.Input[_builtins.float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
-        :param pulumi.Input[_builtins.bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] daily_data_cap_notifications_enabled: Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[_builtins.str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_masking_enabled: By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
@@ -321,7 +372,15 @@ class _InsightsState:
         if daily_data_cap_in_gb is not None:
             pulumi.set(__self__, "daily_data_cap_in_gb", daily_data_cap_in_gb)
         if daily_data_cap_notifications_disabled is not None:
+            warnings.warn("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""daily_data_cap_notifications_disabled is deprecated: `daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+        if daily_data_cap_notifications_disabled is not None:
             pulumi.set(__self__, "daily_data_cap_notifications_disabled", daily_data_cap_notifications_disabled)
+        if daily_data_cap_notifications_enabled is not None:
+            pulumi.set(__self__, "daily_data_cap_notifications_enabled", daily_data_cap_notifications_enabled)
+        if disable_ip_masking is not None:
+            warnings.warn("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""disable_ip_masking is deprecated: `disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
         if disable_ip_masking is not None:
             pulumi.set(__self__, "disable_ip_masking", disable_ip_masking)
         if force_customer_storage_for_profiler is not None:
@@ -332,8 +391,15 @@ class _InsightsState:
             pulumi.set(__self__, "internet_ingestion_enabled", internet_ingestion_enabled)
         if internet_query_enabled is not None:
             pulumi.set(__self__, "internet_query_enabled", internet_query_enabled)
+        if ip_masking_enabled is not None:
+            pulumi.set(__self__, "ip_masking_enabled", ip_masking_enabled)
+        if local_authentication_disabled is not None:
+            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
         if local_authentication_disabled is not None:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -399,10 +465,8 @@ class _InsightsState:
 
     @_builtins.property
     @pulumi.getter(name="dailyDataCapNotificationsDisabled")
+    @_utilities.deprecated("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def daily_data_cap_notifications_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
-        """
         return pulumi.get(self, "daily_data_cap_notifications_disabled")
 
     @daily_data_cap_notifications_disabled.setter
@@ -410,11 +474,21 @@ class _InsightsState:
         pulumi.set(self, "daily_data_cap_notifications_disabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="dailyDataCapNotificationsEnabled")
+    def daily_data_cap_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
+        """
+        return pulumi.get(self, "daily_data_cap_notifications_enabled")
+
+    @daily_data_cap_notifications_enabled.setter
+    def daily_data_cap_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "daily_data_cap_notifications_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="disableIpMasking")
+    @_utilities.deprecated("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def disable_ip_masking(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
-        """
         return pulumi.get(self, "disable_ip_masking")
 
     @disable_ip_masking.setter
@@ -470,16 +544,38 @@ class _InsightsState:
         pulumi.set(self, "internet_query_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipMaskingEnabled")
+    def ip_masking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
+        """
+        return pulumi.get(self, "ip_masking_enabled")
+
+    @ip_masking_enabled.setter
+    def ip_masking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ip_masking_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
+    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Disable Non-Azure AD based Auth. Defaults to `false`.
-        """
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
     def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -577,11 +673,14 @@ class Insights(pulumi.CustomResource):
                  application_type: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
                  daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -658,12 +757,12 @@ class Insights(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
-        :param pulumi.Input[_builtins.bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] daily_data_cap_notifications_enabled: Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_masking_enabled: By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
@@ -762,11 +861,14 @@ class Insights(pulumi.CustomResource):
                  application_type: pulumi.Input[Optional[_builtins.str]] = None,
                  daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
                  daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
                  force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -788,11 +890,14 @@ class Insights(pulumi.CustomResource):
             __props__.__dict__["application_type"] = application_type
             __props__.__dict__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
             __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
+            __props__.__dict__["daily_data_cap_notifications_enabled"] = daily_data_cap_notifications_enabled
             __props__.__dict__["disable_ip_masking"] = disable_ip_masking
             __props__.__dict__["force_customer_storage_for_profiler"] = force_customer_storage_for_profiler
             __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
             __props__.__dict__["internet_query_enabled"] = internet_query_enabled
+            __props__.__dict__["ip_masking_enabled"] = ip_masking_enabled
             __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
+            __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -822,12 +927,15 @@ class Insights(pulumi.CustomResource):
             connection_string: pulumi.Input[Optional[_builtins.str]] = None,
             daily_data_cap_in_gb: pulumi.Input[Optional[_builtins.float]] = None,
             daily_data_cap_notifications_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            daily_data_cap_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             disable_ip_masking: pulumi.Input[Optional[_builtins.bool]] = None,
             force_customer_storage_for_profiler: pulumi.Input[Optional[_builtins.bool]] = None,
             instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None,
             internet_ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             internet_query_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            ip_masking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -846,13 +954,13 @@ class Insights(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] application_type: Specifies the type of Application Insights to create. Valid values are `ios` for _iOS_, `java` for _Java web_, `MobileCenter` for _App Center_, `Node.JS` for _Node.js_, `other` for _General_, `phone` for _Windows Phone_, `store` for _Windows Store_ and `web` for _ASP.NET_. Please note these values are case sensitive; unmatched values are treated as _ASP.NET_ by Azure. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] connection_string: The Connection String for this Application Insights component. (Sensitive)
         :param pulumi.Input[_builtins.float] daily_data_cap_in_gb: Specifies the Application Insights component daily data volume cap in GB. Defaults to `100`.
-        :param pulumi.Input[_builtins.bool] daily_data_cap_notifications_disabled: Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] disable_ip_masking: By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] daily_data_cap_notifications_enabled: Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] force_customer_storage_for_profiler: Should the Application Insights component force users to create their own storage account for profiling? Defaults to `false`.
         :param pulumi.Input[_builtins.str] instrumentation_key: The Instrumentation Key for this Application Insights component. (Sensitive)
         :param pulumi.Input[_builtins.bool] internet_ingestion_enabled: Should the Application Insights component support ingestion over the Public Internet? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] internet_query_enabled: Should the Application Insights component support querying over the Public Internet? Defaults to `true`.
-        :param pulumi.Input[_builtins.bool] local_authentication_disabled: Disable Non-Azure AD based Auth. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_masking_enabled: By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] local_authentication_enabled: Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Application Insights component. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Application Insights component. Changing this forces a new resource to be created.
@@ -872,12 +980,15 @@ class Insights(pulumi.CustomResource):
         __props__.__dict__["connection_string"] = connection_string
         __props__.__dict__["daily_data_cap_in_gb"] = daily_data_cap_in_gb
         __props__.__dict__["daily_data_cap_notifications_disabled"] = daily_data_cap_notifications_disabled
+        __props__.__dict__["daily_data_cap_notifications_enabled"] = daily_data_cap_notifications_enabled
         __props__.__dict__["disable_ip_masking"] = disable_ip_masking
         __props__.__dict__["force_customer_storage_for_profiler"] = force_customer_storage_for_profiler
         __props__.__dict__["instrumentation_key"] = instrumentation_key
         __props__.__dict__["internet_ingestion_enabled"] = internet_ingestion_enabled
         __props__.__dict__["internet_query_enabled"] = internet_query_enabled
+        __props__.__dict__["ip_masking_enabled"] = ip_masking_enabled
         __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
+        __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
@@ -921,18 +1032,22 @@ class Insights(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="dailyDataCapNotificationsDisabled")
-    def daily_data_cap_notifications_disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Specifies if a notification email will be sent when the daily data volume cap is met. Defaults to `false`.
-        """
+    @_utilities.deprecated("""`daily_data_cap_notifications_disabled` has been deprecated in favour of `daily_data_cap_notifications_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+    def daily_data_cap_notifications_disabled(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "daily_data_cap_notifications_disabled")
 
     @_builtins.property
+    @pulumi.getter(name="dailyDataCapNotificationsEnabled")
+    def daily_data_cap_notifications_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether a notification email will be sent when the daily data volume cap is met. Defaults to `true`.
+        """
+        return pulumi.get(self, "daily_data_cap_notifications_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="disableIpMasking")
-    def disable_ip_masking(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        By default the real client IP is masked as `0.0.0.0` in the logs. Use this argument to disable masking and log the real client IP. Defaults to `false`.
-        """
+    @_utilities.deprecated("""`disable_ip_masking` has been deprecated in favour of `ip_masking_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+    def disable_ip_masking(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "disable_ip_masking")
 
     @_builtins.property
@@ -968,12 +1083,26 @@ class Insights(pulumi.CustomResource):
         return pulumi.get(self, "internet_query_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="ipMaskingEnabled")
+    def ip_masking_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        By default the real client IP is masked as `0.0.0.0` in the logs. Set this argument to `false` to disable masking and log the real client IP. Defaults to `true`.
+        """
+        return pulumi.get(self, "ip_masking_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
-    def local_authentication_disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Disable Non-Azure AD based Auth. Defaults to `false`.
-        """
+    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+    def local_authentication_disabled(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "local_authentication_disabled")
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether Non-Azure AD based Auth is enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "local_authentication_enabled")
 
     @_builtins.property
     @pulumi.getter

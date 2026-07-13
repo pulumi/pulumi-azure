@@ -48,7 +48,14 @@ export class ZipBlob extends pulumi.CustomResource {
     declare public readonly size: pulumi.Output<number | undefined>;
     declare public readonly sourceContent: pulumi.Output<string | undefined>;
     declare public readonly sourceUri: pulumi.Output<string | undefined>;
+    /**
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     */
     declare public readonly storageAccountName: pulumi.Output<string>;
+    declare public readonly storageContainerId: pulumi.Output<string>;
+    /**
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     */
     declare public readonly storageContainerName: pulumi.Output<string>;
     declare public readonly type: pulumi.Output<string>;
     declare public /*out*/ readonly url: pulumi.Output<string>;
@@ -82,17 +89,12 @@ export class ZipBlob extends pulumi.CustomResource {
             resourceInputs["sourceContent"] = state?.sourceContent;
             resourceInputs["sourceUri"] = state?.sourceUri;
             resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["storageContainerId"] = state?.storageContainerId;
             resourceInputs["storageContainerName"] = state?.storageContainerName;
             resourceInputs["type"] = state?.type;
             resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ZipBlobArgs | undefined;
-            if (args?.storageAccountName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
-            if (args?.storageContainerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageContainerName'");
-            }
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -109,6 +111,7 @@ export class ZipBlob extends pulumi.CustomResource {
             resourceInputs["sourceContent"] = args?.sourceContent;
             resourceInputs["sourceUri"] = args?.sourceUri;
             resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageContainerId"] = args?.storageContainerId;
             resourceInputs["storageContainerName"] = args?.storageContainerName;
             resourceInputs["type"] = args?.type;
             resourceInputs["url"] = undefined /*out*/;
@@ -134,7 +137,14 @@ export interface ZipBlobState {
     size?: pulumi.Input<number | undefined>;
     sourceContent?: pulumi.Input<string | undefined>;
     sourceUri?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     */
     storageAccountName?: pulumi.Input<string | undefined>;
+    storageContainerId?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     */
     storageContainerName?: pulumi.Input<string | undefined>;
     type?: pulumi.Input<string | undefined>;
     url?: pulumi.Input<string | undefined>;
@@ -156,7 +166,14 @@ export interface ZipBlobArgs {
     size?: pulumi.Input<number | undefined>;
     sourceContent?: pulumi.Input<string | undefined>;
     sourceUri?: pulumi.Input<string | undefined>;
-    storageAccountName: pulumi.Input<string>;
-    storageContainerName: pulumi.Input<string>;
+    /**
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     */
+    storageAccountName?: pulumi.Input<string | undefined>;
+    storageContainerId?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     */
+    storageContainerName?: pulumi.Input<string | undefined>;
     type: pulumi.Input<string>;
 }

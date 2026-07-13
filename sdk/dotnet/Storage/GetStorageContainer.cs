@@ -243,6 +243,10 @@ namespace Pulumi.Azure.Storage
         public readonly string ResourceManagerId;
         public readonly string? StorageAccountId;
         public readonly string? StorageAccountName;
+        /// <summary>
+        /// The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+        /// </summary>
+        public readonly string Url;
 
         [OutputConstructor]
         private GetStorageContainerResult(
@@ -266,7 +270,9 @@ namespace Pulumi.Azure.Storage
 
             string? storageAccountId,
 
-            string? storageAccountName)
+            string? storageAccountName,
+
+            string url)
         {
             ContainerAccessType = containerAccessType;
             DefaultEncryptionScope = defaultEncryptionScope;
@@ -279,6 +285,7 @@ namespace Pulumi.Azure.Storage
             ResourceManagerId = resourceManagerId;
             StorageAccountId = storageAccountId;
             StorageAccountName = storageAccountName;
+            Url = url;
         }
     }
 }

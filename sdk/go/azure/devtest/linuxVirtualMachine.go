@@ -143,7 +143,7 @@ type LinuxVirtualMachine struct {
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size pulumi.StringOutput `pulumi:"size"`
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
 	//
@@ -250,7 +250,7 @@ type linuxVirtualMachineState struct {
 	Password *string `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size *string `pulumi:"size"`
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
 	//
@@ -297,7 +297,7 @@ type LinuxVirtualMachineState struct {
 	Password pulumi.StringPtrInput
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size pulumi.StringPtrInput
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
 	//
@@ -346,7 +346,7 @@ type linuxVirtualMachineArgs struct {
 	Password *string `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size string `pulumi:"size"`
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
 	//
@@ -390,7 +390,7 @@ type LinuxVirtualMachineArgs struct {
 	Password pulumi.StringPtrInput
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size pulumi.StringInput
 	// The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
 	//
@@ -562,7 +562,7 @@ func (o LinuxVirtualMachineOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 func (o LinuxVirtualMachineOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
 }

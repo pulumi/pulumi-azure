@@ -20,9 +20,11 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? AuxiliaryMode;
         /// <summary>
-        /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+        /// Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
         /// 
         /// &gt; **Note:** `AuxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+        /// 
+        /// &gt; **Note:** `AuxiliaryMode` and `AuxiliarySku` must be specified together, and both fields require `NetworkApiVersion` later than `2020-11-01`.
         /// </summary>
         public readonly string? AuxiliarySku;
         /// <summary>

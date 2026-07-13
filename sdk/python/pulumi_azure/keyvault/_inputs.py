@@ -63,6 +63,8 @@ __all__ = [
     'CertificateContactsContactArgsDict',
     'CertificateIssuerAdminArgs',
     'CertificateIssuerAdminArgsDict',
+    'KeyReleasePolicyArgs',
+    'KeyReleasePolicyArgsDict',
     'KeyRotationPolicyArgs',
     'KeyRotationPolicyArgsDict',
     'KeyRotationPolicyAutomaticArgs',
@@ -1847,6 +1849,60 @@ class CertificateIssuerAdminArgs:
     @phone.setter
     def phone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "phone", value)
+
+
+class KeyReleasePolicyArgsDict(TypedDict):
+    json: pulumi.Input[_builtins.str]
+    """
+    The policy contents in JSON format.
+    """
+    immutable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether this policy is immutable. Defaults to `false`.
+
+    > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+    """
+
+@pulumi.input_type
+class KeyReleasePolicyArgs:
+    def __init__(__self__, *,
+                 json: pulumi.Input[_builtins.str],
+                 immutable: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] json: The policy contents in JSON format.
+        :param pulumi.Input[_builtins.bool] immutable: Whether this policy is immutable. Defaults to `false`.
+               
+               > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+        """
+        pulumi.set(__self__, "json", json)
+        if immutable is not None:
+            pulumi.set(__self__, "immutable", immutable)
+
+    @_builtins.property
+    @pulumi.getter
+    def json(self) -> pulumi.Input[_builtins.str]:
+        """
+        The policy contents in JSON format.
+        """
+        return pulumi.get(self, "json")
+
+    @json.setter
+    def json(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "json", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def immutable(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this policy is immutable. Defaults to `false`.
+
+        > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+        """
+        return pulumi.get(self, "immutable")
+
+    @immutable.setter
+    def immutable(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "immutable", value)
 
 
 class KeyRotationPolicyArgsDict(TypedDict):

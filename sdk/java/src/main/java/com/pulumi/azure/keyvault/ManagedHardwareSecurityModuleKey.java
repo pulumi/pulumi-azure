@@ -62,13 +62,11 @@ import javax.annotation.Nullable;
  *             .tenantId(current.tenantId())
  *             .adminObjectIds(current.objectId())
  *             .purgeProtectionEnabled(false)
- *             .activeConfig(Arrays.asList(Map.ofEntries(
- *                 Map.entry("securityDomainCertificate", Arrays.asList(                
- *                     cert[0].id(),
- *                     cert[1].id(),
- *                     cert[2].id())),
- *                 Map.entry("securityDomainQuorum", 2)
- *             )))
+ *             .securityDomainKeyVaultCertificateIds(            
+ *                 cers.1().id(),
+ *                 cers.2().id(),
+ *                 cers.3().id())
+ *             .securityDomainQuorum(2)
  *             .build());
  * 
  *         // this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
@@ -111,7 +109,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.KeyVault` - 2023-07-01
+ * * `Microsoft.KeyVault` - 2026-02-01
  * 
  * ## Import
  * 

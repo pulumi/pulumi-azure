@@ -28,6 +28,13 @@ public final class GetTableResult {
      * 
      */
     private String resourceManagerId;
+    private String storageAccountId;
+    /**
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
     private String storageAccountName;
 
     private GetTableResult() {}
@@ -55,6 +62,15 @@ public final class GetTableResult {
     public String resourceManagerId() {
         return this.resourceManagerId;
     }
+    public String storageAccountId() {
+        return this.storageAccountId;
+    }
+    /**
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
     public String storageAccountName() {
         return this.storageAccountName;
     }
@@ -72,6 +88,7 @@ public final class GetTableResult {
         private String id;
         private String name;
         private String resourceManagerId;
+        private String storageAccountId;
         private String storageAccountName;
         public Builder() {}
         public Builder(GetTableResult defaults) {
@@ -80,6 +97,7 @@ public final class GetTableResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.resourceManagerId = defaults.resourceManagerId;
+    	      this.storageAccountId = defaults.storageAccountId;
     	      this.storageAccountName = defaults.storageAccountName;
         }
 
@@ -119,6 +137,14 @@ public final class GetTableResult {
             return this;
         }
         @CustomType.Setter
+        public Builder storageAccountId(String storageAccountId) {
+            if (storageAccountId == null) {
+              throw new MissingRequiredPropertyException("GetTableResult", "storageAccountId");
+            }
+            this.storageAccountId = storageAccountId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageAccountName(String storageAccountName) {
             if (storageAccountName == null) {
               throw new MissingRequiredPropertyException("GetTableResult", "storageAccountName");
@@ -132,6 +158,7 @@ public final class GetTableResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.resourceManagerId = resourceManagerId;
+            _resultValue.storageAccountId = storageAccountId;
             _resultValue.storageAccountName = storageAccountName;
             return _resultValue;
         }

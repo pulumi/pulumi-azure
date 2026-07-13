@@ -75,6 +75,8 @@ type LookupWorkspaceResult struct {
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// The access type for the system storage account.
+	StorageAccountAccessType string `pulumi:"storageAccountAccessType"`
 	// A mapping of tags assigned to the Machine Learning Workspace.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -136,6 +138,11 @@ func (o LookupWorkspaceResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupWorkspaceResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
+}
+
+// The access type for the system storage account.
+func (o LookupWorkspaceResultOutput) StorageAccountAccessType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.StorageAccountAccessType }).(pulumi.StringOutput)
 }
 
 // A mapping of tags assigned to the Machine Learning Workspace.

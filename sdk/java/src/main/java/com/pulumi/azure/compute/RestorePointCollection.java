@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  *             .name("example-machine")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .size("Standard_F2")
+ *             .size("Standard_D4_v5")
  *             .adminUsername("adminuser")
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()

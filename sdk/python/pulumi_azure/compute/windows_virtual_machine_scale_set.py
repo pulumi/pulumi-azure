@@ -89,7 +89,7 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input['WindowsVirtualMachineScaleSetOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Windows Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         :param pulumi.Input['WindowsVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs'] automatic_instance_repair: An `automatic_instance_repair` block as defined below. To enable the automatic instance repair, this Virtual Machine Scale Set must have a valid `health_probe_id` or an [Application Health Extension](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension).
@@ -359,7 +359,7 @@ class WindowsVirtualMachineScaleSetArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[_builtins.str]:
         """
-        The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         """
         return pulumi.get(self, "sku")
 
@@ -1132,7 +1132,7 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         :param pulumi.Input[_builtins.str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
                
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
@@ -1830,7 +1830,7 @@ class _WindowsVirtualMachineScaleSetState:
     @pulumi.getter
     def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         """
         return pulumi.get(self, "sku")
 
@@ -2107,7 +2107,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             name="example-vmss",
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku="Standard_D4_v5",
             instances=1,
             admin_password="P@55w0rd1234!",
             admin_username="adminuser",
@@ -2219,7 +2219,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         :param pulumi.Input[_builtins.str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
                
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
@@ -2287,7 +2287,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             name="example-vmss",
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku="Standard_D4_v5",
             instances=1,
             admin_password="P@55w0rd1234!",
             admin_username="adminuser",
@@ -2627,7 +2627,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetSecretArgs', 'WindowsVirtualMachineScaleSetSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         :param pulumi.Input[_builtins.str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
                
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
@@ -3096,7 +3096,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[_builtins.str]:
         """
-        The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         """
         return pulumi.get(self, "sku")
 

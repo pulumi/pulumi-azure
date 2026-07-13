@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  *             .name("example-machine")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .size("Standard_F2")
+ *             .size("Standard_D4_v5")
  *             .adminUsername("adminuser")
  *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
  *             .networkInterfaceIds(exampleNetworkInterface.id())
@@ -851,14 +851,14 @@ public class WindowsVirtualMachine extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.secureBootEnabled);
     }
     /**
-     * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+     * The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
      * 
      */
     @Export(name="size", refs={String.class}, tree="[0]")
     private Output<String> size;
 
     /**
-     * @return The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+     * @return The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
      * 
      */
     public Output<String> size() {

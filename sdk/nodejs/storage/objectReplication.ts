@@ -117,6 +117,10 @@ export class ObjectReplication extends pulumi.CustomResource {
      */
     declare public readonly destinationStorageAccountId: pulumi.Output<string>;
     /**
+     * Whether metrics are enabled for this object replication. Defaults to `false`.
+     */
+    declare public readonly metricsEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * One or more `rules` blocks as defined below.
      */
     declare public readonly rules: pulumi.Output<outputs.storage.ObjectReplicationRule[]>;
@@ -144,6 +148,7 @@ export class ObjectReplication extends pulumi.CustomResource {
             const state = argsOrState as ObjectReplicationState | undefined;
             resourceInputs["destinationObjectReplicationId"] = state?.destinationObjectReplicationId;
             resourceInputs["destinationStorageAccountId"] = state?.destinationStorageAccountId;
+            resourceInputs["metricsEnabled"] = state?.metricsEnabled;
             resourceInputs["rules"] = state?.rules;
             resourceInputs["sourceObjectReplicationId"] = state?.sourceObjectReplicationId;
             resourceInputs["sourceStorageAccountId"] = state?.sourceStorageAccountId;
@@ -159,6 +164,7 @@ export class ObjectReplication extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sourceStorageAccountId'");
             }
             resourceInputs["destinationStorageAccountId"] = args?.destinationStorageAccountId;
+            resourceInputs["metricsEnabled"] = args?.metricsEnabled;
             resourceInputs["rules"] = args?.rules;
             resourceInputs["sourceStorageAccountId"] = args?.sourceStorageAccountId;
             resourceInputs["destinationObjectReplicationId"] = undefined /*out*/;
@@ -182,6 +188,10 @@ export interface ObjectReplicationState {
      */
     destinationStorageAccountId?: pulumi.Input<string | undefined>;
     /**
+     * Whether metrics are enabled for this object replication. Defaults to `false`.
+     */
+    metricsEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * One or more `rules` blocks as defined below.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.storage.ObjectReplicationRule>[] | undefined>;
@@ -203,6 +213,10 @@ export interface ObjectReplicationArgs {
      * The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
      */
     destinationStorageAccountId: pulumi.Input<string>;
+    /**
+     * Whether metrics are enabled for this object replication. Defaults to `false`.
+     */
+    metricsEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `rules` blocks as defined below.
      */

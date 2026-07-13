@@ -31,7 +31,7 @@ namespace Pulumi.Azure.LogAnalytics.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The data type of the column. Possible values are `Boolean`, `Datetime`, `Dynamic`, `Guid`, `Int`, `Long`, `Real`, and `String`.
+        /// The data type of the column. Possible values are `Boolean`, `dateTime`, `Dynamic`, `Guid`, `Int`, `Long`, `Real`, and `String`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

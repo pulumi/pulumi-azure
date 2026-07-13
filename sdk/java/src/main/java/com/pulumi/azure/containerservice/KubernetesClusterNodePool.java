@@ -724,7 +724,9 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.windowsProfile);
     }
     /**
-     * Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     * Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+     * 
+     * &gt; **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
      * 
      * &gt; **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
      * 
@@ -733,7 +735,9 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
     private Output</* @Nullable */ String> workloadRuntime;
 
     /**
-     * @return Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+     * @return Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+     * 
+     * &gt; **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
      * 
      * &gt; **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
      * 

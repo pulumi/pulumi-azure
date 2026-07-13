@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *     name: "examplevm",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     size: "Standard_F2",
+ *     size: "Standard_D4_v5",
  *     adminUsername: "adminuser",
  *     adminPassword: "P@$$w0rd1234!",
  *     networkInterfaceIds: [exampleNetworkInterface.id],

@@ -68,12 +68,16 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
+     * 
      */
     @Import(name="subresourceName")
     private @Nullable Output<String> subresourceName;
 
     /**
      * @return Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
      * 
      */
     public Optional<Output<String>> subresourceName() {
@@ -205,6 +209,8 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
         /**
          * @param subresourceName Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
          * 
+         * &gt; **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
+         * 
          * @return builder
          * 
          */
@@ -215,6 +221,8 @@ public final class ManagedPrivateEndpointState extends com.pulumi.resources.Reso
 
         /**
          * @param subresourceName Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
          * 
          * @return builder
          * 

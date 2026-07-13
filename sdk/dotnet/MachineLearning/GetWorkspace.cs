@@ -180,6 +180,10 @@ namespace Pulumi.Azure.MachineLearning
         public readonly string Name;
         public readonly string ResourceGroupName;
         /// <summary>
+        /// The access type for the system storage account.
+        /// </summary>
+        public readonly string StorageAccountAccessType;
+        /// <summary>
         /// A mapping of tags assigned to the Machine Learning Workspace.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -196,6 +200,8 @@ namespace Pulumi.Azure.MachineLearning
 
             string resourceGroupName,
 
+            string storageAccountAccessType,
+
             ImmutableDictionary<string, string> tags)
         {
             Id = id;
@@ -203,6 +209,7 @@ namespace Pulumi.Azure.MachineLearning
             Location = location;
             Name = name;
             ResourceGroupName = resourceGroupName;
+            StorageAccountAccessType = storageAccountAccessType;
             Tags = tags;
         }
     }

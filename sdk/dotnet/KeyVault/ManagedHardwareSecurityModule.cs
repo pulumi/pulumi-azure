@@ -59,7 +59,7 @@ namespace Pulumi.Azure.KeyVault
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.KeyVault` - 2023-07-01
+    /// * `Microsoft.KeyVault` - 2026-02-01
     /// 
     /// ## Import
     /// 

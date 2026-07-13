@@ -127,6 +127,8 @@ type ObjectReplication struct {
 	DestinationObjectReplicationId pulumi.StringOutput `pulumi:"destinationObjectReplicationId"`
 	// The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
 	DestinationStorageAccountId pulumi.StringOutput `pulumi:"destinationStorageAccountId"`
+	// Whether metrics are enabled for this object replication. Defaults to `false`.
+	MetricsEnabled pulumi.BoolPtrOutput `pulumi:"metricsEnabled"`
 	// One or more `rules` blocks as defined below.
 	Rules ObjectReplicationRuleArrayOutput `pulumi:"rules"`
 	// The ID of the Object Replication in the source storage account.
@@ -178,6 +180,8 @@ type objectReplicationState struct {
 	DestinationObjectReplicationId *string `pulumi:"destinationObjectReplicationId"`
 	// The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
 	DestinationStorageAccountId *string `pulumi:"destinationStorageAccountId"`
+	// Whether metrics are enabled for this object replication. Defaults to `false`.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
 	// One or more `rules` blocks as defined below.
 	Rules []ObjectReplicationRule `pulumi:"rules"`
 	// The ID of the Object Replication in the source storage account.
@@ -191,6 +195,8 @@ type ObjectReplicationState struct {
 	DestinationObjectReplicationId pulumi.StringPtrInput
 	// The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
 	DestinationStorageAccountId pulumi.StringPtrInput
+	// Whether metrics are enabled for this object replication. Defaults to `false`.
+	MetricsEnabled pulumi.BoolPtrInput
 	// One or more `rules` blocks as defined below.
 	Rules ObjectReplicationRuleArrayInput
 	// The ID of the Object Replication in the source storage account.
@@ -206,6 +212,8 @@ func (ObjectReplicationState) ElementType() reflect.Type {
 type objectReplicationArgs struct {
 	// The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
 	DestinationStorageAccountId string `pulumi:"destinationStorageAccountId"`
+	// Whether metrics are enabled for this object replication. Defaults to `false`.
+	MetricsEnabled *bool `pulumi:"metricsEnabled"`
 	// One or more `rules` blocks as defined below.
 	Rules []ObjectReplicationRule `pulumi:"rules"`
 	// The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
@@ -216,6 +224,8 @@ type objectReplicationArgs struct {
 type ObjectReplicationArgs struct {
 	// The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
 	DestinationStorageAccountId pulumi.StringInput
+	// Whether metrics are enabled for this object replication. Defaults to `false`.
+	MetricsEnabled pulumi.BoolPtrInput
 	// One or more `rules` blocks as defined below.
 	Rules ObjectReplicationRuleArrayInput
 	// The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
@@ -317,6 +327,11 @@ func (o ObjectReplicationOutput) DestinationObjectReplicationId() pulumi.StringO
 // The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
 func (o ObjectReplicationOutput) DestinationStorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectReplication) pulumi.StringOutput { return v.DestinationStorageAccountId }).(pulumi.StringOutput)
+}
+
+// Whether metrics are enabled for this object replication. Defaults to `false`.
+func (o ObjectReplicationOutput) MetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObjectReplication) pulumi.BoolPtrOutput { return v.MetricsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // One or more `rules` blocks as defined below.

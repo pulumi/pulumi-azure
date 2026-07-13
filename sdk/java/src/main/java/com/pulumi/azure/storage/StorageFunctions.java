@@ -1236,8 +1236,7 @@ public final class StorageFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
      *             .name("example-blob-name")
-     *             .storageAccountName("example-storage-account-name")
-     *             .storageContainerName("example-storage-container-name")
+     *             .storageContainerId("example-storage-container-id")
      *             .build());
      * 
      *     }
@@ -1278,8 +1277,7 @@ public final class StorageFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
      *             .name("example-blob-name")
-     *             .storageAccountName("example-storage-account-name")
-     *             .storageContainerName("example-storage-container-name")
+     *             .storageContainerId("example-storage-container-id")
      *             .build());
      * 
      *     }
@@ -1320,8 +1318,7 @@ public final class StorageFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
      *             .name("example-blob-name")
-     *             .storageAccountName("example-storage-account-name")
-     *             .storageContainerName("example-storage-container-name")
+     *             .storageContainerId("example-storage-container-id")
      *             .build());
      * 
      *     }
@@ -1362,8 +1359,7 @@ public final class StorageFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
      *             .name("example-blob-name")
-     *             .storageAccountName("example-storage-account-name")
-     *             .storageContainerName("example-storage-container-name")
+     *             .storageContainerId("example-storage-container-id")
      *             .build());
      * 
      *     }
@@ -1404,8 +1400,7 @@ public final class StorageFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getBlob(GetBlobArgs.builder()
      *             .name("example-blob-name")
-     *             .storageAccountName("example-storage-account-name")
-     *             .storageContainerName("example-storage-container-name")
+     *             .storageContainerId("example-storage-container-id")
      *             .build());
      * 
      *     }

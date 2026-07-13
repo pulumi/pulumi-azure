@@ -197,7 +197,7 @@ def get_snapshot_policy(account_name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-12-01
+    * `Microsoft.NetApp` - 2026-01-01
 
 
     :param _builtins.str account_name: The name of the NetApp account where the NetApp Snapshot Policy exists.
@@ -253,7 +253,7 @@ def get_snapshot_policy_output(account_name: pulumi.Input[Optional[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.NetApp` - 2025-12-01
+    * `Microsoft.NetApp` - 2026-01-01
 
 
     :param _builtins.str account_name: The name of the NetApp account where the NetApp Snapshot Policy exists.

@@ -147,7 +147,7 @@ import (
 //				Name:              pulumi.String("example-machine"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				Size:              pulumi.String("Standard_F2"),
+//				Size:              pulumi.String("Standard_D4_v5"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					exampleNetworkInterface.ID(),
@@ -164,7 +164,7 @@ import (
 //				Name:                          pulumi.String("example"),
 //				ResourceGroupName:             example.Name,
 //				Location:                      example.Location,
-//				Sku:                           pulumi.String("Standard_F2"),
+//				Sku:                           pulumi.String("Standard_D4_v5"),
 //				Instances:                     pulumi.Int(1),
 //				AdminUsername:                 pulumi.String("adminuser"),
 //				AdminPassword:                 pulumi.String("P@ssword1234!"),

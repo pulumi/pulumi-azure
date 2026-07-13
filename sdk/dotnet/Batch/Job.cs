@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Batch
     ///         Name = "examplepool",
     ///         ResourceGroupName = example.Name,
     ///         AccountName = exampleAccount.Name,
-    ///         NodeAgentSkuId = "batch.node.ubuntu 16.04",
+    ///         NodeAgentSkuId = "batch.node.ubuntu 22.04",
     ///         VmSize = "STANDARD_A1_V2",
     ///         FixedScale = new Azure.Batch.Inputs.PoolFixedScaleArgs
     ///         {
@@ -63,6 +63,13 @@ namespace Pulumi.Azure.Batch
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Batch` - 2024-07-01
     /// 
     /// ## Import
     /// 

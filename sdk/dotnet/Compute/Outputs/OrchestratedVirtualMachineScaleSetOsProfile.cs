@@ -20,11 +20,11 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? CustomData;
         /// <summary>
-        /// A `LinuxConfiguration` block as documented below.
+        /// A `LinuxConfiguration` block as defined above.
         /// </summary>
         public readonly Outputs.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration? LinuxConfiguration;
         /// <summary>
-        /// A `WindowsConfiguration` block as documented below.
+        /// A `WindowsConfiguration` block as defined below.
         /// </summary>
         public readonly Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration? WindowsConfiguration;
 

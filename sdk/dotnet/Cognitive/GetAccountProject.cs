@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Cognitive
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.CognitiveServices` - 2025-06-01
+        /// * `Microsoft.CognitiveServices` - 2026-03-01
         /// </summary>
         public static Task<GetAccountProjectResult> InvokeAsync(GetAccountProjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountProjectResult>("azure:cognitive/getAccountProject:getAccountProject", args ?? new GetAccountProjectArgs(), options.WithDefaults());
@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Cognitive
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.CognitiveServices` - 2025-06-01
+        /// * `Microsoft.CognitiveServices` - 2026-03-01
         /// </summary>
         public static Output<GetAccountProjectResult> Invoke(GetAccountProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountProjectResult>("azure:cognitive/getAccountProject:getAccountProject", args ?? new GetAccountProjectInvokeArgs(), options.WithDefaults());
@@ -120,7 +120,7 @@ namespace Pulumi.Azure.Cognitive
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.CognitiveServices` - 2025-06-01
+        /// * `Microsoft.CognitiveServices` - 2026-03-01
         /// </summary>
         public static Output<GetAccountProjectResult> Invoke(GetAccountProjectInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountProjectResult>("azure:cognitive/getAccountProject:getAccountProject", args ?? new GetAccountProjectInvokeArgs(), options.WithDefaults());

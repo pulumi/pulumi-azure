@@ -90,7 +90,7 @@ import * as utilities from "../utilities";
  *     name: "example-machine",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     size: "Standard_F2",
+ *     size: "Standard_D4_v5",
  *     adminUsername: "adminuser",
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     osDisk: {
@@ -102,7 +102,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     sku: "Standard_F2",
+ *     sku: "Standard_D4_v5",
  *     instances: 1,
  *     adminUsername: "adminuser",
  *     adminPassword: "P@ssword1234!",

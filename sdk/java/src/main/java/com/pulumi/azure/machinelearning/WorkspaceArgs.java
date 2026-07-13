@@ -336,6 +336,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+     * 
+     */
+    @Import(name="storageAccountAccessType")
+    private @Nullable Output<String> storageAccountAccessType;
+
+    /**
+     * @return The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+     * 
+     */
+    public Optional<Output<String>> storageAccountAccessType() {
+        return Optional.ofNullable(this.storageAccountAccessType);
+    }
+
+    /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -407,6 +422,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.serverlessCompute = $.serverlessCompute;
         this.serviceSideEncryptionEnabled = $.serviceSideEncryptionEnabled;
         this.skuName = $.skuName;
+        this.storageAccountAccessType = $.storageAccountAccessType;
         this.storageAccountId = $.storageAccountId;
         this.tags = $.tags;
         this.v1LegacyModeEnabled = $.v1LegacyModeEnabled;
@@ -860,6 +876,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder skuName(String skuName) {
             return skuName(Output.of(skuName));
+        }
+
+        /**
+         * @param storageAccountAccessType The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountAccessType(@Nullable Output<String> storageAccountAccessType) {
+            $.storageAccountAccessType = storageAccountAccessType;
+            return this;
+        }
+
+        /**
+         * @param storageAccountAccessType The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageAccountAccessType(String storageAccountAccessType) {
+            return storageAccountAccessType(Output.of(storageAccountAccessType));
         }
 
         /**

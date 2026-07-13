@@ -65,6 +65,16 @@ export const getVolume: typeof import("./getVolume").getVolume = null as any;
 export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
 utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
 
+export { GetVolumeBucketArgs, GetVolumeBucketResult, GetVolumeBucketOutputArgs } from "./getVolumeBucket";
+export const getVolumeBucket: typeof import("./getVolumeBucket").getVolumeBucket = null as any;
+export const getVolumeBucketOutput: typeof import("./getVolumeBucket").getVolumeBucketOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumeBucket","getVolumeBucketOutput"], () => require("./getVolumeBucket"));
+
+export { GetVolumeBucketWithServerArgs, GetVolumeBucketWithServerResult, GetVolumeBucketWithServerOutputArgs } from "./getVolumeBucketWithServer";
+export const getVolumeBucketWithServer: typeof import("./getVolumeBucketWithServer").getVolumeBucketWithServer = null as any;
+export const getVolumeBucketWithServerOutput: typeof import("./getVolumeBucketWithServer").getVolumeBucketWithServerOutput = null as any;
+utilities.lazyLoad(exports, ["getVolumeBucketWithServer","getVolumeBucketWithServerOutput"], () => require("./getVolumeBucketWithServer"));
+
 export { GetVolumeGroupOracleArgs, GetVolumeGroupOracleResult, GetVolumeGroupOracleOutputArgs } from "./getVolumeGroupOracle";
 export const getVolumeGroupOracle: typeof import("./getVolumeGroupOracle").getVolumeGroupOracle = null as any;
 export const getVolumeGroupOracleOutput: typeof import("./getVolumeGroupOracle").getVolumeGroupOracleOutput = null as any;
@@ -99,6 +109,16 @@ export { VolumeArgs, VolumeState } from "./volume";
 export type Volume = import("./volume").Volume;
 export const Volume: typeof import("./volume").Volume = null as any;
 utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
+
+export { VolumeBucketArgs, VolumeBucketState } from "./volumeBucket";
+export type VolumeBucket = import("./volumeBucket").VolumeBucket;
+export const VolumeBucket: typeof import("./volumeBucket").VolumeBucket = null as any;
+utilities.lazyLoad(exports, ["VolumeBucket"], () => require("./volumeBucket"));
+
+export { VolumeBucketWithServerArgs, VolumeBucketWithServerState } from "./volumeBucketWithServer";
+export type VolumeBucketWithServer = import("./volumeBucketWithServer").VolumeBucketWithServer;
+export const VolumeBucketWithServer: typeof import("./volumeBucketWithServer").VolumeBucketWithServer = null as any;
+utilities.lazyLoad(exports, ["VolumeBucketWithServer"], () => require("./volumeBucketWithServer"));
 
 export { VolumeGroupOracleArgs, VolumeGroupOracleState } from "./volumeGroupOracle";
 export type VolumeGroupOracle = import("./volumeGroupOracle").VolumeGroupOracle;
@@ -136,6 +156,10 @@ const _module = {
                 return new SnapshotPolicy(name, <any>undefined, { urn })
             case "azure:netapp/volume:Volume":
                 return new Volume(name, <any>undefined, { urn })
+            case "azure:netapp/volumeBucket:VolumeBucket":
+                return new VolumeBucket(name, <any>undefined, { urn })
+            case "azure:netapp/volumeBucketWithServer:VolumeBucketWithServer":
+                return new VolumeBucketWithServer(name, <any>undefined, { urn })
             case "azure:netapp/volumeGroupOracle:VolumeGroupOracle":
                 return new VolumeGroupOracle(name, <any>undefined, { urn })
             case "azure:netapp/volumeGroupSapHana:VolumeGroupSapHana":
@@ -155,6 +179,8 @@ pulumi.runtime.registerResourceModule("azure", "netapp/pool", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshot", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/snapshotPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volume", _module)
+pulumi.runtime.registerResourceModule("azure", "netapp/volumeBucket", _module)
+pulumi.runtime.registerResourceModule("azure", "netapp/volumeBucketWithServer", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volumeGroupOracle", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volumeGroupSapHana", _module)
 pulumi.runtime.registerResourceModule("azure", "netapp/volumeQuotaRule", _module)

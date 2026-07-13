@@ -105,7 +105,7 @@ type Grafana struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrOutput `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
 	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
 	SkuSize pulumi.StringPtrOutput `pulumi:"skuSize"`
@@ -179,7 +179,7 @@ type grafanaState struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku *string `pulumi:"sku"`
 	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
 	SkuSize *string `pulumi:"skuSize"`
@@ -218,7 +218,7 @@ type GrafanaState struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrInput
 	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
 	SkuSize pulumi.StringPtrInput
@@ -255,7 +255,7 @@ type grafanaArgs struct {
 	PublicNetworkAccessEnabled *bool `pulumi:"publicNetworkAccessEnabled"`
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku *string `pulumi:"sku"`
 	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
 	SkuSize *string `pulumi:"skuSize"`
@@ -289,7 +289,7 @@ type GrafanaArgs struct {
 	PublicNetworkAccessEnabled pulumi.BoolPtrInput
 	// Specifies the name of the Resource Group where the Dashboard Grafana should exist. Changing this forces a new Dashboard Grafana to be created.
 	ResourceGroupName pulumi.StringInput
-	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+	// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrInput
 	// The size of the SKU used for the Grafana instance. Possible values are `X1` and `X2`. Defaults to `X1`. Changing this forces a new Dashboard Grafana to be created.
 	SkuSize pulumi.StringPtrInput
@@ -455,7 +455,7 @@ func (o GrafanaOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
+// The name of the SKU used for the Grafana instance. The only possible value is `Standard`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 func (o GrafanaOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
 }

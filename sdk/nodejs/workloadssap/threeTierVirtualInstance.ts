@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *                 image: {
  *                     offer: "RHEL-SAP-HA",
  *                     publisher: "RedHat",
- *                     sku: "82sapha-gen2",
+ *                     sku: "86sapha-gen2",
  *                     version: "latest",
  *                 },
  *                 osProfile: {
@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  *                 image: {
  *                     offer: "RHEL-SAP-HA",
  *                     publisher: "RedHat",
- *                     sku: "82sapha-gen2",
+ *                     sku: "86sapha-gen2",
  *                     version: "latest",
  *                 },
  *                 osProfile: {
@@ -122,7 +122,7 @@ import * as utilities from "../utilities";
  *                 image: {
  *                     offer: "RHEL-SAP-HA",
  *                     publisher: "RedHat",
- *                     sku: "82sapha-gen2",
+ *                     sku: "86sapha-gen2",
  *                     version: "latest",
  *                 },
  *                 osProfile: {

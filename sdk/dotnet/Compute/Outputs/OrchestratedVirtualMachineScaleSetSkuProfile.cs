@@ -14,21 +14,27 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetSkuProfile
     {
         /// <summary>
-        /// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+        /// Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
         /// </summary>
         public readonly string AllocationStrategy;
         /// <summary>
-        /// Specifies the VM sizes for the virtual machine scale set.
+        /// One or more `VirtualMachineSize` blocks as defined below.
+        /// 
+        /// &gt; **Note:** When `AllocationStrategy` is set to `Prioritized`, you must use the `VirtualMachineSize` block to specify rank values.
         /// </summary>
+        public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> VirtualMachineSizes;
         public readonly ImmutableArray<string> VmSizes;
 
         [OutputConstructor]
         private OrchestratedVirtualMachineScaleSetSkuProfile(
             string allocationStrategy,
 
+            ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize> virtualMachineSizes,
+
             ImmutableArray<string> vmSizes)
         {
             AllocationStrategy = allocationStrategy;
+            VirtualMachineSizes = virtualMachineSizes;
             VmSizes = vmSizes;
         }
     }

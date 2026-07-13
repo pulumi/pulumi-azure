@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages an Virtual Machine Scale Set in Flexible Orchestration Mode.
+// Manages an Orchestrated Virtual Machine Scale Set in Flexible Orchestration Mode.
 //
 // ## Disclaimers
 //
@@ -43,10 +43,11 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewOrchestratedVirtualMachineScaleSet(ctx, "example", &compute.OrchestratedVirtualMachineScaleSetArgs{
-//				Name:                     pulumi.String("example-VMSS"),
+//				Name:                     pulumi.String("example-orchestrated-virtual-machine-scale-set"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
 //				PlatformFaultDomainCount: pulumi.Int(1),
+//				SkuName:                  pulumi.String("Standard_B1ls"),
 //				Zones: pulumi.StringArray{
 //					pulumi.String("1"),
 //				},
@@ -69,10 +70,10 @@ import (
 //
 // ## Import
 //
-// An Virtual Machine Scale Set can be imported using the `resource id`, e.g.
+// An Orchestrated Virtual Machine Scale Set can be imported using the `resource id`, e.g.
 //
 // ```sh
-// $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+// $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Compute/virtualMachineScaleSets/virtualMachineScaleSet1
 // ```
 type OrchestratedVirtualMachineScaleSet struct {
 	pulumi.CustomResourceState
@@ -87,9 +88,9 @@ type OrchestratedVirtualMachineScaleSet struct {
 	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrOutput `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
 	//
-	// > **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+	// > **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId pulumi.StringPtrOutput `pulumi:"capacityReservationGroupId"`
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks OrchestratedVirtualMachineScaleSetDataDiskArrayOutput `pulumi:"dataDisks"`
@@ -97,19 +98,19 @@ type OrchestratedVirtualMachineScaleSet struct {
 	EncryptionAtHostEnabled pulumi.BoolPtrOutput `pulumi:"encryptionAtHostEnabled"`
 	// The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrOutput `pulumi:"evictionPolicy"`
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled pulumi.BoolPtrOutput `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayOutput `pulumi:"extensions"`
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+	// Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrOutput `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity OrchestratedVirtualMachineScaleSetIdentityPtrOutput `pulumi:"identity"`
 	// The number of Virtual Machines in the Virtual Machine Scale Set.
 	Instances pulumi.IntOutput `pulumi:"instances"`
-	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -125,43 +126,53 @@ type OrchestratedVirtualMachineScaleSet struct {
 	OsDisk OrchestratedVirtualMachineScaleSetOsDiskPtrOutput `pulumi:"osDisk"`
 	// An `osProfile` block as defined below.
 	OsProfile OrchestratedVirtualMachineScaleSetOsProfilePtrOutput `pulumi:"osProfile"`
-	// A `plan` block as documented below. Changing this forces a new resource to be created.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan OrchestratedVirtualMachineScaleSetPlanPtrOutput `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
 	PlatformFaultDomainCount pulumi.IntOutput `pulumi:"platformFaultDomainCount"`
-	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrOutput `pulumi:"priority"`
-	// a `priorityMix` block as defined below
+	// A `priorityMix` block as defined below.
+	//
+	// > **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
 	PriorityMix OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput `pulumi:"priorityMix"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrOutput `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
 	RollingUpgradePolicy OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	//
 	// > **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
 	SinglePlacementGroup pulumi.BoolOutput `pulumi:"singlePlacementGroup"`
-	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
-	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
-	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	// The name of the SKU to be used by this Virtual Machine Scale Set.
 	//
-	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	// > **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
+	// A `skuProfile` block as defined below.
+	//
+	// > **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+	//
+	// > **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
 	SkuProfile OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput `pulumi:"skuProfile"`
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrOutput `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
+	//
+	// > **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
 	SourceImageReference OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationOutput `pulumi:"terminationNotification"`
-	// The Unique ID for the Virtual Machine Scale Set.
+	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
 	UniqueId pulumi.StringOutput `pulumi:"uniqueId"`
-	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode pulumi.StringPtrOutput `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrOutput `pulumi:"userDataBase64"`
@@ -230,9 +241,9 @@ type orchestratedVirtualMachineScaleSetState struct {
 	BootDiagnostics *OrchestratedVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
 	//
-	// > **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+	// > **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
@@ -240,19 +251,19 @@ type orchestratedVirtualMachineScaleSetState struct {
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+	// Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Virtual Machine Scale Set.
 	Instances *int `pulumi:"instances"`
-	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -268,43 +279,53 @@ type orchestratedVirtualMachineScaleSetState struct {
 	OsDisk *OrchestratedVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// An `osProfile` block as defined below.
 	OsProfile *OrchestratedVirtualMachineScaleSetOsProfile `pulumi:"osProfile"`
-	// A `plan` block as documented below. Changing this forces a new resource to be created.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *OrchestratedVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
 	PlatformFaultDomainCount *int `pulumi:"platformFaultDomainCount"`
-	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
-	// a `priorityMix` block as defined below
+	// A `priorityMix` block as defined below.
+	//
+	// > **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
 	PriorityMix *OrchestratedVirtualMachineScaleSetPriorityMix `pulumi:"priorityMix"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
 	RollingUpgradePolicy *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	//
 	// > **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
-	SkuName *string `pulumi:"skuName"`
-	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	// The name of the SKU to be used by this Virtual Machine Scale Set.
 	//
-	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	// > **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName *string `pulumi:"skuName"`
+	// A `skuProfile` block as defined below.
+	//
+	// > **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+	//
+	// > **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
 	SkuProfile *OrchestratedVirtualMachineScaleSetSkuProfile `pulumi:"skuProfile"`
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
+	//
+	// > **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
 	SourceImageReference *OrchestratedVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *OrchestratedVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
-	// The Unique ID for the Virtual Machine Scale Set.
+	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
 	UniqueId *string `pulumi:"uniqueId"`
-	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
@@ -331,9 +352,9 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
 	//
-	// > **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+	// > **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks OrchestratedVirtualMachineScaleSetDataDiskArrayInput
@@ -341,19 +362,19 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayInput
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+	// Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity OrchestratedVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Virtual Machine Scale Set.
 	Instances pulumi.IntPtrInput
-	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -369,43 +390,53 @@ type OrchestratedVirtualMachineScaleSetState struct {
 	OsDisk OrchestratedVirtualMachineScaleSetOsDiskPtrInput
 	// An `osProfile` block as defined below.
 	OsProfile OrchestratedVirtualMachineScaleSetOsProfilePtrInput
-	// A `plan` block as documented below. Changing this forces a new resource to be created.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan OrchestratedVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
 	PlatformFaultDomainCount pulumi.IntPtrInput
-	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
-	// a `priorityMix` block as defined below
+	// A `priorityMix` block as defined below.
+	//
+	// > **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
 	PriorityMix OrchestratedVirtualMachineScaleSetPriorityMixPtrInput
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
 	RollingUpgradePolicy OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	//
 	// > **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
-	SkuName pulumi.StringPtrInput
-	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	// The name of the SKU to be used by this Virtual Machine Scale Set.
 	//
-	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	// > **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName pulumi.StringPtrInput
+	// A `skuProfile` block as defined below.
+	//
+	// > **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+	//
+	// > **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
 	SkuProfile OrchestratedVirtualMachineScaleSetSkuProfilePtrInput
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
+	//
+	// > **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
 	SourceImageReference OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput
-	// The Unique ID for the Virtual Machine Scale Set.
+	// The Unique ID for the Orchestrated Virtual Machine Scale Set.
 	UniqueId pulumi.StringPtrInput
-	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrInput
@@ -436,9 +467,9 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	BootDiagnostics *OrchestratedVirtualMachineScaleSetBootDiagnostics `pulumi:"bootDiagnostics"`
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
 	//
-	// > **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+	// > **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId *string `pulumi:"capacityReservationGroupId"`
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks []OrchestratedVirtualMachineScaleSetDataDisk `pulumi:"dataDisks"`
@@ -446,19 +477,19 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	EncryptionAtHostEnabled *bool `pulumi:"encryptionAtHostEnabled"`
 	// The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy *string `pulumi:"evictionPolicy"`
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled *bool `pulumi:"extensionOperationsEnabled"`
 	// One or more `extension` blocks as defined below
 	Extensions []OrchestratedVirtualMachineScaleSetExtension `pulumi:"extensions"`
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+	// Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget *string `pulumi:"extensionsTimeBudget"`
 	// An `identity` block as defined below.
 	Identity *OrchestratedVirtualMachineScaleSetIdentity `pulumi:"identity"`
 	// The number of Virtual Machines in the Virtual Machine Scale Set.
 	Instances *int `pulumi:"instances"`
-	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
 	LicenseType *string `pulumi:"licenseType"`
 	// The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -474,41 +505,51 @@ type orchestratedVirtualMachineScaleSetArgs struct {
 	OsDisk *OrchestratedVirtualMachineScaleSetOsDisk `pulumi:"osDisk"`
 	// An `osProfile` block as defined below.
 	OsProfile *OrchestratedVirtualMachineScaleSetOsProfile `pulumi:"osProfile"`
-	// A `plan` block as documented below. Changing this forces a new resource to be created.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan *OrchestratedVirtualMachineScaleSetPlan `pulumi:"plan"`
 	// Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
 	PlatformFaultDomainCount int `pulumi:"platformFaultDomainCount"`
-	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority *string `pulumi:"priority"`
-	// a `priorityMix` block as defined below
+	// A `priorityMix` block as defined below.
+	//
+	// > **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
 	PriorityMix *OrchestratedVirtualMachineScaleSetPriorityMix `pulumi:"priorityMix"`
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId *string `pulumi:"proximityPlacementGroupId"`
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
 	RollingUpgradePolicy *OrchestratedVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	//
 	// > **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
-	SkuName *string `pulumi:"skuName"`
-	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	// The name of the SKU to be used by this Virtual Machine Scale Set.
 	//
-	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	// > **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName *string `pulumi:"skuName"`
+	// A `skuProfile` block as defined below.
+	//
+	// > **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+	//
+	// > **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
 	SkuProfile *OrchestratedVirtualMachineScaleSetSkuProfile `pulumi:"skuProfile"`
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId *string `pulumi:"sourceImageId"`
 	// A `sourceImageReference` block as defined below.
+	//
+	// > **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
 	SourceImageReference *OrchestratedVirtualMachineScaleSetSourceImageReference `pulumi:"sourceImageReference"`
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags map[string]string `pulumi:"tags"`
 	// A `terminationNotification` block as defined below.
 	TerminationNotification *OrchestratedVirtualMachineScaleSetTerminationNotification `pulumi:"terminationNotification"`
-	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode *string `pulumi:"upgradeMode"`
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 *string `pulumi:"userDataBase64"`
@@ -536,9 +577,9 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	BootDiagnostics OrchestratedVirtualMachineScaleSetBootDiagnosticsPtrInput
 	// Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 	//
-	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+	// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
 	//
-	// > **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+	// > **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
 	CapacityReservationGroupId pulumi.StringPtrInput
 	// One or more `dataDisk` blocks as defined below.
 	DataDisks OrchestratedVirtualMachineScaleSetDataDiskArrayInput
@@ -546,19 +587,19 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	EncryptionAtHostEnabled pulumi.BoolPtrInput
 	// The Policy which should be used by Spot Virtual Machines that are Evicted from the Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
 	EvictionPolicy pulumi.StringPtrInput
-	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+	// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 	ExtensionOperationsEnabled pulumi.BoolPtrInput
 	// One or more `extension` blocks as defined below
 	Extensions OrchestratedVirtualMachineScaleSetExtensionArrayInput
-	// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+	// Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 	ExtensionsTimeBudget pulumi.StringPtrInput
 	// An `identity` block as defined below.
 	Identity OrchestratedVirtualMachineScaleSetIdentityPtrInput
 	// The number of Virtual Machines in the Virtual Machine Scale Set.
 	Instances pulumi.IntPtrInput
-	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+	// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
 	LicenseType pulumi.StringPtrInput
 	// The Azure location where the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -574,41 +615,51 @@ type OrchestratedVirtualMachineScaleSetArgs struct {
 	OsDisk OrchestratedVirtualMachineScaleSetOsDiskPtrInput
 	// An `osProfile` block as defined below.
 	OsProfile OrchestratedVirtualMachineScaleSetOsProfilePtrInput
-	// A `plan` block as documented below. Changing this forces a new resource to be created.
+	// A `plan` block as defined below. Changing this forces a new resource to be created.
 	Plan OrchestratedVirtualMachineScaleSetPlanPtrInput
 	// Specifies the number of fault domains that are used by this Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The number of Fault Domains varies depending on which Azure Region you're using. More information about update and fault domains and how they work can be found [here](https://learn.microsoft.com/en-us/azure/virtual-machines/availability-set-overview).
 	PlatformFaultDomainCount pulumi.IntInput
-	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+	// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 	Priority pulumi.StringPtrInput
-	// a `priorityMix` block as defined below
+	// A `priorityMix` block as defined below.
+	//
+	// > **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
 	PriorityMix OrchestratedVirtualMachineScaleSetPriorityMixPtrInput
 	// The ID of the Proximity Placement Group which the Virtual Machine should be assigned to. Changing this forces a new resource to be created.
 	ProximityPlacementGroupId pulumi.StringPtrInput
 	// The name of the Resource Group in which the Virtual Machine Scale Set should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
 	RollingUpgradePolicy OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Possible values are `true` or `false`.
 	//
 	// > **Note:** `singlePlacementGroup` behaves differently for Flexible orchestration Virtual Machine Scale Sets than it does for Uniform orchestration Virtual Machine Scale Sets. It is recommended that you do not define the `singlePlacementGroup` field in your configuration file as the service will determine what this value should be based off of the value contained within the `skuName` field of your configuration file. You may set the `singlePlacementGroup` field to `true`, however once you set it to `false` you will not be able to revert it back to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
-	SkuName pulumi.StringPtrInput
-	// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+	// The name of the SKU to be used by this Virtual Machine Scale Set.
 	//
-	// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+	// > **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+	SkuName pulumi.StringPtrInput
+	// A `skuProfile` block as defined below.
+	//
+	// > **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+	//
+	// > **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
 	SkuProfile OrchestratedVirtualMachineScaleSetSkuProfilePtrInput
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	SourceImageId pulumi.StringPtrInput
 	// A `sourceImageReference` block as defined below.
+	//
+	// > **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
 	SourceImageReference OrchestratedVirtualMachineScaleSetSourceImageReferencePtrInput
 	// A mapping of tags which should be assigned to this Virtual Machine Scale Set.
 	Tags pulumi.StringMapInput
 	// A `terminationNotification` block as defined below.
 	TerminationNotification OrchestratedVirtualMachineScaleSetTerminationNotificationPtrInput
-	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+	// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 	UpgradeMode pulumi.StringPtrInput
 	// The Base64-Encoded User Data which should be used for this Virtual Machine Scale Set.
 	UserDataBase64 pulumi.StringPtrInput
@@ -736,9 +787,9 @@ func (o OrchestratedVirtualMachineScaleSetOutput) BootDiagnostics() Orchestrated
 
 // Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
 //
-// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+// > **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
 //
-// > **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+// > **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
 func (o OrchestratedVirtualMachineScaleSetOutput) CapacityReservationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput {
 		return v.CapacityReservationGroupId
@@ -762,7 +813,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) EvictionPolicy() pulumi.String
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.EvictionPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+// Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
 //
 // > **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
 func (o OrchestratedVirtualMachineScaleSetOutput) ExtensionOperationsEnabled() pulumi.BoolPtrOutput {
@@ -776,7 +827,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) Extensions() OrchestratedVirtu
 	}).(OrchestratedVirtualMachineScaleSetExtensionArrayOutput)
 }
 
-// Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+// Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
 func (o OrchestratedVirtualMachineScaleSetOutput) ExtensionsTimeBudget() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.ExtensionsTimeBudget }).(pulumi.StringPtrOutput)
 }
@@ -793,7 +844,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) Instances() pulumi.IntOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.IntOutput { return v.Instances }).(pulumi.IntOutput)
 }
 
-// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+// Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
 func (o OrchestratedVirtualMachineScaleSetOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
 }
@@ -839,7 +890,7 @@ func (o OrchestratedVirtualMachineScaleSetOutput) OsProfile() OrchestratedVirtua
 	}).(OrchestratedVirtualMachineScaleSetOsProfilePtrOutput)
 }
 
-// A `plan` block as documented below. Changing this forces a new resource to be created.
+// A `plan` block as defined below. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) Plan() OrchestratedVirtualMachineScaleSetPlanPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetPlanPtrOutput {
 		return v.Plan
@@ -853,12 +904,14 @@ func (o OrchestratedVirtualMachineScaleSetOutput) PlatformFaultDomainCount() pul
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.IntOutput { return v.PlatformFaultDomainCount }).(pulumi.IntOutput)
 }
 
-// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+// The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) Priority() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
-// a `priorityMix` block as defined below
+// A `priorityMix` block as defined below.
+//
+// > **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
 func (o OrchestratedVirtualMachineScaleSetOutput) PriorityMix() OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetPriorityMixPtrOutput {
 		return v.PriorityMix
@@ -875,7 +928,9 @@ func (o OrchestratedVirtualMachineScaleSetOutput) ResourceGroupName() pulumi.Str
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
 func (o OrchestratedVirtualMachineScaleSetOutput) RollingUpgradePolicy() OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
 		return v.RollingUpgradePolicy
@@ -889,14 +944,18 @@ func (o OrchestratedVirtualMachineScaleSetOutput) SinglePlacementGroup() pulumi.
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.BoolOutput { return v.SinglePlacementGroup }).(pulumi.BoolOutput)
 }
 
-// The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+// The name of the SKU to be used by this Virtual Machine Scale Set.
+//
+// > **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
 func (o OrchestratedVirtualMachineScaleSetOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
 }
 
-// An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+// A `skuProfile` block as defined below.
 //
-// > **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+// > **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+//
+// > **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
 func (o OrchestratedVirtualMachineScaleSetOutput) SkuProfile() OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetSkuProfilePtrOutput {
 		return v.SkuProfile
@@ -909,6 +968,8 @@ func (o OrchestratedVirtualMachineScaleSetOutput) SourceImageId() pulumi.StringP
 }
 
 // A `sourceImageReference` block as defined below.
+//
+// > **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
 func (o OrchestratedVirtualMachineScaleSetOutput) SourceImageReference() OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) OrchestratedVirtualMachineScaleSetSourceImageReferencePtrOutput {
 		return v.SourceImageReference
@@ -927,12 +988,12 @@ func (o OrchestratedVirtualMachineScaleSetOutput) TerminationNotification() Orch
 	}).(OrchestratedVirtualMachineScaleSetTerminationNotificationOutput)
 }
 
-// The Unique ID for the Virtual Machine Scale Set.
+// The Unique ID for the Orchestrated Virtual Machine Scale Set.
 func (o OrchestratedVirtualMachineScaleSetOutput) UniqueId() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringOutput { return v.UniqueId }).(pulumi.StringOutput)
 }
 
-// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+// Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOutput) UpgradeMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSet) pulumi.StringPtrOutput { return v.UpgradeMode }).(pulumi.StringPtrOutput)
 }

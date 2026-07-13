@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.NetApp` - 2025-12-01
+// * `Microsoft.NetApp` - 2026-01-01
 func LookupBackupVault(ctx *pulumi.Context, args *LookupBackupVaultArgs, opts ...pulumi.InvokeOption) (*LookupBackupVaultResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBackupVaultResult

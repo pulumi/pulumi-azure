@@ -195,6 +195,21 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.storageAccountName);
     }
 
+    /**
+     * The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+     * 
+     */
+    @Import(name="url")
+    private @Nullable Output<String> url;
+
+    /**
+     * @return The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+     * 
+     */
+    public Optional<Output<String>> url() {
+        return Optional.ofNullable(this.url);
+    }
+
     private ContainerState() {}
 
     private ContainerState(ContainerState $) {
@@ -208,6 +223,7 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         this.resourceManagerId = $.resourceManagerId;
         this.storageAccountId = $.storageAccountId;
         this.storageAccountName = $.storageAccountName;
+        this.url = $.url;
     }
 
     public static Builder builder() {
@@ -464,6 +480,27 @@ public final class ContainerState extends com.pulumi.resources.ResourceArgs {
         @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
+        }
+
+        /**
+         * @param url The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(@Nullable Output<String> url) {
+            $.url = url;
+            return this;
+        }
+
+        /**
+         * @param url The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder url(String url) {
+            return url(Output.of(url));
         }
 
         public ContainerState build() {

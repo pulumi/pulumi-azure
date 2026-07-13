@@ -140,7 +140,7 @@ import (
 //				},
 //				HealthProbeId: exampleProbe.ID(),
 //				Sku: &compute.ScaleSetSkuArgs{
-//					Name:     pulumi.String("Standard_F2"),
+//					Name:     pulumi.String("Standard_D4_v5"),
 //					Tier:     pulumi.String("Standard"),
 //					Capacity: pulumi.Int(2),
 //				},
@@ -291,7 +291,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				UpgradePolicyMode: pulumi.String("Manual"),
 //				Sku: &compute.ScaleSetSkuArgs{
-//					Name:     pulumi.String("Standard_F2"),
+//					Name:     pulumi.String("Standard_D4_v5"),
 //					Tier:     pulumi.String("Standard"),
 //					Capacity: pulumi.Int(2),
 //				},

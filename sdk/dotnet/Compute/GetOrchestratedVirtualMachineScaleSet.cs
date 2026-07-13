@@ -178,7 +178,7 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The name of the public IP address configuration
+        /// The name of the VM size.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -186,6 +186,10 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult> NetworkInterfaces;
         public readonly string ResourceGroupName;
+        /// <summary>
+        /// A `SkuProfile` block as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetSkuProfileResult> SkuProfiles;
 
         [OutputConstructor]
         private GetOrchestratedVirtualMachineScaleSetResult(
@@ -199,7 +203,9 @@ namespace Pulumi.Azure.Compute
 
             ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterfaceResult> networkInterfaces,
 
-            string resourceGroupName)
+            string resourceGroupName,
+
+            ImmutableArray<Outputs.GetOrchestratedVirtualMachineScaleSetSkuProfileResult> skuProfiles)
         {
             Id = id;
             Identities = identities;
@@ -207,6 +213,7 @@ namespace Pulumi.Azure.Compute
             Name = name;
             NetworkInterfaces = networkInterfaces;
             ResourceGroupName = resourceGroupName;
+            SkuProfiles = skuProfiles;
         }
     }
 }

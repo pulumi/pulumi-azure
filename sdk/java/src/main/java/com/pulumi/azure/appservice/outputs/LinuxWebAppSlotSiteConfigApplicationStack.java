@@ -84,7 +84,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The version of Ruby to run. Possible values include `2.6` and `2.7`.
      * 
+     * @deprecated
+     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
     private @Nullable String rubyVersion;
 
     private LinuxWebAppSlotSiteConfigApplicationStack() {}
@@ -185,7 +189,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStack {
     /**
      * @return The version of Ruby to run. Possible values include `2.6` and `2.7`.
      * 
+     * @deprecated
+     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
     public Optional<String> rubyVersion() {
         return Optional.ofNullable(this.rubyVersion);
     }

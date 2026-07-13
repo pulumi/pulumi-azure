@@ -22,7 +22,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
      */
     private @Nullable String adminPassword;
     /**
-     * @return A `adminSshKey` block as documented below.
+     * @return An `adminSshKey` block as defined above.
      * 
      */
     private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey> adminSshKeys;
@@ -46,19 +46,19 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+     * &gt; **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
      * 
      */
     private @Nullable String patchAssessmentMode;
     /**
-     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * @return Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
      * 
      */
     private @Nullable String patchMode;
     /**
-     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable Boolean provisionVmAgent;
@@ -77,7 +77,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
         return Optional.ofNullable(this.adminPassword);
     }
     /**
-     * @return A `adminSshKey` block as documented below.
+     * @return An `adminSshKey` block as defined above.
      * 
      */
     public List<OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey> adminSshKeys() {
@@ -109,23 +109,23 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration
     /**
      * @return Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
      * 
-     * &gt; **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+     * &gt; **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
      * 
      */
     public Optional<String> patchAssessmentMode() {
         return Optional.ofNullable(this.patchAssessmentMode);
     }
     /**
-     * @return Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+     * @return Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
      * 
-     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+     * &gt; **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
      * 
      */
     public Optional<String> patchMode() {
         return Optional.ofNullable(this.patchMode);
     }
     /**
-     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+     * @return Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Boolean> provisionVmAgent() {

@@ -27,7 +27,7 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, id=None, identities=None, location=None, name=None, resource_group_name=None, tags=None):
+    def __init__(__self__, id=None, identities=None, location=None, name=None, resource_group_name=None, storage_account_access_type=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -43,6 +43,9 @@ class GetWorkspaceResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_account_access_type and not isinstance(storage_account_access_type, str):
+            raise TypeError("Expected argument 'storage_account_access_type' to be a str")
+        pulumi.set(__self__, "storage_account_access_type", storage_account_access_type)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -82,6 +85,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "resource_group_name")
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountAccessType")
+    def storage_account_access_type(self) -> _builtins.str:
+        """
+        The access type for the system storage account.
+        """
+        return pulumi.get(self, "storage_account_access_type")
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
@@ -101,6 +112,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             location=self.location,
             name=self.name,
             resource_group_name=self.resource_group_name,
+            storage_account_access_type=self.storage_account_access_type,
             tags=self.tags)
 
 
@@ -144,6 +156,7 @@ def get_workspace(name: Optional[_builtins.str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        storage_account_access_type=pulumi.get(__ret__, 'storage_account_access_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_workspace_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                          resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -184,4 +197,5 @@ def get_workspace_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        storage_account_access_type=pulumi.get(__response__, 'storage_account_access_type'),
         tags=pulumi.get(__response__, 'tags')))

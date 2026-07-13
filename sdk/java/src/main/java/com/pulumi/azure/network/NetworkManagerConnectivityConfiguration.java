@@ -156,6 +156,38 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
         return this.appliesToGroups;
     }
     /**
+     * Whether connected group address overlap is enabled. Defaults to `true`.
+     * 
+     * &gt; **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+     * 
+     */
+    @Export(name="connectedGroupAddressOverlapEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> connectedGroupAddressOverlapEnabled;
+
+    /**
+     * @return Whether connected group address overlap is enabled. Defaults to `true`.
+     * 
+     * &gt; **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+     * 
+     */
+    public Output<Optional<Boolean>> connectedGroupAddressOverlapEnabled() {
+        return Codegen.optional(this.connectedGroupAddressOverlapEnabled);
+    }
+    /**
+     * Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+     * 
+     */
+    @Export(name="connectedGroupPrivateEndpointsScale", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> connectedGroupPrivateEndpointsScale;
+
+    /**
+     * @return Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+     * 
+     */
+    public Output<Optional<String>> connectedGroupPrivateEndpointsScale() {
+        return Codegen.optional(this.connectedGroupPrivateEndpointsScale);
+    }
+    /**
      * Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
      * 
      */
@@ -252,6 +284,20 @@ public class NetworkManagerConnectivityConfiguration extends com.pulumi.resource
      */
     public Output<String> networkManagerId() {
         return this.networkManagerId;
+    }
+    /**
+     * Whether peering enforcement is enabled. Defaults to `false`.
+     * 
+     */
+    @Export(name="peeringEnforcementEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> peeringEnforcementEnabled;
+
+    /**
+     * @return Whether peering enforcement is enabled. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> peeringEnforcementEnabled() {
+        return Codegen.optional(this.peeringEnforcementEnabled);
     }
 
     /**

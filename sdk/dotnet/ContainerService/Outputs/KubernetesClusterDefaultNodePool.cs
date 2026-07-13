@@ -161,7 +161,9 @@ namespace Pulumi.Azure.ContainerService.Outputs
         /// </summary>
         public readonly string? VnetSubnetId;
         /// <summary>
-        /// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+        /// Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+        /// 
+        /// &gt; **Note:** `KataVmIsolation` requires `OsSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
         /// </summary>
         public readonly string? WorkloadRuntime;
         /// <summary>

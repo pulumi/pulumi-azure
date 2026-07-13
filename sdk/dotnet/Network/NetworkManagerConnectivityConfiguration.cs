@@ -129,6 +129,20 @@ namespace Pulumi.Azure.Network
         public Output<ImmutableArray<Outputs.NetworkManagerConnectivityConfigurationAppliesToGroup>> AppliesToGroups { get; private set; } = null!;
 
         /// <summary>
+        /// Whether connected group address overlap is enabled. Defaults to `True`.
+        /// 
+        /// &gt; **Note:** Changing `ConnectedGroupAddressOverlapEnabled` from `True` to `False` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+        /// </summary>
+        [Output("connectedGroupAddressOverlapEnabled")]
+        public Output<bool?> ConnectedGroupAddressOverlapEnabled { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+        /// </summary>
+        [Output("connectedGroupPrivateEndpointsScale")]
+        public Output<string?> ConnectedGroupPrivateEndpointsScale { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         /// </summary>
         [Output("connectivityTopology")]
@@ -169,6 +183,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("networkManagerId")]
         public Output<string> NetworkManagerId { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether peering enforcement is enabled. Defaults to `False`.
+        /// </summary>
+        [Output("peeringEnforcementEnabled")]
+        public Output<bool?> PeeringEnforcementEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -229,6 +249,20 @@ namespace Pulumi.Azure.Network
         }
 
         /// <summary>
+        /// Whether connected group address overlap is enabled. Defaults to `True`.
+        /// 
+        /// &gt; **Note:** Changing `ConnectedGroupAddressOverlapEnabled` from `True` to `False` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+        /// </summary>
+        [Input("connectedGroupAddressOverlapEnabled")]
+        public Input<bool>? ConnectedGroupAddressOverlapEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+        /// </summary>
+        [Input("connectedGroupPrivateEndpointsScale")]
+        public Input<string>? ConnectedGroupPrivateEndpointsScale { get; set; }
+
+        /// <summary>
         /// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
         /// </summary>
         [Input("connectivityTopology", required: true)]
@@ -270,6 +304,12 @@ namespace Pulumi.Azure.Network
         [Input("networkManagerId", required: true)]
         public Input<string> NetworkManagerId { get; set; } = null!;
 
+        /// <summary>
+        /// Whether peering enforcement is enabled. Defaults to `False`.
+        /// </summary>
+        [Input("peeringEnforcementEnabled")]
+        public Input<bool>? PeeringEnforcementEnabled { get; set; }
+
         public NetworkManagerConnectivityConfigurationArgs()
         {
         }
@@ -289,6 +329,20 @@ namespace Pulumi.Azure.Network
             get => _appliesToGroups ?? (_appliesToGroups = new InputList<Inputs.NetworkManagerConnectivityConfigurationAppliesToGroupGetArgs>());
             set => _appliesToGroups = value;
         }
+
+        /// <summary>
+        /// Whether connected group address overlap is enabled. Defaults to `True`.
+        /// 
+        /// &gt; **Note:** Changing `ConnectedGroupAddressOverlapEnabled` from `True` to `False` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+        /// </summary>
+        [Input("connectedGroupAddressOverlapEnabled")]
+        public Input<bool>? ConnectedGroupAddressOverlapEnabled { get; set; }
+
+        /// <summary>
+        /// Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+        /// </summary>
+        [Input("connectedGroupPrivateEndpointsScale")]
+        public Input<string>? ConnectedGroupPrivateEndpointsScale { get; set; }
 
         /// <summary>
         /// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
@@ -331,6 +385,12 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("networkManagerId")]
         public Input<string>? NetworkManagerId { get; set; }
+
+        /// <summary>
+        /// Whether peering enforcement is enabled. Defaults to `False`.
+        /// </summary>
+        [Input("peeringEnforcementEnabled")]
+        public Input<bool>? PeeringEnforcementEnabled { get; set; }
 
         public NetworkManagerConnectivityConfigurationState()
         {

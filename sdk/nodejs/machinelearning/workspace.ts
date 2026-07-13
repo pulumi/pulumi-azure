@@ -264,6 +264,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly skuName: pulumi.Output<string | undefined>;
     /**
+     * The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+     */
+    declare public readonly storageAccountAccessType: pulumi.Output<string | undefined>;
+    /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      *
      * > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -316,6 +320,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["serverlessCompute"] = state?.serverlessCompute;
             resourceInputs["serviceSideEncryptionEnabled"] = state?.serviceSideEncryptionEnabled;
             resourceInputs["skuName"] = state?.skuName;
+            resourceInputs["storageAccountAccessType"] = state?.storageAccountAccessType;
             resourceInputs["storageAccountId"] = state?.storageAccountId;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["v1LegacyModeEnabled"] = state?.v1LegacyModeEnabled;
@@ -357,6 +362,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["serverlessCompute"] = args?.serverlessCompute;
             resourceInputs["serviceSideEncryptionEnabled"] = args?.serviceSideEncryptionEnabled;
             resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["storageAccountAccessType"] = args?.storageAccountAccessType;
             resourceInputs["storageAccountId"] = args?.storageAccountId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["v1LegacyModeEnabled"] = args?.v1LegacyModeEnabled;
@@ -462,6 +468,10 @@ export interface WorkspaceState {
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
     skuName?: pulumi.Input<string | undefined>;
+    /**
+     * The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+     */
+    storageAccountAccessType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      *
@@ -572,6 +582,10 @@ export interface WorkspaceArgs {
      * SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
      */
     skuName?: pulumi.Input<string | undefined>;
+    /**
+     * The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+     */
+    storageAccountAccessType?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      *

@@ -17,7 +17,7 @@ public final class FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs extends 
     public static final FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs Empty = new FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs();
 
     /**
-     * A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+     * A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
      * 
      * &gt; **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
      * 
@@ -26,7 +26,7 @@ public final class FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs extends 
     private @Nullable Output<List<String>> tls12s;
 
     /**
-     * @return A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+     * @return A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
      * 
      * &gt; **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
      * 
@@ -80,7 +80,7 @@ public final class FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs extends 
         }
 
         /**
-         * @param tls12s A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+         * @param tls12s A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
          * 
          * &gt; **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
          * 
@@ -93,7 +93,7 @@ public final class FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs extends 
         }
 
         /**
-         * @param tls12s A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+         * @param tls12s A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
          * 
          * &gt; **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
          * 
@@ -105,7 +105,7 @@ public final class FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs extends 
         }
 
         /**
-         * @param tls12s A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+         * @param tls12s A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
          * 
          * &gt; **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
          * 

@@ -381,7 +381,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.NetApp` - 2025-12-01
+ * * `Microsoft.NetApp` - 2026-01-01
  * 
  * ## Import
  * 
@@ -409,14 +409,14 @@ public class VolumeGroupOracle extends com.pulumi.resources.CustomResource {
         return this.accountName;
     }
     /**
-     * The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     @Export(name="applicationIdentifier", refs={String.class}, tree="[0]")
     private Output<String> applicationIdentifier;
 
     /**
-     * @return The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+     * @return The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
      * 
      */
     public Output<String> applicationIdentifier() {

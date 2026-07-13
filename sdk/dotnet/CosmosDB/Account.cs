@@ -247,7 +247,10 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string?> Kind { get; private set; } = null!;
 
         [Output("localAuthenticationDisabled")]
-        public Output<bool?> LocalAuthenticationDisabled { get; private set; } = null!;
+        public Output<bool> LocalAuthenticationDisabled { get; private set; } = null!;
+
+        [Output("localAuthenticationEnabled")]
+        public Output<bool> LocalAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -548,6 +551,9 @@ namespace Pulumi.Azure.CosmosDB
         [Input("localAuthenticationDisabled")]
         public Input<bool>? LocalAuthenticationDisabled { get; set; }
 
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
+
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
@@ -731,6 +737,9 @@ namespace Pulumi.Azure.CosmosDB
 
         [Input("localAuthenticationDisabled")]
         public Input<bool>? LocalAuthenticationDisabled { get; set; }
+
+        [Input("localAuthenticationEnabled")]
+        public Input<bool>? LocalAuthenticationEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

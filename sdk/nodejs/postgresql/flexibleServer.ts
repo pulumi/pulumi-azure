@@ -268,6 +268,8 @@ export class FlexibleServer extends pulumi.CustomResource {
      * > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
      *
      * > **Note:** Major version upgrades are not supported when `cluster` is specified.
+     *
+     * > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
      */
     declare public readonly version: pulumi.Output<string>;
     /**
@@ -501,6 +503,8 @@ export interface FlexibleServerState {
      * > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
      *
      * > **Note:** Major version upgrades are not supported when `cluster` is specified.
+     *
+     * > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
      */
     version?: pulumi.Input<string | undefined>;
     /**
@@ -647,6 +651,8 @@ export interface FlexibleServerArgs {
      * > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
      *
      * > **Note:** Major version upgrades are not supported when `cluster` is specified.
+     *
+     * > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
      */
     version?: pulumi.Input<string | undefined>;
     /**

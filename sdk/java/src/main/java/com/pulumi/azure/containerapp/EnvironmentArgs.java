@@ -73,7 +73,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Subnet must have a `/21` or larger address space.
+     * &gt; **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
      * 
      */
     @Import(name="infrastructureSubnetId")
@@ -82,7 +82,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** The Subnet must have a `/21` or larger address space.
+     * &gt; **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
      * 
      */
     public Optional<Output<String>> infrastructureSubnetId() {
@@ -378,7 +378,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param infrastructureSubnetId The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The Subnet must have a `/21` or larger address space.
+         * &gt; **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
          * 
          * @return builder
          * 
@@ -391,7 +391,7 @@ public final class EnvironmentArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param infrastructureSubnetId The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** The Subnet must have a `/21` or larger address space.
+         * &gt; **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
          * 
          * @return builder
          * 

@@ -180,6 +180,18 @@ type VirtualNetworkGateway struct {
 	IpSecReplayProtectionEnabled pulumi.BoolPtrOutput `pulumi:"ipSecReplayProtectionEnabled"`
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+	MaximumScaleUnit pulumi.IntOutput `pulumi:"maximumScaleUnit"`
+	// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+	//
+	// > **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+	//
+	// > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+	MinimumScaleUnit pulumi.IntOutput `pulumi:"minimumScaleUnit"`
 	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// One or more `policyGroup` blocks as defined below.
@@ -278,6 +290,18 @@ type virtualNetworkGatewayState struct {
 	IpSecReplayProtectionEnabled *bool `pulumi:"ipSecReplayProtectionEnabled"`
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+	MaximumScaleUnit *int `pulumi:"maximumScaleUnit"`
+	// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+	//
+	// > **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+	//
+	// > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+	MinimumScaleUnit *int `pulumi:"minimumScaleUnit"`
 	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `policyGroup` blocks as defined below.
@@ -335,6 +359,18 @@ type VirtualNetworkGatewayState struct {
 	IpSecReplayProtectionEnabled pulumi.BoolPtrInput
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+	MaximumScaleUnit pulumi.IntPtrInput
+	// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+	//
+	// > **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+	//
+	// > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+	MinimumScaleUnit pulumi.IntPtrInput
 	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `policyGroup` blocks as defined below.
@@ -396,6 +432,18 @@ type virtualNetworkGatewayArgs struct {
 	IpSecReplayProtectionEnabled *bool `pulumi:"ipSecReplayProtectionEnabled"`
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+	MaximumScaleUnit *int `pulumi:"maximumScaleUnit"`
+	// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+	//
+	// > **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+	//
+	// > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+	MinimumScaleUnit *int `pulumi:"minimumScaleUnit"`
 	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// One or more `policyGroup` blocks as defined below.
@@ -454,6 +502,18 @@ type VirtualNetworkGatewayArgs struct {
 	IpSecReplayProtectionEnabled pulumi.BoolPtrInput
 	// The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+	MaximumScaleUnit pulumi.IntPtrInput
+	// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+	//
+	// > **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+	//
+	// > **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+	//
+	// > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+	MinimumScaleUnit pulumi.IntPtrInput
 	// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// One or more `policyGroup` blocks as defined below.
@@ -636,6 +696,24 @@ func (o VirtualNetworkGatewayOutput) IpSecReplayProtectionEnabled() pulumi.BoolP
 // The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
 func (o VirtualNetworkGatewayOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+//
+// > **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+func (o VirtualNetworkGatewayOutput) MaximumScaleUnit() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.IntOutput { return v.MaximumScaleUnit }).(pulumi.IntOutput)
+}
+
+// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+//
+// > **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+//
+// > **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+//
+// > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+func (o VirtualNetworkGatewayOutput) MinimumScaleUnit() pulumi.IntOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.IntOutput { return v.MinimumScaleUnit }).(pulumi.IntOutput)
 }
 
 // The name of the Virtual Network Gateway. Changing this forces a new resource to be created.

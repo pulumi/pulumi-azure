@@ -21,33 +21,31 @@ __all__ = ['TableArgs', 'Table']
 @pulumi.input_type
 class TableArgs:
     def __init__(__self__, *,
-                 storage_account_name: pulumi.Input[_builtins.str],
                  acls: pulumi.Input[Optional[Sequence[pulumi.Input['TableAclArgs']]]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Table resource.
 
-        :param pulumi.Input[_builtins.str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+               
+               > **Note:** This property is deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the AzureRM Provider.
         """
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if acls is not None:
             pulumi.set(__self__, "acls", acls)
         if name is not None:
             pulumi.set(__self__, "name", name)
-
-    @_builtins.property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_account_name", value)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_account_name is not None:
+            warnings.warn("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
 
     @_builtins.property
     @pulumi.getter
@@ -73,6 +71,33 @@ class TableArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+
+        > **Note:** This property is deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the AzureRM Provider.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_account_name", value)
+
 
 @pulumi.input_type
 class _TableState:
@@ -80,6 +105,7 @@ class _TableState:
                  acls: pulumi.Input[Optional[Sequence[pulumi.Input['TableAclArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Table resources.
@@ -87,7 +113,10 @@ class _TableState:
         :param pulumi.Input[Sequence[pulumi.Input['TableAclArgs']]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this Storage Table.
+        :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+               
+               > **Note:** This property is deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the AzureRM Provider.
         """
         if acls is not None:
             pulumi.set(__self__, "acls", acls)
@@ -95,6 +124,11 @@ class _TableState:
             pulumi.set(__self__, "name", name)
         if resource_manager_id is not None:
             pulumi.set(__self__, "resource_manager_id", resource_manager_id)
+        if storage_account_id is not None:
+            pulumi.set(__self__, "storage_account_id", storage_account_id)
+        if storage_account_name is not None:
+            warnings.warn("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
 
@@ -135,10 +169,25 @@ class _TableState:
         pulumi.set(self, "resource_manager_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @storage_account_id.setter
+    def storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_account_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
     def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+
+        > **Note:** This property is deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -155,6 +204,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -195,13 +245,16 @@ class Table(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+               
+               > **Note:** This property is deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the AzureRM Provider.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: TableArgs,
+                 args: Optional[TableArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Table within an Azure Storage Account.
@@ -254,6 +307,7 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -266,8 +320,7 @@ class Table(pulumi.CustomResource):
 
             __props__.__dict__["acls"] = acls
             __props__.__dict__["name"] = name
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
+            __props__.__dict__["storage_account_id"] = storage_account_id
             __props__.__dict__["storage_account_name"] = storage_account_name
             __props__.__dict__["resource_manager_id"] = None
         super(Table, __self__).__init__(
@@ -283,6 +336,7 @@ class Table(pulumi.CustomResource):
             acls: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Table':
         """
         Get an existing Table resource's state with the given name, id, and optional extra
@@ -294,7 +348,10 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableAclArgs', 'TableAclArgsDict']]]] acls: One or more `acl` blocks as defined below.
         :param pulumi.Input[_builtins.str] name: The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_manager_id: The Resource Manager ID of this Storage Table.
+        :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_name: Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+               
+               > **Note:** This property is deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the AzureRM Provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -303,6 +360,7 @@ class Table(pulumi.CustomResource):
         __props__.__dict__["acls"] = acls
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_manager_id"] = resource_manager_id
+        __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["storage_account_name"] = storage_account_name
         return Table(resource_name, opts=opts, __props__=__props__)
 
@@ -331,10 +389,21 @@ class Table(pulumi.CustomResource):
         return pulumi.get(self, "resource_manager_id")
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountId")
+    def storage_account_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_account_id")
+
+    @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Output[_builtins.str]:
+    @_utilities.deprecated("""the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
+    def storage_account_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+
+        > **Note:** This property is deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the AzureRM Provider.
         """
         return pulumi.get(self, "storage_account_name")
 

@@ -24,14 +24,12 @@ import * as utilities from "../utilities";
  *     tenantId: current.then(current => current.tenantId),
  *     adminObjectIds: [current.then(current => current.objectId)],
  *     purgeProtectionEnabled: false,
- *     activeConfig: [{
- *         securityDomainCertificate: [
- *             cert[0].id,
- *             cert[1].id,
- *             cert[2].id,
- *         ],
- *         securityDomainQuorum: 2,
- *     }],
+ *     securityDomainKeyVaultCertificateIds: [
+ *         cers["1"].id,
+ *         cers["2"].id,
+ *         cers["3"].id,
+ *     ],
+ *     securityDomainQuorum: 2,
  * });
  * // this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
  * const hsm_crypto_user = new azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user", {
@@ -68,7 +66,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.KeyVault` - 2023-07-01
+ * * `Microsoft.KeyVault` - 2026-02-01
  *
  * ## Import
  *

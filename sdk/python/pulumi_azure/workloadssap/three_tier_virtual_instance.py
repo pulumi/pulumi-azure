@@ -501,7 +501,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
-                            "sku": "82sapha-gen2",
+                            "sku": "86sapha-gen2",
                             "version": "latest",
                         },
                         "os_profile": {
@@ -519,7 +519,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
-                            "sku": "82sapha-gen2",
+                            "sku": "86sapha-gen2",
                             "version": "latest",
                         },
                         "os_profile": {
@@ -538,7 +538,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
-                            "sku": "82sapha-gen2",
+                            "sku": "86sapha-gen2",
                             "version": "latest",
                         },
                         "os_profile": {
@@ -787,7 +787,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
-                            "sku": "82sapha-gen2",
+                            "sku": "86sapha-gen2",
                             "version": "latest",
                         },
                         "os_profile": {
@@ -805,7 +805,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
-                            "sku": "82sapha-gen2",
+                            "sku": "86sapha-gen2",
                             "version": "latest",
                         },
                         "os_profile": {
@@ -824,7 +824,7 @@ class ThreeTierVirtualInstance(pulumi.CustomResource):
                         "image": {
                             "offer": "RHEL-SAP-HA",
                             "publisher": "RedHat",
-                            "sku": "82sapha-gen2",
+                            "sku": "86sapha-gen2",
                             "version": "latest",
                         },
                         "os_profile": {

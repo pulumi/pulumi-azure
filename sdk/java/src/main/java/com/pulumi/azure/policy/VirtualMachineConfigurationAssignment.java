@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  *             .name("examplevm")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .size("Standard_F2")
+ *             .size("Standard_D4_v5")
  *             .adminUsername("adminuser")
  *             .adminPassword("P}{@literal @}{@code $$w0rd1234!")
  *             .networkInterfaceIds(exampleNetworkInterface.id())

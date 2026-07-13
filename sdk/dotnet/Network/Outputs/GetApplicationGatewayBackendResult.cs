@@ -38,7 +38,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string ProbeId;
         /// <summary>
-        /// The name of the associated HTTP Probe.
+        /// The name of the associated Probe.
         /// </summary>
         public readonly string ProbeName;
         /// <summary>

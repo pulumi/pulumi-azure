@@ -28,9 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storage.LookupBlob(ctx, &storage.LookupBlobArgs{
-//				Name:                 "example-blob-name",
-//				StorageAccountName:   "example-storage-account-name",
-//				StorageContainerName: "example-storage-container-name",
+//				Name:               "example-blob-name",
+//				StorageContainerId: pulumi.StringRef("example-storage-container-id"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -57,9 +56,19 @@ type LookupBlobArgs struct {
 	// The name of the Blob.
 	Name string `pulumi:"name"`
 	// The name of the Storage Account where the Container exists.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The ID of the Storage Container where the Blob exists.
+	StorageContainerId *string `pulumi:"storageContainerId"`
 	// The name of the Storage Container where the Blob exists.
-	StorageContainerName string `pulumi:"storageContainerName"`
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageContainerName *string `pulumi:"storageContainerName"`
 }
 
 // A collection of values returned by getBlob.
@@ -75,10 +84,13 @@ type LookupBlobResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// A map of custom blob metadata.
-	Metadata             map[string]string `pulumi:"metadata"`
-	Name                 string            `pulumi:"name"`
-	StorageAccountName   string            `pulumi:"storageAccountName"`
-	StorageContainerName string            `pulumi:"storageContainerName"`
+	Metadata map[string]string `pulumi:"metadata"`
+	Name     string            `pulumi:"name"`
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName string `pulumi:"storageAccountName"`
+	StorageContainerId string `pulumi:"storageContainerId"`
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageContainerName string `pulumi:"storageContainerName"`
 	// The type of the storage blob
 	Type string `pulumi:"type"`
 	// The URL of the storage blob.
@@ -101,9 +113,19 @@ type LookupBlobOutputArgs struct {
 	// The name of the Blob.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the Storage Account where the Container exists.
-	StorageAccountName pulumi.StringInput `pulumi:"storageAccountName"`
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+	// The ID of the Storage Container where the Blob exists.
+	StorageContainerId pulumi.StringPtrInput `pulumi:"storageContainerId"`
 	// The name of the Storage Container where the Blob exists.
-	StorageContainerName pulumi.StringInput `pulumi:"storageContainerName"`
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageContainerName pulumi.StringPtrInput `pulumi:"storageContainerName"`
 }
 
 func (LookupBlobOutputArgs) ElementType() reflect.Type {
@@ -159,10 +181,16 @@ func (o LookupBlobResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBlobResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 func (o LookupBlobResultOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBlobResult) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
+func (o LookupBlobResultOutput) StorageContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBlobResult) string { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 func (o LookupBlobResultOutput) StorageContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBlobResult) string { return v.StorageContainerName }).(pulumi.StringOutput)
 }

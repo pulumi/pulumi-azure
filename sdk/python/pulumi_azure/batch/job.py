@@ -258,7 +258,7 @@ class Job(pulumi.CustomResource):
             name="examplepool",
             resource_group_name=example.name,
             account_name=example_account.name,
-            node_agent_sku_id="batch.node.ubuntu 16.04",
+            node_agent_sku_id="batch.node.ubuntu 22.04",
             vm_size="STANDARD_A1_V2",
             fixed_scale={
                 "target_dedicated_nodes": 1,
@@ -273,6 +273,13 @@ class Job(pulumi.CustomResource):
             name="examplejob",
             batch_pool_id=example_pool.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch` - 2024-07-01
 
         ## Import
 
@@ -318,7 +325,7 @@ class Job(pulumi.CustomResource):
             name="examplepool",
             resource_group_name=example.name,
             account_name=example_account.name,
-            node_agent_sku_id="batch.node.ubuntu 16.04",
+            node_agent_sku_id="batch.node.ubuntu 22.04",
             vm_size="STANDARD_A1_V2",
             fixed_scale={
                 "target_dedicated_nodes": 1,
@@ -333,6 +340,13 @@ class Job(pulumi.CustomResource):
             name="examplejob",
             batch_pool_id=example_pool.id)
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Batch` - 2024-07-01
 
         ## Import
 

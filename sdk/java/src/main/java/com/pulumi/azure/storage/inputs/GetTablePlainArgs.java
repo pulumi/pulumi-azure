@@ -7,6 +7,8 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -29,24 +31,52 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the Storage Account where the Table exists.
+     * The ID of the Storage Account where the Table exists.
      * 
      */
-    @Import(name="storageAccountName", required=true)
-    private String storageAccountName;
+    @Import(name="storageAccountId")
+    private @Nullable String storageAccountId;
+
+    /**
+     * @return The ID of the Storage Account where the Table exists.
+     * 
+     */
+    public Optional<String> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+
+    /**
+     * The name of the Storage Account where the Table exists.
+     * 
+     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
+    @Import(name="storageAccountName")
+    private @Nullable String storageAccountName;
 
     /**
      * @return The name of the Storage Account where the Table exists.
      * 
+     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     * 
      */
-    public String storageAccountName() {
-        return this.storageAccountName;
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
+    public Optional<String> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
     private GetTablePlainArgs() {}
 
     private GetTablePlainArgs(GetTablePlainArgs $) {
         this.name = $.name;
+        this.storageAccountId = $.storageAccountId;
         this.storageAccountName = $.storageAccountName;
     }
 
@@ -80,12 +110,29 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param storageAccountName The name of the Storage Account where the Table exists.
+         * @param storageAccountId The ID of the Storage Account where the Table exists.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountName(String storageAccountName) {
+        public Builder storageAccountId(@Nullable String storageAccountId) {
+            $.storageAccountId = storageAccountId;
+            return this;
+        }
+
+        /**
+         * @param storageAccountName The name of the Storage Account where the Table exists.
+         * 
+         * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider */
+        public Builder storageAccountName(@Nullable String storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
@@ -93,9 +140,6 @@ public final class GetTablePlainArgs extends com.pulumi.resources.InvokeArgs {
         public GetTablePlainArgs build() {
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("GetTablePlainArgs", "name");
-            }
-            if ($.storageAccountName == null) {
-                throw new MissingRequiredPropertyException("GetTablePlainArgs", "storageAccountName");
             }
             return $;
         }

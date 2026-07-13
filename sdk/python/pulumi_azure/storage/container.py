@@ -165,7 +165,8 @@ class _ContainerState:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering Container resources.
 
@@ -185,6 +186,7 @@ class _ContainerState:
         :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+        :param pulumi.Input[_builtins.str] url: The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
         """
         if container_access_type is not None:
             pulumi.set(__self__, "container_access_type", container_access_type)
@@ -212,6 +214,8 @@ class _ContainerState:
             pulumi.log.warn("""storage_account_name is deprecated: the `storage_account_name` property has been deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the Provider.""")
         if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @_builtins.property
     @pulumi.getter(name="containerAccessType")
@@ -340,6 +344,18 @@ class _ContainerState:
     @storage_account_name.setter
     def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "url", value)
 
 
 @pulumi.type_token("azure:storage/container:Container")
@@ -505,6 +521,7 @@ class Container(pulumi.CustomResource):
             __props__.__dict__["has_immutability_policy"] = None
             __props__.__dict__["has_legal_hold"] = None
             __props__.__dict__["resource_manager_id"] = None
+            __props__.__dict__["url"] = None
         super(Container, __self__).__init__(
             'azure:storage/container:Container',
             resource_name,
@@ -524,7 +541,8 @@ class Container(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_manager_id: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Container':
+            storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            url: pulumi.Input[Optional[_builtins.str]] = None) -> 'Container':
         """
         Get an existing Container resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -548,6 +566,7 @@ class Container(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] storage_account_name: The name of the Storage Account where the Container should be created. This property is deprecated in favour of `storage_account_id`.
                
                > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
+        :param pulumi.Input[_builtins.str] url: The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -563,6 +582,7 @@ class Container(pulumi.CustomResource):
         __props__.__dict__["resource_manager_id"] = resource_manager_id
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["storage_account_name"] = storage_account_name
+        __props__.__dict__["url"] = url
         return Container(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -652,4 +672,12 @@ class Container(pulumi.CustomResource):
         > **Note:** Migrating from the deprecated `storage_account_name` to `storage_account_id` is supported without recreation. Any other change to either property will result in the resource being recreated.
         """
         return pulumi.get(self, "storage_account_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[_builtins.str]:
+        """
+        The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+        """
+        return pulumi.get(self, "url")
 

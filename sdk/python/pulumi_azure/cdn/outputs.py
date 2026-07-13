@@ -2429,6 +2429,8 @@ class FrontdoorCustomDomainTls(dict):
         :param _builtins.str certificate_type: Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
                
                > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+               
+               > **Note:** When `certificate_type` is `ManagedCertificate`, `host_name` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
         :param 'FrontdoorCustomDomainTlsCipherSuiteArgs' cipher_suite: A `cipher_suite` block as defined below.
         :param _builtins.str minimum_version: TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
         """
@@ -2460,6 +2462,8 @@ class FrontdoorCustomDomainTls(dict):
         Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 
         > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+
+        > **Note:** When `certificate_type` is `ManagedCertificate`, `host_name` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
         """
         return pulumi.get(self, "certificate_type")
 
@@ -2543,7 +2547,7 @@ class FrontdoorCustomDomainTlsCipherSuiteCustomCiphers(dict):
                  tls12s: Optional[Sequence[_builtins.str]] = None,
                  tls13s: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] tls12s: A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+        :param Sequence[_builtins.str] tls12s: A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
                
                > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimum_version` is `TLS12` and `type` is `Customized`.
         :param Sequence[_builtins.str] tls13s: A set of TLS 1.3 cipher suites. Possible values are `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384`.
@@ -2559,7 +2563,7 @@ class FrontdoorCustomDomainTlsCipherSuiteCustomCiphers(dict):
     @pulumi.getter
     def tls12s(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+        A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
 
         > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimum_version` is `TLS12` and `type` is `Customized`.
         """

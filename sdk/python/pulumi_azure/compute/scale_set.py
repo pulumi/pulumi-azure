@@ -1051,7 +1051,7 @@ class ScaleSet(pulumi.CustomResource):
             },
             health_probe_id=example_probe.id,
             sku={
-                "name": "Standard_F2",
+                "name": "Standard_D4_v5",
                 "tier": "Standard",
                 "capacity": 2,
             },
@@ -1139,7 +1139,7 @@ class ScaleSet(pulumi.CustomResource):
             resource_group_name=example.name,
             upgrade_policy_mode="Manual",
             sku={
-                "name": "Standard_F2",
+                "name": "Standard_D4_v5",
                 "tier": "Standard",
                 "capacity": 2,
             },
@@ -1326,7 +1326,7 @@ class ScaleSet(pulumi.CustomResource):
             },
             health_probe_id=example_probe.id,
             sku={
-                "name": "Standard_F2",
+                "name": "Standard_D4_v5",
                 "tier": "Standard",
                 "capacity": 2,
             },
@@ -1414,7 +1414,7 @@ class ScaleSet(pulumi.CustomResource):
             resource_group_name=example.name,
             upgrade_policy_mode="Manual",
             sku={
-                "name": "Standard_F2",
+                "name": "Standard_D4_v5",
                 "tier": "Standard",
                 "capacity": 2,
             },

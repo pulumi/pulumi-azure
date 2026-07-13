@@ -4959,6 +4959,8 @@ type FrontdoorCustomDomainTls struct {
 	// Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	//
 	// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+	//
+	// > **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
 	CertificateType *string `pulumi:"certificateType"`
 	// A `cipherSuite` block as defined below.
 	CipherSuite *FrontdoorCustomDomainTlsCipherSuite `pulumi:"cipherSuite"`
@@ -4987,6 +4989,8 @@ type FrontdoorCustomDomainTlsArgs struct {
 	// Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 	//
 	// > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+	//
+	// > **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
 	CertificateType pulumi.StringPtrInput `pulumi:"certificateType"`
 	// A `cipherSuite` block as defined below.
 	CipherSuite FrontdoorCustomDomainTlsCipherSuitePtrInput `pulumi:"cipherSuite"`
@@ -5083,6 +5087,8 @@ func (o FrontdoorCustomDomainTlsOutput) CdnFrontdoorSecretId() pulumi.StringPtrO
 // Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 //
 // > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+//
+// > **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
 func (o FrontdoorCustomDomainTlsOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FrontdoorCustomDomainTls) *string { return v.CertificateType }).(pulumi.StringPtrOutput)
 }
@@ -5141,6 +5147,8 @@ func (o FrontdoorCustomDomainTlsPtrOutput) CdnFrontdoorSecretId() pulumi.StringP
 // Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
 //
 // > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+//
+// > **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
 func (o FrontdoorCustomDomainTlsPtrOutput) CertificateType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FrontdoorCustomDomainTls) *string {
 		if v == nil {
@@ -5347,7 +5355,7 @@ func (o FrontdoorCustomDomainTlsCipherSuitePtrOutput) Type() pulumi.StringPtrOut
 }
 
 type FrontdoorCustomDomainTlsCipherSuiteCustomCiphers struct {
-	// A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+	// A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
 	//
 	// > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
 	Tls12s []string `pulumi:"tls12s"`
@@ -5369,7 +5377,7 @@ type FrontdoorCustomDomainTlsCipherSuiteCustomCiphersInput interface {
 }
 
 type FrontdoorCustomDomainTlsCipherSuiteCustomCiphersArgs struct {
-	// A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+	// A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
 	//
 	// > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
 	Tls12s pulumi.StringArrayInput `pulumi:"tls12s"`
@@ -5456,7 +5464,7 @@ func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput) ToFrontdoorCusto
 	}).(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput)
 }
 
-// A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+// A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
 //
 // > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
 func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput) Tls12s() pulumi.StringArrayOutput {
@@ -5494,7 +5502,7 @@ func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput) Elem() Frontd
 	}).(FrontdoorCustomDomainTlsCipherSuiteCustomCiphersOutput)
 }
 
-// A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+// A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
 //
 // > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
 func (o FrontdoorCustomDomainTlsCipherSuiteCustomCiphersPtrOutput) Tls12s() pulumi.StringArrayOutput {

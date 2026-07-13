@@ -18,6 +18,8 @@ from .get_pool import *
 from .get_snapshot import *
 from .get_snapshot_policy import *
 from .get_volume import *
+from .get_volume_bucket import *
+from .get_volume_bucket_with_server import *
 from .get_volume_group_oracle import *
 from .get_volume_group_sap_hana import *
 from .get_volume_quota_rule import *
@@ -25,6 +27,8 @@ from .pool import *
 from .snapshot import *
 from .snapshot_policy import *
 from .volume import *
+from .volume_bucket import *
+from .volume_bucket_with_server import *
 from .volume_group_oracle import *
 from .volume_group_sap_hana import *
 from .volume_quota_rule import *

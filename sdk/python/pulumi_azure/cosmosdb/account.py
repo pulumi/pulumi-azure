@@ -43,6 +43,7 @@ class AccountArgs:
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -113,7 +114,12 @@ class AccountArgs:
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if local_authentication_disabled is not None:
+            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+        if local_authentication_disabled is not None:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_hsm_key_id is not None:
@@ -355,12 +361,22 @@ class AccountArgs:
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
+    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
     def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -519,6 +535,7 @@ class _AccountState:
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -622,7 +639,12 @@ class _AccountState:
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if local_authentication_disabled is not None:
+            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+        if local_authentication_disabled is not None:
             pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
+        if local_authentication_enabled is not None:
+            pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_hsm_key_id is not None:
@@ -884,12 +906,22 @@ class _AccountState:
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
+    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
     def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "local_authentication_disabled")
 
     @local_authentication_disabled.setter
     def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "local_authentication_disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "local_authentication_enabled")
+
+    @local_authentication_enabled.setter
+    def local_authentication_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "local_authentication_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1242,6 +1274,7 @@ class Account(pulumi.CustomResource):
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1530,6 +1563,7 @@ class Account(pulumi.CustomResource):
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1578,6 +1612,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["kind"] = kind
             __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
+            __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             __props__.__dict__["minimal_tls_version"] = minimal_tls_version
@@ -1645,6 +1680,7 @@ class Account(pulumi.CustomResource):
             key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1736,6 +1772,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["kind"] = kind
         __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
+        __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["minimal_tls_version"] = minimal_tls_version
@@ -1886,8 +1923,14 @@ class Account(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="localAuthenticationDisabled")
-    def local_authentication_disabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
+    def local_authentication_disabled(self) -> pulumi.Output[_builtins.bool]:
         return pulumi.get(self, "local_authentication_disabled")
+
+    @_builtins.property
+    @pulumi.getter(name="localAuthenticationEnabled")
+    def local_authentication_enabled(self) -> pulumi.Output[_builtins.bool]:
+        return pulumi.get(self, "local_authentication_enabled")
 
     @_builtins.property
     @pulumi.getter

@@ -109,7 +109,7 @@ export class Environment extends pulumi.CustomResource {
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      *
-     * > **Note:** The Subnet must have a `/21` or larger address space.
+     * > **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
      */
     declare public readonly infrastructureSubnetId: pulumi.Output<string | undefined>;
     /**
@@ -278,7 +278,7 @@ export interface EnvironmentState {
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      *
-     * > **Note:** The Subnet must have a `/21` or larger address space.
+     * > **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
      */
     infrastructureSubnetId?: pulumi.Input<string | undefined>;
     /**
@@ -368,7 +368,7 @@ export interface EnvironmentArgs {
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      *
-     * > **Note:** The Subnet must have a `/21` or larger address space.
+     * > **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
      */
     infrastructureSubnetId?: pulumi.Input<string | undefined>;
     /**

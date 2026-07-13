@@ -42,6 +42,7 @@ class WorkspaceArgs:
                  serverless_compute: pulumi.Input[Optional['WorkspaceServerlessComputeArgs']] = None,
                  service_side_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  v1_legacy_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
@@ -76,6 +77,7 @@ class WorkspaceArgs:
                
                > **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         :param pulumi.Input[_builtins.str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
+        :param pulumi.Input[_builtins.str] storage_account_access_type: The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] v1_legacy_mode_enabled: Enable V1 API features, enabling `v1_legacy_mode` may prevent you from using features provided by the v2 API. Defaults to `false`.
         """
@@ -116,6 +118,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "service_side_encryption_enabled", service_side_encryption_enabled)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
+        if storage_account_access_type is not None:
+            pulumi.set(__self__, "storage_account_access_type", storage_account_access_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if v1_legacy_mode_enabled is not None:
@@ -382,6 +386,18 @@ class WorkspaceArgs:
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountAccessType")
+    def storage_account_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+        """
+        return pulumi.get(self, "storage_account_access_type")
+
+    @storage_account_access_type.setter
+    def storage_account_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_account_access_type", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -430,6 +446,7 @@ class _WorkspaceState:
                  serverless_compute: pulumi.Input[Optional['WorkspaceServerlessComputeArgs']] = None,
                  service_side_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  v1_legacy_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -464,6 +481,7 @@ class _WorkspaceState:
                
                > **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         :param pulumi.Input[_builtins.str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
+        :param pulumi.Input[_builtins.str] storage_account_access_type: The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
                
                > **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -513,6 +531,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "service_side_encryption_enabled", service_side_encryption_enabled)
         if sku_name is not None:
             pulumi.set(__self__, "sku_name", sku_name)
+        if storage_account_access_type is not None:
+            pulumi.set(__self__, "storage_account_access_type", storage_account_access_type)
         if storage_account_id is not None:
             pulumi.set(__self__, "storage_account_id", storage_account_id)
         if tags is not None:
@@ -781,6 +801,18 @@ class _WorkspaceState:
         pulumi.set(self, "sku_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountAccessType")
+    def storage_account_access_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+        """
+        return pulumi.get(self, "storage_account_access_type")
+
+    @storage_account_access_type.setter
+    def storage_account_access_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_account_access_type", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageAccountId")
     def storage_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -857,6 +889,7 @@ class Workspace(pulumi.CustomResource):
                  serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
                  service_side_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  v1_legacy_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1016,6 +1049,7 @@ class Workspace(pulumi.CustomResource):
                
                > **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         :param pulumi.Input[_builtins.str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
+        :param pulumi.Input[_builtins.str] storage_account_access_type: The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
                
                > **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -1190,6 +1224,7 @@ class Workspace(pulumi.CustomResource):
                  serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
                  service_side_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  v1_legacy_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1230,6 +1265,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["serverless_compute"] = serverless_compute
             __props__.__dict__["service_side_encryption_enabled"] = service_side_encryption_enabled
             __props__.__dict__["sku_name"] = sku_name
+            __props__.__dict__["storage_account_access_type"] = storage_account_access_type
             if storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_account_id'")
             __props__.__dict__["storage_account_id"] = storage_account_id
@@ -1268,6 +1304,7 @@ class Workspace(pulumi.CustomResource):
             serverless_compute: pulumi.Input[Optional[Union['WorkspaceServerlessComputeArgs', 'WorkspaceServerlessComputeArgsDict']]] = None,
             service_side_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_account_access_type: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             v1_legacy_mode_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1306,6 +1343,7 @@ class Workspace(pulumi.CustomResource):
                
                > **Note:** Setting `service_side_encryption_enabled` requires the `encryption` block to be set. When you use service-side encryption, Azure charges will continue to accrue during the soft delete retention period.
         :param pulumi.Input[_builtins.str] sku_name: SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
+        :param pulumi.Input[_builtins.str] storage_account_access_type: The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
         :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
                
                > **Note:** The `account_tier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -1338,6 +1376,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["serverless_compute"] = serverless_compute
         __props__.__dict__["service_side_encryption_enabled"] = service_side_encryption_enabled
         __props__.__dict__["sku_name"] = sku_name
+        __props__.__dict__["storage_account_access_type"] = storage_account_access_type
         __props__.__dict__["storage_account_id"] = storage_account_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["v1_legacy_mode_enabled"] = v1_legacy_mode_enabled
@@ -1517,6 +1556,14 @@ class Workspace(pulumi.CustomResource):
         SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
         """
         return pulumi.get(self, "sku_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountAccessType")
+    def storage_account_access_type(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+        """
+        return pulumi.get(self, "storage_account_access_type")
 
     @_builtins.property
     @pulumi.getter(name="storageAccountId")

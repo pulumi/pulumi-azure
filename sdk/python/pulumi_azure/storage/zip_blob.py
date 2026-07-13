@@ -19,8 +19,6 @@ __all__ = ['ZipBlobArgs', 'ZipBlob']
 @pulumi.input_type
 class ZipBlobArgs:
     def __init__(__self__, *,
-                 storage_account_name: pulumi.Input[_builtins.str],
-                 storage_container_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
                  access_tier: pulumi.Input[Optional[_builtins.str]] = None,
                  cache_control: pulumi.Input[Optional[_builtins.str]] = None,
@@ -33,12 +31,13 @@ class ZipBlobArgs:
                  parallelism: pulumi.Input[Optional[_builtins.int]] = None,
                  size: pulumi.Input[Optional[_builtins.int]] = None,
                  source_content: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_uri: pulumi.Input[Optional[_builtins.str]] = None):
+                 source_uri: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ZipBlob resource.
         """
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
-        pulumi.set(__self__, "storage_container_name", storage_container_name)
         pulumi.set(__self__, "type", type)
         if access_tier is not None:
             pulumi.set(__self__, "access_tier", access_tier)
@@ -64,24 +63,18 @@ class ZipBlobArgs:
             pulumi.set(__self__, "source_content", source_content)
         if source_uri is not None:
             pulumi.set(__self__, "source_uri", source_uri)
-
-    @_builtins.property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageContainerName")
-    def storage_container_name(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "storage_container_name")
-
-    @storage_container_name.setter
-    def storage_container_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_container_name", value)
+        if storage_account_name is not None:
+            warnings.warn("""`storage_account_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: `storage_account_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_container_id is not None:
+            pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_container_name is not None:
+            warnings.warn("""`storage_container_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""storage_container_name is deprecated: `storage_container_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
+        if storage_container_name is not None:
+            pulumi.set(__self__, "storage_container_name", storage_container_name)
 
     @_builtins.property
     @pulumi.getter
@@ -200,6 +193,35 @@ class ZipBlobArgs:
     def source_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_uri", value)
 
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""`storage_account_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageContainerId")
+    def storage_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "storage_container_id")
+
+    @storage_container_id.setter
+    def storage_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_container_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageContainerName")
+    @_utilities.deprecated("""`storage_container_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
+    def storage_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "storage_container_name")
+
+    @storage_container_name.setter
+    def storage_container_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_container_name", value)
+
 
 @pulumi.input_type
 class _ZipBlobState:
@@ -217,6 +239,7 @@ class _ZipBlobState:
                  source_content: pulumi.Input[Optional[_builtins.str]] = None,
                  source_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  url: pulumi.Input[Optional[_builtins.str]] = None):
@@ -248,7 +271,15 @@ class _ZipBlobState:
         if source_uri is not None:
             pulumi.set(__self__, "source_uri", source_uri)
         if storage_account_name is not None:
+            warnings.warn("""`storage_account_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""storage_account_name is deprecated: `storage_account_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
+        if storage_account_name is not None:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if storage_container_id is not None:
+            pulumi.set(__self__, "storage_container_id", storage_container_id)
+        if storage_container_name is not None:
+            warnings.warn("""`storage_container_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""storage_container_name is deprecated: `storage_container_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
         if storage_container_name is not None:
             pulumi.set(__self__, "storage_container_name", storage_container_name)
         if type is not None:
@@ -366,6 +397,7 @@ class _ZipBlobState:
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""`storage_account_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
     def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_account_name")
 
@@ -374,7 +406,17 @@ class _ZipBlobState:
         pulumi.set(self, "storage_account_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageContainerId")
+    def storage_container_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "storage_container_id")
+
+    @storage_container_id.setter
+    def storage_container_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_container_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageContainerName")
+    @_utilities.deprecated("""`storage_container_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
     def storage_container_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         return pulumi.get(self, "storage_container_name")
 
@@ -425,6 +467,7 @@ class ZipBlob(pulumi.CustomResource):
                  source_content: pulumi.Input[Optional[_builtins.str]] = None,
                  source_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -471,6 +514,7 @@ class ZipBlob(pulumi.CustomResource):
                  source_content: pulumi.Input[Optional[_builtins.str]] = None,
                  source_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -495,11 +539,8 @@ class ZipBlob(pulumi.CustomResource):
             __props__.__dict__["size"] = size
             __props__.__dict__["source_content"] = source_content
             __props__.__dict__["source_uri"] = source_uri
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
             __props__.__dict__["storage_account_name"] = storage_account_name
-            if storage_container_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_container_name'")
+            __props__.__dict__["storage_container_id"] = storage_container_id
             __props__.__dict__["storage_container_name"] = storage_container_name
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -528,6 +569,7 @@ class ZipBlob(pulumi.CustomResource):
             source_content: pulumi.Input[Optional[_builtins.str]] = None,
             source_uri: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
             storage_container_name: pulumi.Input[Optional[_builtins.str]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
             url: pulumi.Input[Optional[_builtins.str]] = None) -> 'ZipBlob':
@@ -556,6 +598,7 @@ class ZipBlob(pulumi.CustomResource):
         __props__.__dict__["source_content"] = source_content
         __props__.__dict__["source_uri"] = source_uri
         __props__.__dict__["storage_account_name"] = storage_account_name
+        __props__.__dict__["storage_container_id"] = storage_container_id
         __props__.__dict__["storage_container_name"] = storage_container_name
         __props__.__dict__["type"] = type
         __props__.__dict__["url"] = url
@@ -623,11 +666,18 @@ class ZipBlob(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
+    @_utilities.deprecated("""`storage_account_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
     def storage_account_name(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "storage_account_name")
 
     @_builtins.property
+    @pulumi.getter(name="storageContainerId")
+    def storage_container_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "storage_container_id")
+
+    @_builtins.property
     @pulumi.getter(name="storageContainerName")
+    @_utilities.deprecated("""`storage_container_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
     def storage_container_name(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "storage_container_name")
 

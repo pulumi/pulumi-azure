@@ -150,14 +150,14 @@ public class ScheduledAction extends com.pulumi.resources.CustomResource {
         return this.emailAddresses;
     }
     /**
-     * Subject of the email. Length is limited to 70 characters.
+     * Subject of the email. Length is limited to 50 characters.
      * 
      */
     @Export(name="emailSubject", refs={String.class}, tree="[0]")
     private Output<String> emailSubject;
 
     /**
-     * @return Subject of the email. Length is limited to 70 characters.
+     * @return Subject of the email. Length is limited to 50 characters.
      * 
      */
     public Output<String> emailSubject() {

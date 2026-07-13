@@ -285,6 +285,8 @@ type ManagedInstanceTransparentDataEncryption struct {
 	//
 	// > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 	//
+	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
+	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId   pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
@@ -331,6 +333,8 @@ type managedInstanceTransparentDataEncryptionState struct {
 	//
 	// > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 	//
+	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
+	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId   *string `pulumi:"keyVaultKeyId"`
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
@@ -344,6 +348,8 @@ type ManagedInstanceTransparentDataEncryptionState struct {
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	//
 	// > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+	//
+	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
 	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId   pulumi.StringPtrInput
@@ -363,6 +369,8 @@ type managedInstanceTransparentDataEncryptionArgs struct {
 	//
 	// > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
 	//
+	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
+	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId   *string `pulumi:"keyVaultKeyId"`
 	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
@@ -377,6 +385,8 @@ type ManagedInstanceTransparentDataEncryptionArgs struct {
 	// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 	//
 	// > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+	//
+	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
 	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 	KeyVaultKeyId   pulumi.StringPtrInput
@@ -480,6 +490,8 @@ func (o ManagedInstanceTransparentDataEncryptionOutput) AutoRotationEnabled() pu
 // To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
 //
 // > **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+//
+// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
 //
 // > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 func (o ManagedInstanceTransparentDataEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {

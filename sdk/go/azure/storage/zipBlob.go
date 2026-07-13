@@ -16,22 +16,25 @@ import (
 type ZipBlob struct {
 	pulumi.CustomResourceState
 
-	AccessTier           pulumi.StringOutput    `pulumi:"accessTier"`
-	CacheControl         pulumi.StringPtrOutput `pulumi:"cacheControl"`
-	Content              pulumi.ArchiveOutput   `pulumi:"content"`
-	ContentMd5           pulumi.StringPtrOutput `pulumi:"contentMd5"`
-	ContentType          pulumi.StringPtrOutput `pulumi:"contentType"`
-	EncryptionScope      pulumi.StringPtrOutput `pulumi:"encryptionScope"`
-	Metadata             pulumi.StringMapOutput `pulumi:"metadata"`
-	Name                 pulumi.StringOutput    `pulumi:"name"`
-	Parallelism          pulumi.IntPtrOutput    `pulumi:"parallelism"`
-	Size                 pulumi.IntPtrOutput    `pulumi:"size"`
-	SourceContent        pulumi.StringPtrOutput `pulumi:"sourceContent"`
-	SourceUri            pulumi.StringPtrOutput `pulumi:"sourceUri"`
-	StorageAccountName   pulumi.StringOutput    `pulumi:"storageAccountName"`
-	StorageContainerName pulumi.StringOutput    `pulumi:"storageContainerName"`
-	Type                 pulumi.StringOutput    `pulumi:"type"`
-	Url                  pulumi.StringOutput    `pulumi:"url"`
+	AccessTier      pulumi.StringOutput    `pulumi:"accessTier"`
+	CacheControl    pulumi.StringPtrOutput `pulumi:"cacheControl"`
+	Content         pulumi.ArchiveOutput   `pulumi:"content"`
+	ContentMd5      pulumi.StringPtrOutput `pulumi:"contentMd5"`
+	ContentType     pulumi.StringPtrOutput `pulumi:"contentType"`
+	EncryptionScope pulumi.StringPtrOutput `pulumi:"encryptionScope"`
+	Metadata        pulumi.StringMapOutput `pulumi:"metadata"`
+	Name            pulumi.StringOutput    `pulumi:"name"`
+	Parallelism     pulumi.IntPtrOutput    `pulumi:"parallelism"`
+	Size            pulumi.IntPtrOutput    `pulumi:"size"`
+	SourceContent   pulumi.StringPtrOutput `pulumi:"sourceContent"`
+	SourceUri       pulumi.StringPtrOutput `pulumi:"sourceUri"`
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
+	StorageContainerId pulumi.StringOutput `pulumi:"storageContainerId"`
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageContainerName pulumi.StringOutput `pulumi:"storageContainerName"`
+	Type                 pulumi.StringOutput `pulumi:"type"`
+	Url                  pulumi.StringOutput `pulumi:"url"`
 }
 
 // NewZipBlob registers a new resource with the given unique name, arguments, and options.
@@ -41,12 +44,6 @@ func NewZipBlob(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.StorageAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
-	}
-	if args.StorageContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageContainerName'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -73,38 +70,44 @@ func GetZipBlob(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ZipBlob resources.
 type zipBlobState struct {
-	AccessTier           *string           `pulumi:"accessTier"`
-	CacheControl         *string           `pulumi:"cacheControl"`
-	Content              pulumi.Archive    `pulumi:"content"`
-	ContentMd5           *string           `pulumi:"contentMd5"`
-	ContentType          *string           `pulumi:"contentType"`
-	EncryptionScope      *string           `pulumi:"encryptionScope"`
-	Metadata             map[string]string `pulumi:"metadata"`
-	Name                 *string           `pulumi:"name"`
-	Parallelism          *int              `pulumi:"parallelism"`
-	Size                 *int              `pulumi:"size"`
-	SourceContent        *string           `pulumi:"sourceContent"`
-	SourceUri            *string           `pulumi:"sourceUri"`
-	StorageAccountName   *string           `pulumi:"storageAccountName"`
-	StorageContainerName *string           `pulumi:"storageContainerName"`
-	Type                 *string           `pulumi:"type"`
-	Url                  *string           `pulumi:"url"`
+	AccessTier      *string           `pulumi:"accessTier"`
+	CacheControl    *string           `pulumi:"cacheControl"`
+	Content         pulumi.Archive    `pulumi:"content"`
+	ContentMd5      *string           `pulumi:"contentMd5"`
+	ContentType     *string           `pulumi:"contentType"`
+	EncryptionScope *string           `pulumi:"encryptionScope"`
+	Metadata        map[string]string `pulumi:"metadata"`
+	Name            *string           `pulumi:"name"`
+	Parallelism     *int              `pulumi:"parallelism"`
+	Size            *int              `pulumi:"size"`
+	SourceContent   *string           `pulumi:"sourceContent"`
+	SourceUri       *string           `pulumi:"sourceUri"`
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	StorageContainerId *string `pulumi:"storageContainerId"`
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageContainerName *string `pulumi:"storageContainerName"`
+	Type                 *string `pulumi:"type"`
+	Url                  *string `pulumi:"url"`
 }
 
 type ZipBlobState struct {
-	AccessTier           pulumi.StringPtrInput
-	CacheControl         pulumi.StringPtrInput
-	Content              pulumi.ArchiveInput
-	ContentMd5           pulumi.StringPtrInput
-	ContentType          pulumi.StringPtrInput
-	EncryptionScope      pulumi.StringPtrInput
-	Metadata             pulumi.StringMapInput
-	Name                 pulumi.StringPtrInput
-	Parallelism          pulumi.IntPtrInput
-	Size                 pulumi.IntPtrInput
-	SourceContent        pulumi.StringPtrInput
-	SourceUri            pulumi.StringPtrInput
-	StorageAccountName   pulumi.StringPtrInput
+	AccessTier      pulumi.StringPtrInput
+	CacheControl    pulumi.StringPtrInput
+	Content         pulumi.ArchiveInput
+	ContentMd5      pulumi.StringPtrInput
+	ContentType     pulumi.StringPtrInput
+	EncryptionScope pulumi.StringPtrInput
+	Metadata        pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Parallelism     pulumi.IntPtrInput
+	Size            pulumi.IntPtrInput
+	SourceContent   pulumi.StringPtrInput
+	SourceUri       pulumi.StringPtrInput
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName pulumi.StringPtrInput
+	StorageContainerId pulumi.StringPtrInput
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 	StorageContainerName pulumi.StringPtrInput
 	Type                 pulumi.StringPtrInput
 	Url                  pulumi.StringPtrInput
@@ -115,39 +118,45 @@ func (ZipBlobState) ElementType() reflect.Type {
 }
 
 type zipBlobArgs struct {
-	AccessTier           *string           `pulumi:"accessTier"`
-	CacheControl         *string           `pulumi:"cacheControl"`
-	Content              pulumi.Archive    `pulumi:"content"`
-	ContentMd5           *string           `pulumi:"contentMd5"`
-	ContentType          *string           `pulumi:"contentType"`
-	EncryptionScope      *string           `pulumi:"encryptionScope"`
-	Metadata             map[string]string `pulumi:"metadata"`
-	Name                 *string           `pulumi:"name"`
-	Parallelism          *int              `pulumi:"parallelism"`
-	Size                 *int              `pulumi:"size"`
-	SourceContent        *string           `pulumi:"sourceContent"`
-	SourceUri            *string           `pulumi:"sourceUri"`
-	StorageAccountName   string            `pulumi:"storageAccountName"`
-	StorageContainerName string            `pulumi:"storageContainerName"`
-	Type                 string            `pulumi:"type"`
+	AccessTier      *string           `pulumi:"accessTier"`
+	CacheControl    *string           `pulumi:"cacheControl"`
+	Content         pulumi.Archive    `pulumi:"content"`
+	ContentMd5      *string           `pulumi:"contentMd5"`
+	ContentType     *string           `pulumi:"contentType"`
+	EncryptionScope *string           `pulumi:"encryptionScope"`
+	Metadata        map[string]string `pulumi:"metadata"`
+	Name            *string           `pulumi:"name"`
+	Parallelism     *int              `pulumi:"parallelism"`
+	Size            *int              `pulumi:"size"`
+	SourceContent   *string           `pulumi:"sourceContent"`
+	SourceUri       *string           `pulumi:"sourceUri"`
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	StorageContainerId *string `pulumi:"storageContainerId"`
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageContainerName *string `pulumi:"storageContainerName"`
+	Type                 string  `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ZipBlob resource.
 type ZipBlobArgs struct {
-	AccessTier           pulumi.StringPtrInput
-	CacheControl         pulumi.StringPtrInput
-	Content              pulumi.ArchiveInput
-	ContentMd5           pulumi.StringPtrInput
-	ContentType          pulumi.StringPtrInput
-	EncryptionScope      pulumi.StringPtrInput
-	Metadata             pulumi.StringMapInput
-	Name                 pulumi.StringPtrInput
-	Parallelism          pulumi.IntPtrInput
-	Size                 pulumi.IntPtrInput
-	SourceContent        pulumi.StringPtrInput
-	SourceUri            pulumi.StringPtrInput
-	StorageAccountName   pulumi.StringInput
-	StorageContainerName pulumi.StringInput
+	AccessTier      pulumi.StringPtrInput
+	CacheControl    pulumi.StringPtrInput
+	Content         pulumi.ArchiveInput
+	ContentMd5      pulumi.StringPtrInput
+	ContentType     pulumi.StringPtrInput
+	EncryptionScope pulumi.StringPtrInput
+	Metadata        pulumi.StringMapInput
+	Name            pulumi.StringPtrInput
+	Parallelism     pulumi.IntPtrInput
+	Size            pulumi.IntPtrInput
+	SourceContent   pulumi.StringPtrInput
+	SourceUri       pulumi.StringPtrInput
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName pulumi.StringPtrInput
+	StorageContainerId pulumi.StringPtrInput
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageContainerName pulumi.StringPtrInput
 	Type                 pulumi.StringInput
 }
 
@@ -286,10 +295,16 @@ func (o ZipBlobOutput) SourceUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ZipBlob) pulumi.StringPtrOutput { return v.SourceUri }).(pulumi.StringPtrOutput)
 }
 
+// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 func (o ZipBlobOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ZipBlob) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
+func (o ZipBlobOutput) StorageContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ZipBlob) pulumi.StringOutput { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
+// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 func (o ZipBlobOutput) StorageContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ZipBlob) pulumi.StringOutput { return v.StorageContainerName }).(pulumi.StringOutput)
 }

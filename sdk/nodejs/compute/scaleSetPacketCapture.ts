@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     name: "example-vmss",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     sku: "Standard_F2",
+ *     sku: "Standard_D4_v5",
  *     instances: 4,
  *     adminUsername: "adminuser",
  *     adminPassword: "P@ssword1234!",

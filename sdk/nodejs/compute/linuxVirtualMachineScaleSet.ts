@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     name: "example-vmss",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     sku: "Standard_F2",
+ *     sku: "Standard_D4_v5",
  *     instances: 1,
  *     adminUsername: "adminuser",
  *     adminSshKeys: [{
@@ -321,7 +321,7 @@ export class LinuxVirtualMachineScaleSet extends pulumi.CustomResource {
      */
     declare public readonly singlePlacementGroup: pulumi.Output<boolean | undefined>;
     /**
-     * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+     * The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
      */
     declare public readonly sku: pulumi.Output<string>;
     /**
@@ -738,7 +738,7 @@ export interface LinuxVirtualMachineScaleSetState {
      */
     singlePlacementGroup?: pulumi.Input<boolean | undefined>;
     /**
-     * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+     * The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
      */
     sku?: pulumi.Input<string | undefined>;
     /**
@@ -1008,7 +1008,7 @@ export interface LinuxVirtualMachineScaleSetArgs {
      */
     singlePlacementGroup?: pulumi.Input<boolean | undefined>;
     /**
-     * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+     * The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
      */
     sku: pulumi.Input<string>;
     /**

@@ -28,7 +28,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
      */
     private @Nullable String nodeVersion;
     /**
-     * @return The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
+     * @return The PowerShell Core version to use. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
      * 
      */
     private @Nullable String powershellCoreVersion;
@@ -66,7 +66,7 @@ public final class WindowsFunctionAppSlotSiteConfigApplicationStack {
         return Optional.ofNullable(this.nodeVersion);
     }
     /**
-     * @return The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
+     * @return The PowerShell Core version to use. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
      * 
      */
     public Optional<String> powershellCoreVersion() {

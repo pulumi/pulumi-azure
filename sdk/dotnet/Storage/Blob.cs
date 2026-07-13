@@ -47,8 +47,7 @@ namespace Pulumi.Azure.Storage
     ///     var exampleBlob = new Azure.Storage.Blob("example", new()
     ///     {
     ///         Name = "my-awesome-content.zip",
-    ///         StorageAccountName = exampleAccount.Name,
-    ///         StorageContainerName = exampleContainer.Name,
+    ///         StorageContainerId = exampleContainer.Id,
     ///         Type = "Block",
     ///         Source = new FileAsset("some-local-file.zip"),
     ///     });
@@ -145,12 +144,22 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("storageContainerId")]
+        public Output<string> StorageContainerId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
         [Output("storageContainerName")]
         public Output<string> StorageContainerName { get; private set; } = null!;
@@ -297,15 +306,25 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
+
+        /// <summary>
+        /// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageContainerId")]
+        public Input<string>? StorageContainerId { get; set; }
 
         /// <summary>
         /// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
-        [Input("storageContainerName", required: true)]
-        public Input<string> StorageContainerName { get; set; } = null!;
+        [Input("storageContainerName")]
+        public Input<string>? StorageContainerName { get; set; }
 
         /// <summary>
         /// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
@@ -405,12 +424,22 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
+        /// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageContainerId")]
+        public Input<string>? StorageContainerId { get; set; }
+
+        /// <summary>
         /// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
         [Input("storageContainerName")]
         public Input<string>? StorageContainerName { get; set; }

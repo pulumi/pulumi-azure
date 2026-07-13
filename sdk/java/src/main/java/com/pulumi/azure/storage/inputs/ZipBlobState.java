@@ -102,16 +102,47 @@ public final class ZipBlobState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sourceUri);
     }
 
+    /**
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="storageAccountName")
     private @Nullable Output<String> storageAccountName;
 
+    /**
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<String>> storageAccountName() {
         return Optional.ofNullable(this.storageAccountName);
     }
 
+    @Import(name="storageContainerId")
+    private @Nullable Output<String> storageContainerId;
+
+    public Optional<Output<String>> storageContainerId() {
+        return Optional.ofNullable(this.storageContainerId);
+    }
+
+    /**
+     * @deprecated
+     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="storageContainerName")
     private @Nullable Output<String> storageContainerName;
 
+    /**
+     * @deprecated
+     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<String>> storageContainerName() {
         return Optional.ofNullable(this.storageContainerName);
     }
@@ -146,6 +177,7 @@ public final class ZipBlobState extends com.pulumi.resources.ResourceArgs {
         this.sourceContent = $.sourceContent;
         this.sourceUri = $.sourceUri;
         this.storageAccountName = $.storageAccountName;
+        this.storageContainerId = $.storageContainerId;
         this.storageContainerName = $.storageContainerName;
         this.type = $.type;
         this.url = $.url;
@@ -277,20 +309,61 @@ public final class ZipBlobState extends com.pulumi.resources.ResourceArgs {
             return sourceUri(Output.of(sourceUri));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
         }
 
+        public Builder storageContainerId(@Nullable Output<String> storageContainerId) {
+            $.storageContainerId = storageContainerId;
+            return this;
+        }
+
+        public Builder storageContainerId(String storageContainerId) {
+            return storageContainerId(Output.of(storageContainerId));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder storageContainerName(@Nullable Output<String> storageContainerName) {
             $.storageContainerName = storageContainerName;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder storageContainerName(String storageContainerName) {
             return storageContainerName(Output.of(storageContainerName));
         }

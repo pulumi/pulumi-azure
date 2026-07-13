@@ -98,6 +98,8 @@ type GetStorageContainerResult struct {
 	ResourceManagerId  string  `pulumi:"resourceManagerId"`
 	StorageAccountId   *string `pulumi:"storageAccountId"`
 	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+	Url string `pulumi:"url"`
 }
 
 func GetStorageContainerOutput(ctx *pulumi.Context, args GetStorageContainerOutputArgs, opts ...pulumi.InvokeOption) GetStorageContainerResultOutput {
@@ -192,6 +194,11 @@ func (o GetStorageContainerResultOutput) StorageAccountId() pulumi.StringPtrOutp
 
 func (o GetStorageContainerResultOutput) StorageAccountName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetStorageContainerResult) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+}
+
+// The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+func (o GetStorageContainerResultOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStorageContainerResult) string { return v.Url }).(pulumi.StringOutput)
 }
 
 func init() {

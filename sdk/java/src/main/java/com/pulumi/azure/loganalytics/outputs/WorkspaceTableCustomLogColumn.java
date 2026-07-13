@@ -28,7 +28,7 @@ public final class WorkspaceTableCustomLogColumn {
      */
     private String name;
     /**
-     * @return The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+     * @return The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
      * 
      */
     private String type;
@@ -56,7 +56,7 @@ public final class WorkspaceTableCustomLogColumn {
         return this.name;
     }
     /**
-     * @return The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+     * @return The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
      * 
      */
     public String type() {

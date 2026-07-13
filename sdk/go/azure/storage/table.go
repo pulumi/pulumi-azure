@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"errors"
 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -77,20 +76,23 @@ type Table struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The Resource Manager ID of this Storage Table.
 	ResourceManagerId pulumi.StringOutput `pulumi:"resourceManagerId"`
+	// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrOutput `pulumi:"storageAccountId"`
 	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
+	//
+	// > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+	StorageAccountName pulumi.StringPtrOutput `pulumi:"storageAccountName"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
 func NewTable(ctx *pulumi.Context,
 	name string, args *TableArgs, opts ...pulumi.ResourceOption) (*Table, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TableArgs{}
 	}
 
-	if args.StorageAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
-	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Table
 	err := ctx.RegisterResource("azure:storage/table:Table", name, args, &resource, opts...)
@@ -120,7 +122,13 @@ type tableState struct {
 	Name *string `pulumi:"name"`
 	// The Resource Manager ID of this Storage Table.
 	ResourceManagerId *string `pulumi:"resourceManagerId"`
+	// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
@@ -131,7 +139,13 @@ type TableState struct {
 	Name pulumi.StringPtrInput
 	// The Resource Manager ID of this Storage Table.
 	ResourceManagerId pulumi.StringPtrInput
+	// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput
 	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
 	StorageAccountName pulumi.StringPtrInput
 }
 
@@ -144,8 +158,14 @@ type tableArgs struct {
 	Acls []TableAcl `pulumi:"acls"`
 	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	//
+	// > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+	StorageAccountName *string `pulumi:"storageAccountName"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -154,8 +174,14 @@ type TableArgs struct {
 	Acls TableAclArrayInput
 	// The name of the storage table. Only Alphanumeric characters allowed, starting with a letter. Must be unique within the storage account the table is located. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput
 	// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-	StorageAccountName pulumi.StringInput
+	//
+	// > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+	StorageAccountName pulumi.StringPtrInput
 }
 
 func (TableArgs) ElementType() reflect.Type {
@@ -260,9 +286,18 @@ func (o TableOutput) ResourceManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.ResourceManagerId }).(pulumi.StringOutput)
 }
 
+// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
+func (o TableOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-func (o TableOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
+//
+// > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+//
+// Deprecated: the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
+func (o TableOutput) StorageAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.StorageAccountName }).(pulumi.StringPtrOutput)
 }
 
 type TableArrayOutput struct{ *pulumi.OutputState }

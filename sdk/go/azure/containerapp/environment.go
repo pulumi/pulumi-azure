@@ -98,7 +98,7 @@ type Environment struct {
 	InfrastructureResourceGroupName pulumi.StringPtrOutput `pulumi:"infrastructureResourceGroupName"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
 	InfrastructureSubnetId pulumi.StringPtrOutput `pulumi:"infrastructureSubnetId"`
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -194,7 +194,7 @@ type environmentState struct {
 	InfrastructureResourceGroupName *string `pulumi:"infrastructureResourceGroupName"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
 	InfrastructureSubnetId *string `pulumi:"infrastructureSubnetId"`
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -251,7 +251,7 @@ type EnvironmentState struct {
 	InfrastructureResourceGroupName pulumi.StringPtrInput
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
 	InfrastructureSubnetId pulumi.StringPtrInput
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -306,7 +306,7 @@ type environmentArgs struct {
 	InfrastructureResourceGroupName *string `pulumi:"infrastructureResourceGroupName"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
 	InfrastructureSubnetId *string `pulumi:"infrastructureSubnetId"`
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -352,7 +352,7 @@ type EnvironmentArgs struct {
 	InfrastructureResourceGroupName pulumi.StringPtrInput
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
-	// > **Note:** The Subnet must have a `/21` or larger address space.
+	// > **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
 	InfrastructureSubnetId pulumi.StringPtrInput
 	// Should the Container Environment operate in Internal Load Balancing Mode? Defaults to `false`. Changing this forces a new resource to be created.
 	//
@@ -507,7 +507,7 @@ func (o EnvironmentOutput) InfrastructureResourceGroupName() pulumi.StringPtrOut
 
 // The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 //
-// > **Note:** The Subnet must have a `/21` or larger address space.
+// > **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
 func (o EnvironmentOutput) InfrastructureSubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringPtrOutput { return v.InfrastructureSubnetId }).(pulumi.StringPtrOutput)
 }

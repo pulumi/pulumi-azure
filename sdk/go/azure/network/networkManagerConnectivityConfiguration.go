@@ -133,6 +133,12 @@ type NetworkManagerConnectivityConfiguration struct {
 
 	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups NetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput `pulumi:"appliesToGroups"`
+	// Whether connected group address overlap is enabled. Defaults to `true`.
+	//
+	// > **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+	ConnectedGroupAddressOverlapEnabled pulumi.BoolPtrOutput `pulumi:"connectedGroupAddressOverlapEnabled"`
+	// Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+	ConnectedGroupPrivateEndpointsScale pulumi.StringPtrOutput `pulumi:"connectedGroupPrivateEndpointsScale"`
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology pulumi.StringOutput `pulumi:"connectivityTopology"`
 	// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
@@ -147,6 +153,8 @@ type NetworkManagerConnectivityConfiguration struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
 	NetworkManagerId pulumi.StringOutput `pulumi:"networkManagerId"`
+	// Whether peering enforcement is enabled. Defaults to `false`.
+	PeeringEnforcementEnabled pulumi.BoolPtrOutput `pulumi:"peeringEnforcementEnabled"`
 }
 
 // NewNetworkManagerConnectivityConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -190,6 +198,12 @@ func GetNetworkManagerConnectivityConfiguration(ctx *pulumi.Context,
 type networkManagerConnectivityConfigurationState struct {
 	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups []NetworkManagerConnectivityConfigurationAppliesToGroup `pulumi:"appliesToGroups"`
+	// Whether connected group address overlap is enabled. Defaults to `true`.
+	//
+	// > **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+	ConnectedGroupAddressOverlapEnabled *bool `pulumi:"connectedGroupAddressOverlapEnabled"`
+	// Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+	ConnectedGroupPrivateEndpointsScale *string `pulumi:"connectedGroupPrivateEndpointsScale"`
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology *string `pulumi:"connectivityTopology"`
 	// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
@@ -204,11 +218,19 @@ type networkManagerConnectivityConfigurationState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
 	NetworkManagerId *string `pulumi:"networkManagerId"`
+	// Whether peering enforcement is enabled. Defaults to `false`.
+	PeeringEnforcementEnabled *bool `pulumi:"peeringEnforcementEnabled"`
 }
 
 type NetworkManagerConnectivityConfigurationState struct {
 	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups NetworkManagerConnectivityConfigurationAppliesToGroupArrayInput
+	// Whether connected group address overlap is enabled. Defaults to `true`.
+	//
+	// > **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+	ConnectedGroupAddressOverlapEnabled pulumi.BoolPtrInput
+	// Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+	ConnectedGroupPrivateEndpointsScale pulumi.StringPtrInput
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology pulumi.StringPtrInput
 	// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
@@ -223,6 +245,8 @@ type NetworkManagerConnectivityConfigurationState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
 	NetworkManagerId pulumi.StringPtrInput
+	// Whether peering enforcement is enabled. Defaults to `false`.
+	PeeringEnforcementEnabled pulumi.BoolPtrInput
 }
 
 func (NetworkManagerConnectivityConfigurationState) ElementType() reflect.Type {
@@ -232,6 +256,12 @@ func (NetworkManagerConnectivityConfigurationState) ElementType() reflect.Type {
 type networkManagerConnectivityConfigurationArgs struct {
 	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups []NetworkManagerConnectivityConfigurationAppliesToGroup `pulumi:"appliesToGroups"`
+	// Whether connected group address overlap is enabled. Defaults to `true`.
+	//
+	// > **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+	ConnectedGroupAddressOverlapEnabled *bool `pulumi:"connectedGroupAddressOverlapEnabled"`
+	// Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+	ConnectedGroupPrivateEndpointsScale *string `pulumi:"connectedGroupPrivateEndpointsScale"`
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology string `pulumi:"connectivityTopology"`
 	// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
@@ -246,12 +276,20 @@ type networkManagerConnectivityConfigurationArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
 	NetworkManagerId string `pulumi:"networkManagerId"`
+	// Whether peering enforcement is enabled. Defaults to `false`.
+	PeeringEnforcementEnabled *bool `pulumi:"peeringEnforcementEnabled"`
 }
 
 // The set of arguments for constructing a NetworkManagerConnectivityConfiguration resource.
 type NetworkManagerConnectivityConfigurationArgs struct {
 	// One or more `appliesToGroup` blocks as defined below.
 	AppliesToGroups NetworkManagerConnectivityConfigurationAppliesToGroupArrayInput
+	// Whether connected group address overlap is enabled. Defaults to `true`.
+	//
+	// > **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+	ConnectedGroupAddressOverlapEnabled pulumi.BoolPtrInput
+	// Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+	ConnectedGroupPrivateEndpointsScale pulumi.StringPtrInput
 	// Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 	ConnectivityTopology pulumi.StringInput
 	// Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are `true` and `false`.
@@ -266,6 +304,8 @@ type NetworkManagerConnectivityConfigurationArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
 	NetworkManagerId pulumi.StringInput
+	// Whether peering enforcement is enabled. Defaults to `false`.
+	PeeringEnforcementEnabled pulumi.BoolPtrInput
 }
 
 func (NetworkManagerConnectivityConfigurationArgs) ElementType() reflect.Type {
@@ -362,6 +402,22 @@ func (o NetworkManagerConnectivityConfigurationOutput) AppliesToGroups() Network
 	}).(NetworkManagerConnectivityConfigurationAppliesToGroupArrayOutput)
 }
 
+// Whether connected group address overlap is enabled. Defaults to `true`.
+//
+// > **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+func (o NetworkManagerConnectivityConfigurationOutput) ConnectedGroupAddressOverlapEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerConnectivityConfiguration) pulumi.BoolPtrOutput {
+		return v.ConnectedGroupAddressOverlapEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+func (o NetworkManagerConnectivityConfigurationOutput) ConnectedGroupPrivateEndpointsScale() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerConnectivityConfiguration) pulumi.StringPtrOutput {
+		return v.ConnectedGroupPrivateEndpointsScale
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
 func (o NetworkManagerConnectivityConfigurationOutput) ConnectivityTopology() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerConnectivityConfiguration) pulumi.StringOutput { return v.ConnectivityTopology }).(pulumi.StringOutput)
@@ -399,6 +455,13 @@ func (o NetworkManagerConnectivityConfigurationOutput) Name() pulumi.StringOutpu
 // Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
 func (o NetworkManagerConnectivityConfigurationOutput) NetworkManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkManagerConnectivityConfiguration) pulumi.StringOutput { return v.NetworkManagerId }).(pulumi.StringOutput)
+}
+
+// Whether peering enforcement is enabled. Defaults to `false`.
+func (o NetworkManagerConnectivityConfigurationOutput) PeeringEnforcementEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NetworkManagerConnectivityConfiguration) pulumi.BoolPtrOutput {
+		return v.PeeringEnforcementEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type NetworkManagerConnectivityConfigurationArrayOutput struct{ *pulumi.OutputState }

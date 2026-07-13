@@ -184,7 +184,11 @@ export class Account extends pulumi.CustomResource {
     declare public readonly isVirtualNetworkFilterEnabled: pulumi.Output<boolean | undefined>;
     declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
     declare public readonly kind: pulumi.Output<string | undefined>;
-    declare public readonly localAuthenticationDisabled: pulumi.Output<boolean | undefined>;
+    /**
+     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     */
+    declare public readonly localAuthenticationDisabled: pulumi.Output<boolean>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -314,6 +318,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
             resourceInputs["kind"] = state?.kind;
             resourceInputs["localAuthenticationDisabled"] = state?.localAuthenticationDisabled;
+            resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
             resourceInputs["location"] = state?.location;
             resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
             resourceInputs["minimalTlsVersion"] = state?.minimalTlsVersion;
@@ -377,6 +382,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["localAuthenticationDisabled"] = args?.localAuthenticationDisabled;
+            resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
             resourceInputs["location"] = args?.location;
             resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
             resourceInputs["minimalTlsVersion"] = args?.minimalTlsVersion;
@@ -456,7 +462,11 @@ export interface AccountState {
     isVirtualNetworkFilterEnabled?: pulumi.Input<boolean | undefined>;
     keyVaultKeyId?: pulumi.Input<string | undefined>;
     kind?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     */
     localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -590,7 +600,11 @@ export interface AccountArgs {
     isVirtualNetworkFilterEnabled?: pulumi.Input<boolean | undefined>;
     keyVaultKeyId?: pulumi.Input<string | undefined>;
     kind?: pulumi.Input<string | undefined>;
+    /**
+     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     */
     localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
+    localAuthenticationEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

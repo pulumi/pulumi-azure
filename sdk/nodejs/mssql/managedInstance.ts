@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  *
- * > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
+ * > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
  *
  * ## Example Usage
  *
@@ -340,6 +340,12 @@ export class ManagedInstance extends pulumi.CustomResource {
      */
     declare public readonly storageAccountType: pulumi.Output<string | undefined>;
     /**
+     * The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
+     *
+     * > **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     */
+    declare public readonly storageIops: pulumi.Output<number>;
+    /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      *
      * > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
@@ -363,6 +369,8 @@ export class ManagedInstance extends pulumi.CustomResource {
     declare public readonly vcores: pulumi.Output<number>;
     /**
      * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+     *
+     * > **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
      */
     declare public readonly zoneRedundantEnabled: pulumi.Output<boolean | undefined>;
 
@@ -401,6 +409,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["servicePrincipalType"] = state?.servicePrincipalType;
             resourceInputs["skuName"] = state?.skuName;
             resourceInputs["storageAccountType"] = state?.storageAccountType;
+            resourceInputs["storageIops"] = state?.storageIops;
             resourceInputs["storageSizeInGb"] = state?.storageSizeInGb;
             resourceInputs["subnetId"] = state?.subnetId;
             resourceInputs["tags"] = state?.tags;
@@ -447,6 +456,7 @@ export class ManagedInstance extends pulumi.CustomResource {
             resourceInputs["servicePrincipalType"] = args?.servicePrincipalType;
             resourceInputs["skuName"] = args?.skuName;
             resourceInputs["storageAccountType"] = args?.storageAccountType;
+            resourceInputs["storageIops"] = args?.storageIops;
             resourceInputs["storageSizeInGb"] = args?.storageSizeInGb;
             resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
@@ -566,6 +576,12 @@ export interface ManagedInstanceState {
      */
     storageAccountType?: pulumi.Input<string | undefined>;
     /**
+     * The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
+     *
+     * > **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     */
+    storageIops?: pulumi.Input<number | undefined>;
+    /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      *
      * > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
@@ -589,6 +605,8 @@ export interface ManagedInstanceState {
     vcores?: pulumi.Input<number | undefined>;
     /**
      * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+     *
+     * > **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
      */
     zoneRedundantEnabled?: pulumi.Input<boolean | undefined>;
 }
@@ -686,6 +704,12 @@ export interface ManagedInstanceArgs {
      */
     storageAccountType?: pulumi.Input<string | undefined>;
     /**
+     * The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
+     *
+     * > **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     */
+    storageIops?: pulumi.Input<number | undefined>;
+    /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      *
      * > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
@@ -709,6 +733,8 @@ export interface ManagedInstanceArgs {
     vcores: pulumi.Input<number>;
     /**
      * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+     *
+     * > **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
      */
     zoneRedundantEnabled?: pulumi.Input<boolean | undefined>;
 }

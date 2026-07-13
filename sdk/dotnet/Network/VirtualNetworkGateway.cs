@@ -224,6 +224,26 @@ namespace Pulumi.Azure.Network
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
+        /// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// 
+        /// &gt; **Note:** `MaximumScaleUnit` is only supported for the `ErGwScale` SKU.
+        /// </summary>
+        [Output("maximumScaleUnit")]
+        public Output<int> MaximumScaleUnit { get; private set; } = null!;
+
+        /// <summary>
+        /// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// 
+        /// &gt; **Note:** `MinimumScaleUnit` is only supported for the `ErGwScale` SKU.
+        /// 
+        /// &gt; **Note:** To configure a `fixed-size` gateway, set `MinimumScaleUnit` and `MaximumScaleUnit` to the same value. To enable `Autoscaling`, set `MinimumScaleUnit` to `2` or higher and `MaximumScaleUnit` up to `40`. When `MaximumScaleUnit` is set to `1`, `MinimumScaleUnit` must also be set to `1`.
+        /// 
+        /// &gt; **Note:** Changing the `Sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+        /// </summary>
+        [Output("minimumScaleUnit")]
+        public Output<int> MinimumScaleUnit { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
@@ -423,6 +443,26 @@ namespace Pulumi.Azure.Network
         public Input<string>? Location { get; set; }
 
         /// <summary>
+        /// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// 
+        /// &gt; **Note:** `MaximumScaleUnit` is only supported for the `ErGwScale` SKU.
+        /// </summary>
+        [Input("maximumScaleUnit")]
+        public Input<int>? MaximumScaleUnit { get; set; }
+
+        /// <summary>
+        /// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// 
+        /// &gt; **Note:** `MinimumScaleUnit` is only supported for the `ErGwScale` SKU.
+        /// 
+        /// &gt; **Note:** To configure a `fixed-size` gateway, set `MinimumScaleUnit` and `MaximumScaleUnit` to the same value. To enable `Autoscaling`, set `MinimumScaleUnit` to `2` or higher and `MaximumScaleUnit` up to `40`. When `MaximumScaleUnit` is set to `1`, `MinimumScaleUnit` must also be set to `1`.
+        /// 
+        /// &gt; **Note:** Changing the `Sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+        /// </summary>
+        [Input("minimumScaleUnit")]
+        public Input<int>? MinimumScaleUnit { get; set; }
+
+        /// <summary>
         /// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
@@ -594,6 +634,26 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// 
+        /// &gt; **Note:** `MaximumScaleUnit` is only supported for the `ErGwScale` SKU.
+        /// </summary>
+        [Input("maximumScaleUnit")]
+        public Input<int>? MaximumScaleUnit { get; set; }
+
+        /// <summary>
+        /// The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`. 
+        /// 
+        /// &gt; **Note:** `MinimumScaleUnit` is only supported for the `ErGwScale` SKU.
+        /// 
+        /// &gt; **Note:** To configure a `fixed-size` gateway, set `MinimumScaleUnit` and `MaximumScaleUnit` to the same value. To enable `Autoscaling`, set `MinimumScaleUnit` to `2` or higher and `MaximumScaleUnit` up to `40`. When `MaximumScaleUnit` is set to `1`, `MinimumScaleUnit` must also be set to `1`.
+        /// 
+        /// &gt; **Note:** Changing the `Sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+        /// </summary>
+        [Input("minimumScaleUnit")]
+        public Input<int>? MinimumScaleUnit { get; set; }
 
         /// <summary>
         /// The name of the Virtual Network Gateway. Changing this forces a new resource to be created.

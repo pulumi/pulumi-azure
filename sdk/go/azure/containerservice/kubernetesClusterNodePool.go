@@ -198,7 +198,9 @@ type KubernetesClusterNodePool struct {
 	VnetSubnetId pulumi.StringPtrOutput `pulumi:"vnetSubnetId"`
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrOutput `pulumi:"windowsProfile"`
-	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+	//
+	// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
 	WorkloadRuntime pulumi.StringPtrOutput `pulumi:"workloadRuntime"`
@@ -342,7 +344,9 @@ type kubernetesClusterNodePoolState struct {
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
-	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+	//
+	// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
@@ -454,7 +458,9 @@ type KubernetesClusterNodePoolState struct {
 	VnetSubnetId pulumi.StringPtrInput
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
-	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+	//
+	// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
 	WorkloadRuntime pulumi.StringPtrInput
@@ -568,7 +574,9 @@ type kubernetesClusterNodePoolArgs struct {
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile *KubernetesClusterNodePoolWindowsProfile `pulumi:"windowsProfile"`
-	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+	//
+	// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
@@ -679,7 +687,9 @@ type KubernetesClusterNodePoolArgs struct {
 	VnetSubnetId pulumi.StringPtrInput
 	// A `windowsProfile` block as documented below. Changing this forces a new resource to be created.
 	WindowsProfile KubernetesClusterNodePoolWindowsProfilePtrInput
-	// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+	// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+	//
+	// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 	//
 	// > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
 	WorkloadRuntime pulumi.StringPtrInput
@@ -1013,7 +1023,9 @@ func (o KubernetesClusterNodePoolOutput) WindowsProfile() KubernetesClusterNodeP
 	}).(KubernetesClusterNodePoolWindowsProfilePtrOutput)
 }
 
-// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+//
+// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 //
 // > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
 func (o KubernetesClusterNodePoolOutput) WorkloadRuntime() pulumi.StringPtrOutput {

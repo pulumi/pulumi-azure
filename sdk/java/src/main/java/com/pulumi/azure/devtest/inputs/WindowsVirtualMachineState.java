@@ -224,14 +224,14 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+     * The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="size")
     private @Nullable Output<String> size;
 
     /**
-     * @return The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+     * @return The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> size() {
@@ -633,7 +633,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param size The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+         * @param size The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -644,7 +644,7 @@ public final class WindowsVirtualMachineState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param size The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+         * @param size The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

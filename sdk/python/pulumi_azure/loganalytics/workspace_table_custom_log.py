@@ -384,7 +384,7 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
             workspace_id=example_analytics_workspace.id,
             columns=[{
                 "name": "TimeGenerated",
-                "type": "datetime",
+                "type": "dateTime",
             }])
         ```
 
@@ -450,7 +450,7 @@ class WorkspaceTableCustomLog(pulumi.CustomResource):
             workspace_id=example_analytics_workspace.id,
             columns=[{
                 "name": "TimeGenerated",
-                "type": "datetime",
+                "type": "dateTime",
             }])
         ```
 

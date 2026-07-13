@@ -135,6 +135,12 @@ namespace Pulumi.Azure.Storage
         [Output("storageAccountName")]
         public Output<string?> StorageAccountName { get; private set; } = null!;
 
+        /// <summary>
+        /// The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+        /// </summary>
+        [Output("url")]
+        public Output<string> Url { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Container resource with the given unique name, arguments, and options.
@@ -314,6 +320,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
+
+        /// <summary>
+        /// The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+        /// </summary>
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         public ContainerState()
         {

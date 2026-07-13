@@ -352,7 +352,9 @@ namespace Pulumi.Azure.ContainerService
         public Output<Outputs.KubernetesClusterNodePoolWindowsProfile?> WindowsProfile { get; private set; } = null!;
 
         /// <summary>
-        /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        /// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+        /// 
+        /// &gt; **Note:** `KataVmIsolation` requires `OsSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
         /// 
         /// &gt; **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         /// </summary>
@@ -689,7 +691,9 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolWindowsProfileArgs>? WindowsProfile { get; set; }
 
         /// <summary>
-        /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        /// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+        /// 
+        /// &gt; **Note:** `KataVmIsolation` requires `OsSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
         /// 
         /// &gt; **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         /// </summary>
@@ -1000,7 +1004,9 @@ namespace Pulumi.Azure.ContainerService
         public Input<Inputs.KubernetesClusterNodePoolWindowsProfileGetArgs>? WindowsProfile { get; set; }
 
         /// <summary>
-        /// Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        /// Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+        /// 
+        /// &gt; **Note:** `KataVmIsolation` requires `OsSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
         /// 
         /// &gt; **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         /// </summary>

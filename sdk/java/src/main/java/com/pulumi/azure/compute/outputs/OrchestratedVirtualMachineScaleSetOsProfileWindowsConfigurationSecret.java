@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
     /**
-     * @return One or more `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks as defined above.
      * 
      */
     private List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates;
@@ -25,7 +25,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret() {}
     /**
-     * @return One or more `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks as defined above.
      * 
      */
     public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate> certificates() {

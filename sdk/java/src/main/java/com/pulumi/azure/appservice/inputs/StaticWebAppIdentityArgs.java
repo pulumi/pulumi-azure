@@ -47,14 +47,14 @@ public final class StaticWebAppIdentityArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+     * The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+     * @return The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     public Output<String> type() {
@@ -138,7 +138,7 @@ public final class StaticWebAppIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * @param type The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned` and `UserAssigned`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class StaticWebAppIdentityArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param type The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * @param type The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned` and `UserAssigned`.
          * 
          * @return builder
          * 

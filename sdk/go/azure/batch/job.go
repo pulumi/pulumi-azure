@@ -48,7 +48,7 @@ import (
 //				Name:              pulumi.String("examplepool"),
 //				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
-//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 16.04"),
+//				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 22.04"),
 //				VmSize:            pulumi.String("STANDARD_A1_V2"),
 //				FixedScale: &batch.PoolFixedScaleArgs{
 //					TargetDedicatedNodes: pulumi.Int(1),
@@ -75,6 +75,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Batch` - 2024-07-01
 //
 // ## Import
 //

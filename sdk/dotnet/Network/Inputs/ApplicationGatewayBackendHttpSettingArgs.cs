@@ -31,6 +31,12 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         /// <summary>
+        /// Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `True`.
+        /// </summary>
+        [Input("certificateChainValidationEnabled")]
+        public Input<bool>? CertificateChainValidationEnabled { get; set; }
+
+        /// <summary>
         /// A `ConnectionDraining` block as defined below.
         /// </summary>
         [Input("connectionDraining")]
@@ -107,6 +113,20 @@ namespace Pulumi.Azure.Network.Inputs
         /// </summary>
         [Input("requestTimeout")]
         public Input<int>? RequestTimeout { get; set; }
+
+        /// <summary>
+        /// The Server Name Indication (SNI) hostname to send to the backend servers. 
+        /// 
+        /// &gt; **Note:** `SniName` can only be set when `SniValidationEnabled` is set to `True`.
+        /// </summary>
+        [Input("sniName")]
+        public Input<string>? SniName { get; set; }
+
+        /// <summary>
+        /// Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `True`.
+        /// </summary>
+        [Input("sniValidationEnabled")]
+        public Input<bool>? SniValidationEnabled { get; set; }
 
         [Input("trustedRootCertificateNames")]
         private InputList<string>? _trustedRootCertificateNames;

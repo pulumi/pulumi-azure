@@ -42,6 +42,12 @@ namespace Pulumi.Azure.Inputs
         [Input("netapp")]
         public Input<Inputs.ProviderFeaturesNetappArgs>? Netapp { get; set; }
 
+        /// <summary>
+        /// Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `False`.
+        /// </summary>
+        [Input("persistIdOnCreateBeforePollingForCompletion")]
+        public Input<bool>? PersistIdOnCreateBeforePollingForCompletion { get; set; }
+
         [Input("postgresqlFlexibleServer")]
         public Input<Inputs.ProviderFeaturesPostgresqlFlexibleServerArgs>? PostgresqlFlexibleServer { get; set; }
 
@@ -53,6 +59,12 @@ namespace Pulumi.Azure.Inputs
 
         [Input("resourceGroup")]
         public Input<Inputs.ProviderFeaturesResourceGroupArgs>? ResourceGroup { get; set; }
+
+        /// <summary>
+        /// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `False`.
+        /// </summary>
+        [Input("skipImportCheckOnCreateAndAllowOverwritingExistingResources")]
+        public Input<bool>? SkipImportCheckOnCreateAndAllowOverwritingExistingResources { get; set; }
 
         [Input("storage")]
         public Input<Inputs.ProviderFeaturesStorageArgs>? Storage { get; set; }

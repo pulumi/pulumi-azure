@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  *             .name("example-vmss")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku("Standard_F2")
+ *             .sku("Standard_D4_v5")
  *             .instances(1)
  *             .adminPassword("P}{@literal @}{@code 55w0rd1234!")
  *             .adminUsername("adminuser")
@@ -824,14 +824,14 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.singlePlacementGroup);
     }
     /**
-     * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+     * The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
      * 
      */
     @Export(name="sku", refs={String.class}, tree="[0]")
     private Output<String> sku;
 
     /**
-     * @return The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+     * @return The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
      * 
      */
     public Output<String> sku() {

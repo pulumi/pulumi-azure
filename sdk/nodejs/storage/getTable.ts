@@ -25,6 +25,7 @@ export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:storage/getTable:getTable", {
         "name": args.name,
+        "storageAccountId": args.storageAccountId,
         "storageAccountName": args.storageAccountName,
     }, opts);
 }
@@ -38,9 +39,17 @@ export interface GetTableArgs {
      */
     name: string;
     /**
-     * The name of the Storage Account where the Table exists.
+     * The ID of the Storage Account where the Table exists.
      */
-    storageAccountName: string;
+    storageAccountId?: string;
+    /**
+     * The name of the Storage Account where the Table exists.
+     *
+     * > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+     *
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     */
+    storageAccountName?: string;
 }
 
 /**
@@ -60,6 +69,10 @@ export interface GetTableResult {
      * The Resource Manager ID of this Storage Table.
      */
     readonly resourceManagerId: string;
+    readonly storageAccountId: string;
+    /**
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     */
     readonly storageAccountName: string;
 }
 /**
@@ -81,6 +94,7 @@ export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOut
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:storage/getTable:getTable", {
         "name": args.name,
+        "storageAccountId": args.storageAccountId,
         "storageAccountName": args.storageAccountName,
     }, opts);
 }
@@ -94,7 +108,15 @@ export interface GetTableOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Storage Account where the Table exists.
+     * The ID of the Storage Account where the Table exists.
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountId?: pulumi.Input<string | undefined>;
+    /**
+     * The name of the Storage Account where the Table exists.
+     *
+     * > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+     *
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
+     */
+    storageAccountName?: pulumi.Input<string | undefined>;
 }
