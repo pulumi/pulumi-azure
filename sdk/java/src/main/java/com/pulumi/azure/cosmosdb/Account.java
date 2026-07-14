@@ -364,11 +364,23 @@ public class Account extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> kind() {
         return Codegen.optional(this.kind);
     }
+    /**
+     * @deprecated
+     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> localAuthenticationDisabled;
+    private Output<Boolean> localAuthenticationDisabled;
 
-    public Output<Optional<Boolean>> localAuthenticationDisabled() {
-        return Codegen.optional(this.localAuthenticationDisabled);
+    public Output<Boolean> localAuthenticationDisabled() {
+        return this.localAuthenticationDisabled;
+    }
+    @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> localAuthenticationEnabled;
+
+    public Output<Boolean> localAuthenticationEnabled() {
+        return this.localAuthenticationEnabled;
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

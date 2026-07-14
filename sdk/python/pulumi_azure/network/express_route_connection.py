@@ -59,8 +59,8 @@ class ExpressRouteConnectionArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if private_link_fast_path_enabled is not None:
-            warnings.warn("""'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""private_link_fast_path_enabled is deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
+            warnings.warn("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""private_link_fast_path_enabled is deprecated: `private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
         if private_link_fast_path_enabled is not None:
             pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if routing is not None:
@@ -152,7 +152,7 @@ class ExpressRouteConnectionArgs:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkFastPathEnabled")
-    @_utilities.deprecated("""'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
+    @_utilities.deprecated("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
     def private_link_fast_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "private_link_fast_path_enabled")
 
@@ -228,8 +228,8 @@ class _ExpressRouteConnectionState:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if private_link_fast_path_enabled is not None:
-            warnings.warn("""'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""private_link_fast_path_enabled is deprecated: 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
+            warnings.warn("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
+            pulumi.log.warn("""private_link_fast_path_enabled is deprecated: `private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
         if private_link_fast_path_enabled is not None:
             pulumi.set(__self__, "private_link_fast_path_enabled", private_link_fast_path_enabled)
         if routing is not None:
@@ -321,7 +321,7 @@ class _ExpressRouteConnectionState:
 
     @_builtins.property
     @pulumi.getter(name="privateLinkFastPathEnabled")
-    @_utilities.deprecated("""'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
+    @_utilities.deprecated("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
     def private_link_fast_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "private_link_fast_path_enabled")
 
@@ -700,7 +700,7 @@ class ExpressRouteConnection(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="privateLinkFastPathEnabled")
-    @_utilities.deprecated("""'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
+    @_utilities.deprecated("""`private_link_fast_path_enabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider""")
     def private_link_fast_path_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "private_link_fast_path_enabled")
 

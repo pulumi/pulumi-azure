@@ -97,12 +97,30 @@ public class ZipBlob extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> sourceUri() {
         return Codegen.optional(this.sourceUri);
     }
+    /**
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
     public Output<String> storageAccountName() {
         return this.storageAccountName;
     }
+    @Export(name="storageContainerId", refs={String.class}, tree="[0]")
+    private Output<String> storageContainerId;
+
+    public Output<String> storageContainerId() {
+        return this.storageContainerId;
+    }
+    /**
+     * @deprecated
+     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="storageContainerName", refs={String.class}, tree="[0]")
     private Output<String> storageContainerName;
 

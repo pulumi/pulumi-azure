@@ -127,6 +127,10 @@ export class Container extends pulumi.CustomResource {
      * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      */
     declare public readonly storageAccountName: pulumi.Output<string | undefined>;
+    /**
+     * The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+     */
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Container resource with the given unique name, arguments, and options.
@@ -151,6 +155,7 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["resourceManagerId"] = state?.resourceManagerId;
             resourceInputs["storageAccountId"] = state?.storageAccountId;
             resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as ContainerArgs | undefined;
             resourceInputs["containerAccessType"] = args?.containerAccessType;
@@ -163,6 +168,7 @@ export class Container extends pulumi.CustomResource {
             resourceInputs["hasImmutabilityPolicy"] = undefined /*out*/;
             resourceInputs["hasLegalHold"] = undefined /*out*/;
             resourceInputs["resourceManagerId"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Container.__pulumiType, name, resourceInputs, opts);
@@ -223,6 +229,10 @@ export interface ContainerState {
      * @deprecated the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
      */
     storageAccountName?: pulumi.Input<string | undefined>;
+    /**
+     * The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+     */
+    url?: pulumi.Input<string | undefined>;
 }
 
 /**

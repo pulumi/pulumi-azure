@@ -18,7 +18,7 @@ public final class KubernetesClusterMaintenanceWindowAllowed {
      */
     private String day;
     /**
-     * @return An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+     * @return An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
      * 
      */
     private List<Integer> hours;
@@ -32,7 +32,7 @@ public final class KubernetesClusterMaintenanceWindowAllowed {
         return this.day;
     }
     /**
-     * @return An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+     * @return An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
      * 
      */
     public List<Integer> hours() {

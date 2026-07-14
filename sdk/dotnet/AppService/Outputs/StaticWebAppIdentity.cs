@@ -20,7 +20,7 @@ namespace Pulumi.Azure.AppService.Outputs
         public readonly string? PrincipalId;
         public readonly string? TenantId;
         /// <summary>
-        /// The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+        /// The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned` and `UserAssigned`.
         /// </summary>
         public readonly string Type;
 

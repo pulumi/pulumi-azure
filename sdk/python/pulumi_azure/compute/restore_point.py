@@ -208,7 +208,7 @@ class RestorePoint(pulumi.CustomResource):
             name="example-machine",
             resource_group_name=example.name,
             location=example.location,
-            size="Standard_F2",
+            size="Standard_D4_v5",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{
@@ -300,7 +300,7 @@ class RestorePoint(pulumi.CustomResource):
             name="example-machine",
             resource_group_name=example.name,
             location=example.location,
-            size="Standard_F2",
+            size="Standard_D4_v5",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[{

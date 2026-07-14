@@ -46,7 +46,7 @@ class WindowsVirtualMachineArgs:
         :param pulumi.Input[_builtins.str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
@@ -161,7 +161,7 @@ class WindowsVirtualMachineArgs:
     @pulumi.getter
     def size(self) -> pulumi.Input[_builtins.str]:
         """
-        The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 
@@ -323,7 +323,7 @@ class _WindowsVirtualMachineState:
         :param pulumi.Input[_builtins.str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[_builtins.str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] unique_identifier: The unique immutable identifier of the Virtual Machine.
@@ -530,7 +530,7 @@ class _WindowsVirtualMachineState:
     @pulumi.getter
     def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 
@@ -691,7 +691,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[_builtins.str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -895,7 +895,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[_builtins.str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] unique_identifier: The unique immutable identifier of the Virtual Machine.
@@ -1037,7 +1037,7 @@ class WindowsVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def size(self) -> pulumi.Output[_builtins.str]:
         """
-        The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 

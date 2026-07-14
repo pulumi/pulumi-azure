@@ -127,7 +127,9 @@ class KubernetesClusterNodePoolArgs:
                
                > **NOTE:** A route table must be configured on this Subnet.
         :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+               
+               > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
                
                > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
@@ -727,7 +729,9 @@ class KubernetesClusterNodePoolArgs:
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+
+        > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 
         > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         """
@@ -861,7 +865,9 @@ class _KubernetesClusterNodePoolState:
                
                > **NOTE:** A route table must be configured on this Subnet.
         :param pulumi.Input['KubernetesClusterNodePoolWindowsProfileArgs'] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+               
+               > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
                
                > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
@@ -1476,7 +1482,9 @@ class _KubernetesClusterNodePoolState:
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+
+        > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 
         > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         """
@@ -1669,7 +1677,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **NOTE:** A route table must be configured on this Subnet.
         :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+               
+               > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
                
                > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
@@ -1973,7 +1983,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                
                > **NOTE:** A route table must be configured on this Subnet.
         :param pulumi.Input[Union['KubernetesClusterNodePoolWindowsProfileArgs', 'KubernetesClusterNodePoolWindowsProfileArgsDict']] windows_profile: A `windows_profile` block as documented below. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        :param pulumi.Input[_builtins.str] workload_runtime: Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+               
+               > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
                
                > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] zones: Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this property requires specifying `temporary_name_for_rotation`.
@@ -2381,7 +2393,9 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
     @pulumi.getter(name="workloadRuntime")
     def workload_runtime(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Used to specify the workload runtime. Allowed values are `OCIContainer` and `WasmWasi`.
+        Used to specify the workload runtime. Allowed values are `KataVmIsolation`, `OCIContainer` and `WasmWasi`.
+
+        > **Note:** `KataVmIsolation` requires `os_sku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 
         > **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools)
         """

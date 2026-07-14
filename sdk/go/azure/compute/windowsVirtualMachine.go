@@ -92,7 +92,7 @@ import (
 //				Name:              pulumi.String("example-machine"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				Size:              pulumi.String("Standard_F2"),
+//				Size:              pulumi.String("Standard_D4_v5"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
 //				NetworkInterfaceIds: pulumi.StringArray{
@@ -253,7 +253,7 @@ type WindowsVirtualMachine struct {
 	Secrets WindowsVirtualMachineSecretArrayOutput `pulumi:"secrets"`
 	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	SecureBootEnabled pulumi.BoolPtrOutput `pulumi:"secureBootEnabled"`
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size pulumi.StringOutput `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -464,7 +464,7 @@ type windowsVirtualMachineState struct {
 	Secrets []WindowsVirtualMachineSecret `pulumi:"secrets"`
 	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size *string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -623,7 +623,7 @@ type WindowsVirtualMachineState struct {
 	Secrets WindowsVirtualMachineSecretArrayInput
 	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	SecureBootEnabled pulumi.BoolPtrInput
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size pulumi.StringPtrInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -778,7 +778,7 @@ type windowsVirtualMachineArgs struct {
 	Secrets []WindowsVirtualMachineSecret `pulumi:"secrets"`
 	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -928,7 +928,7 @@ type WindowsVirtualMachineArgs struct {
 	Secrets WindowsVirtualMachineSecretArrayInput
 	// Specifies if Secure Boot and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
 	SecureBootEnabled pulumi.BoolPtrInput
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size pulumi.StringInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -1319,7 +1319,7 @@ func (o WindowsVirtualMachineOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.BoolPtrOutput { return v.SecureBootEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 func (o WindowsVirtualMachineOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
 }

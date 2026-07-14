@@ -14,7 +14,9 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetRollingUpgradePolicy
     {
         /// <summary>
-        /// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `True` or `False`.
+        /// Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `True` and `False`.
+        /// 
+        /// &gt; **Note:** `CrossZoneUpgradesEnabled` can only be set to `True` when `Zones` is specified.
         /// </summary>
         public readonly bool? CrossZoneUpgradesEnabled;
         /// <summary>
@@ -30,7 +32,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly int MaxUnhealthyUpgradedInstancePercent;
         /// <summary>
-        /// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `True` or `False`.
+        /// Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `True` and `False`.
         /// </summary>
         public readonly bool? MaximumSurgeInstancesEnabled;
         /// <summary>
@@ -38,7 +40,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string PauseTimeBetweenBatches;
         /// <summary>
-        /// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `True` or `False`.
+        /// Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `True` and `False`.
         /// </summary>
         public readonly bool? PrioritizeUnhealthyInstancesEnabled;
 

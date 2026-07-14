@@ -148,7 +148,7 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * @deprecated 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      */
     declare public readonly privateLinkFastPathEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -240,7 +240,7 @@ export interface ExpressRouteConnectionState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      */
     privateLinkFastPathEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -286,7 +286,7 @@ export interface ExpressRouteConnectionArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+     * @deprecated `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      */
     privateLinkFastPathEnabled?: pulumi.Input<boolean | undefined>;
     /**

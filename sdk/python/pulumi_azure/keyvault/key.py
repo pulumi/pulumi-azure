@@ -29,12 +29,13 @@ class KeyArgs:
                  key_size: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_policy: pulumi.Input[Optional['KeyReleasePolicyArgs']] = None,
                  rotation_policy: pulumi.Input[Optional['KeyRotationPolicyArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Key resource.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
         :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] curve: Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created.
@@ -46,6 +47,9 @@ class KeyArgs:
         :param pulumi.Input[_builtins.str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
                
                > **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
+        :param pulumi.Input['KeyReleasePolicyArgs'] release_policy: A `release_policy` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** When `release_policy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
         :param pulumi.Input['KeyRotationPolicyArgs'] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -62,6 +66,8 @@ class KeyArgs:
             pulumi.set(__self__, "name", name)
         if not_before_date is not None:
             pulumi.set(__self__, "not_before_date", not_before_date)
+        if release_policy is not None:
+            pulumi.set(__self__, "release_policy", release_policy)
         if rotation_policy is not None:
             pulumi.set(__self__, "rotation_policy", rotation_policy)
         if tags is not None:
@@ -71,7 +77,7 @@ class KeyArgs:
     @pulumi.getter(name="keyOpts")
     def key_opts(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
         """
         return pulumi.get(self, "key_opts")
 
@@ -168,6 +174,20 @@ class KeyArgs:
         pulumi.set(self, "not_before_date", value)
 
     @_builtins.property
+    @pulumi.getter(name="releasePolicy")
+    def release_policy(self) -> pulumi.Input[Optional['KeyReleasePolicyArgs']]:
+        """
+        A `release_policy` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** When `release_policy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+        """
+        return pulumi.get(self, "release_policy")
+
+    @release_policy.setter
+    def release_policy(self, value: pulumi.Input[Optional['KeyReleasePolicyArgs']]):
+        pulumi.set(self, "release_policy", value)
+
+    @_builtins.property
     @pulumi.getter(name="rotationPolicy")
     def rotation_policy(self) -> pulumi.Input[Optional['KeyRotationPolicyArgs']]:
         """
@@ -207,6 +227,7 @@ class _KeyState:
                  not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
                  public_key_openssh: pulumi.Input[Optional[_builtins.str]] = None,
                  public_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_policy: pulumi.Input[Optional['KeyReleasePolicyArgs']] = None,
                  resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
                  rotation_policy: pulumi.Input[Optional['KeyRotationPolicyArgs']] = None,
@@ -223,7 +244,7 @@ class _KeyState:
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
                
                > **Note:** Removing this field from the config forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
         :param pulumi.Input[_builtins.int] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
@@ -234,6 +255,9 @@ class _KeyState:
                > **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
         :param pulumi.Input[_builtins.str] public_key_openssh: The OpenSSH encoded public key of this Key Vault Key.
         :param pulumi.Input[_builtins.str] public_key_pem: The PEM encoded public key of this Key Vault Key.
+        :param pulumi.Input['KeyReleasePolicyArgs'] release_policy: A `release_policy` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** When `release_policy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
         :param pulumi.Input[_builtins.str] resource_id: The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
         :param pulumi.Input[_builtins.str] resource_versionless_id: The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
         :param pulumi.Input['KeyRotationPolicyArgs'] rotation_policy: A `rotation_policy` block as defined below.
@@ -267,6 +291,8 @@ class _KeyState:
             pulumi.set(__self__, "public_key_openssh", public_key_openssh)
         if public_key_pem is not None:
             pulumi.set(__self__, "public_key_pem", public_key_pem)
+        if release_policy is not None:
+            pulumi.set(__self__, "release_policy", release_policy)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
         if resource_versionless_id is not None:
@@ -326,7 +352,7 @@ class _KeyState:
     @pulumi.getter(name="keyOpts")
     def key_opts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
         """
         return pulumi.get(self, "key_opts")
 
@@ -431,6 +457,20 @@ class _KeyState:
     @public_key_pem.setter
     def public_key_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "public_key_pem", value)
+
+    @_builtins.property
+    @pulumi.getter(name="releasePolicy")
+    def release_policy(self) -> pulumi.Input[Optional['KeyReleasePolicyArgs']]:
+        """
+        A `release_policy` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** When `release_policy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+        """
+        return pulumi.get(self, "release_policy")
+
+    @release_policy.setter
+    def release_policy(self, value: pulumi.Input[Optional['KeyReleasePolicyArgs']]):
+        pulumi.set(self, "release_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceId")
@@ -543,6 +583,7 @@ class Key(pulumi.CustomResource):
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']]] = None,
                  rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -624,7 +665,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
                
                > **Note:** Removing this field from the config forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
         :param pulumi.Input[_builtins.int] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
@@ -632,6 +673,9 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] not_before_date: Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z').
                
                > **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
+        :param pulumi.Input[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']] release_policy: A `release_policy` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** When `release_policy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
         :param pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']] rotation_policy: A `rotation_policy` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
@@ -736,6 +780,7 @@ class Key(pulumi.CustomResource):
                  key_vault_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']]] = None,
                  rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -761,6 +806,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["key_vault_id"] = key_vault_id
             __props__.__dict__["name"] = name
             __props__.__dict__["not_before_date"] = not_before_date
+            __props__.__dict__["release_policy"] = release_policy
             __props__.__dict__["rotation_policy"] = rotation_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["e"] = None
@@ -795,6 +841,7 @@ class Key(pulumi.CustomResource):
             not_before_date: pulumi.Input[Optional[_builtins.str]] = None,
             public_key_openssh: pulumi.Input[Optional[_builtins.str]] = None,
             public_key_pem: pulumi.Input[Optional[_builtins.str]] = None,
+            release_policy: pulumi.Input[Optional[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']]] = None,
             resource_id: pulumi.Input[Optional[_builtins.str]] = None,
             resource_versionless_id: pulumi.Input[Optional[_builtins.str]] = None,
             rotation_policy: pulumi.Input[Optional[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']]] = None,
@@ -815,7 +862,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] expiration_date: Expiration UTC datetime (Y-m-d'T'H:M:S'Z').
                
                > **Note:** Removing this field from the config forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_opts: A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
         :param pulumi.Input[_builtins.int] key_size: Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_type: Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] key_vault_id: The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created.
@@ -826,6 +873,9 @@ class Key(pulumi.CustomResource):
                > **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key.
         :param pulumi.Input[_builtins.str] public_key_openssh: The OpenSSH encoded public key of this Key Vault Key.
         :param pulumi.Input[_builtins.str] public_key_pem: The PEM encoded public key of this Key Vault Key.
+        :param pulumi.Input[Union['KeyReleasePolicyArgs', 'KeyReleasePolicyArgsDict']] release_policy: A `release_policy` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** When `release_policy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
         :param pulumi.Input[_builtins.str] resource_id: The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services.
         :param pulumi.Input[_builtins.str] resource_versionless_id: The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated.
         :param pulumi.Input[Union['KeyRotationPolicyArgs', 'KeyRotationPolicyArgsDict']] rotation_policy: A `rotation_policy` block as defined below.
@@ -851,6 +901,7 @@ class Key(pulumi.CustomResource):
         __props__.__dict__["not_before_date"] = not_before_date
         __props__.__dict__["public_key_openssh"] = public_key_openssh
         __props__.__dict__["public_key_pem"] = public_key_pem
+        __props__.__dict__["release_policy"] = release_policy
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["resource_versionless_id"] = resource_versionless_id
         __props__.__dict__["rotation_policy"] = rotation_policy
@@ -891,7 +942,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter(name="keyOpts")
     def key_opts(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive.
+        A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case-sensitive.
         """
         return pulumi.get(self, "key_opts")
 
@@ -960,6 +1011,16 @@ class Key(pulumi.CustomResource):
         The PEM encoded public key of this Key Vault Key.
         """
         return pulumi.get(self, "public_key_pem")
+
+    @_builtins.property
+    @pulumi.getter(name="releasePolicy")
+    def release_policy(self) -> pulumi.Output[Optional['outputs.KeyReleasePolicy']]:
+        """
+        A `release_policy` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** When `release_policy` is set, the key is automatically set as exportable by the provider as this is an API requirement.
+        """
+        return pulumi.get(self, "release_policy")
 
     @_builtins.property
     @pulumi.getter(name="resourceId")

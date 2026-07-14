@@ -16,7 +16,9 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
     /**
-     * @return The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+     * @return The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance.
+     * 
+     * &gt; **Note:** Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number, and contain only `a-z`, `0-9`, and `hyphens`.
      * 
      */
     private @Nullable String domainNameLabel;
@@ -41,7 +43,9 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
      */
     private @Nullable String publicIpPrefixId;
     /**
-     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible values are `Basic_Regional`, `Basic_Global`, `Standard_Regional`, and `Standard_Global`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** For more information about Public IP Address SKUs and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
      * 
      */
     private @Nullable String skuName;
@@ -53,7 +57,9 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
 
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress() {}
     /**
-     * @return The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+     * @return The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance.
+     * 
+     * &gt; **Note:** Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number, and contain only `a-z`, `0-9`, and `hyphens`.
      * 
      */
     public Optional<String> domainNameLabel() {
@@ -88,7 +94,9 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         return Optional.ofNullable(this.publicIpPrefixId);
     }
     /**
-     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU&#39;s and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+     * @return Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible values are `Basic_Regional`, `Basic_Global`, `Standard_Regional`, and `Standard_Global`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** For more information about Public IP Address SKUs and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
      * 
      */
     public Optional<String> skuName() {

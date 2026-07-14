@@ -24,6 +24,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesVirtualMachineArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesVirtualMachineScaleSetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -103,6 +104,21 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.netapp);
     }
 
+    /**
+     * Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+     * 
+     */
+    @Import(name="persistIdOnCreateBeforePollingForCompletion")
+    private @Nullable Output<Boolean> persistIdOnCreateBeforePollingForCompletion;
+
+    /**
+     * @return Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> persistIdOnCreateBeforePollingForCompletion() {
+        return Optional.ofNullable(this.persistIdOnCreateBeforePollingForCompletion);
+    }
+
     @Import(name="postgresqlFlexibleServer")
     private @Nullable Output<ProviderFeaturesPostgresqlFlexibleServerArgs> postgresqlFlexibleServer;
 
@@ -129,6 +145,21 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<ProviderFeaturesResourceGroupArgs>> resourceGroup() {
         return Optional.ofNullable(this.resourceGroup);
+    }
+
+    /**
+     * Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+     * 
+     */
+    @Import(name="skipImportCheckOnCreateAndAllowOverwritingExistingResources")
+    private @Nullable Output<Boolean> skipImportCheckOnCreateAndAllowOverwritingExistingResources;
+
+    /**
+     * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> skipImportCheckOnCreateAndAllowOverwritingExistingResources() {
+        return Optional.ofNullable(this.skipImportCheckOnCreateAndAllowOverwritingExistingResources);
     }
 
     @Import(name="storage")
@@ -179,10 +210,12 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.machineLearning = $.machineLearning;
         this.managedDisk = $.managedDisk;
         this.netapp = $.netapp;
+        this.persistIdOnCreateBeforePollingForCompletion = $.persistIdOnCreateBeforePollingForCompletion;
         this.postgresqlFlexibleServer = $.postgresqlFlexibleServer;
         this.recoveryService = $.recoveryService;
         this.recoveryServicesVaults = $.recoveryServicesVaults;
         this.resourceGroup = $.resourceGroup;
+        this.skipImportCheckOnCreateAndAllowOverwritingExistingResources = $.skipImportCheckOnCreateAndAllowOverwritingExistingResources;
         this.storage = $.storage;
         this.subscription = $.subscription;
         this.templateDeployment = $.templateDeployment;
@@ -298,6 +331,27 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
             return netapp(Output.of(netapp));
         }
 
+        /**
+         * @param persistIdOnCreateBeforePollingForCompletion Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistIdOnCreateBeforePollingForCompletion(@Nullable Output<Boolean> persistIdOnCreateBeforePollingForCompletion) {
+            $.persistIdOnCreateBeforePollingForCompletion = persistIdOnCreateBeforePollingForCompletion;
+            return this;
+        }
+
+        /**
+         * @param persistIdOnCreateBeforePollingForCompletion Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder persistIdOnCreateBeforePollingForCompletion(Boolean persistIdOnCreateBeforePollingForCompletion) {
+            return persistIdOnCreateBeforePollingForCompletion(Output.of(persistIdOnCreateBeforePollingForCompletion));
+        }
+
         public Builder postgresqlFlexibleServer(@Nullable Output<ProviderFeaturesPostgresqlFlexibleServerArgs> postgresqlFlexibleServer) {
             $.postgresqlFlexibleServer = postgresqlFlexibleServer;
             return this;
@@ -332,6 +386,27 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder resourceGroup(ProviderFeaturesResourceGroupArgs resourceGroup) {
             return resourceGroup(Output.of(resourceGroup));
+        }
+
+        /**
+         * @param skipImportCheckOnCreateAndAllowOverwritingExistingResources Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipImportCheckOnCreateAndAllowOverwritingExistingResources(@Nullable Output<Boolean> skipImportCheckOnCreateAndAllowOverwritingExistingResources) {
+            $.skipImportCheckOnCreateAndAllowOverwritingExistingResources = skipImportCheckOnCreateAndAllowOverwritingExistingResources;
+            return this;
+        }
+
+        /**
+         * @param skipImportCheckOnCreateAndAllowOverwritingExistingResources Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipImportCheckOnCreateAndAllowOverwritingExistingResources(Boolean skipImportCheckOnCreateAndAllowOverwritingExistingResources) {
+            return skipImportCheckOnCreateAndAllowOverwritingExistingResources(Output.of(skipImportCheckOnCreateAndAllowOverwritingExistingResources));
         }
 
         public Builder storage(@Nullable Output<ProviderFeaturesStorageArgs> storage) {

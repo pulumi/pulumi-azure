@@ -250,6 +250,20 @@ public class Container extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> storageAccountName() {
         return Codegen.optional(this.storageAccountName);
     }
+    /**
+     * The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+     * 
+     */
+    @Export(name="url", refs={String.class}, tree="[0]")
+    private Output<String> url;
+
+    /**
+     * @return The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+     * 
+     */
+    public Output<String> url() {
+        return this.url;
+    }
 
     /**
      *

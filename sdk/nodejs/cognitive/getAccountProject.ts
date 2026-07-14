@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.CognitiveServices` - 2025-06-01
+ * * `Microsoft.CognitiveServices` - 2026-03-01
  */
 export function getAccountProject(args: GetAccountProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -121,7 +121,7 @@ export interface GetAccountProjectResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.CognitiveServices` - 2025-06-01
+ * * `Microsoft.CognitiveServices` - 2026-03-01
  */
 export function getAccountProjectOutput(args: GetAccountProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

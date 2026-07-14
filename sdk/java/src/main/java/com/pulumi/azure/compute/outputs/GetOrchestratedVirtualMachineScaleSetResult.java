@@ -5,6 +5,7 @@ package com.pulumi.azure.compute.outputs;
 
 import com.pulumi.azure.compute.outputs.GetOrchestratedVirtualMachineScaleSetIdentity;
 import com.pulumi.azure.compute.outputs.GetOrchestratedVirtualMachineScaleSetNetworkInterface;
+import com.pulumi.azure.compute.outputs.GetOrchestratedVirtualMachineScaleSetSkuProfile;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -29,7 +30,7 @@ public final class GetOrchestratedVirtualMachineScaleSetResult {
      */
     private String location;
     /**
-     * @return The name of the public IP address configuration
+     * @return The name of the VM size.
      * 
      */
     private String name;
@@ -39,6 +40,11 @@ public final class GetOrchestratedVirtualMachineScaleSetResult {
      */
     private List<GetOrchestratedVirtualMachineScaleSetNetworkInterface> networkInterfaces;
     private String resourceGroupName;
+    /**
+     * @return A `skuProfile` block as defined below.
+     * 
+     */
+    private List<GetOrchestratedVirtualMachineScaleSetSkuProfile> skuProfiles;
 
     private GetOrchestratedVirtualMachineScaleSetResult() {}
     /**
@@ -63,7 +69,7 @@ public final class GetOrchestratedVirtualMachineScaleSetResult {
         return this.location;
     }
     /**
-     * @return The name of the public IP address configuration
+     * @return The name of the VM size.
      * 
      */
     public String name() {
@@ -78,6 +84,13 @@ public final class GetOrchestratedVirtualMachineScaleSetResult {
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
+    }
+    /**
+     * @return A `skuProfile` block as defined below.
+     * 
+     */
+    public List<GetOrchestratedVirtualMachineScaleSetSkuProfile> skuProfiles() {
+        return this.skuProfiles;
     }
 
     public static Builder builder() {
@@ -95,6 +108,7 @@ public final class GetOrchestratedVirtualMachineScaleSetResult {
         private String name;
         private List<GetOrchestratedVirtualMachineScaleSetNetworkInterface> networkInterfaces;
         private String resourceGroupName;
+        private List<GetOrchestratedVirtualMachineScaleSetSkuProfile> skuProfiles;
         public Builder() {}
         public Builder(GetOrchestratedVirtualMachineScaleSetResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -104,6 +118,7 @@ public final class GetOrchestratedVirtualMachineScaleSetResult {
     	      this.name = defaults.name;
     	      this.networkInterfaces = defaults.networkInterfaces;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.skuProfiles = defaults.skuProfiles;
         }
 
         @CustomType.Setter
@@ -160,6 +175,17 @@ public final class GetOrchestratedVirtualMachineScaleSetResult {
             this.resourceGroupName = resourceGroupName;
             return this;
         }
+        @CustomType.Setter
+        public Builder skuProfiles(List<GetOrchestratedVirtualMachineScaleSetSkuProfile> skuProfiles) {
+            if (skuProfiles == null) {
+              throw new MissingRequiredPropertyException("GetOrchestratedVirtualMachineScaleSetResult", "skuProfiles");
+            }
+            this.skuProfiles = skuProfiles;
+            return this;
+        }
+        public Builder skuProfiles(GetOrchestratedVirtualMachineScaleSetSkuProfile... skuProfiles) {
+            return skuProfiles(List.of(skuProfiles));
+        }
         public GetOrchestratedVirtualMachineScaleSetResult build() {
             final var _resultValue = new GetOrchestratedVirtualMachineScaleSetResult();
             _resultValue.id = id;
@@ -168,6 +194,7 @@ public final class GetOrchestratedVirtualMachineScaleSetResult {
             _resultValue.name = name;
             _resultValue.networkInterfaces = networkInterfaces;
             _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.skuProfiles = skuProfiles;
             return _resultValue;
         }
     }

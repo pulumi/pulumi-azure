@@ -12,19 +12,26 @@ import (
 )
 
 func TestLowercaseLettersAndNumbers(t *testing.T) {
+	const expected = "abc123"
 	cases := map[string]string{
-		"abc123":  "abc123",
-		"ABC123":  "abc123",
-		"abc-123": "abc123",
-		"ABC-123": "abc123",
-		"abc_123": "abc123",
-		"ABC_123": "abc123",
-		"abc.123": "abc123",
+		expected:  expected,
+		"ABC123":  expected,
+		"abc-123": expected,
+		"ABC-123": expected,
+		"abc_123": expected,
+		"ABC_123": expected,
+		"abc.123": expected,
 	}
-	for s, expected := range cases {
-		assert.Equal(t, lowercaseLettersAndNumbers(s), expected)
+	for s, want := range cases {
+		assert.Equal(t, lowercaseLettersAndNumbers(s), want)
 	}
 }
+
+const (
+	resourceGroupNameKey   = "resourceGroupName"
+	serverNameKey          = "serverName"
+	managedInstanceNameKey = "managedInstanceName"
+)
 
 func TestFixMssqlServerId(t *testing.T) {
 	t.Parallel()
@@ -41,9 +48,9 @@ func TestFixMssqlServerId(t *testing.T) {
 	t.Run("Happy path", func(t *testing.T) {
 		t.Parallel()
 		properties := map[string]any{
-			"id":                serverFirewallID,
-			"resourceGroupName": resourceGroup,
-			"serverName":        serverName,
+			"id":                 serverFirewallID,
+			resourceGroupNameKey: resourceGroup,
+			serverNameKey:        serverName,
 		}
 		pm := resource.NewPropertyMapFromMap(properties)
 		actual, err := fixMssqlServerID(context.Background(), pm)
@@ -63,11 +70,11 @@ func TestFixMssqlServerId(t *testing.T) {
 		assert.NotContains(t, actualMap, "serverId")
 	}
 
-	t.Run("Needs serverName", func(t *testing.T) {
+	t.Run("Needs "+serverNameKey, func(t *testing.T) {
 		t.Parallel()
 		properties := map[string]any{
-			"id":                serverFirewallID,
-			"resourceGroupName": resourceGroup,
+			"id":                 serverFirewallID,
+			resourceGroupNameKey: resourceGroup,
 		}
 		assertNoServerID(t, properties)
 	})
@@ -75,17 +82,17 @@ func TestFixMssqlServerId(t *testing.T) {
 	t.Run("Needs id", func(t *testing.T) {
 		t.Parallel()
 		properties := map[string]any{
-			"resourceGroupName": resourceGroup,
-			"serverName":        serverName,
+			resourceGroupNameKey: resourceGroup,
+			serverNameKey:        serverName,
 		}
 		assertNoServerID(t, properties)
 	})
 
-	t.Run("Needs resourceGroupName", func(t *testing.T) {
+	t.Run("Needs "+resourceGroupNameKey, func(t *testing.T) {
 		t.Parallel()
 		properties := map[string]any{
-			"id":         serverFirewallID,
-			"serverName": serverName,
+			"id":          serverFirewallID,
+			serverNameKey: serverName,
 		}
 		assertNoServerID(t, properties)
 	})
@@ -108,9 +115,9 @@ func TestFixMssqlManagedInstanceId(t *testing.T) {
 	t.Run("Happy path", func(t *testing.T) {
 		t.Parallel()
 		properties := map[string]any{
-			"id":                  failoverGroupID,
-			"resourceGroupName":   resourceGroup,
-			"managedInstanceName": name,
+			"id":                   failoverGroupID,
+			resourceGroupNameKey:   resourceGroup,
+			managedInstanceNameKey: name,
 		}
 		pm := resource.NewPropertyMapFromMap(properties)
 		actual, err := fixMssqlManagedInstanceID(context.Background(), pm)
@@ -130,11 +137,11 @@ func TestFixMssqlManagedInstanceId(t *testing.T) {
 		assert.NotContains(t, actualMap, "managedInstanceId")
 	}
 
-	t.Run("Needs managedInstanceName", func(t *testing.T) {
+	t.Run("Needs "+managedInstanceNameKey, func(t *testing.T) {
 		t.Parallel()
 		properties := map[string]any{
-			"id":                failoverGroupID,
-			"resourceGroupName": resourceGroup,
+			"id":                 failoverGroupID,
+			resourceGroupNameKey: resourceGroup,
 		}
 		assertNoID(t, properties)
 	})
@@ -142,17 +149,17 @@ func TestFixMssqlManagedInstanceId(t *testing.T) {
 	t.Run("Needs id", func(t *testing.T) {
 		t.Parallel()
 		properties := map[string]any{
-			"resourceGroupName":   resourceGroup,
-			"managedInstanceName": name,
+			resourceGroupNameKey:   resourceGroup,
+			managedInstanceNameKey: name,
 		}
 		assertNoID(t, properties)
 	})
 
-	t.Run("Needs resourceGroupName", func(t *testing.T) {
+	t.Run("Needs "+resourceGroupNameKey, func(t *testing.T) {
 		t.Parallel()
 		properties := map[string]any{
-			"id":                  failoverGroupID,
-			"managedInstanceName": name,
+			"id":                   failoverGroupID,
+			managedInstanceNameKey: name,
 		}
 		assertNoID(t, properties)
 	})

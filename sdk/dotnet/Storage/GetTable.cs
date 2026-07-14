@@ -97,10 +97,18 @@ namespace Pulumi.Azure.Storage
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Table exists.
+        /// The ID of the Storage Account where the Table exists.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public string StorageAccountName { get; set; } = null!;
+        [Input("storageAccountId")]
+        public string? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the Storage Account where the Table exists.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+        /// </summary>
+        [Input("storageAccountName")]
+        public string? StorageAccountName { get; set; }
 
         public GetTableArgs()
         {
@@ -117,10 +125,18 @@ namespace Pulumi.Azure.Storage
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Storage Account where the Table exists.
+        /// The ID of the Storage Account where the Table exists.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountId")]
+        public Input<string>? StorageAccountId { get; set; }
+
+        /// <summary>
+        /// The name of the Storage Account where the Table exists.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
+        /// </summary>
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
         public GetTableInvokeArgs()
         {
@@ -145,6 +161,7 @@ namespace Pulumi.Azure.Storage
         /// The Resource Manager ID of this Storage Table.
         /// </summary>
         public readonly string ResourceManagerId;
+        public readonly string StorageAccountId;
         public readonly string StorageAccountName;
 
         [OutputConstructor]
@@ -157,12 +174,15 @@ namespace Pulumi.Azure.Storage
 
             string resourceManagerId,
 
+            string storageAccountId,
+
             string storageAccountName)
         {
             Acls = acls;
             Id = id;
             Name = name;
             ResourceManagerId = resourceManagerId;
+            StorageAccountId = storageAccountId;
             StorageAccountName = storageAccountName;
         }
     }

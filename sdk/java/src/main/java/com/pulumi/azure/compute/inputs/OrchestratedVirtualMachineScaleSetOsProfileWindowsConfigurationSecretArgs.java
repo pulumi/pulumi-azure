@@ -17,14 +17,14 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public static final OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs();
 
     /**
-     * One or more `certificate` blocks as defined below.
+     * One or more `certificate` blocks as defined above.
      * 
      */
     @Import(name="certificates", required=true)
     private Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs>> certificates;
 
     /**
-     * @return One or more `certificate` blocks as defined below.
+     * @return One or more `certificate` blocks as defined above.
      * 
      */
     public Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs>> certificates() {
@@ -72,7 +72,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param certificates One or more `certificate` blocks as defined below.
+         * @param certificates One or more `certificate` blocks as defined above.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param certificates One or more `certificate` blocks as defined below.
+         * @param certificates One or more `certificate` blocks as defined above.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
 
         /**
-         * @param certificates One or more `certificate` blocks as defined below.
+         * @param certificates One or more `certificate` blocks as defined above.
          * 
          * @return builder
          * 

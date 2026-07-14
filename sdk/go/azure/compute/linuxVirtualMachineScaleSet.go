@@ -70,7 +70,7 @@ import (
 //				Name:              pulumi.String("example-vmss"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				Sku:               pulumi.String("Standard_F2"),
+//				Sku:               pulumi.String("Standard_D4_v5"),
 //				Instances:         pulumi.Int(1),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
@@ -249,7 +249,7 @@ type LinuxVirtualMachineScaleSet struct {
 	SecureBootEnabled pulumi.BoolPtrOutput `pulumi:"secureBootEnabled"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrOutput `pulumi:"singlePlacementGroup"`
-	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	// The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
 	//
@@ -461,7 +461,7 @@ type linuxVirtualMachineScaleSetState struct {
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	// The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
 	Sku *string `pulumi:"sku"`
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
 	//
@@ -618,7 +618,7 @@ type LinuxVirtualMachineScaleSetState struct {
 	SecureBootEnabled pulumi.BoolPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	// The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
 	Sku pulumi.StringPtrInput
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
 	//
@@ -779,7 +779,7 @@ type linuxVirtualMachineScaleSetArgs struct {
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup *bool `pulumi:"singlePlacementGroup"`
-	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	// The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
 	Sku string `pulumi:"sku"`
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
 	//
@@ -935,7 +935,7 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	SecureBootEnabled pulumi.BoolPtrInput
 	// Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
 	SinglePlacementGroup pulumi.BoolPtrInput
-	// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+	// The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
 	Sku pulumi.StringInput
 	// The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
 	//
@@ -1327,7 +1327,7 @@ func (o LinuxVirtualMachineScaleSetOutput) SinglePlacementGroup() pulumi.BoolPtr
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.BoolPtrOutput { return v.SinglePlacementGroup }).(pulumi.BoolPtrOutput)
 }
 
-// The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+// The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
 func (o LinuxVirtualMachineScaleSetOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
 }

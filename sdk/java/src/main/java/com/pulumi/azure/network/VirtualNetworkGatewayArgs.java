@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -228,6 +229,52 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     * 
+     * &gt; **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+     * 
+     */
+    @Import(name="maximumScaleUnit")
+    private @Nullable Output<Integer> maximumScaleUnit;
+
+    /**
+     * @return The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     * 
+     * &gt; **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+     * 
+     */
+    public Optional<Output<Integer>> maximumScaleUnit() {
+        return Optional.ofNullable(this.maximumScaleUnit);
+    }
+
+    /**
+     * The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     * 
+     * &gt; **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+     * 
+     * &gt; **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+     * 
+     * &gt; **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+     * 
+     */
+    @Import(name="minimumScaleUnit")
+    private @Nullable Output<Integer> minimumScaleUnit;
+
+    /**
+     * @return The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     * 
+     * &gt; **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+     * 
+     * &gt; **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+     * 
+     * &gt; **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<Integer>> minimumScaleUnit() {
+        return Optional.ofNullable(this.minimumScaleUnit);
+    }
+
+    /**
      * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      * 
      */
@@ -416,6 +463,8 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
         this.ipConfigurations = $.ipConfigurations;
         this.ipSecReplayProtectionEnabled = $.ipSecReplayProtectionEnabled;
         this.location = $.location;
+        this.maximumScaleUnit = $.maximumScaleUnit;
+        this.minimumScaleUnit = $.minimumScaleUnit;
         this.name = $.name;
         this.policyGroups = $.policyGroups;
         this.privateIpAddressEnabled = $.privateIpAddressEnabled;
@@ -736,6 +785,64 @@ public final class VirtualNetworkGatewayArgs extends com.pulumi.resources.Resour
          */
         public Builder location(String location) {
             return location(Output.of(location));
+        }
+
+        /**
+         * @param maximumScaleUnit The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+         * 
+         * &gt; **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maximumScaleUnit(@Nullable Output<Integer> maximumScaleUnit) {
+            $.maximumScaleUnit = maximumScaleUnit;
+            return this;
+        }
+
+        /**
+         * @param maximumScaleUnit The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+         * 
+         * &gt; **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder maximumScaleUnit(Integer maximumScaleUnit) {
+            return maximumScaleUnit(Output.of(maximumScaleUnit));
+        }
+
+        /**
+         * @param minimumScaleUnit The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+         * 
+         * &gt; **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+         * 
+         * &gt; **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+         * 
+         * &gt; **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumScaleUnit(@Nullable Output<Integer> minimumScaleUnit) {
+            $.minimumScaleUnit = minimumScaleUnit;
+            return this;
+        }
+
+        /**
+         * @param minimumScaleUnit The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+         * 
+         * &gt; **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+         * 
+         * &gt; **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+         * 
+         * &gt; **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumScaleUnit(Integer minimumScaleUnit) {
+            return minimumScaleUnit(Output.of(minimumScaleUnit));
         }
 
         /**

@@ -273,8 +273,6 @@ if typing.TYPE_CHECKING:
     trustedsigning = __trustedsigning
     import pulumi_azure.videoindexer as __videoindexer
     videoindexer = __videoindexer
-    import pulumi_azure.voice as __voice
-    voice = __voice
     import pulumi_azure.waf as __waf
     waf = __waf
     import pulumi_azure.webpubsub as __webpubsub
@@ -413,7 +411,6 @@ else:
     trafficmanager = _utilities.lazy_import('pulumi_azure.trafficmanager')
     trustedsigning = _utilities.lazy_import('pulumi_azure.trustedsigning')
     videoindexer = _utilities.lazy_import('pulumi_azure.videoindexer')
-    voice = _utilities.lazy_import('pulumi_azure.voice')
     waf = _utilities.lazy_import('pulumi_azure.waf')
     webpubsub = _utilities.lazy_import('pulumi_azure.webpubsub')
     workloadssap = _utilities.lazy_import('pulumi_azure.workloadssap')
@@ -6583,6 +6580,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "netapp/volumeBucket",
+  "fqn": "pulumi_azure.netapp",
+  "classes": {
+   "azure:netapp/volumeBucket:VolumeBucket": "VolumeBucket"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "netapp/volumeBucketWithServer",
+  "fqn": "pulumi_azure.netapp",
+  "classes": {
+   "azure:netapp/volumeBucketWithServer:VolumeBucketWithServer": "VolumeBucketWithServer"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "netapp/volumeGroupOracle",
   "fqn": "pulumi_azure.netapp",
   "classes": {
@@ -9539,22 +9552,6 @@ _utilities.register(
   "fqn": "pulumi_azure.videoindexer",
   "classes": {
    "azure:videoindexer/account:Account": "Account"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "voice/servicesCommunicationsGateway",
-  "fqn": "pulumi_azure.voice",
-  "classes": {
-   "azure:voice/servicesCommunicationsGateway:ServicesCommunicationsGateway": "ServicesCommunicationsGateway"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "voice/servicesCommunicationsGatewayTestLine",
-  "fqn": "pulumi_azure.voice",
-  "classes": {
-   "azure:voice/servicesCommunicationsGatewayTestLine:ServicesCommunicationsGatewayTestLine": "ServicesCommunicationsGatewayTestLine"
   }
  },
  {

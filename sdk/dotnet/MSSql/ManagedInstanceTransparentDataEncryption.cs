@@ -276,6 +276,8 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
+        /// &gt; **Note:** When `AutoRotationEnabled` is `True`, `KeyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `KeyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `AutoRotationEnabled` is `False`, `KeyVaultKeyId` must be a versioned Key Vault Key ID.
+        /// 
         /// &gt; **Note:** If `ManagedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `KeyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         /// </summary>
         [Output("keyVaultKeyId")]
@@ -347,6 +349,8 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
         /// 
+        /// &gt; **Note:** When `AutoRotationEnabled` is `True`, `KeyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `KeyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `AutoRotationEnabled` is `False`, `KeyVaultKeyId` must be a versioned Key Vault Key ID.
+        /// 
         /// &gt; **Note:** If `ManagedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `KeyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         /// </summary>
         [Input("keyVaultKeyId")]
@@ -379,6 +383,8 @@ namespace Pulumi.Azure.MSSql
         /// To use customer managed keys from Azure Key Vault, provide the AKV Key ID. To use service managed keys, omit this field.
         /// 
         /// &gt; **Note:** In order to use customer managed keys, the identity of the MSSQL Managed Instance must have the following permissions on the key vault: 'get', 'wrapKey' and 'unwrapKey'
+        /// 
+        /// &gt; **Note:** When `AutoRotationEnabled` is `True`, `KeyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `KeyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `AutoRotationEnabled` is `False`, `KeyVaultKeyId` must be a versioned Key Vault Key ID.
         /// 
         /// &gt; **Note:** If `ManagedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `KeyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         /// </summary>

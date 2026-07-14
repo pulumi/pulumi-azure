@@ -39,7 +39,7 @@ class ScheduledActionArgs:
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
-        :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 70 characters.
+        :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 50 characters.
         :param pulumi.Input[_builtins.str] end_date: The end date and time of the Scheduled Action (UTC).
         :param pulumi.Input[_builtins.str] frequency: Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
         :param pulumi.Input[_builtins.str] start_date: The start date and time of the Scheduled Action (UTC).
@@ -112,7 +112,7 @@ class ScheduledActionArgs:
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> pulumi.Input[_builtins.str]:
         """
-        Subject of the email. Length is limited to 70 characters.
+        Subject of the email. Length is limited to 50 characters.
         """
         return pulumi.get(self, "email_subject")
 
@@ -266,7 +266,7 @@ class _ScheduledActionState:
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
-        :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 70 characters.
+        :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 50 characters.
         :param pulumi.Input[_builtins.str] end_date: The end date and time of the Scheduled Action (UTC).
         :param pulumi.Input[_builtins.str] frequency: Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
         :param pulumi.Input[_builtins.int] hour_of_day: UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
@@ -369,7 +369,7 @@ class _ScheduledActionState:
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Subject of the email. Length is limited to 70 characters.
+        Subject of the email. Length is limited to 50 characters.
         """
         return pulumi.get(self, "email_subject")
 
@@ -540,7 +540,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
-        :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 70 characters.
+        :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 50 characters.
         :param pulumi.Input[_builtins.str] end_date: The end date and time of the Scheduled Action (UTC).
         :param pulumi.Input[_builtins.str] frequency: Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
         :param pulumi.Input[_builtins.int] hour_of_day: UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
@@ -698,7 +698,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: User visible input name of the Cost Management Scheduled Action.
         :param pulumi.Input[_builtins.str] email_address_sender: Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies a list of email addresses that will receive the Scheduled Action.
-        :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 70 characters.
+        :param pulumi.Input[_builtins.str] email_subject: Subject of the email. Length is limited to 50 characters.
         :param pulumi.Input[_builtins.str] end_date: The end date and time of the Scheduled Action (UTC).
         :param pulumi.Input[_builtins.str] frequency: Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified.
         :param pulumi.Input[_builtins.int] hour_of_day: UTC time at which cost analysis data will be emailed. Must be between `0` and `23`.
@@ -772,7 +772,7 @@ class ScheduledAction(pulumi.CustomResource):
     @pulumi.getter(name="emailSubject")
     def email_subject(self) -> pulumi.Output[_builtins.str]:
         """
-        Subject of the email. Length is limited to 70 characters.
+        Subject of the email. Length is limited to 50 characters.
         """
         return pulumi.get(self, "email_subject")
 

@@ -44,6 +44,7 @@ class ManagedInstanceArgs:
                  public_data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_iops: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timezone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  zone_redundant_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
@@ -83,9 +84,14 @@ class ManagedInstanceArgs:
         :param pulumi.Input[_builtins.bool] public_data_endpoint_enabled: Is the public data endpoint enabled? Defaults to `false`.
         :param pulumi.Input[_builtins.str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[_builtins.str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        :param pulumi.Input[_builtins.int] storage_iops: The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `general_purpose_v2_enabled` is `true`.
+               
+               > **Note:** The effective maximum value for `storage_iops` depends on the selected `sku_name` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] zone_redundant_enabled: Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+               
+               > **Note:** `zone_redundant_enabled` cannot be specified when `general_purpose_v2_enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
         """
         pulumi.set(__self__, "license_type", license_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -127,6 +133,8 @@ class ManagedInstanceArgs:
             pulumi.set(__self__, "service_principal_type", service_principal_type)
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if storage_iops is not None:
+            pulumi.set(__self__, "storage_iops", storage_iops)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timezone_id is not None:
@@ -421,6 +429,20 @@ class ManagedInstanceArgs:
         pulumi.set(self, "storage_account_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageIops")
+    def storage_iops(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `general_purpose_v2_enabled` is `true`.
+
+        > **Note:** The effective maximum value for `storage_iops` depends on the selected `sku_name` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+        """
+        return pulumi.get(self, "storage_iops")
+
+    @storage_iops.setter
+    def storage_iops(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "storage_iops", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -449,6 +471,8 @@ class ManagedInstanceArgs:
     def zone_redundant_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+
+        > **Note:** `zone_redundant_enabled` cannot be specified when `general_purpose_v2_enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
         """
         return pulumi.get(self, "zone_redundant_enabled")
 
@@ -482,6 +506,7 @@ class _ManagedInstanceState:
                  service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_iops: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -521,6 +546,9 @@ class _ManagedInstanceState:
         :param pulumi.Input[_builtins.str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[_builtins.str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        :param pulumi.Input[_builtins.int] storage_iops: The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `general_purpose_v2_enabled` is `true`.
+               
+               > **Note:** The effective maximum value for `storage_iops` depends on the selected `sku_name` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
                
                > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
@@ -529,6 +557,8 @@ class _ManagedInstanceState:
         :param pulumi.Input[_builtins.str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
         :param pulumi.Input[_builtins.bool] zone_redundant_enabled: Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+               
+               > **Note:** `zone_redundant_enabled` cannot be specified when `general_purpose_v2_enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
         """
         if administrator_login is not None:
             pulumi.set(__self__, "administrator_login", administrator_login)
@@ -574,6 +604,8 @@ class _ManagedInstanceState:
             pulumi.set(__self__, "sku_name", sku_name)
         if storage_account_type is not None:
             pulumi.set(__self__, "storage_account_type", storage_account_type)
+        if storage_iops is not None:
+            pulumi.set(__self__, "storage_iops", storage_iops)
         if storage_size_in_gb is not None:
             pulumi.set(__self__, "storage_size_in_gb", storage_size_in_gb)
         if subnet_id is not None:
@@ -860,6 +892,20 @@ class _ManagedInstanceState:
         pulumi.set(self, "storage_account_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageIops")
+    def storage_iops(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `general_purpose_v2_enabled` is `true`.
+
+        > **Note:** The effective maximum value for `storage_iops` depends on the selected `sku_name` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+        """
+        return pulumi.get(self, "storage_iops")
+
+    @storage_iops.setter
+    def storage_iops(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "storage_iops", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageSizeInGb")
     def storage_size_in_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -926,6 +972,8 @@ class _ManagedInstanceState:
     def zone_redundant_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+
+        > **Note:** `zone_redundant_enabled` cannot be specified when `general_purpose_v2_enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
         """
         return pulumi.get(self, "zone_redundant_enabled")
 
@@ -960,6 +1008,7 @@ class ManagedInstance(pulumi.CustomResource):
                  service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_iops: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -972,7 +1021,7 @@ class ManagedInstance(pulumi.CustomResource):
 
         > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
-        > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
+        > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
 
         ## Example Usage
 
@@ -1189,6 +1238,9 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[_builtins.str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        :param pulumi.Input[_builtins.int] storage_iops: The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `general_purpose_v2_enabled` is `true`.
+               
+               > **Note:** The effective maximum value for `storage_iops` depends on the selected `sku_name` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
                
                > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
@@ -1197,6 +1249,8 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
         :param pulumi.Input[_builtins.bool] zone_redundant_enabled: Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+               
+               > **Note:** `zone_redundant_enabled` cannot be specified when `general_purpose_v2_enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
         """
         ...
     @overload
@@ -1209,7 +1263,7 @@ class ManagedInstance(pulumi.CustomResource):
 
         > **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 
-        > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
+        > **Note:** SQL Managed Instance needs permission to read Azure Active Directory when configuring the AAD administrator. [Read more about provisioning AAD administrators](https://learn.microsoft.com/azure/azure-sql/database/authentication-aad-configure?view=azuresql#provision-azure-ad-admin-sql-managed-instance).
 
         ## Example Usage
 
@@ -1431,6 +1485,7 @@ class ManagedInstance(pulumi.CustomResource):
                  service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
                  sku_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_iops: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1472,6 +1527,7 @@ class ManagedInstance(pulumi.CustomResource):
                 raise TypeError("Missing required property 'sku_name'")
             __props__.__dict__["sku_name"] = sku_name
             __props__.__dict__["storage_account_type"] = storage_account_type
+            __props__.__dict__["storage_iops"] = storage_iops
             if storage_size_in_gb is None and not opts.urn:
                 raise TypeError("Missing required property 'storage_size_in_gb'")
             __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb
@@ -1522,6 +1578,7 @@ class ManagedInstance(pulumi.CustomResource):
             service_principal_type: pulumi.Input[Optional[_builtins.str]] = None,
             sku_name: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_type: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_iops: pulumi.Input[Optional[_builtins.int]] = None,
             storage_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
             subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -1565,6 +1622,9 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_principal_type: The service principal type. The only possible value is `SystemAssigned`.
         :param pulumi.Input[_builtins.str] sku_name: Specifies the SKU Name for the SQL Managed Instance. Possible values are `GP_Gen4`, `GP_Gen5`, `GP_Gen8IM`, `GP_Gen8IH`, `BC_Gen4`, `BC_Gen5`, `BC_Gen8IM` or `BC_Gen8IH`.
         :param pulumi.Input[_builtins.str] storage_account_type: Specifies the storage account type used to store backups for this database. Possible values are `GRS`, `GZRS`, `LRS`, and `ZRS`. Defaults to `GRS`.
+        :param pulumi.Input[_builtins.int] storage_iops: The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `general_purpose_v2_enabled` is `true`.
+               
+               > **Note:** The effective maximum value for `storage_iops` depends on the selected `sku_name` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
         :param pulumi.Input[_builtins.int] storage_size_in_gb: Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
                
                > **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
@@ -1573,6 +1633,8 @@ class ManagedInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] timezone_id: The TimeZone ID that the SQL Managed Instance will be operating in. Defaults to `UTC`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] vcores: Number of cores that should be assigned to the SQL Managed Instance. Values can be `8`, `16`, or `24` for Gen4 SKUs, or `4`, `6`, `8`, `10`, `12`, `16`, `20`, `24`, `32`, `40`, `48`, `56`, `64`, `80`, `96` or `128` for Gen5 SKUs.
         :param pulumi.Input[_builtins.bool] zone_redundant_enabled: Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+               
+               > **Note:** `zone_redundant_enabled` cannot be specified when `general_purpose_v2_enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1600,6 +1662,7 @@ class ManagedInstance(pulumi.CustomResource):
         __props__.__dict__["service_principal_type"] = service_principal_type
         __props__.__dict__["sku_name"] = sku_name
         __props__.__dict__["storage_account_type"] = storage_account_type
+        __props__.__dict__["storage_iops"] = storage_iops
         __props__.__dict__["storage_size_in_gb"] = storage_size_in_gb
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
@@ -1793,6 +1856,16 @@ class ManagedInstance(pulumi.CustomResource):
         return pulumi.get(self, "storage_account_type")
 
     @_builtins.property
+    @pulumi.getter(name="storageIops")
+    def storage_iops(self) -> pulumi.Output[_builtins.int]:
+        """
+        The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `general_purpose_v2_enabled` is `true`.
+
+        > **Note:** The effective maximum value for `storage_iops` depends on the selected `sku_name` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+        """
+        return pulumi.get(self, "storage_iops")
+
+    @_builtins.property
     @pulumi.getter(name="storageSizeInGb")
     def storage_size_in_gb(self) -> pulumi.Output[_builtins.int]:
         """
@@ -1839,6 +1912,8 @@ class ManagedInstance(pulumi.CustomResource):
     def zone_redundant_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+
+        > **Note:** `zone_redundant_enabled` cannot be specified when `general_purpose_v2_enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
         """
         return pulumi.get(self, "zone_redundant_enabled")
 

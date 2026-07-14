@@ -135,7 +135,7 @@ namespace Pulumi.Azure.Maintenance
     ///         Name = "example-machine",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Size = "Standard_F2",
+    ///         Size = "Standard_D4_v5",
     ///         AdminUsername = "adminuser",
     ///         NetworkInterfaceIds = new[]
     ///         {
@@ -153,7 +153,7 @@ namespace Pulumi.Azure.Maintenance
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = "Standard_F2",
+    ///         Sku = "Standard_D4_v5",
     ///         Instances = 1,
     ///         AdminUsername = "adminuser",
     ///         AdminPassword = "P@ssword1234!",

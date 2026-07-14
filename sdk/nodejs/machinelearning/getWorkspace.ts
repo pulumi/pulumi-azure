@@ -70,6 +70,10 @@ export interface GetWorkspaceResult {
     readonly name: string;
     readonly resourceGroupName: string;
     /**
+     * The access type for the system storage account.
+     */
+    readonly storageAccountAccessType: string;
+    /**
      * A mapping of tags assigned to the Machine Learning Workspace.
      */
     readonly tags: {[key: string]: string};

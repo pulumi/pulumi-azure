@@ -87,6 +87,14 @@ namespace Pulumi.Azure.DataFactory
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        /// 
+        /// &gt; **Note:** New linked services must set `DriverVersion` to `V2`.
+        /// </summary>
+        [Output("driverVersion")]
+        public Output<string?> DriverVersion { get; private set; } = null!;
+
+        /// <summary>
         /// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
         /// </summary>
         [Output("integrationRuntimeName")]
@@ -193,6 +201,14 @@ namespace Pulumi.Azure.DataFactory
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        /// 
+        /// &gt; **Note:** New linked services must set `DriverVersion` to `V2`.
+        /// </summary>
+        [Input("driverVersion")]
+        public Input<string>? DriverVersion { get; set; }
+
+        /// <summary>
         /// The integration runtime reference to associate with the Data Factory Linked Service MySQL.
         /// </summary>
         [Input("integrationRuntimeName")]
@@ -265,6 +281,14 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        /// 
+        /// &gt; **Note:** New linked services must set `DriverVersion` to `V2`.
+        /// </summary>
+        [Input("driverVersion")]
+        public Input<string>? DriverVersion { get; set; }
 
         /// <summary>
         /// The integration runtime reference to associate with the Data Factory Linked Service MySQL.

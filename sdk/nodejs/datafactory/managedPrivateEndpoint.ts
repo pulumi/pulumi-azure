@@ -98,6 +98,8 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
      */
     declare public readonly subresourceName: pulumi.Output<string | undefined>;
     /**
@@ -162,6 +164,8 @@ export interface ManagedPrivateEndpointState {
     name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
      */
     subresourceName?: pulumi.Input<string | undefined>;
     /**
@@ -190,6 +194,8 @@ export interface ManagedPrivateEndpointArgs {
     name?: pulumi.Input<string | undefined>;
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
      */
     subresourceName?: pulumi.Input<string | undefined>;
     /**

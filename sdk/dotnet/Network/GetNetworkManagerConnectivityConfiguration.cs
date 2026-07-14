@@ -170,6 +170,14 @@ namespace Pulumi.Azure.Network
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkManagerConnectivityConfigurationAppliesToGroupResult> AppliesToGroups;
         /// <summary>
+        /// Whether connected group address overlap is enabled.
+        /// </summary>
+        public readonly bool ConnectedGroupAddressOverlapEnabled;
+        /// <summary>
+        /// The scale of private endpoints allowed in the connected group.
+        /// </summary>
+        public readonly string ConnectedGroupPrivateEndpointsScale;
+        /// <summary>
         /// The connectivity topology type.
         /// </summary>
         public readonly string ConnectivityTopology;
@@ -195,10 +203,18 @@ namespace Pulumi.Azure.Network
         public readonly string Id;
         public readonly string Name;
         public readonly string NetworkManagerId;
+        /// <summary>
+        /// Whether peering enforcement is enabled.
+        /// </summary>
+        public readonly bool PeeringEnforcementEnabled;
 
         [OutputConstructor]
         private GetNetworkManagerConnectivityConfigurationResult(
             ImmutableArray<Outputs.GetNetworkManagerConnectivityConfigurationAppliesToGroupResult> appliesToGroups,
+
+            bool connectedGroupAddressOverlapEnabled,
+
+            string connectedGroupPrivateEndpointsScale,
 
             string connectivityTopology,
 
@@ -214,9 +230,13 @@ namespace Pulumi.Azure.Network
 
             string name,
 
-            string networkManagerId)
+            string networkManagerId,
+
+            bool peeringEnforcementEnabled)
         {
             AppliesToGroups = appliesToGroups;
+            ConnectedGroupAddressOverlapEnabled = connectedGroupAddressOverlapEnabled;
+            ConnectedGroupPrivateEndpointsScale = connectedGroupPrivateEndpointsScale;
             ConnectivityTopology = connectivityTopology;
             DeleteExistingPeeringEnabled = deleteExistingPeeringEnabled;
             Description = description;
@@ -225,6 +245,7 @@ namespace Pulumi.Azure.Network
             Id = id;
             Name = name;
             NetworkManagerId = networkManagerId;
+            PeeringEnforcementEnabled = peeringEnforcementEnabled;
         }
     }
 }

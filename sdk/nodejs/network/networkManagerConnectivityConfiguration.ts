@@ -119,6 +119,16 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
      */
     declare public readonly appliesToGroups: pulumi.Output<outputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup[]>;
     /**
+     * Whether connected group address overlap is enabled. Defaults to `true`.
+     *
+     * > **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+     */
+    declare public readonly connectedGroupAddressOverlapEnabled: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+     */
+    declare public readonly connectedGroupPrivateEndpointsScale: pulumi.Output<string | undefined>;
+    /**
      * Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
      */
     declare public readonly connectivityTopology: pulumi.Output<string>;
@@ -146,6 +156,10 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
      */
     declare public readonly networkManagerId: pulumi.Output<string>;
+    /**
+     * Whether peering enforcement is enabled. Defaults to `false`.
+     */
+    declare public readonly peeringEnforcementEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a NetworkManagerConnectivityConfiguration resource with the given unique name, arguments, and options.
@@ -161,6 +175,8 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
         if (opts.id) {
             const state = argsOrState as NetworkManagerConnectivityConfigurationState | undefined;
             resourceInputs["appliesToGroups"] = state?.appliesToGroups;
+            resourceInputs["connectedGroupAddressOverlapEnabled"] = state?.connectedGroupAddressOverlapEnabled;
+            resourceInputs["connectedGroupPrivateEndpointsScale"] = state?.connectedGroupPrivateEndpointsScale;
             resourceInputs["connectivityTopology"] = state?.connectivityTopology;
             resourceInputs["deleteExistingPeeringEnabled"] = state?.deleteExistingPeeringEnabled;
             resourceInputs["description"] = state?.description;
@@ -168,6 +184,7 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
             resourceInputs["hub"] = state?.hub;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkManagerId"] = state?.networkManagerId;
+            resourceInputs["peeringEnforcementEnabled"] = state?.peeringEnforcementEnabled;
         } else {
             const args = argsOrState as NetworkManagerConnectivityConfigurationArgs | undefined;
             if (args?.appliesToGroups === undefined && !opts.urn) {
@@ -180,6 +197,8 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
                 throw new Error("Missing required property 'networkManagerId'");
             }
             resourceInputs["appliesToGroups"] = args?.appliesToGroups;
+            resourceInputs["connectedGroupAddressOverlapEnabled"] = args?.connectedGroupAddressOverlapEnabled;
+            resourceInputs["connectedGroupPrivateEndpointsScale"] = args?.connectedGroupPrivateEndpointsScale;
             resourceInputs["connectivityTopology"] = args?.connectivityTopology;
             resourceInputs["deleteExistingPeeringEnabled"] = args?.deleteExistingPeeringEnabled;
             resourceInputs["description"] = args?.description;
@@ -187,6 +206,7 @@ export class NetworkManagerConnectivityConfiguration extends pulumi.CustomResour
             resourceInputs["hub"] = args?.hub;
             resourceInputs["name"] = args?.name;
             resourceInputs["networkManagerId"] = args?.networkManagerId;
+            resourceInputs["peeringEnforcementEnabled"] = args?.peeringEnforcementEnabled;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(NetworkManagerConnectivityConfiguration.__pulumiType, name, resourceInputs, opts);
@@ -201,6 +221,16 @@ export interface NetworkManagerConnectivityConfigurationState {
      * One or more `appliesToGroup` blocks as defined below.
      */
     appliesToGroups?: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup>[] | undefined>;
+    /**
+     * Whether connected group address overlap is enabled. Defaults to `true`.
+     *
+     * > **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+     */
+    connectedGroupAddressOverlapEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+     */
+    connectedGroupPrivateEndpointsScale?: pulumi.Input<string | undefined>;
     /**
      * Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
      */
@@ -229,6 +259,10 @@ export interface NetworkManagerConnectivityConfigurationState {
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
      */
     networkManagerId?: pulumi.Input<string | undefined>;
+    /**
+     * Whether peering enforcement is enabled. Defaults to `false`.
+     */
+    peeringEnforcementEnabled?: pulumi.Input<boolean | undefined>;
 }
 
 /**
@@ -239,6 +273,16 @@ export interface NetworkManagerConnectivityConfigurationArgs {
      * One or more `appliesToGroup` blocks as defined below.
      */
     appliesToGroups: pulumi.Input<pulumi.Input<inputs.network.NetworkManagerConnectivityConfigurationAppliesToGroup>[]>;
+    /**
+     * Whether connected group address overlap is enabled. Defaults to `true`.
+     *
+     * > **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+     */
+    connectedGroupAddressOverlapEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+     */
+    connectedGroupPrivateEndpointsScale?: pulumi.Input<string | undefined>;
     /**
      * Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
      */
@@ -267,4 +311,8 @@ export interface NetworkManagerConnectivityConfigurationArgs {
      * Specifies the ID of the Network Manager. Changing this forces a new Network Manager Connectivity Configuration to be created.
      */
     networkManagerId: pulumi.Input<string>;
+    /**
+     * Whether peering enforcement is enabled. Defaults to `false`.
+     */
+    peeringEnforcementEnabled?: pulumi.Input<boolean | undefined>;
 }

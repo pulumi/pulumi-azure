@@ -21,7 +21,7 @@ public final class StaticWebAppIdentity {
     private @Nullable String principalId;
     private @Nullable String tenantId;
     /**
-     * @return The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+     * @return The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     private String type;
@@ -41,7 +41,7 @@ public final class StaticWebAppIdentity {
         return Optional.ofNullable(this.tenantId);
     }
     /**
-     * @return The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+     * @return The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned` and `UserAssigned`.
      * 
      */
     public String type() {

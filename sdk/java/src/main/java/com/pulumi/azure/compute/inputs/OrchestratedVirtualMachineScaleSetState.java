@@ -87,9 +87,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     /**
      * Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+     * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
      * 
-     * &gt; **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+     * &gt; **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
      * 
      */
     @Import(name="capacityReservationGroupId")
@@ -98,9 +98,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     /**
      * @return Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+     * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
      * 
-     * &gt; **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+     * &gt; **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
      * 
      */
     public Optional<Output<String>> capacityReservationGroupId() {
@@ -153,7 +153,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+     * Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
@@ -162,7 +162,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     private @Nullable Output<Boolean> extensionOperationsEnabled;
 
     /**
-     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+     * @return Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
      * 
@@ -187,14 +187,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+     * Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      * 
      */
     @Import(name="extensionsTimeBudget")
     private @Nullable Output<String> extensionsTimeBudget;
 
     /**
-     * @return Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+     * @return Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
      * 
      */
     public Optional<Output<String>> extensionsTimeBudget() {
@@ -232,14 +232,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
      * 
      */
     @Import(name="licenseType")
     private @Nullable Output<String> licenseType;
 
     /**
-     * @return Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+     * @return Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
      * 
      */
     public Optional<Output<String>> licenseType() {
@@ -352,14 +352,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * A `plan` block as documented below. Changing this forces a new resource to be created.
+     * A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="plan")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetPlanArgs> plan;
 
     /**
-     * @return A `plan` block as documented below. Changing this forces a new resource to be created.
+     * @return A `plan` block as defined below. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetPlanArgs>> plan() {
@@ -386,14 +386,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="priority")
     private @Nullable Output<String> priority;
 
     /**
-     * @return The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+     * @return The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> priority() {
@@ -401,14 +401,18 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * a `priorityMix` block as defined below
+     * A `priorityMix` block as defined below.
+     * 
+     * &gt; **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
      * 
      */
     @Import(name="priorityMix")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetPriorityMixArgs> priorityMix;
 
     /**
-     * @return a `priorityMix` block as defined below
+     * @return A `priorityMix` block as defined below.
+     * 
+     * &gt; **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetPriorityMixArgs>> priorityMix() {
@@ -446,14 +450,18 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
      * 
      */
     @Import(name="rollingUpgradePolicy")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs> rollingUpgradePolicy;
 
     /**
-     * @return A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+     * @return A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetRollingUpgradePolicyArgs>> rollingUpgradePolicy() {
@@ -480,14 +488,18 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+     * The name of the SKU to be used by this Virtual Machine Scale Set.
+     * 
+     * &gt; **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
-     * @return The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+     * @return The name of the SKU to be used by this Virtual Machine Scale Set.
+     * 
+     * &gt; **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -495,18 +507,22 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+     * A `skuProfile` block as defined below.
      * 
-     * &gt; **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+     * &gt; **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+     * 
+     * &gt; **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
      * 
      */
     @Import(name="skuProfile")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetSkuProfileArgs> skuProfile;
 
     /**
-     * @return An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `skuProfile` block as defined below.
      * 
-     * &gt; **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+     * &gt; **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+     * 
+     * &gt; **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetSkuProfileArgs>> skuProfile() {
@@ -531,12 +547,16 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     /**
      * A `sourceImageReference` block as defined below.
      * 
+     * &gt; **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
+     * 
      */
     @Import(name="sourceImageReference")
     private @Nullable Output<OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs> sourceImageReference;
 
     /**
      * @return A `sourceImageReference` block as defined below.
+     * 
+     * &gt; **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
      * 
      */
     public Optional<Output<OrchestratedVirtualMachineScaleSetSourceImageReferenceArgs>> sourceImageReference() {
@@ -574,14 +594,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * The Unique ID for the Virtual Machine Scale Set.
+     * The Unique ID for the Orchestrated Virtual Machine Scale Set.
      * 
      */
     @Import(name="uniqueId")
     private @Nullable Output<String> uniqueId;
 
     /**
-     * @return The Unique ID for the Virtual Machine Scale Set.
+     * @return The Unique ID for the Orchestrated Virtual Machine Scale Set.
      * 
      */
     public Optional<Output<String>> uniqueId() {
@@ -589,14 +609,14 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
     }
 
     /**
-     * Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     * Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="upgradeMode")
     private @Nullable Output<String> upgradeMode;
 
     /**
-     * @return Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+     * @return Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> upgradeMode() {
@@ -792,9 +812,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         /**
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+         * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
          * 
-         * &gt; **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+         * &gt; **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
          * 
          * @return builder
          * 
@@ -807,9 +827,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         /**
          * @param capacityReservationGroupId Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
          * 
-         * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`
+         * &gt; **Note:** `capacityReservationGroupId` cannot be specified with `proximityPlacementGroupId`.
          * 
-         * &gt; **Note:** If `capacityReservationGroupId` is specified the `singlePlacementGroup` must be set to `false`.
+         * &gt; **Note:** If `capacityReservationGroupId` is specified, `singlePlacementGroup` must be set to `false`.
          * 
          * @return builder
          * 
@@ -892,7 +912,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
          * 
@@ -905,7 +925,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new Virtual Machine Scale Set to be created.
+         * @param extensionOperationsEnabled Should extension operations be allowed on the Virtual Machine Scale Set? Possible values are `true` or `false`. Defaults to `true`. Changing this forces a new resource to be created.
          * 
          * &gt; **Note:** `extensionOperationsEnabled` may only be set to `false` if there are no extensions defined in the `extension` field.
          * 
@@ -948,7 +968,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param extensionsTimeBudget Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+         * @param extensionsTimeBudget Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
          * 
          * @return builder
          * 
@@ -959,7 +979,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param extensionsTimeBudget Specifies the time alloted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
+         * @param extensionsTimeBudget Specifies the time allotted for all extensions to start. The time duration should be between 15 minutes and 120 minutes (inclusive) and should be specified in ISO 8601 format. Defaults to `PT1H30M`.
          * 
          * @return builder
          * 
@@ -1011,7 +1031,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
          * 
          * @return builder
          * 
@@ -1022,7 +1042,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client` and `Windows_Server`.
+         * @param licenseType Specifies the type of on-premise license (also known as Azure Hybrid Use Benefit) which should be used for this Virtual Machine Scale Set. Possible values are `None`, `Windows_Client`, and `Windows_Server`.
          * 
          * @return builder
          * 
@@ -1189,7 +1209,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param plan A `plan` block as documented below. Changing this forces a new resource to be created.
+         * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1200,7 +1220,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param plan A `plan` block as documented below. Changing this forces a new resource to be created.
+         * @param plan A `plan` block as defined below. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1235,7 +1255,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param priority The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+         * @param priority The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1246,7 +1266,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param priority The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this value forces a new resource.
+         * @param priority The Priority of this Virtual Machine Scale Set. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1256,7 +1276,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param priorityMix a `priorityMix` block as defined below
+         * @param priorityMix A `priorityMix` block as defined below.
+         * 
+         * &gt; **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1267,7 +1289,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param priorityMix a `priorityMix` block as defined below
+         * @param priorityMix A `priorityMix` block as defined below.
+         * 
+         * &gt; **Note:** `priorityMix` can only be specified when `priority` is set to `Spot`.
          * 
          * @return builder
          * 
@@ -1319,7 +1343,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
          * 
          * @return builder
          * 
@@ -1330,7 +1356,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. This is Required when `upgradeMode` is set to `Rolling` and cannot be specified when `upgradeMode` is set to `Manual`. Changing this forces a new resource to be created.
+         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `rollingUpgradePolicy` is required when `upgradeMode` is set to `Rolling`, cannot be specified when `upgradeMode` is set to `Manual`, and requires a valid application health extension when `upgradeMode` is set to `Rolling`.
          * 
          * @return builder
          * 
@@ -1365,7 +1393,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param skuName The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+         * @param skuName The name of the SKU to be used by this Virtual Machine Scale Set.
+         * 
+         * &gt; **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
          * 
          * @return builder
          * 
@@ -1376,7 +1406,9 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param skuName The `name` of the SKU to be used by this Virtual Machine Scale Set. Valid values include: any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
+         * @param skuName The name of the SKU to be used by this Virtual Machine Scale Set.
+         * 
+         * &gt; **Note:** `skuName` can be set to any of the [General purpose](https://docs.microsoft.com/azure/virtual-machines/sizes-general), [Compute optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-compute), [Memory optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-memory), [Storage optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-storage), [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-gpu), [FPGA optimized](https://docs.microsoft.com/azure/virtual-machines/sizes-field-programmable-gate-arrays), [High performance](https://docs.microsoft.com/azure/virtual-machines/sizes-hpc), or [Previous generation](https://docs.microsoft.com/azure/virtual-machines/sizes-previous-gen) virtual machine SKUs.
          * 
          * @return builder
          * 
@@ -1386,9 +1418,11 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param skuProfile An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+         * @param skuProfile A `skuProfile` block as defined below.
          * 
-         * &gt; **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+         * &gt; **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+         * 
+         * &gt; **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
          * 
          * @return builder
          * 
@@ -1399,9 +1433,11 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param skuProfile An `skuProfile` block as defined below. Changing this forces a new resource to be created.
+         * @param skuProfile A `skuProfile` block as defined below.
          * 
-         * &gt; **Note:** If `skuProfile` is specified the `skuName` must be set to `Mix`.
+         * &gt; **Note:** `skuProfile` can only be specified when `skuName` is set to `Mix`, and `skuProfile` must be configured when `skuName` is set to `Mix`.
+         * 
+         * &gt; **Note:** The `skuProfile` feature may be subject to Azure service limitations for particular regions and VM size combinations. While `skuProfile` can be updated after deployment, it cannot be removed. Removing `skuProfile` from the configuration after deployment triggers the creation of a new resource. Additionally, modifying `skuProfile` settings may result in instance disruption, as changes to allocation strategies or VM sizes can require Azure to redistribute or recreate instances.
          * 
          * @return builder
          * 
@@ -1434,6 +1470,8 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         /**
          * @param sourceImageReference A `sourceImageReference` block as defined below.
          * 
+         * &gt; **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
+         * 
          * @return builder
          * 
          */
@@ -1444,6 +1482,8 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
 
         /**
          * @param sourceImageReference A `sourceImageReference` block as defined below.
+         * 
+         * &gt; **Note:** `sourceImageId` and `sourceImageReference` are mutually exclusive and only one of them may be specified.
          * 
          * @return builder
          * 
@@ -1495,7 +1535,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param uniqueId The Unique ID for the Virtual Machine Scale Set.
+         * @param uniqueId The Unique ID for the Orchestrated Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -1506,7 +1546,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param uniqueId The Unique ID for the Virtual Machine Scale Set.
+         * @param uniqueId The Unique ID for the Orchestrated Virtual Machine Scale Set.
          * 
          * @return builder
          * 
@@ -1516,7 +1556,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param upgradeMode Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+         * @param upgradeMode Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -1527,7 +1567,7 @@ public final class OrchestratedVirtualMachineScaleSetState extends com.pulumi.re
         }
 
         /**
-         * @param upgradeMode Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual` and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
+         * @param upgradeMode Specifies how upgrades (e.g. changing the Image/SKU) should be performed to Virtual Machine Instances. Possible values are `Automatic`, `Manual`, and `Rolling`. Defaults to `Manual`. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

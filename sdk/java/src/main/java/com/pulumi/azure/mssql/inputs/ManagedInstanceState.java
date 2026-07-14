@@ -367,6 +367,25 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
+     * 
+     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * 
+     */
+    @Import(name="storageIops")
+    private @Nullable Output<Integer> storageIops;
+
+    /**
+     * @return The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
+     * 
+     * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+     * 
+     */
+    public Optional<Output<Integer>> storageIops() {
+        return Optional.ofNullable(this.storageIops);
+    }
+
+    /**
      * Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
      * 
      * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
@@ -448,12 +467,16 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
     /**
      * Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
      * 
+     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
+     * 
      */
     @Import(name="zoneRedundantEnabled")
     private @Nullable Output<Boolean> zoneRedundantEnabled;
 
     /**
      * @return Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+     * 
+     * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
      * 
      */
     public Optional<Output<Boolean>> zoneRedundantEnabled() {
@@ -485,6 +508,7 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         this.servicePrincipalType = $.servicePrincipalType;
         this.skuName = $.skuName;
         this.storageAccountType = $.storageAccountType;
+        this.storageIops = $.storageIops;
         this.storageSizeInGb = $.storageSizeInGb;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
@@ -990,6 +1014,31 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param storageIops The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
+         * 
+         * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageIops(@Nullable Output<Integer> storageIops) {
+            $.storageIops = storageIops;
+            return this;
+        }
+
+        /**
+         * @param storageIops The storage IOPS for the SQL Managed Instance. Possible values are between `300` and `80000`. This can only be specified when `generalPurposeV2Enabled` is `true`.
+         * 
+         * &gt; **Note:** The effective maximum value for `storageIops` depends on the selected `skuName` and `vcores`. Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageIops(Integer storageIops) {
+            return storageIops(Output.of(storageIops));
+        }
+
+        /**
          * @param storageSizeInGb Maximum storage space for the SQL Managed instance. This should be a multiple of 32 (GB).
          * 
          * &gt; **Note:** The maximum storage size varies depending on the service tier and hardware generation. For General Purpose Next-gen instances, the maximum is 32,768 GB (32 TB), while Business Critical instances support up to 16,384 GB (16 TB). Refer to [Azure SQL Managed Instance resource limits](https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/resource-limits) for detailed information.
@@ -1101,6 +1150,8 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
         /**
          * @param zoneRedundantEnabled Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
          * 
+         * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
+         * 
          * @return builder
          * 
          */
@@ -1111,6 +1162,8 @@ public final class ManagedInstanceState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param zoneRedundantEnabled Specifies whether the SQL Managed Instance is zone redundant. Defaults to `false`.
+         * 
+         * &gt; **Note:** `zoneRedundantEnabled` cannot be specified when `generalPurposeV2Enabled` is `true` because zone redundancy is not available for the Next-gen General Purpose service tier.)
          * 
          * @return builder
          * 

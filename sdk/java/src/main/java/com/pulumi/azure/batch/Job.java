@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  *             .name("examplepool")
  *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
- *             .nodeAgentSkuId("batch.node.ubuntu 16.04")
+ *             .nodeAgentSkuId("batch.node.ubuntu 22.04")
  *             .vmSize("STANDARD_A1_V2")
  *             .fixedScale(PoolFixedScaleArgs.builder()
  *                 .targetDedicatedNodes(1)
@@ -88,6 +88,13 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Batch` - 2024-07-01
  * 
  * ## Import
  * 

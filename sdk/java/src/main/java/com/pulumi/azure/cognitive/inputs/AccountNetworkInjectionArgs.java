@@ -32,7 +32,7 @@ public final class AccountNetworkInjectionArgs extends com.pulumi.resources.Reso
     /**
      * The ID of the subnet which the Agent Client is injected into.
      * 
-     * &gt; **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+     * &gt; **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
      * 
      */
     @Import(name="subnetId", required=true)
@@ -41,7 +41,7 @@ public final class AccountNetworkInjectionArgs extends com.pulumi.resources.Reso
     /**
      * @return The ID of the subnet which the Agent Client is injected into.
      * 
-     * &gt; **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+     * &gt; **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
      * 
      */
     public Output<String> subnetId() {
@@ -97,7 +97,7 @@ public final class AccountNetworkInjectionArgs extends com.pulumi.resources.Reso
         /**
          * @param subnetId The ID of the subnet which the Agent Client is injected into.
          * 
-         * &gt; **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+         * &gt; **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class AccountNetworkInjectionArgs extends com.pulumi.resources.Reso
         /**
          * @param subnetId The ID of the subnet which the Agent Client is injected into.
          * 
-         * &gt; **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+         * &gt; **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
          * 
          * @return builder
          * 

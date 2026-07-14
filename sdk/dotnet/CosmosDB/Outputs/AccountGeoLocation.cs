@@ -27,6 +27,8 @@ namespace Pulumi.Azure.CosmosDB.Outputs
         public readonly string Location;
         /// <summary>
         /// Should zone redundancy be enabled for this region? Defaults to `False`.
+        /// 
+        /// &gt; **Note:** You cannot change zone redundancy in a region that has already been added to a Cosmos DB account. If you wish to change this setting in a deployed region without recreating the account, you can [follow the steps outlined in the official documentation](https://learn.microsoft.com/azure/cosmos-db/enable-zone-redundancy?tabs=portal#enable-zone-redundancy-on-an-existing-account).
         /// </summary>
         public readonly bool? ZoneRedundant;
 

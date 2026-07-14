@@ -22,11 +22,15 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingAuthenticationCertificateResult> AuthenticationCertificates;
         /// <summary>
+        /// Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
+        /// </summary>
+        public readonly bool CertificateChainValidationEnabled;
+        /// <summary>
         /// A `ConnectionDraining` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingConnectionDrainingResult> ConnectionDrainings;
         /// <summary>
-        /// Is Cookie-Based Affinity enabled?
+        /// Whether Cookie-Based Affinity is enabled.
         /// </summary>
         public readonly string CookieBasedAffinity;
         /// <summary>
@@ -50,7 +54,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string Path;
         /// <summary>
-        /// Whether host header will be picked from the host name of the backend server.
+        /// Whether the host header is picked from the host name of the backend server.
         /// </summary>
         public readonly bool PickHostNameFromBackendAddress;
         /// <summary>
@@ -62,7 +66,7 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly string ProbeId;
         /// <summary>
-        /// The name of the associated HTTP Probe.
+        /// The name of the associated Probe.
         /// </summary>
         public readonly string ProbeName;
         /// <summary>
@@ -74,6 +78,14 @@ namespace Pulumi.Azure.Network.Outputs
         /// </summary>
         public readonly int RequestTimeout;
         /// <summary>
+        /// The Server Name Indication (SNI) hostname sent to the backend servers.
+        /// </summary>
+        public readonly string SniName;
+        /// <summary>
+        /// Whether Server Name Indication (SNI) validation on the backend HTTPS servers is enabled.
+        /// </summary>
+        public readonly bool SniValidationEnabled;
+        /// <summary>
         /// A list of `TrustedRootCertificate` names.
         /// </summary>
         public readonly ImmutableArray<string> TrustedRootCertificateNames;
@@ -83,6 +95,8 @@ namespace Pulumi.Azure.Network.Outputs
             string affinityCookieName,
 
             ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingAuthenticationCertificateResult> authenticationCertificates,
+
+            bool certificateChainValidationEnabled,
 
             ImmutableArray<Outputs.GetApplicationGatewayBackendHttpSettingConnectionDrainingResult> connectionDrainings,
 
@@ -110,10 +124,15 @@ namespace Pulumi.Azure.Network.Outputs
 
             int requestTimeout,
 
+            string sniName,
+
+            bool sniValidationEnabled,
+
             ImmutableArray<string> trustedRootCertificateNames)
         {
             AffinityCookieName = affinityCookieName;
             AuthenticationCertificates = authenticationCertificates;
+            CertificateChainValidationEnabled = certificateChainValidationEnabled;
             ConnectionDrainings = connectionDrainings;
             CookieBasedAffinity = cookieBasedAffinity;
             DedicatedBackendConnectionEnabled = dedicatedBackendConnectionEnabled;
@@ -127,6 +146,8 @@ namespace Pulumi.Azure.Network.Outputs
             ProbeName = probeName;
             Protocol = protocol;
             RequestTimeout = requestTimeout;
+            SniName = sniName;
+            SniValidationEnabled = sniValidationEnabled;
             TrustedRootCertificateNames = trustedRootCertificateNames;
         }
     }

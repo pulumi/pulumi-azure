@@ -52,6 +52,9 @@ namespace Pulumi.Azure.Storage
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
 
+        [Output("storageContainerId")]
+        public Output<string> StorageContainerId { get; private set; } = null!;
+
         [Output("storageContainerName")]
         public Output<string> StorageContainerName { get; private set; } = null!;
 
@@ -148,11 +151,14 @@ namespace Pulumi.Azure.Storage
         [Input("sourceUri")]
         public Input<string>? SourceUri { get; set; }
 
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
 
-        [Input("storageContainerName", required: true)]
-        public Input<string> StorageContainerName { get; set; } = null!;
+        [Input("storageContainerId")]
+        public Input<string>? StorageContainerId { get; set; }
+
+        [Input("storageContainerName")]
+        public Input<string>? StorageContainerName { get; set; }
 
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -208,6 +214,9 @@ namespace Pulumi.Azure.Storage
 
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }
+
+        [Input("storageContainerId")]
+        public Input<string>? StorageContainerId { get; set; }
 
         [Input("storageContainerName")]
         public Input<string>? StorageContainerName { get; set; }

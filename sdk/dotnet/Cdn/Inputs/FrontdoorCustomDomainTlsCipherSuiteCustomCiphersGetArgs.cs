@@ -16,7 +16,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         private InputList<string>? _tls12s;
 
         /// <summary>
-        /// A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+        /// A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
         /// 
         /// &gt; **Note:** At least one TLS 1.2 cipher suite must be specified in `Tls12` when `MinimumVersion` is `TLS12` and `Type` is `Customized`.
         /// </summary>

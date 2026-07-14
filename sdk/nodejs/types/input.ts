@@ -27,10 +27,18 @@ export interface ProviderFeatures {
     machineLearning?: pulumi.Input<inputs.ProviderFeaturesMachineLearning | undefined>;
     managedDisk?: pulumi.Input<inputs.ProviderFeaturesManagedDisk | undefined>;
     netapp?: pulumi.Input<inputs.ProviderFeaturesNetapp | undefined>;
+    /**
+     * Whether to set the resource ID into state before polling asynchronous operations for completion. Defaults to `false`.
+     */
+    persistIdOnCreateBeforePollingForCompletion?: pulumi.Input<boolean | undefined>;
     postgresqlFlexibleServer?: pulumi.Input<inputs.ProviderFeaturesPostgresqlFlexibleServer | undefined>;
     recoveryService?: pulumi.Input<inputs.ProviderFeaturesRecoveryService | undefined>;
     recoveryServicesVaults?: pulumi.Input<inputs.ProviderFeaturesRecoveryServicesVaults | undefined>;
     resourceGroup?: pulumi.Input<inputs.ProviderFeaturesResourceGroup | undefined>;
+    /**
+     * Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
+     */
+    skipImportCheckOnCreateAndAllowOverwritingExistingResources?: pulumi.Input<boolean | undefined>;
     storage?: pulumi.Input<inputs.ProviderFeaturesStorage | undefined>;
     subscription?: pulumi.Input<inputs.ProviderFeaturesSubscription | undefined>;
     templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment | undefined>;
@@ -1169,7 +1177,7 @@ export namespace apimanagement {
         /**
          * The username to connect to the proxy server.
          */
-        username: pulumi.Input<string>;
+        username?: pulumi.Input<string | undefined>;
     }
 
     export interface BackendServiceFabricCluster {
@@ -8778,6 +8786,8 @@ export namespace appservice {
         pythonVersion?: pulumi.Input<string | undefined>;
         /**
          * The version of Ruby to run. Possible values include `2.6` and `2.7`.
+         *
+         * @deprecated `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
          */
         rubyVersion?: pulumi.Input<string | undefined>;
     }
@@ -9948,6 +9958,8 @@ export namespace appservice {
         pythonVersion?: pulumi.Input<string | undefined>;
         /**
          * The version of Ruby to run. Possible values include `2.6` and `2.7`.
+         *
+         * @deprecated `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
          */
         rubyVersion?: pulumi.Input<string | undefined>;
     }
@@ -10964,7 +10976,7 @@ export namespace appservice {
         principalId?: pulumi.Input<string | undefined>;
         tenantId?: pulumi.Input<string | undefined>;
         /**
-         * The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned`, `UserAssigned` and `SystemAssigned, UserAssigned`.
+         * The Type of Managed Identity assigned to this Static Web App resource. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -11789,7 +11801,7 @@ export namespace appservice {
          */
         nodeVersion?: pulumi.Input<string | undefined>;
         /**
-         * The version of PowerShell Core to run. Possible values are `7`, `7.2`, and `7.4`.
+         * The version of PowerShell Core to run. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
          *
          * > **Note:** A value of `7` will provide the latest stable version. `7.2` is in preview at the time of writing.
          */
@@ -12758,7 +12770,7 @@ export namespace appservice {
          */
         nodeVersion?: pulumi.Input<string | undefined>;
         /**
-         * The PowerShell Core version to use. Possible values are `7`, `7.2`, and `7.4`.
+         * The PowerShell Core version to use. Possible values are `7`, `7.2`, `7.4`, and `7.6`.
          */
         powershellCoreVersion?: pulumi.Input<string | undefined>;
         /**
@@ -18280,6 +18292,8 @@ export namespace cdn {
          * Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
          *
          * > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+         *
+         * > **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
          */
         certificateType?: pulumi.Input<string | undefined>;
         /**
@@ -18311,7 +18325,7 @@ export namespace cdn {
 
     export interface FrontdoorCustomDomainTlsCipherSuiteCustomCiphers {
         /**
-         * A set of TLS 1.2 cipher suites. Possible values are `DHE_RSA_AES128_GCM_SHA256`, `DHE_RSA_AES256_GCM_SHA384`, `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
+         * A set of TLS 1.2 cipher suites. Possible values are `ECDHE_RSA_AES128_GCM_SHA256`, `ECDHE_RSA_AES128_SHA256`, `ECDHE_RSA_AES256_GCM_SHA384`, and `ECDHE_RSA_AES256_SHA384`.
          *
          * > **Note:** At least one TLS 1.2 cipher suite must be specified in `tls12` when `minimumVersion` is `TLS12` and `type` is `Customized`.
          */
@@ -19515,7 +19529,7 @@ export namespace cognitive {
         /**
          * The ID of the subnet which the Agent Client is injected into.
          *
-         * > **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+         * > **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
          */
         subnetId: pulumi.Input<string>;
     }
@@ -20718,7 +20732,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetAutomaticInstanceRepair {
         /**
-         * The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values include `Replace`, `Restart`, `Reimage`.
+         * The repair action that will be used for repairing unhealthy virtual machines in the scale set. Possible values are `Replace`, `Restart`, and `Reimage`.
          *
          * > **Note:** Once the `action` field has been set it will always return the last value it was assigned if it is removed from the configuration file.
          *
@@ -20746,11 +20760,11 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetDataDisk {
         /**
-         * The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+         * The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
          */
         caching: pulumi.Input<string>;
         /**
-         * The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+         * The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
          */
         createOption?: pulumi.Input<string | undefined>;
         /**
@@ -20766,7 +20780,7 @@ export namespace compute {
          */
         lun?: pulumi.Input<number | undefined>;
         /**
-         * The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+         * The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
          */
         storageAccountType: pulumi.Input<string>;
         /**
@@ -20815,7 +20829,7 @@ export namespace compute {
         /**
          * A `protectedSettingsFromKeyVault` block as defined below.
          *
-         * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`
+         * > **Note:** `protectedSettingsFromKeyVault` cannot be used with `protectedSettings`.
          */
         protectedSettingsFromKeyVault?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault | undefined>;
         /**
@@ -20849,11 +20863,11 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetIdentity {
         /**
-         * Specifies a list of User Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+         * Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Virtual Machine Scale Set.
          */
         identityIds: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The type of Managed Identity that should be configured on this Windows Virtual Machine Scale Set. Only possible value is `UserAssigned`.
+         * The type of Managed Identity that should be configured on this Orchestrated Virtual Machine Scale Set. The only possible value is `UserAssigned`.
          */
         type: pulumi.Input<string>;
     }
@@ -20866,9 +20880,11 @@ export namespace compute {
          */
         auxiliaryMode?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4` and `A8`.
+         * Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are `A1`, `A2`, `A4`, and `A8`.
          *
          * > **Note:** `auxiliarySku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
+         *
+         * > **Note:** `auxiliaryMode` and `auxiliarySku` must be specified together, and both fields require `networkApiVersion` later than `2020-11-01`.
          */
         auxiliarySku?: pulumi.Input<string | undefined>;
         /**
@@ -20935,7 +20951,7 @@ export namespace compute {
         /**
          * The ID of the Subnet which this IP Configuration should be connected to.
          *
-         * > **Note:** `subnetId` is required if version is set to `IPv4`.
+         * > **Note:** `subnetId` is required if `version` is set to `IPv4`.
          */
         subnetId?: pulumi.Input<string | undefined>;
         /**
@@ -20946,7 +20962,9 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationPublicIpAddress {
         /**
-         * The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance. Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number and contains only `a-z`, `0-9` and `hyphens`.
+         * The Prefix which should be used for the Domain Name Label for each Virtual Machine Instance.
+         *
+         * > **Note:** Azure concatenates the Domain Name Label and Virtual Machine Index to create a unique Domain Name Label for each Virtual Machine. Valid values must be between `1` and `26` characters long, start with a lower case letter, end with a lower case letter or number, and contain only `a-z`, `0-9`, and `hyphens`.
          */
         domainNameLabel?: pulumi.Input<string | undefined>;
         /**
@@ -20966,7 +20984,9 @@ export namespace compute {
          */
         publicIpPrefixId?: pulumi.Input<string | undefined>;
         /**
-         * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible vaules include `Basic_Regional`, `Basic_Global`, `Standard_Regional` or `Standard_Global`. For more information about Public IP Address SKU's and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku). Changing this forces a new resource to be created.
+         * Specifies what Public IP Address SKU the Public IP Address should be provisioned as. Possible values are `Basic_Regional`, `Basic_Global`, `Standard_Regional`, and `Standard_Global`. Changing this forces a new resource to be created.
+         *
+         * > **Note:** For more information about Public IP Address SKUs and their capabilities, please see the [product documentation](https://docs.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#sku).
          */
         skuName?: pulumi.Input<string | undefined>;
         /**
@@ -20988,7 +21008,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetOsDisk {
         /**
-         * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
+         * The Type of Caching which should be used for the Internal OS Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
          */
         caching: pulumi.Input<string>;
         /**
@@ -20998,7 +21018,7 @@ export namespace compute {
         /**
          * The ID of the Disk Encryption Set which should be used to encrypt this OS Disk. Changing this forces a new resource to be created.
          *
-         * > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+         * > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions.
          */
         diskEncryptionSetId?: pulumi.Input<string | undefined>;
         /**
@@ -21006,7 +21026,7 @@ export namespace compute {
          */
         diskSizeGb?: pulumi.Input<number | undefined>;
         /**
-         * The Type of Storage Account which should back this the Internal OS Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS` and `Premium_ZRS`. Changing this forces a new resource to be created.
+         * The Type of Storage Account which should back the Internal OS Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, and `Premium_ZRS`. Changing this forces a new resource to be created.
          */
         storageAccountType: pulumi.Input<string>;
         /**
@@ -21034,11 +21054,11 @@ export namespace compute {
          */
         customData?: pulumi.Input<string | undefined>;
         /**
-         * A `linuxConfiguration` block as documented below.
+         * A `linuxConfiguration` block as defined above.
          */
         linuxConfiguration?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfiguration | undefined>;
         /**
-         * A `windowsConfiguration` block as documented below.
+         * A `windowsConfiguration` block as defined below.
          */
         windowsConfiguration?: pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration | undefined>;
     }
@@ -21049,7 +21069,7 @@ export namespace compute {
          */
         adminPassword?: pulumi.Input<string | undefined>;
         /**
-         * A `adminSshKey` block as documented below.
+         * An `adminSshKey` block as defined above.
          */
         adminSshKeys?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationAdminSshKey>[] | undefined>;
         /**
@@ -21069,17 +21089,17 @@ export namespace compute {
         /**
          * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          *
-         * > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+         * > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
          */
         patchAssessmentMode?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `ImageDefault` or `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+         * Specifies the mode of in-guest patching of this Linux Virtual Machine. Possible values are `ImageDefault` and `AutomaticByPlatform`. Defaults to `ImageDefault`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          *
-         * > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.  An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
+         * > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Linux Virtual Machine with Automatic VM Guest Patching enabled can be found in the `./examples/orchestrated-vm-scale-set/automatic-vm-guest-patching` directory within the GitHub Repository.
          */
         patchMode?: pulumi.Input<string | undefined>;
         /**
-         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
          */
         provisionVmAgent?: pulumi.Input<boolean | undefined>;
         /**
@@ -21103,7 +21123,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecret {
         /**
-         * One or more `certificate` blocks as defined below.
+         * One or more `certificate` blocks as defined above.
          */
         certificates: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate>[]>;
         /**
@@ -21115,15 +21135,13 @@ export namespace compute {
     export interface OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificate {
         /**
          * The Secret URL of a Key Vault Certificate.
-         *
-         * > **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          */
         url: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
         /**
-         * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+         * One or more `additionalUnattendContent` blocks as defined above. Changing this forces a new resource to be created.
          */
         additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent>[] | undefined>;
         /**
@@ -21143,29 +21161,29 @@ export namespace compute {
          */
         enableAutomaticUpdates?: pulumi.Input<boolean | undefined>;
         /**
-         * Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
+         * Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
          *
-         * > **Note:** Hotpatching can only be enabled if the `patchMode` is set to `AutomaticByPlatform`, the `provisionVmAgent` is set to `true`, your `sourceImageReference` references a hotpatching enabled image, the VM's `skuName` is set to a [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU and the `extension` contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
+         * > **Note:** Hotpatching can only be enabled if `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` is set to `true`, `sourceImageReference` references a hotpatching enabled image, `skuName` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
          */
         hotpatchingEnabled?: pulumi.Input<boolean | undefined>;
         /**
          * Specifies the mode of VM Guest Patching for the virtual machines that are associated to the Virtual Machine Scale Set. Possible values are `AutomaticByPlatform` or `ImageDefault`. Defaults to `ImageDefault`.
          *
-         * > **Note:** If the `patchAssessmentMode` is set to `AutomaticByPlatform` then the `provisionVmAgent` field must be set to `true`.
+         * > **Note:** If `patchAssessmentMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true`.
          */
         patchAssessmentMode?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS` and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+         * Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are `Manual`, `AutomaticByOS`, and `AutomaticByPlatform`. Defaults to `AutomaticByOS`. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
          *
-         * > **Note:** If `patchMode` is set to `AutomaticByPlatform` the `provisionVmAgent` must be set to `true` and the `extension` must contain at least one application health extension.
+         * > **Note:** If `patchMode` is set to `AutomaticByPlatform`, `provisionVmAgent` must be set to `true` and the `extension` block must contain at least one application health extension.
          */
         patchMode?: pulumi.Input<string | undefined>;
         /**
-         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this value forces a new resource to be created.
+         * Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to `true`. Changing this forces a new resource to be created.
          */
         provisionVmAgent?: pulumi.Input<boolean | undefined>;
         /**
-         * One or more `secret` blocks as defined below.
+         * One or more `secret` blocks as defined above.
          */
         secrets?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret>[] | undefined>;
         /**
@@ -21191,7 +21209,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
         /**
-         * One or more `certificate` blocks as defined below.
+         * One or more `certificate` blocks as defined above.
          */
         certificates: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificate>[]>;
         /**
@@ -21207,8 +21225,6 @@ export namespace compute {
         store: pulumi.Input<string>;
         /**
          * The Secret URL of a Key Vault Certificate.
-         *
-         * > **Note:** This can be sourced from the `secretId` field within the `azure.keyvault.Certificate` Resource.
          */
         url: pulumi.Input<string>;
     }
@@ -21221,7 +21237,7 @@ export namespace compute {
          */
         certificateUrl?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the protocol of listener. Possible values are `Http` or `Https`. Changing this forces a new resource to be created.
+         * Specifies the protocol of listener. Possible values are `Http` and `Https`. Changing this forces a new resource to be created.
          */
         protocol: pulumi.Input<string>;
     }
@@ -21254,7 +21270,9 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetRollingUpgradePolicy {
         /**
-         * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` or `false`.
+         * Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are `true` and `false`.
+         *
+         * > **Note:** `crossZoneUpgradesEnabled` can only be set to `true` when `zones` is specified.
          */
         crossZoneUpgradesEnabled?: pulumi.Input<boolean | undefined>;
         /**
@@ -21270,7 +21288,7 @@ export namespace compute {
          */
         maxUnhealthyUpgradedInstancePercent: pulumi.Input<number>;
         /**
-         * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` or `false`.
+         * Create new virtual machines to upgrade the scale set, rather than updating the existing virtual machines. Existing virtual machines will be deleted once the new virtual machines are created for each batch. Possible values are `true` and `false`.
          */
         maximumSurgeInstancesEnabled?: pulumi.Input<boolean | undefined>;
         /**
@@ -21278,20 +21296,41 @@ export namespace compute {
          */
         pauseTimeBetweenBatches: pulumi.Input<string>;
         /**
-         * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` or `false`.
+         * Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are `true` and `false`.
          */
         prioritizeUnhealthyInstancesEnabled?: pulumi.Input<boolean | undefined>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetSkuProfile {
         /**
-         * Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `CapacityOptimized`, `LowestPrice` and `Prioritized`.
+         * Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
          */
         allocationStrategy: pulumi.Input<string>;
         /**
-         * Specifies the VM sizes for the virtual machine scale set.
+         * One or more `virtualMachineSize` blocks as defined below.
+         *
+         * > **Note:** When `allocationStrategy` is set to `Prioritized`, you must use the `virtualMachineSize` block to specify rank values.
          */
-        vmSizes: pulumi.Input<pulumi.Input<string>[]>;
+        virtualMachineSizes?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize>[] | undefined>;
+        /**
+         * @deprecated The `vmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtualMachineSize` block instead.
+         */
+        vmSizes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSize {
+        /**
+         * The name of the VM SKU which should be used for this Virtual Machine Scale Set, such as `Standard_B1ls` or `Standard_B2s`.
+         *
+         * > **Note:** `skuProfile` currently supports `Standard_` VM size names from the general-purpose `A`, `B`, `D`, `E`, and `F` families. Specialized families such as `L`, `DC`, and `EC` are not supported. Additional Azure service compatibility limitations may still apply to valid-looking VM size combinations.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Specifies the priority rank of the VM size. Possible values are integers between `1` and `3`, inclusive. Lower values represent higher priority.
+         *
+         * > **Note:** `rank` can only be set when the parent `skuProfile` block sets `allocationStrategy` to `Prioritized`.
+         */
+        rank?: pulumi.Input<number | undefined>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetSourceImageReference {
@@ -21315,7 +21354,7 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetTerminationNotification {
         /**
-         * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values `true` or `false`.
+         * Should the termination notification be enabled on this Virtual Machine Scale Set? Possible values are `true` and `false`.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -25870,7 +25909,9 @@ export namespace containerservice {
          */
         vnetSubnetId?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+         * Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+         *
+         * > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
          */
         workloadRuntime?: pulumi.Input<string | undefined>;
         /**
@@ -26400,7 +26441,7 @@ export namespace containerservice {
          */
         day: pulumi.Input<string>;
         /**
-         * An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+         * An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
          */
         hours: pulumi.Input<pulumi.Input<number>[]>;
     }
@@ -28203,6 +28244,8 @@ export namespace cosmosdb {
         location: pulumi.Input<string>;
         /**
          * Should zone redundancy be enabled for this region? Defaults to `false`.
+         *
+         * > **Note:** You cannot change zone redundancy in a region that has already been added to a Cosmos DB account. If you wish to change this setting in a deployed region without recreating the account, you can [follow the steps outlined in the official documentation](https://learn.microsoft.com/azure/cosmos-db/enable-zone-redundancy?tabs=portal#enable-zone-redundancy-on-an-existing-account).
          */
         zoneRedundant?: pulumi.Input<boolean | undefined>;
     }
@@ -39114,6 +39157,19 @@ export namespace keyvault {
         phone?: pulumi.Input<string | undefined>;
     }
 
+    export interface KeyReleasePolicy {
+        /**
+         * Whether this policy is immutable. Defaults to `false`.
+         *
+         * > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+         */
+        immutable?: pulumi.Input<boolean | undefined>;
+        /**
+         * The policy contents in JSON format.
+         */
+        json: pulumi.Input<string>;
+    }
+
     export interface KeyRotationPolicy {
         /**
          * An `automatic` block as defined below.
@@ -39606,7 +39662,7 @@ export namespace loganalytics {
          */
         name: pulumi.Input<string>;
         /**
-         * The data type of the column. Possible values are `boolean`, `datetime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
+         * The data type of the column. Possible values are `boolean`, `dateTime`, `dynamic`, `guid`, `int`, `long`, `real`, and `string`.
          */
         type: pulumi.Input<string>;
     }
@@ -43952,6 +44008,85 @@ export namespace netapp {
         snapshotsToKeep: pulumi.Input<number>;
     }
 
+    export interface VolumeBucketFileSystemNfsUser {
+        /**
+         * The POSIX group ID used by the bucket when accessing volume data over NFS.
+         */
+        groupId: pulumi.Input<number>;
+        /**
+         * The POSIX user ID used by the bucket when accessing volume data over NFS.
+         */
+        userId: pulumi.Input<number>;
+    }
+
+    export interface VolumeBucketKeyVault {
+        /**
+         * The URI of the Azure Key Vault that stores the bucket server certificate.
+         */
+        certificateKeyVaultUri: pulumi.Input<string>;
+        /**
+         * The name of the certificate object inside the Key Vault.
+         */
+        certificateName: pulumi.Input<string>;
+        /**
+         * The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+         */
+        credentialsKeyVaultUri: pulumi.Input<string>;
+        /**
+         * The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+         *
+         * > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `azure.netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+         */
+        credentialsSecretName: pulumi.Input<string>;
+    }
+
+    export interface VolumeBucketWithServerFileSystemNfsUser {
+        /**
+         * The POSIX group ID used by the bucket when accessing volume data over NFS.
+         */
+        groupId: pulumi.Input<number>;
+        /**
+         * The POSIX user ID used by the bucket when accessing volume data over NFS.
+         */
+        userId: pulumi.Input<number>;
+    }
+
+    export interface VolumeBucketWithServerKeyVault {
+        /**
+         * The URI of the Azure Key Vault that stores the bucket server certificate.
+         */
+        certificateKeyVaultUri: pulumi.Input<string>;
+        /**
+         * The name of the certificate object inside the Key Vault.
+         */
+        certificateName: pulumi.Input<string>;
+        /**
+         * The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+         */
+        credentialsKeyVaultUri: pulumi.Input<string>;
+        /**
+         * The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+         *
+         * > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `azure.netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+         */
+        credentialsSecretName: pulumi.Input<string>;
+    }
+
+    export interface VolumeBucketWithServerServer {
+        /**
+         * Base64-encoded PEM blob containing the server certificate concatenated with the private key. Used when the certificate is supplied directly instead of via Key Vault. Mutually exclusive with `keyVault`.
+         */
+        certificatePem?: pulumi.Input<string | undefined>;
+        /**
+         * The DNS name that resolves to the bucket endpoint IP address.
+         */
+        fqdn: pulumi.Input<string>;
+        /**
+         * Behaviour when an existing certificate already matches during a certificate rotation. Possible values are `Update` and `Fail`. Defaults to `Fail`.
+         */
+        onCertificateConflictAction?: pulumi.Input<string | undefined>;
+    }
+
     export interface VolumeCoolAccess {
         /**
          * The coolness period in days for the volume. Possible vales are between `2` and `183`.
@@ -44482,6 +44617,10 @@ export namespace network {
          */
         authenticationCertificates?: pulumi.Input<pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSettingAuthenticationCertificate>[] | undefined>;
         /**
+         * Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+         */
+        certificateChainValidationEnabled?: pulumi.Input<boolean | undefined>;
+        /**
          * A `connectionDraining` block as defined below.
          */
         connectionDraining?: pulumi.Input<inputs.network.ApplicationGatewayBackendHttpSettingConnectionDraining | undefined>;
@@ -44533,6 +44672,16 @@ export namespace network {
          * The request timeout in seconds, which must be between 1 and 86400 seconds. Defaults to `30`.
          */
         requestTimeout?: pulumi.Input<number | undefined>;
+        /**
+         * The Server Name Indication (SNI) hostname to send to the backend servers.
+         *
+         * > **Note:** `sniName` can only be set when `sniValidationEnabled` is set to `true`.
+         */
+        sniName?: pulumi.Input<string | undefined>;
+        /**
+         * Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+         */
+        sniValidationEnabled?: pulumi.Input<boolean | undefined>;
         /**
          * A list of `trustedRootCertificate` names.
          */
@@ -50172,7 +50321,7 @@ export namespace privatelink {
          */
         privateConnectionResourceId?: pulumi.Input<string | undefined>;
         /**
-         * (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
+         * The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
          */
         privateIpAddress?: pulumi.Input<string | undefined>;
         /**
@@ -50278,13 +50427,25 @@ export namespace recoveryservices {
 
     export interface VaultMonitoring {
         /**
+         * Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+         */
+        alertsForAllFailoverIssuesEnabled?: pulumi.Input<boolean | undefined>;
+        /**
          * Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
          */
         alertsForAllJobFailuresEnabled?: pulumi.Input<boolean | undefined>;
         /**
+         * Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+         */
+        alertsForAllReplicationIssuesEnabled?: pulumi.Input<boolean | undefined>;
+        /**
          * Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
          */
         alertsForCriticalOperationFailuresEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+         */
+        emailNotificationsForSiteRecoveryEnabled?: pulumi.Input<boolean | undefined>;
     }
 }
 
@@ -54909,33 +55070,6 @@ export namespace videoindexer {
          * The reference to the user assigned identity to use to access the Storage Account.
          */
         userAssignedIdentityId?: pulumi.Input<string | undefined>;
-    }
-}
-
-export namespace voice {
-    export interface ServicesCommunicationsGatewayServiceLocation {
-        /**
-         * Specifies the allowed source IP address or CIDR ranges for media.
-         */
-        allowedMediaSourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * Specifies the allowed source IP address or CIDR ranges for signaling.
-         */
-        allowedSignalingSourceAddressPrefixes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * IP address to use to contact the ESRP from this region.
-         *
-         * > **Note:** The `esrpAddresses` must be specified for each `serviceLocation` when the`e911Type` is set to `DirectToEsrp`.  The `esrpAddresses` must not be specified for each `serviceLocation` when the`e911Type` is set to `Standard`.
-         */
-        esrpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-        /**
-         * Specifies the region in which the resources needed for Teams Calling will be deployed.
-         */
-        location: pulumi.Input<string>;
-        /**
-         * IP address to use to contact the operator network from this region.
-         */
-        operatorAddresses: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 

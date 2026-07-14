@@ -26,7 +26,7 @@ class GetStorageContainerResult:
     """
     A collection of values returned by getStorageContainer.
     """
-    def __init__(__self__, container_access_type=None, default_encryption_scope=None, encryption_scope_override_enabled=None, has_immutability_policy=None, has_legal_hold=None, id=None, metadata=None, name=None, resource_manager_id=None, storage_account_id=None, storage_account_name=None):
+    def __init__(__self__, container_access_type=None, default_encryption_scope=None, encryption_scope_override_enabled=None, has_immutability_policy=None, has_legal_hold=None, id=None, metadata=None, name=None, resource_manager_id=None, storage_account_id=None, storage_account_name=None, url=None):
         if container_access_type and not isinstance(container_access_type, str):
             raise TypeError("Expected argument 'container_access_type' to be a str")
         pulumi.set(__self__, "container_access_type", container_access_type)
@@ -60,6 +60,9 @@ class GetStorageContainerResult:
         if storage_account_name and not isinstance(storage_account_name, str):
             raise TypeError("Expected argument 'storage_account_name' to be a str")
         pulumi.set(__self__, "storage_account_name", storage_account_name)
+        if url and not isinstance(url, str):
+            raise TypeError("Expected argument 'url' to be a str")
+        pulumi.set(__self__, "url", url)
 
     @_builtins.property
     @pulumi.getter(name="containerAccessType")
@@ -138,6 +141,14 @@ class GetStorageContainerResult:
     def storage_account_name(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "storage_account_name")
 
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> _builtins.str:
+        """
+        The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
+        """
+        return pulumi.get(self, "url")
+
 
 class AwaitableGetStorageContainerResult(GetStorageContainerResult):
     # pylint: disable=using-constant-test
@@ -155,7 +166,8 @@ class AwaitableGetStorageContainerResult(GetStorageContainerResult):
             name=self.name,
             resource_manager_id=self.resource_manager_id,
             storage_account_id=self.storage_account_id,
-            storage_account_name=self.storage_account_name)
+            storage_account_name=self.storage_account_name,
+            url=self.url)
 
 
 def get_storage_container(metadata: Optional[Mapping[str, _builtins.str]] = None,
@@ -212,7 +224,8 @@ def get_storage_container(metadata: Optional[Mapping[str, _builtins.str]] = None
         name=pulumi.get(__ret__, 'name'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
         storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
-        storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
+        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
+        url=pulumi.get(__ret__, 'url'))
 def get_storage_container_output(metadata: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                                  name: pulumi.Input[Optional[_builtins.str]] = None,
                                  storage_account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -266,4 +279,5 @@ def get_storage_container_output(metadata: pulumi.Input[Optional[Optional[Mappin
         name=pulumi.get(__response__, 'name'),
         resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
         storage_account_id=pulumi.get(__response__, 'storage_account_id'),
-        storage_account_name=pulumi.get(__response__, 'storage_account_name')))
+        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
+        url=pulumi.get(__response__, 'url')))

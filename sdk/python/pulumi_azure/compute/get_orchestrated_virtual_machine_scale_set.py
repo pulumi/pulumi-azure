@@ -27,7 +27,7 @@ class GetOrchestratedVirtualMachineScaleSetResult:
     """
     A collection of values returned by getOrchestratedVirtualMachineScaleSet.
     """
-    def __init__(__self__, id=None, identities=None, location=None, name=None, network_interfaces=None, resource_group_name=None):
+    def __init__(__self__, id=None, identities=None, location=None, name=None, network_interfaces=None, resource_group_name=None, sku_profiles=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -46,6 +46,9 @@ class GetOrchestratedVirtualMachineScaleSetResult:
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if sku_profiles and not isinstance(sku_profiles, list):
+            raise TypeError("Expected argument 'sku_profiles' to be a list")
+        pulumi.set(__self__, "sku_profiles", sku_profiles)
 
     @_builtins.property
     @pulumi.getter
@@ -75,7 +78,7 @@ class GetOrchestratedVirtualMachineScaleSetResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the public IP address configuration
+        The name of the VM size.
         """
         return pulumi.get(self, "name")
 
@@ -92,6 +95,14 @@ class GetOrchestratedVirtualMachineScaleSetResult:
     def resource_group_name(self) -> _builtins.str:
         return pulumi.get(self, "resource_group_name")
 
+    @_builtins.property
+    @pulumi.getter(name="skuProfiles")
+    def sku_profiles(self) -> Sequence['outputs.GetOrchestratedVirtualMachineScaleSetSkuProfileResult']:
+        """
+        A `sku_profile` block as defined below.
+        """
+        return pulumi.get(self, "sku_profiles")
+
 
 class AwaitableGetOrchestratedVirtualMachineScaleSetResult(GetOrchestratedVirtualMachineScaleSetResult):
     # pylint: disable=using-constant-test
@@ -104,7 +115,8 @@ class AwaitableGetOrchestratedVirtualMachineScaleSetResult(GetOrchestratedVirtua
             location=self.location,
             name=self.name,
             network_interfaces=self.network_interfaces,
-            resource_group_name=self.resource_group_name)
+            resource_group_name=self.resource_group_name,
+            sku_profiles=self.sku_profiles)
 
 
 def get_orchestrated_virtual_machine_scale_set(name: Optional[_builtins.str] = None,
@@ -147,7 +159,8 @@ def get_orchestrated_virtual_machine_scale_set(name: Optional[_builtins.str] = N
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
-        resource_group_name=pulumi.get(__ret__, 'resource_group_name'))
+        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
+        sku_profiles=pulumi.get(__ret__, 'sku_profiles'))
 def get_orchestrated_virtual_machine_scale_set_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrchestratedVirtualMachineScaleSetResult]:
@@ -187,4 +200,5 @@ def get_orchestrated_virtual_machine_scale_set_output(name: pulumi.Input[Optiona
         location=pulumi.get(__response__, 'location'),
         name=pulumi.get(__response__, 'name'),
         network_interfaces=pulumi.get(__response__, 'network_interfaces'),
-        resource_group_name=pulumi.get(__response__, 'resource_group_name')))
+        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
+        sku_profiles=pulumi.get(__response__, 'sku_profiles')))

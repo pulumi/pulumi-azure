@@ -20,7 +20,7 @@ namespace Pulumi.Azure.Cognitive.Outputs
         /// <summary>
         /// The ID of the subnet which the Agent Client is injected into.
         /// 
-        /// &gt; **Note:** The agent subnet must use an address space in the 172.* or 192.* ranges.
+        /// &gt; **Note:** The agent subnet must use only RFC 1918 private IPv4 address ranges. For more details, refer to the [Supported IP ranges](https://learn.microsoft.com/azure/foundry/agents/concepts/agents-networking-deep-dive#supported-ip-ranges).
         /// </summary>
         public readonly string SubnetId;
 

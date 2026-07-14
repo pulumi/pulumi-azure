@@ -55,11 +55,10 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewBlob(ctx, "example", &storage.BlobArgs{
-//				Name:                 pulumi.String("my-awesome-content.zip"),
-//				StorageAccountName:   exampleAccount.Name,
-//				StorageContainerName: exampleContainer.Name,
-//				Type:                 pulumi.String("Block"),
-//				Source:               pulumi.NewFileAsset("some-local-file.zip"),
+//				Name:               pulumi.String("my-awesome-content.zip"),
+//				StorageContainerId: exampleContainer.ID(),
+//				Type:               pulumi.String("Block"),
+//				Source:             pulumi.NewFileAsset("some-local-file.zip"),
 //			})
 //			if err != nil {
 //				return err
@@ -109,8 +108,18 @@ type Blob struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri pulumi.StringPtrOutput `pulumi:"sourceUri"`
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 	StorageAccountName pulumi.StringOutput `pulumi:"storageAccountName"`
+	// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+	StorageContainerId pulumi.StringOutput `pulumi:"storageContainerId"`
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 	StorageContainerName pulumi.StringOutput `pulumi:"storageContainerName"`
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -125,12 +134,6 @@ func NewBlob(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.StorageAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageAccountName'")
-	}
-	if args.StorageContainerName == nil {
-		return nil, errors.New("invalid value for required argument 'StorageContainerName'")
-	}
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
@@ -186,8 +189,18 @@ type blobState struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri *string `pulumi:"sourceUri"`
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+	StorageContainerId *string `pulumi:"storageContainerId"`
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 	StorageContainerName *string `pulumi:"storageContainerName"`
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type *string `pulumi:"type"`
@@ -225,8 +238,18 @@ type BlobState struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri pulumi.StringPtrInput
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 	StorageAccountName pulumi.StringPtrInput
+	// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+	StorageContainerId pulumi.StringPtrInput
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 	StorageContainerName pulumi.StringPtrInput
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type pulumi.StringPtrInput
@@ -268,9 +291,19 @@ type blobArgs struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri *string `pulumi:"sourceUri"`
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-	StorageAccountName string `pulumi:"storageAccountName"`
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName *string `pulumi:"storageAccountName"`
+	// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+	StorageContainerId *string `pulumi:"storageContainerId"`
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
-	StorageContainerName string `pulumi:"storageContainerName"`
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageContainerName *string `pulumi:"storageContainerName"`
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
@@ -306,9 +339,19 @@ type BlobArgs struct {
 	// The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `sourceContent` is specified.
 	SourceUri pulumi.StringPtrInput
 	// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-	StorageAccountName pulumi.StringInput
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageAccountName pulumi.StringPtrInput
+	// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+	StorageContainerId pulumi.StringPtrInput
 	// The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
-	StorageContainerName pulumi.StringInput
+	//
+	// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+	//
+	// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+	StorageContainerName pulumi.StringPtrInput
 	// The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
 	Type pulumi.StringInput
 }
@@ -465,11 +508,24 @@ func (o BlobOutput) SourceUri() pulumi.StringPtrOutput {
 }
 
 // Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+//
+// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+//
+// Deprecated: `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 func (o BlobOutput) StorageAccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringOutput { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
+// The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+func (o BlobOutput) StorageContainerId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Blob) pulumi.StringOutput { return v.StorageContainerId }).(pulumi.StringOutput)
+}
+
 // The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+//
+// > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+//
+// Deprecated: `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
 func (o BlobOutput) StorageContainerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Blob) pulumi.StringOutput { return v.StorageContainerName }).(pulumi.StringOutput)
 }

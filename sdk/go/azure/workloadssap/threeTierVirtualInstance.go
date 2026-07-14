@@ -136,7 +136,7 @@ import (
 //							Image: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgs{
 //								Offer:     pulumi.String("RHEL-SAP-HA"),
 //								Publisher: pulumi.String("RedHat"),
-//								Sku:       pulumi.String("82sapha-gen2"),
+//								Sku:       pulumi.String("86sapha-gen2"),
 //								Version:   pulumi.String("latest"),
 //							},
 //							OsProfile: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationOsProfileArgs{
@@ -154,7 +154,7 @@ import (
 //							Image: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgs{
 //								Offer:     pulumi.String("RHEL-SAP-HA"),
 //								Publisher: pulumi.String("RedHat"),
-//								Sku:       pulumi.String("82sapha-gen2"),
+//								Sku:       pulumi.String("86sapha-gen2"),
 //								Version:   pulumi.String("latest"),
 //							},
 //							OsProfile: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationOsProfileArgs{
@@ -173,7 +173,7 @@ import (
 //							Image: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationImageArgs{
 //								Offer:     pulumi.String("RHEL-SAP-HA"),
 //								Publisher: pulumi.String("RedHat"),
-//								Sku:       pulumi.String("82sapha-gen2"),
+//								Sku:       pulumi.String("86sapha-gen2"),
 //								Version:   pulumi.String("latest"),
 //							},
 //							OsProfile: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationOsProfileArgs{

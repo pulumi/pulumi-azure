@@ -7511,7 +7511,9 @@ type KubernetesClusterDefaultNodePool struct {
 	//
 	// > **Note:** A Route Table must be configured on this Subnet.
 	VnetSubnetId *string `pulumi:"vnetSubnetId"`
-	// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+	// Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+	//
+	// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 	WorkloadRuntime *string `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporaryNameForRotation` must be specified when changing this property.
 	//
@@ -7614,7 +7616,9 @@ type KubernetesClusterDefaultNodePoolArgs struct {
 	//
 	// > **Note:** A Route Table must be configured on this Subnet.
 	VnetSubnetId pulumi.StringPtrInput `pulumi:"vnetSubnetId"`
-	// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+	// Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+	//
+	// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 	WorkloadRuntime pulumi.StringPtrInput `pulumi:"workloadRuntime"`
 	// Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. `temporaryNameForRotation` must be specified when changing this property.
 	//
@@ -7895,7 +7899,9 @@ func (o KubernetesClusterDefaultNodePoolOutput) VnetSubnetId() pulumi.StringPtrO
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.VnetSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+// Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+//
+// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 func (o KubernetesClusterDefaultNodePoolOutput) WorkloadRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePool) *string { return v.WorkloadRuntime }).(pulumi.StringPtrOutput)
 }
@@ -8294,7 +8300,9 @@ func (o KubernetesClusterDefaultNodePoolPtrOutput) VnetSubnetId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+// Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+//
+// > **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
 func (o KubernetesClusterDefaultNodePoolPtrOutput) WorkloadRuntime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterDefaultNodePool) *string {
 		if v == nil {
@@ -12553,7 +12561,7 @@ func (o KubernetesClusterMaintenanceWindowPtrOutput) NotAlloweds() KubernetesClu
 type KubernetesClusterMaintenanceWindowAllowed struct {
 	// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	Day string `pulumi:"day"`
-	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
 	Hours []int `pulumi:"hours"`
 }
 
@@ -12571,7 +12579,7 @@ type KubernetesClusterMaintenanceWindowAllowedInput interface {
 type KubernetesClusterMaintenanceWindowAllowedArgs struct {
 	// A day in a week. Possible values are `Sunday`, `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday` and `Saturday`.
 	Day pulumi.StringInput `pulumi:"day"`
-	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+	// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
 	Hours pulumi.IntArrayInput `pulumi:"hours"`
 }
 
@@ -12631,7 +12639,7 @@ func (o KubernetesClusterMaintenanceWindowAllowedOutput) Day() pulumi.StringOutp
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAllowed) string { return v.Day }).(pulumi.StringOutput)
 }
 
-// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00m. Possible values are between `0` and `23`.
+// An array of hour slots in a day. For example, specifying `1` will allow maintenance from 1:00am to 2:00am. Specifying `1`, `2` will allow maintenance from 1:00am to 3:00am. Possible values are between `0` and `23`.
 func (o KubernetesClusterMaintenanceWindowAllowedOutput) Hours() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v KubernetesClusterMaintenanceWindowAllowed) []int { return v.Hours }).(pulumi.IntArrayOutput)
 }

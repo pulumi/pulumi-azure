@@ -20,6 +20,16 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
      */
     private List<GetNetworkManagerConnectivityConfigurationAppliesToGroup> appliesToGroups;
     /**
+     * @return Whether connected group address overlap is enabled.
+     * 
+     */
+    private Boolean connectedGroupAddressOverlapEnabled;
+    /**
+     * @return The scale of private endpoints allowed in the connected group.
+     * 
+     */
+    private String connectedGroupPrivateEndpointsScale;
+    /**
      * @return The connectivity topology type.
      * 
      */
@@ -51,6 +61,11 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
     private String id;
     private String name;
     private String networkManagerId;
+    /**
+     * @return Whether peering enforcement is enabled.
+     * 
+     */
+    private Boolean peeringEnforcementEnabled;
 
     private GetNetworkManagerConnectivityConfigurationResult() {}
     /**
@@ -59,6 +74,20 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
      */
     public List<GetNetworkManagerConnectivityConfigurationAppliesToGroup> appliesToGroups() {
         return this.appliesToGroups;
+    }
+    /**
+     * @return Whether connected group address overlap is enabled.
+     * 
+     */
+    public Boolean connectedGroupAddressOverlapEnabled() {
+        return this.connectedGroupAddressOverlapEnabled;
+    }
+    /**
+     * @return The scale of private endpoints allowed in the connected group.
+     * 
+     */
+    public String connectedGroupPrivateEndpointsScale() {
+        return this.connectedGroupPrivateEndpointsScale;
     }
     /**
      * @return The connectivity topology type.
@@ -108,6 +137,13 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
     public String networkManagerId() {
         return this.networkManagerId;
     }
+    /**
+     * @return Whether peering enforcement is enabled.
+     * 
+     */
+    public Boolean peeringEnforcementEnabled() {
+        return this.peeringEnforcementEnabled;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -119,6 +155,8 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
     @CustomType.Builder
     public static final class Builder {
         private List<GetNetworkManagerConnectivityConfigurationAppliesToGroup> appliesToGroups;
+        private Boolean connectedGroupAddressOverlapEnabled;
+        private String connectedGroupPrivateEndpointsScale;
         private String connectivityTopology;
         private Boolean deleteExistingPeeringEnabled;
         private String description;
@@ -127,10 +165,13 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
         private String id;
         private String name;
         private String networkManagerId;
+        private Boolean peeringEnforcementEnabled;
         public Builder() {}
         public Builder(GetNetworkManagerConnectivityConfigurationResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.appliesToGroups = defaults.appliesToGroups;
+    	      this.connectedGroupAddressOverlapEnabled = defaults.connectedGroupAddressOverlapEnabled;
+    	      this.connectedGroupPrivateEndpointsScale = defaults.connectedGroupPrivateEndpointsScale;
     	      this.connectivityTopology = defaults.connectivityTopology;
     	      this.deleteExistingPeeringEnabled = defaults.deleteExistingPeeringEnabled;
     	      this.description = defaults.description;
@@ -139,6 +180,7 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.networkManagerId = defaults.networkManagerId;
+    	      this.peeringEnforcementEnabled = defaults.peeringEnforcementEnabled;
         }
 
         @CustomType.Setter
@@ -151,6 +193,22 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
         }
         public Builder appliesToGroups(GetNetworkManagerConnectivityConfigurationAppliesToGroup... appliesToGroups) {
             return appliesToGroups(List.of(appliesToGroups));
+        }
+        @CustomType.Setter
+        public Builder connectedGroupAddressOverlapEnabled(Boolean connectedGroupAddressOverlapEnabled) {
+            if (connectedGroupAddressOverlapEnabled == null) {
+              throw new MissingRequiredPropertyException("GetNetworkManagerConnectivityConfigurationResult", "connectedGroupAddressOverlapEnabled");
+            }
+            this.connectedGroupAddressOverlapEnabled = connectedGroupAddressOverlapEnabled;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder connectedGroupPrivateEndpointsScale(String connectedGroupPrivateEndpointsScale) {
+            if (connectedGroupPrivateEndpointsScale == null) {
+              throw new MissingRequiredPropertyException("GetNetworkManagerConnectivityConfigurationResult", "connectedGroupPrivateEndpointsScale");
+            }
+            this.connectedGroupPrivateEndpointsScale = connectedGroupPrivateEndpointsScale;
+            return this;
         }
         @CustomType.Setter
         public Builder connectivityTopology(String connectivityTopology) {
@@ -219,9 +277,19 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
             this.networkManagerId = networkManagerId;
             return this;
         }
+        @CustomType.Setter
+        public Builder peeringEnforcementEnabled(Boolean peeringEnforcementEnabled) {
+            if (peeringEnforcementEnabled == null) {
+              throw new MissingRequiredPropertyException("GetNetworkManagerConnectivityConfigurationResult", "peeringEnforcementEnabled");
+            }
+            this.peeringEnforcementEnabled = peeringEnforcementEnabled;
+            return this;
+        }
         public GetNetworkManagerConnectivityConfigurationResult build() {
             final var _resultValue = new GetNetworkManagerConnectivityConfigurationResult();
             _resultValue.appliesToGroups = appliesToGroups;
+            _resultValue.connectedGroupAddressOverlapEnabled = connectedGroupAddressOverlapEnabled;
+            _resultValue.connectedGroupPrivateEndpointsScale = connectedGroupPrivateEndpointsScale;
             _resultValue.connectivityTopology = connectivityTopology;
             _resultValue.deleteExistingPeeringEnabled = deleteExistingPeeringEnabled;
             _resultValue.description = description;
@@ -230,6 +298,7 @@ public final class GetNetworkManagerConnectivityConfigurationResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.networkManagerId = networkManagerId;
+            _resultValue.peeringEnforcementEnabled = peeringEnforcementEnabled;
             return _resultValue;
         }
     }

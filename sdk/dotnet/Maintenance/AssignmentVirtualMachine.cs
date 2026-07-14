@@ -72,7 +72,7 @@ namespace Pulumi.Azure.Maintenance
     ///         Name = "example-machine",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Size = "Standard_F2",
+    ///         Size = "Standard_D4_v5",
     ///         AdminUsername = "adminuser",
     ///         NetworkInterfaceIds = new[]
     ///         {

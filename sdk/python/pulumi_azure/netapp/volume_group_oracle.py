@@ -32,7 +32,7 @@ class VolumeGroupOracleArgs:
         The set of arguments for constructing a VolumeGroupOracle resource.
 
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[_builtins.str] application_identifier: The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[_builtins.str] application_identifier: The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] group_description: Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeGroupOracleVolumeArgs']]] volumes: One or more `volume` blocks as defined below.
@@ -65,7 +65,7 @@ class VolumeGroupOracleArgs:
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "application_identifier")
 
@@ -148,7 +148,7 @@ class _VolumeGroupOracleState:
         Input properties used for looking up and filtering VolumeGroupOracle resources.
 
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[_builtins.str] application_identifier: The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[_builtins.str] application_identifier: The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] group_description: Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -186,7 +186,7 @@ class _VolumeGroupOracleState:
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "application_identifier")
 
@@ -532,7 +532,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2025-12-01
+        * `Microsoft.NetApp` - 2026-01-01
 
         ## Import
 
@@ -546,7 +546,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[_builtins.str] application_identifier: The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[_builtins.str] application_identifier: The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] group_description: Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -822,7 +822,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.NetApp` - 2025-12-01
+        * `Microsoft.NetApp` - 2026-01-01
 
         ## Import
 
@@ -906,7 +906,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_name: Name of the account where the application volume group belong to. Changing this forces a new Application Volume Group to be created and data will be lost.
-        :param pulumi.Input[_builtins.str] application_identifier: The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        :param pulumi.Input[_builtins.str] application_identifier: The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] group_description: Volume group description. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Application Volume Group should exist. Changing this forces a new Application Volume Group to be created and data will be lost.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Application Volume Group. Changing this forces a new Application Volume Group to be created and data will be lost.
@@ -938,7 +938,7 @@ class VolumeGroupOracle(pulumi.CustomResource):
     @pulumi.getter(name="applicationIdentifier")
     def application_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The SAP System ID, maximum 3 characters, e.g. `OR1`. Changing this forces a new Application Volume Group to be created and data will be lost.
+        The Oracle System ID. Changing this forces a new Application Volume Group to be created and data will be lost.
         """
         return pulumi.get(self, "application_identifier")
 

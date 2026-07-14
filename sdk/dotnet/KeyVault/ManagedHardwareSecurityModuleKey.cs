@@ -38,19 +38,13 @@ namespace Pulumi.Azure.KeyVault
     ///             current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///         },
     ///         PurgeProtectionEnabled = false,
-    ///         ActiveConfig = new[]
+    ///         SecurityDomainKeyVaultCertificateIds = new[]
     ///         {
-    ///             
-    ///             {
-    ///                 { "securityDomainCertificate", new[]
-    ///                 {
-    ///                     cert[0].Id,
-    ///                     cert[1].Id,
-    ///                     cert[2].Id,
-    ///                 } },
-    ///                 { "securityDomainQuorum", 2 },
-    ///             },
+    ///             cers._1.Id,
+    ///             cers._2.Id,
+    ///             cers._3.Id,
     ///         },
+    ///         SecurityDomainQuorum = 2,
     ///     });
     /// 
     ///     // this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
@@ -100,7 +94,7 @@ namespace Pulumi.Azure.KeyVault
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.KeyVault` - 2023-07-01
+    /// * `Microsoft.KeyVault` - 2026-02-01
     /// 
     /// ## Import
     /// 

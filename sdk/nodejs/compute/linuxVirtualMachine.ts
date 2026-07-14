@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *     name: "example-machine",
  *     resourceGroupName: example.name,
  *     location: example.location,
- *     size: "Standard_F2",
+ *     size: "Standard_D4_v5",
  *     adminUsername: "adminuser",
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     adminSshKeys: [{
@@ -333,7 +333,7 @@ export class LinuxVirtualMachine extends pulumi.CustomResource {
      */
     declare public readonly secureBootEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+     * The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
      */
     declare public readonly size: pulumi.Output<string>;
     /**
@@ -746,7 +746,7 @@ export interface LinuxVirtualMachineState {
      */
     secureBootEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+     * The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
      */
     size?: pulumi.Input<string | undefined>;
     /**
@@ -999,7 +999,7 @@ export interface LinuxVirtualMachineArgs {
      */
     secureBootEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+     * The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
      */
     size: pulumi.Input<string>;
     /**

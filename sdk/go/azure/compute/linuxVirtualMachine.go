@@ -99,7 +99,7 @@ import (
 //				Name:              pulumi.String("example-machine"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				Size:              pulumi.String("Standard_F2"),
+//				Size:              pulumi.String("Standard_D4_v5"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					exampleNetworkInterface.ID(),
@@ -266,7 +266,7 @@ type LinuxVirtualMachine struct {
 	Secrets LinuxVirtualMachineSecretArrayOutput `pulumi:"secrets"`
 	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	SecureBootEnabled pulumi.BoolPtrOutput `pulumi:"secureBootEnabled"`
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size pulumi.StringOutput `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -474,7 +474,7 @@ type linuxVirtualMachineState struct {
 	Secrets []LinuxVirtualMachineSecret `pulumi:"secrets"`
 	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size *string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -630,7 +630,7 @@ type LinuxVirtualMachineState struct {
 	Secrets LinuxVirtualMachineSecretArrayInput
 	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	SecureBootEnabled pulumi.BoolPtrInput
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size pulumi.StringPtrInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -782,7 +782,7 @@ type linuxVirtualMachineArgs struct {
 	Secrets []LinuxVirtualMachineSecret `pulumi:"secrets"`
 	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	SecureBootEnabled *bool `pulumi:"secureBootEnabled"`
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size string `pulumi:"size"`
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -929,7 +929,7 @@ type LinuxVirtualMachineArgs struct {
 	Secrets LinuxVirtualMachineSecretArrayInput
 	// Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
 	SecureBootEnabled pulumi.BoolPtrInput
-	// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+	// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 	Size pulumi.StringInput
 	// The ID of the Image which this Virtual Machine should be created from. Changing this forces a new resource to be created. Possible Image ID types include `Image ID`s, `Shared Image ID`s, `Shared Image Version ID`s, `Community Gallery Image ID`s, `Community Gallery Image Version ID`s, `Shared Gallery Image ID`s and `Shared Gallery Image Version ID`s.
 	//
@@ -1309,7 +1309,7 @@ func (o LinuxVirtualMachineOutput) SecureBootEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.BoolPtrOutput { return v.SecureBootEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
 func (o LinuxVirtualMachineOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachine) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
 }

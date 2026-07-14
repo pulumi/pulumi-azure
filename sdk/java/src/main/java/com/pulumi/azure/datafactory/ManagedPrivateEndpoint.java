@@ -148,12 +148,16 @@ public class ManagedPrivateEndpoint extends com.pulumi.resources.CustomResource 
     /**
      * Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
+     * 
      */
     @Export(name="subresourceName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> subresourceName;
 
     /**
      * @return Specifies the sub resource name which the Data Factory Private Endpoint is able to connect to. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `subresourceName` must not be specified when `targetResourceId` is a Private Link Service. For all other target resources, `subresourceName` is required and must be at least 3 characters in length.
      * 
      */
     public Output<Optional<String>> subresourceName() {

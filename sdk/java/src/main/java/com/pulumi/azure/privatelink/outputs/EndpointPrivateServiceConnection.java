@@ -37,7 +37,7 @@ public final class EndpointPrivateServiceConnection {
      */
     private @Nullable String privateConnectionResourceId;
     /**
-     * @return (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
+     * @return The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
      * 
      */
     private @Nullable String privateIpAddress;
@@ -90,7 +90,7 @@ public final class EndpointPrivateServiceConnection {
         return Optional.ofNullable(this.privateConnectionResourceId);
     }
     /**
-     * @return (Required) The static IP address set by this configuration. It is recommended to use the private IP address exported in the `privateServiceConnection` block to obtain the address associated with the private endpoint.
+     * @return The private IP address associated with the private endpoint, note that you will have a private IP address assigned to the private endpoint even if the connection request was `Rejected`.
      * 
      */
     public Optional<String> privateIpAddress() {

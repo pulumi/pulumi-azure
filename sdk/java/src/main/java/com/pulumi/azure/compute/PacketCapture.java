@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
- *             .vmSize("Standard_F2")
+ *             .vmSize("Standard_D4_v5")
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
  *                 .publisher("Canonical")
  *                 .offer("0001-com-ubuntu-server-jammy")

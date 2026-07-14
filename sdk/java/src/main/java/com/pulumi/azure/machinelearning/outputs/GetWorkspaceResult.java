@@ -31,6 +31,11 @@ public final class GetWorkspaceResult {
     private String name;
     private String resourceGroupName;
     /**
+     * @return The access type for the system storage account.
+     * 
+     */
+    private String storageAccountAccessType;
+    /**
      * @return A mapping of tags assigned to the Machine Learning Workspace.
      * 
      */
@@ -65,6 +70,13 @@ public final class GetWorkspaceResult {
         return this.resourceGroupName;
     }
     /**
+     * @return The access type for the system storage account.
+     * 
+     */
+    public String storageAccountAccessType() {
+        return this.storageAccountAccessType;
+    }
+    /**
      * @return A mapping of tags assigned to the Machine Learning Workspace.
      * 
      */
@@ -86,6 +98,7 @@ public final class GetWorkspaceResult {
         private String location;
         private String name;
         private String resourceGroupName;
+        private String storageAccountAccessType;
         private Map<String,String> tags;
         public Builder() {}
         public Builder(GetWorkspaceResult defaults) {
@@ -95,6 +108,7 @@ public final class GetWorkspaceResult {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
+    	      this.storageAccountAccessType = defaults.storageAccountAccessType;
     	      this.tags = defaults.tags;
         }
 
@@ -142,6 +156,14 @@ public final class GetWorkspaceResult {
             return this;
         }
         @CustomType.Setter
+        public Builder storageAccountAccessType(String storageAccountAccessType) {
+            if (storageAccountAccessType == null) {
+              throw new MissingRequiredPropertyException("GetWorkspaceResult", "storageAccountAccessType");
+            }
+            this.storageAccountAccessType = storageAccountAccessType;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetWorkspaceResult", "tags");
@@ -156,6 +178,7 @@ public final class GetWorkspaceResult {
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
+            _resultValue.storageAccountAccessType = storageAccountAccessType;
             _resultValue.tags = tags;
             return _resultValue;
         }

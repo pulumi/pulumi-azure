@@ -327,6 +327,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<string?> SkuName { get; private set; } = null!;
 
         /// <summary>
+        /// The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+        /// </summary>
+        [Output("storageAccountAccessType")]
+        public Output<string?> StorageAccountAccessType { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The `AccountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -525,6 +531,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<string>? SkuName { get; set; }
 
         /// <summary>
+        /// The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+        /// </summary>
+        [Input("storageAccountAccessType")]
+        public Input<string>? StorageAccountAccessType { get; set; }
+
+        /// <summary>
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** The `AccountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -689,6 +701,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("skuName")]
         public Input<string>? SkuName { get; set; }
+
+        /// <summary>
+        /// The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+        /// </summary>
+        [Input("storageAccountAccessType")]
+        public Input<string>? StorageAccountAccessType { get; set; }
 
         /// <summary>
         /// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.

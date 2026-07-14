@@ -136,7 +136,7 @@ type WindowsVirtualMachine struct {
 	Password pulumi.StringOutput `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size pulumi.StringOutput `pulumi:"size"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
@@ -242,7 +242,7 @@ type windowsVirtualMachineState struct {
 	Password *string `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size *string `pulumi:"size"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType *string `pulumi:"storageType"`
@@ -285,7 +285,7 @@ type WindowsVirtualMachineState struct {
 	Password pulumi.StringPtrInput
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size pulumi.StringPtrInput
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType pulumi.StringPtrInput
@@ -330,7 +330,7 @@ type windowsVirtualMachineArgs struct {
 	Password string `pulumi:"password"`
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size string `pulumi:"size"`
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType string `pulumi:"storageType"`
@@ -370,7 +370,7 @@ type WindowsVirtualMachineArgs struct {
 	Password pulumi.StringInput
 	// The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+	// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 	Size pulumi.StringInput
 	// The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
 	StorageType pulumi.StringInput
@@ -540,7 +540,7 @@ func (o WindowsVirtualMachineOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+// The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
 func (o WindowsVirtualMachineOutput) Size() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsVirtualMachine) pulumi.StringOutput { return v.Size }).(pulumi.StringOutput)
 }

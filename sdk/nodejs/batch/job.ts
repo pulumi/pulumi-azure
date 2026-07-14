@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     name: "examplepool",
  *     resourceGroupName: example.name,
  *     accountName: exampleAccount.name,
- *     nodeAgentSkuId: "batch.node.ubuntu 16.04",
+ *     nodeAgentSkuId: "batch.node.ubuntu 22.04",
  *     vmSize: "STANDARD_A1_V2",
  *     fixedScale: {
  *         targetDedicatedNodes: 1,
@@ -43,6 +43,13 @@ import * as utilities from "../utilities";
  *     batchPoolId: examplePool.id,
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Batch` - 2024-07-01
  *
  * ## Import
  *

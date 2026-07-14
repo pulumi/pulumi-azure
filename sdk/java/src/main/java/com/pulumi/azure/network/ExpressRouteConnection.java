@@ -247,10 +247,10 @@ public class ExpressRouteConnection extends com.pulumi.resources.CustomResource 
     }
     /**
      * @deprecated
-     * &#39;private_link_fast_path_enabled&#39; has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+     * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="privateLinkFastPathEnabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> privateLinkFastPathEnabled;
 

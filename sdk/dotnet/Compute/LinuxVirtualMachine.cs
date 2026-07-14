@@ -86,7 +86,7 @@ namespace Pulumi.Azure.Compute
     ///         Name = "example-machine",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Size = "Standard_F2",
+    ///         Size = "Standard_D4_v5",
     ///         AdminUsername = "adminuser",
     ///         NetworkInterfaceIds = new[]
     ///         {
@@ -434,7 +434,7 @@ namespace Pulumi.Azure.Compute
         public Output<bool?> SecureBootEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+        /// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
         /// </summary>
         [Output("size")]
         public Output<string> Size { get; private set; } = null!;
@@ -876,7 +876,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SecureBootEnabled { get; set; }
 
         /// <summary>
-        /// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+        /// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
         /// </summary>
         [Input("size", required: true)]
         public Input<string> Size { get; set; } = null!;
@@ -1311,7 +1311,7 @@ namespace Pulumi.Azure.Compute
         public Input<bool>? SecureBootEnabled { get; set; }
 
         /// <summary>
-        /// The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+        /// The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
         /// </summary>
         [Input("size")]
         public Input<string>? Size { get; set; }

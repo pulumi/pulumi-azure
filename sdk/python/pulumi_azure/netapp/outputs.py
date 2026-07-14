@@ -22,6 +22,11 @@ __all__ = [
     'SnapshotPolicyHourlySchedule',
     'SnapshotPolicyMonthlySchedule',
     'SnapshotPolicyWeeklySchedule',
+    'VolumeBucketFileSystemNfsUser',
+    'VolumeBucketKeyVault',
+    'VolumeBucketWithServerFileSystemNfsUser',
+    'VolumeBucketWithServerKeyVault',
+    'VolumeBucketWithServerServer',
     'VolumeCoolAccess',
     'VolumeDataProtectionAdvancedRansomware',
     'VolumeDataProtectionBackupPolicy',
@@ -41,6 +46,11 @@ __all__ = [
     'GetSnapshotPolicyHourlyScheduleResult',
     'GetSnapshotPolicyMonthlyScheduleResult',
     'GetSnapshotPolicyWeeklyScheduleResult',
+    'GetVolumeBucketFileSystemNfsUserResult',
+    'GetVolumeBucketKeyVaultResult',
+    'GetVolumeBucketWithServerFileSystemNfsUserResult',
+    'GetVolumeBucketWithServerKeyVaultResult',
+    'GetVolumeBucketWithServerServerResult',
     'GetVolumeDataProtectionAdvancedRansomwareResult',
     'GetVolumeDataProtectionBackupPolicyResult',
     'GetVolumeDataProtectionReplicationResult',
@@ -573,6 +583,319 @@ class SnapshotPolicyWeeklySchedule(dict):
         How many hourly snapshots to keep, valid range is from 0 to 255.
         """
         return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class VolumeBucketFileSystemNfsUser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeBucketFileSystemNfsUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeBucketFileSystemNfsUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeBucketFileSystemNfsUser.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: _builtins.int,
+                 user_id: _builtins.int):
+        """
+        :param _builtins.int group_id: The POSIX group ID used by the bucket when accessing volume data over NFS.
+        :param _builtins.int user_id: The POSIX user ID used by the bucket when accessing volume data over NFS.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> _builtins.int:
+        """
+        The POSIX group ID used by the bucket when accessing volume data over NFS.
+        """
+        return pulumi.get(self, "group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> _builtins.int:
+        """
+        The POSIX user ID used by the bucket when accessing volume data over NFS.
+        """
+        return pulumi.get(self, "user_id")
+
+
+@pulumi.output_type
+class VolumeBucketKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateKeyVaultUri":
+            suggest = "certificate_key_vault_uri"
+        elif key == "certificateName":
+            suggest = "certificate_name"
+        elif key == "credentialsKeyVaultUri":
+            suggest = "credentials_key_vault_uri"
+        elif key == "credentialsSecretName":
+            suggest = "credentials_secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeBucketKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeBucketKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeBucketKeyVault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_key_vault_uri: _builtins.str,
+                 certificate_name: _builtins.str,
+                 credentials_key_vault_uri: _builtins.str,
+                 credentials_secret_name: _builtins.str):
+        """
+        :param _builtins.str certificate_key_vault_uri: The URI of the Azure Key Vault that stores the bucket server certificate.
+        :param _builtins.str certificate_name: The name of the certificate object inside the Key Vault.
+        :param _builtins.str credentials_key_vault_uri: The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificate_key_vault_uri` but the documentation recommends using two separate vaults.
+        :param _builtins.str credentials_secret_name: The name of the secret in `credentials_key_vault_uri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `access_key_id` and `secret_access_key` properties.
+               
+               > **Note:** When `key_vault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificate_key_vault_uri` and `Get, List, Set, Delete` secret permissions on `credentials_key_vault_uri`.
+        """
+        pulumi.set(__self__, "certificate_key_vault_uri", certificate_key_vault_uri)
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "credentials_key_vault_uri", credentials_key_vault_uri)
+        pulumi.set(__self__, "credentials_secret_name", credentials_secret_name)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateKeyVaultUri")
+    def certificate_key_vault_uri(self) -> _builtins.str:
+        """
+        The URI of the Azure Key Vault that stores the bucket server certificate.
+        """
+        return pulumi.get(self, "certificate_key_vault_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> _builtins.str:
+        """
+        The name of the certificate object inside the Key Vault.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsKeyVaultUri")
+    def credentials_key_vault_uri(self) -> _builtins.str:
+        """
+        The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificate_key_vault_uri` but the documentation recommends using two separate vaults.
+        """
+        return pulumi.get(self, "credentials_key_vault_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsSecretName")
+    def credentials_secret_name(self) -> _builtins.str:
+        """
+        The name of the secret in `credentials_key_vault_uri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `access_key_id` and `secret_access_key` properties.
+
+        > **Note:** When `key_vault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificate_key_vault_uri` and `Get, List, Set, Delete` secret permissions on `credentials_key_vault_uri`.
+        """
+        return pulumi.get(self, "credentials_secret_name")
+
+
+@pulumi.output_type
+class VolumeBucketWithServerFileSystemNfsUser(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupId":
+            suggest = "group_id"
+        elif key == "userId":
+            suggest = "user_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeBucketWithServerFileSystemNfsUser. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeBucketWithServerFileSystemNfsUser.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeBucketWithServerFileSystemNfsUser.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_id: _builtins.int,
+                 user_id: _builtins.int):
+        """
+        :param _builtins.int group_id: The POSIX group ID used by the bucket when accessing volume data over NFS.
+        :param _builtins.int user_id: The POSIX user ID used by the bucket when accessing volume data over NFS.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> _builtins.int:
+        """
+        The POSIX group ID used by the bucket when accessing volume data over NFS.
+        """
+        return pulumi.get(self, "group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> _builtins.int:
+        """
+        The POSIX user ID used by the bucket when accessing volume data over NFS.
+        """
+        return pulumi.get(self, "user_id")
+
+
+@pulumi.output_type
+class VolumeBucketWithServerKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateKeyVaultUri":
+            suggest = "certificate_key_vault_uri"
+        elif key == "certificateName":
+            suggest = "certificate_name"
+        elif key == "credentialsKeyVaultUri":
+            suggest = "credentials_key_vault_uri"
+        elif key == "credentialsSecretName":
+            suggest = "credentials_secret_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeBucketWithServerKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeBucketWithServerKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeBucketWithServerKeyVault.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_key_vault_uri: _builtins.str,
+                 certificate_name: _builtins.str,
+                 credentials_key_vault_uri: _builtins.str,
+                 credentials_secret_name: _builtins.str):
+        """
+        :param _builtins.str certificate_key_vault_uri: The URI of the Azure Key Vault that stores the bucket server certificate.
+        :param _builtins.str certificate_name: The name of the certificate object inside the Key Vault.
+        :param _builtins.str credentials_key_vault_uri: The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificate_key_vault_uri` but the documentation recommends using two separate vaults.
+        :param _builtins.str credentials_secret_name: The name of the secret in `credentials_key_vault_uri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `access_key_id` and `secret_access_key` properties.
+               
+               > **Note:** When `key_vault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificate_key_vault_uri` and `Get, List, Set, Delete` secret permissions on `credentials_key_vault_uri`.
+        """
+        pulumi.set(__self__, "certificate_key_vault_uri", certificate_key_vault_uri)
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "credentials_key_vault_uri", credentials_key_vault_uri)
+        pulumi.set(__self__, "credentials_secret_name", credentials_secret_name)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateKeyVaultUri")
+    def certificate_key_vault_uri(self) -> _builtins.str:
+        """
+        The URI of the Azure Key Vault that stores the bucket server certificate.
+        """
+        return pulumi.get(self, "certificate_key_vault_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> _builtins.str:
+        """
+        The name of the certificate object inside the Key Vault.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsKeyVaultUri")
+    def credentials_key_vault_uri(self) -> _builtins.str:
+        """
+        The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificate_key_vault_uri` but the documentation recommends using two separate vaults.
+        """
+        return pulumi.get(self, "credentials_key_vault_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsSecretName")
+    def credentials_secret_name(self) -> _builtins.str:
+        """
+        The name of the secret in `credentials_key_vault_uri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `access_key_id` and `secret_access_key` properties.
+
+        > **Note:** When `key_vault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificate_key_vault_uri` and `Get, List, Set, Delete` secret permissions on `credentials_key_vault_uri`.
+        """
+        return pulumi.get(self, "credentials_secret_name")
+
+
+@pulumi.output_type
+class VolumeBucketWithServerServer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificatePem":
+            suggest = "certificate_pem"
+        elif key == "onCertificateConflictAction":
+            suggest = "on_certificate_conflict_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VolumeBucketWithServerServer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VolumeBucketWithServerServer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VolumeBucketWithServerServer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fqdn: _builtins.str,
+                 certificate_pem: Optional[_builtins.str] = None,
+                 on_certificate_conflict_action: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str fqdn: The DNS name that resolves to the bucket endpoint IP address.
+        :param _builtins.str certificate_pem: Base64-encoded PEM blob containing the server certificate concatenated with the private key. Used when the certificate is supplied directly instead of via Key Vault. Mutually exclusive with `key_vault`.
+        :param _builtins.str on_certificate_conflict_action: Behaviour when an existing certificate already matches during a certificate rotation. Possible values are `Update` and `Fail`. Defaults to `Fail`.
+        """
+        pulumi.set(__self__, "fqdn", fqdn)
+        if certificate_pem is not None:
+            pulumi.set(__self__, "certificate_pem", certificate_pem)
+        if on_certificate_conflict_action is not None:
+            pulumi.set(__self__, "on_certificate_conflict_action", on_certificate_conflict_action)
+
+    @_builtins.property
+    @pulumi.getter
+    def fqdn(self) -> _builtins.str:
+        """
+        The DNS name that resolves to the bucket endpoint IP address.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @_builtins.property
+    @pulumi.getter(name="certificatePem")
+    def certificate_pem(self) -> Optional[_builtins.str]:
+        """
+        Base64-encoded PEM blob containing the server certificate concatenated with the private key. Used when the certificate is supplied directly instead of via Key Vault. Mutually exclusive with `key_vault`.
+        """
+        return pulumi.get(self, "certificate_pem")
+
+    @_builtins.property
+    @pulumi.getter(name="onCertificateConflictAction")
+    def on_certificate_conflict_action(self) -> Optional[_builtins.str]:
+        """
+        Behaviour when an existing certificate already matches during a certificate rotation. Possible values are `Update` and `Fail`. Defaults to `Fail`.
+        """
+        return pulumi.get(self, "on_certificate_conflict_action")
 
 
 @pulumi.output_type
@@ -2343,6 +2666,202 @@ class GetSnapshotPolicyWeeklyScheduleResult(dict):
         How many hourly snapshots to keep.
         """
         return pulumi.get(self, "snapshots_to_keep")
+
+
+@pulumi.output_type
+class GetVolumeBucketFileSystemNfsUserResult(dict):
+    def __init__(__self__, *,
+                 group_id: _builtins.int,
+                 user_id: _builtins.int):
+        """
+        :param _builtins.int group_id: The POSIX group ID used by the bucket.
+        :param _builtins.int user_id: The POSIX user ID used by the bucket.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> _builtins.int:
+        """
+        The POSIX group ID used by the bucket.
+        """
+        return pulumi.get(self, "group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> _builtins.int:
+        """
+        The POSIX user ID used by the bucket.
+        """
+        return pulumi.get(self, "user_id")
+
+
+@pulumi.output_type
+class GetVolumeBucketKeyVaultResult(dict):
+    def __init__(__self__, *,
+                 certificate_key_vault_uri: _builtins.str,
+                 certificate_name: _builtins.str,
+                 credentials_key_vault_uri: _builtins.str,
+                 credentials_secret_name: _builtins.str):
+        """
+        :param _builtins.str certificate_key_vault_uri: The URI of the Azure Key Vault that stores the bucket server certificate.
+        :param _builtins.str certificate_name: The name of the certificate object inside the Key Vault.
+        :param _builtins.str credentials_key_vault_uri: The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+        :param _builtins.str credentials_secret_name: The name of the secret in `credentials_key_vault_uri` that stores the generated bucket credentials.
+        """
+        pulumi.set(__self__, "certificate_key_vault_uri", certificate_key_vault_uri)
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "credentials_key_vault_uri", credentials_key_vault_uri)
+        pulumi.set(__self__, "credentials_secret_name", credentials_secret_name)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateKeyVaultUri")
+    def certificate_key_vault_uri(self) -> _builtins.str:
+        """
+        The URI of the Azure Key Vault that stores the bucket server certificate.
+        """
+        return pulumi.get(self, "certificate_key_vault_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> _builtins.str:
+        """
+        The name of the certificate object inside the Key Vault.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsKeyVaultUri")
+    def credentials_key_vault_uri(self) -> _builtins.str:
+        """
+        The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+        """
+        return pulumi.get(self, "credentials_key_vault_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsSecretName")
+    def credentials_secret_name(self) -> _builtins.str:
+        """
+        The name of the secret in `credentials_key_vault_uri` that stores the generated bucket credentials.
+        """
+        return pulumi.get(self, "credentials_secret_name")
+
+
+@pulumi.output_type
+class GetVolumeBucketWithServerFileSystemNfsUserResult(dict):
+    def __init__(__self__, *,
+                 group_id: _builtins.int,
+                 user_id: _builtins.int):
+        """
+        :param _builtins.int group_id: The POSIX group ID used by the bucket.
+        :param _builtins.int user_id: The POSIX user ID used by the bucket.
+        """
+        pulumi.set(__self__, "group_id", group_id)
+        pulumi.set(__self__, "user_id", user_id)
+
+    @_builtins.property
+    @pulumi.getter(name="groupId")
+    def group_id(self) -> _builtins.int:
+        """
+        The POSIX group ID used by the bucket.
+        """
+        return pulumi.get(self, "group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="userId")
+    def user_id(self) -> _builtins.int:
+        """
+        The POSIX user ID used by the bucket.
+        """
+        return pulumi.get(self, "user_id")
+
+
+@pulumi.output_type
+class GetVolumeBucketWithServerKeyVaultResult(dict):
+    def __init__(__self__, *,
+                 certificate_key_vault_uri: _builtins.str,
+                 certificate_name: _builtins.str,
+                 credentials_key_vault_uri: _builtins.str,
+                 credentials_secret_name: _builtins.str):
+        """
+        :param _builtins.str certificate_key_vault_uri: The URI of the Azure Key Vault that stores the bucket server certificate.
+        :param _builtins.str certificate_name: The name of the certificate object inside the Key Vault.
+        :param _builtins.str credentials_key_vault_uri: The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+        :param _builtins.str credentials_secret_name: The name of the secret in `credentials_key_vault_uri` that stores the generated bucket credentials.
+        """
+        pulumi.set(__self__, "certificate_key_vault_uri", certificate_key_vault_uri)
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "credentials_key_vault_uri", credentials_key_vault_uri)
+        pulumi.set(__self__, "credentials_secret_name", credentials_secret_name)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateKeyVaultUri")
+    def certificate_key_vault_uri(self) -> _builtins.str:
+        """
+        The URI of the Azure Key Vault that stores the bucket server certificate.
+        """
+        return pulumi.get(self, "certificate_key_vault_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> _builtins.str:
+        """
+        The name of the certificate object inside the Key Vault.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsKeyVaultUri")
+    def credentials_key_vault_uri(self) -> _builtins.str:
+        """
+        The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+        """
+        return pulumi.get(self, "credentials_key_vault_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="credentialsSecretName")
+    def credentials_secret_name(self) -> _builtins.str:
+        """
+        The name of the secret in `credentials_key_vault_uri` that stores the generated bucket credentials.
+        """
+        return pulumi.get(self, "credentials_secret_name")
+
+
+@pulumi.output_type
+class GetVolumeBucketWithServerServerResult(dict):
+    def __init__(__self__, *,
+                 certificate_pem: _builtins.str,
+                 fqdn: _builtins.str,
+                 on_certificate_conflict_action: _builtins.str):
+        """
+        :param _builtins.str fqdn: The DNS name that resolves to the bucket endpoint IP address.
+        :param _builtins.str on_certificate_conflict_action: The action that runs when a certificate rotation conflicts with an existing certificate.
+        """
+        pulumi.set(__self__, "certificate_pem", certificate_pem)
+        pulumi.set(__self__, "fqdn", fqdn)
+        pulumi.set(__self__, "on_certificate_conflict_action", on_certificate_conflict_action)
+
+    @_builtins.property
+    @pulumi.getter(name="certificatePem")
+    def certificate_pem(self) -> _builtins.str:
+        return pulumi.get(self, "certificate_pem")
+
+    @_builtins.property
+    @pulumi.getter
+    def fqdn(self) -> _builtins.str:
+        """
+        The DNS name that resolves to the bucket endpoint IP address.
+        """
+        return pulumi.get(self, "fqdn")
+
+    @_builtins.property
+    @pulumi.getter(name="onCertificateConflictAction")
+    def on_certificate_conflict_action(self) -> _builtins.str:
+        """
+        The action that runs when a certificate rotation conflicts with an existing certificate.
+        """
+        return pulumi.get(self, "on_certificate_conflict_action")
 
 
 @pulumi.output_type

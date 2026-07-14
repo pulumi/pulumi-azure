@@ -1310,6 +1310,897 @@ func (o SnapshotPolicyWeeklySchedulePtrOutput) SnapshotsToKeep() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+type VolumeBucketFileSystemNfsUser struct {
+	// The POSIX group ID used by the bucket when accessing volume data over NFS.
+	GroupId int `pulumi:"groupId"`
+	// The POSIX user ID used by the bucket when accessing volume data over NFS.
+	UserId int `pulumi:"userId"`
+}
+
+// VolumeBucketFileSystemNfsUserInput is an input type that accepts VolumeBucketFileSystemNfsUserArgs and VolumeBucketFileSystemNfsUserOutput values.
+// You can construct a concrete instance of `VolumeBucketFileSystemNfsUserInput` via:
+//
+//	VolumeBucketFileSystemNfsUserArgs{...}
+type VolumeBucketFileSystemNfsUserInput interface {
+	pulumi.Input
+
+	ToVolumeBucketFileSystemNfsUserOutput() VolumeBucketFileSystemNfsUserOutput
+	ToVolumeBucketFileSystemNfsUserOutputWithContext(context.Context) VolumeBucketFileSystemNfsUserOutput
+}
+
+type VolumeBucketFileSystemNfsUserArgs struct {
+	// The POSIX group ID used by the bucket when accessing volume data over NFS.
+	GroupId pulumi.IntInput `pulumi:"groupId"`
+	// The POSIX user ID used by the bucket when accessing volume data over NFS.
+	UserId pulumi.IntInput `pulumi:"userId"`
+}
+
+func (VolumeBucketFileSystemNfsUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketFileSystemNfsUser)(nil)).Elem()
+}
+
+func (i VolumeBucketFileSystemNfsUserArgs) ToVolumeBucketFileSystemNfsUserOutput() VolumeBucketFileSystemNfsUserOutput {
+	return i.ToVolumeBucketFileSystemNfsUserOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketFileSystemNfsUserArgs) ToVolumeBucketFileSystemNfsUserOutputWithContext(ctx context.Context) VolumeBucketFileSystemNfsUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketFileSystemNfsUserOutput)
+}
+
+func (i VolumeBucketFileSystemNfsUserArgs) ToVolumeBucketFileSystemNfsUserPtrOutput() VolumeBucketFileSystemNfsUserPtrOutput {
+	return i.ToVolumeBucketFileSystemNfsUserPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketFileSystemNfsUserArgs) ToVolumeBucketFileSystemNfsUserPtrOutputWithContext(ctx context.Context) VolumeBucketFileSystemNfsUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketFileSystemNfsUserOutput).ToVolumeBucketFileSystemNfsUserPtrOutputWithContext(ctx)
+}
+
+// VolumeBucketFileSystemNfsUserPtrInput is an input type that accepts VolumeBucketFileSystemNfsUserArgs, VolumeBucketFileSystemNfsUserPtr and VolumeBucketFileSystemNfsUserPtrOutput values.
+// You can construct a concrete instance of `VolumeBucketFileSystemNfsUserPtrInput` via:
+//
+//	        VolumeBucketFileSystemNfsUserArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeBucketFileSystemNfsUserPtrInput interface {
+	pulumi.Input
+
+	ToVolumeBucketFileSystemNfsUserPtrOutput() VolumeBucketFileSystemNfsUserPtrOutput
+	ToVolumeBucketFileSystemNfsUserPtrOutputWithContext(context.Context) VolumeBucketFileSystemNfsUserPtrOutput
+}
+
+type volumeBucketFileSystemNfsUserPtrType VolumeBucketFileSystemNfsUserArgs
+
+func VolumeBucketFileSystemNfsUserPtr(v *VolumeBucketFileSystemNfsUserArgs) VolumeBucketFileSystemNfsUserPtrInput {
+	return (*volumeBucketFileSystemNfsUserPtrType)(v)
+}
+
+func (*volumeBucketFileSystemNfsUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketFileSystemNfsUser)(nil)).Elem()
+}
+
+func (i *volumeBucketFileSystemNfsUserPtrType) ToVolumeBucketFileSystemNfsUserPtrOutput() VolumeBucketFileSystemNfsUserPtrOutput {
+	return i.ToVolumeBucketFileSystemNfsUserPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeBucketFileSystemNfsUserPtrType) ToVolumeBucketFileSystemNfsUserPtrOutputWithContext(ctx context.Context) VolumeBucketFileSystemNfsUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketFileSystemNfsUserPtrOutput)
+}
+
+type VolumeBucketFileSystemNfsUserOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketFileSystemNfsUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketFileSystemNfsUser)(nil)).Elem()
+}
+
+func (o VolumeBucketFileSystemNfsUserOutput) ToVolumeBucketFileSystemNfsUserOutput() VolumeBucketFileSystemNfsUserOutput {
+	return o
+}
+
+func (o VolumeBucketFileSystemNfsUserOutput) ToVolumeBucketFileSystemNfsUserOutputWithContext(ctx context.Context) VolumeBucketFileSystemNfsUserOutput {
+	return o
+}
+
+func (o VolumeBucketFileSystemNfsUserOutput) ToVolumeBucketFileSystemNfsUserPtrOutput() VolumeBucketFileSystemNfsUserPtrOutput {
+	return o.ToVolumeBucketFileSystemNfsUserPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeBucketFileSystemNfsUserOutput) ToVolumeBucketFileSystemNfsUserPtrOutputWithContext(ctx context.Context) VolumeBucketFileSystemNfsUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeBucketFileSystemNfsUser) *VolumeBucketFileSystemNfsUser {
+		return &v
+	}).(VolumeBucketFileSystemNfsUserPtrOutput)
+}
+
+// The POSIX group ID used by the bucket when accessing volume data over NFS.
+func (o VolumeBucketFileSystemNfsUserOutput) GroupId() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeBucketFileSystemNfsUser) int { return v.GroupId }).(pulumi.IntOutput)
+}
+
+// The POSIX user ID used by the bucket when accessing volume data over NFS.
+func (o VolumeBucketFileSystemNfsUserOutput) UserId() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeBucketFileSystemNfsUser) int { return v.UserId }).(pulumi.IntOutput)
+}
+
+type VolumeBucketFileSystemNfsUserPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketFileSystemNfsUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketFileSystemNfsUser)(nil)).Elem()
+}
+
+func (o VolumeBucketFileSystemNfsUserPtrOutput) ToVolumeBucketFileSystemNfsUserPtrOutput() VolumeBucketFileSystemNfsUserPtrOutput {
+	return o
+}
+
+func (o VolumeBucketFileSystemNfsUserPtrOutput) ToVolumeBucketFileSystemNfsUserPtrOutputWithContext(ctx context.Context) VolumeBucketFileSystemNfsUserPtrOutput {
+	return o
+}
+
+func (o VolumeBucketFileSystemNfsUserPtrOutput) Elem() VolumeBucketFileSystemNfsUserOutput {
+	return o.ApplyT(func(v *VolumeBucketFileSystemNfsUser) VolumeBucketFileSystemNfsUser {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeBucketFileSystemNfsUser
+		return ret
+	}).(VolumeBucketFileSystemNfsUserOutput)
+}
+
+// The POSIX group ID used by the bucket when accessing volume data over NFS.
+func (o VolumeBucketFileSystemNfsUserPtrOutput) GroupId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketFileSystemNfsUser) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The POSIX user ID used by the bucket when accessing volume data over NFS.
+func (o VolumeBucketFileSystemNfsUserPtrOutput) UserId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketFileSystemNfsUser) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.UserId
+	}).(pulumi.IntPtrOutput)
+}
+
+type VolumeBucketKeyVault struct {
+	// The URI of the Azure Key Vault that stores the bucket server certificate.
+	CertificateKeyVaultUri string `pulumi:"certificateKeyVaultUri"`
+	// The name of the certificate object inside the Key Vault.
+	CertificateName string `pulumi:"certificateName"`
+	// The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+	CredentialsKeyVaultUri string `pulumi:"credentialsKeyVaultUri"`
+	// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+	//
+	// > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+	CredentialsSecretName string `pulumi:"credentialsSecretName"`
+}
+
+// VolumeBucketKeyVaultInput is an input type that accepts VolumeBucketKeyVaultArgs and VolumeBucketKeyVaultOutput values.
+// You can construct a concrete instance of `VolumeBucketKeyVaultInput` via:
+//
+//	VolumeBucketKeyVaultArgs{...}
+type VolumeBucketKeyVaultInput interface {
+	pulumi.Input
+
+	ToVolumeBucketKeyVaultOutput() VolumeBucketKeyVaultOutput
+	ToVolumeBucketKeyVaultOutputWithContext(context.Context) VolumeBucketKeyVaultOutput
+}
+
+type VolumeBucketKeyVaultArgs struct {
+	// The URI of the Azure Key Vault that stores the bucket server certificate.
+	CertificateKeyVaultUri pulumi.StringInput `pulumi:"certificateKeyVaultUri"`
+	// The name of the certificate object inside the Key Vault.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+	CredentialsKeyVaultUri pulumi.StringInput `pulumi:"credentialsKeyVaultUri"`
+	// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+	//
+	// > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+	CredentialsSecretName pulumi.StringInput `pulumi:"credentialsSecretName"`
+}
+
+func (VolumeBucketKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketKeyVault)(nil)).Elem()
+}
+
+func (i VolumeBucketKeyVaultArgs) ToVolumeBucketKeyVaultOutput() VolumeBucketKeyVaultOutput {
+	return i.ToVolumeBucketKeyVaultOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketKeyVaultArgs) ToVolumeBucketKeyVaultOutputWithContext(ctx context.Context) VolumeBucketKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketKeyVaultOutput)
+}
+
+func (i VolumeBucketKeyVaultArgs) ToVolumeBucketKeyVaultPtrOutput() VolumeBucketKeyVaultPtrOutput {
+	return i.ToVolumeBucketKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketKeyVaultArgs) ToVolumeBucketKeyVaultPtrOutputWithContext(ctx context.Context) VolumeBucketKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketKeyVaultOutput).ToVolumeBucketKeyVaultPtrOutputWithContext(ctx)
+}
+
+// VolumeBucketKeyVaultPtrInput is an input type that accepts VolumeBucketKeyVaultArgs, VolumeBucketKeyVaultPtr and VolumeBucketKeyVaultPtrOutput values.
+// You can construct a concrete instance of `VolumeBucketKeyVaultPtrInput` via:
+//
+//	        VolumeBucketKeyVaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeBucketKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToVolumeBucketKeyVaultPtrOutput() VolumeBucketKeyVaultPtrOutput
+	ToVolumeBucketKeyVaultPtrOutputWithContext(context.Context) VolumeBucketKeyVaultPtrOutput
+}
+
+type volumeBucketKeyVaultPtrType VolumeBucketKeyVaultArgs
+
+func VolumeBucketKeyVaultPtr(v *VolumeBucketKeyVaultArgs) VolumeBucketKeyVaultPtrInput {
+	return (*volumeBucketKeyVaultPtrType)(v)
+}
+
+func (*volumeBucketKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketKeyVault)(nil)).Elem()
+}
+
+func (i *volumeBucketKeyVaultPtrType) ToVolumeBucketKeyVaultPtrOutput() VolumeBucketKeyVaultPtrOutput {
+	return i.ToVolumeBucketKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeBucketKeyVaultPtrType) ToVolumeBucketKeyVaultPtrOutputWithContext(ctx context.Context) VolumeBucketKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketKeyVaultPtrOutput)
+}
+
+type VolumeBucketKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketKeyVault)(nil)).Elem()
+}
+
+func (o VolumeBucketKeyVaultOutput) ToVolumeBucketKeyVaultOutput() VolumeBucketKeyVaultOutput {
+	return o
+}
+
+func (o VolumeBucketKeyVaultOutput) ToVolumeBucketKeyVaultOutputWithContext(ctx context.Context) VolumeBucketKeyVaultOutput {
+	return o
+}
+
+func (o VolumeBucketKeyVaultOutput) ToVolumeBucketKeyVaultPtrOutput() VolumeBucketKeyVaultPtrOutput {
+	return o.ToVolumeBucketKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeBucketKeyVaultOutput) ToVolumeBucketKeyVaultPtrOutputWithContext(ctx context.Context) VolumeBucketKeyVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeBucketKeyVault) *VolumeBucketKeyVault {
+		return &v
+	}).(VolumeBucketKeyVaultPtrOutput)
+}
+
+// The URI of the Azure Key Vault that stores the bucket server certificate.
+func (o VolumeBucketKeyVaultOutput) CertificateKeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeBucketKeyVault) string { return v.CertificateKeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The name of the certificate object inside the Key Vault.
+func (o VolumeBucketKeyVaultOutput) CertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeBucketKeyVault) string { return v.CertificateName }).(pulumi.StringOutput)
+}
+
+// The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+func (o VolumeBucketKeyVaultOutput) CredentialsKeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeBucketKeyVault) string { return v.CredentialsKeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+//
+// > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+func (o VolumeBucketKeyVaultOutput) CredentialsSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeBucketKeyVault) string { return v.CredentialsSecretName }).(pulumi.StringOutput)
+}
+
+type VolumeBucketKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketKeyVault)(nil)).Elem()
+}
+
+func (o VolumeBucketKeyVaultPtrOutput) ToVolumeBucketKeyVaultPtrOutput() VolumeBucketKeyVaultPtrOutput {
+	return o
+}
+
+func (o VolumeBucketKeyVaultPtrOutput) ToVolumeBucketKeyVaultPtrOutputWithContext(ctx context.Context) VolumeBucketKeyVaultPtrOutput {
+	return o
+}
+
+func (o VolumeBucketKeyVaultPtrOutput) Elem() VolumeBucketKeyVaultOutput {
+	return o.ApplyT(func(v *VolumeBucketKeyVault) VolumeBucketKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeBucketKeyVault
+		return ret
+	}).(VolumeBucketKeyVaultOutput)
+}
+
+// The URI of the Azure Key Vault that stores the bucket server certificate.
+func (o VolumeBucketKeyVaultPtrOutput) CertificateKeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateKeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the certificate object inside the Key Vault.
+func (o VolumeBucketKeyVaultPtrOutput) CertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+func (o VolumeBucketKeyVaultPtrOutput) CredentialsKeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsKeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+//
+// > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+func (o VolumeBucketKeyVaultPtrOutput) CredentialsSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeBucketWithServerFileSystemNfsUser struct {
+	// The POSIX group ID used by the bucket when accessing volume data over NFS.
+	GroupId int `pulumi:"groupId"`
+	// The POSIX user ID used by the bucket when accessing volume data over NFS.
+	UserId int `pulumi:"userId"`
+}
+
+// VolumeBucketWithServerFileSystemNfsUserInput is an input type that accepts VolumeBucketWithServerFileSystemNfsUserArgs and VolumeBucketWithServerFileSystemNfsUserOutput values.
+// You can construct a concrete instance of `VolumeBucketWithServerFileSystemNfsUserInput` via:
+//
+//	VolumeBucketWithServerFileSystemNfsUserArgs{...}
+type VolumeBucketWithServerFileSystemNfsUserInput interface {
+	pulumi.Input
+
+	ToVolumeBucketWithServerFileSystemNfsUserOutput() VolumeBucketWithServerFileSystemNfsUserOutput
+	ToVolumeBucketWithServerFileSystemNfsUserOutputWithContext(context.Context) VolumeBucketWithServerFileSystemNfsUserOutput
+}
+
+type VolumeBucketWithServerFileSystemNfsUserArgs struct {
+	// The POSIX group ID used by the bucket when accessing volume data over NFS.
+	GroupId pulumi.IntInput `pulumi:"groupId"`
+	// The POSIX user ID used by the bucket when accessing volume data over NFS.
+	UserId pulumi.IntInput `pulumi:"userId"`
+}
+
+func (VolumeBucketWithServerFileSystemNfsUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketWithServerFileSystemNfsUser)(nil)).Elem()
+}
+
+func (i VolumeBucketWithServerFileSystemNfsUserArgs) ToVolumeBucketWithServerFileSystemNfsUserOutput() VolumeBucketWithServerFileSystemNfsUserOutput {
+	return i.ToVolumeBucketWithServerFileSystemNfsUserOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketWithServerFileSystemNfsUserArgs) ToVolumeBucketWithServerFileSystemNfsUserOutputWithContext(ctx context.Context) VolumeBucketWithServerFileSystemNfsUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketWithServerFileSystemNfsUserOutput)
+}
+
+func (i VolumeBucketWithServerFileSystemNfsUserArgs) ToVolumeBucketWithServerFileSystemNfsUserPtrOutput() VolumeBucketWithServerFileSystemNfsUserPtrOutput {
+	return i.ToVolumeBucketWithServerFileSystemNfsUserPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketWithServerFileSystemNfsUserArgs) ToVolumeBucketWithServerFileSystemNfsUserPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerFileSystemNfsUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketWithServerFileSystemNfsUserOutput).ToVolumeBucketWithServerFileSystemNfsUserPtrOutputWithContext(ctx)
+}
+
+// VolumeBucketWithServerFileSystemNfsUserPtrInput is an input type that accepts VolumeBucketWithServerFileSystemNfsUserArgs, VolumeBucketWithServerFileSystemNfsUserPtr and VolumeBucketWithServerFileSystemNfsUserPtrOutput values.
+// You can construct a concrete instance of `VolumeBucketWithServerFileSystemNfsUserPtrInput` via:
+//
+//	        VolumeBucketWithServerFileSystemNfsUserArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeBucketWithServerFileSystemNfsUserPtrInput interface {
+	pulumi.Input
+
+	ToVolumeBucketWithServerFileSystemNfsUserPtrOutput() VolumeBucketWithServerFileSystemNfsUserPtrOutput
+	ToVolumeBucketWithServerFileSystemNfsUserPtrOutputWithContext(context.Context) VolumeBucketWithServerFileSystemNfsUserPtrOutput
+}
+
+type volumeBucketWithServerFileSystemNfsUserPtrType VolumeBucketWithServerFileSystemNfsUserArgs
+
+func VolumeBucketWithServerFileSystemNfsUserPtr(v *VolumeBucketWithServerFileSystemNfsUserArgs) VolumeBucketWithServerFileSystemNfsUserPtrInput {
+	return (*volumeBucketWithServerFileSystemNfsUserPtrType)(v)
+}
+
+func (*volumeBucketWithServerFileSystemNfsUserPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketWithServerFileSystemNfsUser)(nil)).Elem()
+}
+
+func (i *volumeBucketWithServerFileSystemNfsUserPtrType) ToVolumeBucketWithServerFileSystemNfsUserPtrOutput() VolumeBucketWithServerFileSystemNfsUserPtrOutput {
+	return i.ToVolumeBucketWithServerFileSystemNfsUserPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeBucketWithServerFileSystemNfsUserPtrType) ToVolumeBucketWithServerFileSystemNfsUserPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerFileSystemNfsUserPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketWithServerFileSystemNfsUserPtrOutput)
+}
+
+type VolumeBucketWithServerFileSystemNfsUserOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketWithServerFileSystemNfsUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketWithServerFileSystemNfsUser)(nil)).Elem()
+}
+
+func (o VolumeBucketWithServerFileSystemNfsUserOutput) ToVolumeBucketWithServerFileSystemNfsUserOutput() VolumeBucketWithServerFileSystemNfsUserOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerFileSystemNfsUserOutput) ToVolumeBucketWithServerFileSystemNfsUserOutputWithContext(ctx context.Context) VolumeBucketWithServerFileSystemNfsUserOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerFileSystemNfsUserOutput) ToVolumeBucketWithServerFileSystemNfsUserPtrOutput() VolumeBucketWithServerFileSystemNfsUserPtrOutput {
+	return o.ToVolumeBucketWithServerFileSystemNfsUserPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeBucketWithServerFileSystemNfsUserOutput) ToVolumeBucketWithServerFileSystemNfsUserPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerFileSystemNfsUserPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeBucketWithServerFileSystemNfsUser) *VolumeBucketWithServerFileSystemNfsUser {
+		return &v
+	}).(VolumeBucketWithServerFileSystemNfsUserPtrOutput)
+}
+
+// The POSIX group ID used by the bucket when accessing volume data over NFS.
+func (o VolumeBucketWithServerFileSystemNfsUserOutput) GroupId() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeBucketWithServerFileSystemNfsUser) int { return v.GroupId }).(pulumi.IntOutput)
+}
+
+// The POSIX user ID used by the bucket when accessing volume data over NFS.
+func (o VolumeBucketWithServerFileSystemNfsUserOutput) UserId() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeBucketWithServerFileSystemNfsUser) int { return v.UserId }).(pulumi.IntOutput)
+}
+
+type VolumeBucketWithServerFileSystemNfsUserPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketWithServerFileSystemNfsUserPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketWithServerFileSystemNfsUser)(nil)).Elem()
+}
+
+func (o VolumeBucketWithServerFileSystemNfsUserPtrOutput) ToVolumeBucketWithServerFileSystemNfsUserPtrOutput() VolumeBucketWithServerFileSystemNfsUserPtrOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerFileSystemNfsUserPtrOutput) ToVolumeBucketWithServerFileSystemNfsUserPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerFileSystemNfsUserPtrOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerFileSystemNfsUserPtrOutput) Elem() VolumeBucketWithServerFileSystemNfsUserOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerFileSystemNfsUser) VolumeBucketWithServerFileSystemNfsUser {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeBucketWithServerFileSystemNfsUser
+		return ret
+	}).(VolumeBucketWithServerFileSystemNfsUserOutput)
+}
+
+// The POSIX group ID used by the bucket when accessing volume data over NFS.
+func (o VolumeBucketWithServerFileSystemNfsUserPtrOutput) GroupId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerFileSystemNfsUser) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.GroupId
+	}).(pulumi.IntPtrOutput)
+}
+
+// The POSIX user ID used by the bucket when accessing volume data over NFS.
+func (o VolumeBucketWithServerFileSystemNfsUserPtrOutput) UserId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerFileSystemNfsUser) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.UserId
+	}).(pulumi.IntPtrOutput)
+}
+
+type VolumeBucketWithServerKeyVault struct {
+	// The URI of the Azure Key Vault that stores the bucket server certificate.
+	CertificateKeyVaultUri string `pulumi:"certificateKeyVaultUri"`
+	// The name of the certificate object inside the Key Vault.
+	CertificateName string `pulumi:"certificateName"`
+	// The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+	CredentialsKeyVaultUri string `pulumi:"credentialsKeyVaultUri"`
+	// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+	//
+	// > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+	CredentialsSecretName string `pulumi:"credentialsSecretName"`
+}
+
+// VolumeBucketWithServerKeyVaultInput is an input type that accepts VolumeBucketWithServerKeyVaultArgs and VolumeBucketWithServerKeyVaultOutput values.
+// You can construct a concrete instance of `VolumeBucketWithServerKeyVaultInput` via:
+//
+//	VolumeBucketWithServerKeyVaultArgs{...}
+type VolumeBucketWithServerKeyVaultInput interface {
+	pulumi.Input
+
+	ToVolumeBucketWithServerKeyVaultOutput() VolumeBucketWithServerKeyVaultOutput
+	ToVolumeBucketWithServerKeyVaultOutputWithContext(context.Context) VolumeBucketWithServerKeyVaultOutput
+}
+
+type VolumeBucketWithServerKeyVaultArgs struct {
+	// The URI of the Azure Key Vault that stores the bucket server certificate.
+	CertificateKeyVaultUri pulumi.StringInput `pulumi:"certificateKeyVaultUri"`
+	// The name of the certificate object inside the Key Vault.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+	CredentialsKeyVaultUri pulumi.StringInput `pulumi:"credentialsKeyVaultUri"`
+	// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+	//
+	// > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+	CredentialsSecretName pulumi.StringInput `pulumi:"credentialsSecretName"`
+}
+
+func (VolumeBucketWithServerKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketWithServerKeyVault)(nil)).Elem()
+}
+
+func (i VolumeBucketWithServerKeyVaultArgs) ToVolumeBucketWithServerKeyVaultOutput() VolumeBucketWithServerKeyVaultOutput {
+	return i.ToVolumeBucketWithServerKeyVaultOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketWithServerKeyVaultArgs) ToVolumeBucketWithServerKeyVaultOutputWithContext(ctx context.Context) VolumeBucketWithServerKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketWithServerKeyVaultOutput)
+}
+
+func (i VolumeBucketWithServerKeyVaultArgs) ToVolumeBucketWithServerKeyVaultPtrOutput() VolumeBucketWithServerKeyVaultPtrOutput {
+	return i.ToVolumeBucketWithServerKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketWithServerKeyVaultArgs) ToVolumeBucketWithServerKeyVaultPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketWithServerKeyVaultOutput).ToVolumeBucketWithServerKeyVaultPtrOutputWithContext(ctx)
+}
+
+// VolumeBucketWithServerKeyVaultPtrInput is an input type that accepts VolumeBucketWithServerKeyVaultArgs, VolumeBucketWithServerKeyVaultPtr and VolumeBucketWithServerKeyVaultPtrOutput values.
+// You can construct a concrete instance of `VolumeBucketWithServerKeyVaultPtrInput` via:
+//
+//	        VolumeBucketWithServerKeyVaultArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeBucketWithServerKeyVaultPtrInput interface {
+	pulumi.Input
+
+	ToVolumeBucketWithServerKeyVaultPtrOutput() VolumeBucketWithServerKeyVaultPtrOutput
+	ToVolumeBucketWithServerKeyVaultPtrOutputWithContext(context.Context) VolumeBucketWithServerKeyVaultPtrOutput
+}
+
+type volumeBucketWithServerKeyVaultPtrType VolumeBucketWithServerKeyVaultArgs
+
+func VolumeBucketWithServerKeyVaultPtr(v *VolumeBucketWithServerKeyVaultArgs) VolumeBucketWithServerKeyVaultPtrInput {
+	return (*volumeBucketWithServerKeyVaultPtrType)(v)
+}
+
+func (*volumeBucketWithServerKeyVaultPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketWithServerKeyVault)(nil)).Elem()
+}
+
+func (i *volumeBucketWithServerKeyVaultPtrType) ToVolumeBucketWithServerKeyVaultPtrOutput() VolumeBucketWithServerKeyVaultPtrOutput {
+	return i.ToVolumeBucketWithServerKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeBucketWithServerKeyVaultPtrType) ToVolumeBucketWithServerKeyVaultPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerKeyVaultPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketWithServerKeyVaultPtrOutput)
+}
+
+type VolumeBucketWithServerKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketWithServerKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketWithServerKeyVault)(nil)).Elem()
+}
+
+func (o VolumeBucketWithServerKeyVaultOutput) ToVolumeBucketWithServerKeyVaultOutput() VolumeBucketWithServerKeyVaultOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerKeyVaultOutput) ToVolumeBucketWithServerKeyVaultOutputWithContext(ctx context.Context) VolumeBucketWithServerKeyVaultOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerKeyVaultOutput) ToVolumeBucketWithServerKeyVaultPtrOutput() VolumeBucketWithServerKeyVaultPtrOutput {
+	return o.ToVolumeBucketWithServerKeyVaultPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeBucketWithServerKeyVaultOutput) ToVolumeBucketWithServerKeyVaultPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerKeyVaultPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeBucketWithServerKeyVault) *VolumeBucketWithServerKeyVault {
+		return &v
+	}).(VolumeBucketWithServerKeyVaultPtrOutput)
+}
+
+// The URI of the Azure Key Vault that stores the bucket server certificate.
+func (o VolumeBucketWithServerKeyVaultOutput) CertificateKeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeBucketWithServerKeyVault) string { return v.CertificateKeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The name of the certificate object inside the Key Vault.
+func (o VolumeBucketWithServerKeyVaultOutput) CertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeBucketWithServerKeyVault) string { return v.CertificateName }).(pulumi.StringOutput)
+}
+
+// The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+func (o VolumeBucketWithServerKeyVaultOutput) CredentialsKeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeBucketWithServerKeyVault) string { return v.CredentialsKeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+//
+// > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+func (o VolumeBucketWithServerKeyVaultOutput) CredentialsSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeBucketWithServerKeyVault) string { return v.CredentialsSecretName }).(pulumi.StringOutput)
+}
+
+type VolumeBucketWithServerKeyVaultPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketWithServerKeyVaultPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketWithServerKeyVault)(nil)).Elem()
+}
+
+func (o VolumeBucketWithServerKeyVaultPtrOutput) ToVolumeBucketWithServerKeyVaultPtrOutput() VolumeBucketWithServerKeyVaultPtrOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerKeyVaultPtrOutput) ToVolumeBucketWithServerKeyVaultPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerKeyVaultPtrOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerKeyVaultPtrOutput) Elem() VolumeBucketWithServerKeyVaultOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerKeyVault) VolumeBucketWithServerKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeBucketWithServerKeyVault
+		return ret
+	}).(VolumeBucketWithServerKeyVaultOutput)
+}
+
+// The URI of the Azure Key Vault that stores the bucket server certificate.
+func (o VolumeBucketWithServerKeyVaultPtrOutput) CertificateKeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateKeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the certificate object inside the Key Vault.
+func (o VolumeBucketWithServerKeyVaultPtrOutput) CertificateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CertificateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URI of the Azure Key Vault used to store the generated bucket access and secret keys. May be the same vault as `certificateKeyVaultUri` but the documentation recommends using two separate vaults.
+func (o VolumeBucketWithServerKeyVaultPtrOutput) CredentialsKeyVaultUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsKeyVaultUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials. The Key Vault secret value is a JSON document with `accessKeyId` and `secretAccessKey` properties.
+//
+// > **Note:** When `keyVault` is used, the parent NetApp account must have a system-assigned managed identity (`identity { type = "SystemAssigned" }` on `netapp.Account`). That identity is the principal that needs Key Vault access. Grant it `Get, List, Update, Create, Import, ManageContacts, GetIssuers, ListIssuers, SetIssuers, DeleteIssuers` certificate permissions on `certificateKeyVaultUri` and `Get, List, Set, Delete` secret permissions on `credentialsKeyVaultUri`.
+func (o VolumeBucketWithServerKeyVaultPtrOutput) CredentialsSecretName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerKeyVault) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CredentialsSecretName
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeBucketWithServerServer struct {
+	// Base64-encoded PEM blob containing the server certificate concatenated with the private key. Used when the certificate is supplied directly instead of via Key Vault. Mutually exclusive with `keyVault`.
+	CertificatePem *string `pulumi:"certificatePem"`
+	// The DNS name that resolves to the bucket endpoint IP address.
+	Fqdn string `pulumi:"fqdn"`
+	// Behaviour when an existing certificate already matches during a certificate rotation. Possible values are `Update` and `Fail`. Defaults to `Fail`.
+	OnCertificateConflictAction *string `pulumi:"onCertificateConflictAction"`
+}
+
+// VolumeBucketWithServerServerInput is an input type that accepts VolumeBucketWithServerServerArgs and VolumeBucketWithServerServerOutput values.
+// You can construct a concrete instance of `VolumeBucketWithServerServerInput` via:
+//
+//	VolumeBucketWithServerServerArgs{...}
+type VolumeBucketWithServerServerInput interface {
+	pulumi.Input
+
+	ToVolumeBucketWithServerServerOutput() VolumeBucketWithServerServerOutput
+	ToVolumeBucketWithServerServerOutputWithContext(context.Context) VolumeBucketWithServerServerOutput
+}
+
+type VolumeBucketWithServerServerArgs struct {
+	// Base64-encoded PEM blob containing the server certificate concatenated with the private key. Used when the certificate is supplied directly instead of via Key Vault. Mutually exclusive with `keyVault`.
+	CertificatePem pulumi.StringPtrInput `pulumi:"certificatePem"`
+	// The DNS name that resolves to the bucket endpoint IP address.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// Behaviour when an existing certificate already matches during a certificate rotation. Possible values are `Update` and `Fail`. Defaults to `Fail`.
+	OnCertificateConflictAction pulumi.StringPtrInput `pulumi:"onCertificateConflictAction"`
+}
+
+func (VolumeBucketWithServerServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketWithServerServer)(nil)).Elem()
+}
+
+func (i VolumeBucketWithServerServerArgs) ToVolumeBucketWithServerServerOutput() VolumeBucketWithServerServerOutput {
+	return i.ToVolumeBucketWithServerServerOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketWithServerServerArgs) ToVolumeBucketWithServerServerOutputWithContext(ctx context.Context) VolumeBucketWithServerServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketWithServerServerOutput)
+}
+
+func (i VolumeBucketWithServerServerArgs) ToVolumeBucketWithServerServerPtrOutput() VolumeBucketWithServerServerPtrOutput {
+	return i.ToVolumeBucketWithServerServerPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeBucketWithServerServerArgs) ToVolumeBucketWithServerServerPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketWithServerServerOutput).ToVolumeBucketWithServerServerPtrOutputWithContext(ctx)
+}
+
+// VolumeBucketWithServerServerPtrInput is an input type that accepts VolumeBucketWithServerServerArgs, VolumeBucketWithServerServerPtr and VolumeBucketWithServerServerPtrOutput values.
+// You can construct a concrete instance of `VolumeBucketWithServerServerPtrInput` via:
+//
+//	        VolumeBucketWithServerServerArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeBucketWithServerServerPtrInput interface {
+	pulumi.Input
+
+	ToVolumeBucketWithServerServerPtrOutput() VolumeBucketWithServerServerPtrOutput
+	ToVolumeBucketWithServerServerPtrOutputWithContext(context.Context) VolumeBucketWithServerServerPtrOutput
+}
+
+type volumeBucketWithServerServerPtrType VolumeBucketWithServerServerArgs
+
+func VolumeBucketWithServerServerPtr(v *VolumeBucketWithServerServerArgs) VolumeBucketWithServerServerPtrInput {
+	return (*volumeBucketWithServerServerPtrType)(v)
+}
+
+func (*volumeBucketWithServerServerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketWithServerServer)(nil)).Elem()
+}
+
+func (i *volumeBucketWithServerServerPtrType) ToVolumeBucketWithServerServerPtrOutput() VolumeBucketWithServerServerPtrOutput {
+	return i.ToVolumeBucketWithServerServerPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeBucketWithServerServerPtrType) ToVolumeBucketWithServerServerPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeBucketWithServerServerPtrOutput)
+}
+
+type VolumeBucketWithServerServerOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketWithServerServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeBucketWithServerServer)(nil)).Elem()
+}
+
+func (o VolumeBucketWithServerServerOutput) ToVolumeBucketWithServerServerOutput() VolumeBucketWithServerServerOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerServerOutput) ToVolumeBucketWithServerServerOutputWithContext(ctx context.Context) VolumeBucketWithServerServerOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerServerOutput) ToVolumeBucketWithServerServerPtrOutput() VolumeBucketWithServerServerPtrOutput {
+	return o.ToVolumeBucketWithServerServerPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeBucketWithServerServerOutput) ToVolumeBucketWithServerServerPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerServerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeBucketWithServerServer) *VolumeBucketWithServerServer {
+		return &v
+	}).(VolumeBucketWithServerServerPtrOutput)
+}
+
+// Base64-encoded PEM blob containing the server certificate concatenated with the private key. Used when the certificate is supplied directly instead of via Key Vault. Mutually exclusive with `keyVault`.
+func (o VolumeBucketWithServerServerOutput) CertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeBucketWithServerServer) *string { return v.CertificatePem }).(pulumi.StringPtrOutput)
+}
+
+// The DNS name that resolves to the bucket endpoint IP address.
+func (o VolumeBucketWithServerServerOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeBucketWithServerServer) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// Behaviour when an existing certificate already matches during a certificate rotation. Possible values are `Update` and `Fail`. Defaults to `Fail`.
+func (o VolumeBucketWithServerServerOutput) OnCertificateConflictAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeBucketWithServerServer) *string { return v.OnCertificateConflictAction }).(pulumi.StringPtrOutput)
+}
+
+type VolumeBucketWithServerServerPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeBucketWithServerServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeBucketWithServerServer)(nil)).Elem()
+}
+
+func (o VolumeBucketWithServerServerPtrOutput) ToVolumeBucketWithServerServerPtrOutput() VolumeBucketWithServerServerPtrOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerServerPtrOutput) ToVolumeBucketWithServerServerPtrOutputWithContext(ctx context.Context) VolumeBucketWithServerServerPtrOutput {
+	return o
+}
+
+func (o VolumeBucketWithServerServerPtrOutput) Elem() VolumeBucketWithServerServerOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerServer) VolumeBucketWithServerServer {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeBucketWithServerServer
+		return ret
+	}).(VolumeBucketWithServerServerOutput)
+}
+
+// Base64-encoded PEM blob containing the server certificate concatenated with the private key. Used when the certificate is supplied directly instead of via Key Vault. Mutually exclusive with `keyVault`.
+func (o VolumeBucketWithServerServerPtrOutput) CertificatePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerServer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificatePem
+	}).(pulumi.StringPtrOutput)
+}
+
+// The DNS name that resolves to the bucket endpoint IP address.
+func (o VolumeBucketWithServerServerPtrOutput) Fqdn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerServer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Fqdn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Behaviour when an existing certificate already matches during a certificate rotation. Possible values are `Update` and `Fail`. Defaults to `Fail`.
+func (o VolumeBucketWithServerServerPtrOutput) OnCertificateConflictAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeBucketWithServerServer) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnCertificateConflictAction
+	}).(pulumi.StringPtrOutput)
+}
+
 type VolumeCoolAccess struct {
 	// The coolness period in days for the volume. Possible vales are between `2` and `183`.
 	CoolnessPeriodInDays int `pulumi:"coolnessPeriodInDays"`
@@ -4599,6 +5490,578 @@ func (o GetSnapshotPolicyWeeklyScheduleArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetSnapshotPolicyWeeklyScheduleOutput)
 }
 
+type GetVolumeBucketFileSystemNfsUser struct {
+	// The POSIX group ID used by the bucket.
+	GroupId int `pulumi:"groupId"`
+	// The POSIX user ID used by the bucket.
+	UserId int `pulumi:"userId"`
+}
+
+// GetVolumeBucketFileSystemNfsUserInput is an input type that accepts GetVolumeBucketFileSystemNfsUserArgs and GetVolumeBucketFileSystemNfsUserOutput values.
+// You can construct a concrete instance of `GetVolumeBucketFileSystemNfsUserInput` via:
+//
+//	GetVolumeBucketFileSystemNfsUserArgs{...}
+type GetVolumeBucketFileSystemNfsUserInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketFileSystemNfsUserOutput() GetVolumeBucketFileSystemNfsUserOutput
+	ToGetVolumeBucketFileSystemNfsUserOutputWithContext(context.Context) GetVolumeBucketFileSystemNfsUserOutput
+}
+
+type GetVolumeBucketFileSystemNfsUserArgs struct {
+	// The POSIX group ID used by the bucket.
+	GroupId pulumi.IntInput `pulumi:"groupId"`
+	// The POSIX user ID used by the bucket.
+	UserId pulumi.IntInput `pulumi:"userId"`
+}
+
+func (GetVolumeBucketFileSystemNfsUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketFileSystemNfsUser)(nil)).Elem()
+}
+
+func (i GetVolumeBucketFileSystemNfsUserArgs) ToGetVolumeBucketFileSystemNfsUserOutput() GetVolumeBucketFileSystemNfsUserOutput {
+	return i.ToGetVolumeBucketFileSystemNfsUserOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketFileSystemNfsUserArgs) ToGetVolumeBucketFileSystemNfsUserOutputWithContext(ctx context.Context) GetVolumeBucketFileSystemNfsUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketFileSystemNfsUserOutput)
+}
+
+// GetVolumeBucketFileSystemNfsUserArrayInput is an input type that accepts GetVolumeBucketFileSystemNfsUserArray and GetVolumeBucketFileSystemNfsUserArrayOutput values.
+// You can construct a concrete instance of `GetVolumeBucketFileSystemNfsUserArrayInput` via:
+//
+//	GetVolumeBucketFileSystemNfsUserArray{ GetVolumeBucketFileSystemNfsUserArgs{...} }
+type GetVolumeBucketFileSystemNfsUserArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketFileSystemNfsUserArrayOutput() GetVolumeBucketFileSystemNfsUserArrayOutput
+	ToGetVolumeBucketFileSystemNfsUserArrayOutputWithContext(context.Context) GetVolumeBucketFileSystemNfsUserArrayOutput
+}
+
+type GetVolumeBucketFileSystemNfsUserArray []GetVolumeBucketFileSystemNfsUserInput
+
+func (GetVolumeBucketFileSystemNfsUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketFileSystemNfsUser)(nil)).Elem()
+}
+
+func (i GetVolumeBucketFileSystemNfsUserArray) ToGetVolumeBucketFileSystemNfsUserArrayOutput() GetVolumeBucketFileSystemNfsUserArrayOutput {
+	return i.ToGetVolumeBucketFileSystemNfsUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketFileSystemNfsUserArray) ToGetVolumeBucketFileSystemNfsUserArrayOutputWithContext(ctx context.Context) GetVolumeBucketFileSystemNfsUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketFileSystemNfsUserArrayOutput)
+}
+
+type GetVolumeBucketFileSystemNfsUserOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketFileSystemNfsUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketFileSystemNfsUser)(nil)).Elem()
+}
+
+func (o GetVolumeBucketFileSystemNfsUserOutput) ToGetVolumeBucketFileSystemNfsUserOutput() GetVolumeBucketFileSystemNfsUserOutput {
+	return o
+}
+
+func (o GetVolumeBucketFileSystemNfsUserOutput) ToGetVolumeBucketFileSystemNfsUserOutputWithContext(ctx context.Context) GetVolumeBucketFileSystemNfsUserOutput {
+	return o
+}
+
+// The POSIX group ID used by the bucket.
+func (o GetVolumeBucketFileSystemNfsUserOutput) GroupId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVolumeBucketFileSystemNfsUser) int { return v.GroupId }).(pulumi.IntOutput)
+}
+
+// The POSIX user ID used by the bucket.
+func (o GetVolumeBucketFileSystemNfsUserOutput) UserId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVolumeBucketFileSystemNfsUser) int { return v.UserId }).(pulumi.IntOutput)
+}
+
+type GetVolumeBucketFileSystemNfsUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketFileSystemNfsUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketFileSystemNfsUser)(nil)).Elem()
+}
+
+func (o GetVolumeBucketFileSystemNfsUserArrayOutput) ToGetVolumeBucketFileSystemNfsUserArrayOutput() GetVolumeBucketFileSystemNfsUserArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketFileSystemNfsUserArrayOutput) ToGetVolumeBucketFileSystemNfsUserArrayOutputWithContext(ctx context.Context) GetVolumeBucketFileSystemNfsUserArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketFileSystemNfsUserArrayOutput) Index(i pulumi.IntInput) GetVolumeBucketFileSystemNfsUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeBucketFileSystemNfsUser {
+		return vs[0].([]GetVolumeBucketFileSystemNfsUser)[vs[1].(int)]
+	}).(GetVolumeBucketFileSystemNfsUserOutput)
+}
+
+type GetVolumeBucketKeyVault struct {
+	// The URI of the Azure Key Vault that stores the bucket server certificate.
+	CertificateKeyVaultUri string `pulumi:"certificateKeyVaultUri"`
+	// The name of the certificate object inside the Key Vault.
+	CertificateName string `pulumi:"certificateName"`
+	// The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+	CredentialsKeyVaultUri string `pulumi:"credentialsKeyVaultUri"`
+	// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials.
+	CredentialsSecretName string `pulumi:"credentialsSecretName"`
+}
+
+// GetVolumeBucketKeyVaultInput is an input type that accepts GetVolumeBucketKeyVaultArgs and GetVolumeBucketKeyVaultOutput values.
+// You can construct a concrete instance of `GetVolumeBucketKeyVaultInput` via:
+//
+//	GetVolumeBucketKeyVaultArgs{...}
+type GetVolumeBucketKeyVaultInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketKeyVaultOutput() GetVolumeBucketKeyVaultOutput
+	ToGetVolumeBucketKeyVaultOutputWithContext(context.Context) GetVolumeBucketKeyVaultOutput
+}
+
+type GetVolumeBucketKeyVaultArgs struct {
+	// The URI of the Azure Key Vault that stores the bucket server certificate.
+	CertificateKeyVaultUri pulumi.StringInput `pulumi:"certificateKeyVaultUri"`
+	// The name of the certificate object inside the Key Vault.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+	CredentialsKeyVaultUri pulumi.StringInput `pulumi:"credentialsKeyVaultUri"`
+	// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials.
+	CredentialsSecretName pulumi.StringInput `pulumi:"credentialsSecretName"`
+}
+
+func (GetVolumeBucketKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketKeyVault)(nil)).Elem()
+}
+
+func (i GetVolumeBucketKeyVaultArgs) ToGetVolumeBucketKeyVaultOutput() GetVolumeBucketKeyVaultOutput {
+	return i.ToGetVolumeBucketKeyVaultOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketKeyVaultArgs) ToGetVolumeBucketKeyVaultOutputWithContext(ctx context.Context) GetVolumeBucketKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketKeyVaultOutput)
+}
+
+// GetVolumeBucketKeyVaultArrayInput is an input type that accepts GetVolumeBucketKeyVaultArray and GetVolumeBucketKeyVaultArrayOutput values.
+// You can construct a concrete instance of `GetVolumeBucketKeyVaultArrayInput` via:
+//
+//	GetVolumeBucketKeyVaultArray{ GetVolumeBucketKeyVaultArgs{...} }
+type GetVolumeBucketKeyVaultArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketKeyVaultArrayOutput() GetVolumeBucketKeyVaultArrayOutput
+	ToGetVolumeBucketKeyVaultArrayOutputWithContext(context.Context) GetVolumeBucketKeyVaultArrayOutput
+}
+
+type GetVolumeBucketKeyVaultArray []GetVolumeBucketKeyVaultInput
+
+func (GetVolumeBucketKeyVaultArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketKeyVault)(nil)).Elem()
+}
+
+func (i GetVolumeBucketKeyVaultArray) ToGetVolumeBucketKeyVaultArrayOutput() GetVolumeBucketKeyVaultArrayOutput {
+	return i.ToGetVolumeBucketKeyVaultArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketKeyVaultArray) ToGetVolumeBucketKeyVaultArrayOutputWithContext(ctx context.Context) GetVolumeBucketKeyVaultArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketKeyVaultArrayOutput)
+}
+
+type GetVolumeBucketKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketKeyVault)(nil)).Elem()
+}
+
+func (o GetVolumeBucketKeyVaultOutput) ToGetVolumeBucketKeyVaultOutput() GetVolumeBucketKeyVaultOutput {
+	return o
+}
+
+func (o GetVolumeBucketKeyVaultOutput) ToGetVolumeBucketKeyVaultOutputWithContext(ctx context.Context) GetVolumeBucketKeyVaultOutput {
+	return o
+}
+
+// The URI of the Azure Key Vault that stores the bucket server certificate.
+func (o GetVolumeBucketKeyVaultOutput) CertificateKeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketKeyVault) string { return v.CertificateKeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The name of the certificate object inside the Key Vault.
+func (o GetVolumeBucketKeyVaultOutput) CertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketKeyVault) string { return v.CertificateName }).(pulumi.StringOutput)
+}
+
+// The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+func (o GetVolumeBucketKeyVaultOutput) CredentialsKeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketKeyVault) string { return v.CredentialsKeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials.
+func (o GetVolumeBucketKeyVaultOutput) CredentialsSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketKeyVault) string { return v.CredentialsSecretName }).(pulumi.StringOutput)
+}
+
+type GetVolumeBucketKeyVaultArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketKeyVaultArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketKeyVault)(nil)).Elem()
+}
+
+func (o GetVolumeBucketKeyVaultArrayOutput) ToGetVolumeBucketKeyVaultArrayOutput() GetVolumeBucketKeyVaultArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketKeyVaultArrayOutput) ToGetVolumeBucketKeyVaultArrayOutputWithContext(ctx context.Context) GetVolumeBucketKeyVaultArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketKeyVaultArrayOutput) Index(i pulumi.IntInput) GetVolumeBucketKeyVaultOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeBucketKeyVault {
+		return vs[0].([]GetVolumeBucketKeyVault)[vs[1].(int)]
+	}).(GetVolumeBucketKeyVaultOutput)
+}
+
+type GetVolumeBucketWithServerFileSystemNfsUser struct {
+	// The POSIX group ID used by the bucket.
+	GroupId int `pulumi:"groupId"`
+	// The POSIX user ID used by the bucket.
+	UserId int `pulumi:"userId"`
+}
+
+// GetVolumeBucketWithServerFileSystemNfsUserInput is an input type that accepts GetVolumeBucketWithServerFileSystemNfsUserArgs and GetVolumeBucketWithServerFileSystemNfsUserOutput values.
+// You can construct a concrete instance of `GetVolumeBucketWithServerFileSystemNfsUserInput` via:
+//
+//	GetVolumeBucketWithServerFileSystemNfsUserArgs{...}
+type GetVolumeBucketWithServerFileSystemNfsUserInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketWithServerFileSystemNfsUserOutput() GetVolumeBucketWithServerFileSystemNfsUserOutput
+	ToGetVolumeBucketWithServerFileSystemNfsUserOutputWithContext(context.Context) GetVolumeBucketWithServerFileSystemNfsUserOutput
+}
+
+type GetVolumeBucketWithServerFileSystemNfsUserArgs struct {
+	// The POSIX group ID used by the bucket.
+	GroupId pulumi.IntInput `pulumi:"groupId"`
+	// The POSIX user ID used by the bucket.
+	UserId pulumi.IntInput `pulumi:"userId"`
+}
+
+func (GetVolumeBucketWithServerFileSystemNfsUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketWithServerFileSystemNfsUser)(nil)).Elem()
+}
+
+func (i GetVolumeBucketWithServerFileSystemNfsUserArgs) ToGetVolumeBucketWithServerFileSystemNfsUserOutput() GetVolumeBucketWithServerFileSystemNfsUserOutput {
+	return i.ToGetVolumeBucketWithServerFileSystemNfsUserOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketWithServerFileSystemNfsUserArgs) ToGetVolumeBucketWithServerFileSystemNfsUserOutputWithContext(ctx context.Context) GetVolumeBucketWithServerFileSystemNfsUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketWithServerFileSystemNfsUserOutput)
+}
+
+// GetVolumeBucketWithServerFileSystemNfsUserArrayInput is an input type that accepts GetVolumeBucketWithServerFileSystemNfsUserArray and GetVolumeBucketWithServerFileSystemNfsUserArrayOutput values.
+// You can construct a concrete instance of `GetVolumeBucketWithServerFileSystemNfsUserArrayInput` via:
+//
+//	GetVolumeBucketWithServerFileSystemNfsUserArray{ GetVolumeBucketWithServerFileSystemNfsUserArgs{...} }
+type GetVolumeBucketWithServerFileSystemNfsUserArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketWithServerFileSystemNfsUserArrayOutput() GetVolumeBucketWithServerFileSystemNfsUserArrayOutput
+	ToGetVolumeBucketWithServerFileSystemNfsUserArrayOutputWithContext(context.Context) GetVolumeBucketWithServerFileSystemNfsUserArrayOutput
+}
+
+type GetVolumeBucketWithServerFileSystemNfsUserArray []GetVolumeBucketWithServerFileSystemNfsUserInput
+
+func (GetVolumeBucketWithServerFileSystemNfsUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketWithServerFileSystemNfsUser)(nil)).Elem()
+}
+
+func (i GetVolumeBucketWithServerFileSystemNfsUserArray) ToGetVolumeBucketWithServerFileSystemNfsUserArrayOutput() GetVolumeBucketWithServerFileSystemNfsUserArrayOutput {
+	return i.ToGetVolumeBucketWithServerFileSystemNfsUserArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketWithServerFileSystemNfsUserArray) ToGetVolumeBucketWithServerFileSystemNfsUserArrayOutputWithContext(ctx context.Context) GetVolumeBucketWithServerFileSystemNfsUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketWithServerFileSystemNfsUserArrayOutput)
+}
+
+type GetVolumeBucketWithServerFileSystemNfsUserOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketWithServerFileSystemNfsUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketWithServerFileSystemNfsUser)(nil)).Elem()
+}
+
+func (o GetVolumeBucketWithServerFileSystemNfsUserOutput) ToGetVolumeBucketWithServerFileSystemNfsUserOutput() GetVolumeBucketWithServerFileSystemNfsUserOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerFileSystemNfsUserOutput) ToGetVolumeBucketWithServerFileSystemNfsUserOutputWithContext(ctx context.Context) GetVolumeBucketWithServerFileSystemNfsUserOutput {
+	return o
+}
+
+// The POSIX group ID used by the bucket.
+func (o GetVolumeBucketWithServerFileSystemNfsUserOutput) GroupId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVolumeBucketWithServerFileSystemNfsUser) int { return v.GroupId }).(pulumi.IntOutput)
+}
+
+// The POSIX user ID used by the bucket.
+func (o GetVolumeBucketWithServerFileSystemNfsUserOutput) UserId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetVolumeBucketWithServerFileSystemNfsUser) int { return v.UserId }).(pulumi.IntOutput)
+}
+
+type GetVolumeBucketWithServerFileSystemNfsUserArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketWithServerFileSystemNfsUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketWithServerFileSystemNfsUser)(nil)).Elem()
+}
+
+func (o GetVolumeBucketWithServerFileSystemNfsUserArrayOutput) ToGetVolumeBucketWithServerFileSystemNfsUserArrayOutput() GetVolumeBucketWithServerFileSystemNfsUserArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerFileSystemNfsUserArrayOutput) ToGetVolumeBucketWithServerFileSystemNfsUserArrayOutputWithContext(ctx context.Context) GetVolumeBucketWithServerFileSystemNfsUserArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerFileSystemNfsUserArrayOutput) Index(i pulumi.IntInput) GetVolumeBucketWithServerFileSystemNfsUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeBucketWithServerFileSystemNfsUser {
+		return vs[0].([]GetVolumeBucketWithServerFileSystemNfsUser)[vs[1].(int)]
+	}).(GetVolumeBucketWithServerFileSystemNfsUserOutput)
+}
+
+type GetVolumeBucketWithServerKeyVault struct {
+	// The URI of the Azure Key Vault that stores the bucket server certificate.
+	CertificateKeyVaultUri string `pulumi:"certificateKeyVaultUri"`
+	// The name of the certificate object inside the Key Vault.
+	CertificateName string `pulumi:"certificateName"`
+	// The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+	CredentialsKeyVaultUri string `pulumi:"credentialsKeyVaultUri"`
+	// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials.
+	CredentialsSecretName string `pulumi:"credentialsSecretName"`
+}
+
+// GetVolumeBucketWithServerKeyVaultInput is an input type that accepts GetVolumeBucketWithServerKeyVaultArgs and GetVolumeBucketWithServerKeyVaultOutput values.
+// You can construct a concrete instance of `GetVolumeBucketWithServerKeyVaultInput` via:
+//
+//	GetVolumeBucketWithServerKeyVaultArgs{...}
+type GetVolumeBucketWithServerKeyVaultInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketWithServerKeyVaultOutput() GetVolumeBucketWithServerKeyVaultOutput
+	ToGetVolumeBucketWithServerKeyVaultOutputWithContext(context.Context) GetVolumeBucketWithServerKeyVaultOutput
+}
+
+type GetVolumeBucketWithServerKeyVaultArgs struct {
+	// The URI of the Azure Key Vault that stores the bucket server certificate.
+	CertificateKeyVaultUri pulumi.StringInput `pulumi:"certificateKeyVaultUri"`
+	// The name of the certificate object inside the Key Vault.
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+	CredentialsKeyVaultUri pulumi.StringInput `pulumi:"credentialsKeyVaultUri"`
+	// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials.
+	CredentialsSecretName pulumi.StringInput `pulumi:"credentialsSecretName"`
+}
+
+func (GetVolumeBucketWithServerKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketWithServerKeyVault)(nil)).Elem()
+}
+
+func (i GetVolumeBucketWithServerKeyVaultArgs) ToGetVolumeBucketWithServerKeyVaultOutput() GetVolumeBucketWithServerKeyVaultOutput {
+	return i.ToGetVolumeBucketWithServerKeyVaultOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketWithServerKeyVaultArgs) ToGetVolumeBucketWithServerKeyVaultOutputWithContext(ctx context.Context) GetVolumeBucketWithServerKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketWithServerKeyVaultOutput)
+}
+
+// GetVolumeBucketWithServerKeyVaultArrayInput is an input type that accepts GetVolumeBucketWithServerKeyVaultArray and GetVolumeBucketWithServerKeyVaultArrayOutput values.
+// You can construct a concrete instance of `GetVolumeBucketWithServerKeyVaultArrayInput` via:
+//
+//	GetVolumeBucketWithServerKeyVaultArray{ GetVolumeBucketWithServerKeyVaultArgs{...} }
+type GetVolumeBucketWithServerKeyVaultArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketWithServerKeyVaultArrayOutput() GetVolumeBucketWithServerKeyVaultArrayOutput
+	ToGetVolumeBucketWithServerKeyVaultArrayOutputWithContext(context.Context) GetVolumeBucketWithServerKeyVaultArrayOutput
+}
+
+type GetVolumeBucketWithServerKeyVaultArray []GetVolumeBucketWithServerKeyVaultInput
+
+func (GetVolumeBucketWithServerKeyVaultArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketWithServerKeyVault)(nil)).Elem()
+}
+
+func (i GetVolumeBucketWithServerKeyVaultArray) ToGetVolumeBucketWithServerKeyVaultArrayOutput() GetVolumeBucketWithServerKeyVaultArrayOutput {
+	return i.ToGetVolumeBucketWithServerKeyVaultArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketWithServerKeyVaultArray) ToGetVolumeBucketWithServerKeyVaultArrayOutputWithContext(ctx context.Context) GetVolumeBucketWithServerKeyVaultArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketWithServerKeyVaultArrayOutput)
+}
+
+type GetVolumeBucketWithServerKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketWithServerKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketWithServerKeyVault)(nil)).Elem()
+}
+
+func (o GetVolumeBucketWithServerKeyVaultOutput) ToGetVolumeBucketWithServerKeyVaultOutput() GetVolumeBucketWithServerKeyVaultOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerKeyVaultOutput) ToGetVolumeBucketWithServerKeyVaultOutputWithContext(ctx context.Context) GetVolumeBucketWithServerKeyVaultOutput {
+	return o
+}
+
+// The URI of the Azure Key Vault that stores the bucket server certificate.
+func (o GetVolumeBucketWithServerKeyVaultOutput) CertificateKeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketWithServerKeyVault) string { return v.CertificateKeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The name of the certificate object inside the Key Vault.
+func (o GetVolumeBucketWithServerKeyVaultOutput) CertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketWithServerKeyVault) string { return v.CertificateName }).(pulumi.StringOutput)
+}
+
+// The URI of the Azure Key Vault used to store the generated bucket access and secret keys.
+func (o GetVolumeBucketWithServerKeyVaultOutput) CredentialsKeyVaultUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketWithServerKeyVault) string { return v.CredentialsKeyVaultUri }).(pulumi.StringOutput)
+}
+
+// The name of the secret in `credentialsKeyVaultUri` that stores the generated bucket credentials.
+func (o GetVolumeBucketWithServerKeyVaultOutput) CredentialsSecretName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketWithServerKeyVault) string { return v.CredentialsSecretName }).(pulumi.StringOutput)
+}
+
+type GetVolumeBucketWithServerKeyVaultArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketWithServerKeyVaultArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketWithServerKeyVault)(nil)).Elem()
+}
+
+func (o GetVolumeBucketWithServerKeyVaultArrayOutput) ToGetVolumeBucketWithServerKeyVaultArrayOutput() GetVolumeBucketWithServerKeyVaultArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerKeyVaultArrayOutput) ToGetVolumeBucketWithServerKeyVaultArrayOutputWithContext(ctx context.Context) GetVolumeBucketWithServerKeyVaultArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerKeyVaultArrayOutput) Index(i pulumi.IntInput) GetVolumeBucketWithServerKeyVaultOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeBucketWithServerKeyVault {
+		return vs[0].([]GetVolumeBucketWithServerKeyVault)[vs[1].(int)]
+	}).(GetVolumeBucketWithServerKeyVaultOutput)
+}
+
+type GetVolumeBucketWithServerServer struct {
+	CertificatePem string `pulumi:"certificatePem"`
+	// The DNS name that resolves to the bucket endpoint IP address.
+	Fqdn string `pulumi:"fqdn"`
+	// The action that runs when a certificate rotation conflicts with an existing certificate.
+	OnCertificateConflictAction string `pulumi:"onCertificateConflictAction"`
+}
+
+// GetVolumeBucketWithServerServerInput is an input type that accepts GetVolumeBucketWithServerServerArgs and GetVolumeBucketWithServerServerOutput values.
+// You can construct a concrete instance of `GetVolumeBucketWithServerServerInput` via:
+//
+//	GetVolumeBucketWithServerServerArgs{...}
+type GetVolumeBucketWithServerServerInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketWithServerServerOutput() GetVolumeBucketWithServerServerOutput
+	ToGetVolumeBucketWithServerServerOutputWithContext(context.Context) GetVolumeBucketWithServerServerOutput
+}
+
+type GetVolumeBucketWithServerServerArgs struct {
+	CertificatePem pulumi.StringInput `pulumi:"certificatePem"`
+	// The DNS name that resolves to the bucket endpoint IP address.
+	Fqdn pulumi.StringInput `pulumi:"fqdn"`
+	// The action that runs when a certificate rotation conflicts with an existing certificate.
+	OnCertificateConflictAction pulumi.StringInput `pulumi:"onCertificateConflictAction"`
+}
+
+func (GetVolumeBucketWithServerServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketWithServerServer)(nil)).Elem()
+}
+
+func (i GetVolumeBucketWithServerServerArgs) ToGetVolumeBucketWithServerServerOutput() GetVolumeBucketWithServerServerOutput {
+	return i.ToGetVolumeBucketWithServerServerOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketWithServerServerArgs) ToGetVolumeBucketWithServerServerOutputWithContext(ctx context.Context) GetVolumeBucketWithServerServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketWithServerServerOutput)
+}
+
+// GetVolumeBucketWithServerServerArrayInput is an input type that accepts GetVolumeBucketWithServerServerArray and GetVolumeBucketWithServerServerArrayOutput values.
+// You can construct a concrete instance of `GetVolumeBucketWithServerServerArrayInput` via:
+//
+//	GetVolumeBucketWithServerServerArray{ GetVolumeBucketWithServerServerArgs{...} }
+type GetVolumeBucketWithServerServerArrayInput interface {
+	pulumi.Input
+
+	ToGetVolumeBucketWithServerServerArrayOutput() GetVolumeBucketWithServerServerArrayOutput
+	ToGetVolumeBucketWithServerServerArrayOutputWithContext(context.Context) GetVolumeBucketWithServerServerArrayOutput
+}
+
+type GetVolumeBucketWithServerServerArray []GetVolumeBucketWithServerServerInput
+
+func (GetVolumeBucketWithServerServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketWithServerServer)(nil)).Elem()
+}
+
+func (i GetVolumeBucketWithServerServerArray) ToGetVolumeBucketWithServerServerArrayOutput() GetVolumeBucketWithServerServerArrayOutput {
+	return i.ToGetVolumeBucketWithServerServerArrayOutputWithContext(context.Background())
+}
+
+func (i GetVolumeBucketWithServerServerArray) ToGetVolumeBucketWithServerServerArrayOutputWithContext(ctx context.Context) GetVolumeBucketWithServerServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVolumeBucketWithServerServerArrayOutput)
+}
+
+type GetVolumeBucketWithServerServerOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketWithServerServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVolumeBucketWithServerServer)(nil)).Elem()
+}
+
+func (o GetVolumeBucketWithServerServerOutput) ToGetVolumeBucketWithServerServerOutput() GetVolumeBucketWithServerServerOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerServerOutput) ToGetVolumeBucketWithServerServerOutputWithContext(ctx context.Context) GetVolumeBucketWithServerServerOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerServerOutput) CertificatePem() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketWithServerServer) string { return v.CertificatePem }).(pulumi.StringOutput)
+}
+
+// The DNS name that resolves to the bucket endpoint IP address.
+func (o GetVolumeBucketWithServerServerOutput) Fqdn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketWithServerServer) string { return v.Fqdn }).(pulumi.StringOutput)
+}
+
+// The action that runs when a certificate rotation conflicts with an existing certificate.
+func (o GetVolumeBucketWithServerServerOutput) OnCertificateConflictAction() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVolumeBucketWithServerServer) string { return v.OnCertificateConflictAction }).(pulumi.StringOutput)
+}
+
+type GetVolumeBucketWithServerServerArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVolumeBucketWithServerServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVolumeBucketWithServerServer)(nil)).Elem()
+}
+
+func (o GetVolumeBucketWithServerServerArrayOutput) ToGetVolumeBucketWithServerServerArrayOutput() GetVolumeBucketWithServerServerArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerServerArrayOutput) ToGetVolumeBucketWithServerServerArrayOutputWithContext(ctx context.Context) GetVolumeBucketWithServerServerArrayOutput {
+	return o
+}
+
+func (o GetVolumeBucketWithServerServerArrayOutput) Index(i pulumi.IntInput) GetVolumeBucketWithServerServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVolumeBucketWithServerServer {
+		return vs[0].([]GetVolumeBucketWithServerServer)[vs[1].(int)]
+	}).(GetVolumeBucketWithServerServerOutput)
+}
+
 type GetVolumeDataProtectionAdvancedRansomware struct {
 	// Whether the Advanced Ransomware Protection feature is enabled.
 	ProtectionEnabled bool `pulumi:"protectionEnabled"`
@@ -6270,6 +7733,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyMonthlySchedulePtrInput)(nil)).Elem(), SnapshotPolicyMonthlyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyWeeklyScheduleInput)(nil)).Elem(), SnapshotPolicyWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPolicyWeeklySchedulePtrInput)(nil)).Elem(), SnapshotPolicyWeeklyScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketFileSystemNfsUserInput)(nil)).Elem(), VolumeBucketFileSystemNfsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketFileSystemNfsUserPtrInput)(nil)).Elem(), VolumeBucketFileSystemNfsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketKeyVaultInput)(nil)).Elem(), VolumeBucketKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketKeyVaultPtrInput)(nil)).Elem(), VolumeBucketKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketWithServerFileSystemNfsUserInput)(nil)).Elem(), VolumeBucketWithServerFileSystemNfsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketWithServerFileSystemNfsUserPtrInput)(nil)).Elem(), VolumeBucketWithServerFileSystemNfsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketWithServerKeyVaultInput)(nil)).Elem(), VolumeBucketWithServerKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketWithServerKeyVaultPtrInput)(nil)).Elem(), VolumeBucketWithServerKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketWithServerServerInput)(nil)).Elem(), VolumeBucketWithServerServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeBucketWithServerServerPtrInput)(nil)).Elem(), VolumeBucketWithServerServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCoolAccessInput)(nil)).Elem(), VolumeCoolAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeCoolAccessPtrInput)(nil)).Elem(), VolumeCoolAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VolumeDataProtectionAdvancedRansomwareInput)(nil)).Elem(), VolumeDataProtectionAdvancedRansomwareArgs{})
@@ -6308,6 +7781,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyMonthlyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyMonthlyScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyWeeklyScheduleInput)(nil)).Elem(), GetSnapshotPolicyWeeklyScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotPolicyWeeklyScheduleArrayInput)(nil)).Elem(), GetSnapshotPolicyWeeklyScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketFileSystemNfsUserInput)(nil)).Elem(), GetVolumeBucketFileSystemNfsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketFileSystemNfsUserArrayInput)(nil)).Elem(), GetVolumeBucketFileSystemNfsUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketKeyVaultInput)(nil)).Elem(), GetVolumeBucketKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketKeyVaultArrayInput)(nil)).Elem(), GetVolumeBucketKeyVaultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketWithServerFileSystemNfsUserInput)(nil)).Elem(), GetVolumeBucketWithServerFileSystemNfsUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketWithServerFileSystemNfsUserArrayInput)(nil)).Elem(), GetVolumeBucketWithServerFileSystemNfsUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketWithServerKeyVaultInput)(nil)).Elem(), GetVolumeBucketWithServerKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketWithServerKeyVaultArrayInput)(nil)).Elem(), GetVolumeBucketWithServerKeyVaultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketWithServerServerInput)(nil)).Elem(), GetVolumeBucketWithServerServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeBucketWithServerServerArrayInput)(nil)).Elem(), GetVolumeBucketWithServerServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionAdvancedRansomwareInput)(nil)).Elem(), GetVolumeDataProtectionAdvancedRansomwareArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionAdvancedRansomwareArrayInput)(nil)).Elem(), GetVolumeDataProtectionAdvancedRansomwareArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeDataProtectionBackupPolicyInput)(nil)).Elem(), GetVolumeDataProtectionBackupPolicyArgs{})
@@ -6342,6 +7825,16 @@ func init() {
 	pulumi.RegisterOutputType(SnapshotPolicyMonthlySchedulePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyWeeklyScheduleOutput{})
 	pulumi.RegisterOutputType(SnapshotPolicyWeeklySchedulePtrOutput{})
+	pulumi.RegisterOutputType(VolumeBucketFileSystemNfsUserOutput{})
+	pulumi.RegisterOutputType(VolumeBucketFileSystemNfsUserPtrOutput{})
+	pulumi.RegisterOutputType(VolumeBucketKeyVaultOutput{})
+	pulumi.RegisterOutputType(VolumeBucketKeyVaultPtrOutput{})
+	pulumi.RegisterOutputType(VolumeBucketWithServerFileSystemNfsUserOutput{})
+	pulumi.RegisterOutputType(VolumeBucketWithServerFileSystemNfsUserPtrOutput{})
+	pulumi.RegisterOutputType(VolumeBucketWithServerKeyVaultOutput{})
+	pulumi.RegisterOutputType(VolumeBucketWithServerKeyVaultPtrOutput{})
+	pulumi.RegisterOutputType(VolumeBucketWithServerServerOutput{})
+	pulumi.RegisterOutputType(VolumeBucketWithServerServerPtrOutput{})
 	pulumi.RegisterOutputType(VolumeCoolAccessOutput{})
 	pulumi.RegisterOutputType(VolumeCoolAccessPtrOutput{})
 	pulumi.RegisterOutputType(VolumeDataProtectionAdvancedRansomwareOutput{})
@@ -6380,6 +7873,16 @@ func init() {
 	pulumi.RegisterOutputType(GetSnapshotPolicyMonthlyScheduleArrayOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyWeeklyScheduleOutput{})
 	pulumi.RegisterOutputType(GetSnapshotPolicyWeeklyScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketFileSystemNfsUserOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketFileSystemNfsUserArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketKeyVaultOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketKeyVaultArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketWithServerFileSystemNfsUserOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketWithServerFileSystemNfsUserArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketWithServerKeyVaultOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketWithServerKeyVaultArrayOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketWithServerServerOutput{})
+	pulumi.RegisterOutputType(GetVolumeBucketWithServerServerArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionAdvancedRansomwareOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionAdvancedRansomwareArrayOutput{})
 	pulumi.RegisterOutputType(GetVolumeDataProtectionBackupPolicyOutput{})

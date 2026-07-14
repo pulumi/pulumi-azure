@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Compute
     ///         Name = "example-vmss",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = "Standard_F2",
+    ///         Sku = "Standard_D4_v5",
     ///         Instances = 4,
     ///         AdminUsername = "adminuser",
     ///         AdminPassword = "P@ssword1234!",

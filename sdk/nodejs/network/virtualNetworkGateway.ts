@@ -186,6 +186,22 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
+     * The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     *
+     * > **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+     */
+    declare public readonly maximumScaleUnit: pulumi.Output<number>;
+    /**
+     * The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     *
+     * > **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+     *
+     * > **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+     *
+     * > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+     */
+    declare public readonly minimumScaleUnit: pulumi.Output<number>;
+    /**
      * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -260,6 +276,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["ipConfigurations"] = state?.ipConfigurations;
             resourceInputs["ipSecReplayProtectionEnabled"] = state?.ipSecReplayProtectionEnabled;
             resourceInputs["location"] = state?.location;
+            resourceInputs["maximumScaleUnit"] = state?.maximumScaleUnit;
+            resourceInputs["minimumScaleUnit"] = state?.minimumScaleUnit;
             resourceInputs["name"] = state?.name;
             resourceInputs["policyGroups"] = state?.policyGroups;
             resourceInputs["privateIpAddressEnabled"] = state?.privateIpAddressEnabled;
@@ -298,6 +316,8 @@ export class VirtualNetworkGateway extends pulumi.CustomResource {
             resourceInputs["ipConfigurations"] = args?.ipConfigurations;
             resourceInputs["ipSecReplayProtectionEnabled"] = args?.ipSecReplayProtectionEnabled;
             resourceInputs["location"] = args?.location;
+            resourceInputs["maximumScaleUnit"] = args?.maximumScaleUnit;
+            resourceInputs["minimumScaleUnit"] = args?.minimumScaleUnit;
             resourceInputs["name"] = args?.name;
             resourceInputs["policyGroups"] = args?.policyGroups;
             resourceInputs["privateIpAddressEnabled"] = args?.privateIpAddressEnabled;
@@ -373,6 +393,22 @@ export interface VirtualNetworkGatewayState {
      * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     *
+     * > **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+     */
+    maximumScaleUnit?: pulumi.Input<number | undefined>;
+    /**
+     * The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     *
+     * > **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+     *
+     * > **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+     *
+     * > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+     */
+    minimumScaleUnit?: pulumi.Input<number | undefined>;
     /**
      * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      */
@@ -481,6 +517,22 @@ export interface VirtualNetworkGatewayArgs {
      * The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string | undefined>;
+    /**
+     * The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     *
+     * > **Note:** `maximumScaleUnit` is only supported for the `ErGwScale` SKU.
+     */
+    maximumScaleUnit?: pulumi.Input<number | undefined>;
+    /**
+     * The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+     *
+     * > **Note:** `minimumScaleUnit` is only supported for the `ErGwScale` SKU.
+     *
+     * > **Note:** To configure a `fixed-size` gateway, set `minimumScaleUnit` and `maximumScaleUnit` to the same value. To enable `autoscaling`, set `minimumScaleUnit` to `2` or higher and `maximumScaleUnit` up to `40`. When `maximumScaleUnit` is set to `1`, `minimumScaleUnit` must also be set to `1`.
+     *
+     * > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+     */
+    minimumScaleUnit?: pulumi.Input<number | undefined>;
     /**
      * The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
      */

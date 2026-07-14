@@ -144,7 +144,6 @@ import * as trafficmanager from "./trafficmanager";
 import * as trustedsigning from "./trustedsigning";
 import * as types from "./types";
 import * as videoindexer from "./videoindexer";
-import * as voice from "./voice";
 import * as waf from "./waf";
 import * as webpubsub from "./webpubsub";
 import * as workloadssap from "./workloadssap";
@@ -282,7 +281,6 @@ export {
     trustedsigning,
     types,
     videoindexer,
-    voice,
     waf,
     webpubsub,
     workloadssap,

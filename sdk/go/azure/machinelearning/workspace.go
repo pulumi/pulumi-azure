@@ -272,6 +272,8 @@ type Workspace struct {
 	ServiceSideEncryptionEnabled pulumi.BoolPtrOutput `pulumi:"serviceSideEncryptionEnabled"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrOutput `pulumi:"skuName"`
+	// The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+	StorageAccountAccessType pulumi.StringPtrOutput `pulumi:"storageAccountAccessType"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -377,6 +379,8 @@ type workspaceState struct {
 	ServiceSideEncryptionEnabled *bool `pulumi:"serviceSideEncryptionEnabled"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName *string `pulumi:"skuName"`
+	// The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+	StorageAccountAccessType *string `pulumi:"storageAccountAccessType"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -438,6 +442,8 @@ type WorkspaceState struct {
 	ServiceSideEncryptionEnabled pulumi.BoolPtrInput
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrInput
+	// The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+	StorageAccountAccessType pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -501,6 +507,8 @@ type workspaceArgs struct {
 	ServiceSideEncryptionEnabled *bool `pulumi:"serviceSideEncryptionEnabled"`
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName *string `pulumi:"skuName"`
+	// The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+	StorageAccountAccessType *string `pulumi:"storageAccountAccessType"`
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -559,6 +567,8 @@ type WorkspaceArgs struct {
 	ServiceSideEncryptionEnabled pulumi.BoolPtrInput
 	// SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 	SkuName pulumi.StringPtrInput
+	// The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+	StorageAccountAccessType pulumi.StringPtrInput
 	// The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.
@@ -765,6 +775,11 @@ func (o WorkspaceOutput) ServiceSideEncryptionEnabled() pulumi.BoolPtrOutput {
 // SKU/edition of the Machine Learning Workspace, possible values are `Free`, `Basic`, `Standard` and `Premium`. Defaults to `Basic`.
 func (o WorkspaceOutput) SkuName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.SkuName }).(pulumi.StringPtrOutput)
+}
+
+// The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+func (o WorkspaceOutput) StorageAccountAccessType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.StorageAccountAccessType }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.

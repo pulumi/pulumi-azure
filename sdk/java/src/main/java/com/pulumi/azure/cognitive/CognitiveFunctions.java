@@ -61,7 +61,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args) {
@@ -110,7 +110,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args) {
@@ -159,7 +159,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOptions options) {
@@ -208,7 +208,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static Output<GetAccountResult> getAccount(GetAccountArgs args, InvokeOutputOptions options) {
@@ -257,7 +257,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static CompletableFuture<GetAccountResult> getAccountPlain(GetAccountPlainArgs args, InvokeOptions options) {
@@ -308,7 +308,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static Output<GetAccountProjectResult> getAccountProject(GetAccountProjectArgs args) {
@@ -359,7 +359,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static CompletableFuture<GetAccountProjectResult> getAccountProjectPlain(GetAccountProjectPlainArgs args) {
@@ -410,7 +410,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static Output<GetAccountProjectResult> getAccountProject(GetAccountProjectArgs args, InvokeOptions options) {
@@ -461,7 +461,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static Output<GetAccountProjectResult> getAccountProject(GetAccountProjectArgs args, InvokeOutputOptions options) {
@@ -512,7 +512,7 @@ public final class CognitiveFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.CognitiveServices` - 2025-06-01
+     * * `Microsoft.CognitiveServices` - 2026-03-01
      * 
      */
     public static CompletableFuture<GetAccountProjectResult> getAccountProjectPlain(GetAccountProjectPlainArgs args, InvokeOptions options) {

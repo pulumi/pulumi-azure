@@ -754,14 +754,14 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+     * The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
      * 
      */
     @Import(name="size")
     private @Nullable Output<String> size;
 
     /**
-     * @return The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+     * @return The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
      * 
      */
     public Optional<Output<String>> size() {
@@ -2075,7 +2075,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param size The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+         * @param size The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
          * 
          * @return builder
          * 
@@ -2086,7 +2086,7 @@ public final class LinuxVirtualMachineState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param size The SKU which should be used for this Virtual Machine, such as `Standard_F2`.
+         * @param size The SKU which should be used for this Virtual Machine, such as `Standard_D4_v5`.
          * 
          * @return builder
          * 

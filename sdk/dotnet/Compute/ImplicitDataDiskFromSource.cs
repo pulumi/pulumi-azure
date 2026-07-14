@@ -81,7 +81,7 @@ namespace Pulumi.Azure.Compute
     ///         {
     ///             mainNetworkInterface.Id,
     ///         },
-    ///         VmSize = "Standard_F2",
+    ///         VmSize = "Standard_D4_v5",
     ///         StorageImageReference = new Azure.Compute.Inputs.VirtualMachineStorageImageReferenceArgs
     ///         {
     ///             Publisher = "Canonical",

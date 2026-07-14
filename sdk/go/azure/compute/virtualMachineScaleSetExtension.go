@@ -44,7 +44,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				Sku:               pulumi.String("Standard_F2"),
+//				Sku:               pulumi.String("Standard_D4_v5"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				Instances:         pulumi.Int(1),
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{

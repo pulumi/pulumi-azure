@@ -4234,6 +4234,8 @@ type GetLinuxWebAppSiteConfigApplicationStack struct {
 	// The version of Python in use.
 	PythonVersion string `pulumi:"pythonVersion"`
 	// The version of Ruby in use.
+	//
+	// Deprecated: `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
 	RubyVersion string `pulumi:"rubyVersion"`
 }
 
@@ -4273,6 +4275,8 @@ type GetLinuxWebAppSiteConfigApplicationStackArgs struct {
 	// The version of Python in use.
 	PythonVersion pulumi.StringInput `pulumi:"pythonVersion"`
 	// The version of Ruby in use.
+	//
+	// Deprecated: `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
 	RubyVersion pulumi.StringInput `pulumi:"rubyVersion"`
 }
 
@@ -4387,6 +4391,8 @@ func (o GetLinuxWebAppSiteConfigApplicationStackOutput) PythonVersion() pulumi.S
 }
 
 // The version of Ruby in use.
+//
+// Deprecated: `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
 func (o GetLinuxWebAppSiteConfigApplicationStackOutput) RubyVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLinuxWebAppSiteConfigApplicationStack) string { return v.RubyVersion }).(pulumi.StringOutput)
 }

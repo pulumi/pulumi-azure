@@ -344,7 +344,7 @@ class PacketCapture(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_F2",
+            vm_size="Standard_D4_v5",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",
@@ -463,7 +463,7 @@ class PacketCapture(pulumi.CustomResource):
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
-            vm_size="Standard_F2",
+            vm_size="Standard_D4_v5",
             storage_image_reference={
                 "publisher": "Canonical",
                 "offer": "0001-com-ubuntu-server-jammy",

@@ -31,8 +31,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleBlob = new azure.storage.Blob("example", {
  *     name: "my-awesome-content.zip",
- *     storageAccountName: exampleAccount.name,
- *     storageContainerName: exampleContainer.name,
+ *     storageContainerId: exampleContainer.id,
  *     type: "Block",
  *     source: new pulumi.asset.FileAsset("some-local-file.zip"),
  * });
@@ -128,10 +127,22 @@ export class Blob extends pulumi.CustomResource {
     declare public readonly sourceUri: pulumi.Output<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+     *
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      */
     declare public readonly storageAccountName: pulumi.Output<string>;
     /**
+     * The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     */
+    declare public readonly storageContainerId: pulumi.Output<string>;
+    /**
      * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+     *
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      */
     declare public readonly storageContainerName: pulumi.Output<string>;
     /**
@@ -169,17 +180,12 @@ export class Blob extends pulumi.CustomResource {
             resourceInputs["sourceContent"] = state?.sourceContent;
             resourceInputs["sourceUri"] = state?.sourceUri;
             resourceInputs["storageAccountName"] = state?.storageAccountName;
+            resourceInputs["storageContainerId"] = state?.storageContainerId;
             resourceInputs["storageContainerName"] = state?.storageContainerName;
             resourceInputs["type"] = state?.type;
             resourceInputs["url"] = state?.url;
         } else {
             const args = argsOrState as BlobArgs | undefined;
-            if (args?.storageAccountName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageAccountName'");
-            }
-            if (args?.storageContainerName === undefined && !opts.urn) {
-                throw new Error("Missing required property 'storageContainerName'");
-            }
             if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
@@ -196,6 +202,7 @@ export class Blob extends pulumi.CustomResource {
             resourceInputs["sourceContent"] = args?.sourceContent;
             resourceInputs["sourceUri"] = args?.sourceUri;
             resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageContainerId"] = args?.storageContainerId;
             resourceInputs["storageContainerName"] = args?.storageContainerName;
             resourceInputs["type"] = args?.type;
             resourceInputs["url"] = undefined /*out*/;
@@ -263,10 +270,22 @@ export interface BlobState {
     sourceUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+     *
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      */
     storageAccountName?: pulumi.Input<string | undefined>;
     /**
+     * The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     */
+    storageContainerId?: pulumi.Input<string | undefined>;
+    /**
      * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+     *
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      */
     storageContainerName?: pulumi.Input<string | undefined>;
     /**
@@ -337,12 +356,24 @@ export interface BlobArgs {
     sourceUri?: pulumi.Input<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+     *
+     * @deprecated `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      */
-    storageAccountName: pulumi.Input<string>;
+    storageAccountName?: pulumi.Input<string | undefined>;
+    /**
+     * The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     */
+    storageContainerId?: pulumi.Input<string | undefined>;
     /**
      * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     *
+     * > **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+     *
+     * @deprecated `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
      */
-    storageContainerName: pulumi.Input<string>;
+    storageContainerName?: pulumi.Input<string | undefined>;
     /**
      * The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
      */

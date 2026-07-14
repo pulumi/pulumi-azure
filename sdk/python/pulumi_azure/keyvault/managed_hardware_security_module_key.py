@@ -379,14 +379,12 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             admin_object_ids=[current.object_id],
             purge_protection_enabled=False,
-            active_config=[{
-                "securityDomainCertificate": [
-                    cert[0]["id"],
-                    cert[1]["id"],
-                    cert[2]["id"],
-                ],
-                "securityDomainQuorum": 2,
-            }])
+            security_domain_key_vault_certificate_ids=[
+                cers["1"]["id"],
+                cers["2"]["id"],
+                cers["3"]["id"],
+            ],
+            security_domain_quorum=2)
         # this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
         hsm_crypto_user = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user",
             managed_hsm_id=test["id"],
@@ -418,7 +416,7 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.KeyVault` - 2023-07-01
+        * `Microsoft.KeyVault` - 2026-02-01
 
         ## Import
 
@@ -469,14 +467,12 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
             tenant_id=current.tenant_id,
             admin_object_ids=[current.object_id],
             purge_protection_enabled=False,
-            active_config=[{
-                "securityDomainCertificate": [
-                    cert[0]["id"],
-                    cert[1]["id"],
-                    cert[2]["id"],
-                ],
-                "securityDomainQuorum": 2,
-            }])
+            security_domain_key_vault_certificate_ids=[
+                cers["1"]["id"],
+                cers["2"]["id"],
+                cers["3"]["id"],
+            ],
+            security_domain_quorum=2)
         # this gives your service principal the HSM Crypto User role which lets you create and destroy hsm keys
         hsm_crypto_user = azure.keyvault.ManagedHardwareSecurityModuleRoleAssignment("hsm-crypto-user",
             managed_hsm_id=test["id"],
@@ -508,7 +504,7 @@ class ManagedHardwareSecurityModuleKey(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.KeyVault` - 2023-07-01
+        * `Microsoft.KeyVault` - 2026-02-01
 
         ## Import
 

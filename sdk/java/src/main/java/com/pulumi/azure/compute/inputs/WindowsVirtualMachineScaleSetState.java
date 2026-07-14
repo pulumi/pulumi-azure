@@ -748,14 +748,14 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
     }
 
     /**
-     * The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+     * The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
      * 
      */
     @Import(name="sku")
     private @Nullable Output<String> sku;
 
     /**
-     * @return The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+     * @return The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
      * 
      */
     public Optional<Output<String>> sku() {
@@ -2091,7 +2091,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param sku The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         * @param sku The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
          * 
          * @return builder
          * 
@@ -2102,7 +2102,7 @@ public final class WindowsVirtualMachineScaleSetState extends com.pulumi.resourc
         }
 
         /**
-         * @param sku The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+         * @param sku The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
          * 
          * @return builder
          * 

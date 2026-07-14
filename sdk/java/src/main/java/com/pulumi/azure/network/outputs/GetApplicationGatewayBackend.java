@@ -44,7 +44,7 @@ public final class GetApplicationGatewayBackend {
      */
     private String probeId;
     /**
-     * @return The name of the associated HTTP Probe.
+     * @return The name of the associated Probe.
      * 
      */
     private String probeName;
@@ -108,7 +108,7 @@ public final class GetApplicationGatewayBackend {
         return this.probeId;
     }
     /**
-     * @return The name of the associated HTTP Probe.
+     * @return The name of the associated Probe.
      * 
      */
     public String probeName() {

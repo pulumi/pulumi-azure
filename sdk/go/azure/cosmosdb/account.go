@@ -203,7 +203,9 @@ type Account struct {
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrOutput          `pulumi:"isVirtualNetworkFilterEnabled"`
 	KeyVaultKeyId                 pulumi.StringPtrOutput        `pulumi:"keyVaultKeyId"`
 	Kind                          pulumi.StringPtrOutput        `pulumi:"kind"`
-	LocalAuthenticationDisabled   pulumi.BoolPtrOutput          `pulumi:"localAuthenticationDisabled"`
+	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+	LocalAuthenticationDisabled pulumi.BoolOutput `pulumi:"localAuthenticationDisabled"`
+	LocalAuthenticationEnabled  pulumi.BoolOutput `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
@@ -342,7 +344,9 @@ type accountState struct {
 	IsVirtualNetworkFilterEnabled *bool                `pulumi:"isVirtualNetworkFilterEnabled"`
 	KeyVaultKeyId                 *string              `pulumi:"keyVaultKeyId"`
 	Kind                          *string              `pulumi:"kind"`
-	LocalAuthenticationDisabled   *bool                `pulumi:"localAuthenticationDisabled"`
+	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
+	LocalAuthenticationEnabled  *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
@@ -425,7 +429,9 @@ type AccountState struct {
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
 	KeyVaultKeyId                 pulumi.StringPtrInput
 	Kind                          pulumi.StringPtrInput
-	LocalAuthenticationDisabled   pulumi.BoolPtrInput
+	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+	LocalAuthenticationDisabled pulumi.BoolPtrInput
+	LocalAuthenticationEnabled  pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
@@ -510,7 +516,9 @@ type accountArgs struct {
 	IsVirtualNetworkFilterEnabled *bool                `pulumi:"isVirtualNetworkFilterEnabled"`
 	KeyVaultKeyId                 *string              `pulumi:"keyVaultKeyId"`
 	Kind                          *string              `pulumi:"kind"`
-	LocalAuthenticationDisabled   *bool                `pulumi:"localAuthenticationDisabled"`
+	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
+	LocalAuthenticationEnabled  *bool `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
@@ -564,7 +572,9 @@ type AccountArgs struct {
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
 	KeyVaultKeyId                 pulumi.StringPtrInput
 	Kind                          pulumi.StringPtrInput
-	LocalAuthenticationDisabled   pulumi.BoolPtrInput
+	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+	LocalAuthenticationDisabled pulumi.BoolPtrInput
+	LocalAuthenticationEnabled  pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
@@ -765,8 +775,13 @@ func (o AccountOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-func (o AccountOutput) LocalAuthenticationDisabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.LocalAuthenticationDisabled }).(pulumi.BoolPtrOutput)
+// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+func (o AccountOutput) LocalAuthenticationDisabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.LocalAuthenticationDisabled }).(pulumi.BoolOutput)
+}
+
+func (o AccountOutput) LocalAuthenticationEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

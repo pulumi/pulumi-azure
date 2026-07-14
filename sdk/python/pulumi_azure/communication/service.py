@@ -27,7 +27,7 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
 
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
-        :param pulumi.Input[_builtins.str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[_builtins.str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Communication Service.
         """
@@ -55,7 +55,7 @@ class ServiceArgs:
     @pulumi.getter(name="dataLocation")
     def data_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "data_location")
 
@@ -103,7 +103,7 @@ class _ServiceState:
         """
         Input properties used for looking up and filtering Service resources.
 
-        :param pulumi.Input[_builtins.str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[_builtins.str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the Communication Service
         :param pulumi.Input[_builtins.str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[_builtins.str] primary_connection_string: The primary connection string of the Communication Service.
@@ -136,7 +136,7 @@ class _ServiceState:
     @pulumi.getter(name="dataLocation")
     def data_location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "data_location")
 
@@ -288,7 +288,7 @@ class Service(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[_builtins.str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Communication Service.
@@ -400,7 +400,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[_builtins.str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[_builtins.str] hostname: The hostname of the Communication Service
         :param pulumi.Input[_builtins.str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[_builtins.str] primary_connection_string: The primary connection string of the Communication Service.
@@ -429,7 +429,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="dataLocation")
     def data_location(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Defaults to `United States`. Changing this forces a new Communication Service to be created.
+        The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
         """
         return pulumi.get(self, "data_location")
 

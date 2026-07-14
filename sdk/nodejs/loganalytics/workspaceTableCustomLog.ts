@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     workspaceId: exampleAnalyticsWorkspace.id,
  *     columns: [{
  *         name: "TimeGenerated",
- *         type: "datetime",
+ *         type: "dateTime",
  *     }],
  * });
  * ```

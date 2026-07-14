@@ -198,11 +198,30 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.kind);
     }
 
+    /**
+     * @deprecated
+     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="localAuthenticationDisabled")
     private @Nullable Output<Boolean> localAuthenticationDisabled;
 
+    /**
+     * @deprecated
+     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> localAuthenticationDisabled() {
         return Optional.ofNullable(this.localAuthenticationDisabled);
+    }
+
+    @Import(name="localAuthenticationEnabled")
+    private @Nullable Output<Boolean> localAuthenticationEnabled;
+
+    public Optional<Output<Boolean>> localAuthenticationEnabled() {
+        return Optional.ofNullable(this.localAuthenticationEnabled);
     }
 
     /**
@@ -397,6 +416,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         this.keyVaultKeyId = $.keyVaultKeyId;
         this.kind = $.kind;
         this.localAuthenticationDisabled = $.localAuthenticationDisabled;
+        this.localAuthenticationEnabled = $.localAuthenticationEnabled;
         this.location = $.location;
         this.managedHsmKeyId = $.managedHsmKeyId;
         this.minimalTlsVersion = $.minimalTlsVersion;
@@ -667,13 +687,38 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
             return kind(Output.of(kind));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
         public Builder localAuthenticationDisabled(@Nullable Output<Boolean> localAuthenticationDisabled) {
             $.localAuthenticationDisabled = localAuthenticationDisabled;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
         public Builder localAuthenticationDisabled(Boolean localAuthenticationDisabled) {
             return localAuthenticationDisabled(Output.of(localAuthenticationDisabled));
+        }
+
+        public Builder localAuthenticationEnabled(@Nullable Output<Boolean> localAuthenticationEnabled) {
+            $.localAuthenticationEnabled = localAuthenticationEnabled;
+            return this;
+        }
+
+        public Builder localAuthenticationEnabled(Boolean localAuthenticationEnabled) {
+            return localAuthenticationEnabled(Output.of(localAuthenticationEnabled));
         }
 
         /**

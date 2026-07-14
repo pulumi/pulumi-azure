@@ -151,6 +151,24 @@ public class LinkedServiceMysql extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * 
+     * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
+     * 
+     */
+    @Export(name="driverVersion", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> driverVersion;
+
+    /**
+     * @return The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * 
+     * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
+     * 
+     */
+    public Output<Optional<String>> driverVersion() {
+        return Codegen.optional(this.driverVersion);
+    }
+    /**
      * The integration runtime reference to associate with the Data Factory Linked Service MySQL.
      * 
      */

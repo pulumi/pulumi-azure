@@ -218,14 +218,22 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
     /**
      * The version of Ruby to run. Possible values include `2.6` and `2.7`.
      * 
+     * @deprecated
+     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
     @Import(name="rubyVersion")
     private @Nullable Output<String> rubyVersion;
 
     /**
      * @return The version of Ruby to run. Possible values include `2.6` and `2.7`.
      * 
+     * @deprecated
+     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
+     * 
      */
+    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
     public Optional<Output<String>> rubyVersion() {
         return Optional.ofNullable(this.rubyVersion);
     }
@@ -543,7 +551,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
          * 
          * @return builder
          * 
+         * @deprecated
+         * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
         public Builder rubyVersion(@Nullable Output<String> rubyVersion) {
             $.rubyVersion = rubyVersion;
             return this;
@@ -554,7 +566,11 @@ public final class LinuxWebAppSlotSiteConfigApplicationStackArgs extends com.pul
          * 
          * @return builder
          * 
+         * @deprecated
+         * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
+         * 
          */
+        @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
         public Builder rubyVersion(String rubyVersion) {
             return rubyVersion(Output.of(rubyVersion));
         }

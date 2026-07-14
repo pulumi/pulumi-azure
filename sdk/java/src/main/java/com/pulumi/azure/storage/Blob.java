@@ -72,8 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleBlob = new Blob("exampleBlob", BlobArgs.builder()
  *             .name("my-awesome-content.zip")
- *             .storageAccountName(exampleAccount.name())
- *             .storageContainerName(exampleContainer.name())
+ *             .storageContainerId(exampleContainer.id())
  *             .type("Block")
  *             .source(new FileAsset("some-local-file.zip"))
  *             .build());
@@ -273,26 +272,56 @@ public class Blob extends com.pulumi.resources.CustomResource {
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
      */
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
     private Output<String> storageAccountName;
 
     /**
      * @return Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+     * 
      */
     public Output<String> storageAccountName() {
         return this.storageAccountName;
     }
     /**
-     * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     * The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
      * 
      */
+    @Export(name="storageContainerId", refs={String.class}, tree="[0]")
+    private Output<String> storageContainerId;
+
+    /**
+     * @return The ID of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> storageContainerId() {
+        return this.storageContainerId;
+    }
+    /**
+     * The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
+     * 
+     * @deprecated
+     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
     @Export(name="storageContainerName", refs={String.class}, tree="[0]")
     private Output<String> storageContainerName;
 
     /**
      * @return The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** This property is deprecated in favour of `storageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
      * 
      */
     public Output<String> storageContainerName() {

@@ -558,14 +558,18 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+     * Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+     * 
+     * &gt; **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
      * 
      */
     @Import(name="workloadRuntime")
     private @Nullable Output<String> workloadRuntime;
 
     /**
-     * @return Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+     * @return Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+     * 
+     * &gt; **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
      * 
      */
     public Optional<Output<String>> workloadRuntime() {
@@ -1383,7 +1387,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+         * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+         * 
+         * &gt; **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
          * 
          * @return builder
          * 
@@ -1394,7 +1400,9 @@ public final class KubernetesClusterDefaultNodePoolArgs extends com.pulumi.resou
         }
 
         /**
-         * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible value is `OCIContainer`.
+         * @param workloadRuntime Specifies the workload runtime used by the node pool. Possible values are `KataVmIsolation` and `OCIContainer`.
+         * 
+         * &gt; **Note:** `KataVmIsolation` requires `osSku` to be set to `AzureLinux` and the selected VM size must support nested virtualization.
          * 
          * @return builder
          * 

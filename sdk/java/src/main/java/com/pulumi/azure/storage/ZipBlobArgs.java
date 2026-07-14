@@ -103,18 +103,49 @@ public final class ZipBlobArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sourceUri);
     }
 
-    @Import(name="storageAccountName", required=true)
-    private Output<String> storageAccountName;
+    /**
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Import(name="storageAccountName")
+    private @Nullable Output<String> storageAccountName;
 
-    public Output<String> storageAccountName() {
-        return this.storageAccountName;
+    /**
+     * @deprecated
+     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    public Optional<Output<String>> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
-    @Import(name="storageContainerName", required=true)
-    private Output<String> storageContainerName;
+    @Import(name="storageContainerId")
+    private @Nullable Output<String> storageContainerId;
 
-    public Output<String> storageContainerName() {
-        return this.storageContainerName;
+    public Optional<Output<String>> storageContainerId() {
+        return Optional.ofNullable(this.storageContainerId);
+    }
+
+    /**
+     * @deprecated
+     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    @Import(name="storageContainerName")
+    private @Nullable Output<String> storageContainerName;
+
+    /**
+     * @deprecated
+     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+     * 
+     */
+    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+    public Optional<Output<String>> storageContainerName() {
+        return Optional.ofNullable(this.storageContainerName);
     }
 
     @Import(name="type", required=true)
@@ -140,6 +171,7 @@ public final class ZipBlobArgs extends com.pulumi.resources.ResourceArgs {
         this.sourceContent = $.sourceContent;
         this.sourceUri = $.sourceUri;
         this.storageAccountName = $.storageAccountName;
+        this.storageContainerId = $.storageContainerId;
         this.storageContainerName = $.storageContainerName;
         this.type = $.type;
     }
@@ -270,20 +302,61 @@ public final class ZipBlobArgs extends com.pulumi.resources.ResourceArgs {
             return sourceUri(Output.of(sourceUri));
         }
 
-        public Builder storageAccountName(Output<String> storageAccountName) {
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder storageAccountName(String storageAccountName) {
             return storageAccountName(Output.of(storageAccountName));
         }
 
-        public Builder storageContainerName(Output<String> storageContainerName) {
+        public Builder storageContainerId(@Nullable Output<String> storageContainerId) {
+            $.storageContainerId = storageContainerId;
+            return this;
+        }
+
+        public Builder storageContainerId(String storageContainerId) {
+            return storageContainerId(Output.of(storageContainerId));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
+        public Builder storageContainerName(@Nullable Output<String> storageContainerName) {
             $.storageContainerName = storageContainerName;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
+         * 
+         */
+        @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
         public Builder storageContainerName(String storageContainerName) {
             return storageContainerName(Output.of(storageContainerName));
         }
@@ -298,12 +371,6 @@ public final class ZipBlobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ZipBlobArgs build() {
-            if ($.storageAccountName == null) {
-                throw new MissingRequiredPropertyException("ZipBlobArgs", "storageAccountName");
-            }
-            if ($.storageContainerName == null) {
-                throw new MissingRequiredPropertyException("ZipBlobArgs", "storageContainerName");
-            }
             if ($.type == null) {
                 throw new MissingRequiredPropertyException("ZipBlobArgs", "type");
             }

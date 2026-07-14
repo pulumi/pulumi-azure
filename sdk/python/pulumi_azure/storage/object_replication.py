@@ -23,17 +23,21 @@ class ObjectReplicationArgs:
     def __init__(__self__, *,
                  destination_storage_account_id: pulumi.Input[_builtins.str],
                  rules: pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]],
-                 source_storage_account_id: pulumi.Input[_builtins.str]):
+                 source_storage_account_id: pulumi.Input[_builtins.str],
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a ObjectReplication resource.
 
         :param pulumi.Input[_builtins.str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[_builtins.str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
+        :param pulumi.Input[_builtins.bool] metrics_enabled: Whether metrics are enabled for this object replication. Defaults to `false`.
         """
         pulumi.set(__self__, "destination_storage_account_id", destination_storage_account_id)
         pulumi.set(__self__, "rules", rules)
         pulumi.set(__self__, "source_storage_account_id", source_storage_account_id)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
 
     @_builtins.property
     @pulumi.getter(name="destinationStorageAccountId")
@@ -71,12 +75,25 @@ class ObjectReplicationArgs:
     def source_storage_account_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "source_storage_account_id", value)
 
+    @_builtins.property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether metrics are enabled for this object replication. Defaults to `false`.
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "metrics_enabled", value)
+
 
 @pulumi.input_type
 class _ObjectReplicationState:
     def __init__(__self__, *,
                  destination_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  rules: pulumi.Input[Optional[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]]] = None,
                  source_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -85,6 +102,7 @@ class _ObjectReplicationState:
 
         :param pulumi.Input[_builtins.str] destination_object_replication_id: The ID of the Object Replication in the destination storage account.
         :param pulumi.Input[_builtins.str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
+        :param pulumi.Input[_builtins.bool] metrics_enabled: Whether metrics are enabled for this object replication. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectReplicationRuleArgs']]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[_builtins.str] source_object_replication_id: The ID of the Object Replication in the source storage account.
         :param pulumi.Input[_builtins.str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
@@ -93,6 +111,8 @@ class _ObjectReplicationState:
             pulumi.set(__self__, "destination_object_replication_id", destination_object_replication_id)
         if destination_storage_account_id is not None:
             pulumi.set(__self__, "destination_storage_account_id", destination_storage_account_id)
+        if metrics_enabled is not None:
+            pulumi.set(__self__, "metrics_enabled", metrics_enabled)
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
         if source_object_replication_id is not None:
@@ -123,6 +143,18 @@ class _ObjectReplicationState:
     @destination_storage_account_id.setter
     def destination_storage_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_storage_account_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether metrics are enabled for this object replication. Defaults to `false`.
+        """
+        return pulumi.get(self, "metrics_enabled")
+
+    @metrics_enabled.setter
+    def metrics_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "metrics_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -168,6 +200,7 @@ class ObjectReplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
                  source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -242,6 +275,7 @@ class ObjectReplication(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
+        :param pulumi.Input[_builtins.bool] metrics_enabled: Whether metrics are enabled for this object replication. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[_builtins.str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
         """
@@ -335,6 +369,7 @@ class ObjectReplication(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
                  source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -349,6 +384,7 @@ class ObjectReplication(pulumi.CustomResource):
             if destination_storage_account_id is None and not opts.urn:
                 raise TypeError("Missing required property 'destination_storage_account_id'")
             __props__.__dict__["destination_storage_account_id"] = destination_storage_account_id
+            __props__.__dict__["metrics_enabled"] = metrics_enabled
             if rules is None and not opts.urn:
                 raise TypeError("Missing required property 'rules'")
             __props__.__dict__["rules"] = rules
@@ -369,6 +405,7 @@ class ObjectReplication(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             destination_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
             destination_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
+            metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]]] = None,
             source_object_replication_id: pulumi.Input[Optional[_builtins.str]] = None,
             source_storage_account_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ObjectReplication':
@@ -381,6 +418,7 @@ class ObjectReplication(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] destination_object_replication_id: The ID of the Object Replication in the destination storage account.
         :param pulumi.Input[_builtins.str] destination_storage_account_id: The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
+        :param pulumi.Input[_builtins.bool] metrics_enabled: Whether metrics are enabled for this object replication. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectReplicationRuleArgs', 'ObjectReplicationRuleArgsDict']]]] rules: One or more `rules` blocks as defined below.
         :param pulumi.Input[_builtins.str] source_object_replication_id: The ID of the Object Replication in the source storage account.
         :param pulumi.Input[_builtins.str] source_storage_account_id: The ID of the source storage account. Changing this forces a new Storage Object Replication to be created.
@@ -391,6 +429,7 @@ class ObjectReplication(pulumi.CustomResource):
 
         __props__.__dict__["destination_object_replication_id"] = destination_object_replication_id
         __props__.__dict__["destination_storage_account_id"] = destination_storage_account_id
+        __props__.__dict__["metrics_enabled"] = metrics_enabled
         __props__.__dict__["rules"] = rules
         __props__.__dict__["source_object_replication_id"] = source_object_replication_id
         __props__.__dict__["source_storage_account_id"] = source_storage_account_id
@@ -411,6 +450,14 @@ class ObjectReplication(pulumi.CustomResource):
         The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created.
         """
         return pulumi.get(self, "destination_storage_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="metricsEnabled")
+    def metrics_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether metrics are enabled for this object replication. Defaults to `false`.
+        """
+        return pulumi.get(self, "metrics_enabled")
 
     @_builtins.property
     @pulumi.getter

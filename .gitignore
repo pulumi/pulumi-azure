@@ -1,6 +1,7 @@
 .idea
 .code
 .vscode
+.opencode
 **/vendor/
 .pulumi
 **/bin/

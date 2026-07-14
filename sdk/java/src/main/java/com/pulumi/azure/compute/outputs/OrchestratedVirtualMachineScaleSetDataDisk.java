@@ -15,12 +15,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetDataDisk {
     /**
-     * @return The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+     * @return The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
      * 
      */
     private String caching;
     /**
-     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+     * @return The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
      * 
      */
     private @Nullable String createOption;
@@ -40,7 +40,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
      */
     private @Nullable Integer lun;
     /**
-     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+     * @return The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
      * 
      */
     private String storageAccountType;
@@ -62,14 +62,14 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
 
     private OrchestratedVirtualMachineScaleSetDataDisk() {}
     /**
-     * @return The type of Caching which should be used for this Data Disk. Possible values are None, ReadOnly and ReadWrite.
+     * @return The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
      * 
      */
     public String caching() {
         return this.caching;
     }
     /**
-     * @return The create option which should be used for this Data Disk. Possible values are Empty and FromImage. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
+     * @return The create option which should be used for this Data Disk. Possible values are `Empty` and `FromImage`. Defaults to `Empty`. (FromImage should only be used if the source image includes data disks).
      * 
      */
     public Optional<String> createOption() {
@@ -97,7 +97,7 @@ public final class OrchestratedVirtualMachineScaleSetDataDisk {
         return Optional.ofNullable(this.lun);
     }
     /**
-     * @return The Type of Storage Account which should back this Data Disk. Possible values include `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS` and `UltraSSD_LRS`.
+     * @return The Type of Storage Account which should back this Data Disk. Possible values are `Standard_LRS`, `StandardSSD_LRS`, `StandardSSD_ZRS`, `Premium_LRS`, `PremiumV2_LRS`, `Premium_ZRS`, and `UltraSSD_LRS`.
      * 
      */
     public String storageAccountType() {

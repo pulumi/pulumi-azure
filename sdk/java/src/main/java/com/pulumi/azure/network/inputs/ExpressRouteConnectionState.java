@@ -129,19 +129,19 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
 
     /**
      * @deprecated
-     * &#39;private_link_fast_path_enabled&#39; has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+     * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
     @Import(name="privateLinkFastPathEnabled")
     private @Nullable Output<Boolean> privateLinkFastPathEnabled;
 
     /**
      * @deprecated
-     * &#39;private_link_fast_path_enabled&#39; has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+     * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
      * 
      */
-    @Deprecated /* 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+    @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
     public Optional<Output<Boolean>> privateLinkFastPathEnabled() {
         return Optional.ofNullable(this.privateLinkFastPathEnabled);
     }
@@ -364,10 +364,10 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
          * @return builder
          * 
          * @deprecated
-         * &#39;private_link_fast_path_enabled&#39; has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+         * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
         public Builder privateLinkFastPathEnabled(@Nullable Output<Boolean> privateLinkFastPathEnabled) {
             $.privateLinkFastPathEnabled = privateLinkFastPathEnabled;
             return this;
@@ -377,10 +377,10 @@ public final class ExpressRouteConnectionState extends com.pulumi.resources.Reso
          * @return builder
          * 
          * @deprecated
-         * &#39;private_link_fast_path_enabled&#39; has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
+         * `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider
          * 
          */
-        @Deprecated /* 'private_link_fast_path_enabled' has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
+        @Deprecated /* `privateLinkFastPathEnabled` has been deprecated as it is no longer supported by the resource and will be removed in v5.0 of the AzureRM Provider */
         public Builder privateLinkFastPathEnabled(Boolean privateLinkFastPathEnabled) {
             return privateLinkFastPathEnabled(Output.of(privateLinkFastPathEnabled));
         }

@@ -82,7 +82,7 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceArgs']]] network_interfaces: One or more `network_interface` blocks as defined below.
         :param pulumi.Input['LinuxVirtualMachineScaleSetOsDiskArgs'] os_disk: An `os_disk` block as defined below.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         :param pulumi.Input['LinuxVirtualMachineScaleSetAdditionalCapabilitiesArgs'] additional_capabilities: An `additional_capabilities` block as defined below.
         :param pulumi.Input[_builtins.str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
                
@@ -333,7 +333,7 @@ class LinuxVirtualMachineScaleSetArgs:
     @pulumi.getter
     def sku(self) -> pulumi.Input[_builtins.str]:
         """
-        The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         """
         return pulumi.get(self, "sku")
 
@@ -1112,7 +1112,7 @@ class _LinuxVirtualMachineScaleSetState:
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         :param pulumi.Input[_builtins.str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
                
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
@@ -1800,7 +1800,7 @@ class _LinuxVirtualMachineScaleSetState:
     @pulumi.getter
     def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         """
         return pulumi.get(self, "sku")
 
@@ -2045,7 +2045,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             name="example-vmss",
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku="Standard_D4_v5",
             instances=1,
             admin_username="adminuser",
             admin_ssh_keys=[{
@@ -2168,7 +2168,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         :param pulumi.Input[_builtins.str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
                
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
@@ -2229,7 +2229,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
             name="example-vmss",
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku="Standard_D4_v5",
             instances=1,
             admin_username="adminuser",
             admin_ssh_keys=[{
@@ -2567,7 +2567,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] single_placement_group: Should this Virtual Machine Scale Set be limited to a Single Placement Group, which means the number of instances will be capped at 100 Virtual Machines. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        :param pulumi.Input[_builtins.str] sku: The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         :param pulumi.Input[_builtins.str] source_image_id: The ID of an Image which each Virtual Machine in this Scale Set should be based on. Possible Image ID types include `Image ID`, `Shared Image ID`, `Shared Image Version ID`, `Community Gallery Image ID`, `Community Gallery Image Version ID`, `Shared Gallery Image ID` and `Shared Gallery Image Version ID`.
                
                > **Note:** One of either `source_image_id` or `source_image_reference` must be set.
@@ -3033,7 +3033,7 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[_builtins.str]:
         """
-        The Virtual Machine SKU for the Scale Set, such as `Standard_F2`.
+        The Virtual Machine SKU for the Scale Set, such as `Standard_D4_v5`.
         """
         return pulumi.get(self, "sku")
 

@@ -46,7 +46,7 @@ class LinuxVirtualMachineArgs:
         :param pulumi.Input[_builtins.str] lab_subnet_name: The name of a Subnet within the Dev Test Virtual Network where this machine should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] lab_virtual_network_id: The ID of the Dev Test Virtual Network where this Virtual Machine should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_type: The type of Storage to use on this Virtual Machine. Possible values are `Standard` and `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] username: The Username associated with the local administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] allow_claim: Can this Virtual Machine be claimed by users? Defaults to `true`.
@@ -156,7 +156,7 @@ class LinuxVirtualMachineArgs:
     @pulumi.getter
     def size(self) -> pulumi.Input[_builtins.str]:
         """
-        The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 
@@ -345,7 +345,7 @@ class _LinuxVirtualMachineState:
         :param pulumi.Input[_builtins.str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[_builtins.str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
                
                > **Note:** One or either `password` or `ssh_key` must be specified.
@@ -557,7 +557,7 @@ class _LinuxVirtualMachineState:
     @pulumi.getter
     def size(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 
@@ -734,7 +734,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[_builtins.str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
                
                > **Note:** One or either `password` or `ssh_key` must be specified.
@@ -943,7 +943,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] notes: Any notes about the Virtual Machine.
         :param pulumi.Input[_builtins.str] password: The Password associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which the Dev Test Lab resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] size: The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] ssh_key: The SSH Key associated with the `username` used to login to this Virtual Machine. Changing this forces a new resource to be created.
                
                > **Note:** One or either `password` or `ssh_key` must be specified.
@@ -1089,7 +1089,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
     @pulumi.getter
     def size(self) -> pulumi.Output[_builtins.str]:
         """
-        The Machine Size to use for this Virtual Machine, such as `Standard_F2`. Changing this forces a new resource to be created.
+        The Machine Size to use for this Virtual Machine, such as `Standard_D4_v5`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "size")
 

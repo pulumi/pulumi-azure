@@ -120,7 +120,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * The ID of the Subnet which this IP Configuration should be connected to.
      * 
-     * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
+     * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
      * 
      */
     @Import(name="subnetId")
@@ -129,7 +129,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
     /**
      * @return The ID of the Subnet which this IP Configuration should be connected to.
      * 
-     * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
+     * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
      * 
      */
     public Optional<Output<String>> subnetId() {
@@ -361,7 +361,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         /**
          * @param subnetId The ID of the Subnet which this IP Configuration should be connected to.
          * 
-         * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
+         * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigura
         /**
          * @param subnetId The ID of the Subnet which this IP Configuration should be connected to.
          * 
-         * &gt; **Note:** `subnetId` is required if version is set to `IPv4`.
+         * &gt; **Note:** `subnetId` is required if `version` is set to `IPv4`.
          * 
          * @return builder
          * 

@@ -549,6 +549,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skuName);
     }
     /**
+     * The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+     * 
+     */
+    @Export(name="storageAccountAccessType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> storageAccountAccessType;
+
+    /**
+     * @return The access type for the system storage account. Possible values are `AccessKey` and `Identity`. Defaults to `AccessKey`.
+     * 
+     */
+    public Output<Optional<String>> storageAccountAccessType() {
+        return Codegen.optional(this.storageAccountAccessType);
+    }
+    /**
      * The ID of the Storage Account associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The `accountTier` cannot be `Premium` in order to associate the Storage Account to this Machine Learning Workspace.

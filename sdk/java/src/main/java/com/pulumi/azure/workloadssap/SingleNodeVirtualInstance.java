@@ -137,7 +137,7 @@ import javax.annotation.Nullable;
  *                     .image(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationImageArgs.builder()
  *                         .offer("RHEL-SAP-HA")
  *                         .publisher("RedHat")
- *                         .sku("82sapha-gen2")
+ *                         .sku("86sapha-gen2")
  *                         .version("latest")
  *                         .build())
  *                     .osProfile(SingleNodeVirtualInstanceSingleServerConfigurationVirtualMachineConfigurationOsProfileArgs.builder()

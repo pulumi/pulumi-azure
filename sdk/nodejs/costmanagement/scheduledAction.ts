@@ -91,7 +91,7 @@ export class ScheduledAction extends pulumi.CustomResource {
      */
     declare public readonly emailAddresses: pulumi.Output<string[]>;
     /**
-     * Subject of the email. Length is limited to 70 characters.
+     * Subject of the email. Length is limited to 50 characters.
      */
     declare public readonly emailSubject: pulumi.Output<string>;
     /**
@@ -225,7 +225,7 @@ export interface ScheduledActionState {
      */
     emailAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Subject of the email. Length is limited to 70 characters.
+     * Subject of the email. Length is limited to 50 characters.
      */
     emailSubject?: pulumi.Input<string | undefined>;
     /**
@@ -287,7 +287,7 @@ export interface ScheduledActionArgs {
      */
     emailAddresses: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Subject of the email. Length is limited to 70 characters.
+     * Subject of the email. Length is limited to 50 characters.
      */
     emailSubject: pulumi.Input<string>;
     /**

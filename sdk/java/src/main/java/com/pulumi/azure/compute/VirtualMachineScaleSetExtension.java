@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .sku("Standard_F2")
+ *             .sku("Standard_D4_v5")
  *             .adminUsername("adminuser")
  *             .instances(1)
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()

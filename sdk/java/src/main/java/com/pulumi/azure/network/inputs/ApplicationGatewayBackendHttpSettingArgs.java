@@ -52,6 +52,21 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
+     * Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+     * 
+     */
+    @Import(name="certificateChainValidationEnabled")
+    private @Nullable Output<Boolean> certificateChainValidationEnabled;
+
+    /**
+     * @return Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> certificateChainValidationEnabled() {
+        return Optional.ofNullable(this.certificateChainValidationEnabled);
+    }
+
+    /**
      * A `connectionDraining` block as defined below.
      * 
      */
@@ -247,6 +262,40 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
+     * The Server Name Indication (SNI) hostname to send to the backend servers.
+     * 
+     * &gt; **Note:** `sniName` can only be set when `sniValidationEnabled` is set to `true`.
+     * 
+     */
+    @Import(name="sniName")
+    private @Nullable Output<String> sniName;
+
+    /**
+     * @return The Server Name Indication (SNI) hostname to send to the backend servers.
+     * 
+     * &gt; **Note:** `sniName` can only be set when `sniValidationEnabled` is set to `true`.
+     * 
+     */
+    public Optional<Output<String>> sniName() {
+        return Optional.ofNullable(this.sniName);
+    }
+
+    /**
+     * Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+     * 
+     */
+    @Import(name="sniValidationEnabled")
+    private @Nullable Output<Boolean> sniValidationEnabled;
+
+    /**
+     * @return Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> sniValidationEnabled() {
+        return Optional.ofNullable(this.sniValidationEnabled);
+    }
+
+    /**
      * A list of `trustedRootCertificate` names.
      * 
      */
@@ -266,6 +315,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     private ApplicationGatewayBackendHttpSettingArgs(ApplicationGatewayBackendHttpSettingArgs $) {
         this.affinityCookieName = $.affinityCookieName;
         this.authenticationCertificates = $.authenticationCertificates;
+        this.certificateChainValidationEnabled = $.certificateChainValidationEnabled;
         this.connectionDraining = $.connectionDraining;
         this.cookieBasedAffinity = $.cookieBasedAffinity;
         this.dedicatedBackendConnectionEnabled = $.dedicatedBackendConnectionEnabled;
@@ -279,6 +329,8 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         this.probeName = $.probeName;
         this.protocol = $.protocol;
         this.requestTimeout = $.requestTimeout;
+        this.sniName = $.sniName;
+        this.sniValidationEnabled = $.sniValidationEnabled;
         this.trustedRootCertificateNames = $.trustedRootCertificateNames;
     }
 
@@ -350,6 +402,27 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
          */
         public Builder authenticationCertificates(ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs... authenticationCertificates) {
             return authenticationCertificates(List.of(authenticationCertificates));
+        }
+
+        /**
+         * @param certificateChainValidationEnabled Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateChainValidationEnabled(@Nullable Output<Boolean> certificateChainValidationEnabled) {
+            $.certificateChainValidationEnabled = certificateChainValidationEnabled;
+            return this;
+        }
+
+        /**
+         * @param certificateChainValidationEnabled Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateChainValidationEnabled(Boolean certificateChainValidationEnabled) {
+            return certificateChainValidationEnabled(Output.of(certificateChainValidationEnabled));
         }
 
         /**
@@ -623,6 +696,52 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
          */
         public Builder requestTimeout(Integer requestTimeout) {
             return requestTimeout(Output.of(requestTimeout));
+        }
+
+        /**
+         * @param sniName The Server Name Indication (SNI) hostname to send to the backend servers.
+         * 
+         * &gt; **Note:** `sniName` can only be set when `sniValidationEnabled` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sniName(@Nullable Output<String> sniName) {
+            $.sniName = sniName;
+            return this;
+        }
+
+        /**
+         * @param sniName The Server Name Indication (SNI) hostname to send to the backend servers.
+         * 
+         * &gt; **Note:** `sniName` can only be set when `sniValidationEnabled` is set to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sniName(String sniName) {
+            return sniName(Output.of(sniName));
+        }
+
+        /**
+         * @param sniValidationEnabled Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sniValidationEnabled(@Nullable Output<Boolean> sniValidationEnabled) {
+            $.sniValidationEnabled = sniValidationEnabled;
+            return this;
+        }
+
+        /**
+         * @param sniValidationEnabled Whether to enable Server Name Indication (SNI) validation on the backend HTTPS servers. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sniValidationEnabled(Boolean sniValidationEnabled) {
+            return sniValidationEnabled(Output.of(sniValidationEnabled));
         }
 
         /**

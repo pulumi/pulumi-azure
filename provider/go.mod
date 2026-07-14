@@ -1,11 +1,11 @@
 module github.com/pulumi/pulumi-azure/provider/v6
 
-go 1.25.11
+go 1.26.4
 
 require (
 	github.com/Azure/go-autorest/autorest/azure/cli v0.4.6
-	github.com/hashicorp/go-azure-helpers v0.79.0
-	github.com/hashicorp/go-azure-sdk/sdk v0.20260520.1145341
+	github.com/hashicorp/go-azure-helpers v0.80.0
+	github.com/hashicorp/go-azure-sdk/sdk v0.20260629.1154953
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.38.1
 	github.com/hashicorp/terraform-provider-azurerm v1.44.1-0.20220923005104-eaa801c358ff
 	github.com/pulumi/providertest v0.7.0
@@ -124,8 +124,8 @@ require (
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.72 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
-	github.com/hashicorp/go-azure-sdk/data-plane v0.20260520.1145341 // indirect
-	github.com/hashicorp/go-azure-sdk/resource-manager v0.20260520.1145341 // indirect
+	github.com/hashicorp/go-azure-sdk/data-plane v0.20260629.1154953 // indirect
+	github.com/hashicorp/go-azure-sdk/resource-manager v0.20260629.1154953 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-cty v1.5.0 // indirect
@@ -280,5 +280,5 @@ require (
 	gopkg.in/tomb.v1 v1.0.0-20141024135613-dd632973f1e7 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.5.1 // indirect
-	software.sslmate.com/src/go-pkcs12 v0.6.0 // indirect
+	software.sslmate.com/src/go-pkcs12 v0.7.2 // indirect
 )

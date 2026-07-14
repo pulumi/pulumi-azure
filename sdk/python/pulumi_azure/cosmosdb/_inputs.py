@@ -518,6 +518,8 @@ class AccountGeoLocationArgsDict(TypedDict):
     zone_redundant: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should zone redundancy be enabled for this region? Defaults to `false`.
+
+    > **Note:** You cannot change zone redundancy in a region that has already been added to a Cosmos DB account. If you wish to change this setting in a deployed region without recreating the account, you can [follow the steps outlined in the official documentation](https://learn.microsoft.com/azure/cosmos-db/enable-zone-redundancy?tabs=portal#enable-zone-redundancy-on-an-existing-account).
     """
 
 @pulumi.input_type
@@ -532,6 +534,8 @@ class AccountGeoLocationArgs:
         :param pulumi.Input[_builtins.str] location: The name of the Azure region to host replicated data.
         :param pulumi.Input[_builtins.str] id: The CosmosDB Account ID.
         :param pulumi.Input[_builtins.bool] zone_redundant: Should zone redundancy be enabled for this region? Defaults to `false`.
+               
+               > **Note:** You cannot change zone redundancy in a region that has already been added to a Cosmos DB account. If you wish to change this setting in a deployed region without recreating the account, you can [follow the steps outlined in the official documentation](https://learn.microsoft.com/azure/cosmos-db/enable-zone-redundancy?tabs=portal#enable-zone-redundancy-on-an-existing-account).
         """
         pulumi.set(__self__, "failover_priority", failover_priority)
         pulumi.set(__self__, "location", location)
@@ -581,6 +585,8 @@ class AccountGeoLocationArgs:
     def zone_redundant(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Should zone redundancy be enabled for this region? Defaults to `false`.
+
+        > **Note:** You cannot change zone redundancy in a region that has already been added to a Cosmos DB account. If you wish to change this setting in a deployed region without recreating the account, you can [follow the steps outlined in the official documentation](https://learn.microsoft.com/azure/cosmos-db/enable-zone-redundancy?tabs=portal#enable-zone-redundancy-on-an-existing-account).
         """
         return pulumi.get(self, "zone_redundant")
 

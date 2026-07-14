@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *     },
  *     healthProbeId: exampleProbe.id,
  *     sku: {
- *         name: "Standard_F2",
+ *         name: "Standard_D4_v5",
  *         tier: "Standard",
  *         capacity: 2,
  *     },
@@ -184,7 +184,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     upgradePolicyMode: "Manual",
  *     sku: {
- *         name: "Standard_F2",
+ *         name: "Standard_D4_v5",
  *         tier: "Standard",
  *         capacity: 2,
  *     },

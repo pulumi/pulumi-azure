@@ -235,6 +235,8 @@ type FlexibleServer struct {
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	//
 	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
+	//
+	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
 	Version pulumi.StringOutput `pulumi:"version"`
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -363,6 +365,8 @@ type flexibleServerState struct {
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	//
 	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
+	//
+	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
 	Version *string `pulumi:"version"`
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -452,6 +456,8 @@ type FlexibleServerState struct {
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	//
 	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
+	//
+	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
 	Version pulumi.StringPtrInput
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -543,6 +549,8 @@ type flexibleServerArgs struct {
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	//
 	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
+	//
+	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
 	Version *string `pulumi:"version"`
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -631,6 +639,8 @@ type FlexibleServerArgs struct {
 	// > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 	//
 	// > **Note:** Major version upgrades are not supported when `cluster` is specified.
+	//
+	// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
 	Version pulumi.StringPtrInput
 	// Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located.
 	//
@@ -887,6 +897,8 @@ func (o FlexibleServerOutput) Tags() pulumi.StringMapOutput {
 // > **Note:** In-place version updates are irreversible and may cause downtime for the PostgreSQL Flexible Server, determined by the size of the instance.
 //
 // > **Note:** Major version upgrades are not supported when `cluster` is specified.
+//
+// > **Note:** Versions 11, 12, 13 are in Extended Support. Upgrade to a supported version before August 1, 2026 to avoid Extended Support billing. see [Eligible PostgreSQL versions](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/extended-support#eligible-postgresql-versions)
 func (o FlexibleServerOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
 }

@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     networkInterfaceIds: [mainNetworkInterface.id],
- *     vmSize: "Standard_F2",
+ *     vmSize: "Standard_D4_v5",
  *     storageImageReference: {
  *         publisher: "Canonical",
  *         offer: "0001-com-ubuntu-server-jammy",

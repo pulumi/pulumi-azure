@@ -27,8 +27,7 @@ namespace Pulumi.Azure.Storage
         ///     var example = Azure.Storage.GetBlob.Invoke(new()
         ///     {
         ///         Name = "example-blob-name",
-        ///         StorageAccountName = "example-storage-account-name",
-        ///         StorageContainerName = "example-storage-container-name",
+        ///         StorageContainerId = "example-storage-container-id",
         ///     });
         /// 
         /// });
@@ -53,8 +52,7 @@ namespace Pulumi.Azure.Storage
         ///     var example = Azure.Storage.GetBlob.Invoke(new()
         ///     {
         ///         Name = "example-blob-name",
-        ///         StorageAccountName = "example-storage-account-name",
-        ///         StorageContainerName = "example-storage-container-name",
+        ///         StorageContainerId = "example-storage-container-id",
         ///     });
         /// 
         /// });
@@ -79,8 +77,7 @@ namespace Pulumi.Azure.Storage
         ///     var example = Azure.Storage.GetBlob.Invoke(new()
         ///     {
         ///         Name = "example-blob-name",
-        ///         StorageAccountName = "example-storage-account-name",
-        ///         StorageContainerName = "example-storage-container-name",
+        ///         StorageContainerId = "example-storage-container-id",
         ///     });
         /// 
         /// });
@@ -113,15 +110,25 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The name of the Storage Account where the Container exists.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public string StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public string? StorageAccountName { get; set; }
+
+        /// <summary>
+        /// The ID of the Storage Container where the Blob exists.
+        /// </summary>
+        [Input("storageContainerId")]
+        public string? StorageContainerId { get; set; }
 
         /// <summary>
         /// The name of the Storage Container where the Blob exists.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
-        [Input("storageContainerName", required: true)]
-        public string StorageContainerName { get; set; } = null!;
+        [Input("storageContainerName")]
+        public string? StorageContainerName { get; set; }
 
         public GetBlobArgs()
         {
@@ -151,15 +158,25 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The name of the Storage Account where the Container exists.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
-        [Input("storageAccountName", required: true)]
-        public Input<string> StorageAccountName { get; set; } = null!;
+        [Input("storageAccountName")]
+        public Input<string>? StorageAccountName { get; set; }
+
+        /// <summary>
+        /// The ID of the Storage Container where the Blob exists.
+        /// </summary>
+        [Input("storageContainerId")]
+        public Input<string>? StorageContainerId { get; set; }
 
         /// <summary>
         /// The name of the Storage Container where the Blob exists.
+        /// 
+        /// &gt; **Note:** This property is deprecated in favour of `StorageContainerId` and will be removed in version 5.0 of the AzureRM Provider.
         /// </summary>
-        [Input("storageContainerName", required: true)]
-        public Input<string> StorageContainerName { get; set; } = null!;
+        [Input("storageContainerName")]
+        public Input<string>? StorageContainerName { get; set; }
 
         public GetBlobInvokeArgs()
         {
@@ -197,6 +214,7 @@ namespace Pulumi.Azure.Storage
         public readonly ImmutableDictionary<string, string> Metadata;
         public readonly string Name;
         public readonly string StorageAccountName;
+        public readonly string StorageContainerId;
         public readonly string StorageContainerName;
         /// <summary>
         /// The type of the storage blob
@@ -225,6 +243,8 @@ namespace Pulumi.Azure.Storage
 
             string storageAccountName,
 
+            string storageContainerId,
+
             string storageContainerName,
 
             string type,
@@ -239,6 +259,7 @@ namespace Pulumi.Azure.Storage
             Metadata = metadata;
             Name = name;
             StorageAccountName = storageAccountName;
+            StorageContainerId = storageContainerId;
             StorageContainerName = storageContainerName;
             Type = type;
             Url = url;

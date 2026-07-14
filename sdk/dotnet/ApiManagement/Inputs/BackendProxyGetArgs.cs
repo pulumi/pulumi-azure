@@ -37,8 +37,8 @@ namespace Pulumi.Azure.ApiManagement.Inputs
         /// <summary>
         /// The username to connect to the proxy server.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public BackendProxyGetArgs()
         {

@@ -40,6 +40,8 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
      * 
      * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
      * 
+     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+     * 
      */
     @Import(name="certificateType")
     private @Nullable Output<String> certificateType;
@@ -48,6 +50,8 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
      * @return Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
      * 
      * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+     * 
+     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
      * 
      */
     public Optional<Output<String>> certificateType() {
@@ -161,6 +165,8 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
          * 
          * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
          * 
+         * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+         * 
          * @return builder
          * 
          */
@@ -173,6 +179,8 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
          * @param certificateType Defines the source of the SSL certificate. Possible values are `CustomerCertificate` and `ManagedCertificate`. Defaults to `ManagedCertificate`.
          * 
          * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
+         * 
+         * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
          * 
          * @return builder
          * 

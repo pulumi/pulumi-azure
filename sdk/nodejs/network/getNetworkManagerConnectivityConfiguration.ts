@@ -60,6 +60,14 @@ export interface GetNetworkManagerConnectivityConfigurationResult {
      */
     readonly appliesToGroups: outputs.network.GetNetworkManagerConnectivityConfigurationAppliesToGroup[];
     /**
+     * Whether connected group address overlap is enabled.
+     */
+    readonly connectedGroupAddressOverlapEnabled: boolean;
+    /**
+     * The scale of private endpoints allowed in the connected group.
+     */
+    readonly connectedGroupPrivateEndpointsScale: string;
+    /**
      * The connectivity topology type.
      */
     readonly connectivityTopology: string;
@@ -85,6 +93,10 @@ export interface GetNetworkManagerConnectivityConfigurationResult {
     readonly id: string;
     readonly name: string;
     readonly networkManagerId: string;
+    /**
+     * Whether peering enforcement is enabled.
+     */
+    readonly peeringEnforcementEnabled: boolean;
 }
 /**
  * Use this data source to access information about an existing Network Manager Connectivity Configuration.

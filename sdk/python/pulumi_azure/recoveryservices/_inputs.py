@@ -217,28 +217,64 @@ class VaultIdentityArgs:
 
 
 class VaultMonitoringArgsDict(TypedDict):
+    alerts_for_all_failover_issues_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+    """
     alerts_for_all_job_failures_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+    """
+    alerts_for_all_replication_issues_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
     """
     alerts_for_critical_operation_failures_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
     """
+    email_notifications_for_site_recovery_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+    """
 
 @pulumi.input_type
 class VaultMonitoringArgs:
     def __init__(__self__, *,
+                 alerts_for_all_failover_issues_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  alerts_for_all_job_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 alerts_for_critical_operation_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 alerts_for_all_replication_issues_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 alerts_for_critical_operation_failures_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_notifications_for_site_recovery_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
+        :param pulumi.Input[_builtins.bool] alerts_for_all_failover_issues_enabled: Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] alerts_for_all_job_failures_enabled: Enabling/Disabling built-in Azure Monitor alerts for security scenarios and job failure scenarios. Defaults to `true`.
+        :param pulumi.Input[_builtins.bool] alerts_for_all_replication_issues_enabled: Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] alerts_for_critical_operation_failures_enabled: Enabling/Disabling alerts from the older (classic alerts) solution. Defaults to `true`. More details could be found [here](https://learn.microsoft.com/en-us/azure/backup/monitoring-and-alerts-overview).
+        :param pulumi.Input[_builtins.bool] email_notifications_for_site_recovery_enabled: Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
         """
+        if alerts_for_all_failover_issues_enabled is not None:
+            pulumi.set(__self__, "alerts_for_all_failover_issues_enabled", alerts_for_all_failover_issues_enabled)
         if alerts_for_all_job_failures_enabled is not None:
             pulumi.set(__self__, "alerts_for_all_job_failures_enabled", alerts_for_all_job_failures_enabled)
+        if alerts_for_all_replication_issues_enabled is not None:
+            pulumi.set(__self__, "alerts_for_all_replication_issues_enabled", alerts_for_all_replication_issues_enabled)
         if alerts_for_critical_operation_failures_enabled is not None:
             pulumi.set(__self__, "alerts_for_critical_operation_failures_enabled", alerts_for_critical_operation_failures_enabled)
+        if email_notifications_for_site_recovery_enabled is not None:
+            pulumi.set(__self__, "email_notifications_for_site_recovery_enabled", email_notifications_for_site_recovery_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="alertsForAllFailoverIssuesEnabled")
+    def alerts_for_all_failover_issues_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enabling/Disabling built-in Azure Monitor alerts for all failover issues. Defaults to `true`.
+        """
+        return pulumi.get(self, "alerts_for_all_failover_issues_enabled")
+
+    @alerts_for_all_failover_issues_enabled.setter
+    def alerts_for_all_failover_issues_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "alerts_for_all_failover_issues_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="alertsForAllJobFailuresEnabled")
@@ -253,6 +289,18 @@ class VaultMonitoringArgs:
         pulumi.set(self, "alerts_for_all_job_failures_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="alertsForAllReplicationIssuesEnabled")
+    def alerts_for_all_replication_issues_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enabling/Disabling built-in Azure Monitor alerts for all replication issues. Defaults to `true`.
+        """
+        return pulumi.get(self, "alerts_for_all_replication_issues_enabled")
+
+    @alerts_for_all_replication_issues_enabled.setter
+    def alerts_for_all_replication_issues_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "alerts_for_all_replication_issues_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="alertsForCriticalOperationFailuresEnabled")
     def alerts_for_critical_operation_failures_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -263,5 +311,17 @@ class VaultMonitoringArgs:
     @alerts_for_critical_operation_failures_enabled.setter
     def alerts_for_critical_operation_failures_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "alerts_for_critical_operation_failures_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="emailNotificationsForSiteRecoveryEnabled")
+    def email_notifications_for_site_recovery_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enabling/Disabling email notifications for site recovery (classic alerts) solution. Defaults to `true`.
+        """
+        return pulumi.get(self, "email_notifications_for_site_recovery_enabled")
+
+    @email_notifications_for_site_recovery_enabled.setter
+    def email_notifications_for_site_recovery_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "email_notifications_for_site_recovery_enabled", value)
 
 

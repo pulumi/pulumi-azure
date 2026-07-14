@@ -24,7 +24,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// <summary>
         /// The username to connect to the proxy server.
         /// </summary>
-        public readonly string Username;
+        public readonly string? Username;
 
         [OutputConstructor]
         private BackendProxy(
@@ -32,7 +32,7 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             string url,
 
-            string username)
+            string? username)
         {
             Password = password;
             Url = url;

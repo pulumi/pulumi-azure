@@ -551,7 +551,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku="Standard_D4_v5",
             admin_username="adminuser",
             instances=1,
             source_image_reference={
@@ -654,7 +654,7 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             location=example.location,
-            sku="Standard_F2",
+            sku="Standard_D4_v5",
             admin_username="adminuser",
             instances=1,
             source_image_reference={

@@ -36,6 +36,40 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
     }
 
     /**
+     * Whether connected group address overlap is enabled. Defaults to `true`.
+     * 
+     * &gt; **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+     * 
+     */
+    @Import(name="connectedGroupAddressOverlapEnabled")
+    private @Nullable Output<Boolean> connectedGroupAddressOverlapEnabled;
+
+    /**
+     * @return Whether connected group address overlap is enabled. Defaults to `true`.
+     * 
+     * &gt; **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+     * 
+     */
+    public Optional<Output<Boolean>> connectedGroupAddressOverlapEnabled() {
+        return Optional.ofNullable(this.connectedGroupAddressOverlapEnabled);
+    }
+
+    /**
+     * Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+     * 
+     */
+    @Import(name="connectedGroupPrivateEndpointsScale")
+    private @Nullable Output<String> connectedGroupPrivateEndpointsScale;
+
+    /**
+     * @return Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+     * 
+     */
+    public Optional<Output<String>> connectedGroupPrivateEndpointsScale() {
+        return Optional.ofNullable(this.connectedGroupPrivateEndpointsScale);
+    }
+
+    /**
      * Specifies the connectivity topology type. Possible values are `HubAndSpoke` and `Mesh`.
      * 
      */
@@ -140,10 +174,27 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
         return this.networkManagerId;
     }
 
+    /**
+     * Whether peering enforcement is enabled. Defaults to `false`.
+     * 
+     */
+    @Import(name="peeringEnforcementEnabled")
+    private @Nullable Output<Boolean> peeringEnforcementEnabled;
+
+    /**
+     * @return Whether peering enforcement is enabled. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> peeringEnforcementEnabled() {
+        return Optional.ofNullable(this.peeringEnforcementEnabled);
+    }
+
     private NetworkManagerConnectivityConfigurationArgs() {}
 
     private NetworkManagerConnectivityConfigurationArgs(NetworkManagerConnectivityConfigurationArgs $) {
         this.appliesToGroups = $.appliesToGroups;
+        this.connectedGroupAddressOverlapEnabled = $.connectedGroupAddressOverlapEnabled;
+        this.connectedGroupPrivateEndpointsScale = $.connectedGroupPrivateEndpointsScale;
         this.connectivityTopology = $.connectivityTopology;
         this.deleteExistingPeeringEnabled = $.deleteExistingPeeringEnabled;
         this.description = $.description;
@@ -151,6 +202,7 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
         this.hub = $.hub;
         this.name = $.name;
         this.networkManagerId = $.networkManagerId;
+        this.peeringEnforcementEnabled = $.peeringEnforcementEnabled;
     }
 
     public static Builder builder() {
@@ -200,6 +252,52 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
          */
         public Builder appliesToGroups(NetworkManagerConnectivityConfigurationAppliesToGroupArgs... appliesToGroups) {
             return appliesToGroups(List.of(appliesToGroups));
+        }
+
+        /**
+         * @param connectedGroupAddressOverlapEnabled Whether connected group address overlap is enabled. Defaults to `true`.
+         * 
+         * &gt; **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectedGroupAddressOverlapEnabled(@Nullable Output<Boolean> connectedGroupAddressOverlapEnabled) {
+            $.connectedGroupAddressOverlapEnabled = connectedGroupAddressOverlapEnabled;
+            return this;
+        }
+
+        /**
+         * @param connectedGroupAddressOverlapEnabled Whether connected group address overlap is enabled. Defaults to `true`.
+         * 
+         * &gt; **Note:** Changing `connectedGroupAddressOverlapEnabled` from `true` to `false` forces a new Network Manager Connectivity Configuration to be created because the Azure API does not support this modification.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectedGroupAddressOverlapEnabled(Boolean connectedGroupAddressOverlapEnabled) {
+            return connectedGroupAddressOverlapEnabled(Output.of(connectedGroupAddressOverlapEnabled));
+        }
+
+        /**
+         * @param connectedGroupPrivateEndpointsScale Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectedGroupPrivateEndpointsScale(@Nullable Output<String> connectedGroupPrivateEndpointsScale) {
+            $.connectedGroupPrivateEndpointsScale = connectedGroupPrivateEndpointsScale;
+            return this;
+        }
+
+        /**
+         * @param connectedGroupPrivateEndpointsScale Specifies the scale of private endpoints allowed in the connected group. Possible values are `Standard` and `HighScale`. Defaults to `Standard`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connectedGroupPrivateEndpointsScale(String connectedGroupPrivateEndpointsScale) {
+            return connectedGroupPrivateEndpointsScale(Output.of(connectedGroupPrivateEndpointsScale));
         }
 
         /**
@@ -347,6 +445,27 @@ public final class NetworkManagerConnectivityConfigurationArgs extends com.pulum
          */
         public Builder networkManagerId(String networkManagerId) {
             return networkManagerId(Output.of(networkManagerId));
+        }
+
+        /**
+         * @param peeringEnforcementEnabled Whether peering enforcement is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder peeringEnforcementEnabled(@Nullable Output<Boolean> peeringEnforcementEnabled) {
+            $.peeringEnforcementEnabled = peeringEnforcementEnabled;
+            return this;
+        }
+
+        /**
+         * @param peeringEnforcementEnabled Whether peering enforcement is enabled. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder peeringEnforcementEnabled(Boolean peeringEnforcementEnabled) {
+            return peeringEnforcementEnabled(Output.of(peeringEnforcementEnabled));
         }
 
         public NetworkManagerConnectivityConfigurationArgs build() {

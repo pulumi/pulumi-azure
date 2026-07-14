@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Compute
     ///         Name = "examplevm",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Size = "Standard_F2",
+    ///         Size = "Standard_D4_v5",
     ///         AdminUsername = "adminuser",
     ///         AdminPassword = "P@$$w0rd1234!",
     ///         DisablePasswordAuthentication = false,

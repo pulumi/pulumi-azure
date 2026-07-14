@@ -36,7 +36,7 @@ namespace Pulumi.Azure.Compute
     ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
-    ///         Sku = "Standard_F2",
+    ///         Sku = "Standard_D4_v5",
     ///         AdminUsername = "adminuser",
     ///         Instances = 1,
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs

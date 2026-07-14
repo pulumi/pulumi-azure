@@ -37,6 +37,8 @@ class VirtualNetworkGatewayArgs:
                  generation: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_groups: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupArgs']]]] = None,
                  private_ip_address_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -69,6 +71,16 @@ class VirtualNetworkGatewayArgs:
                > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
         :param pulumi.Input[_builtins.bool] ip_sec_replay_protection_enabled: Is IP Sec Replay Protection enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] maximum_scale_unit: The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+               
+               > **Note:** `maximum_scale_unit` is only supported for the `ErGwScale` SKU.
+        :param pulumi.Input[_builtins.int] minimum_scale_unit: The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+               
+               > **Note:** `minimum_scale_unit` is only supported for the `ErGwScale` SKU.
+               
+               > **Note:** To configure a `fixed-size` gateway, set `minimum_scale_unit` and `maximum_scale_unit` to the same value. To enable `autoscaling`, set `minimum_scale_unit` to `2` or higher and `maximum_scale_unit` up to `40`. When `maximum_scale_unit` is set to `1`, `minimum_scale_unit` must also be set to `1`.
+               
+               > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupArgs']]] policy_groups: One or more `policy_group` blocks as defined below.
         :param pulumi.Input[_builtins.bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
@@ -109,6 +121,10 @@ class VirtualNetworkGatewayArgs:
             pulumi.set(__self__, "ip_sec_replay_protection_enabled", ip_sec_replay_protection_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if maximum_scale_unit is not None:
+            pulumi.set(__self__, "maximum_scale_unit", maximum_scale_unit)
+        if minimum_scale_unit is not None:
+            pulumi.set(__self__, "minimum_scale_unit", minimum_scale_unit)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy_groups is not None:
@@ -323,6 +339,38 @@ class VirtualNetworkGatewayArgs:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="maximumScaleUnit")
+    def maximum_scale_unit(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+
+        > **Note:** `maximum_scale_unit` is only supported for the `ErGwScale` SKU.
+        """
+        return pulumi.get(self, "maximum_scale_unit")
+
+    @maximum_scale_unit.setter
+    def maximum_scale_unit(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_scale_unit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumScaleUnit")
+    def minimum_scale_unit(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+
+        > **Note:** `minimum_scale_unit` is only supported for the `ErGwScale` SKU.
+
+        > **Note:** To configure a `fixed-size` gateway, set `minimum_scale_unit` and `maximum_scale_unit` to the same value. To enable `autoscaling`, set `minimum_scale_unit` to `2` or higher and `maximum_scale_unit` up to `40`. When `maximum_scale_unit` is set to `1`, `minimum_scale_unit` must also be set to `1`.
+
+        > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+        """
+        return pulumi.get(self, "minimum_scale_unit")
+
+    @minimum_scale_unit.setter
+    def minimum_scale_unit(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "minimum_scale_unit", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -435,6 +483,8 @@ class _VirtualNetworkGatewayState:
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]]] = None,
                  ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_groups: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupArgs']]]] = None,
                  private_ip_address_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -463,6 +513,16 @@ class _VirtualNetworkGatewayState:
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayIpConfigurationArgs']]] ip_configurations: One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ip_configuration` block, an active-active gateway requires exactly two `ip_configuration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
         :param pulumi.Input[_builtins.bool] ip_sec_replay_protection_enabled: Is IP Sec Replay Protection enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] maximum_scale_unit: The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+               
+               > **Note:** `maximum_scale_unit` is only supported for the `ErGwScale` SKU.
+        :param pulumi.Input[_builtins.int] minimum_scale_unit: The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+               
+               > **Note:** `minimum_scale_unit` is only supported for the `ErGwScale` SKU.
+               
+               > **Note:** To configure a `fixed-size` gateway, set `minimum_scale_unit` and `maximum_scale_unit` to the same value. To enable `autoscaling`, set `minimum_scale_unit` to `2` or higher and `maximum_scale_unit` up to `40`. When `maximum_scale_unit` is set to `1`, `minimum_scale_unit` must also be set to `1`.
+               
+               > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkGatewayPolicyGroupArgs']]] policy_groups: One or more `policy_group` blocks as defined below.
         :param pulumi.Input[_builtins.bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
@@ -508,6 +568,10 @@ class _VirtualNetworkGatewayState:
             pulumi.set(__self__, "ip_sec_replay_protection_enabled", ip_sec_replay_protection_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if maximum_scale_unit is not None:
+            pulumi.set(__self__, "maximum_scale_unit", maximum_scale_unit)
+        if minimum_scale_unit is not None:
+            pulumi.set(__self__, "minimum_scale_unit", minimum_scale_unit)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if policy_groups is not None:
@@ -688,6 +752,38 @@ class _VirtualNetworkGatewayState:
         pulumi.set(self, "location", value)
 
     @_builtins.property
+    @pulumi.getter(name="maximumScaleUnit")
+    def maximum_scale_unit(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+
+        > **Note:** `maximum_scale_unit` is only supported for the `ErGwScale` SKU.
+        """
+        return pulumi.get(self, "maximum_scale_unit")
+
+    @maximum_scale_unit.setter
+    def maximum_scale_unit(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_scale_unit", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumScaleUnit")
+    def minimum_scale_unit(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+
+        > **Note:** `minimum_scale_unit` is only supported for the `ErGwScale` SKU.
+
+        > **Note:** To configure a `fixed-size` gateway, set `minimum_scale_unit` and `maximum_scale_unit` to the same value. To enable `autoscaling`, set `minimum_scale_unit` to `2` or higher and `maximum_scale_unit` up to `40`. When `maximum_scale_unit` is set to `1`, `minimum_scale_unit` must also be set to `1`.
+
+        > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+        """
+        return pulumi.get(self, "minimum_scale_unit")
+
+    @minimum_scale_unit.setter
+    def minimum_scale_unit(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "minimum_scale_unit", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -843,6 +939,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIpConfigurationArgs', 'VirtualNetworkGatewayIpConfigurationArgsDict']]]]] = None,
                  ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayPolicyGroupArgs', 'VirtualNetworkGatewayPolicyGroupArgsDict']]]]] = None,
                  private_ip_address_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -964,6 +1062,16 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIpConfigurationArgs', 'VirtualNetworkGatewayIpConfigurationArgsDict']]]] ip_configurations: One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ip_configuration` block, an active-active gateway requires exactly two `ip_configuration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
         :param pulumi.Input[_builtins.bool] ip_sec_replay_protection_enabled: Is IP Sec Replay Protection enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] maximum_scale_unit: The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+               
+               > **Note:** `maximum_scale_unit` is only supported for the `ErGwScale` SKU.
+        :param pulumi.Input[_builtins.int] minimum_scale_unit: The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+               
+               > **Note:** `minimum_scale_unit` is only supported for the `ErGwScale` SKU.
+               
+               > **Note:** To configure a `fixed-size` gateway, set `minimum_scale_unit` and `maximum_scale_unit` to the same value. To enable `autoscaling`, set `minimum_scale_unit` to `2` or higher and `maximum_scale_unit` up to `40`. When `maximum_scale_unit` is set to `1`, `minimum_scale_unit` must also be set to `1`.
+               
+               > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayPolicyGroupArgs', 'VirtualNetworkGatewayPolicyGroupArgsDict']]]] policy_groups: One or more `policy_group` blocks as defined below.
         :param pulumi.Input[_builtins.bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
@@ -1107,6 +1215,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIpConfigurationArgs', 'VirtualNetworkGatewayIpConfigurationArgsDict']]]]] = None,
                  ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayPolicyGroupArgs', 'VirtualNetworkGatewayPolicyGroupArgsDict']]]]] = None,
                  private_ip_address_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1142,6 +1252,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["ip_sec_replay_protection_enabled"] = ip_sec_replay_protection_enabled
             __props__.__dict__["location"] = location
+            __props__.__dict__["maximum_scale_unit"] = maximum_scale_unit
+            __props__.__dict__["minimum_scale_unit"] = minimum_scale_unit
             __props__.__dict__["name"] = name
             __props__.__dict__["policy_groups"] = policy_groups
             __props__.__dict__["private_ip_address_enabled"] = private_ip_address_enabled
@@ -1182,6 +1294,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
             ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIpConfigurationArgs', 'VirtualNetworkGatewayIpConfigurationArgsDict']]]]] = None,
             ip_sec_replay_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
+            maximum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
+            minimum_scale_unit: pulumi.Input[Optional[_builtins.int]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             policy_groups: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VirtualNetworkGatewayPolicyGroupArgs', 'VirtualNetworkGatewayPolicyGroupArgsDict']]]]] = None,
             private_ip_address_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1214,6 +1328,16 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayIpConfigurationArgs', 'VirtualNetworkGatewayIpConfigurationArgsDict']]]] ip_configurations: One or more (up to 3) `ip_configuration` blocks documented below. Changing this forces a new resource to be created. An active-standby gateway requires exactly one `ip_configuration` block, an active-active gateway requires exactly two `ip_configuration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks.
         :param pulumi.Input[_builtins.bool] ip_sec_replay_protection_enabled: Is IP Sec Replay Protection enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.str] location: The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.int] maximum_scale_unit: The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+               
+               > **Note:** `maximum_scale_unit` is only supported for the `ErGwScale` SKU.
+        :param pulumi.Input[_builtins.int] minimum_scale_unit: The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+               
+               > **Note:** `minimum_scale_unit` is only supported for the `ErGwScale` SKU.
+               
+               > **Note:** To configure a `fixed-size` gateway, set `minimum_scale_unit` and `maximum_scale_unit` to the same value. To enable `autoscaling`, set `minimum_scale_unit` to `2` or higher and `maximum_scale_unit` up to `40`. When `maximum_scale_unit` is set to `1`, `minimum_scale_unit` must also be set to `1`.
+               
+               > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Virtual Network Gateway. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VirtualNetworkGatewayPolicyGroupArgs', 'VirtualNetworkGatewayPolicyGroupArgsDict']]]] policy_groups: One or more `policy_group` blocks as defined below.
         :param pulumi.Input[_builtins.bool] private_ip_address_enabled: Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created.
@@ -1247,6 +1371,8 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         __props__.__dict__["ip_configurations"] = ip_configurations
         __props__.__dict__["ip_sec_replay_protection_enabled"] = ip_sec_replay_protection_enabled
         __props__.__dict__["location"] = location
+        __props__.__dict__["maximum_scale_unit"] = maximum_scale_unit
+        __props__.__dict__["minimum_scale_unit"] = minimum_scale_unit
         __props__.__dict__["name"] = name
         __props__.__dict__["policy_groups"] = policy_groups
         __props__.__dict__["private_ip_address_enabled"] = private_ip_address_enabled
@@ -1363,6 +1489,30 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumScaleUnit")
+    def maximum_scale_unit(self) -> pulumi.Output[_builtins.int]:
+        """
+        The maximum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+
+        > **Note:** `maximum_scale_unit` is only supported for the `ErGwScale` SKU.
+        """
+        return pulumi.get(self, "maximum_scale_unit")
+
+    @_builtins.property
+    @pulumi.getter(name="minimumScaleUnit")
+    def minimum_scale_unit(self) -> pulumi.Output[_builtins.int]:
+        """
+        The minimum scale unit for the Virtual Network Gateway, possible values are `1` through `40`.
+
+        > **Note:** `minimum_scale_unit` is only supported for the `ErGwScale` SKU.
+
+        > **Note:** To configure a `fixed-size` gateway, set `minimum_scale_unit` and `maximum_scale_unit` to the same value. To enable `autoscaling`, set `minimum_scale_unit` to `2` or higher and `maximum_scale_unit` up to `40`. When `maximum_scale_unit` is set to `1`, `minimum_scale_unit` must also be set to `1`.
+
+        > **Note:** Changing the `sku` between an availability-zone SKU (`ErGwScale`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`) and a non-availability-zone SKU (`Standard`, `HighPerformance`, `UltraPerformance`) forces a new resource to be created.
+        """
+        return pulumi.get(self, "minimum_scale_unit")
 
     @_builtins.property
     @pulumi.getter

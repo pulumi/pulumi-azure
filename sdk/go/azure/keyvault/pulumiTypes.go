@@ -3550,6 +3550,170 @@ func (o CertificateIssuerAdminArrayOutput) Index(i pulumi.IntInput) CertificateI
 	}).(CertificateIssuerAdminOutput)
 }
 
+type KeyReleasePolicy struct {
+	// Whether this policy is immutable. Defaults to `false`.
+	//
+	// > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+	Immutable *bool `pulumi:"immutable"`
+	// The policy contents in JSON format.
+	Json string `pulumi:"json"`
+}
+
+// KeyReleasePolicyInput is an input type that accepts KeyReleasePolicyArgs and KeyReleasePolicyOutput values.
+// You can construct a concrete instance of `KeyReleasePolicyInput` via:
+//
+//	KeyReleasePolicyArgs{...}
+type KeyReleasePolicyInput interface {
+	pulumi.Input
+
+	ToKeyReleasePolicyOutput() KeyReleasePolicyOutput
+	ToKeyReleasePolicyOutputWithContext(context.Context) KeyReleasePolicyOutput
+}
+
+type KeyReleasePolicyArgs struct {
+	// Whether this policy is immutable. Defaults to `false`.
+	//
+	// > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+	Immutable pulumi.BoolPtrInput `pulumi:"immutable"`
+	// The policy contents in JSON format.
+	Json pulumi.StringInput `pulumi:"json"`
+}
+
+func (KeyReleasePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyReleasePolicy)(nil)).Elem()
+}
+
+func (i KeyReleasePolicyArgs) ToKeyReleasePolicyOutput() KeyReleasePolicyOutput {
+	return i.ToKeyReleasePolicyOutputWithContext(context.Background())
+}
+
+func (i KeyReleasePolicyArgs) ToKeyReleasePolicyOutputWithContext(ctx context.Context) KeyReleasePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyReleasePolicyOutput)
+}
+
+func (i KeyReleasePolicyArgs) ToKeyReleasePolicyPtrOutput() KeyReleasePolicyPtrOutput {
+	return i.ToKeyReleasePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i KeyReleasePolicyArgs) ToKeyReleasePolicyPtrOutputWithContext(ctx context.Context) KeyReleasePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyReleasePolicyOutput).ToKeyReleasePolicyPtrOutputWithContext(ctx)
+}
+
+// KeyReleasePolicyPtrInput is an input type that accepts KeyReleasePolicyArgs, KeyReleasePolicyPtr and KeyReleasePolicyPtrOutput values.
+// You can construct a concrete instance of `KeyReleasePolicyPtrInput` via:
+//
+//	        KeyReleasePolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type KeyReleasePolicyPtrInput interface {
+	pulumi.Input
+
+	ToKeyReleasePolicyPtrOutput() KeyReleasePolicyPtrOutput
+	ToKeyReleasePolicyPtrOutputWithContext(context.Context) KeyReleasePolicyPtrOutput
+}
+
+type keyReleasePolicyPtrType KeyReleasePolicyArgs
+
+func KeyReleasePolicyPtr(v *KeyReleasePolicyArgs) KeyReleasePolicyPtrInput {
+	return (*keyReleasePolicyPtrType)(v)
+}
+
+func (*keyReleasePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyReleasePolicy)(nil)).Elem()
+}
+
+func (i *keyReleasePolicyPtrType) ToKeyReleasePolicyPtrOutput() KeyReleasePolicyPtrOutput {
+	return i.ToKeyReleasePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *keyReleasePolicyPtrType) ToKeyReleasePolicyPtrOutputWithContext(ctx context.Context) KeyReleasePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyReleasePolicyPtrOutput)
+}
+
+type KeyReleasePolicyOutput struct{ *pulumi.OutputState }
+
+func (KeyReleasePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyReleasePolicy)(nil)).Elem()
+}
+
+func (o KeyReleasePolicyOutput) ToKeyReleasePolicyOutput() KeyReleasePolicyOutput {
+	return o
+}
+
+func (o KeyReleasePolicyOutput) ToKeyReleasePolicyOutputWithContext(ctx context.Context) KeyReleasePolicyOutput {
+	return o
+}
+
+func (o KeyReleasePolicyOutput) ToKeyReleasePolicyPtrOutput() KeyReleasePolicyPtrOutput {
+	return o.ToKeyReleasePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o KeyReleasePolicyOutput) ToKeyReleasePolicyPtrOutputWithContext(ctx context.Context) KeyReleasePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyReleasePolicy) *KeyReleasePolicy {
+		return &v
+	}).(KeyReleasePolicyPtrOutput)
+}
+
+// Whether this policy is immutable. Defaults to `false`.
+//
+// > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+func (o KeyReleasePolicyOutput) Immutable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KeyReleasePolicy) *bool { return v.Immutable }).(pulumi.BoolPtrOutput)
+}
+
+// The policy contents in JSON format.
+func (o KeyReleasePolicyOutput) Json() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyReleasePolicy) string { return v.Json }).(pulumi.StringOutput)
+}
+
+type KeyReleasePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyReleasePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyReleasePolicy)(nil)).Elem()
+}
+
+func (o KeyReleasePolicyPtrOutput) ToKeyReleasePolicyPtrOutput() KeyReleasePolicyPtrOutput {
+	return o
+}
+
+func (o KeyReleasePolicyPtrOutput) ToKeyReleasePolicyPtrOutputWithContext(ctx context.Context) KeyReleasePolicyPtrOutput {
+	return o
+}
+
+func (o KeyReleasePolicyPtrOutput) Elem() KeyReleasePolicyOutput {
+	return o.ApplyT(func(v *KeyReleasePolicy) KeyReleasePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret KeyReleasePolicy
+		return ret
+	}).(KeyReleasePolicyOutput)
+}
+
+// Whether this policy is immutable. Defaults to `false`.
+//
+// > **Note:** When `immutable` is set to `true`, changing either `immutable` or `json` will force a new resource to be created.
+func (o KeyReleasePolicyPtrOutput) Immutable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KeyReleasePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Immutable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The policy contents in JSON format.
+func (o KeyReleasePolicyPtrOutput) Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyReleasePolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Json
+	}).(pulumi.StringPtrOutput)
+}
+
 type KeyRotationPolicy struct {
 	// An `automatic` block as defined below.
 	Automatic *KeyRotationPolicyAutomatic `pulumi:"automatic"`
@@ -6455,6 +6619,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateContactsContactArrayInput)(nil)).Elem(), CertificateContactsContactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateIssuerAdminInput)(nil)).Elem(), CertificateIssuerAdminArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateIssuerAdminArrayInput)(nil)).Elem(), CertificateIssuerAdminArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyReleasePolicyInput)(nil)).Elem(), KeyReleasePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyReleasePolicyPtrInput)(nil)).Elem(), KeyReleasePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyRotationPolicyInput)(nil)).Elem(), KeyRotationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyRotationPolicyPtrInput)(nil)).Elem(), KeyRotationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyRotationPolicyAutomaticInput)(nil)).Elem(), KeyRotationPolicyAutomaticArgs{})
@@ -6543,6 +6709,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateContactsContactArrayOutput{})
 	pulumi.RegisterOutputType(CertificateIssuerAdminOutput{})
 	pulumi.RegisterOutputType(CertificateIssuerAdminArrayOutput{})
+	pulumi.RegisterOutputType(KeyReleasePolicyOutput{})
+	pulumi.RegisterOutputType(KeyReleasePolicyPtrOutput{})
 	pulumi.RegisterOutputType(KeyRotationPolicyOutput{})
 	pulumi.RegisterOutputType(KeyRotationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(KeyRotationPolicyAutomaticOutput{})

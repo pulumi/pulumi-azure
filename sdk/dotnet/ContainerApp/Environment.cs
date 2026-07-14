@@ -110,7 +110,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
         /// 
-        /// &gt; **Note:** The Subnet must have a `/21` or larger address space.
+        /// &gt; **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
         /// </summary>
         [Output("infrastructureSubnetId")]
         public Output<string?> InfrastructureSubnetId { get; private set; } = null!;
@@ -290,7 +290,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
         /// 
-        /// &gt; **Note:** The Subnet must have a `/21` or larger address space.
+        /// &gt; **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
         /// </summary>
         [Input("infrastructureSubnetId")]
         public Input<string>? InfrastructureSubnetId { get; set; }
@@ -440,7 +440,7 @@ namespace Pulumi.Azure.ContainerApp
         /// <summary>
         /// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
         /// 
-        /// &gt; **Note:** The Subnet must have a `/21` or larger address space.
+        /// &gt; **Note:** The minimum required subnet size is /23 for Consumption only environment type and /27 for Workload profiles environment type.
         /// </summary>
         [Input("infrastructureSubnetId")]
         public Input<string>? InfrastructureSubnetId { get; set; }
