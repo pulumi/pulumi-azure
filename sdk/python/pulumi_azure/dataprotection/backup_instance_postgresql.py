@@ -346,9 +346,8 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             name="example",
             value=pulumi.Output.all(
                 exampleServerName=example_server.name,
-                exampleDatabaseName=example_database.name,
-                exampleServerName1=example_server.name
-        ).apply(lambda resolved_outputs: f"Server={resolved_outputs['exampleServerName']}.postgres.database.azure.com;Database={resolved_outputs['exampleDatabaseName']};Port=5432;User Id=psqladmin@{resolved_outputs['exampleServerName1']};Password=H@Sh1CoR3!;Ssl Mode=Require;")
+                exampleDatabaseName=example_database.name
+        ).apply(lambda resolved_outputs: f"Server={resolved_outputs['exampleServerName']}.postgres.database.azure.com;Database={resolved_outputs['exampleDatabaseName']};Port=5432;User Id=psqladmin@{resolved_outputs['exampleServerName']};Password=H@Sh1CoR3!;Ssl Mode=Require;")
         ,
             key_vault_id=example_key_vault.id)
         example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("example",
@@ -495,9 +494,8 @@ class BackupInstancePostgresql(pulumi.CustomResource):
             name="example",
             value=pulumi.Output.all(
                 exampleServerName=example_server.name,
-                exampleDatabaseName=example_database.name,
-                exampleServerName1=example_server.name
-        ).apply(lambda resolved_outputs: f"Server={resolved_outputs['exampleServerName']}.postgres.database.azure.com;Database={resolved_outputs['exampleDatabaseName']};Port=5432;User Id=psqladmin@{resolved_outputs['exampleServerName1']};Password=H@Sh1CoR3!;Ssl Mode=Require;")
+                exampleDatabaseName=example_database.name
+        ).apply(lambda resolved_outputs: f"Server={resolved_outputs['exampleServerName']}.postgres.database.azure.com;Database={resolved_outputs['exampleDatabaseName']};Port=5432;User Id=psqladmin@{resolved_outputs['exampleServerName']};Password=H@Sh1CoR3!;Ssl Mode=Require;")
         ,
             key_vault_id=example_key_vault.id)
         example_backup_policy_postgresql = azure.dataprotection.BackupPolicyPostgresql("example",

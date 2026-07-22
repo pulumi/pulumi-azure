@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleGetApi = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getApi({
+ * const exampleGetApi = example.then(example => azure.apimanagement.getApi({
  *     name: "search-api",
  *     apiManagementName: example.name,
- *     resourceGroupName: example1.resourceGroupName,
+ *     resourceGroupName: example.resourceGroupName,
  *     revision: "2",
  * }));
  * const exampleGetGateway = example.then(example => azure.apimanagement.getGateway({

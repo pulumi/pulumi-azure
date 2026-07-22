@@ -148,11 +148,10 @@ import (
 //			}
 //			exampleSecret, err := keyvault.NewSecret(ctx, "example", &keyvault.SecretArgs{
 //				Name: pulumi.String("example"),
-//				Value: pulumi.All(exampleServer.Name, exampleDatabase.Name, exampleServer.Name).ApplyT(func(_args []interface{}) (string, error) {
+//				Value: pulumi.All(exampleServer.Name, exampleDatabase.Name).ApplyT(func(_args []interface{}) (string, error) {
 //					exampleServerName := _args[0].(string)
 //					exampleDatabaseName := _args[1].(string)
-//					exampleServerName1 := _args[2].(string)
-//					return fmt.Sprintf("Server=%v.postgres.database.azure.com;Database=%v;Port=5432;User Id=psqladmin@%v;Password=H@Sh1CoR3!;Ssl Mode=Require;", exampleServerName, exampleDatabaseName, exampleServerName1), nil
+//					return fmt.Sprintf("Server=%v.postgres.database.azure.com;Database=%v;Port=5432;User Id=psqladmin@%v;Password=H@Sh1CoR3!;Ssl Mode=Require;", exampleServerName, exampleDatabaseName, exampleServerName), nil
 //				}).(pulumi.StringOutput),
 //				KeyVaultId: exampleKeyVault.ID(),
 //			})

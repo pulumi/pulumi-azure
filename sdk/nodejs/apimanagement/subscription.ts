@@ -17,15 +17,15 @@ import * as utilities from "../utilities";
  *     name: "example-apim",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleGetProduct = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getProduct({
+ * const exampleGetProduct = example.then(example => azure.apimanagement.getProduct({
  *     productId: "00000000-0000-0000-0000-000000000000",
  *     apiManagementName: example.name,
- *     resourceGroupName: example1.resourceGroupName,
+ *     resourceGroupName: example.resourceGroupName,
  * }));
- * const exampleGetUser = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getUser({
+ * const exampleGetUser = example.then(example => azure.apimanagement.getUser({
  *     userId: "11111111-1111-1111-1111-111111111111",
  *     apiManagementName: example.name,
- *     resourceGroupName: example1.resourceGroupName,
+ *     resourceGroupName: example.resourceGroupName,
  * }));
  * const exampleSubscription = new azure.apimanagement.Subscription("example", {
  *     apiManagementName: example.then(example => example.name),

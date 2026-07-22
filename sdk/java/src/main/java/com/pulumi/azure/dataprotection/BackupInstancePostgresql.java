@@ -153,11 +153,10 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSecret = new Secret("exampleSecret", SecretArgs.builder()
  *             .name("example")
- *             .value(Output.tuple(exampleServer.name(), exampleDatabase.name(), exampleServer.name()).applyValue(values -> }{{@code
+ *             .value(Output.tuple(exampleServer.name(), exampleDatabase.name()).applyValue(values -> }{{@code
  *                 var exampleServerName = values.t1;
  *                 var exampleDatabaseName = values.t2;
- *                 var exampleServerName1 = values.t3;
- *                 return String.format("Server=%s.postgres.database.azure.com;Database=%s;Port=5432;User Id=psqladmin}{@literal @}{@code %s;Password=H}{@literal @}{@code Sh1CoR3!;Ssl Mode=Require;", exampleServerName,exampleDatabaseName,exampleServerName1);
+ *                 return String.format("Server=%s.postgres.database.azure.com;Database=%s;Port=5432;User Id=psqladmin}{@literal @}{@code %s;Password=H}{@literal @}{@code Sh1CoR3!;Ssl Mode=Require;", exampleServerName,exampleDatabaseName,exampleServerName);
  *             }}{@code ))
  *             .keyVaultId(exampleKeyVault.id())
  *             .build());
