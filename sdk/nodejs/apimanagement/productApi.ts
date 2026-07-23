@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleGetApi = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getApi({
+ * const exampleGetApi = example.then(example => azure.apimanagement.getApi({
  *     name: "search-api",
  *     apiManagementName: example.name,
- *     resourceGroupName: example1.resourceGroupName,
+ *     resourceGroupName: example.resourceGroupName,
  *     revision: "2",
  * }));
- * const exampleGetProduct = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getProduct({
+ * const exampleGetProduct = example.then(example => azure.apimanagement.getProduct({
  *     productId: "my-product",
  *     apiManagementName: example.name,
- *     resourceGroupName: example1.resourceGroupName,
+ *     resourceGroupName: example.resourceGroupName,
  * }));
  * const exampleProductApi = new azure.apimanagement.ProductApi("example", {
  *     apiName: exampleGetApi.then(exampleGetApi => exampleGetApi.name),

@@ -133,12 +133,11 @@ namespace Pulumi.Azure.DataProtection
     ///     var exampleSecret = new Azure.KeyVault.Secret("example", new()
     ///     {
     ///         Name = "example",
-    ///         Value = Output.Tuple(exampleServer.Name, exampleDatabase.Name, exampleServer.Name).Apply(values =&gt;
+    ///         Value = Output.Tuple(exampleServer.Name, exampleDatabase.Name).Apply(values =&gt;
     ///         {
     ///             var exampleServerName = values.Item1;
     ///             var exampleDatabaseName = values.Item2;
-    ///             var exampleServerName1 = values.Item3;
-    ///             return $"Server={exampleServerName}.postgres.database.azure.com;Database={exampleDatabaseName};Port=5432;User Id=psqladmin@{exampleServerName1};Password=H@Sh1CoR3!;Ssl Mode=Require;";
+    ///             return $"Server={exampleServerName}.postgres.database.azure.com;Database={exampleDatabaseName};Port=5432;User Id=psqladmin@{exampleServerName};Password=H@Sh1CoR3!;Ssl Mode=Require;";
     ///         }),
     ///         KeyVaultId = exampleKeyVault.Id,
     ///     });

@@ -25,9 +25,9 @@ import * as utilities from "../utilities";
  *     name: "exampleBlueprint",
  *     scopeId: example.id,
  * }));
- * const exampleGetPublishedVersion = Promise.all([exampleGetDefinition, exampleGetDefinition]).then(([exampleGetDefinition, exampleGetDefinition1]) => azure.blueprint.getPublishedVersion({
+ * const exampleGetPublishedVersion = exampleGetDefinition.then(exampleGetDefinition => azure.blueprint.getPublishedVersion({
  *     scopeId: exampleGetDefinition.scopeId,
- *     blueprintName: exampleGetDefinition1.name,
+ *     blueprintName: exampleGetDefinition.name,
  *     version: "v1.0.0",
  * }));
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
