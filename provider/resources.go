@@ -22,6 +22,7 @@ import (
 	"os"
 	"path/filepath"
 	"regexp"
+	"strconv"
 	"strings"
 	"time"
 	"unicode"
@@ -465,6 +466,7 @@ type resolvedCredentials struct {
 	tenantID  string
 	oidcToken string
 	useOIDC   bool
+	useCLI    bool
 }
 
 // resolveCredentials resolves client ID, tenant ID, and OIDC token from Pulumi config,
@@ -474,6 +476,11 @@ func resolveCredentials(vars resource.PropertyMap) (*resolvedCredentials, error)
 	aksEnvVars := []string{"ARM_USE_AKS_WORKLOAD_IDENTITY"}
 	useAksWorkloadIdentity := tfbridge.ConfigBoolValue(vars, "useAksWorkloadIdentity", aksEnvVars)
 	useOIDC := tfbridge.ConfigBoolValue(vars, "useOidc", []string{"ARM_USE_OIDC"}) || useAksWorkloadIdentity
+
+	useCLI, err := configBoolValueWithDefault(vars, "useCli", []string{"ARM_USE_CLI"}, true)
+	if err != nil {
+		return nil, err
+	}
 
 	clientID := tfbridge.ConfigStringValue(vars, "clientId", []string{"ARM_CLIENT_ID"})
 	tenantID := tfbridge.ConfigStringValue(vars, "tenantId", []string{"ARM_TENANT_ID"})
@@ -513,7 +520,28 @@ func resolveCredentials(vars resource.PropertyMap) (*resolvedCredentials, error)
 		tenantID:  tenantID,
 		oidcToken: oidcToken,
 		useOIDC:   useOIDC,
+		useCLI:    useCLI,
 	}, nil
+}
+
+// configBoolValueWithDefault reads a bool from config, then from the given env vars,
+// falling back to defaultValue.
+func configBoolValueWithDefault(
+	vars resource.PropertyMap, prop resource.PropertyKey, envs []string, defaultValue bool,
+) (bool, error) {
+	if v, ok := vars[prop]; ok && v.IsBool() {
+		return v.BoolValue(), nil
+	}
+	for _, env := range envs {
+		if s := os.Getenv(env); s != "" {
+			parsed, err := strconv.ParseBool(s)
+			if err != nil {
+				return false, fmt.Errorf("parsing %s as a boolean: %w", env, err)
+			}
+			return parsed, nil
+		}
+	}
+	return defaultValue, nil
 }
 
 // preConfigureCallback returns an error when cloud provider setup is misconfigured
@@ -578,7 +606,7 @@ func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) er
 		EnableAuthenticatingUsingClientCertificate: true,
 		EnableAuthenticatingUsingClientSecret:      true,
 		EnableAuthenticatingUsingManagedIdentity:   tfbridge.ConfigBoolValue(vars, "useMsi", []string{"ARM_USE_MSI"}),
-		EnableAuthenticatingUsingAzureCLI:          true,
+		EnableAuthenticatingUsingAzureCLI:          creds.useCLI,
 		EnableAuthenticationUsingOIDC:              creds.useOIDC,
 		EnableAuthenticationUsingGitHubOIDC:        creds.useOIDC,
 	}
