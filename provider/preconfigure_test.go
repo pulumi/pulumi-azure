@@ -13,6 +13,55 @@ import (
 
 const useAksWorkloadIdentityKey = "useAksWorkloadIdentity"
 
+func TestConfigBoolValueWithDefault(t *testing.T) {
+	const prop resource.PropertyKey = "useCli"
+	envs := []string{"ARM_USE_CLI"}
+
+	t.Run("defaults to true when unset", func(t *testing.T) {
+		t.Setenv("ARM_USE_CLI", "")
+		got, err := configBoolValueWithDefault(resource.PropertyMap{}, prop, envs, true)
+		require.NoError(t, err)
+		assert.True(t, got)
+	})
+
+	t.Run("config false overrides default", func(t *testing.T) {
+		t.Setenv("ARM_USE_CLI", "")
+		vars := resource.PropertyMap{prop: resource.NewBoolProperty(false)}
+		got, err := configBoolValueWithDefault(vars, prop, envs, true)
+		require.NoError(t, err)
+		assert.False(t, got)
+	})
+
+	t.Run("config takes precedence over env", func(t *testing.T) {
+		t.Setenv("ARM_USE_CLI", "true")
+		vars := resource.PropertyMap{prop: resource.NewBoolProperty(false)}
+		got, err := configBoolValueWithDefault(vars, prop, envs, true)
+		require.NoError(t, err)
+		assert.False(t, got)
+	})
+
+	t.Run("env false overrides default when config unset", func(t *testing.T) {
+		t.Setenv("ARM_USE_CLI", "false")
+		got, err := configBoolValueWithDefault(resource.PropertyMap{}, prop, envs, true)
+		require.NoError(t, err)
+		assert.False(t, got)
+	})
+
+	t.Run("env true overrides default when config unset", func(t *testing.T) {
+		t.Setenv("ARM_USE_CLI", "true")
+		got, err := configBoolValueWithDefault(resource.PropertyMap{}, prop, envs, false)
+		require.NoError(t, err)
+		assert.True(t, got)
+	})
+
+	t.Run("errors on unparseable env value", func(t *testing.T) {
+		t.Setenv("ARM_USE_CLI", "not-a-bool")
+		_, err := configBoolValueWithDefault(resource.PropertyMap{}, prop, envs, true)
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "ARM_USE_CLI")
+	})
+}
+
 func TestResolveCredentials_AksWorkloadIdentity(t *testing.T) {
 	tokenContent := "my-federated-token"
 	tokenFile := filepath.Join(t.TempDir(), "azure-identity-token")
