@@ -46,7 +46,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 
-	"github.com/pulumi/pulumi-azure/provider/v6/pkg/version"
+	"github.com/pulumi/pulumi-azure/provider/v7/pkg/version"
 )
 
 const (
@@ -630,10 +630,6 @@ var metadata []byte
 // nolint: lll
 func Provider() tfbridge.ProviderInfo {
 	innerProvider := shim.NewProvider()
-	// TF renamed azurerm_extended_custom_location to azurerm_extended_location_custom_location in
-	// https://github.com/hashicorp/terraform-provider-azurerm/pull/28066. To avoid the "duplicate module member" error,
-	// we drop the old resource here. The Pulumi token is the same for old and new resource.
-	delete(innerProvider.ResourcesMap, "azurerm_extended_custom_location")
 
 	p := shimv2.NewProvider(innerProvider)
 
@@ -667,12 +663,6 @@ func Provider() tfbridge.ProviderInfo {
 				Default: &tfbridge.DefaultInfo{
 					Value:   "public",
 					EnvVars: []string{"AZURE_ENVIRONMENT", "ARM_ENVIRONMENT"},
-				},
-			},
-			"skip_provider_registration": {
-				Default: &tfbridge.DefaultInfo{
-					Value:   false,
-					EnvVars: []string{"ARM_SKIP_PROVIDER_REGISTRATION"},
 				},
 			},
 			"storage_use_azuread": {
@@ -712,12 +702,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		},
-		IgnoreMappings: []string{
-			"azurerm_network_packet_capture",
-			// was replaced by azurerm_virtual_machine_restore_point_collection which is identical
-			// except for the name, see https://github.com/hashicorp/terraform-provider-azurerm/pull/26526
-			"azurerm_restore_point_collection",
-		},
+		IgnoreMappings:       []string{},
 		PreConfigureCallback: preConfigureCallback,
 		DocRules: &info.DocRule{
 			EditRules: func(defaults []info.DocsEdit) []info.DocsEdit {
@@ -851,54 +836,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_application_insights_standard_web_test":    {Tok: azureResource(azureAppInsights, "StandardWebTest")},
 
 			// App Service
-			"azurerm_app_service": {
-				Tok: azureResource(azureAppService, "AppService"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Max length of an app service name is 60.
-					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#general
-					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
-						Separator: "",
-						Maxlen:    60,
-						Randlen:   8,
-						Transform: strings.ToLower,
-					}),
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"use_32_bit_worker_process": {
-									Name: "use32BitWorkerProcess",
-								},
-							},
-						},
-					},
-				},
-			},
-			"azurerm_app_service_plan": {
-				Tok: azureResource(azureAppService, "Plan"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Max length of an app service plan name is 40.
-					// This was discovered directly through the portal.
-					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
-						Separator: "",
-						Maxlen:    40,
-						Randlen:   8,
-						Transform: strings.ToLower,
-					}),
-					"kind": {
-						Type:     typeString,
-						AltTypes: []tokens.Type{azureType(azureAppService, "Kind")},
-					},
-				},
-			},
-			"azurerm_app_service_slot": {Tok: azureResource(azureAppService, "Slot")},
 			"azurerm_app_service_connection": {
 				Tok: azureResource(azureAppService, "Connection"),
 				Docs: &tfbridge.DocInfo{
 					Source: "service_connector_app_service.html.markdown",
 				},
 			},
-			"azurerm_app_service_active_slot": {Tok: azureResource(azureAppService, "ActiveSlot")},
-
 			"azurerm_dynatrace_monitor": {
 				Tok: azureResource(azureDynatrace, "Monitor"),
 				Docs: &tfbridge.DocInfo{
@@ -906,57 +849,30 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 
-			"azurerm_function_app": {
-				Tok: azureResource(azureAppService, "FunctionApp"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Max length of a functionapp name is 60.
-					// Source: https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#compute
-					azureName: tfbridge.AutoNameWithCustomOptions(azureName, tfbridge.AutoNameOptions{
-						Separator: "",
-						Maxlen:    60,
-						Randlen:   8,
-						Transform: strings.ToLower,
-					}),
-					"site_config": {
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								"use_32_bit_worker_process": {
-									Name: "use32BitWorkerProcess",
-								},
-							},
-						},
-					},
-				},
-			},
-			"azurerm_function_app_slot":                {Tok: azureResource(azureAppService, "FunctionAppSlot")},
-			"azurerm_function_app_active_slot":         {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
-			"azurerm_function_app_function":            {Tok: azureResource(azureAppService, "FunctionAppFunction")},
-			"azurerm_function_app_hybrid_connection":   {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
-			"azurerm_linux_function_app":               {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
-			"azurerm_linux_function_app_slot":          {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
-			"azurerm_linux_web_app":                    {Tok: azureResource(azureAppService, "LinuxWebApp")},
-			"azurerm_linux_web_app_slot":               {Tok: azureResource(azureAppService, "LinuxWebAppSlot")},
-			"azurerm_web_app_active_slot":              {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
-			"azurerm_web_app_hybrid_connection":        {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
-			"azurerm_windows_function_app":             {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
-			"azurerm_windows_function_app_slot":        {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
-			"azurerm_windows_web_app":                  {Tok: azureResource(azureAppService, "WindowsWebApp")},
-			"azurerm_windows_web_app_slot":             {Tok: azureResource(azureAppService, "WindowsWebAppSlot")},
-			"azurerm_app_service_certificate":          {Tok: azureResource(azureAppService, "Certificate")},
-			"azurerm_app_service_source_control_token": {Tok: azureResource(azureAppService, "SourceCodeToken")},
-			"azurerm_app_service_certificate_order":    {Tok: azureResource(azureAppService, "CertificateOrder")},
+			"azurerm_function_app_active_slot":       {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
+			"azurerm_function_app_function":          {Tok: azureResource(azureAppService, "FunctionAppFunction")},
+			"azurerm_function_app_hybrid_connection": {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
+			"azurerm_linux_function_app":             {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
+			"azurerm_linux_function_app_slot":        {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
+			"azurerm_linux_web_app":                  {Tok: azureResource(azureAppService, "LinuxWebApp")},
+			"azurerm_linux_web_app_slot":             {Tok: azureResource(azureAppService, "LinuxWebAppSlot")},
+			"azurerm_web_app_active_slot":            {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
+			"azurerm_web_app_hybrid_connection":      {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
+			"azurerm_windows_function_app":           {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
+			"azurerm_windows_function_app_slot":      {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
+			"azurerm_windows_web_app":                {Tok: azureResource(azureAppService, "WindowsWebApp")},
+			"azurerm_windows_web_app_slot":           {Tok: azureResource(azureAppService, "WindowsWebAppSlot")},
+			"azurerm_app_service_certificate":        {Tok: azureResource(azureAppService, "Certificate")},
+			"azurerm_app_service_certificate_order":  {Tok: azureResource(azureAppService, "CertificateOrder")},
 			"azurerm_app_service_virtual_network_swift_connection": {
 				Tok: azureResource(azureAppService, "VirtualNetworkSwiftConnection"),
 			},
-			"azurerm_app_service_hybrid_connection":   {Tok: azureResource(azureAppService, "HybridConnection")},
 			"azurerm_app_service_managed_certificate": {Tok: azureResource(azureAppService, "ManagedCertificate")},
 			"azurerm_app_service_slot_virtual_network_swift_connection": {
 				Tok: azureResource(azureAppService, "SlotVirtualNetworkSwiftConnection"),
 			},
 			"azurerm_app_service_certificate_binding":          {Tok: azureResource(azureAppService, "CertificateBinding")},
 			"azurerm_app_service_environment_v3":               {Tok: azureResource(azureAppService, "EnvironmentV3")},
-			"azurerm_static_site":                              {Tok: azureResource(azureAppService, "StaticSite")},
-			"azurerm_static_site_custom_domain":                {Tok: azureResource(azureAppService, "StaticSiteCustomDomain")},
 			"azurerm_static_web_app":                           {Tok: azureResource(azureAppService, "StaticWebApp")},
 			"azurerm_static_web_app_custom_domain":             {Tok: azureResource(azureAppService, "StaticWebAppCustomDomain")},
 			"azurerm_static_web_app_function_app_registration": {Tok: azureResource(azureAppService, "StaticWebAppFunctionAppRegistration")},
@@ -998,13 +914,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_connection_service_principal": {
 				Tok: azureResource(azureAutomation, "ConnectionServicePrincipal"),
 			},
-			"azurerm_automation_webhook":                       {Tok: azureResource(azureAutomation, "Webhook")},
-			"azurerm_automation_connection_type":               {Tok: azureResource(azureAutomation, "ConnectionType")},
-			"azurerm_automation_hybrid_runbook_worker":         {Tok: azureResource(azureAutomation, "HybridRunbookWorker")},
-			"azurerm_automation_hybrid_runbook_worker_group":   {Tok: azureResource(azureAutomation, "HybridRunbookWorkerGroup")},
-			"azurerm_automation_source_control":                {Tok: azureResource(azureAutomation, "SourceControl")},
-			"azurerm_automation_watcher":                       {Tok: azureResource(azureAutomation, "Watcher")},
-			"azurerm_automation_software_update_configuration": {Tok: azureResource(azureAutomation, "SoftwareUpdateConfiguration")},
+			"azurerm_automation_webhook":                     {Tok: azureResource(azureAutomation, "Webhook")},
+			"azurerm_automation_connection_type":             {Tok: azureResource(azureAutomation, "ConnectionType")},
+			"azurerm_automation_hybrid_runbook_worker":       {Tok: azureResource(azureAutomation, "HybridRunbookWorker")},
+			"azurerm_automation_hybrid_runbook_worker_group": {Tok: azureResource(azureAutomation, "HybridRunbookWorkerGroup")},
+			"azurerm_automation_source_control":              {Tok: azureResource(azureAutomation, "SourceControl")},
+			"azurerm_automation_watcher":                     {Tok: azureResource(azureAutomation, "Watcher")},
 
 			// Azure Container Service
 			"azurerm_container_registry": {
@@ -1076,16 +991,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
 			"azurerm_batch_application": {Tok: azureResource(azureBatch, "Application")},
-			"azurerm_batch_certificate": {
-				Tok: azureResource(azureBatch, "Certificate"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"certificate": {
-						CSharpName: "BatchCertificate",
-					},
-				},
-			},
-			"azurerm_batch_pool": {Tok: azureResource(azureBatch, "Pool")},
-			"azurerm_batch_job":  {Tok: azureResource(azureBatch, "Job")},
+			"azurerm_batch_pool":        {Tok: azureResource(azureBatch, "Pool")},
+			"azurerm_batch_job":         {Tok: azureResource(azureBatch, "Job")},
 
 			// Billing
 			"azurerm_billing_account_cost_management_export": {Tok: azureResource(azureBilling, "AccountCostManagementExport")},
@@ -1199,7 +1106,6 @@ func Provider() tfbridge.ProviderInfo {
 			// Cognitive
 			"azurerm_cognitive_account":                      {Tok: azureResource(azureCognitive, "Account")},
 			"azurerm_cognitive_account_customer_managed_key": {Tok: azureResource(azureCognitive, "AccountCustomerManagedKey")},
-			"azurerm_ai_services":                            {Tok: azureResource(azureCognitive, "AIServices")},
 			"azurerm_cognitive_deployment":                   {Tok: azureResource(azureCognitive, "Deployment")},
 			// Compute
 			"azurerm_availability_set": {
@@ -1299,12 +1205,6 @@ func Provider() tfbridge.ProviderInfo {
 			// DataBricks
 			"azurerm_databricks_access_connector": {Tok: azureResource(azureDataBricks, "AccessConnector")},
 			"azurerm_databricks_workspace":        {Tok: azureResource(azureDataBricks, "Workspace")},
-			"azurerm_databricks_workspace_customer_managed_key": {
-				Tok: azureResource(azureDataBricks, "WorkspaceCustomerManagedKey"),
-				Docs: &tfbridge.DocInfo{
-					Source: "databricks_workspace.html.markdown",
-				},
-			},
 			"azurerm_databricks_workspace_root_dbfs_customer_managed_key": {
 				Tok:     azureResource(azureDataBricks, "WorkspaceRootDbfsCustomerManagedKey"),
 				Aliases: []tfbridge.AliasInfo{{Type: ref("azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey")}},
@@ -1416,8 +1316,6 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Data Protection
 			"azurerm_data_protection_backup_vault":                 {Tok: azureResource(azureDataProtection, "BackupVault")},
-			"azurerm_data_protection_backup_policy_postgresql":     {Tok: azureResource(azureDataProtection, "BackupPolicyPostgresql")},
-			"azurerm_data_protection_backup_instance_postgresql":   {Tok: azureResource(azureDataProtection, "BackupInstancePostgresql")},
 			"azurerm_data_protection_backup_policy_disk":           {Tok: azureResource(azureDataProtection, "BackupPolicyDisk")},
 			"azurerm_data_protection_backup_policy_blob_storage":   {Tok: azureResource(azureDataProtection, "BackupPolicyBlobStorage")},
 			"azurerm_data_protection_backup_instance_disk":         {Tok: azureResource(azureDataProtection, "BackupInstanceDisk")},
@@ -1723,7 +1621,6 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Maps
 			"azurerm_maps_account": {Tok: azureResource(azureMaps, "Account")},
-			"azurerm_maps_creator": {Tok: azureResource(azureMaps, "Creator")},
 
 			// Monitoring resources
 			"azurerm_monitor_action_group": {
@@ -1872,25 +1769,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_mysql_flexible_database": {Tok: azureResource(azureMySQL, "FlexibleDatabase")},
 
 			// Postgress SQL
-			"azurerm_postgresql_configuration": {
-				Tok: azureResource(azurePostgresql, "Configuration"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"name": {Name: "name"},
-				},
-			},
-			"azurerm_postgresql_database":      {Tok: azureResource(azurePostgresql, "Database")},
-			"azurerm_postgresql_firewall_rule": {Tok: azureResource(azurePostgresql, "FirewallRule")},
-			"azurerm_postgresql_server": {
-				Tok: azureResource(azurePostgresql, "Server"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"administrator_login_password_wo": {Omit: true}, // write-only, see https://github.com/pulumi/pulumi/issues/16600
-				},
-			},
-			"azurerm_postgresql_virtual_network_rule": {Tok: azureResource(azurePostgresql, "VirtualNetworkRule")},
-			"azurerm_postgresql_server_key":           {Tok: azureResource(azurePostgresql, "ServerKey")},
-			"azurerm_postgresql_active_directory_administrator": {
-				Tok: azureResource(azurePostgresql, "ActiveDirectoryAdministrator"),
-			},
 			"azurerm_postgresql_flexible_server": {
 				Tok: azureResource(azurePostgresql, "FlexibleServer"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2206,9 +2084,6 @@ func Provider() tfbridge.ProviderInfo {
 					return pm, nil
 				},
 			},
-			"azurerm_redis_enterprise_cluster":  {Tok: azureResource(azureRedis, "EnterpriseCluster")},
-			"azurerm_redis_enterprise_database": {Tok: azureResource(azureRedis, "EnterpriseDatabase")},
-
 			// Relay
 			"azurerm_relay_namespace":                            {Tok: azureResource(azureRelay, "Namespace")},
 			"azurerm_relay_hybrid_connection":                    {Tok: azureResource(azureRelay, "HybridConnection")},
@@ -2221,7 +2096,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_security_center_workspace":            {Tok: azureResource(azureSecurityCenter, "Workspace")},
 			"azurerm_advanced_threat_protection":           {Tok: azureResource(azureSecurityCenter, "AdvancedThreatProtection")},
 			"azurerm_security_center_setting":              {Tok: azureResource(azureSecurityCenter, "Setting")},
-			"azurerm_security_center_auto_provisioning":    {Tok: azureResource(azureSecurityCenter, "AutoProvisioning")},
 			"azurerm_security_center_automation":           {Tok: azureResource(azureSecurityCenter, "Automation")},
 			"azurerm_security_center_assessment":           {Tok: azureResource(azureSecurityCenter, "Assessment")},
 			"azurerm_security_center_assessment_policy":    {Tok: azureResource(azureSecurityCenter, "AssessmentPolicy")},
@@ -2265,18 +2139,6 @@ func Provider() tfbridge.ProviderInfo {
 						Randlen:   8,
 						Transform: lowercaseLettersAndNumbers,
 					}),
-					"static_website": {
-						Name: "staticWebsite",
-						Elem: &tfbridge.SchemaInfo{
-							Fields: map[string]*tfbridge.SchemaInfo{
-								// By default, this gets reverse-mapped to `error404_document` by the
-								// bridge's naming logic, so we force it to the correct mapping here.
-								"error_404_document": {
-									Name: "error404Document",
-								},
-							},
-						},
-					},
 				},
 				TransformFromState: func(_ context.Context, pm resource.PropertyMap) (resource.PropertyMap, error) {
 					if _, ok := pm["dnsEndpointType"]; !ok {
@@ -2607,13 +2469,6 @@ func Provider() tfbridge.ProviderInfo {
 			// Arc Kubernetes
 			"azurerm_arc_kubernetes_cluster": {Tok: azureResource(azureArcKubernetes, "Cluster")},
 
-			// HPC
-			"azurerm_hpc_cache":                 {Tok: azureResource(azureHpc, "Cache")},
-			"azurerm_hpc_cache_blob_target":     {Tok: azureResource(azureHpc, "CacheBlobTarget")},
-			"azurerm_hpc_cache_nfs_target":      {Tok: azureResource(azureHpc, "CacheNfsTarget")},
-			"azurerm_hpc_cache_blob_nfs_target": {Tok: azureResource(azureHpc, "CacheBlobNfsTarget")},
-			"azurerm_hpc_cache_access_policy":   {Tok: azureResource(azureHpc, "CacheAccessPolicy")},
-
 			// Palo Alto
 			"azurerm_palo_alto_next_generation_firewall_virtual_hub_local_rulestack": {
 				Tok:  azureResource(azurePaloAlto, "NextGenerationFirewallVirtualHubLocalRulestack"),
@@ -2888,16 +2743,6 @@ func Provider() tfbridge.ProviderInfo {
 			// Portal
 			"azurerm_portal_dashboard": {Tok: azureResource(azurePortal, "PortalDashboard"), Aliases: []tfbridge.AliasInfo{{Type: ref("azure:portal/dashboard:Dashboard")}}},
 
-			// Orbital
-			"azurerm_orbital_spacecraft": {
-				Tok: azureResource(azureOrbital, "Spacecraft"),
-				Docs: &tfbridge.DocInfo{
-					Source: "spacecraft.html.markdown",
-				},
-			},
-			"azurerm_orbital_contact_profile": {Tok: azureResource(azureOrbital, "ContactProfile")},
-			"azurerm_orbital_contact":         {Tok: azureResource(azureOrbital, "Contact")},
-
 			// ARM MSI
 			"azurerm_federated_identity_credential": {Tok: azureResource(armMsi, "FederatedIdentityCredential")},
 
@@ -2954,22 +2799,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_api_management_gateway":                         {Tok: azureDataSource(azureAPIManagement, "getGateway")},
 			"azurerm_api_management_gateway_host_name_configuration": {Tok: azureDataSource(azureAPIManagement, "getGatewayHostNameConfiguration")},
 
-			"azurerm_app_service": {
-				Tok: azureDataSource(azureAppService, "getAppService"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Ensure "sku" is a singleton
-					// Can't have multiple SKUs on a resource in the Azure API
-					fieldSku: {Name: fieldSku, MaxItemsOne: ref(true)},
-				},
-			},
-			"azurerm_app_service_plan": {
-				Tok: azureDataSource(azureAppService, "getAppServicePlan"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					// Ensure "sku" is a singleton
-					// Can't have multiple SKUs on a resource in the Azure API
-					fieldSku: {Name: fieldSku, MaxItemsOne: ref(true)},
-				},
-			},
 			"azurerm_linux_function_app":   {Tok: azureDataSource(azureAppService, "getLinuxFunctionApp")},
 			"azurerm_linux_web_app":        {Tok: azureDataSource(azureAppService, "getLinuxWebApp")},
 			"azurerm_service_plan":         {Tok: azureDataSource(azureAppService, "getServicePlan")},
@@ -2987,7 +2816,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_variable_string":   {Tok: azureDataSource(azureAutomation, "getStringVariable")},
 			"azurerm_automation_account":           {Tok: azureDataSource(azureAutomation, "getAccount")},
 			"azurerm_batch_account":                {Tok: azureDataSource(azureBatch, "getAccount")},
-			"azurerm_batch_certificate":            {Tok: azureDataSource(azureBatch, "getCertificate")},
 			"azurerm_batch_pool":                   {Tok: azureDataSource(azureBatch, "getPool")},
 			"azurerm_batch_application":            {Tok: azureDataSource(azureBatch, "getApplication")},
 
@@ -3177,7 +3005,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_public_ip_prefix":                   {Tok: azureDataSource(azureNetwork, "getPublicIpPrefix")},
 			"azurerm_application_security_group":         {Tok: azureDataSource(azureNetwork, "getApplicationSecurityGroup")},
 			"azurerm_redis_cache":                        {Tok: azureDataSource(azureRedis, "getCache")},
-			"azurerm_redis_enterprise_database":          {Tok: azureDataSource(azureRedis, "getEnterpriseDatabase")},
 			"azurerm_resource_group":                     {Tok: azureDataSource(azureCore, "getResourceGroup")},
 			"azurerm_resource_group_template_deployment": {Tok: azureDataSource(azureCore, "getResourceGroupTemplateDeployment")},
 			"azurerm_snapshot":                           {Tok: azureDataSource(azureCompute, "getSnapshot")},
@@ -3248,7 +3075,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_healthcare_fhir_service":    {Tok: azureDataSource(azureHealthcare, "getFhirService")},
 			"azurerm_healthcare_medtech_service": {Tok: azureDataSource(azureHealthcare, "getMedtechService")},
 
-			"azurerm_postgresql_server":           {Tok: azureDataSource(azurePostgresql, "getServer")},
 			"azurerm_postgresql_flexible_server":  {Tok: azureDataSource(azurePostgresql, "getFlexibleServer")},
 			"azurerm_resources":                   {Tok: azureDataSource(azureCore, "getResources")},
 			"azurerm_netapp_account":              {Tok: azureDataSource(azureNetapp, "getAccount")},
@@ -3295,7 +3121,6 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_eventhub":                        {Tok: azureDataSource(azureEventHub, "getEventHub")},
 			"azurerm_eventhub_authorization_rule":     {Tok: azureDataSource(azureEventHub, "getAuthorizationRule")},
 			"azurerm_eventhub_consumer_group":         {Tok: azureDataSource(azureEventHub, "getConsumeGroup")},
-			"azurerm_function_app":                    {Tok: azureDataSource(azureAppService, "getFunctionApp")},
 			"azurerm_function_app_host_keys":          {Tok: azureDataSource(azureAppService, "getFunctionAppHostKeys")},
 			"azurerm_app_service_environment_v3":      {Tok: azureDataSource(azureAppService, "getEnvironmentV3")},
 			"azurerm_iothub_dps_shared_access_policy": {Tok: azureDataSource(azureIot, "getDpsSharedAccessPolicy")},

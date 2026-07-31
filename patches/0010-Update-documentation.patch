@@ -146,7 +146,7 @@ index 99872b4036..0bd58fc9f1 100644
  <!-- This section is generated, changes will be overwritten -->
  This data source uses the following Azure API Providers:
 diff --git a/website/docs/d/monitor_action_group.html.markdown b/website/docs/d/monitor_action_group.html.markdown
-index d0e8bfd3df..9b2e5f0eec 100644
+index 8798e1aa78..c2a18ce0d1 100644
 --- a/website/docs/d/monitor_action_group.html.markdown
 +++ b/website/docs/d/monitor_action_group.html.markdown
 @@ -14,7 +14,7 @@ Use this data source to access the properties of an Action Group.
@@ -375,7 +375,7 @@ index ff68f83311..c74a0560c5 100644
    sku_name = "Developer_1"
  }
 diff --git a/website/docs/r/api_management_certificate.html.markdown b/website/docs/r/api_management_certificate.html.markdown
-index b6f3df0443..23ada6c9b8 100644
+index 39c5c3cdb5..a540b2a4a7 100644
 --- a/website/docs/r/api_management_certificate.html.markdown
 +++ b/website/docs/r/api_management_certificate.html.markdown
 @@ -27,7 +27,7 @@ resource "azurerm_api_management" "example" {
@@ -579,7 +579,7 @@ index 76137d2d39..cf3af3262f 100644
  }
  
 diff --git a/website/docs/r/api_management_logger.html.markdown b/website/docs/r/api_management_logger.html.markdown
-index 9130d0e0d8..ffb4ad720b 100644
+index 18acc2ed18..31c2b90650 100644
 --- a/website/docs/r/api_management_logger.html.markdown
 +++ b/website/docs/r/api_management_logger.html.markdown
 @@ -30,7 +30,7 @@ resource "azurerm_api_management" "example" {
@@ -683,46 +683,6 @@ index 05c1348c17..3b18f5076c 100644
    state               = "active"
  }
  ```
-diff --git a/website/docs/r/app_service.html.markdown b/website/docs/r/app_service.html.markdown
-index 526e1e9527..a46f14774e 100644
---- a/website/docs/r/app_service.html.markdown
-+++ b/website/docs/r/app_service.html.markdown
-@@ -17,7 +17,7 @@ Manages an App Service (within an App Service Plan).
- 
- ## Example Usage
- 
--This example provisions a Windows App Service. Other examples of the `azurerm_app_service` resource can be found in [the `./examples/app-service` directory within the GitHub Repository](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/app-service)
-+This example provisions a Windows App Service.
- 
- ```hcl
- resource "azurerm_resource_group" "example" {
-@@ -219,7 +219,7 @@ A `site_config` block supports the following:
- 
- * `http2_enabled` - (Optional) Is HTTP2 Enabled on this App Service? Defaults to `false`.
- 
--* `ip_restriction` - (Optional) A list of `ip_restriction` objects representing IP restrictions as defined below.
-+* `ip_restriction` - (Optional) A list of objects representing ip restrictions as defined below.
- 
- -> **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
- 
-@@ -239,7 +239,7 @@ A `site_config` block supports the following:
- 
- * `local_mysql_enabled` - (Optional) Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
- 
--~> **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish [to use Azure Database for MySQL](/docs/providers/azurerm/r/mysql_database.html).
-+~> **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
- 
- * `linux_fx_version` - (Optional) Linux App Framework and version for the App Service. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
- 
-@@ -247,8 +247,6 @@ A `site_config` block supports the following:
- 
- * `windows_fx_version` - (Optional) The Windows Docker container image (`DOCKER|<user/image:tag>`)
- 
--Additional examples of how to run Containers via the `azurerm_app_service` resource can be found in [the `./examples/app-service` directory within the GitHub Repository](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/app-service).
--
- * `managed_pipeline_mode` - (Optional) The Managed Pipeline Mode. Possible values are `Integrated` and `Classic`. Defaults to `Integrated`.
- 
- * `min_tls_version` - (Optional) The minimum supported TLS version for the app service. Possible values are `1.0`, `1.1`, and `1.2`. Defaults to `1.2` for new app services.
 diff --git a/website/docs/r/app_service_certificate.html.markdown b/website/docs/r/app_service_certificate.html.markdown
 index e54f53f56a..e8cf682a80 100644
 --- a/website/docs/r/app_service_certificate.html.markdown
@@ -792,28 +752,6 @@ index e54f53f56a..e8cf682a80 100644
  * `delete` - (Defaults to 30 minutes) Used when deleting the App Service Certificate.
  
  ## Import
-diff --git a/website/docs/r/app_service_slot.html.markdown b/website/docs/r/app_service_slot.html.markdown
-index 6f790f48c9..4081c21063 100644
---- a/website/docs/r/app_service_slot.html.markdown
-+++ b/website/docs/r/app_service_slot.html.markdown
-@@ -235,7 +235,7 @@ A `site_config` block supports the following:
- 
- * `http2_enabled` - (Optional) Is HTTP2 Enabled on this App Service? Defaults to `false`.
- 
--* `ip_restriction` - (Optional) A list of `ip_restriction` objects representing IP restrictions as defined below.
-+* `ip_restriction` - (Optional) A list of objects representing ip restrictions as defined below.
- 
- -> **NOTE** User has to explicitly set `ip_restriction` to empty slice (`[]`) to remove it.
- 
-@@ -255,7 +255,7 @@ A `site_config` block supports the following:
- 
- * `local_mysql_enabled` - (Optional) Is "MySQL In App" Enabled? This runs a local MySQL instance with your app and shares resources from the App Service plan.
- 
--~> **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish [to use Azure Database for MySQL](/docs/providers/azurerm/r/mysql_database.html).
-+~> **NOTE:** MySQL In App is not intended for production environments and will not scale beyond a single instance. Instead you may wish to use Azure Database for MySQL.
- 
- * `linux_fx_version` - (Optional) Linux App Framework and version for the App Service Slot. Possible options are a Docker container (`DOCKER|<user/image:tag>`), a base-64 encoded Docker Compose file (`COMPOSE|${filebase64("compose.yml")}`) or a base-64 encoded Kubernetes Manifest (`KUBE|${filebase64("kubernetes.yml")}`).
- 
 diff --git a/website/docs/r/application_insights_analytics_item.html.markdown b/website/docs/r/application_insights_analytics_item.html.markdown
 index a60d6cc6e1..267ce73b2e 100644
 --- a/website/docs/r/application_insights_analytics_item.html.markdown
@@ -1035,19 +973,6 @@ index 5a475825bd..e2079f789b 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
  This resource uses the following Azure API Providers:
-diff --git a/website/docs/r/batch_certificate.html.markdown b/website/docs/r/batch_certificate.html.markdown
-index 8c9eac5499..be9f267333 100644
---- a/website/docs/r/batch_certificate.html.markdown
-+++ b/website/docs/r/batch_certificate.html.markdown
-@@ -47,7 +47,7 @@ resource "azurerm_batch_certificate" "example" {
-   account_name         = azurerm_batch_account.example.name
-   certificate          = filebase64("certificate.pfx")
-   format               = "Pfx"
--  password             = "terraform"
-+  password             = "password"
-   thumbprint           = "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA"
-   thumbprint_algorithm = "SHA1"
- }
 diff --git a/website/docs/r/blueprint_assignment.html.markdown b/website/docs/r/blueprint_assignment.html.markdown
 index fd9fbff811..82b2427db0 100644
 --- a/website/docs/r/blueprint_assignment.html.markdown
@@ -1308,7 +1233,7 @@ index 91eb44c178..47796496b0 100644
  ---
  
 diff --git a/website/docs/r/container_registry.html.markdown b/website/docs/r/container_registry.html.markdown
-index 3a58319de5..631871e729 100644
+index 933b3ad340..e5aca3c865 100644
 --- a/website/docs/r/container_registry.html.markdown
 +++ b/website/docs/r/container_registry.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -1322,7 +1247,7 @@ index 3a58319de5..631871e729 100644
  
  ```hcl
 diff --git a/website/docs/r/cosmosdb_account.html.markdown b/website/docs/r/cosmosdb_account.html.markdown
-index c6468f3ae9..7db324a980 100644
+index 6c2dfde95a..332d4d120d 100644
 --- a/website/docs/r/cosmosdb_account.html.markdown
 +++ b/website/docs/r/cosmosdb_account.html.markdown
 @@ -13,9 +13,9 @@ Manages a CosmosDB (formally DocumentDB) Account.
@@ -1520,7 +1445,7 @@ index 7af7cbe757..fa04b47d6a 100644
  For more information on the configuration, please check out the [Azure documentation](https://docs.microsoft.com/rest/api/datafactory/integrationruntimes/createorupdate#linkedintegrationruntimerbacauthorization)
  
 diff --git a/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown b/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown
-index c50eed323f..284b991b5c 100644
+index 037e3eff0a..767ba27fc8 100644
 --- a/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_azure_blob_storage.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -1607,7 +1532,7 @@ index db31072123..f49cea8d68 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_mysql.html.markdown b/website/docs/r/data_factory_linked_service_mysql.html.markdown
-index 728a5f0e20..f0e2eabc24 100644
+index c08b01ee6a..b3c9a5c4e5 100644
 --- a/website/docs/r/data_factory_linked_service_mysql.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_mysql.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -1645,7 +1570,7 @@ index 017d3aa76d..18efe17e4b 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_snowflake.html.markdown b/website/docs/r/data_factory_linked_service_snowflake.html.markdown
-index b64007ad81..53ce4679c3 100644
+index dd61bf2dcb..a4779d32ae 100644
 --- a/website/docs/r/data_factory_linked_service_snowflake.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_snowflake.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1657,7 +1582,7 @@ index b64007ad81..53ce4679c3 100644
  ## Example Usage
  
 diff --git a/website/docs/r/data_factory_linked_service_sql_server.html.markdown b/website/docs/r/data_factory_linked_service_sql_server.html.markdown
-index 06e00da69f..975bf19912 100644
+index e13ee51286..a20821b2fd 100644
 --- a/website/docs/r/data_factory_linked_service_sql_server.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_sql_server.html.markdown
 @@ -10,8 +10,6 @@ description: |-
@@ -1670,7 +1595,7 @@ index 06e00da69f..975bf19912 100644
  
  ```hcl
 diff --git a/website/docs/r/data_factory_linked_service_synapse.html.markdown b/website/docs/r/data_factory_linked_service_synapse.html.markdown
-index f76ccaabc8..b170c8c33c 100644
+index 0bcc418e78..30f65e97fe 100644
 --- a/website/docs/r/data_factory_linked_service_synapse.html.markdown
 +++ b/website/docs/r/data_factory_linked_service_synapse.html.markdown
 @@ -10,7 +10,6 @@ description: |-
@@ -1753,7 +1678,7 @@ index b8e7384cae..ec1ae8ec43 100644
  ## Example Usage
  
 diff --git a/website/docs/r/disk_encryption_set.html.markdown b/website/docs/r/disk_encryption_set.html.markdown
-index ef8d5ab14f..b423aa061a 100644
+index 9a512475cd..ebb6090b41 100644
 --- a/website/docs/r/disk_encryption_set.html.markdown
 +++ b/website/docs/r/disk_encryption_set.html.markdown
 @@ -10,6 +10,8 @@ description: |-
@@ -1837,37 +1762,11 @@ index b57e37d9e1..0e225711e4 100644
  * `delete` - (Defaults to 6 hours) Used when deleting the FrontDoor.
  
  ## Import
-diff --git a/website/docs/r/function_app.html.markdown b/website/docs/r/function_app.html.markdown
-index 5b81ab4e7c..3c98785897 100644
---- a/website/docs/r/function_app.html.markdown
-+++ b/website/docs/r/function_app.html.markdown
-@@ -237,7 +237,7 @@ The following arguments are supported:
- 
- * `storage_account_access_key` - (Required) The access key which will be used to access the backend storage account for the Function App.
- 
--~> **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-+~> **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
- 
- ~> **Note:**  When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
- 
-diff --git a/website/docs/r/function_app_slot.html.markdown b/website/docs/r/function_app_slot.html.markdown
-index e8c751e61c..24b144f7f8 100644
---- a/website/docs/r/function_app_slot.html.markdown
-+++ b/website/docs/r/function_app_slot.html.markdown
-@@ -80,7 +80,7 @@ The following arguments are supported:
- 
- * `app_settings` - (Optional) A key-value pair of App Settings.
- 
--~> **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
-+~> **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of the application code for function app to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or python, etc), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
- 
- ~> **NOTE:** The values for `AzureWebJobsStorage` and `FUNCTIONS_EXTENSION_VERSION` will be filled by other input arguments and shouldn't be configured separately. `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`.
- 
 diff --git a/website/docs/r/hdinsight_hadoop_cluster.html.markdown b/website/docs/r/hdinsight_hadoop_cluster.html.markdown
-index bde3a54d4b..7c6ec98f31 100644
+index d08f3a5859..250ffb5ed7 100644
 --- a/website/docs/r/hdinsight_hadoop_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_hadoop_cluster.html.markdown
-@@ -45,7 +45,7 @@ resource "azurerm_hdinsight_hadoop_cluster" "example" {
+@@ -46,7 +46,7 @@ resource "azurerm_hdinsight_hadoop_cluster" "example" {
  
    gateway {
      username = "acctestusrgw"
@@ -1877,10 +1776,10 @@ index bde3a54d4b..7c6ec98f31 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_hbase_cluster.html.markdown b/website/docs/r/hdinsight_hbase_cluster.html.markdown
-index cebabf9a11..a27fd99647 100644
+index cb70c8c8db..1f64f692e6 100644
 --- a/website/docs/r/hdinsight_hbase_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_hbase_cluster.html.markdown
-@@ -45,7 +45,7 @@ resource "azurerm_hdinsight_hbase_cluster" "example" {
+@@ -46,7 +46,7 @@ resource "azurerm_hdinsight_hbase_cluster" "example" {
  
    gateway {
      username = "acctestusrgw"
@@ -1890,10 +1789,10 @@ index cebabf9a11..a27fd99647 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
-index f1f65cf454..59fd835b4f 100644
+index 5e3172a945..b9e3b3bd44 100644
 --- a/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_interactive_query_cluster.html.markdown
-@@ -45,7 +45,7 @@ resource "azurerm_hdinsight_interactive_query_cluster" "example" {
+@@ -46,7 +46,7 @@ resource "azurerm_hdinsight_interactive_query_cluster" "example" {
  
    gateway {
      username = "acctestusrgw"
@@ -1903,10 +1802,10 @@ index f1f65cf454..59fd835b4f 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_kafka_cluster.html.markdown b/website/docs/r/hdinsight_kafka_cluster.html.markdown
-index e78e838718..b5df80decb 100644
+index 72af5d173b..e4b6f95945 100644
 --- a/website/docs/r/hdinsight_kafka_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_kafka_cluster.html.markdown
-@@ -45,7 +45,7 @@ resource "azurerm_hdinsight_kafka_cluster" "example" {
+@@ -46,7 +46,7 @@ resource "azurerm_hdinsight_kafka_cluster" "example" {
  
    gateway {
      username = "acctestusrgw"
@@ -1916,10 +1815,10 @@ index e78e838718..b5df80decb 100644
  
    storage_account {
 diff --git a/website/docs/r/hdinsight_spark_cluster.html.markdown b/website/docs/r/hdinsight_spark_cluster.html.markdown
-index 86fd25e082..50754e4d9c 100644
+index 8720a5ad24..1a8a96856b 100644
 --- a/website/docs/r/hdinsight_spark_cluster.html.markdown
 +++ b/website/docs/r/hdinsight_spark_cluster.html.markdown
-@@ -45,7 +45,7 @@ resource "azurerm_hdinsight_spark_cluster" "example" {
+@@ -46,7 +46,7 @@ resource "azurerm_hdinsight_spark_cluster" "example" {
  
    gateway {
      username = "acctestusrgw"
@@ -2001,7 +1900,7 @@ index 8f7ee5c92d..d665108dd5 100644
    eventhub_endpoint_name = "events"
    resource_group_name    = azurerm_resource_group.example.name
 diff --git a/website/docs/r/key_vault.html.markdown b/website/docs/r/key_vault.html.markdown
-index 14ab5e440a..aa0a44e64a 100644
+index 70e420981f..f4e595b414 100644
 --- a/website/docs/r/key_vault.html.markdown
 +++ b/website/docs/r/key_vault.html.markdown
 @@ -12,9 +12,9 @@ Manages a Key Vault.
@@ -2016,7 +1915,7 @@ index 14ab5e440a..aa0a44e64a 100644
  
  ## Example Usage
  
-@@ -81,7 +81,7 @@ The following arguments are supported:
+@@ -84,7 +84,7 @@ The following arguments are supported:
  
  ---
  
@@ -2025,7 +1924,7 @@ index 14ab5e440a..aa0a44e64a 100644
  
  -> **Note:** Since `access_policy` can be configured both inline and via the separate `azurerm_key_vault_access_policy` resource, we have to explicitly set it to empty slice (`[]`) to remove it.
  
-@@ -99,7 +99,7 @@ The following arguments are supported:
+@@ -100,7 +100,7 @@ The following arguments are supported:
  
  * `purge_protection_enabled` - (Optional) Is Purge Protection enabled for this Key Vault? 
  
@@ -2035,7 +1934,7 @@ index 14ab5e440a..aa0a44e64a 100644
  * `public_network_access_enabled` - (Optional) Whether public network access is allowed for this Key Vault. Defaults to `true`.
  
 diff --git a/website/docs/r/key_vault_access_policy.html.markdown b/website/docs/r/key_vault_access_policy.html.markdown
-index 074197c220..c9fc27d270 100644
+index 6f4d37e185..92549d9c9b 100644
 --- a/website/docs/r/key_vault_access_policy.html.markdown
 +++ b/website/docs/r/key_vault_access_policy.html.markdown
 @@ -10,9 +10,9 @@ description: |-
@@ -2050,7 +1949,7 @@ index 074197c220..c9fc27d270 100644
  
  ## Example Usage
  
-@@ -87,15 +87,15 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -88,15 +88,15 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  * `id` - Key Vault Access Policy ID.
  
@@ -2068,14 +1967,17 @@ index 074197c220..c9fc27d270 100644
  * `delete` - (Defaults to 30 minutes) Used when deleting the Key Vault Access Policy.
  
  ## Import
-@@ -120,4 +120,4 @@ terraform import azurerm_key_vault_access_policy.example /subscriptions/00000000
+@@ -121,7 +121,7 @@ terraform import azurerm_key_vault_access_policy.example /subscriptions/00000000
  
  where `11111111-1111-1111-1111-111111111111` is the `object_id`.
  
 --> **Note:** Both Identifiers are unique to Terraform and don't map to an existing object within Azure.
-+-> **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
++-> **Note:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
+ 
+ ## API Providers
+ <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/key_vault_certificate.html.markdown b/website/docs/r/key_vault_certificate.html.markdown
-index 2aa1ce9cbb..4681b69b37 100644
+index e314d57602..b20eeed835 100644
 --- a/website/docs/r/key_vault_certificate.html.markdown
 +++ b/website/docs/r/key_vault_certificate.html.markdown
 @@ -11,8 +11,6 @@ description: |-
@@ -2087,7 +1989,7 @@ index 2aa1ce9cbb..4681b69b37 100644
  ## Example Usage (Importing a PFX)
  
  ~> **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
-@@ -103,7 +101,7 @@ resource "azurerm_key_vault_certificate" "example" {
+@@ -104,7 +102,7 @@ resource "azurerm_key_vault_certificate" "example" {
  }
  ```
  
@@ -2096,7 +1998,7 @@ index 2aa1ce9cbb..4681b69b37 100644
  
  ```hcl
  data "azurerm_client_config" "current" {}
-@@ -240,7 +238,7 @@ The following arguments are supported:
+@@ -242,7 +240,7 @@ The following arguments are supported:
  
  * `certificate_policy` - (Optional) A `certificate_policy` block as defined below. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate.
  
@@ -2105,7 +2007,7 @@ index 2aa1ce9cbb..4681b69b37 100644
  
  * `tags` - (Optional) A mapping of tags to assign to the resource.
  
-@@ -251,7 +249,7 @@ The `certificate` block supports the following:
+@@ -253,7 +251,7 @@ The `certificate` block supports the following:
  * `contents` - (Required) The base64-encoded certificate contents.
  * `password` - (Optional) The password associated with the certificate.
  
@@ -2114,7 +2016,7 @@ index 2aa1ce9cbb..4681b69b37 100644
  
  To convert a private key to pkcs8 format with openssl use:
  ```shell
-@@ -375,9 +373,9 @@ A `certificate_attribute` block exports the following:
+@@ -377,9 +375,9 @@ A `certificate_attribute` block exports the following:
  
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
@@ -2127,7 +2029,7 @@ index 2aa1ce9cbb..4681b69b37 100644
  
  ## Import
 diff --git a/website/docs/r/key_vault_secret.html.markdown b/website/docs/r/key_vault_secret.html.markdown
-index e32bd341dd..3d783894ed 100644
+index fce9f95fb1..66b77e85ad 100644
 --- a/website/docs/r/key_vault_secret.html.markdown
 +++ b/website/docs/r/key_vault_secret.html.markdown
 @@ -11,13 +11,6 @@ description: |-
@@ -2145,14 +2047,14 @@ index e32bd341dd..3d783894ed 100644
  
  ```hcl
 diff --git a/website/docs/r/kubernetes_cluster.html.markdown b/website/docs/r/kubernetes_cluster.html.markdown
-index e59c3790ee..77e27cc821 100644
+index e46c7ee4ec..9b035ba3af 100644
 --- a/website/docs/r/kubernetes_cluster.html.markdown
 +++ b/website/docs/r/kubernetes_cluster.html.markdown
 @@ -10,17 +10,11 @@ description: |-
  
  Manages a Managed Kubernetes Cluster (also known as AKS / Azure Kubernetes Service)
  
--!> **Note:** As per Microsoft's AKS preview API [deprecation plan](https://learn.microsoft.com/en-us/azure/aks/concepts-preview-api-life-cycle#upcoming-deprecations) several preview APIs have a deprecation schedule and Microsoft recommends performing updates before the deprecation date. Additionally, Microsoft and HashiCorp recommend upgrading to the penultimate 3.x version v3.116.0 to avoid disruption or, ideally, to the latest 4.x provider version to take advantage of the most current API version that the provider supports. Please see [this GitHub issue](https://github.com/hashicorp/terraform-provider-azurerm/issues/28707) for more details.
+-!> **Note:** As per Microsoft's AKS preview API [deprecation plan](https://learn.microsoft.com/en-us/azure/aks/concepts-preview-api-life-cycle#upcoming-deprecations) several preview APIs have a deprecation schedule and Microsoft recommends performing updates before the deprecation date. Additionally, Microsoft and HashiCorp recommend upgrading to the penultimate 3.x version v3.116.0 to avoid disruption or, ideally, to the latest 5.x provider version to take advantage of the most current API version that the provider supports. Please see [this GitHub issue](https://github.com/hashicorp/terraform-provider-azurerm/issues/28707) for more details.
 -
 --> **Note:** Due to the fast-moving nature of AKS, we recommend using the latest version of the Azure Provider when using AKS - you can find [the latest version of the Azure Provider here](https://registry.terraform.io/providers/hashicorp/azurerm/latest).
 -
@@ -2664,7 +2566,7 @@ index df810b0562..bcd0cd8fe8 100644
  ## Import
  
 diff --git a/website/docs/r/linux_virtual_machine_scale_set.html.markdown b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
-index e40a747a20..a127075a6f 100644
+index 689da1569b..c17dadc949 100644
 --- a/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/linux_virtual_machine_scale_set.html.markdown
 @@ -14,13 +14,9 @@ Manages a Linux Virtual Machine Scale Set.
@@ -3006,10 +2908,10 @@ index ab4e1650a7..016ada8f3c 100644
    }
  }
 diff --git a/website/docs/r/monitor_diagnostic_setting.html.markdown b/website/docs/r/monitor_diagnostic_setting.html.markdown
-index 6fa9b3ffba..e661500abc 100644
+index 4f5a33d7dc..84d6d0a643 100644
 --- a/website/docs/r/monitor_diagnostic_setting.html.markdown
 +++ b/website/docs/r/monitor_diagnostic_setting.html.markdown
-@@ -60,19 +60,19 @@ The following arguments are supported:
+@@ -61,19 +61,19 @@ The following arguments are supported:
  
  * `name` - (Required) Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
  
@@ -3033,7 +2935,7 @@ index 6fa9b3ffba..e661500abc 100644
  
  * `enabled_log` - (Optional) One or more `enabled_log` blocks as defined below.
  
-@@ -80,7 +80,7 @@ The following arguments are supported:
+@@ -81,7 +81,7 @@ The following arguments are supported:
  
  * `log_analytics_workspace_id` - (Optional) Specifies the ID of a Log Analytics Workspace where Diagnostics Data should be sent.
  
@@ -3042,7 +2944,7 @@ index 6fa9b3ffba..e661500abc 100644
  
  * `enabled_metric` - (Optional) One or more `enabled_metric` blocks as defined below.
  
-@@ -88,15 +88,15 @@ The following arguments are supported:
+@@ -89,15 +89,15 @@ The following arguments are supported:
  
  * `storage_account_id` - (Optional) The ID of the Storage Account where logs should be sent. 
  
@@ -3061,7 +2963,7 @@ index 6fa9b3ffba..e661500abc 100644
  
  ---
  
-@@ -104,13 +104,13 @@ An `enabled_log` block supports the following:
+@@ -105,13 +105,13 @@ An `enabled_log` block supports the following:
  
  * `category` - (Optional) The name of a Diagnostic Log Category for this Resource.
  
@@ -3078,7 +2980,7 @@ index 6fa9b3ffba..e661500abc 100644
  
  ---
  
-@@ -118,7 +118,7 @@ An `enabled_metric` block supports the following:
+@@ -119,7 +119,7 @@ An `enabled_metric` block supports the following:
  
  * `category` - (Required) The name of a Diagnostic Metric Category for this Resource.
  
@@ -3087,7 +2989,7 @@ index 6fa9b3ffba..e661500abc 100644
  
  ## Attributes Reference
  
-@@ -131,9 +131,9 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -132,9 +132,9 @@ In addition to the Arguments listed above - the following Attributes are exporte
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Diagnostics Setting.
@@ -3099,7 +3001,7 @@ index 6fa9b3ffba..e661500abc 100644
  
  ## Import
  
-@@ -143,7 +143,7 @@ Diagnostic Settings can be imported using the `resource id`, e.g.
+@@ -144,7 +144,7 @@ Diagnostic Settings can be imported using the `resource id`, e.g.
  terraform import azurerm_monitor_diagnostic_setting.example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
  ```
  
@@ -3109,7 +3011,7 @@ index 6fa9b3ffba..e661500abc 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/mssql_server.html.markdown b/website/docs/r/mssql_server.html.markdown
-index c0b89d7179..090257cb2b 100644
+index 66e78a91fa..546329ae75 100644
 --- a/website/docs/r/mssql_server.html.markdown
 +++ b/website/docs/r/mssql_server.html.markdown
 @@ -11,9 +11,6 @@ description: |-
@@ -3361,10 +3263,10 @@ index 8db03cba4b..a3aae2da47 100644
  * `key_id` - (Required) The Apple Push Notifications Service (APNS) Key.
  
 diff --git a/website/docs/r/private_endpoint.html.markdown b/website/docs/r/private_endpoint.html.markdown
-index ff944f9b57..037edddadb 100644
+index 0382940d50..c044b64714 100644
 --- a/website/docs/r/private_endpoint.html.markdown
 +++ b/website/docs/r/private_endpoint.html.markdown
-@@ -335,7 +335,7 @@ A `record_sets` block exports:
+@@ -336,7 +336,7 @@ A `record_sets` block exports:
  
  ## Example HCL Configurations
  
@@ -3457,7 +3359,7 @@ index babe94392d..6c33ee97a9 100644
  * `cross_region_restore_enabled` - (Optional) Is cross region restore enabled for this Vault? Only can be `true`, when `storage_mode_type` is `GeoRedundant`. Defaults to `false`.
  
 diff --git a/website/docs/r/redis_cache.html.markdown b/website/docs/r/redis_cache.html.markdown
-index af06c65191..5c27be2074 100644
+index 6d035d0d46..dd0ce8b534 100644
 --- a/website/docs/r/redis_cache.html.markdown
 +++ b/website/docs/r/redis_cache.html.markdown
 @@ -15,7 +15,7 @@ Manages a Redis Cache.
@@ -3480,7 +3382,7 @@ index af06c65191..5c27be2074 100644
  
 @@ -67,7 +67,7 @@ The following arguments are supported:
  
- * `minimum_tls_version` - (Optional) The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.0`.
+ * `minimum_tls_version` - (Optional) The minimum TLS version. The only possible value is `1.2`. Defaults to `1.2`.
  
 -~> **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 +~> **NOTE:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
@@ -3732,7 +3634,7 @@ index e34f5efa35..bb39470d7d 100644
  
  ## Import
 diff --git a/website/docs/r/servicebus_namespace.html.markdown b/website/docs/r/servicebus_namespace.html.markdown
-index 5e0f788412..79408ef9af 100644
+index eea72ce685..cb05360637 100644
 --- a/website/docs/r/servicebus_namespace.html.markdown
 +++ b/website/docs/r/servicebus_namespace.html.markdown
 @@ -18,7 +18,7 @@ provider "azurerm" {
@@ -3952,10 +3854,10 @@ index 7b327f6a8b..ec15cedc6c 100644
  
  resource "azurerm_signalr_service" "example" {
 diff --git a/website/docs/r/storage_blob.html.markdown b/website/docs/r/storage_blob.html.markdown
-index 4c7575fa46..aac113110a 100644
+index fa4b581897..962d0d6d6d 100644
 --- a/website/docs/r/storage_blob.html.markdown
 +++ b/website/docs/r/storage_blob.html.markdown
-@@ -70,9 +70,7 @@ The following arguments are supported:
+@@ -62,9 +62,7 @@ The following arguments are supported:
  
  * `content_md5` - (Optional) The MD5 sum of the blob contents. Cannot be defined if `source_uri` is defined, or if blob type is Append or Page. Changing this forces a new resource to be created.
  
@@ -3966,7 +3868,7 @@ index 4c7575fa46..aac113110a 100644
  
  * `source` - (Optional) An absolute path to a file on the local system. This field cannot be specified for Append blobs and cannot be specified if `source_content` or `source_uri` is specified. Changing this forces a new resource to be created.
  
-@@ -82,7 +80,7 @@ The following arguments are supported:
+@@ -74,7 +72,7 @@ The following arguments are supported:
  
  * `parallelism` - (Optional) The number of workers per CPU core to run for concurrent uploads. Defaults to `8`. Changing this forces a new resource to be created.
  
@@ -3975,7 +3877,7 @@ index 4c7575fa46..aac113110a 100644
  
  * `metadata` - (Optional) A map of custom blob metadata.
  
-@@ -98,8 +96,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -90,8 +88,8 @@ In addition to the Arguments listed above - the following Attributes are exporte
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Storage Blob.
@@ -3999,7 +3901,7 @@ index 77f03ae919..916c180067 100644
    name     = "example-resources"
    location = "West Europe"
 diff --git a/website/docs/r/subnet.html.markdown b/website/docs/r/subnet.html.markdown
-index 2419584575..5d96eb3633 100644
+index 8bcab44072..61cda69328 100644
 --- a/website/docs/r/subnet.html.markdown
 +++ b/website/docs/r/subnet.html.markdown
 @@ -11,7 +11,7 @@ description: |-
@@ -4031,16 +3933,18 @@ index 2419584575..5d96eb3633 100644
  
  * `sharing_scope` - (Optional) The sharing scope of the subnet. Possible value is `Tenant`.
  
-@@ -91,7 +91,7 @@ The following arguments are supported:
+@@ -89,7 +89,9 @@ The following arguments are supported:
  
- * `service_endpoints` - (Optional) The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+ !> **Note:** The `sharing_scope` property is only available to users who have been explicitly registered and granted access by the Azure Networking Product Group.
  
---> **Note:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+-* `service_endpoint` - (Optional) A `service_endpoint` block as defined below.
++* `service_endpoints` - (Optional) The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
++
 +-> **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
  
  * `service_endpoint_policy_ids` - (Optional) The list of IDs of Service Endpoint Policies to associate with the subnet.
  
-@@ -117,13 +117,13 @@ An `ip_address_pool` block supports the following:
+@@ -135,13 +137,13 @@ An `ip_address_pool` block supports the following:
  
  A `service_delegation` block supports the following:
  
@@ -4056,7 +3960,7 @@ index 2419584575..5d96eb3633 100644
  
  ## Attributes Reference
  
-@@ -144,8 +144,8 @@ The `ip_address_pool` block exports:
+@@ -162,8 +164,8 @@ The `ip_address_pool` block exports:
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Subnet.
@@ -4185,15 +4089,15 @@ index b1541d7c03..fb0fced17d 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/virtual_machine.html.markdown b/website/docs/r/virtual_machine.html.markdown
-index 70d9bd6dd1..9c9fa344f4 100644
+index 7294d7404e..11ecf2f6ef 100644
 --- a/website/docs/r/virtual_machine.html.markdown
 +++ b/website/docs/r/virtual_machine.html.markdown
 @@ -12,13 +12,13 @@ Manages a Virtual Machine.
  
  ## Disclaimers
  
---> **Note:** The `azurerm_virtual_machine` resource has been superseded by the [`azurerm_linux_virtual_machine`](linux_virtual_machine.html) and [`azurerm_windows_virtual_machine`](windows_virtual_machine.html) resources. The existing `azurerm_virtual_machine` resource will continue to be available throughout the 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azurerm_linux_virtual_machine` and `azurerm_windows_virtual_machine` resources.
-+-> **Note:** The `azurerm_virtual_machine` resource has been superseded by the `azurerm_linux_virtual_machine` and `azurerm_windows_virtual_machine` resources. The existing `azurerm_virtual_machine` resource will continue to be available throughout the 2.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azurerm_linux_virtual_machine` and `azurerm_windows_virtual_machine` resources.
+--> **Note:** The `azurerm_virtual_machine` resource has been superseded by the [`azurerm_linux_virtual_machine`](linux_virtual_machine.html) and [`azurerm_windows_virtual_machine`](windows_virtual_machine.html) resources. The existing `azurerm_virtual_machine` resource will continue to be available however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azurerm_linux_virtual_machine` and `azurerm_windows_virtual_machine` resources.
++-> **Note:** The `azurerm_virtual_machine` resource has been superseded by the `azurerm_linux_virtual_machine` and `azurerm_windows_virtual_machine` resources. The existing `azurerm_virtual_machine` resource will continue to be available however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azurerm_linux_virtual_machine` and `azurerm_windows_virtual_machine` resources.
  
  ~> **Note:** Data Disks can be attached either directly on the `azurerm_virtual_machine` resource, or using the `azurerm_virtual_machine_data_disk_attachment` resource - but the two cannot be used together. If both are used against the same Virtual Machine, spurious changes will occur.
  
@@ -4403,23 +4307,22 @@ index 8b0e496679..45e7e97e11 100644
  ## API Providers
  <!-- This section is generated, changes will be overwritten -->
 diff --git a/website/docs/r/virtual_machine_scale_set.html.markdown b/website/docs/r/virtual_machine_scale_set.html.markdown
-index 2f4d0f24dd..3217c8d6e9 100644
+index 4c35aeffd9..f7474112ff 100644
 --- a/website/docs/r/virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/virtual_machine_scale_set.html.markdown
-@@ -10,12 +10,6 @@ description: |-
+@@ -10,11 +10,7 @@ description: |-
  
  Manages a virtual machine scale set.
  
 -## Disclaimers
--
--!> **Note:** The `azurerm_virtual_machine_scale_set` resource has been deprecated in favour of the [`azurerm_linux_virtual_machine_scale_set`](linux_virtual_machine_scale_set.html) and [`azurerm_windows_virtual_machine_scale_set`](windows_virtual_machine_scale_set.html) resources. Whilst this will continue to be available throughout the 2.x and 3.x releases however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azurerm_linux_virtual_machine_scale_set` and `azurerm_windows_virtual_machine_scale_set` resources and the `azurerm_virtual_machine_scale_set` resource will be removed in the future.
+ 
+-!> **Note:** The `azurerm_virtual_machine_scale_set` resource has been deprecated in favour of the [`azurerm_linux_virtual_machine_scale_set`](linux_virtual_machine_scale_set.html) and [`azurerm_windows_virtual_machine_scale_set`](windows_virtual_machine_scale_set.html) resources. Whilst this will continue to be available however is in a feature-frozen state to maintain compatibility - new functionality will instead be added to the `azurerm_linux_virtual_machine_scale_set` and `azurerm_windows_virtual_machine_scale_set` resources and the `azurerm_virtual_machine_scale_set` resource will be removed in the future.
 -
 -~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](/docs/state/sensitive-data.html).
--
+ 
  ## Example Usage with Managed Disks (Recommended)
  
- ```hcl
-@@ -146,7 +140,7 @@ resource "azurerm_virtual_machine_scale_set" "example" {
+@@ -146,7 +142,7 @@ resource "azurerm_virtual_machine_scale_set" "example" {
    }
  
    network_profile {
@@ -4428,7 +4331,7 @@ index 2f4d0f24dd..3217c8d6e9 100644
      primary = true
  
      ip_configuration {
-@@ -295,7 +289,7 @@ The following arguments are supported:
+@@ -295,7 +291,7 @@ The following arguments are supported:
  
  * `eviction_policy` - (Optional) Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
  
@@ -4437,7 +4340,7 @@ index 2f4d0f24dd..3217c8d6e9 100644
  
  * `health_probe_id` - (Optional) Specifies the identifier for the load balancer health probe. Required when using `Rolling` as your `upgrade_policy_mode`.
  
-@@ -321,7 +315,7 @@ The following arguments are supported:
+@@ -321,7 +317,7 @@ The following arguments are supported:
  
  * `zones` - (Optional) A collection of availability zones to spread the Virtual Machines over. Changing this forces a new resource to be created.
  
@@ -4446,7 +4349,7 @@ index 2f4d0f24dd..3217c8d6e9 100644
  
  ---
  
-@@ -386,7 +380,7 @@ The `os_profile` block supports the following:
+@@ -386,7 +382,7 @@ The `os_profile` block supports the following:
  * `computer_name_prefix` - (Required) Specifies the computer name prefix for all of the virtual machines in the scale set. Computer name prefixes must be 1 to 9 characters long for windows images and 1 - 58 for Linux. Changing this forces a new resource to be created.
  * `admin_username` - (Required) Specifies the administrator account name to use for all the instances of virtual machines in the scale set.
  * `admin_password` - (Optional) Specifies the administrator password to use for all the instances of virtual machines in a scale set.
@@ -4455,7 +4358,7 @@ index 2f4d0f24dd..3217c8d6e9 100644
  
  ---
  
-@@ -437,7 +431,7 @@ The `os_profile_linux_config` block supports the following:
+@@ -437,7 +433,7 @@ The `os_profile_linux_config` block supports the following:
  
  ~> **Note:** Please note that the only allowed `path` is `/home/<username>/.ssh/authorized_keys` due to a limitation of Azure.
  
@@ -4464,7 +4367,7 @@ index 2f4d0f24dd..3217c8d6e9 100644
  
  ---
  
-@@ -466,11 +460,11 @@ The `ip_configuration` block supports the following:
+@@ -466,11 +462,11 @@ The `ip_configuration` block supports the following:
  * `application_gateway_backend_address_pool_ids` - (Optional) Specifies an array of references to backend address pools of application gateways. A scale set can reference backend address pools of multiple application gateways. Multiple scale sets can use the same application gateway.
  * `load_balancer_backend_address_pool_ids` - (Optional) Specifies an array of references to backend address pools of load balancers. A scale set can reference backend address pools of one public and one internal load balancer. Multiple scale sets cannot use the same load balancer.
  
@@ -4478,7 +4381,7 @@ index 2f4d0f24dd..3217c8d6e9 100644
  
  * `primary` - (Required) Specifies if this ip_configuration is the primary one.
  * `application_security_group_ids` - (Optional) Specifies up to `20` application security group IDs.
-@@ -492,11 +486,11 @@ A `ssh_keys` block supports the following:
+@@ -492,11 +488,11 @@ A `ssh_keys` block supports the following:
  
  ~> **Note:** Azure only supports RSA SSH2 key signatures of at least 2048 bits in length
  
@@ -4492,7 +4395,7 @@ index 2f4d0f24dd..3217c8d6e9 100644
  
  ---
  
-@@ -591,10 +585,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
+@@ -591,10 +587,10 @@ In addition to the Arguments listed above - the following Attributes are exporte
  
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
@@ -4507,7 +4410,7 @@ index 2f4d0f24dd..3217c8d6e9 100644
  ## Import
  
 diff --git a/website/docs/r/virtual_network.html.markdown b/website/docs/r/virtual_network.html.markdown
-index 45c6aebe03..2ac972826a 100644
+index a156a21fa5..436975e8ce 100644
 --- a/website/docs/r/virtual_network.html.markdown
 +++ b/website/docs/r/virtual_network.html.markdown
 @@ -11,10 +11,10 @@ description: |-
@@ -4570,7 +4473,7 @@ index 45c6aebe03..2ac972826a 100644
  
  * `default_outbound_access_enabled` - (Optional) Enable default outbound access to the internet for the subnet. Defaults to `true`.
  
-@@ -208,8 +208,8 @@ The `subnet` block exports:
+@@ -216,8 +216,8 @@ The `subnet` block exports:
  The `timeouts` block allows you to specify [timeouts](https://developer.hashicorp.com/terraform/language/resources/configure#define-operation-timeouts) for certain actions:
  
  * `create` - (Defaults to 30 minutes) Used when creating the Virtual Network.
@@ -4820,7 +4723,7 @@ index ea7ef16533..c661cb8054 100644
  ## Import
  
 diff --git a/website/docs/r/windows_virtual_machine_scale_set.html.markdown b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
-index 27913378c6..69f0261ddf 100644
+index 3ddea2db51..382bebd88b 100644
 --- a/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 +++ b/website/docs/r/windows_virtual_machine_scale_set.html.markdown
 @@ -12,17 +12,17 @@ Manages a Windows Virtual Machine Scale Set.
