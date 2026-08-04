@@ -87,7 +87,7 @@ jobs:
             sdk/*.sum
             *.sum
       - name: Verify nodejs release
-        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
+        uses: pulumi/verify-provider-release@52165c3d89dbd49691b82c056f377f37e6c21012 # v1.3.2
         with:
           runtime: nodejs
           directory: examples/topic
@@ -100,7 +100,7 @@ jobs:
           ARM_TENANT_ID: ${{ steps.esc-secrets.outputs.ARM_TENANT_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify dotnet release
-        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
+        uses: pulumi/verify-provider-release@52165c3d89dbd49691b82c056f377f37e6c21012 # v1.3.2
         with:
           runtime: dotnet
           directory: examples/appservice-cs
@@ -113,7 +113,7 @@ jobs:
           ARM_TENANT_ID: ${{ steps.esc-secrets.outputs.ARM_TENANT_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify go release
-        uses: pulumi/verify-provider-release@679d5e6838ac4f68696bfa1bf9e2c5da94509dd6 # v1.3.1
+        uses: pulumi/verify-provider-release@52165c3d89dbd49691b82c056f377f37e6c21012 # v1.3.2
         if: inputs.skipGoSdk == false
         with:
           runtime: go
