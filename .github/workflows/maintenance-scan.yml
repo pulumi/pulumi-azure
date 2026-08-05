@@ -21,21 +21,28 @@ jobs:
       contents: read
       issues: write
     steps:
-      # provider/go.mod replaces the upstream provider with ../upstream, so without the
-      # submodule the module cannot be loaded and call analysis silently does not run.
       - name: Checkout maintenance branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ env.MAINTENANCE_BRANCH }}
-          submodules: true
           persist-credentials: false
 
-      # Call analysis needs a toolchain that can build the branch. Without one osv-scanner
-      # skips it silently and every finding looks unreachable.
       - name: Setup Go
         uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
           go-version-file: provider/go.mod
+
+      # provider/go.mod replaces the upstream provider with ../upstream, and packages it
+      # imports only exist once the patches are applied. Without this the module does not
+      # typecheck, osv-scanner skips call analysis, and every finding reports as unreachable.
+      - name: Prepare upstream
+        run: |
+          set -euo pipefail
+          if [ -x scripts/upstream.sh ]; then
+            ./scripts/upstream.sh init
+          else
+            echo "no scripts/upstream.sh; nothing to prepare"
+          fi
 
       - name: Install osv-scanner
         run: |
