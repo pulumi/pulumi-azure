@@ -21,10 +21,13 @@ jobs:
       contents: read
       issues: write
     steps:
+      # provider/go.mod replaces the upstream provider with ../upstream, so without the
+      # submodule the module cannot be loaded and call analysis silently does not run.
       - name: Checkout maintenance branch
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ env.MAINTENANCE_BRANCH }}
+          submodules: true
           persist-credentials: false
 
       # Call analysis needs a toolchain that can build the branch. Without one osv-scanner
