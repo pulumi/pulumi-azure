@@ -27,23 +27,31 @@ jobs:
           ref: ${{ env.MAINTENANCE_BRANCH }}
           persist-credentials: false
 
-      # Exits non-zero whenever it finds anything, which is the expected case here.
-      - name: Scan
-        continue-on-error: true
-        uses: google/osv-scanner-action/osv-scanner-action@9a498708959aeaef5ef730655706c5a1df1edbc2 # v2.3.8
+      # Call analysis needs a toolchain that can build the branch. Without one osv-scanner
+      # skips it silently and every finding looks unreachable.
+      - name: Setup Go
+        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
         with:
-          scan-args: |-
-            --format=json
-            --output-file=osv-raw.json
-            --recursive
-            provider/
-            sdk/
+          go-version-file: provider/go.mod
 
-      - name: Confirm the scan produced results
+      - name: Install osv-scanner
         run: |
           set -euo pipefail
-          if ! jq -e 'has("results")' osv-raw.json > /dev/null 2>&1; then
-            echo "osv-scanner produced no parseable results" >&2
+          curl -sSfL -o /usr/local/bin/osv-scanner \
+            https://github.com/google/osv-scanner/releases/download/v2.4.0/osv-scanner_linux_amd64
+          chmod +x /usr/local/bin/osv-scanner
+          osv-scanner --version
+
+      - name: Scan
+        run: |
+          set -euo pipefail
+          set +e
+          osv-scanner scan source -r --format=json --output-file=osv-raw.json provider/ sdk/
+          rc=$?
+          set -e
+          # 0 means it found nothing and 1 means it found vulnerabilities; both scanned.
+          if [ "$rc" -gt 1 ]; then
+            echo "osv-scanner failed with status $rc" >&2
             exit 1
           fi
 
@@ -61,7 +69,7 @@ jobs:
               | { id: $id,
                   aliases: $g.aliases,
                   severity: (($g.max_severity // "") | tonumber? // null),
-                  reached: ($analysis[$id].called // false),
+                  reached: (if $analysis | has($id) then $analysis[$id].called else null end),
                   package: $p.package.name,
                   version: $p.package.version,
                   published: ([$p.vulnerabilities[] | select(.id == $id) | .published][0] // null),
@@ -107,10 +115,11 @@ jobs:
             echo
             echo "Reachable means the vulnerable code is actually called. The rest are still"
             echo "reported because a customer's own scanner will flag them regardless."
+            echo "\`unknown\` means call analysis did not run, not that the code is unreachable."
             echo
             echo "| CVSS | Advisory | Package | Present | Fixed in | Reachable | Published |"
             echo "|---|---|---|---|---|---|---|"
-            jq -r '.[] | "| \(.severity // "unrated") | \(.id) | \(.package) | \(.version) | \(.fixed // "—") | \(if .reached then "yes" else "no" end) | \(.published[0:10]) |"' new.json
+            jq -r '.[] | "| \(.severity // "unrated") | \(.id) | \(.package) | \(.version) | \(.fixed // "—") | \(if .reached == true then "yes" elif .reached == false then "no" else "unknown" end) | \(.published[0:10]) |"' new.json
           } > comment.md
 
           gh issue comment "$number" --body-file comment.md
