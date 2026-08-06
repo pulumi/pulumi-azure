@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleWorkspace, err := apimanagement.NewWorkspace(ctx, "example", &apimanagement.WorkspaceArgs{
 //				Name:            pulumi.String("example-workspace"),
-//				ApiManagementId: exampleService.ID(),
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:     pulumi.String("Example Workspace"),
 //				Description:     pulumi.String("Example API Management Workspace"),
 //			})
@@ -65,7 +65,7 @@ import (
 //			}
 //			_, err = apimanagement.NewWorkspacePolicyFragment(ctx, "example", &apimanagement.WorkspacePolicyFragmentArgs{
 //				Name:                     pulumi.String("example-policy-fragment"),
-//				ApiManagementWorkspaceId: exampleWorkspace.ID(),
+//				ApiManagementWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				XmlFormat:                pulumi.String("xml"),
 //				XmlContent:               pulumi.String(invokeFile.Result),
 //			})

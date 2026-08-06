@@ -61,7 +61,7 @@ import (
 //				Name:              pulumi.String("example-virtualhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefix:     pulumi.String("10.0.0.0/23"),
 //				Tags: pulumi.StringMap{
 //					"hubSaaSPreview": pulumi.String("true"),
@@ -72,7 +72,7 @@ import (
 //			}
 //			exampleVirtualNetworkAppliance, err := paloalto.NewVirtualNetworkAppliance(ctx, "example", &paloalto.VirtualNetworkApplianceArgs{
 //				Name:         pulumi.String("example-appliance"),
-//				VirtualHubId: exampleVirtualHub.ID(),
+//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -84,10 +84,10 @@ import (
 //				StrataCloudManagerTenantName: pulumi.String("example"),
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualHubStrataCloudManagerNetworkProfileArgs{
 //					PublicIpAddressIds: pulumi.StringArray{
-//						examplePublicIp.ID(),
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
-//					VirtualHubId:              exampleVirtualHub.ID(),
-//					NetworkVirtualApplianceId: exampleVirtualNetworkAppliance.ID(),
+//					VirtualHubId:              exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//					NetworkVirtualApplianceId: exampleVirtualNetworkAppliance.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

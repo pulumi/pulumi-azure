@@ -83,7 +83,7 @@ import (
 //			}
 //			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
 //				Name:             pulumi.String("eventhub-example"),
-//				NamespaceId:      exampleEventHubNamespace.ID(),
+//				NamespaceId:      exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
 //				PartitionCount:   pulumi.Int(1),
 //				MessageRetention: pulumi.Int(1),
 //			})
@@ -101,8 +101,8 @@ import (
 //			}
 //			exampleEventSubscription, err := eventgrid.NewEventSubscription(ctx, "example", &eventgrid.EventSubscriptionArgs{
 //				Name:                pulumi.String("eventgrid-example"),
-//				Scope:               exampleAccount.ID(),
-//				EventhubEndpointId:  exampleEventHub.ID(),
+//				Scope:               exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				EventhubEndpointId:  exampleEventHub.ID().ToIDOutput().ToStringOutput(),
 //				EventDeliverySchema: pulumi.String("EventGridSchema"),
 //				IncludedEventTypes: pulumi.StringArray{
 //					pulumi.String("Microsoft.Storage.BlobCreated"),
@@ -122,8 +122,8 @@ import (
 //				Location:                  example.Location,
 //				ClusterName:               exampleCluster.Name,
 //				DatabaseName:              exampleDatabase.Name,
-//				StorageAccountId:          exampleAccount.ID(),
-//				EventhubId:                exampleEventHub.ID(),
+//				StorageAccountId:          exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				EventhubId:                exampleEventHub.ID().ToIDOutput().ToStringOutput(),
 //				EventhubConsumerGroupName: exampleConsumerGroup.Name,
 //				TableName:                 pulumi.String("my-table"),
 //				MappingRuleName:           pulumi.String("my-table-mapping"),

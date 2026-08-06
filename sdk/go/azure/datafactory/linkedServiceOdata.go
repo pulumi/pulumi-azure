@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceOdata(ctx, "anonymous", &datafactory.LinkedServiceOdataArgs{
 //				Name:          pulumi.String("anonymous"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
 //			})
 //			if err != nil {
@@ -56,7 +56,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceOdata(ctx, "basic_auth", &datafactory.LinkedServiceOdataArgs{
 //				Name:          pulumi.String("basic_auth"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
 //				BasicAuthentication: &datafactory.LinkedServiceOdataBasicAuthenticationArgs{
 //					Username: pulumi.String("emma"),

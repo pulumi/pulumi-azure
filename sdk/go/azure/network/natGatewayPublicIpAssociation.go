@@ -56,8 +56,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNatGatewayPublicIpAssociation(ctx, "example", &network.NatGatewayPublicIpAssociationArgs{
-//				NatGatewayId:      exampleNatGateway.ID(),
-//				PublicIpAddressId: examplePublicIp.ID(),
+//				NatGatewayId:      exampleNatGateway.ID().ToIDOutput().ToStringOutput(),
+//				PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -111,8 +111,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNatGatewayPublicIpAssociation(ctx, "example", &network.NatGatewayPublicIpAssociationArgs{
-//				NatGatewayId:      exampleNatGateway.ID(),
-//				PublicIpAddressId: examplePublicIp.ID(),
+//				NatGatewayId:      exampleNatGateway.ID().ToIDOutput().ToStringOutput(),
+//				PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

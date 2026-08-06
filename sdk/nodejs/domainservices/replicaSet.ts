@@ -229,7 +229,7 @@ import * as utilities from "../utilities";
  * });
  * const replicaVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("replica", {
  *     virtualNetworkId: replicaVirtualNetwork.id,
- *     dnsServers: exampleService.initialReplicaSet.apply(initialReplicaSet => initialReplicaSet.domainControllerIpAddresses),
+ *     dnsServers: exampleService.initialReplicaSet.domainControllerIpAddresses,
  * });
  * const replicaReplicaSet = new azure.domainservices.ReplicaSet("replica", {
  *     domainServiceId: exampleService.id,

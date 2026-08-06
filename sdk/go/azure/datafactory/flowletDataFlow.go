@@ -59,7 +59,7 @@ import (
 //			}
 //			exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "example", &datafactory.LinkedCustomServiceArgs{
 //				Name:          pulumi.String("linked_service"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Type:          pulumi.String("AzureBlobStorage"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
 //					return fmt.Sprintf("{\n  \\\"connectionString\\\": \\\"%v\\\"\n}\n", primaryConnectionString), nil
@@ -70,7 +70,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetJson(ctx, "example1", &datafactory.DatasetJsonArgs{
 //				Name:              pulumi.String("dataset1"),
-//				DataFactoryId:     exampleFactory.ID(),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				LinkedServiceName: exampleLinkedCustomService.Name,
 //				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
 //					Container: pulumi.String("container"),
@@ -84,7 +84,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetJson(ctx, "example2", &datafactory.DatasetJsonArgs{
 //				Name:              pulumi.String("dataset2"),
-//				DataFactoryId:     exampleFactory.ID(),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				LinkedServiceName: exampleLinkedCustomService.Name,
 //				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
 //					Container: pulumi.String("container"),
@@ -98,7 +98,7 @@ import (
 //			}
 //			example1FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example1", &datafactory.FlowletDataFlowArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Sources: datafactory.FlowletDataFlowSourceArray{
 //					&datafactory.FlowletDataFlowSourceArgs{
 //						Name: pulumi.String("source1"),
@@ -137,7 +137,7 @@ import (
 //			}
 //			example2FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example2", &datafactory.FlowletDataFlowArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Sources: datafactory.FlowletDataFlowSourceArray{
 //					&datafactory.FlowletDataFlowSourceArgs{
 //						Name: pulumi.String("source1"),
@@ -176,7 +176,7 @@ import (
 //			}
 //			_, err = datafactory.NewFlowletDataFlow(ctx, "example", &datafactory.FlowletDataFlowArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Sources: datafactory.FlowletDataFlowSourceArray{
 //					&datafactory.FlowletDataFlowSourceArgs{
 //						Name: pulumi.String("source1"),

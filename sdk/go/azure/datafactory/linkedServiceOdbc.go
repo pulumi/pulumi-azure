@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceOdbc(ctx, "anonymous", &datafactory.LinkedServiceOdbcArgs{
 //				Name:             pulumi.String("anonymous"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
 //			})
 //			if err != nil {
@@ -56,7 +56,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceOdbc(ctx, "basic_auth", &datafactory.LinkedServiceOdbcArgs{
 //				Name:             pulumi.String("basic_auth"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;"),
 //				BasicAuthentication: &datafactory.LinkedServiceOdbcBasicAuthenticationArgs{
 //					Username: pulumi.String("onrylmz"),

@@ -50,7 +50,7 @@ import (
 //				Name:              pulumi.String("example-vhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefix:     pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
@@ -60,7 +60,7 @@ import (
 //				Name:              pulumi.String("example-expressroutegateway"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualHubId:      exampleVirtualHub.ID(),
+//				VirtualHubId:      exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //				ScaleUnits:        pulumi.Int(1),
 //			})
 //			if err != nil {
@@ -81,7 +81,7 @@ import (
 //				Name:               pulumi.String("example-erc"),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
-//				ExpressRoutePortId: exampleExpressRoutePort.ID(),
+//				ExpressRoutePortId: exampleExpressRoutePort.ID().ToIDOutput().ToStringOutput(),
 //				BandwidthInGbps:    pulumi.Float64(5),
 //				Sku: &network.ExpressRouteCircuitSkuArgs{
 //					Tier:   pulumi.String("Standard"),
@@ -106,8 +106,8 @@ import (
 //			}
 //			_, err = network.NewExpressRouteConnection(ctx, "example", &network.ExpressRouteConnectionArgs{
 //				Name:                         pulumi.String("example-expressrouteconn"),
-//				ExpressRouteGatewayId:        exampleExpressRouteGateway.ID(),
-//				ExpressRouteCircuitPeeringId: exampleExpressRouteCircuitPeering.ID(),
+//				ExpressRouteGatewayId:        exampleExpressRouteGateway.ID().ToIDOutput().ToStringOutput(),
+//				ExpressRouteCircuitPeeringId: exampleExpressRouteCircuitPeering.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

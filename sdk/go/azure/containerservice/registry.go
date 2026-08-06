@@ -111,7 +111,7 @@ import (
 //				Identity: &containerservice.RegistryIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Encryption: &containerservice.RegistryEncryptionArgs{
@@ -181,11 +181,9 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				PrincipalId: pulumi.String(exampleKubernetesCluster.KubeletIdentity.ApplyT(func(kubeletIdentity containerservice.KubernetesClusterKubeletIdentity) (*string, error) {
-//					return kubeletIdentity.ObjectId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:                  exampleKubernetesCluster.KubeletIdentity.ObjectId(),
 //				RoleDefinitionName:           pulumi.String("AcrPull"),
-//				Scope:                        exampleRegistry.ID(),
+//				Scope:                        exampleRegistry.ID().ToIDOutput().ToStringOutput(),
 //				SkipServicePrincipalAadCheck: pulumi.Bool(true),
 //			})
 //			if err != nil {

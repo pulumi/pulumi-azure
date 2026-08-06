@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     displayName: "Potential data staging",
  * });
- * export const id = example.apply(example => example.id);
+ * export const id = example.id;
  * ```
  */
 export function getAlertRuleAnomaly(args: GetAlertRuleAnomalyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleAnomalyResult> {
@@ -160,7 +160,7 @@ export interface GetAlertRuleAnomalyResult {
  *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     displayName: "Potential data staging",
  * });
- * export const id = example.apply(example => example.id);
+ * export const id = example.id;
  * ```
  */
 export function getAlertRuleAnomalyOutput(args: GetAlertRuleAnomalyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleAnomalyResult> {

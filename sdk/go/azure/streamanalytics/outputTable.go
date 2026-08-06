@@ -59,19 +59,15 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputTable(ctx, "example", &streamanalytics.OutputTableArgs{
-//				Name: pulumi.String("output-to-storage-table"),
-//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
-//				StorageAccountName: exampleAccount.Name,
-//				StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-//				Table:              exampleTable.Name,
-//				PartitionKey:       pulumi.String("foo"),
-//				RowKey:             pulumi.String("bar"),
-//				BatchSize:          pulumi.Int(100),
+//				Name:                   pulumi.String("output-to-storage-table"),
+//				StreamAnalyticsJobName: example.Name(),
+//				ResourceGroupName:      example.ResourceGroupName(),
+//				StorageAccountName:     exampleAccount.Name,
+//				StorageAccountKey:      exampleAccount.PrimaryAccessKey,
+//				Table:                  exampleTable.Name,
+//				PartitionKey:           pulumi.String("foo"),
+//				RowKey:                 pulumi.String("bar"),
+//				BatchSize:              pulumi.Int(100),
 //			})
 //			if err != nil {
 //				return err

@@ -70,7 +70,7 @@ import (
 //				},
 //				StorageAccounts: hdinsight.SparkClusterStorageAccountArray{
 //					&hdinsight.SparkClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID(),
+//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
 //						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
 //						IsDefault:          pulumi.Bool(true),
 //					},

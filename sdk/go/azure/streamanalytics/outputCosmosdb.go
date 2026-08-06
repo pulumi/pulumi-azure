@@ -82,12 +82,10 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputCosmosdb(ctx, "example", &streamanalytics.OutputCosmosdbArgs{
-//				Name: pulumi.String("output-to-cosmosdb"),
-//				StreamAnalyticsJobId: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:                  pulumi.String("output-to-cosmosdb"),
+//				StreamAnalyticsJobId:  example.Id(),
 //				CosmosdbAccountKey:    exampleAccount.PrimaryKey,
-//				CosmosdbSqlDatabaseId: exampleSqlDatabase.ID(),
+//				CosmosdbSqlDatabaseId: exampleSqlDatabase.ID().ToIDOutput().ToStringOutput(),
 //				ContainerName:         exampleSqlContainer.Name,
 //				DocumentId:            pulumi.String("exampledocumentid"),
 //			})

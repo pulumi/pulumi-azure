@@ -123,12 +123,8 @@ import (
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//							return identity.TenantId, nil
-//						}).(pulumi.StringPtrOutput),
-//						ObjectId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//							return identity.PrincipalId, nil
-//						}).(pulumi.StringPtrOutput),
+//						TenantId: exampleBackupVault.Identity.TenantId(),
+//						ObjectId: exampleBackupVault.Identity.PrincipalId(),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Get"),
@@ -153,7 +149,7 @@ import (
 //					exampleDatabaseName := _args[1].(string)
 //					return fmt.Sprintf("Server=%v.postgres.database.azure.com;Database=%v;Port=5432;User Id=psqladmin@%v;Password=H@Sh1CoR3!;Ssl Mode=Require;", exampleServerName, exampleDatabaseName, exampleServerName), nil
 //				}).(pulumi.StringOutput),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -171,11 +167,9 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleServer.ID(),
+//				Scope:              exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
@@ -183,9 +177,9 @@ import (
 //			_, err = dataprotection.NewBackupInstancePostgresql(ctx, "example", &dataprotection.BackupInstancePostgresqlArgs{
 //				Name:                               pulumi.String("example"),
 //				Location:                           example.Location,
-//				VaultId:                            exampleBackupVault.ID(),
-//				DatabaseId:                         exampleDatabase.ID(),
-//				BackupPolicyId:                     exampleBackupPolicyPostgresql.ID(),
+//				VaultId:                            exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				DatabaseId:                         exampleDatabase.ID().ToIDOutput().ToStringOutput(),
+//				BackupPolicyId:                     exampleBackupPolicyPostgresql.ID().ToIDOutput().ToStringOutput(),
 //				DatabaseCredentialKeyVaultSecretId: exampleSecret.VersionlessId,
 //			})
 //			if err != nil {

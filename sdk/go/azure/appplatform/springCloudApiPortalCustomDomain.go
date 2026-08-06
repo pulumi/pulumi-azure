@@ -51,16 +51,16 @@ import (
 //			}
 //			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
 //				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleSpringCloudApiPortal, err := appplatform.NewSpringCloudApiPortal(ctx, "example", &appplatform.SpringCloudApiPortalArgs{
 //				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				GatewayIds: pulumi.StringArray{
-//					exampleSpringCloudGateway.ID(),
+//					exampleSpringCloudGateway.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -68,7 +68,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudApiPortalCustomDomain(ctx, "example", &appplatform.SpringCloudApiPortalCustomDomainArgs{
 //				Name:                   pulumi.String("example.com"),
-//				SpringCloudApiPortalId: exampleSpringCloudApiPortal.ID(),
+//				SpringCloudApiPortalId: exampleSpringCloudApiPortal.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

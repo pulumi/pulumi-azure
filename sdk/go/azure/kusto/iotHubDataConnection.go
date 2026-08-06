@@ -96,7 +96,7 @@ import (
 //				Location:               example.Location,
 //				ClusterName:            exampleCluster.Name,
 //				DatabaseName:           exampleDatabase.Name,
-//				IothubId:               exampleIoTHub.ID(),
+//				IothubId:               exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
 //				ConsumerGroup:          exampleConsumerGroup.Name,
 //				SharedAccessPolicyName: exampleSharedAccessPolicy.Name,
 //				EventSystemProperties: pulumi.StringArray{

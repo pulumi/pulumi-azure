@@ -34,12 +34,12 @@ import * as utilities from "../utilities";
  * });
  * const exampleStreamInputIotHub = new azure.streamanalytics.StreamInputIotHub("example", {
  *     name: "example-iothub-input",
- *     streamAnalyticsJobName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     streamAnalyticsJobName: example.name,
+ *     resourceGroupName: example.resourceGroupName,
  *     endpoint: "messages/events",
  *     eventhubConsumerGroupName: "$Default",
  *     iothubNamespace: exampleIoTHub.name,
- *     sharedAccessPolicyKey: exampleIoTHub.sharedAccessPolicies.apply(sharedAccessPolicies => sharedAccessPolicies[0].primaryKey),
+ *     sharedAccessPolicyKey: exampleIoTHub.sharedAccessPolicies[0].primaryKey,
  *     sharedAccessPolicyName: "iothubowner",
  *     serialization: {
  *         type: "Json",

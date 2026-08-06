@@ -60,14 +60,14 @@ import (
 //				Name:                    pulumi.String("Example-Environment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleApp, err := containerapp.NewApp(ctx, "example", &containerapp.AppArgs{
 //				Name:                      pulumi.String("example-app"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				ResourceGroupName:         example.Name,
 //				RevisionMode:              pulumi.String("Single"),
 //				Template: &containerapp.AppTemplateArgs{
@@ -118,7 +118,7 @@ import (
 //			}
 //			exampleEnvironmentCertificate, err := containerapp.NewEnvironmentCertificate(ctx, "example", &containerapp.EnvironmentCertificateArgs{
 //				Name:                      pulumi.String("myfriendlyname"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				CertificateBlob:           invokeFilebase64.Result,
 //				CertificatePassword:       pulumi.String("$3cretSqu1rreL"),
 //			})
@@ -126,7 +126,7 @@ import (
 //				return err
 //			}
 //			invokeTrimsuffix1, err := std.Trimsuffix(ctx, &std.TrimsuffixArgs{
-//				Input: std.Trimprefix(ctx, &std.TrimprefixArgs{
+//				Input: std.Trimprefix(ctx, std.TrimprefixArgs{
 //					Input:  api.Fqdn,
 //					Prefix: "asuid.",
 //				}, nil).Result,
@@ -137,8 +137,8 @@ import (
 //			}
 //			_, err = containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
 //				Name:                                 pulumi.String(invokeTrimsuffix1.Result),
-//				ContainerAppId:                       exampleApp.ID(),
-//				ContainerAppEnvironmentCertificateId: exampleEnvironmentCertificate.ID(),
+//				ContainerAppId:                       exampleApp.ID().ToIDOutput().ToStringOutput(),
+//				ContainerAppEnvironmentCertificateId: exampleEnvironmentCertificate.ID().ToIDOutput().ToStringOutput(),
 //				CertificateBindingType:               pulumi.String("SniEnabled"),
 //			})
 //			if err != nil {
@@ -166,7 +166,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			invokeTrimsuffix, err := std.Trimsuffix(ctx, &std.TrimsuffixArgs{
-//				Input: std.Trimprefix(ctx, &std.TrimprefixArgs{
+//				Input: std.Trimprefix(ctx, std.TrimprefixArgs{
 //					Input:  api.Fqdn,
 //					Prefix: "asuid.",
 //				}, nil).Result,

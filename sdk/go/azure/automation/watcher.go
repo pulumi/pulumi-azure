@@ -71,7 +71,7 @@ import (
 //			}
 //			_, err = automation.NewWatcher(ctx, "example", &automation.WatcherArgs{
 //				Name:                        pulumi.String("example"),
-//				AutomationAccountId:         exampleAccount.ID(),
+//				AutomationAccountId:         exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Location:                    pulumi.String("West Europe"),
 //				ScriptName:                  exampleRunBook.Name,
 //				ScriptRunOn:                 exampleHybridRunbookWorkerGroup.Name,

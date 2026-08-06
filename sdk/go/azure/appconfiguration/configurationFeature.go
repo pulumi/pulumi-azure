@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
-//				Scope:              appconf.ID(),
+//				Scope:              appconf.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
 //				PrincipalId:        pulumi.String(current.ObjectId),
 //			})
@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			_, err = appconfiguration.NewConfigurationFeature(ctx, "test", &appconfiguration.ConfigurationFeatureArgs{
-//				ConfigurationStoreId: appconf.ID(),
+//				ConfigurationStoreId: appconf.ID().ToIDOutput().ToStringOutput(),
 //				Description:          pulumi.String("test description"),
 //				Name:                 pulumi.String("test-ackey"),
 //				Label:                pulumi.String("test-ackeylabel"),

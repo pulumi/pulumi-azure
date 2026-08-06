@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = securitycenter.NewWorkspace(ctx, "example", &securitycenter.WorkspaceArgs{
 //				Scope:       pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
-//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

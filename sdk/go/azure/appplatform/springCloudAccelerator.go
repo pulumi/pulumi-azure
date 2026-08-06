@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudAccelerator(ctx, "example", &appplatform.SpringCloudAcceleratorArgs{
 //				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

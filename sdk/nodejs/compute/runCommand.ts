@@ -188,10 +188,10 @@ import * as utilities from "../utilities";
  *     virtualMachineId: exampleLinuxVirtualMachine.id,
  *     runAsPassword: "P@$$w0rd1234!",
  *     runAsUser: "adminuser",
- *     errorBlobUri: pulumi.all([example3.id, example]).apply(([id, example]) => `${id}${example.sas}`),
- *     outputBlobUri: pulumi.all([example2.id, example]).apply(([id, example]) => `${id}${example.sas}`),
+ *     errorBlobUri: pulumi.interpolate`${example3.id}${example.sas}`,
+ *     outputBlobUri: pulumi.interpolate`${example2.id}${example.sas}`,
  *     source: {
- *         scriptUri: pulumi.all([example1.id, example]).apply(([id, example]) => `${id}${example.sas}`),
+ *         scriptUri: pulumi.interpolate`${example1.id}${example.sas}`,
  *     },
  *     parameters: [{
  *         name: "example-vm1",

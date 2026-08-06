@@ -48,11 +48,9 @@ import (
 //			}
 //			example := mssql.LookupDatabaseOutput(ctx, mssql.GetDatabaseOutputArgs{
 //				Name:     pulumi.String("example-mssql-db"),
-//				ServerId: exampleServer.ID(),
+//				ServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
-//			ctx.Export("databaseId", example.ApplyT(func(example mssql.GetDatabaseResult) (*string, error) {
-//				return example.Id, nil
-//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("databaseId", example.Id())
 //			return nil
 //		})
 //	}

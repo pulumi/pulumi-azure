@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureSqlDatabase(ctx, "example", &datafactory.LinkedServiceAzureSqlDatabaseArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("data source=serverhostname;initial catalog=master;user id=testUser;Password=test;integrated security=False;encrypt=True;connection timeout=30"),
 //			})
 //			if err != nil {

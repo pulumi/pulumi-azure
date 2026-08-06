@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = siterecovery.NewVMWareReplicationPolicy(ctx, "example", &siterecovery.VMWareReplicationPolicyArgs{
 //				Name:                            pulumi.String("example-policy"),
-//				RecoveryVaultId:                 exampleVault.ID(),
+//				RecoveryVaultId:                 exampleVault.ID().ToIDOutput().ToStringOutput(),
 //				RecoveryPointRetentionInMinutes: pulumi.Int(1440),
 //				ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(240),
 //			})

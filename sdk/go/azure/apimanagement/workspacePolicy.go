@@ -49,14 +49,14 @@ import (
 //			}
 //			exampleWorkspace, err := apimanagement.NewWorkspace(ctx, "example", &apimanagement.WorkspaceArgs{
 //				Name:            pulumi.String("example-workspace"),
-//				ApiManagementId: exampleService.ID(),
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:     pulumi.String("my workspace"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = apimanagement.NewWorkspacePolicy(ctx, "example", &apimanagement.WorkspacePolicyArgs{
-//				ApiManagementWorkspaceId: exampleWorkspace.ID(),
+//				ApiManagementWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				XmlContent: pulumi.String(`<policies>
 //	  <inbound>
 //	    <find-and-replace from=\"abc\" to=\"xyz\" />

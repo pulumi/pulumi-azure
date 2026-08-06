@@ -60,10 +60,10 @@ import (
 //			}
 //			_, err = siterecovery.NewHypervNetworkMapping(ctx, "recovery-mapping", &siterecovery.HypervNetworkMappingArgs{
 //				Name:            pulumi.String("recovery-network-mapping"),
-//				RecoveryVaultId: vault.ID(),
+//				RecoveryVaultId: vault.ID().ToIDOutput().ToStringOutput(),
 //				SourceSystemCenterVirtualMachineManagerName: pulumi.String("my-vmm-server"),
 //				SourceNetworkName: pulumi.String("my-vmm-network"),
-//				TargetNetworkId:   targetVirtualNetwork.ID(),
+//				TargetNetworkId:   targetVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -112,7 +112,7 @@ import (
 //				PoolName:          examplePool.Name,
 //				VolumePath:        pulumi.String("example-vol"),
 //				ServiceLevel:      pulumi.String("Standard"),
-//				SubnetId:          exampleSubnet.ID(),
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				StorageQuotaInGb:  pulumi.Int(100),
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("NFSv3"),
@@ -130,8 +130,8 @@ import (
 //			}
 //			bucketSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "bucket", &tls.SelfSignedCertArgs{
 //				PrivateKeyPem: bucket.PrivateKeyPem,
-//				Subject: []map[string]interface{}{
-//					map[string]interface{}{
+//				Subject: []map[string]string{
+//					{
 //						"commonName": "example-bucket.example.internal",
 //					},
 //				},
@@ -157,7 +157,7 @@ import (
 //			// First bucket - establishes the shared bucket server.
 //			first, err := netapp.NewVolumeBucketWithServer(ctx, "first", &netapp.VolumeBucketWithServerArgs{
 //				Name:     pulumi.String("example-bucket-first"),
-//				VolumeId: exampleVolume.ID(),
+//				VolumeId: exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				FileSystemNfsUser: &netapp.VolumeBucketWithServerFileSystemNfsUserArgs{
 //					GroupId: pulumi.Int(1000),
 //					UserId:  pulumi.Int(1000),
@@ -173,7 +173,7 @@ import (
 //			// Subsequent bucket - reuses the server configured by the first bucket.
 //			_, err = netapp.NewVolumeBucket(ctx, "example", &netapp.VolumeBucketArgs{
 //				Name:     pulumi.String("example-bucket-second"),
-//				VolumeId: exampleVolume.ID(),
+//				VolumeId: exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				FileSystemNfsUser: &netapp.VolumeBucketFileSystemNfsUserArgs{
 //					GroupId: pulumi.Int(2000),
 //					UserId:  pulumi.Int(2000),

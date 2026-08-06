@@ -68,7 +68,7 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerScopeConnection(ctx, "example", &network.NetworkManagerScopeConnectionArgs{
 //				Name:             pulumi.String("example-nsc"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:         pulumi.String(current.TenantId),
 //				TargetScopeId:    pulumi.String(alt.Id),
 //				Description:      pulumi.String("example"),

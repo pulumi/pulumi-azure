@@ -76,8 +76,8 @@ import (
 //				ResourceGroupName:            example.Name,
 //				Location:                     example.Location,
 //				Sku:                          pulumi.String("Standard"),
-//				PublicIpAddressId:            examplePublicIp.ID(),
-//				SubnetId:                     exampleSubnet.ID(),
+//				PublicIpAddressId:            examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				BranchToBranchTrafficEnabled: pulumi.Bool(true),
 //				HubRoutingPreference:         pulumi.String("ASPath"),
 //			})

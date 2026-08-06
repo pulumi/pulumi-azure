@@ -76,8 +76,8 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudAppCosmosDBAssociation(ctx, "example", &appplatform.SpringCloudAppCosmosDBAssociationArgs{
 //				Name:              pulumi.String("example-bind"),
-//				SpringCloudAppId:  exampleSpringCloudApp.ID(),
-//				CosmosdbAccountId: exampleAccount.ID(),
+//				SpringCloudAppId:  exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
+//				CosmosdbAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				ApiType:           pulumi.String("table"),
 //				CosmosdbAccessKey: exampleAccount.PrimaryKey,
 //			})

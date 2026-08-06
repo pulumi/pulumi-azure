@@ -48,7 +48,7 @@ import (
 //				Name:              pulumi.String("example-vhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefix:     pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
@@ -61,7 +61,7 @@ import (
 //				SkuName:           pulumi.String("AZFW_Hub"),
 //				SkuTier:           pulumi.String("Standard"),
 //				VirtualHub: &network.FirewallVirtualHubArgs{
-//					VirtualHubId:  exampleVirtualHub.ID(),
+//					VirtualHubId:  exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //					PublicIpCount: pulumi.Int(1),
 //				},
 //			})
@@ -70,14 +70,14 @@ import (
 //			}
 //			_, err = network.NewRoutingIntent(ctx, "example", &network.RoutingIntentArgs{
 //				Name:         pulumi.String("example-routingintent"),
-//				VirtualHubId: exampleVirtualHub.ID(),
+//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //				RoutingPolicies: network.RoutingIntentRoutingPolicyArray{
 //					&network.RoutingIntentRoutingPolicyArgs{
 //						Name: pulumi.String("InternetTrafficPolicy"),
 //						Destinations: pulumi.StringArray{
 //							pulumi.String("Internet"),
 //						},
-//						NextHop: exampleFirewall.ID(),
+//						NextHop: exampleFirewall.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

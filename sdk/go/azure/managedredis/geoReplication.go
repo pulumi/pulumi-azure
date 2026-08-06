@@ -63,9 +63,9 @@ import (
 //				return err
 //			}
 //			_, err = managedredis.NewGeoReplication(ctx, "example", &managedredis.GeoReplicationArgs{
-//				ManagedRedisId: amr1.ID(),
+//				ManagedRedisId: amr1.ID().ToIDOutput().ToStringOutput(),
 //				LinkedManagedRedisIds: pulumi.StringArray{
-//					amr2.ID(),
+//					amr2.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

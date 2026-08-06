@@ -41,13 +41,11 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
 //			_, err = arcmachine.NewExtension(ctx, "example", &arcmachine.ExtensionArgs{
-//				Name:     pulumi.String("example"),
-//				Location: pulumi.String("West Europe"),
-//				ArcMachineId: pulumi.String(example.ApplyT(func(example arcmachine.GetResult) (*string, error) {
-//					return example.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Publisher: pulumi.String("Microsoft.Azure.Monitor"),
-//				Type:      pulumi.String("AzureMonitorLinuxAgent"),
+//				Name:         pulumi.String("example"),
+//				Location:     pulumi.String("West Europe"),
+//				ArcMachineId: example.Id(),
+//				Publisher:    pulumi.String("Microsoft.Azure.Monitor"),
+//				Type:         pulumi.String("AzureMonitorLinuxAgent"),
 //			})
 //			if err != nil {
 //				return err

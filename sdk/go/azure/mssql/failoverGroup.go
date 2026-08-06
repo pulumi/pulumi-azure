@@ -60,7 +60,7 @@ import (
 //			}
 //			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
 //				Name:      pulumi.String("exampledb"),
-//				ServerId:  primary.ID(),
+//				ServerId:  primary.ID().ToIDOutput().ToStringOutput(),
 //				SkuName:   pulumi.String("S1"),
 //				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
 //				MaxSizeGb: pulumi.Float64(200),
@@ -70,13 +70,13 @@ import (
 //			}
 //			_, err = mssql.NewFailoverGroup(ctx, "example", &mssql.FailoverGroupArgs{
 //				Name:     pulumi.String("example"),
-//				ServerId: primary.ID(),
+//				ServerId: primary.ID().ToIDOutput().ToStringOutput(),
 //				Databases: pulumi.StringArray{
-//					exampleDatabase.ID(),
+//					exampleDatabase.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				PartnerServers: mssql.FailoverGroupPartnerServerArray{
 //					&mssql.FailoverGroupPartnerServerArgs{
-//						Id: secondary.ID(),
+//						Id: secondary.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				ReadWriteEndpointFailoverPolicy: &mssql.FailoverGroupReadWriteEndpointFailoverPolicyArgs{

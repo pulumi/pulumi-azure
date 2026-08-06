@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     name: "existing",
  *     apiManagementId: exampleService.id,
  * });
- * export const id = example.apply(example => example.id);
+ * export const id = example.id;
  * ```
  *
  * ## API Providers
@@ -101,7 +101,7 @@ export interface GetWorkspaceResult {
  *     name: "existing",
  *     apiManagementId: exampleService.id,
  * });
- * export const id = example.apply(example => example.id);
+ * export const id = example.id;
  * ```
  *
  * ## API Providers

@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * const exampleAlertRuleThreatIntelligence = new azure.sentinel.AlertRuleThreatIntelligence("example", {
  *     name: "example-rule",
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
- *     alertRuleTemplateGuid: example.apply(example => example.name),
+ *     alertRuleTemplateGuid: example.name,
  * });
  * ```
  *

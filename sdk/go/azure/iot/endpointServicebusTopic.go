@@ -50,14 +50,14 @@ import (
 //			}
 //			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
 //				Name:        pulumi.String("exampleTopic"),
-//				NamespaceId: exampleNamespace.ID(),
+//				NamespaceId: exampleNamespace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "example", &servicebus.TopicAuthorizationRuleArgs{
 //				Name:    pulumi.String("exampleRule"),
-//				TopicId: exampleTopic.ID(),
+//				TopicId: exampleTopic.ID().ToIDOutput().ToStringOutput(),
 //				Listen:  pulumi.Bool(false),
 //				Send:    pulumi.Bool(true),
 //				Manage:  pulumi.Bool(false),
@@ -82,7 +82,7 @@ import (
 //			}
 //			_, err = iot.NewEndpointServicebusTopic(ctx, "example", &iot.EndpointServicebusTopicArgs{
 //				ResourceGroupName: example.Name,
-//				IothubId:          exampleIoTHub.ID(),
+//				IothubId:          exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
 //				Name:              pulumi.String("example"),
 //				ConnectionString:  exampleTopicAuthorizationRule.PrimaryConnectionString,
 //			})

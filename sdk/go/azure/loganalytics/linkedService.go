@@ -62,8 +62,8 @@ import (
 //			}
 //			_, err = loganalytics.NewLinkedService(ctx, "example", &loganalytics.LinkedServiceArgs{
 //				ResourceGroupName: example.Name,
-//				WorkspaceId:       exampleAnalyticsWorkspace.ID(),
-//				ReadAccessId:      exampleAccount.ID(),
+//				WorkspaceId:       exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				ReadAccessId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

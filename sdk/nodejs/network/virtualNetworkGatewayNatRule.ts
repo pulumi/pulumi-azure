@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * const exampleVirtualNetworkGatewayNatRule = new azure.network.VirtualNetworkGatewayNatRule("example", {
  *     name: "example-vnetgwnatrule",
  *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkGatewayId: example.apply(example => example.id),
+ *     virtualNetworkGatewayId: example.id,
  *     mode: "EgressSnat",
  *     type: "Dynamic",
  *     ipConfigurationId: example.apply(example => example.ipConfigurations?.[0]?.id),

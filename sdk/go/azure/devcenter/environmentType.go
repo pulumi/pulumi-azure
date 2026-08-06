@@ -49,7 +49,7 @@ import (
 //			}
 //			_, err = devcenter.NewEnvironmentType(ctx, "example", &devcenter.EnvironmentTypeArgs{
 //				Name:        pulumi.String("example-dcet"),
-//				DevCenterId: exampleDevCenter.ID(),
+//				DevCenterId: exampleDevCenter.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"Env": pulumi.String("Test"),
 //				},

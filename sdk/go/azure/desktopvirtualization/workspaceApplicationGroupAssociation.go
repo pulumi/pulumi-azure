@@ -51,7 +51,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("RemoteApp"),
-//				HostPoolId:        pooledbreadthfirst.ID(),
+//				HostPoolId:        pooledbreadthfirst.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -65,8 +65,8 @@ import (
 //				return err
 //			}
 //			_, err = desktopvirtualization.NewWorkspaceApplicationGroupAssociation(ctx, "workspaceremoteapp", &desktopvirtualization.WorkspaceApplicationGroupAssociationArgs{
-//				WorkspaceId:        workspace.ID(),
-//				ApplicationGroupId: remoteapp.ID(),
+//				WorkspaceId:        workspace.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationGroupId: remoteapp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

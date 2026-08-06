@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = operationalinsights.NewQueryPackQuery(ctx, "example", &operationalinsights.QueryPackQueryArgs{
 //				Name:        pulumi.String("19952bc3-0bf9-49eb-b713-6b80e7a41847"),
-//				QueryPackId: exampleQueryPack.ID(),
+//				QueryPackId: exampleQueryPack.ID().ToIDOutput().ToStringOutput(),
 //				Body: pulumi.String(`let newExceptionsTimeRange = 1d;
 //
 // let timeRangeToCheckBefore = 7d;

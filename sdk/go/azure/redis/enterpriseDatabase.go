@@ -60,16 +60,16 @@ import (
 //			}
 //			_, err = redis.NewEnterpriseDatabase(ctx, "example", &redis.EnterpriseDatabaseArgs{
 //				Name:             pulumi.String("default"),
-//				ClusterId:        exampleEnterpriseCluster.ID(),
+//				ClusterId:        exampleEnterpriseCluster.ID().ToIDOutput().ToStringOutput(),
 //				ClientProtocol:   pulumi.String("Encrypted"),
 //				ClusteringPolicy: pulumi.String("EnterpriseCluster"),
 //				EvictionPolicy:   pulumi.String("NoEviction"),
 //				Port:             pulumi.Int(10000),
 //				LinkedDatabaseIds: pulumi.StringArray{
-//					exampleEnterpriseCluster.ID().ApplyT(func(id string) (string, error) {
+//					exampleEnterpriseCluster.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //						return fmt.Sprintf("%v/databases/default", id), nil
 //					}).(pulumi.StringOutput),
-//					example1.ID().ApplyT(func(id string) (string, error) {
+//					example1.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //						return fmt.Sprintf("%v/databases/default", id), nil
 //					}).(pulumi.StringOutput),
 //				},

@@ -60,43 +60,43 @@ import (
 //			}
 //			example := systemcenter.GetVirtualMachineManagerInventoryItemsOutput(ctx, systemcenter.GetVirtualMachineManagerInventoryItemsOutputArgs{
 //				InventoryType: pulumi.String("Cloud"),
-//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID(),
+//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			exampleVirtualMachineManagerCloud, err := systemcenter.NewVirtualMachineManagerCloud(ctx, "example", &systemcenter.VirtualMachineManagerCloudArgs{
 //				Name:              pulumi.String("example-scvmmc"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				CustomLocationId:  exampleVirtualMachineManagerServer.CustomLocationId,
-//				SystemCenterVirtualMachineManagerServerInventoryItemId: pulumi.String(example.ApplyT(func(example systemcenter.GetVirtualMachineManagerInventoryItemsResult) (*string, error) {
+//				SystemCenterVirtualMachineManagerServerInventoryItemId: example.ApplyT(func(example systemcenter.GetVirtualMachineManagerInventoryItemsResult) (*string, error) {
 //					return example.InventoryItems[0].Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example2 := systemcenter.GetVirtualMachineManagerInventoryItemsOutput(ctx, systemcenter.GetVirtualMachineManagerInventoryItemsOutputArgs{
 //				InventoryType: pulumi.String("VirtualMachineTemplate"),
-//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID(),
+//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			exampleVirtualMachineManagerVirtualMachineTemplate, err := systemcenter.NewVirtualMachineManagerVirtualMachineTemplate(ctx, "example", &systemcenter.VirtualMachineManagerVirtualMachineTemplateArgs{
 //				Name:              pulumi.String("example-scvmmvmt"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				CustomLocationId:  exampleVirtualMachineManagerServer.CustomLocationId,
-//				SystemCenterVirtualMachineManagerServerInventoryItemId: pulumi.String(example2.ApplyT(func(example2 systemcenter.GetVirtualMachineManagerInventoryItemsResult) (*string, error) {
+//				SystemCenterVirtualMachineManagerServerInventoryItemId: example2.ApplyT(func(example2 systemcenter.GetVirtualMachineManagerInventoryItemsResult) (*string, error) {
 //					return example2.InventoryItems[0].Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = systemcenter.NewVirtualMachineManagerVirtualMachineInstance(ctx, "example", &systemcenter.VirtualMachineManagerVirtualMachineInstanceArgs{
-//				ScopedResourceId: exampleArcMachine.ID(),
+//				ScopedResourceId: exampleArcMachine.ID().ToIDOutput().ToStringOutput(),
 //				CustomLocationId: exampleVirtualMachineManagerServer.CustomLocationId,
 //				Infrastructure: &systemcenter.VirtualMachineManagerVirtualMachineInstanceInfrastructureArgs{
-//					SystemCenterVirtualMachineManagerCloudId:                exampleVirtualMachineManagerCloud.ID(),
-//					SystemCenterVirtualMachineManagerTemplateId:             exampleVirtualMachineManagerVirtualMachineTemplate.ID(),
-//					SystemCenterVirtualMachineManagerVirtualMachineServerId: exampleVirtualMachineManagerServer.ID(),
+//					SystemCenterVirtualMachineManagerCloudId:                exampleVirtualMachineManagerCloud.ID().ToIDOutput().ToStringOutput(),
+//					SystemCenterVirtualMachineManagerTemplateId:             exampleVirtualMachineManagerVirtualMachineTemplate.ID().ToIDOutput().ToStringOutput(),
+//					SystemCenterVirtualMachineManagerVirtualMachineServerId: exampleVirtualMachineManagerServer.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				OperatingSystem: &systemcenter.VirtualMachineManagerVirtualMachineInstanceOperatingSystemArgs{
 //					ComputerName: pulumi.String("testComputer"),

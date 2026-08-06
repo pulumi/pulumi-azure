@@ -121,7 +121,7 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewJobSchedule(ctx, "example", &streamanalytics.JobScheduleArgs{
-//				StreamAnalyticsJobId: exampleJob.ID(),
+//				StreamAnalyticsJobId: exampleJob.ID().ToIDOutput().ToStringOutput(),
 //				StartMode:            pulumi.String("CustomTime"),
 //				StartTime:            pulumi.String("2022-09-21T00:00:00Z"),
 //			}, pulumi.DependsOn([]pulumi.Resource{

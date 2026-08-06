@@ -58,9 +58,9 @@ import (
 //			}
 //			_, err = search.NewSharedPrivateLinkService(ctx, "test", &search.SharedPrivateLinkServiceArgs{
 //				Name:             pulumi.String("example-spl"),
-//				SearchServiceId:  testService.ID(),
+//				SearchServiceId:  testService.ID().ToIDOutput().ToStringOutput(),
 //				SubresourceName:  pulumi.String("blob"),
-//				TargetResourceId: testAccount.ID(),
+//				TargetResourceId: testAccount.ID().ToIDOutput().ToStringOutput(),
 //				RequestMessage:   pulumi.String("please approve"),
 //			})
 //			if err != nil {

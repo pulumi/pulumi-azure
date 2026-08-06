@@ -99,7 +99,7 @@ import (
 //				PoolName:          examplePool.Name,
 //				VolumePath:        pulumi.String("my-unique-file-path"),
 //				ServiceLevel:      pulumi.String("Premium"),
-//				SubnetId:          exampleSubnet.ID(),
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				NetworkFeatures:   pulumi.String("Basic"),
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("NFSv4.1"),
@@ -114,7 +114,7 @@ import (
 //			_, err = netapp.NewVolumeQuotaRule(ctx, "quota1", &netapp.VolumeQuotaRuleArgs{
 //				Name:           pulumi.String("example-quota-rule-1"),
 //				Location:       example.Location,
-//				VolumeId:       exampleVolume.ID(),
+//				VolumeId:       exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				QuotaTarget:    pulumi.String("3001"),
 //				QuotaSizeInKib: pulumi.Int(1024),
 //				QuotaType:      pulumi.String("IndividualGroupQuota"),
@@ -125,7 +125,7 @@ import (
 //			_, err = netapp.NewVolumeQuotaRule(ctx, "quota2", &netapp.VolumeQuotaRuleArgs{
 //				Name:           pulumi.String("example-quota-rule-2"),
 //				Location:       example.Location,
-//				VolumeId:       exampleVolume.ID(),
+//				VolumeId:       exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				QuotaTarget:    pulumi.String("2001"),
 //				QuotaSizeInKib: pulumi.Int(1024),
 //				QuotaType:      pulumi.String("IndividualUserQuota"),
@@ -136,7 +136,7 @@ import (
 //			_, err = netapp.NewVolumeQuotaRule(ctx, "quota3", &netapp.VolumeQuotaRuleArgs{
 //				Name:           pulumi.String("example-quota-rule-3"),
 //				Location:       example.Location,
-//				VolumeId:       exampleVolume.ID(),
+//				VolumeId:       exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				QuotaSizeInKib: pulumi.Int(1024),
 //				QuotaType:      pulumi.String("DefaultUserQuota"),
 //			})
@@ -146,7 +146,7 @@ import (
 //			_, err = netapp.NewVolumeQuotaRule(ctx, "quota4", &netapp.VolumeQuotaRuleArgs{
 //				Name:           pulumi.String("example-quota-rule-4"),
 //				Location:       example.Location,
-//				VolumeId:       exampleVolume.ID(),
+//				VolumeId:       exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				QuotaSizeInKib: pulumi.Int(1024),
 //				QuotaType:      pulumi.String("DefaultGroupQuota"),
 //			})

@@ -119,8 +119,8 @@ import (
 //				return err
 //			}
 //			deploySubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "deploy", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               deploySubnet.ID(),
-//				NetworkSecurityGroupId: deployNetworkSecurityGroup.ID(),
+//				SubnetId:               deploySubnet.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: deployNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -168,7 +168,7 @@ import (
 //				Sku:                 pulumi.String("Enterprise"),
 //				FilteredSyncEnabled: pulumi.Bool(false),
 //				InitialReplicaSet: &domainservices.ServiceInitialReplicaSetArgs{
-//					SubnetId: deploySubnet.ID(),
+//					SubnetId: deploySubnet.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Notifications: &domainservices.ServiceNotificationsArgs{
 //					AdditionalRecipients: pulumi.StringArray{

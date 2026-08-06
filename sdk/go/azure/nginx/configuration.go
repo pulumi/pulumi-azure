@@ -91,12 +91,12 @@ import (
 //				Location:          example.Location,
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
-//						examplePublicIp.ID(),
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				NetworkInterfaces: nginx.DeploymentNetworkInterfaceArray{
 //					&nginx.DeploymentNetworkInterfaceArgs{
-//						SubnetId: exampleSubnet.ID(),
+//						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -140,7 +140,7 @@ import (
 //				return err
 //			}
 //			_, err = nginx.NewConfiguration(ctx, "example", &nginx.ConfigurationArgs{
-//				NginxDeploymentId: exampleDeployment.ID(),
+//				NginxDeploymentId: exampleDeployment.ID().ToIDOutput().ToStringOutput(),
 //				RootFile:          pulumi.String("/etc/nginx/nginx.conf"),
 //				ConfigFiles: nginx.ConfigurationConfigFileArray{
 //					&nginx.ConfigurationConfigFileArgs{

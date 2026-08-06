@@ -68,7 +68,7 @@ import (
 //					EmailSubject:         pulumi.String("Email Header"),
 //					CustomWebhookPayload: pulumi.String("{}"),
 //				},
-//				DataSourceId: exampleInsights.ID(),
+//				DataSourceId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("Alert when total results cross threshold"),
 //				Enabled:      pulumi.Bool(true),
 //				Query:        pulumi.String("requests\n  | where tolong(resultCode) >= 500\n  | summarize count() by bin(timestamp, 5m)\n"),
@@ -95,7 +95,7 @@ import (
 //
 // `,
 //
-//				Args: pulumi.StringArray{
+//				Args: pulumi.IDArray{
 //					example2.ID(),
 //				},
 //			}, nil)
@@ -108,14 +108,14 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				AuthorizedResourceIds: pulumi.StringArray{
-//					example2.ID(),
+//					example2.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Action: &monitoring.ScheduledQueryRulesAlertActionArgs{
 //					ActionGroups:         pulumi.StringArray{},
 //					EmailSubject:         pulumi.String("Email Header"),
 //					CustomWebhookPayload: pulumi.String("{}"),
 //				},
-//				DataSourceId: exampleInsights.ID(),
+//				DataSourceId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("Query may access data within multiple resources"),
 //				Enabled:      pulumi.Bool(true),
 //				Query:        pulumi.String(invokeFormat.Result),

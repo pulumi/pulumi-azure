@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewPolicyFragment(ctx, "example", &apimanagement.PolicyFragmentArgs{
-//				ApiManagementId: exampleService.ID(),
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				Name:            pulumi.String("example-policy-fragment"),
 //				Format:          pulumi.String("xml"),
 //				Value:           pulumi.String(invokeFile.Result),

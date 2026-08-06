@@ -55,7 +55,7 @@ import (
 //			}
 //			_, err = redis.NewCacheAccessPolicy(ctx, "example", &redis.CacheAccessPolicyArgs{
 //				Name:         pulumi.String("example"),
-//				RedisCacheId: exampleCache.ID(),
+//				RedisCacheId: exampleCache.ID().ToIDOutput().ToStringOutput(),
 //				Permissions:  pulumi.String("+@read +@connection +cluster|info"),
 //			})
 //			if err != nil {

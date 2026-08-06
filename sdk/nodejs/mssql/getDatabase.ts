@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     name: "example-mssql-db",
  *     serverId: exampleServer.id,
  * });
- * export const databaseId = example.apply(example => example.id);
+ * export const databaseId = example.id;
  * ```
  *
  * ## API Providers
@@ -159,7 +159,7 @@ export interface GetDatabaseResult {
  *     name: "example-mssql-db",
  *     serverId: exampleServer.id,
  * });
- * export const databaseId = example.apply(example => example.id);
+ * export const databaseId = example.id;
  * ```
  *
  * ## API Providers

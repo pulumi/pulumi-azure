@@ -115,7 +115,7 @@ import (
 //				return err
 //			}
 //			_, err = pim.NewEligibleRoleAssignment(ctx, "example", &pim.EligibleRoleAssignmentArgs{
-//				Scope:            exampleGroup.ID(),
+//				Scope:            exampleGroup.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionId: pulumi.String(exampleGetRoleDefinition.Id),
 //				PrincipalId:      pulumi.String(example.ObjectId),
 //				Schedule: &pim.EligibleRoleAssignmentScheduleArgs{

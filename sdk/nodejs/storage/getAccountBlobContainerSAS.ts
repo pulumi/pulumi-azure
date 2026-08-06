@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *     contentLanguage: "en-US",
  *     contentType: "application/json",
  * });
- * export const sasUrlQueryString = example.apply(example => example.sas);
+ * export const sasUrlQueryString = example.sas;
  * ```
  */
 export function getAccountBlobContainerSAS(args: GetAccountBlobContainerSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountBlobContainerSASResult> {
@@ -204,7 +204,7 @@ export interface GetAccountBlobContainerSASResult {
  *     contentLanguage: "en-US",
  *     contentType: "application/json",
  * });
- * export const sasUrlQueryString = example.apply(example => example.sas);
+ * export const sasUrlQueryString = example.sas;
  * ```
  */
 export function getAccountBlobContainerSASOutput(args: GetAccountBlobContainerSASOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountBlobContainerSASResult> {

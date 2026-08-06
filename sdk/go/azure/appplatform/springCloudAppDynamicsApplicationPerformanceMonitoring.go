@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudAppDynamicsApplicationPerformanceMonitoring(ctx, "example", &appplatform.SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs{
 //				Name:                  pulumi.String("example"),
-//				SpringCloudServiceId:  exampleSpringCloudService.ID(),
+//				SpringCloudServiceId:  exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				AgentAccountName:      pulumi.String("example-agent-account-name"),
 //				AgentAccountAccessKey: pulumi.String("example-agent-account-access-key"),
 //				ControllerHostName:    pulumi.String("example-controller-host-name"),

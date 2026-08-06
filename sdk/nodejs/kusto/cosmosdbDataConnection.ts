@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  * const exampleSqlRoleAssignment = new azure.cosmosdb.SqlRoleAssignment("example", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     accountName: exampleAccount.name,
- *     roleDefinitionId: example.apply(example => example.id),
+ *     roleDefinitionId: example.id,
  *     principalId: exampleCluster.identity.apply(identity => identity?.principalId),
  *     scope: exampleAccount.id,
  * });

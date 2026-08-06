@@ -41,8 +41,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"listOfAllowedLocations": map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]map[string][]string{
+//				"listOfAllowedLocations": map[string][]string{
 //					"value": []string{
 //						"West Europe",
 //						"East US",
@@ -65,7 +65,7 @@ import (
 //			_, err = core.NewSubscriptionPolicyRemediation(ctx, "example", &core.SubscriptionPolicyRemediationArgs{
 //				Name:               pulumi.String("example"),
 //				SubscriptionId:     pulumi.String(example.Id),
-//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
+//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

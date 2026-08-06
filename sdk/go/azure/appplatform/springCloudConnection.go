@@ -100,15 +100,15 @@ import (
 //			}
 //			exampleSpringCloudJavaDeployment, err := appplatform.NewSpringCloudJavaDeployment(ctx, "example", &appplatform.SpringCloudJavaDeploymentArgs{
 //				Name:             pulumi.String("exampledeployment"),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudConnection(ctx, "example", &appplatform.SpringCloudConnectionArgs{
 //				Name:             pulumi.String("example-serviceconnector"),
-//				SpringCloudId:    exampleSpringCloudJavaDeployment.ID(),
-//				TargetResourceId: exampleSqlDatabase.ID(),
+//				SpringCloudId:    exampleSpringCloudJavaDeployment.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId: exampleSqlDatabase.ID().ToIDOutput().ToStringOutput(),
 //				Authentication: &appplatform.SpringCloudConnectionAuthenticationArgs{
 //					Type: pulumi.String("systemAssignedIdentity"),
 //				},

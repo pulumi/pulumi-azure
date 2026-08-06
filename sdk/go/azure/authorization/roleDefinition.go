@@ -88,7 +88,7 @@ import (
 //			}
 //			_, err = authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
 //				Name:        pulumi.String("example-mg-role"),
-//				Scope:       example.ID(),
+//				Scope:       example.ID().ToIDOutput().ToStringOutput(),
 //				Description: pulumi.String("Example custom role scoped to a management group."),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
 //					&authorization.RoleDefinitionPermissionArgs{
@@ -99,7 +99,7 @@ import (
 //					},
 //				},
 //				AssignableScopes: pulumi.StringArray{
-//					example.ID(),
+//					example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

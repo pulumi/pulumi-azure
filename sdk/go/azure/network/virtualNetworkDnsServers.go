@@ -57,7 +57,7 @@ import (
 //				return err
 //			}
 //			_, err = network.NewVirtualNetworkDnsServers(ctx, "example", &network.VirtualNetworkDnsServersArgs{
-//				VirtualNetworkId: exampleVirtualNetwork.ID(),
+//				VirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //				DnsServers: pulumi.StringArray{
 //					pulumi.String("10.7.7.2"),
 //					pulumi.String("10.7.7.7"),

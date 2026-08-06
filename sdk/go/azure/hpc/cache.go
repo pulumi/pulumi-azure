@@ -68,7 +68,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				CacheSizeInGb:     pulumi.Int(3072),
-//				SubnetId:          exampleSubnet.ID(),
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				SkuName:           pulumi.String("Standard_2G"),
 //			})
 //			if err != nil {

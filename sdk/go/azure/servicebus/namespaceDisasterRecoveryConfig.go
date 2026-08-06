@@ -70,9 +70,9 @@ import (
 //			}
 //			_, err = servicebus.NewNamespaceDisasterRecoveryConfig(ctx, "example", &servicebus.NamespaceDisasterRecoveryConfigArgs{
 //				Name:                     pulumi.String("servicebus-alias-name"),
-//				PrimaryNamespaceId:       primary.ID(),
-//				PartnerNamespaceId:       secondary.ID(),
-//				AliasAuthorizationRuleId: exampleNamespaceAuthorizationRule.ID(),
+//				PrimaryNamespaceId:       primary.ID().ToIDOutput().ToStringOutput(),
+//				PartnerNamespaceId:       secondary.ID().ToIDOutput().ToStringOutput(),
+//				AliasAuthorizationRuleId: exampleNamespaceAuthorizationRule.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

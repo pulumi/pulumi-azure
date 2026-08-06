@@ -77,7 +77,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -90,7 +90,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				VmSize: pulumi.String("Standard_D2s_v3"),
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
@@ -119,7 +119,7 @@ import (
 //			}
 //			exampleExtension, err := compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
 //				Name:                    pulumi.String("example-VMExtension"),
-//				VirtualMachineId:        exampleVirtualMachine.ID(),
+//				VirtualMachineId:        exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
 //				Type:                    pulumi.String("NetworkWatcherAgentLinux"),
 //				TypeHandlerVersion:      pulumi.String("1.4"),
@@ -139,16 +139,16 @@ import (
 //			}
 //			_, err = network.NewNetworkConnectionMonitor(ctx, "example", &network.NetworkConnectionMonitorArgs{
 //				Name:             pulumi.String("example-Monitor"),
-//				NetworkWatcherId: exampleNetworkWatcher.ID(),
+//				NetworkWatcherId: exampleNetworkWatcher.ID().ToIDOutput().ToStringOutput(),
 //				Location:         exampleNetworkWatcher.Location,
 //				Endpoints: network.NetworkConnectionMonitorEndpointArray{
 //					&network.NetworkConnectionMonitorEndpointArgs{
 //						Name:             pulumi.String("source"),
-//						TargetResourceId: exampleVirtualMachine.ID(),
+//						TargetResourceId: exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //						Filter: &network.NetworkConnectionMonitorEndpointFilterArgs{
 //							Items: network.NetworkConnectionMonitorEndpointFilterItemArray{
 //								&network.NetworkConnectionMonitorEndpointFilterItemArgs{
-//									Address: exampleVirtualMachine.ID(),
+//									Address: exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //									Type:    pulumi.String("AgentAddress"),
 //								},
 //							},
@@ -186,7 +186,7 @@ import (
 //				},
 //				Notes: pulumi.String("examplenote"),
 //				OutputWorkspaceResourceIds: pulumi.StringArray{
-//					exampleAnalyticsWorkspace.ID(),
+//					exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleExtension,

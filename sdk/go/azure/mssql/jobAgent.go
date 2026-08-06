@@ -49,7 +49,7 @@ import (
 //			}
 //			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
 //				Name:      pulumi.String("example-db"),
-//				ServerId:  exampleServer.ID(),
+//				ServerId:  exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
 //				SkuName:   pulumi.String("S1"),
 //			})
@@ -59,7 +59,7 @@ import (
 //			_, err = mssql.NewJobAgent(ctx, "example", &mssql.JobAgentArgs{
 //				Name:       pulumi.String("example-job-agent"),
 //				Location:   example.Location,
-//				DatabaseId: exampleDatabase.ID(),
+//				DatabaseId: exampleDatabase.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

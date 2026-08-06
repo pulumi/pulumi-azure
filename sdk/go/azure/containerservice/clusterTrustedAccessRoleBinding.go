@@ -63,7 +63,7 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
-//				KeyVaultId:     exampleKeyVault.ID(),
+//				KeyVaultId:     exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:       pulumi.Any(exampleAzurermClientConfig.TenantId),
 //				ObjectId:       pulumi.Any(exampleAzurermClientConfig.ObjectId),
 //				KeyPermissions: pulumi.StringArray("example-value"),
@@ -105,9 +105,9 @@ import (
 //				Name:                  pulumi.String("example"),
 //				Location:              exampleResourceGroup.Location,
 //				ResourceGroupName:     exampleResourceGroup.Name,
-//				KeyVaultId:            exampleKeyVault.ID(),
-//				StorageAccountId:      exampleAccount.ID(),
-//				ApplicationInsightsId: example.ID(),
+//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationInsightsId: example.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("example-value"),
 //				},
@@ -116,10 +116,10 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewClusterTrustedAccessRoleBinding(ctx, "example", &containerservice.ClusterTrustedAccessRoleBindingArgs{
-//				KubernetesClusterId: exampleKubernetesCluster.ID(),
+//				KubernetesClusterId: exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //				Name:                pulumi.String("example"),
 //				Roles:               pulumi.StringArray("example-value"),
-//				SourceResourceId:    exampleWorkspace.ID(),
+//				SourceResourceId:    exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

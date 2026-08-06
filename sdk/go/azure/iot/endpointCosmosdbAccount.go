@@ -94,7 +94,7 @@ import (
 //			_, err = iot.NewEndpointCosmosdbAccount(ctx, "example", &iot.EndpointCosmosdbAccountArgs{
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
-//				IothubId:          exampleIoTHub.ID(),
+//				IothubId:          exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
 //				ContainerName:     exampleSqlContainer.Name,
 //				DatabaseName:      exampleSqlDatabase.Name,
 //				EndpointUri:       exampleAccount.Endpoint,

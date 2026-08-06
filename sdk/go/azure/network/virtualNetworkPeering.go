@@ -63,7 +63,7 @@ import (
 //				Name:                   pulumi.String("peer1to2"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_1.Name,
-//				RemoteVirtualNetworkId: example_2.ID(),
+//				RemoteVirtualNetworkId: example_2.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -72,7 +72,7 @@ import (
 //				Name:                   pulumi.String("peer2to1"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_2.Name,
-//				RemoteVirtualNetworkId: example_1.ID(),
+//				RemoteVirtualNetworkId: example_1.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -188,7 +188,7 @@ import (
 // }).(pulumi.StringOutput),
 // ResourceGroupName: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:47,39-54)[val0],
 // VirtualNetworkName: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:48,39-51)[val0],
-// RemoteVirtualNetworkId: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:49,39-49)[int(1 - val0)],
+// RemoteVirtualNetworkId: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:49,39-49)[int(1 - val0)].ToIDOutput().ToStringOutput(),
 // AllowVirtualNetworkAccess: pulumi.Bool(true),
 // AllowForwardedTraffic: pulumi.Bool(true),
 // AllowGatewayTransit: pulumi.Bool(false),
@@ -252,15 +252,12 @@ import (
 //				Name:                   pulumi.String("peer1to2"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_1.Name,
-//				RemoteVirtualNetworkId: example_2.ID(),
+//				RemoteVirtualNetworkId: example_2.ID().ToIDOutput().ToStringOutput(),
 //				Triggers: pulumi.StringMap{
-//					"remote_address_space": pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
+//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
 //						Separator: pulumi.String(","),
 //						Input:     example_2.AddressSpaces,
-//					}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//						val := invoke.Result
-//						return &val, nil
-//					}).(pulumi.StringPtrOutput)),
+//					}, nil).Result(),
 //				},
 //			})
 //			if err != nil {
@@ -270,15 +267,12 @@ import (
 //				Name:                   pulumi.String("peer2to1"),
 //				ResourceGroupName:      example.Name,
 //				VirtualNetworkName:     example_2.Name,
-//				RemoteVirtualNetworkId: example_1.ID(),
+//				RemoteVirtualNetworkId: example_1.ID().ToIDOutput().ToStringOutput(),
 //				Triggers: pulumi.StringMap{
-//					"remote_address_space": pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
+//					"remote_address_space": std.JoinOutput(ctx, std.JoinOutputArgs{
 //						Separator: pulumi.String(","),
 //						Input:     example_1.AddressSpaces,
-//					}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//						val := invoke.Result
-//						return &val, nil
-//					}).(pulumi.StringPtrOutput)),
+//					}, nil).Result(),
 //				},
 //			})
 //			if err != nil {

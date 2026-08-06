@@ -75,8 +75,8 @@ import (
 //			}
 //			_, err = mssql.NewVirtualNetworkRule(ctx, "example", &mssql.VirtualNetworkRuleArgs{
 //				Name:     pulumi.String("sql-vnet-rule"),
-//				ServerId: exampleServer.ID(),
-//				SubnetId: exampleSubnet.ID(),
+//				ServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

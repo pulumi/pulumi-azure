@@ -103,7 +103,7 @@ import (
 //			}
 //			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
 //				Name:       pulumi.String("imported-cert"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
 //					Contents: pulumi.String(invokeFilebase64.Result),
 //					Password: pulumi.String(""),
@@ -114,8 +114,8 @@ import (
 //			}
 //			_, err = signalr.NewServiceCustomCertificate(ctx, "test", &signalr.ServiceCustomCertificateArgs{
 //				Name:                pulumi.String("example-cert"),
-//				SignalrServiceId:    exampleService.ID(),
-//				CustomCertificateId: exampleCertificate.ID(),
+//				SignalrServiceId:    exampleService.ID().ToIDOutput().ToStringOutput(),
+//				CustomCertificateId: exampleCertificate.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAzurermKeyVaultAccessPolicy,
 //			}))

@@ -56,7 +56,7 @@ import (
 //				Name:              pulumi.String("mywebapp"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -66,15 +66,11 @@ import (
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
 //			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
-//				Name: pulumi.String("www"),
-//				ZoneName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Ttl:    pulumi.Int(300),
-//				Record: exampleAppService.DefaultSiteHostname,
+//				Name:              pulumi.String("www"),
+//				ZoneName:          example.Name(),
+//				ResourceGroupName: example.ResourceGroupName(),
+//				Ttl:               pulumi.Int(300),
+//				Record:            exampleAppService.DefaultSiteHostname,
 //			})
 //			if err != nil {
 //				return err
@@ -83,13 +79,9 @@ import (
 //				Name: exampleCNameRecord.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("asuid.%v", name), nil
 //				}).(pulumi.StringOutput),
-//				ZoneName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Ttl: pulumi.Int(300),
+//				ZoneName:          example.Name(),
+//				ResourceGroupName: example.ResourceGroupName(),
+//				Ttl:               pulumi.Int(300),
 //				Records: dns.TxtRecordRecordArray{
 //					&dns.TxtRecordRecordArgs{
 //						Value: exampleAppService.CustomDomainVerificationId,
@@ -100,13 +92,10 @@ import (
 //				return err
 //			}
 //			exampleCustomHostnameBinding, err := appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
-//				Hostname: pulumi.String(std.TrimOutput(ctx, std.TrimOutputArgs{
+//				Hostname: std.TrimOutput(ctx, std.TrimOutputArgs{
 //					Input:  exampleCNameRecord.Fqdn,
 //					Cutset: pulumi.String("."),
-//				}, nil).ApplyT(func(invoke std.TrimResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, pulumi.DependsOn([]pulumi.Resource{
@@ -116,14 +105,14 @@ import (
 //				return err
 //			}
 //			exampleManagedCertificate, err := appservice.NewManagedCertificate(ctx, "example", &appservice.ManagedCertificateArgs{
-//				CustomHostnameBindingId: exampleCustomHostnameBinding.ID(),
+//				CustomHostnameBindingId: exampleCustomHostnameBinding.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewCertificateBinding(ctx, "example", &appservice.CertificateBindingArgs{
-//				HostnameBindingId: exampleCustomHostnameBinding.ID(),
-//				CertificateId:     exampleManagedCertificate.ID(),
+//				HostnameBindingId: exampleCustomHostnameBinding.ID().ToIDOutput().ToStringOutput(),
+//				CertificateId:     exampleManagedCertificate.ID().ToIDOutput().ToStringOutput(),
 //				SslState:          pulumi.String("SniEnabled"),
 //			})
 //			if err != nil {

@@ -48,7 +48,7 @@ import (
 //			}
 //			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
 //				Name:                pulumi.String("content"),
-//				StorageAccountId:    exampleAccount.ID(),
+//				StorageAccountId:    exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
@@ -56,7 +56,7 @@ import (
 //			}
 //			_, err = storage.NewBlob(ctx, "example", &storage.BlobArgs{
 //				Name:               pulumi.String("my-awesome-content.zip"),
-//				StorageContainerId: exampleContainer.ID(),
+//				StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
 //				Type:               pulumi.String("Block"),
 //				Source:             pulumi.NewFileAsset("some-local-file.zip"),
 //			})

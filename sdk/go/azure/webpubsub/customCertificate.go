@@ -53,8 +53,8 @@ import (
 //						"capacity": 1,
 //					},
 //				},
-//				Identity: []map[string]interface{}{
-//					map[string]interface{}{
+//				Identity: []map[string]string{
+//					{
 //						"type": "SystemAssigned",
 //					},
 //				},
@@ -108,7 +108,7 @@ import (
 //			}
 //			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
 //				Name:       pulumi.String("imported-cert"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
 //					Contents: pulumi.String(invokeFilebase64.Result),
 //					Password: pulumi.String(""),
@@ -120,7 +120,7 @@ import (
 //			_, err = webpubsub.NewCustomCertificate(ctx, "test", &webpubsub.CustomCertificateArgs{
 //				Name:                pulumi.String("example-cert"),
 //				WebPubsubId:         exampleWebPubsubService.Id,
-//				CustomCertificateId: exampleCertificate.ID(),
+//				CustomCertificateId: exampleCertificate.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAzurermKeyVaultAccessPolicy,
 //			}))

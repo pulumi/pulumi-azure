@@ -92,7 +92,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("anfencryptionkey"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -114,7 +114,7 @@ import (
 //				Identity: &netapp.AccountIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -122,8 +122,8 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewAccountEncryption(ctx, "example", &netapp.AccountEncryptionArgs{
-//				NetappAccountId:        exampleAccount.ID(),
-//				UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//				NetappAccountId:        exampleAccount.ID().ToIDOutput().ToStringOutput(),
+//				UserAssignedIdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //				EncryptionKey:          exampleKey.VersionlessId,
 //				FederatedClientId:      exampleUserAssignedIdentity.ClientId,
 //			})

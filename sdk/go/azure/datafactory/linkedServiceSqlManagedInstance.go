@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceSqlManagedInstance(ctx, "example", &datafactory.LinkedServiceSqlManagedInstanceArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("Server=myserver.database.windows.net;Database=mydatabase;User ID=myuser;Password=mypassword;"),
 //			})
 //			if err != nil {

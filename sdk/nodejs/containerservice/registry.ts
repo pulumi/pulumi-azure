@@ -109,7 +109,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleAssignment = new azure.authorization.Assignment("example", {
- *     principalId: exampleKubernetesCluster.kubeletIdentity.apply(kubeletIdentity => kubeletIdentity.objectId),
+ *     principalId: exampleKubernetesCluster.kubeletIdentity.objectId,
  *     roleDefinitionName: "AcrPull",
  *     scope: exampleRegistry.id,
  *     skipServicePrincipalAadCheck: true,

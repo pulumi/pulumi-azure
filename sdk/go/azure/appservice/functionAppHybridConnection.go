@@ -79,7 +79,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				ServicePlanId:     exampleServicePlan.ID(),
+//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
@@ -89,7 +89,7 @@ import (
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				ServicePlanId:           exampleServicePlan.ID(),
+//				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				SiteConfig:              &appservice.WindowsFunctionAppSiteConfigArgs{},
@@ -98,8 +98,8 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewFunctionAppHybridConnection(ctx, "example", &appservice.FunctionAppHybridConnectionArgs{
-//				FunctionAppId: exampleWindowsWebApp.ID(),
-//				RelayId:       exampleHybridConnection.ID(),
+//				FunctionAppId: exampleWindowsWebApp.ID().ToIDOutput().ToStringOutput(),
+//				RelayId:       exampleHybridConnection.ID().ToIDOutput().ToStringOutput(),
 //				Hostname:      pulumi.String("myhostname.example"),
 //				Port:          pulumi.Int(8081),
 //			})

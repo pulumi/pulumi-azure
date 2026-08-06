@@ -59,13 +59,13 @@ import (
 //				ResourceGroupName: example.Name,
 //				Severity:          pulumi.String("Sev0"),
 //				ScopeResourceIds: pulumi.StringArray{
-//					exampleInsights.ID(),
+//					exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Frequency:    pulumi.String("PT1M"),
 //				DetectorType: pulumi.String("FailureAnomaliesDetector"),
 //				ActionGroup: &monitoring.SmartDetectorAlertRuleActionGroupArgs{
 //					Ids: pulumi.StringArray{
-//						exampleActionGroup.ID(),
+//						exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

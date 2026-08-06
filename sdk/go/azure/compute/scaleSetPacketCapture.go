@@ -96,7 +96,7 @@ import (
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("internal"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID(),
+//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -107,7 +107,7 @@ import (
 //			}
 //			exampleVirtualMachineScaleSetExtension, err := compute.NewVirtualMachineScaleSetExtension(ctx, "example", &compute.VirtualMachineScaleSetExtensionArgs{
 //				Name:                     pulumi.String("network-watcher"),
-//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
+//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				Publisher:                pulumi.String("Microsoft.Azure.NetworkWatcher"),
 //				Type:                     pulumi.String("NetworkWatcherAgentLinux"),
 //				TypeHandlerVersion:       pulumi.String("1.4"),
@@ -119,8 +119,8 @@ import (
 //			}
 //			_, err = compute.NewScaleSetPacketCapture(ctx, "example", &compute.ScaleSetPacketCaptureArgs{
 //				Name:                     pulumi.String("example-pc"),
-//				NetworkWatcherId:         exampleNetworkWatcher.ID(),
-//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
+//				NetworkWatcherId:         exampleNetworkWatcher.ID().ToIDOutput().ToStringOutput(),
+//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				StorageLocation: &compute.ScaleSetPacketCaptureStorageLocationArgs{
 //					FilePath: pulumi.String("/var/captures/packet.cap"),
 //				},

@@ -64,10 +64,10 @@ import (
 //			}
 //			_, err = apimanagement.NewRedisCache(ctx, "example", &apimanagement.RedisCacheArgs{
 //				Name:             pulumi.String("example-Redis-Cache"),
-//				ApiManagementId:  exampleService.ID(),
+//				ApiManagementId:  exampleService.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: exampleCache.PrimaryConnectionString,
 //				Description:      pulumi.String("Redis cache instances"),
-//				RedisCacheId:     exampleCache.ID(),
+//				RedisCacheId:     exampleCache.ID().ToIDOutput().ToStringOutput(),
 //				CacheLocation:    pulumi.String("East Us"),
 //			})
 //			if err != nil {

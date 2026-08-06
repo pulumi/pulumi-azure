@@ -51,7 +51,7 @@ import (
 //			}
 //			exampleShare, err := datashare.NewShare(ctx, "example", &datashare.ShareArgs{
 //				Name:      pulumi.String("example_ds"),
-//				AccountId: exampleAccount.ID(),
+//				AccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Kind:      pulumi.String("InPlace"),
 //			})
 //			if err != nil {
@@ -79,19 +79,17 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleCluster.ID(),
+//				Scope:              exampleCluster.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
-//				PrincipalId: pulumi.String(exampleAccount.Identity.ApplyT(func(identity datashare.AccountIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleAccount.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = datashare.NewDatasetKustoDatabase(ctx, "example", &datashare.DatasetKustoDatabaseArgs{
 //				Name:            pulumi.String("example-dskd"),
-//				ShareId:         exampleShare.ID(),
-//				KustoDatabaseId: exampleDatabase.ID(),
+//				ShareId:         exampleShare.ID().ToIDOutput().ToStringOutput(),
+//				KustoDatabaseId: exampleDatabase.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAssignment,
 //			}))

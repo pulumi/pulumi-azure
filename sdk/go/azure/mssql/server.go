@@ -138,7 +138,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("example-key"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -166,11 +166,11 @@ import (
 //				Identity: &mssql.ServerIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
-//				PrimaryUserAssignedIdentityId:          exampleUserAssignedIdentity.ID(),
-//				TransparentDataEncryptionKeyVaultKeyId: exampleKey.ID(),
+//				PrimaryUserAssignedIdentityId:          exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
+//				TransparentDataEncryptionKeyVaultKeyId: exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

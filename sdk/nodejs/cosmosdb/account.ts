@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *             "UserAssignedIdentity",
  *             example.id,
  *         ],
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     offerType: "Standard",
  *     kind: "MongoDB",
  *     capabilities: [{

@@ -46,7 +46,7 @@ import (
 //			}
 //			exampleLinkedServiceAzureSqlDatabase, err := datafactory.NewLinkedServiceAzureSqlDatabase(ctx, "example", &datafactory.LinkedServiceAzureSqlDatabaseArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;Initial Catalog=test;User ID=test;Password=test"),
 //			})
 //			if err != nil {
@@ -54,8 +54,8 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetAzureSqlTable(ctx, "example", &datafactory.DatasetAzureSqlTableArgs{
 //				Name:            pulumi.String("example"),
-//				DataFactoryId:   exampleFactory.ID(),
-//				LinkedServiceId: exampleLinkedServiceAzureSqlDatabase.ID(),
+//				DataFactoryId:   exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				LinkedServiceId: exampleLinkedServiceAzureSqlDatabase.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -60,9 +60,9 @@ import (
 //			_, err = loganalytics.NewLinkedStorageAccount(ctx, "example", &loganalytics.LinkedStorageAccountArgs{
 //				DataSourceType:    pulumi.String("CustomLogs"),
 //				ResourceGroupName: example.Name,
-//				WorkspaceId:       exampleAnalyticsWorkspace.ID(),
+//				WorkspaceId:       exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountIds: pulumi.StringArray{
-//					exampleAccount.ID(),
+//					exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

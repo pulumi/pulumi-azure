@@ -78,9 +78,9 @@ import (
 //				Name:                  pulumi.String("example-workspace"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID(),
-//				KeyVaultId:            exampleKeyVault.ID(),
-//				StorageAccountId:      exampleAccount.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -146,7 +146,7 @@ import (
 //				return err
 //			}
 //			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -172,7 +172,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("workspaceexamplekeyvaultkey"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -194,15 +194,15 @@ import (
 //				Name:                  pulumi.String("example-workspace"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID(),
-//				KeyVaultId:            exampleKeyVault.ID(),
-//				StorageAccountId:      exampleAccount.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
 //				Encryption: &machinelearning.WorkspaceEncryptionArgs{
-//					KeyVaultId: exampleKeyVault.ID(),
-//					KeyId:      exampleKey.ID(),
+//					KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//					KeyId:      exampleKey.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

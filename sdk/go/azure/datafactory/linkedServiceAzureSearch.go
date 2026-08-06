@@ -57,18 +57,15 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureSearch(ctx, "test", &datafactory.LinkedServiceAzureSearchArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				Url: pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				Url: std.JoinOutput(ctx, std.JoinOutputArgs{
 //					Separator: pulumi.String(""),
 //					Input: pulumi.StringArray{
 //						pulumi.String("https://"),
 //						exampleService.Name,
 //						pulumi.String(".search.windows.net"),
 //					},
-//				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //				SearchServiceKey: exampleService.PrimaryKey,
 //			})
 //			if err != nil {

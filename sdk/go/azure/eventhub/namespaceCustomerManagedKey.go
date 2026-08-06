@@ -55,7 +55,7 @@ import (
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
 //				Sku:                pulumi.String("Standard"),
-//				DedicatedClusterId: exampleCluster.ID(),
+//				DedicatedClusterId: exampleCluster.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &eventhub.EventHubNamespaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -79,13 +79,9 @@ import (
 //				return err
 //			}
 //			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: pulumi.String(exampleEventHubNamespace.Identity.ApplyT(func(identity eventhub.EventHubNamespaceIdentity) (*string, error) {
-//					return identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ObjectId: pulumi.String(exampleEventHubNamespace.Identity.ApplyT(func(identity eventhub.EventHubNamespaceIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				TenantId:   exampleEventHubNamespace.Identity.TenantId(),
+//				ObjectId:   exampleEventHubNamespace.Identity.PrincipalId(),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("UnwrapKey"),
@@ -96,7 +92,7 @@ import (
 //				return err
 //			}
 //			example2, err := keyvault.NewAccessPolicy(ctx, "example2", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -114,7 +110,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("examplekvkey"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -133,9 +129,9 @@ import (
 //				return err
 //			}
 //			_, err = eventhub.NewNamespaceCustomerManagedKey(ctx, "example", &eventhub.NamespaceCustomerManagedKeyArgs{
-//				EventhubNamespaceId: exampleEventHubNamespace.ID(),
+//				EventhubNamespaceId: exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
 //				KeyVaultKeyIds: pulumi.StringArray{
-//					exampleKey.ID(),
+//					exampleKey.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -193,11 +189,11 @@ import (
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
 //				Sku:                pulumi.String("Standard"),
-//				DedicatedClusterId: exampleCluster.ID(),
+//				DedicatedClusterId: exampleCluster.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &eventhub.EventHubNamespaceIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -220,7 +216,7 @@ import (
 //				return err
 //			}
 //			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.Any(test.TenantId),
 //				ObjectId:   pulumi.Any(test.PrincipalId),
 //				KeyPermissions: pulumi.StringArray{
@@ -233,7 +229,7 @@ import (
 //				return err
 //			}
 //			example2, err := keyvault.NewAccessPolicy(ctx, "example2", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -251,7 +247,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("examplekvkey"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -270,11 +266,11 @@ import (
 //				return err
 //			}
 //			_, err = eventhub.NewNamespaceCustomerManagedKey(ctx, "example", &eventhub.NamespaceCustomerManagedKeyArgs{
-//				EventhubNamespaceId: exampleEventHubNamespace.ID(),
+//				EventhubNamespaceId: exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
 //				KeyVaultKeyIds: pulumi.StringArray{
-//					exampleKey.ID(),
+//					exampleKey.ID().ToIDOutput().ToStringOutput(),
 //				},
-//				UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//				UserAssignedIdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

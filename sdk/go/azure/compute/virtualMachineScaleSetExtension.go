@@ -71,7 +71,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"commandToExecute": "echo $HOSTNAME",
 //			})
 //			if err != nil {
@@ -80,7 +80,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "example", &compute.VirtualMachineScaleSetExtensionArgs{
 //				Name:                     pulumi.String("example"),
-//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
+//				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				Publisher:                pulumi.String("Microsoft.Azure.Extensions"),
 //				Type:                     pulumi.String("CustomScript"),
 //				TypeHandlerVersion:       pulumi.String("2.0"),

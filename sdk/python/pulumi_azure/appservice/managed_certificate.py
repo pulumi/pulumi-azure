@@ -285,7 +285,7 @@ class ManagedCertificate(pulumi.CustomResource):
                 input=[
                     example_c_name_record.name,
                     example_c_name_record.zone_name,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             app_service_name=example_app_service.name,
             resource_group_name=example_resource_group.name)
         example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)
@@ -373,7 +373,7 @@ class ManagedCertificate(pulumi.CustomResource):
                 input=[
                     example_c_name_record.name,
                     example_c_name_record.zone_name,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             app_service_name=example_app_service.name,
             resource_group_name=example_resource_group.name)
         example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)

@@ -100,15 +100,12 @@ import (
 //				Name:                   pulumi.String("example-Regional-CustomIPPrefix"),
 //				Location:               pulumi.Any(test.Location),
 //				ResourceGroupName:      pulumi.Any(test.Name),
-//				ParentCustomIpPrefixId: global.ID(),
-//				Cidr: pulumi.String(std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//				ParentCustomIpPrefixId: global.ID().ToIDOutput().ToStringOutput(),
+//				Cidr: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //					Input:   global.Cidr,
 //					Newbits: pulumi.Int(16),
 //					Netnum:  pulumi.Int(1),
-//				}, nil).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //				Zones: pulumi.StringArray{
 //					pulumi.String("1"),
 //				},

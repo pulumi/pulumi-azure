@@ -67,8 +67,8 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewFleetMember(ctx, "example", &containerservice.FleetMemberArgs{
-//				KubernetesClusterId: example.ID(),
-//				KubernetesFleetId:   exampleKubernetesFleetManager.ID(),
+//				KubernetesClusterId: example.ID().ToIDOutput().ToStringOutput(),
+//				KubernetesFleetId:   exampleKubernetesFleetManager.ID().ToIDOutput().ToStringOutput(),
 //				Name:                pulumi.String("example"),
 //			})
 //			if err != nil {

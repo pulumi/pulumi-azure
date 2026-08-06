@@ -49,7 +49,7 @@ import (
 //				Subnet: &stack.HciLogicalNetworkSubnetArgs{
 //					IpAllocationMethod: pulumi.String("Static"),
 //					AddressPrefix:      pulumi.String("10.0.0.0/24"),
-//					Route: map[string]interface{}{
+//					Route: map[string]string{
 //						"name":             "example-route",
 //						"addressPrefix":    "0.0.0.0/0",
 //						"nextHopIpAddress": "10.0.20.1",

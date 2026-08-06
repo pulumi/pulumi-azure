@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         Environment: "Production",
  *     },
  * });
- * export const clientCertificate = exampleKubernetesCluster.kubeConfigs.apply(kubeConfigs => kubeConfigs[0].clientCertificate);
+ * export const clientCertificate = exampleKubernetesCluster.kubeConfigs[0].clientCertificate;
  * export const kubeConfig = exampleKubernetesCluster.kubeConfigRaw;
  * ```
  *

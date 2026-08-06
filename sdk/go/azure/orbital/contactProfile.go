@@ -103,7 +103,7 @@ import (
 //						Polarization: pulumi.String("RHCP"),
 //					},
 //				},
-//				NetworkConfigurationSubnetId: exampleSubnet.ID(),
+//				NetworkConfigurationSubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -55,7 +55,7 @@ import (
 //			}
 //			exampleNetworkSecurityPerimeterProfile, err := network.NewNetworkSecurityPerimeterProfile(ctx, "example", &network.NetworkSecurityPerimeterProfileArgs{
 //				Name:                       pulumi.String("example"),
-//				NetworkSecurityPerimeterId: exampleNetworkSecurityPerimeter.ID(),
+//				NetworkSecurityPerimeterId: exampleNetworkSecurityPerimeter.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -63,8 +63,8 @@ import (
 //			_, err = network.NewNetworkSecurityPerimeterAssociation(ctx, "example", &network.NetworkSecurityPerimeterAssociationArgs{
 //				Name:                              pulumi.String("example"),
 //				AccessMode:                        pulumi.String("Enforced"),
-//				NetworkSecurityPerimeterProfileId: exampleNetworkSecurityPerimeterProfile.ID(),
-//				ResourceId:                        exampleAnalyticsWorkspace.ID(),
+//				NetworkSecurityPerimeterProfileId: exampleNetworkSecurityPerimeterProfile.ID().ToIDOutput().ToStringOutput(),
+//				ResourceId:                        exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

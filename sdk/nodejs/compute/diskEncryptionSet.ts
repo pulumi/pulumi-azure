@@ -75,8 +75,8 @@ import * as utilities from "../utilities";
  * });
  * const example_disk = new azure.keyvault.AccessPolicy("example-disk", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleDiskEncryptionSet.identity.apply(identity => identity.tenantId),
- *     objectId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
+ *     tenantId: exampleDiskEncryptionSet.identity.tenantId,
+ *     objectId: exampleDiskEncryptionSet.identity.principalId,
  *     keyPermissions: [
  *         "Create",
  *         "Delete",
@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  * const example_diskAssignment = new azure.authorization.Assignment("example-disk", {
  *     scope: exampleKeyVault.id,
  *     roleDefinitionName: "Key Vault Crypto Service Encryption User",
- *     principalId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
+ *     principalId: exampleDiskEncryptionSet.identity.principalId,
  * });
  * ```
  *
@@ -161,8 +161,8 @@ import * as utilities from "../utilities";
  * });
  * const example_disk = new azure.keyvault.AccessPolicy("example-disk", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleDiskEncryptionSet.identity.apply(identity => identity.tenantId),
- *     objectId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
+ *     tenantId: exampleDiskEncryptionSet.identity.tenantId,
+ *     objectId: exampleDiskEncryptionSet.identity.principalId,
  *     keyPermissions: [
  *         "Create",
  *         "Delete",
@@ -178,7 +178,7 @@ import * as utilities from "../utilities";
  * const example_diskAssignment = new azure.authorization.Assignment("example-disk", {
  *     scope: exampleKeyVault.id,
  *     roleDefinitionName: "Key Vault Crypto Service Encryption User",
- *     principalId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
+ *     principalId: exampleDiskEncryptionSet.identity.principalId,
  * });
  * ```
  *

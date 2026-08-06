@@ -49,7 +49,7 @@ import (
 //			}
 //			_, err = mssql.NewFirewallRule(ctx, "example", &mssql.FirewallRuleArgs{
 //				Name:           pulumi.String("FirewallRule1"),
-//				ServerId:       exampleServer.ID(),
+//				ServerId:       exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				StartIpAddress: pulumi.String("10.0.17.62"),
 //				EndIpAddress:   pulumi.String("10.0.17.62"),
 //			})

@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleFrontdoorEndpoint, err := cdn.NewFrontdoorEndpoint(ctx, "example", &cdn.FrontdoorEndpointArgs{
 //				Name:                  pulumi.String("example-endpoint"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"endpoint": pulumi.String("contoso.com"),
 //				},
@@ -60,7 +60,7 @@ import (
 //			}
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
 //				Name:                   pulumi.String("example-originGroup"),
-//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				SessionAffinityEnabled: pulumi.Bool(true),
 //				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
 //				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{
@@ -80,7 +80,7 @@ import (
 //			}
 //			exampleFrontdoorOrigin, err := cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
 //				Name:                        pulumi.String("example-origin"),
-//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
+//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:                     pulumi.Bool(true),
 //				CertificateNameCheckEnabled: pulumi.Bool(false),
 //				HostName:                    exampleFrontdoorEndpoint.HostName,
@@ -95,19 +95,19 @@ import (
 //			}
 //			exampleFrontdoorRuleSet, err := cdn.NewFrontdoorRuleSet(ctx, "example", &cdn.FrontdoorRuleSetArgs{
 //				Name:                  pulumi.String("exampleruleset"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorRule(ctx, "example", &cdn.FrontdoorRuleArgs{
 //				Name:                  pulumi.String("examplerule"),
-//				CdnFrontdoorRuleSetId: exampleFrontdoorRuleSet.ID(),
+//				CdnFrontdoorRuleSetId: exampleFrontdoorRuleSet.ID().ToIDOutput().ToStringOutput(),
 //				Order:                 pulumi.Int(1),
 //				BehaviorOnMatch:       pulumi.String("Continue"),
 //				Actions: &cdn.FrontdoorRuleActionsArgs{
 //					RouteConfigurationOverrideAction: &cdn.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs{
-//						CdnFrontdoorOriginGroupId:  exampleFrontdoorOriginGroup.ID(),
+//						CdnFrontdoorOriginGroupId:  exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
 //						ForwardingProtocol:         pulumi.String("HttpsOnly"),
 //						QueryStringCachingBehavior: pulumi.String("IncludeSpecifiedQueryStrings"),
 //						QueryStringParameters: pulumi.StringArray{

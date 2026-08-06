@@ -208,7 +208,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
                 input=[
                     example_c_name_record.name,
                     example_c_name_record.zone_name,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             spring_cloud_app_id=example_spring_cloud_app.id)
         ```
 
@@ -270,7 +270,7 @@ class SpringCloudCustomDomain(pulumi.CustomResource):
                 input=[
                     example_c_name_record.name,
                     example_c_name_record.zone_name,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             spring_cloud_app_id=example_spring_cloud_app.id)
         ```
 

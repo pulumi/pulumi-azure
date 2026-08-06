@@ -51,7 +51,7 @@ import (
 //				Name:                    pulumi.String("example-environment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -59,7 +59,7 @@ import (
 //			exampleApp, err := containerapp.NewApp(ctx, "example", &containerapp.AppArgs{
 //				Name:                      pulumi.String("example-app"),
 //				ResourceGroupName:         example.Name,
-//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				RevisionMode:              pulumi.String("Single"),
 //				Template: &containerapp.AppTemplateArgs{
 //					Containers: containerapp.AppTemplateContainerArray{
@@ -88,14 +88,14 @@ import (
 //			}
 //			exampleCustomDomain, err := containerapp.NewCustomDomain(ctx, "example", &containerapp.CustomDomainArgs{
 //				Name:           pulumi.String("example.com"),
-//				ContainerAppId: exampleApp.ID(),
+//				ContainerAppId: exampleApp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = containerapp.NewEnvironmentManagedCertificate(ctx, "example", &containerapp.EnvironmentManagedCertificateArgs{
 //				Name:                      pulumi.String("example-managed-cert"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				SubjectName:               pulumi.String("example.com"),
 //				DomainControlValidation:   pulumi.String("HTTP"),
 //			}, pulumi.DependsOn([]pulumi.Resource{

@@ -174,7 +174,7 @@ import * as utilities from "../utilities";
  *     targetRecoveryFabricId: secondaryFabric.id,
  *     targetRecoveryProtectionContainerId: secondaryProtectionContainer.id,
  *     managedDisks: [{
- *         diskId: vm.storageOsDisk.apply(storageOsDisk => storageOsDisk.managedDiskId),
+ *         diskId: vm.storageOsDisk.managedDiskId,
  *         stagingStorageAccountId: primaryAccount.id,
  *         targetResourceGroupId: secondary.id,
  *         targetDiskType: "Premium_LRS",

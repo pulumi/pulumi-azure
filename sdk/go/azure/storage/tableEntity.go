@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewTableEntity(ctx, "example", &storage.TableEntityArgs{
-//				StorageTableId: exampleTable.ID(),
+//				StorageTableId: exampleTable.ID().ToIDOutput().ToStringOutput(),
 //				PartitionKey:   pulumi.String("examplepartition"),
 //				RowKey:         pulumi.String("examplerow"),
 //				Entity: pulumi.StringMap{

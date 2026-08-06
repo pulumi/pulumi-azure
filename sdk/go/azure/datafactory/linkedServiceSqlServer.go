@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceSqlServer(ctx, "example", &datafactory.LinkedServiceSqlServerArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test"),
 //			})
 //			if err != nil {
@@ -105,15 +105,15 @@ import (
 //			}
 //			exampleLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "example", &datafactory.LinkedServiceKeyVaultArgs{
 //				Name:          pulumi.String("kvlink"),
-//				DataFactoryId: exampleFactory.ID(),
-//				KeyVaultId:    exampleKeyVault.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId:    exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = datafactory.NewLinkedServiceSqlServer(ctx, "example", &datafactory.LinkedServiceSqlServerArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;"),
 //				KeyVaultPassword: &datafactory.LinkedServiceSqlServerKeyVaultPasswordArgs{
 //					LinkedServiceName: exampleLinkedServiceKeyVault.Name,

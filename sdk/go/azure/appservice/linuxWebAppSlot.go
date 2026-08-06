@@ -50,7 +50,7 @@ import (
 //				Name:              pulumi.String("example-linux-web-app"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
-//				ServicePlanId:     exampleServicePlan.ID(),
+//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = appservice.NewLinuxWebAppSlot(ctx, "example", &appservice.LinuxWebAppSlotArgs{
 //				Name:         pulumi.String("example-slot"),
-//				AppServiceId: exampleLinuxWebApp.ID(),
+//				AppServiceId: exampleLinuxWebApp.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:   &appservice.LinuxWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {

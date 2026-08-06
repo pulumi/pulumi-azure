@@ -100,7 +100,7 @@ import (
 //				ResourceGroupName:  example.Name,
 //				StorageAccountType: pulumi.String("Standard_LRS"),
 //				CreateOption:       pulumi.String("Copy"),
-//				SourceResourceId:   source.ID(),
+//				SourceResourceId:   source.ID().ToIDOutput().ToStringOutput(),
 //				DiskSizeGb:         pulumi.Int(1),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("staging"),

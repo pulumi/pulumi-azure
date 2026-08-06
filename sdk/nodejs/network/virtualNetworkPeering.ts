@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  * const peering: azure.network.VirtualNetworkPeering[] = [];
  * for (let range = 0; range < location.length; range++) {
  *     peering.push(new azure.network.VirtualNetworkPeering(`peering-${range}`, {
- *         name: vnet.map(__item => __item.name)[1 - range].apply(names => `peering-to-${names}`),
+ *         name: pulumi.interpolate`peering-to-${vnet.map(__item => __item.name)[1 - range]}`,
  *         resourceGroupName: example.map(__item => __item.name)[range],
  *         virtualNetworkName: vnet.map(__item => __item.name)[range],
  *         remoteVirtualNetworkId: vnet.map(__item => __item.id)[1 - range],
@@ -136,7 +136,7 @@ import * as utilities from "../utilities";
  *         remote_address_space: std.joinOutput({
  *             separator: ",",
  *             input: example_2.addressSpaces,
- *         }).apply(invoke => invoke.result),
+ *         }).result,
  *     },
  * });
  * const example_2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-2", {
@@ -148,7 +148,7 @@ import * as utilities from "../utilities";
  *         remote_address_space: std.joinOutput({
  *             separator: ",",
  *             input: example_1.addressSpaces,
- *         }).apply(invoke => invoke.result),
+ *         }).result,
  *     },
  * });
  * ```

@@ -69,12 +69,12 @@ import (
 //			}
 //			_, err = iot.NewIotHubDeviceUpdateInstance(ctx, "example", &iot.IotHubDeviceUpdateInstanceArgs{
 //				Name:                  pulumi.String("example"),
-//				DeviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.ID(),
-//				IothubId:              exampleIoTHub.ID(),
+//				DeviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.ID().ToIDOutput().ToStringOutput(),
+//				IothubId:              exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
 //				DiagnosticEnabled:     pulumi.Bool(true),
 //				DiagnosticStorageAccount: &iot.IotHubDeviceUpdateInstanceDiagnosticStorageAccountArgs{
 //					ConnectionString: exampleAccount.PrimaryConnectionString,
-//					Id:               exampleAccount.ID(),
+//					Id:               exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),

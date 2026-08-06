@@ -96,7 +96,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              examplePublicIp.Name,
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -117,13 +117,13 @@ import (
 //					&privatedns.LinkServiceNatIpConfigurationArgs{
 //						Name:     pulumi.String("primaryIpConfiguration"),
 //						Primary:  pulumi.Bool(true),
-//						SubnetId: service.ID(),
+//						SubnetId: service.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
-//					pulumi.String(exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
+//					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
 //						return frontendIpConfigurations[0].Id, nil
-//					}).(pulumi.StringPtrOutput)),
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {
@@ -133,11 +133,11 @@ import (
 //				Name:              pulumi.String("example-privatelink"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				SubnetId:          endpoint.ID(),
+//				SubnetId:          endpoint.ID().ToIDOutput().ToStringOutput(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        exampleLinkService.Name,
 //					IsManualConnection:          pulumi.Bool(false),
-//					PrivateConnectionResourceId: exampleLinkService.ID(),
+//					PrivateConnectionResourceId: exampleLinkService.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -152,8 +152,8 @@ import (
 //				return err
 //			}
 //			_, err = privatelink.NewApplicationSecurityGroupAssociation(ctx, "example", &privatelink.ApplicationSecurityGroupAssociationArgs{
-//				PrivateEndpointId:          exampleEndpoint.ID(),
-//				ApplicationSecurityGroupId: exampleApplicationSecurityGroup.ID(),
+//				PrivateEndpointId:          exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
+//				ApplicationSecurityGroupId: exampleApplicationSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

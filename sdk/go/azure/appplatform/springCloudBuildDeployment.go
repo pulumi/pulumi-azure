@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudBuildDeployment(ctx, "example", &appplatform.SpringCloudBuildDeploymentArgs{
 //				Name:             pulumi.String("example"),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //				BuildResultId:    pulumi.String("<default>"),
 //				InstanceCount:    pulumi.Int(2),
 //				EnvironmentVariables: pulumi.StringMap{

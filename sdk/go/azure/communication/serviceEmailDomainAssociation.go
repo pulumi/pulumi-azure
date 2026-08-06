@@ -54,15 +54,15 @@ import (
 //			}
 //			exampleEmailServiceDomain, err := communication.NewEmailServiceDomain(ctx, "example", &communication.EmailServiceDomainArgs{
 //				Name:             pulumi.String("AzureManagedDomain"),
-//				EmailServiceId:   exampleEmailService.ID(),
+//				EmailServiceId:   exampleEmailService.ID().ToIDOutput().ToStringOutput(),
 //				DomainManagement: pulumi.String("AzureManaged"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = communication.NewServiceEmailDomainAssociation(ctx, "example", &communication.ServiceEmailDomainAssociationArgs{
-//				CommunicationServiceId: exampleService.ID(),
-//				EmailServiceDomainId:   exampleEmailServiceDomain.ID(),
+//				CommunicationServiceId: exampleService.ID().ToIDOutput().ToStringOutput(),
+//				EmailServiceDomainId:   exampleEmailServiceDomain.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

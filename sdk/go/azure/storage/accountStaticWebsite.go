@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewAccountStaticWebsite(ctx, "example", &storage.AccountStaticWebsiteArgs{
-//				StorageAccountId: exampleAccount.ID(),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Error404Document: pulumi.String("custom_not_found.html"),
 //				IndexDocument:    pulumi.String("custom_index.html"),
 //			})

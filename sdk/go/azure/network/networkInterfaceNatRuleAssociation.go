@@ -75,7 +75,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("primary"),
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -84,7 +84,7 @@ import (
 //			}
 //			exampleNatRule, err := lb.NewNatRule(ctx, "example", &lb.NatRuleArgs{
 //				ResourceGroupName:           example.Name,
-//				LoadbalancerId:              exampleLoadBalancer.ID(),
+//				LoadbalancerId:              exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Name:                        pulumi.String("RDPAccess"),
 //				Protocol:                    pulumi.String("Tcp"),
 //				FrontendPort:                pulumi.Int(3389),
@@ -101,7 +101,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -110,9 +110,9 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkInterfaceNatRuleAssociation(ctx, "example", &network.NetworkInterfaceNatRuleAssociationArgs{
-//				NetworkInterfaceId:  exampleNetworkInterface.ID(),
+//				NetworkInterfaceId:  exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				IpConfigurationName: pulumi.String("testconfiguration1"),
-//				NatRuleId:           exampleNatRule.ID(),
+//				NatRuleId:           exampleNatRule.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

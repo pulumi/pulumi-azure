@@ -66,7 +66,7 @@ import (
 //				Name:                    pulumi.String("examplefunctionapp"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID(),
+//				AppServicePlanId:        examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				OsType:                  pulumi.String("linux"),

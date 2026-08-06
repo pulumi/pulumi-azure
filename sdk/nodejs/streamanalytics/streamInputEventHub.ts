@@ -46,8 +46,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("example", {
  *     name: "eventhub-stream-input",
- *     streamAnalyticsJobName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     streamAnalyticsJobName: example.name,
+ *     resourceGroupName: example.resourceGroupName,
  *     eventhubConsumerGroupName: exampleConsumerGroup.name,
  *     eventhubName: exampleEventHub.name,
  *     servicebusNamespace: exampleEventHubNamespace.name,

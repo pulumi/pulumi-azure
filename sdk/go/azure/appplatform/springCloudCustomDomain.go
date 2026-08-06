@@ -61,31 +61,24 @@ import (
 //				return err
 //			}
 //			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
-//				Name: pulumi.String("record1"),
-//				ZoneName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Ttl:    pulumi.Int(300),
-//				Record: exampleSpringCloudApp.Fqdn,
+//				Name:              pulumi.String("record1"),
+//				ZoneName:          example.Name(),
+//				ResourceGroupName: example.ResourceGroupName(),
+//				Ttl:               pulumi.Int(300),
+//				Record:            exampleSpringCloudApp.Fqdn,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudCustomDomain(ctx, "example", &appplatform.SpringCloudCustomDomainArgs{
-//				Name: pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
+//				Name: std.JoinOutput(ctx, std.JoinOutputArgs{
 //					Separator: pulumi.String("."),
 //					Input: pulumi.StringArray{
 //						exampleCNameRecord.Name,
 //						exampleCNameRecord.ZoneName,
 //					},
-//				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				}, nil).Result(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

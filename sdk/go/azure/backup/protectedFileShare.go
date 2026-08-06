@@ -68,7 +68,7 @@ import (
 //			protection_container, err := backup.NewContainerStorageAccount(ctx, "protection-container", &backup.ContainerStorageAccountArgs{
 //				ResourceGroupName: example.Name,
 //				RecoveryVaultName: vault.Name,
-//				StorageAccountId:  sa.ID(),
+//				StorageAccountId:  sa.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -93,7 +93,7 @@ import (
 //				RecoveryVaultName:      vault.Name,
 //				SourceStorageAccountId: protection_container.StorageAccountId,
 //				SourceFileShareName:    exampleShare.Name,
-//				BackupPolicyId:         examplePolicyFileShare.ID(),
+//				BackupPolicyId:         examplePolicyFileShare.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

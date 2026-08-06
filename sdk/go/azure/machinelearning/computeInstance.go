@@ -82,9 +82,9 @@ import (
 //				Name:                  pulumi.String("example-mlw"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID(),
-//				KeyVaultId:            exampleKeyVault.ID(),
-//				StorageAccountId:      exampleAccount.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -121,13 +121,13 @@ import (
 //			}
 //			_, err = machinelearning.NewComputeInstance(ctx, "example", &machinelearning.ComputeInstanceArgs{
 //				Name:                       pulumi.String("example"),
-//				MachineLearningWorkspaceId: exampleWorkspace.ID(),
+//				MachineLearningWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				VirtualMachineSize:         pulumi.String("STANDARD_DS2_V2"),
 //				AuthorizationType:          pulumi.String("personal"),
 //				Ssh: &machinelearning.ComputeInstanceSshArgs{
 //					PublicKey: pulumi.String(sshKey),
 //				},
-//				SubnetResourceId: exampleSubnet.ID(),
+//				SubnetResourceId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				Description:      pulumi.String("foo"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),

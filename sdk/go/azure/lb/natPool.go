@@ -57,7 +57,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -66,7 +66,7 @@ import (
 //			}
 //			_, err = lb.NewNatPool(ctx, "example", &lb.NatPoolArgs{
 //				ResourceGroupName:           example.Name,
-//				LoadbalancerId:              exampleLoadBalancer.ID(),
+//				LoadbalancerId:              exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Name:                        pulumi.String("SampleApplicationPool"),
 //				Protocol:                    pulumi.String("Tcp"),
 //				FrontendPortStart:           pulumi.Int(80),

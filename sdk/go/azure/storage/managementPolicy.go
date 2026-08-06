@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewManagementPolicy(ctx, "example", &storage.ManagementPolicyArgs{
-//				StorageAccountId: exampleAccount.ID(),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Rules: storage.ManagementPolicyRuleArray{
 //					&storage.ManagementPolicyRuleArgs{
 //						Name:    pulumi.String("rule1"),

@@ -130,7 +130,7 @@ import (
 //					SecondaryIpEnabled:   pulumi.Bool(true),
 //					ApplicationServerConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationArgs{
 //						InstanceCount: pulumi.Int(1),
-//						SubnetId:      exampleSubnet.ID(),
+//						SubnetId:      exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						VirtualMachineConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationArgs{
 //							VirtualMachineSize: pulumi.String("Standard_D16ds_v4"),
 //							Image: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationApplicationServerConfigurationVirtualMachineConfigurationImageArgs{
@@ -148,7 +148,7 @@ import (
 //					},
 //					CentralServerConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationArgs{
 //						InstanceCount: pulumi.Int(1),
-//						SubnetId:      exampleSubnet.ID(),
+//						SubnetId:      exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						VirtualMachineConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationArgs{
 //							VirtualMachineSize: pulumi.String("Standard_D16ds_v4"),
 //							Image: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationCentralServerConfigurationVirtualMachineConfigurationImageArgs{
@@ -166,7 +166,7 @@ import (
 //					},
 //					DatabaseServerConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationArgs{
 //						InstanceCount: pulumi.Int(1),
-//						SubnetId:      exampleSubnet.ID(),
+//						SubnetId:      exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						DatabaseType:  pulumi.String("HANA"),
 //						VirtualMachineConfiguration: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationDatabaseServerConfigurationVirtualMachineConfigurationArgs{
 //							VirtualMachineSize: pulumi.String("Standard_E16ds_v4"),
@@ -337,14 +337,14 @@ import (
 //						},
 //					},
 //					TransportCreateAndMount: &workloadssap.ThreeTierVirtualInstanceThreeTierConfigurationTransportCreateAndMountArgs{
-//						ResourceGroupId:    app.ID(),
+//						ResourceGroupId:    app.ID().ToIDOutput().ToStringOutput(),
 //						StorageAccountName: pulumi.String("exampletranssa"),
 //					},
 //				},
 //				Identity: &workloadssap.ThreeTierVirtualInstanceIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

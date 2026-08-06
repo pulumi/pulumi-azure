@@ -83,7 +83,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				ClusterName:       followerCluster.Name,
-//				ClusterId:         followedCluster.ID(),
+//				ClusterId:         followedCluster.ID().ToIDOutput().ToStringOutput(),
 //				DatabaseName:      exampleDatabase.Name,
 //				Sharing: &kusto.AttachedDatabaseConfigurationSharingArgs{
 //					ExternalTablesToExcludes: pulumi.StringArray{

@@ -54,9 +54,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("customRoleDefinitionId", custom.ApplyT(func(custom authorization.GetRoleDefinitionResult) (*string, error) {
-//				return custom.Id, nil
-//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("customRoleDefinitionId", custom.Id())
 //			ctx.Export("contributorRoleDefinitionId", builtin.Id)
 //			return nil
 //		})

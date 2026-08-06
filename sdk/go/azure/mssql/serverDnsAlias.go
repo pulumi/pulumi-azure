@@ -49,7 +49,7 @@ import (
 //			}
 //			_, err = mssql.NewServerDnsAlias(ctx, "example", &mssql.ServerDnsAliasArgs{
 //				Name:          pulumi.String("example-dns-alias"),
-//				MssqlServerId: exampleServer.ID(),
+//				MssqlServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

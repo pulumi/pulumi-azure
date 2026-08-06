@@ -98,7 +98,7 @@ import (
 //				PoolName:          examplePool.Name,
 //				VolumePath:        pulumi.String("my-unique-file-path"),
 //				ServiceLevel:      pulumi.String("Premium"),
-//				SubnetId:          exampleSubnet.ID(),
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				StorageQuotaInGb:  pulumi.Int(100),
 //			})
 //			if err != nil {

@@ -51,7 +51,7 @@ import (
 //				Name:               pulumi.String("example-ercircuit"),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
-//				ExpressRoutePortId: exampleExpressRoutePort.ID(),
+//				ExpressRoutePortId: exampleExpressRoutePort.ID().ToIDOutput().ToStringOutput(),
 //				BandwidthInGbps:    pulumi.Float64(5),
 //				Sku: &network.ExpressRouteCircuitSkuArgs{
 //					Tier:   pulumi.String("Standard"),
@@ -76,7 +76,7 @@ import (
 //				Name:               pulumi.String("example-ercircuit2"),
 //				Location:           example.Location,
 //				ResourceGroupName:  example.Name,
-//				ExpressRoutePortId: example2.ID(),
+//				ExpressRoutePortId: example2.ID().ToIDOutput().ToStringOutput(),
 //				BandwidthInGbps:    pulumi.Float64(5),
 //				Sku: &network.ExpressRouteCircuitSkuArgs{
 //					Tier:   pulumi.String("Standard"),
@@ -114,8 +114,8 @@ import (
 //			}
 //			_, err = network.NewExpressRouteCircuitConnection(ctx, "example", &network.ExpressRouteCircuitConnectionArgs{
 //				Name:              pulumi.String("example-ercircuitconnection"),
-//				PeeringId:         exampleExpressRouteCircuitPeering.ID(),
-//				PeerPeeringId:     example2ExpressRouteCircuitPeering.ID(),
+//				PeeringId:         exampleExpressRouteCircuitPeering.ID().ToIDOutput().ToStringOutput(),
+//				PeerPeeringId:     example2ExpressRouteCircuitPeering.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefixIpv4: pulumi.String("192.169.9.0/29"),
 //				AuthorizationKey:  pulumi.String("846a1918-b7a2-4917-b43c-8c4cdaee006a"),
 //			})

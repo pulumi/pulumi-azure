@@ -60,7 +60,7 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-group"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -58,8 +58,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNatGatewayPublicIpPrefixAssociation(ctx, "example", &network.NatGatewayPublicIpPrefixAssociationArgs{
-//				NatGatewayId:     exampleNatGateway.ID(),
-//				PublicIpPrefixId: examplePublicIpPrefix.ID(),
+//				NatGatewayId:     exampleNatGateway.ID().ToIDOutput().ToStringOutput(),
+//				PublicIpPrefixId: examplePublicIpPrefix.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -113,8 +113,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNatGatewayPublicIpPrefixAssociation(ctx, "example", &network.NatGatewayPublicIpPrefixAssociationArgs{
-//				NatGatewayId:     exampleNatGateway.ID(),
-//				PublicIpPrefixId: examplePublicIpPrefix.ID(),
+//				NatGatewayId:     exampleNatGateway.ID().ToIDOutput().ToStringOutput(),
+//				PublicIpPrefixId: examplePublicIpPrefix.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

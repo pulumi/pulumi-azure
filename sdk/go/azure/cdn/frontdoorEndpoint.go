@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = cdn.NewFrontdoorEndpoint(ctx, "example", &cdn.FrontdoorEndpointArgs{
 //				Name:                  pulumi.String("example-endpoint"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"ENV": pulumi.String("example"),
 //				},

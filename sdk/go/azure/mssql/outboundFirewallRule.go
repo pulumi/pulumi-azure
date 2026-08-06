@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = mssql.NewOutboundFirewallRule(ctx, "example", &mssql.OutboundFirewallRuleArgs{
 //				Name:     pulumi.String("sqlexamplefdqn.database.windows.net"),
-//				ServerId: exampleServer.ID(),
+//				ServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

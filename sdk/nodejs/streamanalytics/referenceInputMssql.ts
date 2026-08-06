@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleReferenceInputMssql = new azure.streamanalytics.ReferenceInputMssql("example", {
  *     name: "example-reference-input",
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
- *     streamAnalyticsJobName: example.apply(example => example.name),
+ *     resourceGroupName: example.resourceGroupName,
+ *     streamAnalyticsJobName: example.name,
  *     server: exampleServer.fullyQualifiedDomainName,
  *     database: exampleDatabase.name,
  *     username: "exampleuser",

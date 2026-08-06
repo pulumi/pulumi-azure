@@ -70,7 +70,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -95,7 +95,7 @@ import (
 //				AdminPassword:                 pulumi.String("P@$$w0rd1234!"),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
@@ -110,7 +110,7 @@ import (
 //				Identity: &compute.LinuxVirtualMachineIdentityArgs{
 //					Type: pulumi.String("SystemAssigned, UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -128,7 +128,7 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleAccount.ID(),
+//				Scope:              exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
 //			})
@@ -205,7 +205,7 @@ import (
 //			_, err = compute.NewRunCommand(ctx, "example", &compute.RunCommandArgs{
 //				Name:             pulumi.String("example-vmrc"),
 //				Location:         exampleResourceGroup.Location,
-//				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
+//				VirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Source: &compute.RunCommandSourceArgs{
 //					Script: pulumi.String("echo 'hello world'"),
 //				},
@@ -217,13 +217,13 @@ import (
 //			_, err = compute.NewRunCommand(ctx, "example2", &compute.RunCommandArgs{
 //				Location:         exampleResourceGroup.Location,
 //				Name:             pulumi.String("example2-vmrc"),
-//				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
-//				OutputBlobUri:    example2.ID(),
-//				ErrorBlobUri:     example3.ID(),
+//				VirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				OutputBlobUri:    example2.ID().ToIDOutput().ToStringOutput(),
+//				ErrorBlobUri:     example3.ID().ToIDOutput().ToStringOutput(),
 //				RunAsPassword:    pulumi.String("P@$$w0rd1234!"),
 //				RunAsUser:        pulumi.String("adminuser"),
 //				Source: &compute.RunCommandSourceArgs{
-//					ScriptUri: example1.ID(),
+//					ScriptUri: example1.ID().ToIDOutput().ToStringOutput(),
 //					ScriptUriManagedIdentity: &compute.RunCommandSourceScriptUriManagedIdentityArgs{
 //						ClientId: exampleUserAssignedIdentity.ClientId,
 //					},
@@ -260,22 +260,22 @@ import (
 //			_, err = compute.NewRunCommand(ctx, "example3", &compute.RunCommandArgs{
 //				Location:         exampleResourceGroup.Location,
 //				Name:             pulumi.String("example3-vmrc"),
-//				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
+//				VirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				RunAsPassword:    pulumi.String("P@$$w0rd1234!"),
 //				RunAsUser:        pulumi.String("adminuser"),
 //				ErrorBlobUri: pulumi.All(example3.ID(), example).ApplyT(func(_args []interface{}) (string, error) {
-//					id := _args[0].(string)
+//					id := _args[0].(pulumi.ID)
 //					example := _args[1].(storage.GetAccountSASResult)
 //					return fmt.Sprintf("%v%v", id, example.Sas), nil
 //				}).(pulumi.StringOutput),
 //				OutputBlobUri: pulumi.All(example2.ID(), example).ApplyT(func(_args []interface{}) (string, error) {
-//					id := _args[0].(string)
+//					id := _args[0].(pulumi.ID)
 //					example := _args[1].(storage.GetAccountSASResult)
 //					return fmt.Sprintf("%v%v", id, example.Sas), nil
 //				}).(pulumi.StringOutput),
 //				Source: &compute.RunCommandSourceArgs{
 //					ScriptUri: pulumi.All(example1.ID(), example).ApplyT(func(_args []interface{}) (string, error) {
-//						id := _args[0].(string)
+//						id := _args[0].(pulumi.ID)
 //						example := _args[1].(storage.GetAccountSASResult)
 //						return fmt.Sprintf("%v%v", id, example.Sas), nil
 //					}).(pulumi.StringOutput),

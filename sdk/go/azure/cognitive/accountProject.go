@@ -55,7 +55,7 @@ import (
 //			}
 //			_, err = cognitive.NewAccountProject(ctx, "example", &cognitive.AccountProjectArgs{
 //				Name:               pulumi.String("example-project"),
-//				CognitiveAccountId: exampleAccount.ID(),
+//				CognitiveAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Location:           example.Location,
 //				Description:        pulumi.String("Example cognitive services project"),
 //				DisplayName:        pulumi.String("Example Project"),

@@ -49,7 +49,7 @@ import (
 //			}
 //			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
 //				Name:      pulumi.String("example-db"),
-//				ServerId:  exampleServer.ID(),
+//				ServerId:  exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
 //				SkuName:   pulumi.String("S1"),
 //			})
@@ -59,14 +59,14 @@ import (
 //			exampleJobAgent, err := mssql.NewJobAgent(ctx, "example", &mssql.JobAgentArgs{
 //				Name:       pulumi.String("example-job-agent"),
 //				Location:   example.Location,
-//				DatabaseId: exampleDatabase.ID(),
+//				DatabaseId: exampleDatabase.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleJobCredential, err := mssql.NewJobCredential(ctx, "example", &mssql.JobCredentialArgs{
 //				Name:       pulumi.String("example-job-credential"),
-//				JobAgentId: exampleJobAgent.ID(),
+//				JobAgentId: exampleJobAgent.ID().ToIDOutput().ToStringOutput(),
 //				Username:   pulumi.String("testusername"),
 //				Password:   pulumi.String("testpassword"),
 //			})
@@ -75,11 +75,11 @@ import (
 //			}
 //			_, err = mssql.NewJobTargetGroup(ctx, "example", &mssql.JobTargetGroupArgs{
 //				Name:       pulumi.String("example-target-group"),
-//				JobAgentId: exampleJobAgent.ID(),
+//				JobAgentId: exampleJobAgent.ID().ToIDOutput().ToStringOutput(),
 //				JobTargets: mssql.JobTargetGroupJobTargetArray{
 //					&mssql.JobTargetGroupJobTargetArgs{
 //						ServerName:      exampleServer.Name,
-//						JobCredentialId: exampleJobCredential.ID(),
+//						JobCredentialId: exampleJobCredential.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

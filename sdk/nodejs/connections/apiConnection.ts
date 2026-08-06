@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * const exampleApiConnection = new azure.connections.ApiConnection("example", {
  *     name: "example-connection",
  *     resourceGroupName: exampleResourceGroup.name,
- *     managedApiId: example.apply(example => example.id),
+ *     managedApiId: example.id,
  *     displayName: "Example 1",
  *     parameterValues: {
  *         connectionString: exampleNamespace.defaultPrimaryConnectionString,

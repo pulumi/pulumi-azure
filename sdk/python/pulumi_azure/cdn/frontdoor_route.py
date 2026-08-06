@@ -588,7 +588,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                 input=[
                     "contoso",
                     example_zone.name,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -601,7 +601,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                 input=[
                     "fabrikam",
                     example_zone.name,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -741,7 +741,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                 input=[
                     "contoso",
                     example_zone.name,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -754,7 +754,7 @@ class FrontdoorRoute(pulumi.CustomResource):
                 input=[
                     "fabrikam",
                     example_zone.name,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",

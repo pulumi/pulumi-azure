@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = network.NewNetworkSecurityPerimeterProfile(ctx, "example", &network.NetworkSecurityPerimeterProfileArgs{
 //				Name:                       pulumi.String("example"),
-//				NetworkSecurityPerimeterId: exampleNetworkSecurityPerimeter.ID(),
+//				NetworkSecurityPerimeterId: exampleNetworkSecurityPerimeter.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -36,8 +36,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleOutputServicebusTopic = new azure.streamanalytics.OutputServicebusTopic("example", {
  *     name: "service-bus-topic-output",
- *     streamAnalyticsJobName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     streamAnalyticsJobName: example.name,
+ *     resourceGroupName: example.resourceGroupName,
  *     topicName: exampleTopic.name,
  *     servicebusNamespace: exampleNamespace.name,
  *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,

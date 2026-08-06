@@ -47,14 +47,14 @@ import (
 //				return err
 //			}
 //			_, err = sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sentinel.NewAlertRuleMachineLearningBehaviorAnalytics(ctx, "example", &sentinel.AlertRuleMachineLearningBehaviorAnalyticsArgs{
 //				Name:                    pulumi.String("example-ml-alert-rule"),
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				AlertRuleTemplateGuid:   pulumi.String("737a2ce1-70a3-4968-9e90-3e6aca836abf"),
 //			})
 //			if err != nil {

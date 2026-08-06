@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleWorkspace, err := apimanagement.NewWorkspace(ctx, "example", &apimanagement.WorkspaceArgs{
 //				Name:            pulumi.String("example-workspace"),
-//				ApiManagementId: exampleService.ID(),
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:     pulumi.String("Example Workspace"),
 //			})
 //			if err != nil {
@@ -64,7 +64,7 @@ import (
 //			}
 //			_, err = apimanagement.NewWorkspaceCertificate(ctx, "example", &apimanagement.WorkspaceCertificateArgs{
 //				Name:                     pulumi.String("example-cert"),
-//				ApiManagementWorkspaceId: exampleWorkspace.ID(),
+//				ApiManagementWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				CertificateDataBase64:    pulumi.String(invokeFilebase64.Result),
 //				Password:                 pulumi.String("terraform"),
 //			})

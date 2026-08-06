@@ -31,7 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			server, err := random.NewId(ctx, "server", &random.IdArgs{
-//				Keepers: map[string]interface{}{
+//				Keepers: map[string]int{
 //					"aziId": 1,
 //				},
 //				ByteLength: 8,
@@ -62,7 +62,7 @@ import (
 //				Name:              server.Hex,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

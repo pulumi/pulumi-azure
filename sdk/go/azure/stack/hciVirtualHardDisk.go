@@ -55,7 +55,7 @@ import (
 //				Location:          example.Location,
 //				CustomLocationId:  pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/cl1"),
 //				DiskSizeInGb:      pulumi.Int(2),
-//				StoragePathId:     exampleHciStoragePath.ID(),
+//				StoragePathId:     exampleHciStoragePath.ID().ToIDOutput().ToStringOutput(),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

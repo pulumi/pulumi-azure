@@ -52,7 +52,7 @@ import (
 //				return err
 //			}
 //			exampleParent, err := iotcentral.NewOrganization(ctx, "example_parent", &iotcentral.OrganizationArgs{
-//				IotcentralApplicationId: exampleApplication.ID(),
+//				IotcentralApplicationId: exampleApplication.ID().ToIDOutput().ToStringOutput(),
 //				OrganizationId:          pulumi.String("example-parent-organization-id"),
 //				DisplayName:             pulumi.String("Org example parent"),
 //			})
@@ -60,7 +60,7 @@ import (
 //				return err
 //			}
 //			_, err = iotcentral.NewOrganization(ctx, "example", &iotcentral.OrganizationArgs{
-//				IotcentralApplicationId: exampleApplication.ID(),
+//				IotcentralApplicationId: exampleApplication.ID().ToIDOutput().ToStringOutput(),
 //				OrganizationId:          pulumi.String("example-child-organization-id"),
 //				DisplayName:             pulumi.String("Org example"),
 //				ParentOrganizationId:    exampleParent.OrganizationId,

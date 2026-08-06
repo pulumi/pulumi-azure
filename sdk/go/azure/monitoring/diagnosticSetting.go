@@ -66,8 +66,8 @@ import (
 //			}
 //			_, err = monitoring.NewDiagnosticSetting(ctx, "example", &monitoring.DiagnosticSettingArgs{
 //				Name:             pulumi.String("example"),
-//				TargetResourceId: exampleKeyVault.ID(),
-//				StorageAccountId: exampleAccount.ID(),
+//				TargetResourceId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				EnabledLogs: monitoring.DiagnosticSettingEnabledLogArray{
 //					&monitoring.DiagnosticSettingEnabledLogArgs{
 //						Category: pulumi.String("AuditEvent"),

@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudBuilder(ctx, "example", &appplatform.SpringCloudBuilderArgs{
 //				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				BuildPackGroups: appplatform.SpringCloudBuilderBuildPackGroupArray{
 //					&appplatform.SpringCloudBuilderBuildPackGroupArgs{
 //						Name: pulumi.String("mix"),

@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *     username: "exampleuser99",
  *     password: "Pa$w0rd1234!",
  *     labVirtualNetworkId: exampleVirtualNetwork.id,
- *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
+ *     labSubnetName: exampleVirtualNetwork.subnet.name,
  *     storageType: "Premium",
  *     notes: "Some notes about this Virtual Machine.",
  *     galleryImageReference: {

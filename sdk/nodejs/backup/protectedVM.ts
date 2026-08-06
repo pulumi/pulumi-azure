@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * const vm1 = new azure.backup.ProtectedVM("vm1", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     recoveryVaultName: exampleVault.name,
- *     sourceVmId: example.apply(example => example.id),
+ *     sourceVmId: example.id,
  *     backupPolicyId: examplePolicyVM.id,
  * });
  * ```

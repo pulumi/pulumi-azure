@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = cognitive.NewAccountRaiPolicy(ctx, "example", &cognitive.AccountRaiPolicyArgs{
 //				Name:               pulumi.String("example-rai-policy"),
-//				CognitiveAccountId: exampleAccount.ID(),
+//				CognitiveAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				BasePolicyName:     pulumi.String("Microsoft.Default"),
 //				ContentFilters: cognitive.AccountRaiPolicyContentFilterArray{
 //					&cognitive.AccountRaiPolicyContentFilterArgs{

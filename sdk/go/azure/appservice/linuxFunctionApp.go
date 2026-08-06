@@ -65,7 +65,7 @@ import (
 //				Location:                example.Location,
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
-//				ServicePlanId:           exampleServicePlan.ID(),
+//				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:              &appservice.LinuxFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {

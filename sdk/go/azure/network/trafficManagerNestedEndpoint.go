@@ -88,9 +88,9 @@ import (
 //			}
 //			_, err = network.NewTrafficManagerNestedEndpoint(ctx, "example", &network.TrafficManagerNestedEndpointArgs{
 //				Name:                  pulumi.String("example-endpoint"),
-//				TargetResourceId:      nested.ID(),
+//				TargetResourceId:      nested.ID().ToIDOutput().ToStringOutput(),
 //				Priority:              pulumi.Int(1),
-//				ProfileId:             parent.ID(),
+//				ProfileId:             parent.ID().ToIDOutput().ToStringOutput(),
 //				MinimumChildEndpoints: pulumi.Int(9),
 //				Weight:                pulumi.Int(5),
 //			})

@@ -75,7 +75,7 @@ import (
 //			exampleEnvironmentV3, err := appservice.NewEnvironmentV3(ctx, "example", &appservice.EnvironmentV3Args{
 //				Name:                      pulumi.String("example-asev3"),
 //				ResourceGroupName:         example.Name,
-//				SubnetId:                  exampleSubnet.ID(),
+//				SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				InternalLoadBalancingMode: pulumi.String("Web, Publishing"),
 //				ClusterSettings: appservice.EnvironmentV3ClusterSettingArray{
 //					&appservice.EnvironmentV3ClusterSettingArgs{
@@ -105,7 +105,7 @@ import (
 //				Location:                example.Location,
 //				OsType:                  pulumi.String("Linux"),
 //				SkuName:                 pulumi.String("I1v2"),
-//				AppServiceEnvironmentId: exampleEnvironmentV3.ID(),
+//				AppServiceEnvironmentId: exampleEnvironmentV3.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

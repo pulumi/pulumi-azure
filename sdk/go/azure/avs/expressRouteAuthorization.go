@@ -54,7 +54,7 @@ import (
 //			}
 //			_, err = avs.NewExpressRouteAuthorization(ctx, "example", &avs.ExpressRouteAuthorizationArgs{
 //				Name:           pulumi.String("example-authorization"),
-//				PrivateCloudId: examplePrivateCloud.ID(),
+//				PrivateCloudId: examplePrivateCloud.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

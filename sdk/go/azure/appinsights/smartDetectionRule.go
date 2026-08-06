@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = appinsights.NewSmartDetectionRule(ctx, "example", &appinsights.SmartDetectionRuleArgs{
 //				Name:                  pulumi.String("Slow server response time"),
-//				ApplicationInsightsId: exampleInsights.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:               pulumi.Bool(false),
 //			})
 //			if err != nil {

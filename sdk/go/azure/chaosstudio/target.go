@@ -61,7 +61,7 @@ import (
 //			}
 //			_, err = chaosstudio.NewTarget(ctx, "example", &chaosstudio.TargetArgs{
 //				Location:         exampleResourceGroup.Location,
-//				TargetResourceId: example.ID(),
+//				TargetResourceId: example.ID().ToIDOutput().ToStringOutput(),
 //				TargetType:       pulumi.String("example-value"),
 //			})
 //			if err != nil {

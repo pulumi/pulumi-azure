@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = cosmosdb.NewPostgresqlFirewallRule(ctx, "example", &cosmosdb.PostgresqlFirewallRuleArgs{
 //				Name:           pulumi.String("example-firewallrule"),
-//				ClusterId:      examplePostgresqlCluster.ID(),
+//				ClusterId:      examplePostgresqlCluster.ID().ToIDOutput().ToStringOutput(),
 //				StartIpAddress: pulumi.String("10.0.17.62"),
 //				EndIpAddress:   pulumi.String("10.0.17.64"),
 //			})

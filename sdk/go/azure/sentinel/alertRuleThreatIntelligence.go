@@ -50,7 +50,7 @@ import (
 //				SolutionName:        pulumi.String("SecurityInsights"),
 //				Location:            exampleResourceGroup.Location,
 //				ResourceGroupName:   exampleResourceGroup.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				WorkspaceName:       exampleAnalyticsWorkspace.Name,
 //				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
 //					Publisher: pulumi.String("Microsoft"),
@@ -67,9 +67,7 @@ import (
 //			_, err = sentinel.NewAlertRuleThreatIntelligence(ctx, "example", &sentinel.AlertRuleThreatIntelligenceArgs{
 //				Name:                    pulumi.String("example-rule"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
-//				AlertRuleTemplateGuid: pulumi.String(example.ApplyT(func(example sentinel.GetAlertRuleTemplateResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
+//				AlertRuleTemplateGuid:   example.Name(),
 //			})
 //			if err != nil {
 //				return err

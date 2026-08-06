@@ -112,8 +112,8 @@ import (
 //			}
 //			exampleManagedStorageAccount, err := keyvault.NewManagedStorageAccount(ctx, "example", &keyvault.ManagedStorageAccountArgs{
 //				Name:                       pulumi.String("examplemanagedstorage"),
-//				KeyVaultId:                 exampleKeyVault.ID(),
-//				StorageAccountId:           exampleAccount.ID(),
+//				KeyVaultId:                 exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:           exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountKey:          pulumi.String("key1"),
 //				RegenerateKeyAutomatically: pulumi.Bool(false),
 //				RegenerationPeriod:         pulumi.String("P1D"),
@@ -124,11 +124,9 @@ import (
 //			_, err = keyvault.NewManagedStorageAccountSasTokenDefinition(ctx, "example", &keyvault.ManagedStorageAccountSasTokenDefinitionArgs{
 //				Name:                    pulumi.String("examplesasdefinition"),
 //				ValidityPeriod:          pulumi.String("P1D"),
-//				ManagedStorageAccountId: exampleManagedStorageAccount.ID(),
-//				SasTemplateUri: pulumi.String(exampleGetAccountSAS.ApplyT(func(exampleGetAccountSAS storage.GetAccountSASResult) (*string, error) {
-//					return exampleGetAccountSAS.Sas, nil
-//				}).(pulumi.StringPtrOutput)),
-//				SasType: pulumi.String("account"),
+//				ManagedStorageAccountId: exampleManagedStorageAccount.ID().ToIDOutput().ToStringOutput(),
+//				SasTemplateUri:          exampleGetAccountSAS.Sas(),
+//				SasType:                 pulumi.String("account"),
 //			})
 //			if err != nil {
 //				return err

@@ -48,7 +48,7 @@ import (
 //			}
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
 //				Name:                  pulumi.String("example-origingroup"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				LoadBalancing:         &cdn.FrontdoorOriginGroupLoadBalancingArgs{},
 //			})
 //			if err != nil {
@@ -56,7 +56,7 @@ import (
 //			}
 //			_, err = cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
 //				Name:                        pulumi.String("example-origin"),
-//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
+//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:                     pulumi.Bool(true),
 //				CertificateNameCheckEnabled: pulumi.Bool(false),
 //				HostName:                    pulumi.String("contoso.com"),
@@ -125,7 +125,7 @@ import (
 //			}
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
 //				Name:                  pulumi.String("example-origin-group"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				LoadBalancing:         &cdn.FrontdoorOriginGroupLoadBalancingArgs{},
 //			})
 //			if err != nil {
@@ -133,7 +133,7 @@ import (
 //			}
 //			_, err = cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
 //				Name:                        pulumi.String("example-origin"),
-//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
+//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:                     pulumi.Bool(true),
 //				CertificateNameCheckEnabled: pulumi.Bool(true),
 //				HostName:                    exampleAccount.PrimaryBlobHost,
@@ -144,7 +144,7 @@ import (
 //					RequestMessage:      pulumi.String("Request access for Private Link Origin CDN Frontdoor"),
 //					TargetType:          pulumi.String("blob"),
 //					Location:            exampleAccount.Location,
-//					PrivateLinkTargetId: exampleAccount.ID(),
+//					PrivateLinkTargetId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -226,7 +226,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              examplePublicIp.Name,
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -241,16 +241,16 @@ import (
 //					pulumi.String(current.SubscriptionId),
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
-//					pulumi.String(exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
+//					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
 //						return frontendIpConfigurations[0].Id, nil
-//					}).(pulumi.StringPtrOutput)),
+//					}).(pulumi.StringPtrOutput),
 //				},
 //				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
 //					&privatedns.LinkServiceNatIpConfigurationArgs{
 //						Name:                    pulumi.String("primary"),
 //						PrivateIpAddress:        pulumi.String("10.5.1.17"),
 //						PrivateIpAddressVersion: pulumi.String("IPv4"),
-//						SubnetId:                exampleSubnet.ID(),
+//						SubnetId:                exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						Primary:                 pulumi.Bool(true),
 //					},
 //				},
@@ -270,7 +270,7 @@ import (
 //			}
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
 //				Name:                  pulumi.String("group-example"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
 //					AdditionalLatencyInMilliseconds: pulumi.Int(0),
 //					SampleSize:                      pulumi.Int(16),
@@ -282,7 +282,7 @@ import (
 //			}
 //			_, err = cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
 //				Name:                        pulumi.String("origin-example"),
-//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
+//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:                     pulumi.Bool(true),
 //				HostName:                    pulumi.String("example.com"),
 //				OriginHostHeader:            pulumi.String("example.com"),
@@ -292,7 +292,7 @@ import (
 //				PrivateLink: &cdn.FrontdoorOriginPrivateLinkArgs{
 //					RequestMessage:      pulumi.String("Request access for Private Link Origin CDN Frontdoor"),
 //					Location:            example.Location,
-//					PrivateLinkTargetId: exampleLinkService.ID(),
+//					PrivateLinkTargetId: exampleLinkService.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

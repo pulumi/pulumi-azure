@@ -53,7 +53,7 @@ import (
 //			}
 //			_, err = postgresql.NewFlexibleServerConfiguration(ctx, "example", &postgresql.FlexibleServerConfigurationArgs{
 //				Name:     pulumi.String("backslash_quote"),
-//				ServerId: exampleFlexibleServer.ID(),
+//				ServerId: exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
 //				Value:    pulumi.String("on"),
 //			})
 //			if err != nil {
@@ -102,7 +102,7 @@ import (
 //			}
 //			_, err = postgresql.NewFlexibleServerConfiguration(ctx, "example", &postgresql.FlexibleServerConfigurationArgs{
 //				Name:     pulumi.String("azure.extensions"),
-//				ServerId: exampleFlexibleServer.ID(),
+//				ServerId: exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
 //				Value:    pulumi.String("CUBE,CITEXT,BTREE_GIST"),
 //			})
 //			if err != nil {

@@ -61,8 +61,8 @@ import (
 //			_, err = loganalytics.NewDataExportRule(ctx, "example", &loganalytics.DataExportRuleArgs{
 //				Name:                  pulumi.String("dataExport1"),
 //				ResourceGroupName:     example.Name,
-//				WorkspaceResourceId:   exampleAnalyticsWorkspace.ID(),
-//				DestinationResourceId: exampleAccount.ID(),
+//				WorkspaceResourceId:   exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				DestinationResourceId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				TableNames: pulumi.StringArray{
 //					pulumi.String("Heartbeat"),
 //				},

@@ -63,7 +63,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedCustomService(ctx, "example", &datafactory.LinkedCustomServiceArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Type:          pulumi.String("AzureBlobStorage"),
 //				Description:   pulumi.String("test description"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {

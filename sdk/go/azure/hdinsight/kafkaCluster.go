@@ -70,7 +70,7 @@ import (
 //				},
 //				StorageAccounts: hdinsight.KafkaClusterStorageAccountArray{
 //					&hdinsight.KafkaClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID(),
+//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
 //						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
 //						IsDefault:          pulumi.Bool(true),
 //					},

@@ -60,14 +60,14 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-network-group"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewNetworkManagerSecurityAdminConfiguration(ctx, "example", &network.NetworkManagerSecurityAdminConfigurationArgs{
 //				Name:                                    pulumi.String("example-admin-conf"),
-//				NetworkManagerId:                        exampleNetworkManager.ID(),
+//				NetworkManagerId:                        exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				Description:                             pulumi.String("example admin conf"),
 //				ApplyOnNetworkIntentPolicyBasedServices: pulumi.String("None"),
 //			})

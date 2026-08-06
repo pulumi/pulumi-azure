@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			exampleHyperVSite, err := siterecovery.NewHyperVSite(ctx, "example", &siterecovery.HyperVSiteArgs{
-//				RecoveryVaultId: exampleVault.ID(),
+//				RecoveryVaultId: exampleVault.ID().ToIDOutput().ToStringOutput(),
 //				Name:            pulumi.String("example-site"),
 //			})
 //			if err != nil {
@@ -55,7 +55,7 @@ import (
 //			}
 //			exampleHyperVReplicationPolicy, err := siterecovery.NewHyperVReplicationPolicy(ctx, "example", &siterecovery.HyperVReplicationPolicyArgs{
 //				Name:                          pulumi.String("policy"),
-//				RecoveryVaultId:               exampleVault.ID(),
+//				RecoveryVaultId:               exampleVault.ID().ToIDOutput().ToStringOutput(),
 //				RecoveryPointRetentionInHours: pulumi.Int(2),
 //				ApplicationConsistentSnapshotFrequencyInHours: pulumi.Int(1),
 //				ReplicationIntervalInSeconds:                  pulumi.Int(300),
@@ -65,8 +65,8 @@ import (
 //			}
 //			_, err = siterecovery.NewHyperVReplicationPolicyAssociation(ctx, "example", &siterecovery.HyperVReplicationPolicyAssociationArgs{
 //				Name:         pulumi.String("example-association"),
-//				HypervSiteId: exampleHyperVSite.ID(),
-//				PolicyId:     exampleHyperVReplicationPolicy.ID(),
+//				HypervSiteId: exampleHyperVSite.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId:     exampleHyperVReplicationPolicy.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

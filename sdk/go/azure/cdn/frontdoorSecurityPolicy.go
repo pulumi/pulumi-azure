@@ -90,18 +90,15 @@ import (
 //			}
 //			exampleFrontdoorCustomDomain, err := cdn.NewFrontdoorCustomDomain(ctx, "example", &cdn.FrontdoorCustomDomainArgs{
 //				Name:                  pulumi.String("example-customDomain"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				DnsZoneId:             exampleZone.ID(),
-//				HostName: pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
 //					Separator: pulumi.String("."),
 //					Input: pulumi.StringArray{
 //						pulumi.String("contoso"),
 //						exampleZone.Name,
 //					},
-//				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
 //					MinimumTlsVersion: pulumi.String("TLS12"),
@@ -112,14 +109,14 @@ import (
 //			}
 //			_, err = cdn.NewFrontdoorSecurityPolicy(ctx, "example", &cdn.FrontdoorSecurityPolicyArgs{
 //				Name:                  pulumi.String("Example-Security-Policy"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				SecurityPolicies: &cdn.FrontdoorSecurityPolicySecurityPoliciesArgs{
 //					Firewall: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{
-//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID(),
+//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
 //						Association: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{
 //							Domains: cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{
 //								&cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{
-//									CdnFrontdoorDomainId: exampleFrontdoorCustomDomain.ID(),
+//									CdnFrontdoorDomainId: exampleFrontdoorCustomDomain.ID().ToIDOutput().ToStringOutput(),
 //								},
 //							},
 //							PatternsToMatch: pulumi.String("/*"),

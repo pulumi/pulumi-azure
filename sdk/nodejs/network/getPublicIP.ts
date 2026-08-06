@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *     name: examplePublicIp.name,
  *     resourceGroupName: exampleVirtualMachine.resourceGroupName,
  * });
- * export const publicIpAddress = example.apply(example => example.ipAddress);
+ * export const publicIpAddress = example.ipAddress;
  * ```
  *
  * ## API Providers
@@ -249,7 +249,7 @@ export interface GetPublicIPResult {
  *     name: examplePublicIp.name,
  *     resourceGroupName: exampleVirtualMachine.resourceGroupName,
  * });
- * export const publicIpAddress = example.apply(example => example.ipAddress);
+ * export const publicIpAddress = example.ipAddress;
  * ```
  *
  * ## API Providers

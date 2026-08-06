@@ -75,7 +75,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -88,7 +88,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				VmSize: pulumi.String("Standard_D4_v5"),
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
@@ -117,7 +117,7 @@ import (
 //			}
 //			exampleExtension, err := compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
 //				Name:                    pulumi.String("network-watcher"),
-//				VirtualMachineId:        exampleVirtualMachine.ID(),
+//				VirtualMachineId:        exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
 //				Type:                    pulumi.String("NetworkWatcherAgentLinux"),
 //				TypeHandlerVersion:      pulumi.String("1.4"),
@@ -138,10 +138,10 @@ import (
 //			}
 //			_, err = compute.NewPacketCapture(ctx, "example", &compute.PacketCaptureArgs{
 //				Name:             pulumi.String("example-pc"),
-//				NetworkWatcherId: exampleNetworkWatcher.ID(),
-//				VirtualMachineId: exampleVirtualMachine.ID(),
+//				NetworkWatcherId: exampleNetworkWatcher.ID().ToIDOutput().ToStringOutput(),
+//				VirtualMachineId: exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				StorageLocation: &compute.PacketCaptureStorageLocationArgs{
-//					StorageAccountId: exampleAccount.ID(),
+//					StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleExtension,

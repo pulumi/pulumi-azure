@@ -65,7 +65,7 @@ import (
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				ServicePlanId:           exampleServicePlan.ID(),
+//				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				SiteConfig: &appservice.LinuxFunctionAppSiteConfigArgs{
@@ -77,14 +77,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"name": "Azure",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//			tmpJSON1, err := json.Marshal(map[string][]interface{}{
 //				"bindings": []interface{}{
 //					map[string]interface{}{
 //						"authLevel": "function",
@@ -96,7 +96,7 @@ import (
 //						"name": "req",
 //						"type": "httpTrigger",
 //					},
-//					map[string]interface{}{
+//					map[string]string{
 //						"direction": "out",
 //						"name":      "$return",
 //						"type":      "http",
@@ -109,7 +109,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			_, err = appservice.NewFunctionAppFunction(ctx, "example", &appservice.FunctionAppFunctionArgs{
 //				Name:          pulumi.String("example-function-app-function"),
-//				FunctionAppId: exampleLinuxFunctionApp.ID(),
+//				FunctionAppId: exampleLinuxFunctionApp.ID().ToIDOutput().ToStringOutput(),
 //				Language:      pulumi.String("Python"),
 //				TestData:      pulumi.String(json0),
 //				ConfigJson:    pulumi.String(json1),
@@ -173,7 +173,7 @@ import (
 //				Name:                    pulumi.String("example-function-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				ServicePlanId:           exampleServicePlan.ID(),
+//				ServicePlanId:           exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				SiteConfig: &appservice.WindowsFunctionAppSiteConfigArgs{
@@ -191,14 +191,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"name": "Azure",
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//			tmpJSON1, err := json.Marshal(map[string][]interface{}{
 //				"bindings": []interface{}{
 //					map[string]interface{}{
 //						"authLevel": "function",
@@ -210,7 +210,7 @@ import (
 //						"name": "req",
 //						"type": "httpTrigger",
 //					},
-//					map[string]interface{}{
+//					map[string]string{
 //						"direction": "out",
 //						"name":      "$return",
 //						"type":      "http",
@@ -223,7 +223,7 @@ import (
 //			json1 := string(tmpJSON1)
 //			_, err = appservice.NewFunctionAppFunction(ctx, "example", &appservice.FunctionAppFunctionArgs{
 //				Name:          pulumi.String("example-function-app-function"),
-//				FunctionAppId: exampleWindowsFunctionApp.ID(),
+//				FunctionAppId: exampleWindowsFunctionApp.ID().ToIDOutput().ToStringOutput(),
 //				Language:      pulumi.String("CSharp"),
 //				Files: appservice.FunctionAppFunctionFileArray{
 //					&appservice.FunctionAppFunctionFileArgs{

@@ -81,9 +81,9 @@ import (
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
 //						Name:                       pulumi.String("vnetGatewayConfig"),
-//						PublicIpAddressId:          examplePublicIp.ID(),
+//						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				VpnClientConfiguration: &network.VirtualNetworkGatewayVpnClientConfigurationArgs{

@@ -47,7 +47,7 @@ import (
 //			}
 //			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -62,8 +62,8 @@ import (
 //			}
 //			_, err = datafactory.NewTriggerCustomEvent(ctx, "example", &datafactory.TriggerCustomEventArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
-//				EventgridTopicId: exampleTopic.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				EventgridTopicId: exampleTopic.ID().ToIDOutput().ToStringOutput(),
 //				Events: pulumi.StringArray{
 //					pulumi.String("event1"),
 //					pulumi.String("event2"),

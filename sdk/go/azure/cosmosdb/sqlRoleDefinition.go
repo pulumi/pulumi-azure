@@ -67,7 +67,7 @@ import (
 //				AccountName:       exampleAccount.Name,
 //				Name:              pulumi.String("acctestsqlrole"),
 //				AssignableScopes: pulumi.StringArray{
-//					exampleAccount.ID().ApplyT(func(id string) (string, error) {
+//					exampleAccount.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //						return fmt.Sprintf("%v/dbs/sales", id), nil
 //					}).(pulumi.StringOutput),
 //				},

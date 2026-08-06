@@ -389,7 +389,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
                     "https://",
                     example_service.name,
                     ".search.windows.net",
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             search_service_key=example_service.primary_key)
         ```
 
@@ -452,7 +452,7 @@ class LinkedServiceAzureSearch(pulumi.CustomResource):
                     "https://",
                     example_service.name,
                     ".search.windows.net",
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             search_service_key=example_service.primary_key)
         ```
 

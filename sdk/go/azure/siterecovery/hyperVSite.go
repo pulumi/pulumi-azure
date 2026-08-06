@@ -49,7 +49,7 @@ import (
 //			}
 //			_, err = siterecovery.NewHyperVSite(ctx, "example", &siterecovery.HyperVSiteArgs{
 //				Name:            pulumi.String("example-site"),
-//				RecoveryVaultId: exampleVault.ID(),
+//				RecoveryVaultId: exampleVault.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -55,7 +55,7 @@ import (
 //			}
 //			exampleNetworkManagerIpamPool, err := network.NewNetworkManagerIpamPool(ctx, "example", &network.NetworkManagerIpamPoolArgs{
 //				Name:             pulumi.String("example-ipampool"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				Location:         example.Location,
 //				DisplayName:      pulumi.String("ipampool1"),
 //				AddressPrefixes: pulumi.StringArray{
@@ -67,7 +67,7 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerIpamPoolStaticCidr(ctx, "example", &network.NetworkManagerIpamPoolStaticCidrArgs{
 //				Name:       pulumi.String("example-ipsc"),
-//				IpamPoolId: exampleNetworkManagerIpamPool.ID(),
+//				IpamPoolId: exampleNetworkManagerIpamPool.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/26"),
 //					pulumi.String("10.0.0.128/27"),

@@ -50,14 +50,14 @@ import (
 //			}
 //			exampleVolumeGroup, err := elasticsan.NewVolumeGroup(ctx, "example", &elasticsan.VolumeGroupArgs{
 //				Name:         pulumi.String("example-esvg"),
-//				ElasticSanId: exampleElasticSan.ID(),
+//				ElasticSanId: exampleElasticSan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleVolume, err := elasticsan.NewVolume(ctx, "example", &elasticsan.VolumeArgs{
 //				Name:          pulumi.String("example-esv"),
-//				VolumeGroupId: exampleVolumeGroup.ID(),
+//				VolumeGroupId: exampleVolumeGroup.ID().ToIDOutput().ToStringOutput(),
 //				SizeInGib:     pulumi.Int(1),
 //			})
 //			if err != nil {
@@ -107,7 +107,7 @@ import (
 //			}
 //			exampleVolumeGroup, err := elasticsan.NewVolumeGroup(ctx, "example", &elasticsan.VolumeGroupArgs{
 //				Name:         pulumi.String("example-esvg"),
-//				ElasticSanId: exampleElasticSan.ID(),
+//				ElasticSanId: exampleElasticSan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -128,18 +128,18 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				CreateOption:      pulumi.String("Copy"),
-//				SourceUri:         exampleManagedDisk.ID(),
+//				SourceUri:         exampleManagedDisk.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = elasticsan.NewVolume(ctx, "example2", &elasticsan.VolumeArgs{
 //				Name:          pulumi.String("example-esv2"),
-//				VolumeGroupId: exampleVolumeGroup.ID(),
+//				VolumeGroupId: exampleVolumeGroup.ID().ToIDOutput().ToStringOutput(),
 //				SizeInGib:     pulumi.Int(2),
 //				CreateSource: &elasticsan.VolumeCreateSourceArgs{
 //					SourceType: pulumi.String("DiskSnapshot"),
-//					SourceId:   exampleSnapshot.ID(),
+//					SourceId:   exampleSnapshot.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

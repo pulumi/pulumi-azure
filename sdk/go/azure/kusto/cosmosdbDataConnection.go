@@ -64,11 +64,9 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleResourceGroup.ID(),
+//				Scope:              exampleResourceGroup.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String(builtin.Name),
-//				PrincipalId: pulumi.String(exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleCluster.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
@@ -121,13 +119,9 @@ import (
 //			_, err = cosmosdb.NewSqlRoleAssignment(ctx, "example", &cosmosdb.SqlRoleAssignmentArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				AccountName:       exampleAccount.Name,
-//				RoleDefinitionId: pulumi.String(example.ApplyT(func(example cosmosdb.GetSqlRoleDefinitionResult) (*string, error) {
-//					return example.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				PrincipalId: pulumi.String(exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Scope: exampleAccount.ID(),
+//				RoleDefinitionId:  example.Id(),
+//				PrincipalId:       exampleCluster.Identity.PrincipalId(),
+//				Scope:             exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -143,7 +137,7 @@ import (
 //			}
 //			_, err = kusto.NewScript(ctx, "example", &kusto.ScriptArgs{
 //				Name:       pulumi.String("create-table-script"),
-//				DatabaseId: exampleDatabase.ID(),
+//				DatabaseId: exampleDatabase.ID().ToIDOutput().ToStringOutput(),
 //				ScriptContent: pulumi.String(`.create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
 //
 // .create table TestTable ingestion json mapping \"TestMapping\"
@@ -163,9 +157,9 @@ import (
 //			_, err = kusto.NewCosmosdbDataConnection(ctx, "example", &kusto.CosmosdbDataConnectionArgs{
 //				Name:                pulumi.String("examplekcdcd"),
 //				Location:            exampleResourceGroup.Location,
-//				CosmosdbContainerId: exampleSqlContainer.ID(),
-//				KustoDatabaseId:     exampleDatabase.ID(),
-//				ManagedIdentityId:   exampleCluster.ID(),
+//				CosmosdbContainerId: exampleSqlContainer.ID().ToIDOutput().ToStringOutput(),
+//				KustoDatabaseId:     exampleDatabase.ID().ToIDOutput().ToStringOutput(),
+//				ManagedIdentityId:   exampleCluster.ID().ToIDOutput().ToStringOutput(),
 //				TableName:           pulumi.String("TestTable"),
 //				MappingRuleName:     pulumi.String("TestMapping"),
 //				RetrievalStartDate:  pulumi.String("2023-06-26T12:00:00.6554616Z"),

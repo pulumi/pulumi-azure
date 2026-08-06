@@ -72,12 +72,8 @@ import (
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (*string, error) {
-//							return identity.TenantId, nil
-//						}).(pulumi.StringPtrOutput),
-//						ObjectId: exampleCluster.Identity.ApplyT(func(identity loganalytics.ClusterIdentity) (*string, error) {
-//							return identity.PrincipalId, nil
-//						}).(pulumi.StringPtrOutput),
+//						TenantId: exampleCluster.Identity.TenantId(),
+//						ObjectId: exampleCluster.Identity.PrincipalId(),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Unwrapkey"),
@@ -94,7 +90,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("generated-certificate"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -110,8 +106,8 @@ import (
 //				return err
 //			}
 //			_, err = loganalytics.NewClusterCustomerManagedKey(ctx, "example", &loganalytics.ClusterCustomerManagedKeyArgs{
-//				LogAnalyticsClusterId: exampleCluster.ID(),
-//				KeyVaultKeyId:         exampleKey.ID(),
+//				LogAnalyticsClusterId: exampleCluster.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultKeyId:         exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

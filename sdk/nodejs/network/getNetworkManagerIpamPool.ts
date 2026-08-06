@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *     name: exampleNetworkManagerIpamPool.name,
  *     networkManagerId: exampleNetworkManager.id,
  * });
- * export const id = example.apply(example => example.id);
+ * export const id = example.id;
  * ```
  *
  * ## API Providers
@@ -137,7 +137,7 @@ export interface GetNetworkManagerIpamPoolResult {
  *     name: exampleNetworkManagerIpamPool.name,
  *     networkManagerId: exampleNetworkManager.id,
  * });
- * export const id = example.apply(example => example.id);
+ * export const id = example.id;
  * ```
  *
  * ## API Providers

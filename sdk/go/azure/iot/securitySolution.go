@@ -54,7 +54,7 @@ import (
 //				Location:          example.Location,
 //				DisplayName:       pulumi.String("Iot Security Solution"),
 //				IothubIds: pulumi.StringArray{
-//					exampleIoTHub.ID(),
+//					exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

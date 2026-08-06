@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *         filter: false,
  *     },
  * });
- * export const sasUrlQueryString = example.apply(example => example.sas);
+ * export const sasUrlQueryString = example.sas;
  * ```
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {
@@ -206,7 +206,7 @@ export interface GetAccountSASResult {
  *         filter: false,
  *     },
  * });
- * export const sasUrlQueryString = example.apply(example => example.sas);
+ * export const sasUrlQueryString = example.sas;
  * ```
  */
 export function getAccountSASOutput(args: GetAccountSASOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountSASResult> {

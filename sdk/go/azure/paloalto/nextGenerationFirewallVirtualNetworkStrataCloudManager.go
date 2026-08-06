@@ -92,8 +92,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "trust", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               trust.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//				SubnetId:               trust.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -121,8 +121,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "untrust", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               untrust.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//				SubnetId:               untrust.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -134,12 +134,12 @@ import (
 //				StrataCloudManagerTenantName: pulumi.String("example-scm-tenant"),
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileArgs{
 //					PublicIpAddressIds: pulumi.StringArray{
-//						examplePublicIp.ID(),
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					VnetConfiguration: &paloalto.NextGenerationFirewallVirtualNetworkStrataCloudManagerNetworkProfileVnetConfigurationArgs{
-//						VirtualNetworkId:  exampleVirtualNetwork.ID(),
-//						TrustedSubnetId:   trust.ID(),
-//						UntrustedSubnetId: untrust.ID(),
+//						VirtualNetworkId:  exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//						TrustedSubnetId:   trust.ID().ToIDOutput().ToStringOutput(),
+//						UntrustedSubnetId: untrust.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

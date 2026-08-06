@@ -93,12 +93,12 @@ import (
 //				ManagedResourceGroup: pulumi.String("example"),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
-//						examplePublicIp.ID(),
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				NetworkInterfaces: nginx.DeploymentNetworkInterfaceArray{
 //					&nginx.DeploymentNetworkInterfaceArgs{
-//						SubnetId: exampleSubnet.ID(),
+//						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -147,7 +147,7 @@ import (
 //			}
 //			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
 //				Name:       pulumi.String("imported-cert"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
 //					Contents: pulumi.String(invokeFilebase64.Result),
 //					Password: pulumi.String(""),
@@ -158,7 +158,7 @@ import (
 //			}
 //			_, err = nginx.NewCertificate(ctx, "example", &nginx.CertificateArgs{
 //				Name:                   pulumi.String("examplecert"),
-//				NginxDeploymentId:      exampleDeployment.ID(),
+//				NginxDeploymentId:      exampleDeployment.ID().ToIDOutput().ToStringOutput(),
 //				KeyVirtualPath:         pulumi.String("/src/cert/soservermekey.key"),
 //				CertificateVirtualPath: pulumi.String("/src/cert/server.cert"),
 //				KeyVaultSecretId:       exampleCertificate.SecretId,

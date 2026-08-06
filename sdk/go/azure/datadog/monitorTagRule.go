@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewMonitorTagRule(ctx, "example", &datadog.MonitorTagRuleArgs{
-//				DatadogMonitorId: exampleMonitor.ID(),
+//				DatadogMonitorId: exampleMonitor.ID().ToIDOutput().ToStringOutput(),
 //				Logs: datadog.MonitorTagRuleLogArray{
 //					&datadog.MonitorTagRuleLogArgs{
 //						SubscriptionLogEnabled: pulumi.Bool(true),

@@ -102,12 +102,10 @@ import (
 //				},
 //			}, nil)
 //			_, err = kusto.NewScript(ctx, "example", &kusto.ScriptArgs{
-//				Name:       pulumi.String("example"),
-//				DatabaseId: exampleDatabase.ID(),
-//				Url:        exampleBlob.ID(),
-//				SasToken: pulumi.String(example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (*string, error) {
-//					return example.Sas, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:                          pulumi.String("example"),
+//				DatabaseId:                    exampleDatabase.ID().ToIDOutput().ToStringOutput(),
+//				Url:                           exampleBlob.ID().ToIDOutput().ToStringOutput(),
+//				SasToken:                      example.Sas(),
 //				ContinueOnErrorsEnabled:       pulumi.Bool(true),
 //				ForceAnUpdateWhenValueChanged: pulumi.String("first"),
 //				ScriptLevel:                   pulumi.String("Database"),

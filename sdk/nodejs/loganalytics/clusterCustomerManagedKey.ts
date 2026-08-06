@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  *             secretPermissions: ["Set"],
  *         },
  *         {
- *             tenantId: exampleCluster.identity.apply(identity => identity.tenantId),
- *             objectId: exampleCluster.identity.apply(identity => identity.principalId),
+ *             tenantId: exampleCluster.identity.tenantId,
+ *             objectId: exampleCluster.identity.principalId,
  *             keyPermissions: [
  *                 "Get",
  *                 "Unwrapkey",

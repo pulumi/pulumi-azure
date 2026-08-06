@@ -47,7 +47,7 @@ import (
 //			}
 //			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -64,8 +64,8 @@ import (
 //			}
 //			_, err = datafactory.NewTriggerBlobEvent(ctx, "example", &datafactory.TriggerBlobEventArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
-//				StorageAccountId: exampleAccount.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Events: pulumi.StringArray{
 //					pulumi.String("Microsoft.Storage.BlobCreated"),
 //					pulumi.String("Microsoft.Storage.BlobDeleted"),

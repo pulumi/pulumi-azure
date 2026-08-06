@@ -67,7 +67,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -82,7 +82,7 @@ import (
 //				Size:              pulumi.String("Standard_B1ls"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				AdminPassword:                 pulumi.String("example-Password@7890"),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
@@ -134,8 +134,8 @@ import (
 //			// associate to a Data Collection Rule
 //			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example1", &monitoring.DataCollectionRuleAssociationArgs{
 //				Name:                 pulumi.String("example1-dcra"),
-//				TargetResourceId:     exampleLinuxVirtualMachine.ID(),
-//				DataCollectionRuleId: exampleDataCollectionRule.ID(),
+//				TargetResourceId:     exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				DataCollectionRuleId: exampleDataCollectionRule.ID().ToIDOutput().ToStringOutput(),
 //				Description:          pulumi.String("example"),
 //			})
 //			if err != nil {
@@ -143,8 +143,8 @@ import (
 //			}
 //			// associate to a Data Collection Endpoint
 //			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example2", &monitoring.DataCollectionRuleAssociationArgs{
-//				TargetResourceId:         exampleLinuxVirtualMachine.ID(),
-//				DataCollectionEndpointId: exampleDataCollectionEndpoint.ID(),
+//				TargetResourceId:         exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				DataCollectionEndpointId: exampleDataCollectionEndpoint.ID().ToIDOutput().ToStringOutput(),
 //				Description:              pulumi.String("example"),
 //			})
 //			if err != nil {

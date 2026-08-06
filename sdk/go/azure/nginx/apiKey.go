@@ -91,12 +91,12 @@ import (
 //				AutomaticUpgradeChannel: pulumi.String("stable"),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
-//						examplePublicIp.ID(),
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				NetworkInterfaces: nginx.DeploymentNetworkInterfaceArray{
 //					&nginx.DeploymentNetworkInterfaceArgs{
-//						SubnetId: exampleSubnet.ID(),
+//						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Capacity: pulumi.Int(20),
@@ -107,7 +107,7 @@ import (
 //			}
 //			_, err = nginx.NewApiKey(ctx, "example", &nginx.ApiKeyArgs{
 //				Name:              pulumi.String("example-api-key"),
-//				NginxDeploymentId: exampleDeployment.ID(),
+//				NginxDeploymentId: exampleDeployment.ID().ToIDOutput().ToStringOutput(),
 //				SecretText:        pulumi.String("727c8642-6807-4254-9d02-ae93bfad21de"),
 //				EndDateTime:       pulumi.String("2027-01-01T00:00:00Z"),
 //			})

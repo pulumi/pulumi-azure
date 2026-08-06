@@ -46,14 +46,14 @@ import (
 //			}
 //			exampleLocalRulestackCertificate, err := paloalto.NewLocalRulestackCertificate(ctx, "example", &paloalto.LocalRulestackCertificateArgs{
 //				Name:        pulumi.String("example"),
-//				RulestackId: exampleLocalRulestack.ID(),
+//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
 //				SelfSigned:  pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = paloalto.NewLocalRulestackOutboundUntrustCertificateAssociation(ctx, "example", &paloalto.LocalRulestackOutboundUntrustCertificateAssociationArgs{
-//				CertificateId: exampleLocalRulestackCertificate.ID(),
+//				CertificateId: exampleLocalRulestackCertificate.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

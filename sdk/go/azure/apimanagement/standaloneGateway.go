@@ -75,7 +75,7 @@ import (
 //				ResourceGroupName:  example.Name,
 //				Location:           example.Location,
 //				VirtualNetworkType: pulumi.String("External"),
-//				BackendSubnetId:    exampleSubnet.ID(),
+//				BackendSubnetId:    exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				Sku: &apimanagement.StandaloneGatewaySkuArgs{
 //					Capacity: pulumi.Int(1),
 //					Name:     pulumi.String("WorkspaceGatewayPremium"),

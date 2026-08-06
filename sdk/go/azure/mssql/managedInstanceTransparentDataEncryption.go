@@ -85,7 +85,7 @@ import (
 //				LicenseType:                pulumi.String("BasePrice"),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID(),
+//				SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				Vcores:                     pulumi.Int(4),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("NCC-1701-D"),
@@ -97,7 +97,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewManagedInstanceTransparentDataEncryption(ctx, "example", &mssql.ManagedInstanceTransparentDataEncryptionArgs{
-//				ManagedInstanceId: exampleManagedInstance.ID(),
+//				ManagedInstanceId: exampleManagedInstance.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -178,7 +178,7 @@ import (
 //				LicenseType:                pulumi.String("BasePrice"),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID(),
+//				SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				Vcores:                     pulumi.Int(4),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("NCC-1701-D"),
@@ -215,12 +215,8 @@ import (
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: exampleManagedInstance.Identity.ApplyT(func(identity mssql.ManagedInstanceIdentity) (*string, error) {
-//							return identity.TenantId, nil
-//						}).(pulumi.StringPtrOutput),
-//						ObjectId: exampleManagedInstance.Identity.ApplyT(func(identity mssql.ManagedInstanceIdentity) (*string, error) {
-//							return identity.PrincipalId, nil
-//						}).(pulumi.StringPtrOutput),
+//						TenantId: exampleManagedInstance.Identity.TenantId(),
+//						ObjectId: exampleManagedInstance.Identity.PrincipalId(),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("WrapKey"),
@@ -234,7 +230,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("byok"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -248,8 +244,8 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewManagedInstanceTransparentDataEncryption(ctx, "example", &mssql.ManagedInstanceTransparentDataEncryptionArgs{
-//				ManagedInstanceId: exampleManagedInstance.ID(),
-//				KeyVaultKeyId:     exampleKey.ID(),
+//				ManagedInstanceId: exampleManagedInstance.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultKeyId:     exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

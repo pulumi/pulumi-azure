@@ -59,8 +59,8 @@ import (
 //			}
 //			_, err = datafactory.NewManagedPrivateEndpoint(ctx, "example", &datafactory.ManagedPrivateEndpointArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
-//				TargetResourceId: exampleAccount.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				SubresourceName:  pulumi.String("blob"),
 //			})
 //			if err != nil {

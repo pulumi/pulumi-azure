@@ -129,7 +129,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("managedrediscmk"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -148,12 +148,12 @@ import (
 //				Identity: &managedredis.ManagedRedisIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				CustomerManagedKey: &managedredis.ManagedRedisCustomerManagedKeyArgs{
-//					KeyVaultKeyId:          exampleKey.ID(),
-//					UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//					KeyVaultKeyId:          exampleKey.ID().ToIDOutput().ToStringOutput(),
+//					UserAssignedIdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				DefaultDatabase: &managedredis.ManagedRedisDefaultDatabaseArgs{
 //					GeoReplicationGroupName: pulumi.String("myGeoGroup"),

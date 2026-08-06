@@ -82,12 +82,12 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewClusterTrustedAccessRoleBinding(ctx, "aks_cluster_trusted_access", &containerservice.ClusterTrustedAccessRoleBindingArgs{
-//				KubernetesClusterId: exampleKubernetesCluster.ID(),
+//				KubernetesClusterId: exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //				Name:                pulumi.String("example"),
 //				Roles: pulumi.StringArray{
 //					pulumi.String("Microsoft.DataProtection/backupVaults/backup-operator"),
 //				},
-//				SourceResourceId: exampleBackupVault.ID(),
+//				SourceResourceId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -112,7 +112,7 @@ import (
 //			}
 //			exampleKubernetesClusterExtension, err := containerservice.NewKubernetesClusterExtension(ctx, "example", &containerservice.KubernetesClusterExtensionArgs{
 //				Name:             pulumi.String("example"),
-//				ClusterId:        exampleKubernetesCluster.ID(),
+//				ClusterId:        exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //				ExtensionType:    pulumi.String("Microsoft.DataProtection.Kubernetes"),
 //				ReleaseTrain:     pulumi.String("stable"),
 //				ReleaseNamespace: pulumi.String("dataprotection-microsoft"),
@@ -128,71 +128,59 @@ import (
 //				return err
 //			}
 //			testExtensionAndStorageAccountPermission, err := authorization.NewAssignment(ctx, "test_extension_and_storage_account_permission", &authorization.AssignmentArgs{
-//				Scope:              exampleAccount.ID(),
+//				Scope:              exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Storage Account Contributor"),
-//				PrincipalId: pulumi.String(exampleKubernetesClusterExtension.AksAssignedIdentities.ApplyT(func(aksAssignedIdentities []containerservice.KubernetesClusterExtensionAksAssignedIdentity) (*string, error) {
+//				PrincipalId: exampleKubernetesClusterExtension.AksAssignedIdentities.ApplyT(func(aksAssignedIdentities []containerservice.KubernetesClusterExtensionAksAssignedIdentity) (*string, error) {
 //					return aksAssignedIdentities[0].PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testVaultMsiReadOnCluster, err := authorization.NewAssignment(ctx, "test_vault_msi_read_on_cluster", &authorization.AssignmentArgs{
-//				Scope:              exampleKubernetesCluster.ID(),
+//				Scope:              exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testVaultMsiReadOnSnapRg, err := authorization.NewAssignment(ctx, "test_vault_msi_read_on_snap_rg", &authorization.AssignmentArgs{
-//				Scope:              snap.ID(),
+//				Scope:              snap.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testVaultMsiSnapshotContributorOnSnapRg, err := authorization.NewAssignment(ctx, "test_vault_msi_snapshot_contributor_on_snap_rg", &authorization.AssignmentArgs{
-//				Scope:              snap.ID(),
+//				Scope:              snap.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testVaultDataOperatorOnSnapRg, err := authorization.NewAssignment(ctx, "test_vault_data_operator_on_snap_rg", &authorization.AssignmentArgs{
-//				Scope:              snap.ID(),
+//				Scope:              snap.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Data Operator for Managed Disks"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testVaultDataContributorOnStorage, err := authorization.NewAssignment(ctx, "test_vault_data_contributor_on_storage", &authorization.AssignmentArgs{
-//				Scope:              exampleAccount.ID(),
+//				Scope:              exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testClusterMsiContributorOnSnapRg, err := authorization.NewAssignment(ctx, "test_cluster_msi_contributor_on_snap_rg", &authorization.AssignmentArgs{
-//				Scope:              snap.ID(),
+//				Scope:              snap.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Contributor"),
-//				PrincipalId: pulumi.String(exampleKubernetesCluster.Identity.ApplyT(func(identity containerservice.KubernetesClusterIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleKubernetesCluster.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
@@ -245,10 +233,10 @@ import (
 //			_, err = dataprotection.NewBackupInstanceKubernetesCluster(ctx, "example", &dataprotection.BackupInstanceKubernetesClusterArgs{
 //				Name:                      pulumi.String("example"),
 //				Location:                  example.Location,
-//				VaultId:                   exampleBackupVault.ID(),
-//				KubernetesClusterId:       exampleKubernetesCluster.ID(),
+//				VaultId:                   exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				KubernetesClusterId:       exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //				SnapshotResourceGroupName: snap.Name,
-//				BackupPolicyId:            exampleBackupPolicyKubernetesCluster.ID(),
+//				BackupPolicyId:            exampleBackupPolicyKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //				BackupDatasourceParameters: &dataprotection.BackupInstanceKubernetesClusterBackupDatasourceParametersArgs{
 //					ExcludedNamespaces: pulumi.StringArray{
 //						pulumi.String("test-excluded-namespaces"),

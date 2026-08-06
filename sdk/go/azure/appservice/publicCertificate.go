@@ -53,7 +53,7 @@ import (
 //				Name:              pulumi.String("example-app-service"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

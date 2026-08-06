@@ -55,7 +55,7 @@ import (
 //			}
 //			_, err = digitaltwins.NewEndpointEventGrid(ctx, "example", &digitaltwins.EndpointEventGridArgs{
 //				Name:                             pulumi.String("example-EG"),
-//				DigitalTwinsId:                   exampleInstance.ID(),
+//				DigitalTwinsId:                   exampleInstance.ID().ToIDOutput().ToStringOutput(),
 //				EventgridTopicEndpoint:           exampleTopic.Endpoint,
 //				EventgridTopicPrimaryAccessKey:   exampleTopic.PrimaryAccessKey,
 //				EventgridTopicSecondaryAccessKey: exampleTopic.SecondaryAccessKey,

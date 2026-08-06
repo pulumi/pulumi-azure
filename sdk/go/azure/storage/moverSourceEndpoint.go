@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = storage.NewMoverSourceEndpoint(ctx, "example", &storage.MoverSourceEndpointArgs{
 //				Name:           pulumi.String("example-se"),
-//				StorageMoverId: exampleMover.ID(),
+//				StorageMoverId: exampleMover.ID().ToIDOutput().ToStringOutput(),
 //				Export:         pulumi.String("/"),
 //				Host:           pulumi.String("192.168.0.1"),
 //				NfsVersion:     pulumi.String("NFSv3"),

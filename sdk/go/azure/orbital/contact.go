@@ -129,18 +129,18 @@ import (
 //						Polarization: pulumi.String("RHCP"),
 //					},
 //				},
-//				NetworkConfigurationSubnetId: exampleSubnet.ID(),
+//				NetworkConfigurationSubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = orbital.NewContact(ctx, "example", &orbital.ContactArgs{
 //				Name:                 pulumi.String("example-contact"),
-//				SpacecraftId:         exampleSpacecraft.ID(),
+//				SpacecraftId:         exampleSpacecraft.ID().ToIDOutput().ToStringOutput(),
 //				ReservationStartTime: pulumi.String("2020-07-16T20:35:00.00Z"),
 //				ReservationEndTime:   pulumi.String("2020-07-16T20:55:00.00Z"),
 //				GroundStationName:    pulumi.String("WESTUS2_0"),
-//				ContactProfileId:     exampleContactProfile.ID(),
+//				ContactProfileId:     exampleContactProfile.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

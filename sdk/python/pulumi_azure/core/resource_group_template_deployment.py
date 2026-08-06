@@ -393,7 +393,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
             }
         }
         \"\"\")
-        pulumi.export("armExampleOutput", std.jsondecode_output(input=example.output_content).apply(lambda invoke: invoke.result["exampleOutput"]["value"]))
+        pulumi.export("armExampleOutput", std.jsondecode_output(input=example.output_content).result["exampleOutput"]["value"])
         ```
 
         ```python
@@ -498,7 +498,7 @@ class ResourceGroupTemplateDeployment(pulumi.CustomResource):
             }
         }
         \"\"\")
-        pulumi.export("armExampleOutput", std.jsondecode_output(input=example.output_content).apply(lambda invoke: invoke.result["exampleOutput"]["value"]))
+        pulumi.export("armExampleOutput", std.jsondecode_output(input=example.output_content).result["exampleOutput"]["value"])
         ```
 
         ```python

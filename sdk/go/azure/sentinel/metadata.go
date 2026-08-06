@@ -50,7 +50,7 @@ import (
 //				SolutionName:        pulumi.String("SecurityInsights"),
 //				Location:            example.Location,
 //				ResourceGroupName:   example.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				WorkspaceName:       exampleAnalyticsWorkspace.Name,
 //				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
 //					Publisher: pulumi.String("Microsoft"),
@@ -75,7 +75,7 @@ import (
 //				WorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 //				ContentId:   exampleAlertRuleNrt.Name,
 //				Kind:        pulumi.String("AnalyticsRule"),
-//				ParentId:    exampleAlertRuleNrt.ID(),
+//				ParentId:    exampleAlertRuleNrt.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

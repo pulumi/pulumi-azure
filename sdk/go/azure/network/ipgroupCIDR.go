@@ -49,7 +49,7 @@ import (
 //				return err
 //			}
 //			_, err = network.NewIPGroupCIDR(ctx, "example", &network.IPGroupCIDRArgs{
-//				IpGroupId: exampleIPGroup.ID(),
+//				IpGroupId: exampleIPGroup.ID().ToIDOutput().ToStringOutput(),
 //				Cidr:      pulumi.String("10.10.10.0/24"),
 //			})
 //			if err != nil {

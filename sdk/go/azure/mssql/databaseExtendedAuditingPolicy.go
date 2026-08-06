@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
 //				Name:     pulumi.String("example-db"),
-//				ServerId: exampleServer.ID(),
+//				ServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -66,7 +66,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewDatabaseExtendedAuditingPolicy(ctx, "example", &mssql.DatabaseExtendedAuditingPolicyArgs{
-//				DatabaseId:                         exampleDatabase.ID(),
+//				DatabaseId:                         exampleDatabase.ID().ToIDOutput().ToStringOutput(),
 //				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
 //				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
 //				StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),

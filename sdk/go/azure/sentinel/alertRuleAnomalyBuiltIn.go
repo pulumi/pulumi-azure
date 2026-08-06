@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				WorkspaceId:               exampleAnalyticsWorkspace.ID(),
+//				WorkspaceId:               exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				CustomerManagedKeyEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -63,7 +63,7 @@ import (
 //			}, nil)
 //			_, err = sentinel.NewAlertRuleAnomalyBuiltIn(ctx, "example", &sentinel.AlertRuleAnomalyBuiltInArgs{
 //				DisplayName:             pulumi.String("Potential data staging"),
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Mode:                    pulumi.String("Production"),
 //				Enabled:                 pulumi.Bool(false),
 //			})

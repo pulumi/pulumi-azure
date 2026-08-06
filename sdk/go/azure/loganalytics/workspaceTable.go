@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			_, err = loganalytics.NewWorkspaceTable(ctx, "example", &loganalytics.WorkspaceTableArgs{
-//				WorkspaceId:          exampleAnalyticsWorkspace.ID(),
+//				WorkspaceId:          exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Name:                 pulumi.String("AppMetrics"),
 //				RetentionInDays:      pulumi.Int(60),
 //				TotalRetentionInDays: pulumi.Int(180),

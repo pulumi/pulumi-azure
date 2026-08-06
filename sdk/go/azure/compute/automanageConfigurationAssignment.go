@@ -67,7 +67,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -84,7 +84,7 @@ import (
 //				AdminPassword:                 pulumi.String("P@$$w0rd1234!"),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
@@ -109,8 +109,8 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewAutomanageConfigurationAssignment(ctx, "example", &compute.AutomanageConfigurationAssignmentArgs{
-//				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
-//				ConfigurationId:  exampleConfiguration.ID(),
+//				VirtualMachineId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				ConfigurationId:  exampleConfiguration.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

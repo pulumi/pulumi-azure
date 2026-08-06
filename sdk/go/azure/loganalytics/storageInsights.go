@@ -61,8 +61,8 @@ import (
 //			_, err = loganalytics.NewStorageInsights(ctx, "example", &loganalytics.StorageInsightsArgs{
 //				Name:              pulumi.String("example-storageinsightconfig"),
 //				ResourceGroupName: example.Name,
-//				WorkspaceId:       exampleAnalyticsWorkspace.ID(),
-//				StorageAccountId:  exampleAccount.ID(),
+//				WorkspaceId:       exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:  exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountKey: exampleAccount.PrimaryAccessKey,
 //			})
 //			if err != nil {

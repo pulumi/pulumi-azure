@@ -92,8 +92,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "trust", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               trust.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//				SubnetId:               trust.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -121,8 +121,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "untrust", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               untrust.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//				SubnetId:               untrust.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -137,7 +137,7 @@ import (
 //			}
 //			_, err = paloalto.NewLocalRulestackRule(ctx, "example", &paloalto.LocalRulestackRuleArgs{
 //				Name:        pulumi.String("example-rulestack-rule"),
-//				RulestackId: exampleLocalRulestack.ID(),
+//				RulestackId: exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
 //				Priority:    pulumi.Int(1001),
 //				Action:      pulumi.String("Allow"),
 //				Applications: pulumi.StringArray{
@@ -160,15 +160,15 @@ import (
 //			_, err = paloalto.NewNextGenerationFirewallVirtualNetworkLocalRulestack(ctx, "example", &paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackArgs{
 //				Name:              pulumi.String("example-ngfwvn"),
 //				ResourceGroupName: example.Name,
-//				RulestackId:       exampleLocalRulestack.ID(),
+//				RulestackId:       exampleLocalRulestack.ID().ToIDOutput().ToStringOutput(),
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs{
 //					PublicIpAddressIds: pulumi.StringArray{
-//						examplePublicIp.ID(),
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					VnetConfiguration: &paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs{
-//						VirtualNetworkId:  exampleVirtualNetwork.ID(),
-//						TrustedSubnetId:   trust.ID(),
-//						UntrustedSubnetId: untrust.ID(),
+//						VirtualNetworkId:  exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//						TrustedSubnetId:   trust.ID().ToIDOutput().ToStringOutput(),
+//						UntrustedSubnetId: untrust.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

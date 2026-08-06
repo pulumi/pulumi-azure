@@ -82,7 +82,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   internal.ID(),
+//						SubnetId:                   internal.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -95,7 +95,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					mainNetworkInterface.ID(),
+//					mainNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				VmSize: pulumi.String("Standard_DS1_v2"),
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{

@@ -52,7 +52,7 @@ import (
 //				Identity: &datafactory.FactoryIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -62,8 +62,8 @@ import (
 //			_, err = datafactory.NewCredentialUserManagedIdentity(ctx, "test", &datafactory.CredentialUserManagedIdentityArgs{
 //				Name:          exampleUserAssignedIdentity.Name,
 //				Description:   pulumi.String("Short description of this credential"),
-//				DataFactoryId: exampleFactory.ID(),
-//				IdentityId:    exampleUserAssignedIdentity.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				IdentityId:    exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //				Annotations: pulumi.StringArray{
 //					pulumi.String("example"),
 //					pulumi.String("example2"),

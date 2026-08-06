@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = dataprotection.NewBackupPolicyDisk(ctx, "example", &dataprotection.BackupPolicyDiskArgs{
 //				Name:    pulumi.String("example-backup-policy"),
-//				VaultId: exampleBackupVault.ID(),
+//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
 //					pulumi.String("R/2021-05-19T06:33:16+00:00/PT4H"),
 //				},

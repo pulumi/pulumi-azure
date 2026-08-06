@@ -56,7 +56,7 @@ import (
 //			}
 //			_, err = cosmosdb.NewSqlTrigger(ctx, "example", &cosmosdb.SqlTriggerArgs{
 //				Name:        pulumi.String("test-trigger"),
-//				ContainerId: exampleSqlContainer.ID(),
+//				ContainerId: exampleSqlContainer.ID().ToIDOutput().ToStringOutput(),
 //				Body:        pulumi.String("function trigger(){}"),
 //				Operation:   pulumi.String("Delete"),
 //				Type:        pulumi.String("Post"),

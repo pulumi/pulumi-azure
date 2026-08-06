@@ -60,18 +60,14 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputMssql(ctx, "example", &streamanalytics.OutputMssqlArgs{
-//				Name: pulumi.String("example-output-sql"),
-//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Server:   exampleServer.FullyQualifiedDomainName,
-//				User:     exampleServer.AdministratorLogin,
-//				Password: exampleServer.AdministratorLoginPassword,
-//				Database: exampleDatabase.Name,
-//				Table:    pulumi.String("ExampleTable"),
+//				Name:                   pulumi.String("example-output-sql"),
+//				StreamAnalyticsJobName: example.Name(),
+//				ResourceGroupName:      example.ResourceGroupName(),
+//				Server:                 exampleServer.FullyQualifiedDomainName,
+//				User:                   exampleServer.AdministratorLogin,
+//				Password:               exampleServer.AdministratorLoginPassword,
+//				Database:               exampleDatabase.Name,
+//				Table:                  pulumi.String("ExampleTable"),
 //			})
 //			if err != nil {
 //				return err

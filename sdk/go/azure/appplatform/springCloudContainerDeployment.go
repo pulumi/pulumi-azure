@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudContainerDeployment(ctx, "example", &appplatform.SpringCloudContainerDeploymentArgs{
 //				Name:             pulumi.String("example"),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //				InstanceCount:    pulumi.Int(2),
 //				Arguments: pulumi.StringArray{
 //					pulumi.String("-cp"),

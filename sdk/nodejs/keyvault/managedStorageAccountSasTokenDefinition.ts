@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  *     name: "examplesasdefinition",
  *     validityPeriod: "P1D",
  *     managedStorageAccountId: exampleManagedStorageAccount.id,
- *     sasTemplateUri: exampleGetAccountSAS.apply(exampleGetAccountSAS => exampleGetAccountSAS.sas),
+ *     sasTemplateUri: exampleGetAccountSAS.sas,
  *     sasType: "account",
  * });
  * ```

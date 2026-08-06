@@ -78,7 +78,7 @@ import (
 //					IpConfigurations: network.ProfileContainerNetworkInterfaceIpConfigurationArray{
 //						&network.ProfileContainerNetworkInterfaceIpConfigurationArgs{
 //							Name:     pulumi.String("exampleipconfig"),
-//							SubnetId: exampleSubnet.ID(),
+//							SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},

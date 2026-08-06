@@ -69,28 +69,24 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              example.ID(),
+//				Scope:              example.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example2, err := authorization.NewAssignment(ctx, "example2", &authorization.AssignmentArgs{
-//				Scope:              exampleFlexibleServer.ID(),
+//				Scope:              exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("PostgreSQL Flexible Server Long Term Retention Backup Role"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleBackupPolicyPostgresqlFlexibleServer, err := dataprotection.NewBackupPolicyPostgresqlFlexibleServer(ctx, "example", &dataprotection.BackupPolicyPostgresqlFlexibleServerArgs{
 //				Name:    pulumi.String("example-dp"),
-//				VaultId: exampleBackupVault.ID(),
+//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
 //					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
 //				},
@@ -112,9 +108,9 @@ import (
 //			_, err = dataprotection.NewBackupInstancePostgresqlFlexibleServer(ctx, "example", &dataprotection.BackupInstancePostgresqlFlexibleServerArgs{
 //				Name:           pulumi.String("example-dbi"),
 //				Location:       example.Location,
-//				VaultId:        exampleBackupVault.ID(),
-//				ServerId:       exampleFlexibleServer.ID(),
-//				BackupPolicyId: exampleBackupPolicyPostgresqlFlexibleServer.ID(),
+//				VaultId:        exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:       exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
+//				BackupPolicyId: exampleBackupPolicyPostgresqlFlexibleServer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

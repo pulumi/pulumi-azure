@@ -65,12 +65,12 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureDatabricks(ctx, "msi_linked", &datafactory.LinkedServiceAzureDatabricksArgs{
 //				Name:          pulumi.String("ADBLinkedServiceViaMSI"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Description:   pulumi.String("ADB Linked Service via MSI"),
 //				AdbDomain: exampleWorkspace.WorkspaceUrl.ApplyT(func(workspaceUrl string) (string, error) {
 //					return fmt.Sprintf("https://%v", workspaceUrl), nil
 //				}).(pulumi.StringOutput),
-//				MsiWorkspaceId: exampleWorkspace.ID(),
+//				MsiWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				NewClusterConfig: &datafactory.LinkedServiceAzureDatabricksNewClusterConfigArgs{
 //					NodeType:           pulumi.String("Standard_NC12"),
 //					ClusterVersion:     pulumi.String("5.5.x-gpu-scala2.11"),
@@ -151,7 +151,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureDatabricks(ctx, "at_linked", &datafactory.LinkedServiceAzureDatabricksArgs{
 //				Name:              pulumi.String("ADBLinkedServiceViaAccessToken"),
-//				DataFactoryId:     exampleFactory.ID(),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Description:       pulumi.String("ADB Linked Service via Access Token"),
 //				ExistingClusterId: pulumi.String("0308-201146-sly615"),
 //				AccessToken:       pulumi.String("SomeDatabricksAccessToken"),

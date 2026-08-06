@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = postgresql.NewFlexibleServerBackup(ctx, "example", &postgresql.FlexibleServerBackupArgs{
 //				Name:     pulumi.String("example-pfsb"),
-//				ServerId: exampleFlexibleServer.ID(),
+//				ServerId: exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

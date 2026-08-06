@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = logicapps.NewTriggerHttpRequest(ctx, "example", &logicapps.TriggerHttpRequestArgs{
 //				Name:       pulumi.String("some-http-trigger"),
-//				LogicAppId: exampleWorkflow.ID(),
+//				LogicAppId: exampleWorkflow.ID().ToIDOutput().ToStringOutput(),
 //				Schema: pulumi.String(`{
 //	    \"type\": \"object\",
 //	    \"properties\": {

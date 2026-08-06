@@ -65,8 +65,8 @@ import (
 //			}
 //			_, err = storage.NewMoverTargetEndpoint(ctx, "example", &storage.MoverTargetEndpointArgs{
 //				Name:                 pulumi.String("example-se"),
-//				StorageMoverId:       exampleMover.ID(),
-//				StorageAccountId:     exampleAccount.ID(),
+//				StorageMoverId:       exampleMover.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:     exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				StorageContainerName: exampleContainer.Name,
 //				Description:          pulumi.String("Example Storage Container Endpoint Description"),
 //			})

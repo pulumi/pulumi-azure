@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = siterecovery.NewHyperVReplicationPolicy(ctx, "policy", &siterecovery.HyperVReplicationPolicyArgs{
 //				Name:                          pulumi.String("policy"),
-//				RecoveryVaultId:               vault.ID(),
+//				RecoveryVaultId:               vault.ID().ToIDOutput().ToStringOutput(),
 //				RecoveryPointRetentionInHours: pulumi.Int(2),
 //				ApplicationConsistentSnapshotFrequencyInHours: pulumi.Int(1),
 //				ReplicationIntervalInSeconds:                  pulumi.Int(300),

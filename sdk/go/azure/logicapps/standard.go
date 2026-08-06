@@ -129,7 +129,7 @@ import (
 //				Name:                    pulumi.String("example-logic-app"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        exampleServicePlan.ID(),
+//				AppServicePlanId:        exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //				SiteConfig: &logicapps.StandardSiteConfigArgs{

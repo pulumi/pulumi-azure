@@ -58,7 +58,7 @@ import (
 //				Name:               pulumi.String("replicate-eventhub"),
 //				ResourceGroupName:  example.Name,
 //				NamespaceName:      primary.Name,
-//				PartnerNamespaceId: secondary.ID(),
+//				PartnerNamespaceId: secondary.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -59,7 +59,7 @@ import (
 //			}
 //			exampleNetworkManagerVerifierWorkspace, err := network.NewNetworkManagerVerifierWorkspace(ctx, "example", &network.NetworkManagerVerifierWorkspaceArgs{
 //				Name:             pulumi.String("example"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				Location:         example.Location,
 //			})
 //			if err != nil {
@@ -94,7 +94,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -111,7 +111,7 @@ import (
 //				AdminPassword:                 pulumi.String("P@ssw0rd1234!"),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
@@ -129,9 +129,9 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerVerifierWorkspaceReachabilityAnalysisIntent(ctx, "example", &network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentArgs{
 //				Name:                  pulumi.String("example-intent"),
-//				VerifierWorkspaceId:   exampleNetworkManagerVerifierWorkspace.ID(),
-//				SourceResourceId:      exampleLinuxVirtualMachine.ID(),
-//				DestinationResourceId: exampleLinuxVirtualMachine.ID(),
+//				VerifierWorkspaceId:   exampleNetworkManagerVerifierWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				SourceResourceId:      exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
+//				DestinationResourceId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Description:           pulumi.String("example"),
 //				IpTraffic: &network.NetworkManagerVerifierWorkspaceReachabilityAnalysisIntentIpTrafficArgs{
 //					SourceIps: pulumi.StringArray{

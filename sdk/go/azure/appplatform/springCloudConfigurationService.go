@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudConfigurationService(ctx, "example", &appplatform.SpringCloudConfigurationServiceArgs{
 //				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				Repositories: appplatform.SpringCloudConfigurationServiceRepositoryArray{
 //					&appplatform.SpringCloudConfigurationServiceRepositoryArgs{
 //						Name:  pulumi.String("fake"),

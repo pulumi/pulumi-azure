@@ -61,7 +61,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudJavaDeployment(ctx, "example", &appplatform.SpringCloudJavaDeploymentArgs{
 //				Name:             pulumi.String("deploy1"),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //				InstanceCount:    pulumi.Int(2),
 //				JvmOptions:       pulumi.String("-XX:+PrintGC"),
 //				Quota: &appplatform.SpringCloudJavaDeploymentQuotaArgs{

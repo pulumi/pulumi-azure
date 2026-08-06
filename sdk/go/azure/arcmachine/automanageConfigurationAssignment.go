@@ -55,10 +55,8 @@ import (
 //				return err
 //			}
 //			_, err = arcmachine.NewAutomanageConfigurationAssignment(ctx, "example", &arcmachine.AutomanageConfigurationAssignmentArgs{
-//				ArcMachineId: pulumi.String(example.ApplyT(func(example arcmachine.GetResult) (*string, error) {
-//					return example.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ConfigurationId: exampleConfiguration.ID(),
+//				ArcMachineId:    example.Id(),
+//				ConfigurationId: exampleConfiguration.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

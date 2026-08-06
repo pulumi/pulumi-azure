@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				WorkspaceId:               exampleAnalyticsWorkspace.ID(),
+//				WorkspaceId:               exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				CustomerManagedKeyEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {

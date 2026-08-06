@@ -48,7 +48,7 @@ import (
 //			}
 //			exampleSyncGroup, err := storage.NewSyncGroup(ctx, "example", &storage.SyncGroupArgs{
 //				Name:          pulumi.String("example-ss-group"),
-//				StorageSyncId: exampleSync.ID(),
+//				StorageSyncId: exampleSync.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -83,9 +83,9 @@ import (
 //			}
 //			_, err = storage.NewSyncCloudEndpoint(ctx, "example", &storage.SyncCloudEndpointArgs{
 //				Name:               pulumi.String("example-ss-ce"),
-//				StorageSyncGroupId: exampleSyncGroup.ID(),
+//				StorageSyncGroupId: exampleSyncGroup.ID().ToIDOutput().ToStringOutput(),
 //				FileShareName:      exampleShare.Name,
-//				StorageAccountId:   exampleAccount.ID(),
+//				StorageAccountId:   exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

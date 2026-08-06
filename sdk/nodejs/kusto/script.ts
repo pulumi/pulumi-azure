@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     databaseId: exampleDatabase.id,
  *     url: exampleBlob.id,
- *     sasToken: example.apply(example => example.sas),
+ *     sasToken: example.sas,
  *     continueOnErrorsEnabled: true,
  *     forceAnUpdateWhenValueChanged: "first",
  *     scriptLevel: "Database",

@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleOutputMssql = new azure.streamanalytics.OutputMssql("example", {
  *     name: "example-output-sql",
- *     streamAnalyticsJobName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     streamAnalyticsJobName: example.name,
+ *     resourceGroupName: example.resourceGroupName,
  *     server: exampleServer.fullyQualifiedDomainName,
  *     user: exampleServer.administratorLogin,
  *     password: exampleServer.administratorLoginPassword,

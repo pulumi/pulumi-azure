@@ -54,7 +54,7 @@ import (
 //			}
 //			_, err = keyvault.NewManagedHardwareSecurityModuleRoleDefinition(ctx, "example", &keyvault.ManagedHardwareSecurityModuleRoleDefinitionArgs{
 //				Name:         pulumi.String("7d206142-bf01-11ed-80bc-00155d61ee9e"),
-//				ManagedHsmId: example.ID(),
+//				ManagedHsmId: example.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("desc foo"),
 //				Permissions: keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermissionArray{
 //					&keyvault.ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs{

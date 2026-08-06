@@ -54,7 +54,7 @@ import (
 //				return err
 //			}
 //			terraform, err := keyvault.NewAccessPolicy(ctx, "terraform", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   exampleKeyVault.TenantId,
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -75,7 +75,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("example-certificate"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -103,13 +103,13 @@ import (
 //				return err
 //			}
 //			databricks2, err := keyvault.NewAccessPolicy(ctx, "databricks", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: pulumi.String(exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				TenantId: exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
 //					return storageAccountIdentities[0].TenantId, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ObjectId: pulumi.String(exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
+//				}).(pulumi.StringPtrOutput),
+//				ObjectId: exampleWorkspace.StorageAccountIdentities.ApplyT(func(storageAccountIdentities []databricks.WorkspaceStorageAccountIdentity) (*string, error) {
 //					return storageAccountIdentities[0].PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),
@@ -128,8 +128,8 @@ import (
 //				return err
 //			}
 //			_, err = databricks.NewWorkspaceRootDbfsCustomerManagedKey(ctx, "example", &databricks.WorkspaceRootDbfsCustomerManagedKeyArgs{
-//				WorkspaceId:   exampleWorkspace.ID(),
-//				KeyVaultKeyId: exampleKey.ID(),
+//				WorkspaceId:   exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultKeyId: exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				databricks2,
 //			}))

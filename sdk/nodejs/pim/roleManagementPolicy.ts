@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleRoleManagementPolicy = new azure.pim.RoleManagementPolicy("example", {
  *     scope: example.id,
- *     roleDefinitionId: mgContributor.apply(mgContributor => mgContributor.id),
+ *     roleDefinitionId: mgContributor.id,
  *     eligibleAssignmentRules: {
  *         expirationRequired: false,
  *     },

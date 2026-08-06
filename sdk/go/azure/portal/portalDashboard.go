@@ -215,7 +215,7 @@ import (
 //				Name:              "my-cool-dashboard",
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				Tags: map[string]interface{}{
+//				Tags: map[string]string{
 //					"source": "terraform",
 //				},
 //				DashboardProperties: dash_template.(map[string]interface{})["rendered"],

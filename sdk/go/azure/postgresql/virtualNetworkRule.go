@@ -85,7 +85,7 @@ import (
 //				Name:                             pulumi.String("postgresql-vnet-rule"),
 //				ResourceGroupName:                example.Name,
 //				ServerName:                       exampleServer.Name,
-//				SubnetId:                         internal.ID(),
+//				SubnetId:                         internal.ID().ToIDOutput().ToStringOutput(),
 //				IgnoreMissingVnetServiceEndpoint: pulumi.Bool(true),
 //			})
 //			if err != nil {

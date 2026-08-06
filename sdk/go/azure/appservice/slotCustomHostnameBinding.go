@@ -52,7 +52,7 @@ import (
 //				Name:              pulumi.String("some-app-service"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -62,13 +62,13 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				AppServiceName:    exampleAppService.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewSlotCustomHostnameBinding(ctx, "example", &appservice.SlotCustomHostnameBindingArgs{
-//				AppServiceSlotId: exampleSlot.ID(),
+//				AppServiceSlotId: exampleSlot.ID().ToIDOutput().ToStringOutput(),
 //				Hostname:         pulumi.String("www.mywebsite.com"),
 //			})
 //			if err != nil {
