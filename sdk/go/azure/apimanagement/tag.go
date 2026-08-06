@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			_, err = apimanagement.NewTag(ctx, "example", &apimanagement.TagArgs{
-//				ApiManagementId: exampleService.ID(),
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				Name:            pulumi.String("example-Tag"),
 //			})
 //			if err != nil {

@@ -54,19 +54,15 @@ import (
 //			}
 //			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
 //				Name:     pulumi.String("example-db"),
-//				ServerId: exampleServer.ID(),
+//				ServerId: exampleServer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = streamanalytics.NewReferenceInputMssql(ctx, "example", &streamanalytics.ReferenceInputMssqlArgs{
-//				Name: pulumi.String("example-reference-input"),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
-//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:                    pulumi.String("example-reference-input"),
+//				ResourceGroupName:       example.ResourceGroupName(),
+//				StreamAnalyticsJobName:  example.Name(),
 //				Server:                  exampleServer.FullyQualifiedDomainName,
 //				Database:                exampleDatabase.Name,
 //				Username:                pulumi.String("exampleuser"),

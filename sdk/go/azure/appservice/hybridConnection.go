@@ -57,7 +57,7 @@ import (
 //				Name:              pulumi.String("exampleAppService1"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -83,7 +83,7 @@ import (
 //			_, err = appservice.NewHybridConnection(ctx, "example", &appservice.HybridConnectionArgs{
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: example.Name,
-//				RelayId:           exampleHybridConnection.ID(),
+//				RelayId:           exampleHybridConnection.ID().ToIDOutput().ToStringOutput(),
 //				Hostname:          pulumi.String("testhostname.example"),
 //				Port:              pulumi.Int(8080),
 //				SendKeyName:       pulumi.String("exampleSharedAccessKey"),

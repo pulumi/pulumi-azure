@@ -49,7 +49,7 @@ import (
 //			}
 //			_, err = loganalytics.NewWorkspaceTableCustomLog(ctx, "example", &loganalytics.WorkspaceTableCustomLogArgs{
 //				Name:        pulumi.String("example_CL"),
-//				WorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Columns: loganalytics.WorkspaceTableCustomLogColumnArray{
 //					&loganalytics.WorkspaceTableCustomLogColumnArgs{
 //						Name: pulumi.String("TimeGenerated"),

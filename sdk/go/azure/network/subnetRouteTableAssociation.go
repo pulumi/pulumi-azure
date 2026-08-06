@@ -75,8 +75,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetRouteTableAssociation(ctx, "example", &network.SubnetRouteTableAssociationArgs{
-//				SubnetId:     exampleSubnet.ID(),
-//				RouteTableId: exampleRouteTable.ID(),
+//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				RouteTableId: exampleRouteTable.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

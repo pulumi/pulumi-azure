@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  *             "contoso",
  *             exampleZone.name,
  *         ],
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     tls: {
  *         certificateType: "ManagedCertificate",
  *         minimumTlsVersion: "TLS12",
@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *             "fabrikam",
  *             exampleZone.name,
  *         ],
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     tls: {
  *         certificateType: "ManagedCertificate",
  *         minimumTlsVersion: "TLS12",

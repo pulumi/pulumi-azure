@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudElasticApplicationPerformanceMonitoring(ctx, "example", &appplatform.SpringCloudElasticApplicationPerformanceMonitoringArgs{
 //				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				GloballyEnabled:      pulumi.Bool(true),
 //				ApplicationPackages: pulumi.StringArray{
 //					pulumi.String("org.example"),

@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = cognitive.NewDeployment(ctx, "example", &cognitive.DeploymentArgs{
 //				Name:               pulumi.String("example-cd"),
-//				CognitiveAccountId: exampleAccount.ID(),
+//				CognitiveAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Model: &cognitive.DeploymentModelArgs{
 //					Format:  pulumi.String("OpenAI"),
 //					Name:    pulumi.String("text-curie-001"),

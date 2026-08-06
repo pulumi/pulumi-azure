@@ -91,12 +91,12 @@ import (
 //				AutomaticUpgradeChannel: pulumi.String("stable"),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
 //					IpAddresses: pulumi.StringArray{
-//						examplePublicIp.ID(),
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				NetworkInterfaces: nginx.DeploymentNetworkInterfaceArray{
 //					&nginx.DeploymentNetworkInterfaceArgs{
-//						SubnetId: exampleSubnet.ID(),
+//						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Capacity: pulumi.Int(20),

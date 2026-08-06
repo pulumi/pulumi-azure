@@ -89,17 +89,17 @@ import (
 // ResourceGroupName: example.Name,
 // Kind: pulumi.String("ServiceCatalog"),
 // ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
-// ApplicationDefinitionId: exampleDefinition.ID(),
+// ApplicationDefinitionId: exampleDefinition.ID().ToIDOutput().ToStringOutput(),
 // ParameterValues: example.Location.ApplyT(func(location string) (pulumi.String, error) {
 // var _zero pulumi.String
-// tmpJSON0, err := json.Marshal(map[string]interface{}{
-// "location": map[string]interface{}{
+// tmpJSON0, err := json.Marshal(map[string]map[string]string{
+// "location": map[string]string{
 // "value": location,
 // },
-// "storageAccountNamePrefix": map[string]interface{}{
+// "storageAccountNamePrefix": map[string]string{
 // "value": "storeNamePrefix",
 // },
-// "storageAccountType": map[string]interface{}{
+// "storageAccountType": map[string]string{
 // "value": "Standard_LRS",
 // },
 // })

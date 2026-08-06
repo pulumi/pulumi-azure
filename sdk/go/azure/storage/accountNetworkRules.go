@@ -82,13 +82,13 @@ import (
 //				return err
 //			}
 //			_, err = storage.NewAccountNetworkRules(ctx, "example", &storage.AccountNetworkRulesArgs{
-//				StorageAccountId: exampleAccount.ID(),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction:    pulumi.String("Allow"),
 //				IpRules: pulumi.StringArray{
 //					pulumi.String("127.0.0.1"),
 //				},
 //				VirtualNetworkSubnetIds: pulumi.StringArray{
-//					exampleSubnet.ID(),
+//					exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Bypasses: pulumi.StringArray{
 //					pulumi.String("Metrics"),

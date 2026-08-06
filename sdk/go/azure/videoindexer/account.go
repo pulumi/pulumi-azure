@@ -52,7 +52,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
 //				Storage: &videoindexer.AccountStorageArgs{
-//					StorageAccountId: exampleAccount.ID(),
+//					StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Identity: &videoindexer.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

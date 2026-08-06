@@ -50,7 +50,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
-//				ServicePlanId:     exampleServicePlan.ID(),
+//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {

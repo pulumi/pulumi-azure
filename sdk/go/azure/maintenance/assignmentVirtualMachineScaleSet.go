@@ -77,7 +77,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("internal"),
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -86,14 +86,14 @@ import (
 //			}
 //			exampleBackendAddressPool, err := lb.NewBackendAddressPool(ctx, "example", &lb.BackendAddressPoolArgs{
 //				Name:           pulumi.String("example"),
-//				LoadbalancerId: exampleLoadBalancer.ID(),
+//				LoadbalancerId: exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleProbe, err := lb.NewProbe(ctx, "example", &lb.ProbeArgs{
 //				Name:           pulumi.String("example"),
-//				LoadbalancerId: exampleLoadBalancer.ID(),
+//				LoadbalancerId: exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Port:           pulumi.Int(22),
 //				Protocol:       pulumi.String("Tcp"),
 //			})
@@ -102,8 +102,8 @@ import (
 //			}
 //			exampleRule, err := lb.NewRule(ctx, "example", &lb.RuleArgs{
 //				Name:                        pulumi.String("example"),
-//				LoadbalancerId:              exampleLoadBalancer.ID(),
-//				ProbeId:                     exampleProbe.ID(),
+//				LoadbalancerId:              exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
+//				ProbeId:                     exampleProbe.ID().ToIDOutput().ToStringOutput(),
 //				FrontendIpConfigurationName: pulumi.String("internal"),
 //				Protocol:                    pulumi.String("Tcp"),
 //				FrontendPort:                pulumi.Int(22),
@@ -150,7 +150,7 @@ import (
 //				Size:              pulumi.String("Standard_D4_v5"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
@@ -169,7 +169,7 @@ import (
 //				AdminUsername:                 pulumi.String("adminuser"),
 //				AdminPassword:                 pulumi.String("P@ssword1234!"),
 //				UpgradeMode:                   pulumi.String("Automatic"),
-//				HealthProbeId:                 exampleProbe.ID(),
+//				HealthProbeId:                 exampleProbe.ID().ToIDOutput().ToStringOutput(),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
 //					Publisher: pulumi.String("Canonical"),
@@ -189,9 +189,9 @@ import (
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("internal"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID(),
+//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //								LoadBalancerBackendAddressPoolIds: pulumi.StringArray{
-//									exampleBackendAddressPool.ID(),
+//									exampleBackendAddressPool.ID().ToIDOutput().ToStringOutput(),
 //								},
 //							},
 //						},
@@ -215,8 +215,8 @@ import (
 //			}
 //			_, err = maintenance.NewAssignmentVirtualMachineScaleSet(ctx, "example", &maintenance.AssignmentVirtualMachineScaleSetArgs{
 //				Location:                   example.Location,
-//				MaintenanceConfigurationId: exampleConfiguration.ID(),
-//				VirtualMachineScaleSetId:   exampleLinuxVirtualMachine.ID(),
+//				MaintenanceConfigurationId: exampleConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				VirtualMachineScaleSetId:   exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

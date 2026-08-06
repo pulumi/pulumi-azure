@@ -37,8 +37,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleOutputBlob = new azure.streamanalytics.OutputBlob("example", {
  *     name: "output-to-blob-storage",
- *     streamAnalyticsJobName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     streamAnalyticsJobName: example.name,
+ *     resourceGroupName: example.resourceGroupName,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountKey: exampleAccount.primaryAccessKey,
  *     storageContainerName: exampleContainer.name,

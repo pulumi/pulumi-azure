@@ -84,7 +84,7 @@ import * as utilities from "../utilities";
  * const testExtensionAndStorageAccountPermission = new azure.authorization.Assignment("test_extension_and_storage_account_permission", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Account Contributor",
- *     principalId: exampleKubernetesClusterExtension.aksAssignedIdentities.apply(aksAssignedIdentities => aksAssignedIdentities[0].principalId),
+ *     principalId: exampleKubernetesClusterExtension.aksAssignedIdentities[0].principalId,
  * });
  * const testVaultMsiReadOnCluster = new azure.authorization.Assignment("test_vault_msi_read_on_cluster", {
  *     scope: exampleKubernetesCluster.id,

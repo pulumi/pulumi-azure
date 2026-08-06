@@ -115,9 +115,9 @@ import (
 //				Sku:               pulumi.String("Standard"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
-//						PublicIpAddressId:          examplePublicIp.ID(),
+//						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						SubnetId:                   example3.ID(),
+//						SubnetId:                   example3.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -133,13 +133,13 @@ import (
 //					NetworkInterfacePrivateIpAddresses: pulumi.StringArray{
 //						pulumi.String("10.2.1.7"),
 //					},
-//					SubnetId: example2.ID(),
+//					SubnetId: example2.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				NetworkProfile: &hsm.ModuleNetworkProfileArgs{
 //					NetworkInterfacePrivateIpAddresses: pulumi.StringArray{
 //						pulumi.String("10.2.1.8"),
 //					},
-//					SubnetId: example2.ID(),
+//					SubnetId: example2.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				StampId: pulumi.String("stamp2"),
 //				Tags: pulumi.StringMap{

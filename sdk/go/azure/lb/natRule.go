@@ -57,7 +57,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -65,7 +65,7 @@ import (
 //				return err
 //			}
 //			exampleBackendAddressPool, err := lb.NewBackendAddressPool(ctx, "example", &lb.BackendAddressPoolArgs{
-//				LoadbalancerId: exampleLoadBalancer.ID(),
+//				LoadbalancerId: exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Name:           pulumi.String("be"),
 //			})
 //			if err != nil {
@@ -73,7 +73,7 @@ import (
 //			}
 //			_, err = lb.NewNatRule(ctx, "example", &lb.NatRuleArgs{
 //				ResourceGroupName:           example.Name,
-//				LoadbalancerId:              exampleLoadBalancer.ID(),
+//				LoadbalancerId:              exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Name:                        pulumi.String("RDPAccess"),
 //				Protocol:                    pulumi.String("Tcp"),
 //				FrontendPort:                pulumi.Int(3389),
@@ -85,13 +85,13 @@ import (
 //			}
 //			_, err = lb.NewNatRule(ctx, "example1", &lb.NatRuleArgs{
 //				ResourceGroupName:           example.Name,
-//				LoadbalancerId:              exampleLoadBalancer.ID(),
+//				LoadbalancerId:              exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Name:                        pulumi.String("RDPAccess"),
 //				Protocol:                    pulumi.String("Tcp"),
 //				FrontendPortStart:           pulumi.Int(3000),
 //				FrontendPortEnd:             pulumi.Int(3389),
 //				BackendPort:                 pulumi.Int(3389),
-//				BackendAddressPoolId:        exampleBackendAddressPool.ID(),
+//				BackendAddressPoolId:        exampleBackendAddressPool.ID().ToIDOutput().ToStringOutput(),
 //				FrontendIpConfigurationName: pulumi.String("PublicIPAddress"),
 //			})
 //			if err != nil {

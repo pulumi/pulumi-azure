@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *         input: "~/.ssh/id_rsa.pub",
  *     }).then(invoke => invoke.result),
  *     labVirtualNetworkId: exampleVirtualNetwork.id,
- *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
+ *     labSubnetName: exampleVirtualNetwork.subnet.name,
  *     storageType: "Premium",
  *     notes: "Some notes about this Virtual Machine.",
  *     galleryImageReference: {

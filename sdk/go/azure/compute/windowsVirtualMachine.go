@@ -80,7 +80,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -96,7 +96,7 @@ import (
 //				AdminUsername:     pulumi.String("adminuser"),
 //				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				OsDisk: &compute.WindowsVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),

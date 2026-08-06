@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
 //				Name:                pulumi.String("tfex_servicebus_topic"),
-//				NamespaceId:         exampleNamespace.ID(),
+//				NamespaceId:         exampleNamespace.ID().ToIDOutput().ToStringOutput(),
 //				PartitioningEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = servicebus.NewSubscription(ctx, "example", &servicebus.SubscriptionArgs{
 //				Name:             pulumi.String("tfex_servicebus_subscription"),
-//				TopicId:          exampleTopic.ID(),
+//				TopicId:          exampleTopic.ID().ToIDOutput().ToStringOutput(),
 //				MaxDeliveryCount: pulumi.Int(1),
 //			})
 //			if err != nil {

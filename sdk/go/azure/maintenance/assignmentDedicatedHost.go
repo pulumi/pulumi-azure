@@ -49,7 +49,7 @@ import (
 //			exampleDedicatedHost, err := compute.NewDedicatedHost(ctx, "example", &compute.DedicatedHostArgs{
 //				Name:                 pulumi.String("example-host"),
 //				Location:             example.Location,
-//				DedicatedHostGroupId: exampleDedicatedHostGroup.ID(),
+//				DedicatedHostGroupId: exampleDedicatedHostGroup.ID().ToIDOutput().ToStringOutput(),
 //				SkuName:              pulumi.String("DSv3-Type3"),
 //				PlatformFaultDomain:  pulumi.Int(1),
 //			})
@@ -67,8 +67,8 @@ import (
 //			}
 //			_, err = maintenance.NewAssignmentDedicatedHost(ctx, "example", &maintenance.AssignmentDedicatedHostArgs{
 //				Location:                   example.Location,
-//				MaintenanceConfigurationId: exampleConfiguration.ID(),
-//				DedicatedHostId:            exampleDedicatedHost.ID(),
+//				MaintenanceConfigurationId: exampleConfiguration.ID().ToIDOutput().ToStringOutput(),
+//				DedicatedHostId:            exampleDedicatedHost.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

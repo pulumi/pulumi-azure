@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = automation.NewSourceControl(ctx, "example", &automation.SourceControlArgs{
 //				Name:                pulumi.String("example"),
-//				AutomationAccountId: exampleAccount.ID(),
+//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				FolderPath:          pulumi.String("runbook"),
 //				Security: &automation.SourceControlSecurityArgs{
 //					Token:     pulumi.String("ghp_xxx"),

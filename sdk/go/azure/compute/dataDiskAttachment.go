@@ -79,7 +79,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   internal.ID(),
+//						SubnetId:                   internal.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -92,7 +92,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					mainNetworkInterface.ID(),
+//					mainNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				VmSize: pulumi.String("Standard_D4_v5"),
 //				StorageImageReference: &compute.VirtualMachineStorageImageReferenceArgs{
@@ -131,8 +131,8 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewDataDiskAttachment(ctx, "example", &compute.DataDiskAttachmentArgs{
-//				ManagedDiskId:    exampleManagedDisk.ID(),
-//				VirtualMachineId: exampleVirtualMachine.ID(),
+//				ManagedDiskId:    exampleManagedDisk.ID().ToIDOutput().ToStringOutput(),
+//				VirtualMachineId: exampleVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Lun:              pulumi.Int(10),
 //				Caching:          pulumi.String("ReadWrite"),
 //			})

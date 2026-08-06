@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceCosmosDbMongoApi(ctx, "example", &datafactory.LinkedServiceCosmosDbMongoApiArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true"),
 //				Database:         pulumi.String("foo"),
 //			})

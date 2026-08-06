@@ -75,7 +75,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("primary"),
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -83,7 +83,7 @@ import (
 //				return err
 //			}
 //			exampleBackendAddressPool, err := lb.NewBackendAddressPool(ctx, "example", &lb.BackendAddressPoolArgs{
-//				LoadbalancerId: exampleLoadBalancer.ID(),
+//				LoadbalancerId: exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Name:           pulumi.String("acctestpool"),
 //			})
 //			if err != nil {
@@ -96,7 +96,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -105,9 +105,9 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkInterfaceBackendAddressPoolAssociation(ctx, "example", &network.NetworkInterfaceBackendAddressPoolAssociationArgs{
-//				NetworkInterfaceId:   exampleNetworkInterface.ID(),
+//				NetworkInterfaceId:   exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				IpConfigurationName:  pulumi.String("testconfiguration1"),
-//				BackendAddressPoolId: exampleBackendAddressPool.ID(),
+//				BackendAddressPoolId: exampleBackendAddressPool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

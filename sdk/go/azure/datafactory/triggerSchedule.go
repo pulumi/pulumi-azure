@@ -46,14 +46,14 @@ import (
 //			}
 //			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = datafactory.NewTriggerSchedule(ctx, "example", &datafactory.TriggerScheduleArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				PipelineName:  examplePipeline.Name,
 //				Interval:      pulumi.Int(5),
 //				Frequency:     pulumi.String("Day"),

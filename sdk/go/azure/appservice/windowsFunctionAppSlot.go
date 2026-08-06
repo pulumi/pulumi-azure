@@ -62,7 +62,7 @@ import (
 //				ResourceGroupName:  example.Name,
 //				Location:           example.Location,
 //				StorageAccountName: exampleAccount.Name,
-//				ServicePlanId:      exampleServicePlan.ID(),
+//				ServicePlanId:      exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:         &appservice.WindowsFunctionAppSiteConfigArgs{},
 //			})
 //			if err != nil {
@@ -70,7 +70,7 @@ import (
 //			}
 //			_, err = appservice.NewWindowsFunctionAppSlot(ctx, "example", &appservice.WindowsFunctionAppSlotArgs{
 //				Name:               pulumi.String("example-slot"),
-//				FunctionAppId:      exampleWindowsFunctionApp.ID(),
+//				FunctionAppId:      exampleWindowsFunctionApp.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName: exampleAccount.Name,
 //				SiteConfig:         &appservice.WindowsFunctionAppSlotSiteConfigArgs{},
 //			})

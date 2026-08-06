@@ -47,7 +47,7 @@ import (
 //			}
 //			exampleRuntimeEnvironment, err := automation.NewRuntimeEnvironment(ctx, "example", &automation.RuntimeEnvironmentArgs{
 //				Name:                pulumi.String("example-runtime-env"),
-//				AutomationAccountId: exampleAccount.ID(),
+//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				RuntimeLanguage:     pulumi.String("PowerShell"),
 //				RuntimeVersion:      pulumi.String("7.2"),
 //				Location:            example.Location,
@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = automation.NewRuntimeEnvironmentPackage(ctx, "example", &automation.RuntimeEnvironmentPackageArgs{
 //				Name:                           pulumi.String("example-package"),
-//				AutomationRuntimeEnvironmentId: exampleRuntimeEnvironment.ID(),
+//				AutomationRuntimeEnvironmentId: exampleRuntimeEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				ContentUri:                     pulumi.String("https://www.powershellgallery.com/api/v2/package/example-package/1.0.0"),
 //			})
 //			if err != nil {

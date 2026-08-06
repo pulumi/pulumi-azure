@@ -98,7 +98,7 @@ import (
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("internal"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: internal.ID(),
+//								SubnetId: internal.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -116,8 +116,8 @@ import (
 //				return err
 //			}
 //			_, err = securitycenter.NewAssessment(ctx, "example", &securitycenter.AssessmentArgs{
-//				AssessmentPolicyId: exampleAssessmentPolicy.ID(),
-//				TargetResourceId:   exampleLinuxVirtualMachineScaleSet.ID(),
+//				AssessmentPolicyId: exampleAssessmentPolicy.ID().ToIDOutput().ToStringOutput(),
+//				TargetResourceId:   exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				Status: &securitycenter.AssessmentStatusArgs{
 //					Code: pulumi.String("Healthy"),
 //				},

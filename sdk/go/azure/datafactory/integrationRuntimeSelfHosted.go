@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = datafactory.NewIntegrationRuntimeSelfHosted(ctx, "example", &datafactory.IntegrationRuntimeSelfHostedArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

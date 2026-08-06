@@ -276,7 +276,7 @@ import * as utilities from "../utilities";
  *         dataProtectionReplication: {
  *             endpointType: "dst",
  *             remoteVolumeLocation: example.location,
- *             remoteVolumeResourceId: examplePrimaryVolumeGroupOracle.volumes.apply(volumes => volumes[0].id),
+ *             remoteVolumeResourceId: examplePrimaryVolumeGroupOracle.volumes[0].id,
  *             replicationFrequency: "10minutes",
  *         },
  *     }],

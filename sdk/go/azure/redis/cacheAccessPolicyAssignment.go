@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = redis.NewCacheAccessPolicyAssignment(ctx, "example", &redis.CacheAccessPolicyAssignmentArgs{
 //				Name:             pulumi.String("example"),
-//				RedisCacheId:     exampleCache.ID(),
+//				RedisCacheId:     exampleCache.ID().ToIDOutput().ToStringOutput(),
 //				AccessPolicyName: pulumi.String("Data Contributor"),
 //				ObjectId:         pulumi.String(test.ObjectId),
 //				ObjectIdAlias:    pulumi.String("ServicePrincipal"),

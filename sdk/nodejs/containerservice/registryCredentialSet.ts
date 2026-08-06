@@ -106,8 +106,8 @@ import * as utilities from "../utilities";
  * });
  * const readSecrets = new azure.keyvault.AccessPolicy("read_secrets", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleRegistryCredentialSet.identity.apply(identity => identity.tenantId),
- *     objectId: exampleRegistryCredentialSet.identity.apply(identity => identity.principalId),
+ *     tenantId: exampleRegistryCredentialSet.identity.tenantId,
+ *     objectId: exampleRegistryCredentialSet.identity.principalId,
  *     secretPermissions: ["Get"],
  * });
  * ```

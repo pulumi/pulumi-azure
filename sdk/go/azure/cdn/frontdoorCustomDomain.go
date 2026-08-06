@@ -56,14 +56,14 @@ import (
 //			}
 //			exampleFrontdoorEndpoint, err := cdn.NewFrontdoorEndpoint(ctx, "example", &cdn.FrontdoorEndpointArgs{
 //				Name:                  pulumi.String("example-cdn-frontdoor-endpoint"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
 //				Name:                  pulumi.String("example-cdn-frontdoor-origin-group"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				LoadBalancing:         &cdn.FrontdoorOriginGroupLoadBalancingArgs{},
 //			})
 //			if err != nil {
@@ -71,7 +71,7 @@ import (
 //			}
 //			exampleFrontdoorOrigin, err := cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
 //				Name:                        pulumi.String("example-cdn-frontdoor-origin"),
-//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
+//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
 //				HostName:                    pulumi.String("contoso.fabrikam.com"),
 //				CertificateNameCheckEnabled: pulumi.Bool(false),
 //			})
@@ -80,8 +80,8 @@ import (
 //			}
 //			exampleFrontdoorCustomDomain, err := cdn.NewFrontdoorCustomDomain(ctx, "example", &cdn.FrontdoorCustomDomainArgs{
 //				Name:                  pulumi.String("example-cdn-frontdoor-custom-domain"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				DnsZoneId:             exampleZone.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
 //				HostName:              exampleFrontdoorOrigin.HostName,
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType: pulumi.String("ManagedCertificate"),
@@ -93,13 +93,13 @@ import (
 //			}
 //			_, err = cdn.NewFrontdoorRoute(ctx, "example", &cdn.FrontdoorRouteArgs{
 //				Name:                      pulumi.String("example-cdn-frontdoor-route"),
-//				CdnFrontdoorEndpointId:    exampleFrontdoorEndpoint.ID(),
-//				CdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.ID(),
+//				CdnFrontdoorEndpointId:    exampleFrontdoorEndpoint.ID().ToIDOutput().ToStringOutput(),
+//				CdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
 //				CdnFrontdoorOriginIds: pulumi.StringArray{
-//					exampleFrontdoorOrigin.ID(),
+//					exampleFrontdoorOrigin.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				CdnFrontdoorCustomDomainIds: pulumi.StringArray{
-//					exampleFrontdoorCustomDomain.ID(),
+//					exampleFrontdoorCustomDomain.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				PatternsToMatches: pulumi.StringArray{
 //					pulumi.String("/*"),
@@ -123,14 +123,14 @@ import (
 //			}
 //			_, err = cdn.NewFrontdoorSecurityPolicy(ctx, "example", &cdn.FrontdoorSecurityPolicyArgs{
 //				Name:                  pulumi.String("example-cdn-frontdoor-security-policy"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				SecurityPolicies: &cdn.FrontdoorSecurityPolicySecurityPoliciesArgs{
 //					Firewall: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{
-//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID(),
+//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
 //						Association: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{
 //							Domains: cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{
 //								&cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{
-//									CdnFrontdoorDomainId: exampleFrontdoorCustomDomain.ID(),
+//									CdnFrontdoorDomainId: exampleFrontdoorCustomDomain.ID().ToIDOutput().ToStringOutput(),
 //								},
 //							},
 //							PatternsToMatch: pulumi.String("/*"),
@@ -172,7 +172,7 @@ import (
 //				Separator: ".",
 //				Input: []interface{}{
 //					"_dnsauth",
-//					std.Split(ctx, &std.SplitArgs{
+//					std.Split(ctx, std.SplitArgs{
 //						Separator: ".",
 //						Text:      exampleAzurermCdnFrontdoorCustomDomain.HostName,
 //					}, nil).Result[0],

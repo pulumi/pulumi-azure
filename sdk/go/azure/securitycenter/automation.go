@@ -53,7 +53,7 @@ import (
 //			}
 //			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
 //				Name:             pulumi.String("acceptanceTestEventHub"),
-//				NamespaceId:      exampleEventHubNamespace.ID(),
+//				NamespaceId:      exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
 //				PartitionCount:   pulumi.Int(2),
 //				MessageRetention: pulumi.Int(2),
 //			})
@@ -79,7 +79,7 @@ import (
 //				Actions: securitycenter.AutomationActionArray{
 //					&securitycenter.AutomationActionArgs{
 //						Type:             pulumi.String("EventHub"),
-//						ResourceId:       exampleEventHub.ID(),
+//						ResourceId:       exampleEventHub.ID().ToIDOutput().ToStringOutput(),
 //						ConnectionString: exampleAuthorizationRule.PrimaryConnectionString,
 //					},
 //				},

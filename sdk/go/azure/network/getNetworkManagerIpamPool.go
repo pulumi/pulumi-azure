@@ -55,7 +55,7 @@ import (
 //			exampleNetworkManagerIpamPool, err := network.NewNetworkManagerIpamPool(ctx, "example", &network.NetworkManagerIpamPoolArgs{
 //				Name:             pulumi.String("example-ipam-pool"),
 //				Location:         pulumi.String("West Europe"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:      pulumi.String("example-pool"),
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/24"),
@@ -66,11 +66,9 @@ import (
 //			}
 //			example := network.LookupNetworkManagerIpamPoolOutput(ctx, network.GetNetworkManagerIpamPoolOutputArgs{
 //				Name:             exampleNetworkManagerIpamPool.Name,
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
-//			ctx.Export("id", example.ApplyT(func(example network.GetNetworkManagerIpamPoolResult) (*string, error) {
-//				return example.Id, nil
-//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("id", example.Id())
 //			return nil
 //		})
 //	}

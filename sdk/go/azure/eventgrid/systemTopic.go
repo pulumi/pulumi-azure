@@ -54,7 +54,7 @@ import (
 //				Name:              pulumi.String("example-topic"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				SourceResourceId:  exampleAccount.ID(),
+//				SourceResourceId:  exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				TopicType:         pulumi.String("Microsoft.Storage.StorageAccounts"),
 //			})
 //			if err != nil {

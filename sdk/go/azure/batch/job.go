@@ -65,7 +65,7 @@ import (
 //			}
 //			_, err = batch.NewJob(ctx, "example", &batch.JobArgs{
 //				Name:        pulumi.String("examplejob"),
-//				BatchPoolId: examplePool.ID(),
+//				BatchPoolId: examplePool.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

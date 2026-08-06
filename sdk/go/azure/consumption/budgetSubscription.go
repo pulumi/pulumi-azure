@@ -87,7 +87,7 @@ import (
 //							pulumi.String("bar@example.com"),
 //						},
 //						ContactGroups: pulumi.StringArray{
-//							exampleActionGroup.ID(),
+//							exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
 //						},
 //						ContactRoles: pulumi.StringArray{
 //							pulumi.String("Owner"),

@@ -74,16 +74,16 @@ import (
 //			}
 //			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("example"),
-//				ResourceGroupId:    example.ID(),
-//				PolicyDefinitionId: exampleDefinition.ID(),
+//				ResourceGroupId:    example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyDefinitionId: exampleDefinition.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = core.NewResourceGroupPolicyRemediation(ctx, "example", &core.ResourceGroupPolicyRemediationArgs{
 //				Name:               pulumi.String("example-policy-remediation"),
-//				ResourceGroupId:    example.ID(),
-//				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID(),
+//				ResourceGroupId:    example.ID().ToIDOutput().ToStringOutput(),
+//				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID().ToIDOutput().ToStringOutput(),
 //				LocationFilters: pulumi.StringArray{
 //					pulumi.String("West Europe"),
 //				},

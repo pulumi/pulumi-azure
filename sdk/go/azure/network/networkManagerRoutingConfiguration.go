@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerRoutingConfiguration(ctx, "example", &network.NetworkManagerRoutingConfigurationArgs{
 //				Name:             pulumi.String("example-routing-configuration"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				Description:      pulumi.String("example routing configuration"),
 //			})
 //			if err != nil {

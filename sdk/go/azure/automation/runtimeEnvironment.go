@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = automation.NewRuntimeEnvironment(ctx, "example", &automation.RuntimeEnvironmentArgs{
 //				Name:                pulumi.String("powershell_environment_custom_config"),
-//				AutomationAccountId: exampleAccount.ID(),
+//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				RuntimeLanguage:     pulumi.String("PowerShell"),
 //				RuntimeVersion:      pulumi.String("7.2"),
 //				Location:            example.Location,

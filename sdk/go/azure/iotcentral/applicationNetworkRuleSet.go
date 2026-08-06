@@ -51,7 +51,7 @@ import (
 //				return err
 //			}
 //			_, err = iotcentral.NewApplicationNetworkRuleSet(ctx, "example", &iotcentral.ApplicationNetworkRuleSetArgs{
-//				IotcentralApplicationId: exampleApplication.ID(),
+//				IotcentralApplicationId: exampleApplication.ID().ToIDOutput().ToStringOutput(),
 //				IpRules: iotcentral.ApplicationNetworkRuleSetIpRuleArray{
 //					&iotcentral.ApplicationNetworkRuleSetIpRuleArgs{
 //						Name:   pulumi.String("rule1"),

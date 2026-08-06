@@ -116,7 +116,7 @@ import (
 //						pulumi.String("100.0.0.1"),
 //					},
 //					VirtualNetworkSubnetIds: pulumi.StringArray{
-//						exampleSubnet.ID(),
+//						exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

@@ -46,7 +46,7 @@ import (
 //			}
 //			exampleLinkedServiceMysql, err := datafactory.NewLinkedServiceMysql(ctx, "example", &datafactory.LinkedServiceMysqlArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test"),
 //			})
 //			if err != nil {
@@ -54,7 +54,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetMysql(ctx, "example", &datafactory.DatasetMysqlArgs{
 //				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID(),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				LinkedServiceName: exampleLinkedServiceMysql.Name,
 //			})
 //			if err != nil {

@@ -83,7 +83,7 @@ import (
 //				Name:             pulumi.String("tfex-signalr-splr"),
 //				SignalrServiceId: pulumi.Any(exampleAzurermSignalrService.Id),
 //				SubResourceName:  pulumi.String("vault"),
-//				TargetResourceId: exampleKeyVault.ID(),
+//				TargetResourceId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

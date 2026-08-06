@@ -114,7 +114,7 @@ import (
 //				PoolName:          examplePool.Name,
 //				VolumePath:        pulumi.String("example-vol"),
 //				ServiceLevel:      pulumi.String("Standard"),
-//				SubnetId:          exampleSubnet.ID(),
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				StorageQuotaInGb:  pulumi.Int(100),
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("NFSv3"),
@@ -132,8 +132,8 @@ import (
 //			}
 //			bucketSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "bucket", &tls.SelfSignedCertArgs{
 //				PrivateKeyPem: bucket.PrivateKeyPem,
-//				Subject: []map[string]interface{}{
-//					map[string]interface{}{
+//				Subject: []map[string]string{
+//					{
 //						"commonName": "example-bucket.example.internal",
 //					},
 //				},
@@ -158,7 +158,7 @@ import (
 //			}
 //			_, err = netapp.NewVolumeBucketWithServer(ctx, "example", &netapp.VolumeBucketWithServerArgs{
 //				Name:     pulumi.String("example-bucket"),
-//				VolumeId: exampleVolume.ID(),
+//				VolumeId: exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				FileSystemNfsUser: &netapp.VolumeBucketWithServerFileSystemNfsUserArgs{
 //					GroupId: pulumi.Int(1000),
 //					UserId:  pulumi.Int(1000),
@@ -271,7 +271,7 @@ import (
 //				PoolName:          examplePool.Name,
 //				VolumePath:        pulumi.String("example-vol"),
 //				ServiceLevel:      pulumi.String("Standard"),
-//				SubnetId:          exampleSubnet.ID(),
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				StorageQuotaInGb:  pulumi.Int(100),
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("NFSv3"),
@@ -303,7 +303,7 @@ import (
 //				return err
 //			}
 //			deployerCertificate, err := keyvault.NewAccessPolicy(ctx, "deployer_certificate", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: certificate.ID(),
+//				KeyVaultId: certificate.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				CertificatePermissions: pulumi.StringArray{
@@ -329,11 +329,9 @@ import (
 //				return err
 //			}
 //			anfCertificate, err := keyvault.NewAccessPolicy(ctx, "anf_certificate", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: certificate.ID(),
+//				KeyVaultId: certificate.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId: pulumi.String(exampleAccount.Identity.ApplyT(func(identity netapp.AccountIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				ObjectId:   exampleAccount.Identity.PrincipalId(),
 //				CertificatePermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("List"),
@@ -357,11 +355,9 @@ import (
 //				return err
 //			}
 //			anfCredentials, err := keyvault.NewAccessPolicy(ctx, "anf_credentials", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: credentials.ID(),
+//				KeyVaultId: credentials.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
-//				ObjectId: pulumi.String(exampleAccount.Identity.ApplyT(func(identity netapp.AccountIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				ObjectId:   exampleAccount.Identity.PrincipalId(),
 //				SecretPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("List"),
@@ -374,7 +370,7 @@ import (
 //			}
 //			bucket, err := keyvault.NewCertificate(ctx, "bucket", &keyvault.CertificateArgs{
 //				Name:       pulumi.String("example-bucket-cert"),
-//				KeyVaultId: certificate.ID(),
+//				KeyVaultId: certificate.ID().ToIDOutput().ToStringOutput(),
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
 //					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
 //						Name: pulumi.String("Self"),
@@ -413,7 +409,7 @@ import (
 //			}
 //			_, err = netapp.NewVolumeBucketWithServer(ctx, "example", &netapp.VolumeBucketWithServerArgs{
 //				Name:     pulumi.String("example-bucket"),
-//				VolumeId: exampleVolume.ID(),
+//				VolumeId: exampleVolume.ID().ToIDOutput().ToStringOutput(),
 //				FileSystemNfsUser: &netapp.VolumeBucketWithServerFileSystemNfsUserArgs{
 //					GroupId: pulumi.Int(1000),
 //					UserId:  pulumi.Int(1000),

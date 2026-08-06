@@ -480,7 +480,7 @@ class Prefix(pulumi.CustomResource):
             parent_custom_ip_prefix_id=global_.id,
             cidr=std.cidrsubnet_output(input=global_.cidr,
                 newbits=16,
-                netnum=1).apply(lambda invoke: invoke.result),
+                netnum=1).result,
             zones=["1"])
         ```
 
@@ -573,7 +573,7 @@ class Prefix(pulumi.CustomResource):
             parent_custom_ip_prefix_id=global_.id,
             cidr=std.cidrsubnet_output(input=global_.cidr,
                 newbits=16,
-                netnum=1).apply(lambda invoke: invoke.result),
+                netnum=1).result,
             zones=["1"])
         ```
 

@@ -63,7 +63,7 @@ import (
 //			}
 //			exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "example", &datafactory.LinkedCustomServiceArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Type:          pulumi.String("AzureBlobStorage"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
 //					return fmt.Sprintf("{\n  \\\"connectionString\\\":\\\"%v\\\"\n}\n", primaryConnectionString), nil
@@ -82,7 +82,7 @@ import (
 //			}
 //			_, err = datafactory.NewCustomDataset(ctx, "example", &datafactory.CustomDatasetArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Type:          pulumi.String("Json"),
 //				LinkedService: &datafactory.CustomDatasetLinkedServiceArgs{
 //					Name: exampleLinkedCustomService.Name,

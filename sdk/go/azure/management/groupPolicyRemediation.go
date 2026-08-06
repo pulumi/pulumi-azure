@@ -43,8 +43,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"listOfAllowedLocations": map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]map[string][]string{
+//				"listOfAllowedLocations": map[string][]string{
 //					"value": []string{
 //						"East US",
 //					},
@@ -56,7 +56,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("exampleAssignment"),
-//				ManagementGroupId:  exampleGroup.ID(),
+//				ManagementGroupId:  exampleGroup.ID().ToIDOutput().ToStringOutput(),
 //				PolicyDefinitionId: pulumi.String(example.Id),
 //				Parameters:         pulumi.String(json0),
 //			})
@@ -65,8 +65,8 @@ import (
 //			}
 //			_, err = management.NewGroupPolicyRemediation(ctx, "example", &management.GroupPolicyRemediationArgs{
 //				Name:               pulumi.String("example"),
-//				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyAssignmentId: exampleGroupPolicyAssignment.ID(),
+//				ManagementGroupId:  exampleGroup.ID().ToIDOutput().ToStringOutput(),
+//				PolicyAssignmentId: exampleGroupPolicyAssignment.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

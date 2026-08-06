@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = cognitive.NewAccountRaiBlocklist(ctx, "example", &cognitive.AccountRaiBlocklistArgs{
 //				Name:               pulumi.String("example-crb"),
-//				CognitiveAccountId: exampleAccount.ID(),
+//				CognitiveAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Description:        pulumi.String("Azure OpenAI Rai Blocklist"),
 //			})
 //			if err != nil {

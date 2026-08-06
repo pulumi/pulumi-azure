@@ -60,23 +60,23 @@ import (
 //			}
 //			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
 //				Name:             pulumi.String("example-network-group"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleNetworkManagerSecurityAdminConfiguration, err := network.NewNetworkManagerSecurityAdminConfiguration(ctx, "example", &network.NetworkManagerSecurityAdminConfigurationArgs{
 //				Name:             pulumi.String("example-admin-conf"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleNetworkManagerAdminRuleCollection, err := network.NewNetworkManagerAdminRuleCollection(ctx, "example", &network.NetworkManagerAdminRuleCollectionArgs{
 //				Name:                         pulumi.String("example-admin-rule-collection"),
-//				SecurityAdminConfigurationId: exampleNetworkManagerSecurityAdminConfiguration.ID(),
+//				SecurityAdminConfigurationId: exampleNetworkManagerSecurityAdminConfiguration.ID().ToIDOutput().ToStringOutput(),
 //				NetworkGroupIds: pulumi.StringArray{
-//					exampleNetworkManagerNetworkGroup.ID(),
+//					exampleNetworkManagerNetworkGroup.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
@@ -84,7 +84,7 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerAdminRule(ctx, "example", &network.NetworkManagerAdminRuleArgs{
 //				Name:                  pulumi.String("example-admin-rule"),
-//				AdminRuleCollectionId: exampleNetworkManagerAdminRuleCollection.ID(),
+//				AdminRuleCollectionId: exampleNetworkManagerAdminRuleCollection.ID().ToIDOutput().ToStringOutput(),
 //				Action:                pulumi.String("Deny"),
 //				Direction:             pulumi.String("Outbound"),
 //				Priority:              pulumi.Int(1),

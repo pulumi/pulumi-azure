@@ -126,7 +126,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: testAzurermResourceGroup.name,
  *     type: "ExpressRoute",
  *     virtualNetworkGatewayId: testVirtualNetworkGateway.id,
- *     expressRouteCircuitId: testPrivateCloud.circuits.apply(circuits => circuits[0].expressRouteId),
+ *     expressRouteCircuitId: testPrivateCloud.circuits[0].expressRouteId,
  *     authorizationKey: testExpressRouteAuthorization.expressRouteAuthorizationKey,
  * });
  * const testNetappVolumeAttachment = new azure.avs.NetappVolumeAttachment("test", {

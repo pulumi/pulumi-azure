@@ -69,8 +69,8 @@ import * as utilities from "../utilities";
  * });
  * const databricks = new azure.keyvault.AccessPolicy("databricks", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleWorkspace.storageAccountIdentities.apply(storageAccountIdentities => storageAccountIdentities[0].tenantId),
- *     objectId: exampleWorkspace.storageAccountIdentities.apply(storageAccountIdentities => storageAccountIdentities[0].principalId),
+ *     tenantId: exampleWorkspace.storageAccountIdentities[0].tenantId,
+ *     objectId: exampleWorkspace.storageAccountIdentities[0].principalId,
  *     keyPermissions: [
  *         "Create",
  *         "Delete",

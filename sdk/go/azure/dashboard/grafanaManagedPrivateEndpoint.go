@@ -56,7 +56,7 @@ import (
 //				PublicNetworkAccessEnabled: pulumi.Bool(false),
 //				AzureMonitorWorkspaceIntegrations: dashboard.GrafanaAzureMonitorWorkspaceIntegrationArray{
 //					&dashboard.GrafanaAzureMonitorWorkspaceIntegrationArgs{
-//						ResourceId: exampleWorkspace.ID(),
+//						ResourceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -64,10 +64,10 @@ import (
 //				return err
 //			}
 //			_, err = dashboard.NewGrafanaManagedPrivateEndpoint(ctx, "example", &dashboard.GrafanaManagedPrivateEndpointArgs{
-//				GrafanaId:             exampleGrafana.ID(),
+//				GrafanaId:             exampleGrafana.ID().ToIDOutput().ToStringOutput(),
 //				Name:                  pulumi.String("example-mpe"),
 //				Location:              exampleGrafana.Location,
-//				PrivateLinkResourceId: exampleWorkspace.ID(),
+//				PrivateLinkResourceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				GroupIds: pulumi.StringArray{
 //					pulumi.String("prometheusMetrics"),
 //				},

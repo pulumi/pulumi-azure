@@ -592,7 +592,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             remote_virtual_network_id=example_2.id,
             triggers={
                 "remote_address_space": std.join_output(separator=",",
-                    input=example_2.address_spaces).apply(lambda invoke: invoke.result),
+                    input=example_2.address_spaces).result,
             })
         example_2_virtual_network_peering = azure.network.VirtualNetworkPeering("example-2",
             name="peer2to1",
@@ -601,7 +601,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             remote_virtual_network_id=example_1.id,
             triggers={
                 "remote_address_space": std.join_output(separator=",",
-                    input=example_1.address_spaces).apply(lambda invoke: invoke.result),
+                    input=example_1.address_spaces).result,
             })
         ```
 
@@ -766,7 +766,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             remote_virtual_network_id=example_2.id,
             triggers={
                 "remote_address_space": std.join_output(separator=",",
-                    input=example_2.address_spaces).apply(lambda invoke: invoke.result),
+                    input=example_2.address_spaces).result,
             })
         example_2_virtual_network_peering = azure.network.VirtualNetworkPeering("example-2",
             name="peer2to1",
@@ -775,7 +775,7 @@ class VirtualNetworkPeering(pulumi.CustomResource):
             remote_virtual_network_id=example_1.id,
             triggers={
                 "remote_address_space": std.join_output(separator=",",
-                    input=example_1.address_spaces).apply(lambda invoke: invoke.result),
+                    input=example_1.address_spaces).result,
             })
         ```
 

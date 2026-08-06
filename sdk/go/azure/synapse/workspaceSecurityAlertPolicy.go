@@ -51,7 +51,7 @@ import (
 //			}
 //			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID(),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -60,11 +60,11 @@ import (
 //				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               example.Name,
 //				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
-//				AadAdmin: []map[string]interface{}{
-//					map[string]interface{}{
+//				AadAdmin: []map[string]string{
+//					{
 //						"login":    "AzureAD Admin",
 //						"objectId": "00000000-0000-0000-0000-000000000000",
 //						"tenantId": "00000000-0000-0000-0000-000000000000",
@@ -91,7 +91,7 @@ import (
 //				return err
 //			}
 //			_, err = synapse.NewWorkspaceSecurityAlertPolicy(ctx, "example", &synapse.WorkspaceSecurityAlertPolicyArgs{
-//				SynapseWorkspaceId:      exampleWorkspace.ID(),
+//				SynapseWorkspaceId:      exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				PolicyState:             pulumi.String("Enabled"),
 //				StorageEndpoint:         auditLogs.PrimaryBlobEndpoint,
 //				StorageAccountAccessKey: auditLogs.PrimaryAccessKey,

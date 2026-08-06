@@ -86,7 +86,7 @@ import (
 //				Name:              pulumi.String("example-app-service"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -96,15 +96,15 @@ import (
 //				AppServiceName:    exampleAppService.Name,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewSlotVirtualNetworkSwiftConnection(ctx, "example", &appservice.SlotVirtualNetworkSwiftConnectionArgs{
 //				SlotName:     example_staging.Name,
-//				AppServiceId: exampleAppService.ID(),
-//				SubnetId:     exampleSubnet.ID(),
+//				AppServiceId: exampleAppService.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

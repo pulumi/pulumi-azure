@@ -81,7 +81,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              examplePublicIp.Name,
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -99,23 +99,23 @@ import (
 //					pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				},
 //				LoadBalancerFrontendIpConfigurationIds: pulumi.StringArray{
-//					pulumi.String(exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
+//					exampleLoadBalancer.FrontendIpConfigurations.ApplyT(func(frontendIpConfigurations []lb.LoadBalancerFrontendIpConfiguration) (*string, error) {
 //						return frontendIpConfigurations[0].Id, nil
-//					}).(pulumi.StringPtrOutput)),
+//					}).(pulumi.StringPtrOutput),
 //				},
 //				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
 //					&privatedns.LinkServiceNatIpConfigurationArgs{
 //						Name:                    pulumi.String("primary"),
 //						PrivateIpAddress:        pulumi.String("10.5.1.17"),
 //						PrivateIpAddressVersion: pulumi.String("IPv4"),
-//						SubnetId:                exampleSubnet.ID(),
+//						SubnetId:                exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						Primary:                 pulumi.Bool(true),
 //					},
 //					&privatedns.LinkServiceNatIpConfigurationArgs{
 //						Name:                    pulumi.String("secondary"),
 //						PrivateIpAddress:        pulumi.String("10.5.1.18"),
 //						PrivateIpAddressVersion: pulumi.String("IPv4"),
-//						SubnetId:                exampleSubnet.ID(),
+//						SubnetId:                exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						Primary:                 pulumi.Bool(false),
 //					},
 //				},

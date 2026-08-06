@@ -48,7 +48,7 @@ import (
 //			}
 //			exampleVMWareReplicationPolicy, err := siterecovery.NewVMWareReplicationPolicy(ctx, "example", &siterecovery.VMWareReplicationPolicyArgs{
 //				Name:                            pulumi.String("example-policy"),
-//				RecoveryVaultId:                 exampleVault.ID(),
+//				RecoveryVaultId:                 exampleVault.ID().ToIDOutput().ToStringOutput(),
 //				RecoveryPointRetentionInMinutes: pulumi.Int(1440),
 //				ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(240),
 //			})
@@ -57,8 +57,8 @@ import (
 //			}
 //			_, err = siterecovery.NewVmwareReplicationPolicyAssociation(ctx, "example", &siterecovery.VmwareReplicationPolicyAssociationArgs{
 //				Name:            pulumi.String("example-association"),
-//				RecoveryVaultId: exampleVault.ID(),
-//				PolicyId:        exampleVMWareReplicationPolicy.ID(),
+//				RecoveryVaultId: exampleVault.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId:        exampleVMWareReplicationPolicy.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

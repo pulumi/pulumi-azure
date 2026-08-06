@@ -49,7 +49,7 @@ import (
 //				Name:                   pulumi.String("example"),
 //				Audience:               pulumi.String("foo"),
 //				Issuer:                 pulumi.String("https://foo"),
-//				UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//				UserAssignedIdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //				Subject:                pulumi.String("foo"),
 //			})
 //			if err != nil {

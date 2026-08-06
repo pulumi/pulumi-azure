@@ -48,10 +48,10 @@ import (
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: pulumi.String("example"),
 //				Scopes: pulumi.StringArray{
-//					example.ID(),
+//					example.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				AddActionGroupIds: pulumi.StringArray{
-//					exampleActionGroup.ID(),
+//					exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Condition: &monitoring.AlertProcessingRuleActionGroupConditionArgs{
 //					TargetResourceType: &monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs{

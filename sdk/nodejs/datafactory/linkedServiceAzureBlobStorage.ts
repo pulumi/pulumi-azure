@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * const exampleLinkedServiceAzureBlobStorage = new azure.datafactory.LinkedServiceAzureBlobStorage("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
- *     connectionString: example.apply(example => example.primaryConnectionString),
+ *     connectionString: example.primaryConnectionString,
  * });
  * ```
  *

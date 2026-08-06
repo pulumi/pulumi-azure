@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			_, err = cosmosdb.NewMongoUserDefinition(ctx, "example", &cosmosdb.MongoUserDefinitionArgs{
-//				CosmosMongoDatabaseId: exampleMongoDatabase.ID(),
+//				CosmosMongoDatabaseId: exampleMongoDatabase.ID().ToIDOutput().ToStringOutput(),
 //				Username:              pulumi.String("myUserName"),
 //				Password:              pulumi.String("myPassword"),
 //			})

@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = dataprotection.NewBackupPolicyMysqlFlexibleServer(ctx, "example", &dataprotection.BackupPolicyMysqlFlexibleServerArgs{
 //				Name:    pulumi.String("example-backup-policy"),
-//				VaultId: exampleBackupVault.ID(),
+//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
 //					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
 //				},

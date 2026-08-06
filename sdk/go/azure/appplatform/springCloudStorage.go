@@ -59,7 +59,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudStorage(ctx, "example", &appplatform.SpringCloudStorageArgs{
 //				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:   exampleAccount.Name,
 //				StorageAccountKey:    exampleAccount.PrimaryAccessKey,
 //			})

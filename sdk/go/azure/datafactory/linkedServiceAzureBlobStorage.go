@@ -50,11 +50,9 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewLinkedServiceAzureBlobStorage(ctx, "example", &datafactory.LinkedServiceAzureBlobStorageArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
-//				ConnectionString: pulumi.String(example.ApplyT(func(example storage.GetAccountResult) (*string, error) {
-//					return example.PrimaryConnectionString, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:             pulumi.String("example"),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				ConnectionString: example.PrimaryConnectionString(),
 //			})
 //			if err != nil {
 //				return err

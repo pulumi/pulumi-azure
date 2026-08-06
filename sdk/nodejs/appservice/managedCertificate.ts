@@ -43,8 +43,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
  *     name: "asuid.mycustomhost.contoso.com",
- *     zoneName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     zoneName: example.name,
+ *     resourceGroupName: example.resourceGroupName,
  *     ttl: 300,
  *     records: [{
  *         value: exampleAppService.customDomainVerificationId,
@@ -52,8 +52,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
  *     name: "example-adcr",
- *     zoneName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     zoneName: example.name,
+ *     resourceGroupName: example.resourceGroupName,
  *     ttl: 300,
  *     record: exampleAppService.defaultSiteHostname,
  * });
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *             exampleCNameRecord.name,
  *             exampleCNameRecord.zoneName,
  *         ],
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     appServiceName: exampleAppService.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });

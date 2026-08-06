@@ -50,7 +50,7 @@ import (
 //				Name:              pulumi.String("example-windows-web-app"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
-//				ServicePlanId:     exampleServicePlan.ID(),
+//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = appservice.NewWindowsWebAppSlot(ctx, "example", &appservice.WindowsWebAppSlotArgs{
 //				Name:         pulumi.String("example-slot"),
-//				AppServiceId: exampleWindowsWebApp.ID(),
+//				AppServiceId: exampleWindowsWebApp.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:   &appservice.WindowsWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {

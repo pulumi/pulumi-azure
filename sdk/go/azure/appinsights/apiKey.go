@@ -47,7 +47,7 @@ import (
 //			}
 //			readTelemetry, err := appinsights.NewApiKey(ctx, "read_telemetry", &appinsights.ApiKeyArgs{
 //				Name:                  pulumi.String("tf-test-appinsights-read-telemetry-api-key"),
-//				ApplicationInsightsId: exampleInsights.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				ReadPermissions: pulumi.StringArray{
 //					pulumi.String("aggregate"),
 //					pulumi.String("api"),
@@ -61,7 +61,7 @@ import (
 //			}
 //			writeAnnotations, err := appinsights.NewApiKey(ctx, "write_annotations", &appinsights.ApiKeyArgs{
 //				Name:                  pulumi.String("tf-test-appinsights-write-annotations-api-key"),
-//				ApplicationInsightsId: exampleInsights.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				WritePermissions: pulumi.StringArray{
 //					pulumi.String("annotations"),
 //				},
@@ -71,7 +71,7 @@ import (
 //			}
 //			authenticateSdkControlChannel, err := appinsights.NewApiKey(ctx, "authenticate_sdk_control_channel", &appinsights.ApiKeyArgs{
 //				Name:                  pulumi.String("tf-test-appinsights-authenticate-sdk-control-channel-api-key"),
-//				ApplicationInsightsId: exampleInsights.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				ReadPermissions: pulumi.StringArray{
 //					pulumi.String("agentconfig"),
 //				},
@@ -81,7 +81,7 @@ import (
 //			}
 //			fullPermissions, err := appinsights.NewApiKey(ctx, "full_permissions", &appinsights.ApiKeyArgs{
 //				Name:                  pulumi.String("tf-test-appinsights-full-permissions-api-key"),
-//				ApplicationInsightsId: exampleInsights.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				ReadPermissions: pulumi.StringArray{
 //					pulumi.String("agentconfig"),
 //					pulumi.String("aggregate"),

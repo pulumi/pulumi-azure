@@ -49,14 +49,14 @@ import (
 //			}
 //			exampleSpringCloudAccelerator, err := appplatform.NewSpringCloudAccelerator(ctx, "example", &appplatform.SpringCloudAcceleratorArgs{
 //				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudCustomizedAccelerator(ctx, "example", &appplatform.SpringCloudCustomizedAcceleratorArgs{
 //				Name:                     pulumi.String("example"),
-//				SpringCloudAcceleratorId: exampleSpringCloudAccelerator.ID(),
+//				SpringCloudAcceleratorId: exampleSpringCloudAccelerator.ID().ToIDOutput().ToStringOutput(),
 //				GitRepository: &appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs{
 //					Url:               pulumi.String("https://github.com/Azure-Samples/piggymetrics"),
 //					GitTag:            pulumi.String("spring.version.2.0.3"),

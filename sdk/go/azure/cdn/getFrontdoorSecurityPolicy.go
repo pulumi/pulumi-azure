@@ -85,8 +85,8 @@ import (
 //			}
 //			exampleFrontdoorCustomDomain, err := cdn.NewFrontdoorCustomDomain(ctx, "example", &cdn.FrontdoorCustomDomainArgs{
 //				Name:                  pulumi.String("example-custom-domain"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				DnsZoneId:             exampleZone.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
 //				HostName:              pulumi.String("www.example-frontdoor.com"),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
@@ -98,14 +98,14 @@ import (
 //			}
 //			exampleFrontdoorSecurityPolicy, err := cdn.NewFrontdoorSecurityPolicy(ctx, "example", &cdn.FrontdoorSecurityPolicyArgs{
 //				Name:                  pulumi.String("example-security-policy"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				SecurityPolicies: &cdn.FrontdoorSecurityPolicySecurityPoliciesArgs{
 //					Firewall: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallArgs{
-//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID(),
+//						CdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
 //						Association: &cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationArgs{
 //							Domains: cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArray{
 //								&cdn.FrontdoorSecurityPolicySecurityPoliciesFirewallAssociationDomainArgs{
-//									CdnFrontdoorDomainId: exampleFrontdoorCustomDomain.ID(),
+//									CdnFrontdoorDomainId: exampleFrontdoorCustomDomain.ID().ToIDOutput().ToStringOutput(),
 //								},
 //							},
 //							PatternsToMatch: pulumi.String("/*"),

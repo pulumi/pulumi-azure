@@ -56,7 +56,7 @@ import (
 //			}
 //			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID(),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -65,7 +65,7 @@ import (
 //				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               exampleResourceGroup.Name,
 //				Location:                        exampleResourceGroup.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				Identity: &synapse.WorkspaceIdentityArgs{
@@ -76,13 +76,9 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputSynapse(ctx, "example", &streamanalytics.OutputSynapseArgs{
-//				Name: pulumi.String("example-output-synapse"),
-//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:                   pulumi.String("example-output-synapse"),
+//				StreamAnalyticsJobName: example.Name(),
+//				ResourceGroupName:      example.ResourceGroupName(),
 //				Server: exampleWorkspace.ConnectivityEndpoints.ApplyT(func(connectivityEndpoints map[string]string) (string, error) {
 //					return connectivityEndpoints["sqlOnDemand"], nil
 //				}).(pulumi.StringOutput),

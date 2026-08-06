@@ -66,7 +66,7 @@ import (
 //			}
 //			_, err = automation.NewSoftwareUpdateConfiguration(ctx, "example", &automation.SoftwareUpdateConfigurationArgs{
 //				Name:                pulumi.String("example"),
-//				AutomationAccountId: exampleAccount.ID(),
+//				AutomationAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Linux: &automation.SoftwareUpdateConfigurationLinuxArgs{
 //					ClassificationsIncludeds: pulumi.StringArray("Security"),
 //					ExcludedPackages: pulumi.StringArray{

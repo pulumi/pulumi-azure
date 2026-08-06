@@ -90,12 +90,8 @@ import (
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: exampleNamespace.Identity.ApplyT(func(identity servicebus.NamespaceIdentity) (*string, error) {
-//							return identity.TenantId, nil
-//						}).(pulumi.StringPtrOutput),
-//						ObjectId: exampleNamespace.Identity.ApplyT(func(identity servicebus.NamespaceIdentity) (*string, error) {
-//							return identity.PrincipalId, nil
-//						}).(pulumi.StringPtrOutput),
+//						TenantId: exampleNamespace.Identity.TenantId(),
+//						ObjectId: exampleNamespace.Identity.PrincipalId(),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Decrypt"),
@@ -120,7 +116,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("example-key-vault-key"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -136,8 +132,8 @@ import (
 //				return err
 //			}
 //			_, err = servicebus.NewNamespaceCustomerManagedKey(ctx, "example", &servicebus.NamespaceCustomerManagedKeyArgs{
-//				NamespaceId:   exampleNamespace.ID(),
-//				KeyVaultKeyId: exampleKey.ID(),
+//				NamespaceId:   exampleNamespace.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultKeyId: exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

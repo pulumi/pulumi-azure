@@ -43,7 +43,7 @@ import (
 //			}
 //			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("assignment1"),
-//				ManagementGroupId:  exampleGroup.ID(),
+//				ManagementGroupId:  exampleGroup.ID().ToIDOutput().ToStringOutput(),
 //				PolicyDefinitionId: pulumi.String(example.Id),
 //				Location:           pulumi.String("westus"),
 //				Identity: &management.GroupPolicyAssignmentIdentityArgs{
@@ -55,8 +55,8 @@ import (
 //			}
 //			_, err = management.NewGroupPolicyExemption(ctx, "example", &management.GroupPolicyExemptionArgs{
 //				Name:               pulumi.String("exemption1"),
-//				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyAssignmentId: exampleGroupPolicyAssignment.ID(),
+//				ManagementGroupId:  exampleGroup.ID().ToIDOutput().ToStringOutput(),
+//				PolicyAssignmentId: exampleGroupPolicyAssignment.ID().ToIDOutput().ToStringOutput(),
 //				ExemptionCategory:  pulumi.String("Mitigated"),
 //			})
 //			if err != nil {

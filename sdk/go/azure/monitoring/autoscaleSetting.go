@@ -82,7 +82,7 @@ import (
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("TestIPConfiguration"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID(),
+//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -105,7 +105,7 @@ import (
 //				Name:              pulumi.String("myAutoscaleSetting"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID(),
+//				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				Profiles: monitoring.AutoscaleSettingProfileArray{
 //					&monitoring.AutoscaleSettingProfileArgs{
 //						Name: pulumi.String("defaultProfile"),
@@ -118,7 +118,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),
@@ -146,7 +146,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),
@@ -255,7 +255,7 @@ import (
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("TestIPConfiguration"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID(),
+//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -278,7 +278,7 @@ import (
 //				Name:              pulumi.String("myAutoscaleSetting"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID(),
+//				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				Profiles: monitoring.AutoscaleSettingProfileArray{
 //					&monitoring.AutoscaleSettingProfileArgs{
 //						Name: pulumi.String("Weekends"),
@@ -291,7 +291,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),
@@ -309,7 +309,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),
@@ -423,7 +423,7 @@ import (
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("TestIPConfiguration"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: exampleSubnet.ID(),
+//								SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -447,7 +447,7 @@ import (
 //				Enabled:           pulumi.Bool(true),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID(),
+//				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //				Profiles: monitoring.AutoscaleSettingProfileArray{
 //					&monitoring.AutoscaleSettingProfileArgs{
 //						Name: pulumi.String("forJuly"),
@@ -460,7 +460,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),
@@ -478,7 +478,7 @@ import (
 //							&monitoring.AutoscaleSettingProfileRuleArgs{
 //								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
 //									MetricName:       pulumi.String("Percentage CPU"),
-//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID().ToIDOutput().ToStringOutput(),
 //									TimeGrain:        pulumi.String("PT1M"),
 //									Statistic:        pulumi.String("Average"),
 //									TimeWindow:       pulumi.String("PT5M"),

@@ -67,7 +67,7 @@ import (
 //				Name:                    pulumi.String("test-azure-functions"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID(),
+//				AppServicePlanId:        examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //			})
@@ -78,7 +78,7 @@ import (
 //				Name:                    pulumi.String("test-azure-functions_slot"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				AppServicePlanId:        examplePlan.ID(),
+//				AppServicePlanId:        examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				FunctionAppName:         exampleFunctionApp.Name,
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,

@@ -56,7 +56,7 @@ import (
 //			}
 //			exampleResourcePolicyAssignment, err := core.NewResourcePolicyAssignment(ctx, "example", &core.ResourcePolicyAssignmentArgs{
 //				Name:               pulumi.String("assignment1"),
-//				ResourceId:         exampleVirtualNetwork.ID(),
+//				ResourceId:         exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //				PolicyDefinitionId: pulumi.String(example.Id),
 //				Location:           exampleResourceGroup.Location,
 //				Identity: &core.ResourcePolicyAssignmentIdentityArgs{
@@ -69,7 +69,7 @@ import (
 //			_, err = core.NewResourcePolicyExemption(ctx, "example", &core.ResourcePolicyExemptionArgs{
 //				Name:               pulumi.String("exemption1"),
 //				ResourceId:         exampleResourcePolicyAssignment.ResourceId,
-//				PolicyAssignmentId: exampleResourcePolicyAssignment.ID(),
+//				PolicyAssignmentId: exampleResourcePolicyAssignment.ID().ToIDOutput().ToStringOutput(),
 //				ExemptionCategory:  pulumi.String("Mitigated"),
 //			})
 //			if err != nil {

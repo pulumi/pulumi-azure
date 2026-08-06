@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azurerm.Attestation(ctx, map[string]interface{}{
+//			example, err := azurerm.Attestation(ctx, map[string]string{
 //				"name":              "example-attestationprovider",
 //				"resourceGroupName": "example-resource-group",
 //			}, nil)

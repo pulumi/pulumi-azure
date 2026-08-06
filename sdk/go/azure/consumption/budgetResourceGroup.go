@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = consumption.NewBudgetResourceGroup(ctx, "example", &consumption.BudgetResourceGroupArgs{
 //				Name:            pulumi.String("example"),
-//				ResourceGroupId: example.ID(),
+//				ResourceGroupId: example.ID().ToIDOutput().ToStringOutput(),
 //				Amount:          pulumi.Float64(1000),
 //				TimeGrain:       pulumi.String("Monthly"),
 //				TimePeriod: &consumption.BudgetResourceGroupTimePeriodArgs{
@@ -59,7 +59,7 @@ import (
 //						&consumption.BudgetResourceGroupFilterDimensionArgs{
 //							Name: pulumi.String("ResourceId"),
 //							Values: pulumi.StringArray{
-//								exampleActionGroup.ID(),
+//								exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},
@@ -84,7 +84,7 @@ import (
 //							pulumi.String("bar@example.com"),
 //						},
 //						ContactGroups: pulumi.StringArray{
-//							exampleActionGroup.ID(),
+//							exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
 //						},
 //						ContactRoles: pulumi.StringArray{
 //							pulumi.String("Owner"),

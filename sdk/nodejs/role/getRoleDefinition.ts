@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * const builtin = azure.authorization.getRoleDefinition({
  *     name: "Contributor",
  * });
- * export const customRoleDefinitionId = custom.apply(custom => custom.id);
+ * export const customRoleDefinitionId = custom.id;
  * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
  * ```
  *
@@ -131,7 +131,7 @@ export interface GetRoleDefinitionResult {
  * const builtin = azure.authorization.getRoleDefinition({
  *     name: "Contributor",
  * });
- * export const customRoleDefinitionId = custom.apply(custom => custom.id);
+ * export const customRoleDefinitionId = custom.id;
  * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
  * ```
  *

@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = containerservice.NewRegistryCredentialSet(ctx, "example", &containerservice.RegistryCredentialSetArgs{
 //				Name:                pulumi.String("exampleCredentialSet"),
-//				ContainerRegistryId: exampleRegistry.ID(),
+//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
 //				LoginServer:         pulumi.String("docker.io"),
 //				Identity: &containerservice.RegistryCredentialSetIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
@@ -125,7 +125,7 @@ import (
 //				return err
 //			}
 //			exampleUser, err := keyvault.NewSecret(ctx, "example_user", &keyvault.SecretArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("example-user-name"),
 //				Value:      pulumi.String("name"),
 //			})
@@ -133,7 +133,7 @@ import (
 //				return err
 //			}
 //			examplePassword, err := keyvault.NewSecret(ctx, "example_password", &keyvault.SecretArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Name:       pulumi.String("example-user-password"),
 //				Value:      pulumi.String("password"),
 //			})
@@ -151,7 +151,7 @@ import (
 //			}
 //			exampleRegistryCredentialSet, err := containerservice.NewRegistryCredentialSet(ctx, "example", &containerservice.RegistryCredentialSetArgs{
 //				Name:                pulumi.String("exampleCredentialSet"),
-//				ContainerRegistryId: exampleRegistry.ID(),
+//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
 //				LoginServer:         pulumi.String("docker.io"),
 //				Identity: &containerservice.RegistryCredentialSetIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
@@ -165,13 +165,9 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "read_secrets", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: pulumi.String(exampleRegistryCredentialSet.Identity.ApplyT(func(identity containerservice.RegistryCredentialSetIdentity) (*string, error) {
-//					return identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ObjectId: pulumi.String(exampleRegistryCredentialSet.Identity.ApplyT(func(identity containerservice.RegistryCredentialSetIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				TenantId:   exampleRegistryCredentialSet.Identity.TenantId(),
+//				ObjectId:   exampleRegistryCredentialSet.Identity.PrincipalId(),
 //				SecretPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //				},

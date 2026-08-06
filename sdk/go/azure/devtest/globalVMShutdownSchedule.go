@@ -69,7 +69,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -82,7 +82,7 @@ import (
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Size: pulumi.String("Standard_B2s"),
 //				SourceImageReference: &compute.LinuxVirtualMachineSourceImageReferenceArgs{
@@ -104,7 +104,7 @@ import (
 //				return err
 //			}
 //			_, err = devtest.NewGlobalVMShutdownSchedule(ctx, "example", &devtest.GlobalVMShutdownScheduleArgs{
-//				VirtualMachineId:    exampleLinuxVirtualMachine.ID(),
+//				VirtualMachineId:    exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Location:            example.Location,
 //				Enabled:             pulumi.Bool(true),
 //				DailyRecurrenceTime: pulumi.String("1100"),

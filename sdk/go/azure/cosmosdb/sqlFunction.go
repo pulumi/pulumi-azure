@@ -56,7 +56,7 @@ import (
 //			}
 //			_, err = cosmosdb.NewSqlFunction(ctx, "example", &cosmosdb.SqlFunctionArgs{
 //				Name:        pulumi.String("test-function"),
-//				ContainerId: exampleSqlContainer.ID(),
+//				ContainerId: exampleSqlContainer.ID().ToIDOutput().ToStringOutput(),
 //				Body:        pulumi.String("function trigger(){}"),
 //			})
 //			if err != nil {

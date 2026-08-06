@@ -54,7 +54,7 @@ import (
 //				Name:                    pulumi.String("myEnvironment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -67,7 +67,7 @@ import (
 //			}
 //			_, err = containerapp.NewEnvironmentCertificate(ctx, "example", &containerapp.EnvironmentCertificateArgs{
 //				Name:                      pulumi.String("myfriendlyname"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				CertificateBlobBase64:     pulumi.String(invokeFilebase64.Result),
 //				CertificatePassword:       pulumi.String("$3cretSqu1rreL"),
 //			})
@@ -132,11 +132,11 @@ import (
 //				Name:                    pulumi.String("example-environment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &containerapp.EnvironmentIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -155,7 +155,7 @@ import (
 //				return err
 //			}
 //			userKeyvaultAdmin, err := authorization.NewAssignment(ctx, "user_keyvault_admin", &authorization.AssignmentArgs{
-//				Scope:              exampleKeyVault.ID(),
+//				Scope:              exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Key Vault Administrator"),
 //				PrincipalId:        pulumi.String(current.ObjectId),
 //			})
@@ -163,11 +163,9 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              exampleKeyVault.ID(),
+//				Scope:              exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Key Vault Secrets User"),
-//				PrincipalId: pulumi.String(exampleEnvironment.Identity.ApplyT(func(identity containerapp.EnvironmentIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleEnvironment.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
@@ -180,7 +178,7 @@ import (
 //			}
 //			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
 //				Name:       pulumi.String("example-certificate"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
 //					Contents: pulumi.String(invokeFilebase64.Result),
 //					Password: pulumi.String(""),
@@ -194,9 +192,9 @@ import (
 //			}
 //			_, err = containerapp.NewEnvironmentCertificate(ctx, "example", &containerapp.EnvironmentCertificateArgs{
 //				Name:                      pulumi.String("example-certificate"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				CertificateKeyVault: &containerapp.EnvironmentCertificateCertificateKeyVaultArgs{
-//					Identity:         exampleUserAssignedIdentity.ID(),
+//					Identity:         exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					KeyVaultSecretId: exampleCertificate.VersionlessSecretId,
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{

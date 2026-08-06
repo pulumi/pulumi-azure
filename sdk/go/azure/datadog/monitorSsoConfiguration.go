@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = datadog.NewMonitorSsoConfiguration(ctx, "example", &datadog.MonitorSsoConfigurationArgs{
-//				DatadogMonitorId:        exampleMonitor.ID(),
+//				DatadogMonitorId:        exampleMonitor.ID().ToIDOutput().ToStringOutput(),
 //				SingleSignOn:            pulumi.String("Enable"),
 //				EnterpriseApplicationId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //			})

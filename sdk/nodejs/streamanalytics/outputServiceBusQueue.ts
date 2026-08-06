@@ -36,8 +36,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleOutputServiceBusQueue = new azure.streamanalytics.OutputServiceBusQueue("example", {
  *     name: "blob-storage-output",
- *     streamAnalyticsJobName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     streamAnalyticsJobName: example.name,
+ *     resourceGroupName: example.resourceGroupName,
  *     queueName: exampleQueue.name,
  *     servicebusNamespace: exampleNamespace.name,
  *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,

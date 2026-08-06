@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = appconfiguration.NewLicationLoadBalancerFrontend(ctx, "example", &appconfiguration.LicationLoadBalancerFrontendArgs{
 //				Name:                      pulumi.String("example"),
-//				ApplicationLoadBalancerId: example.ID(),
+//				ApplicationLoadBalancerId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

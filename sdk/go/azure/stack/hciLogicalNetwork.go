@@ -50,7 +50,7 @@ import (
 //					IpAllocationMethod: pulumi.String("Static"),
 //					AddressPrefix:      pulumi.String("10.0.0.0/24"),
 //					VlanId:             pulumi.Int(123),
-//					Route: map[string]interface{}{
+//					Route: map[string]string{
 //						"addressPrefix":    "0.0.0.0/0",
 //						"nextHopIpAddress": "10.0.0.1",
 //					},

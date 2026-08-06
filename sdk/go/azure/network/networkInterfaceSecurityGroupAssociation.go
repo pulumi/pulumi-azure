@@ -73,7 +73,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -82,8 +82,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkInterfaceSecurityGroupAssociation(ctx, "example", &network.NetworkInterfaceSecurityGroupAssociationArgs{
-//				NetworkInterfaceId:     exampleNetworkInterface.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//				NetworkInterfaceId:     exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

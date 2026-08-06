@@ -81,11 +81,11 @@ import (
 //			}
 //			_, err = network.NewVirtualHubIp(ctx, "example", &network.VirtualHubIpArgs{
 //				Name:                      pulumi.String("example-vhubipconfig"),
-//				VirtualHubId:              exampleVirtualHub.ID(),
+//				VirtualHubId:              exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //				PrivateIpAddress:          pulumi.String("10.5.1.18"),
 //				PrivateIpAllocationMethod: pulumi.String("Static"),
-//				PublicIpAddressId:         examplePublicIp.ID(),
-//				SubnetId:                  exampleSubnet.ID(),
+//				PublicIpAddressId:         examplePublicIp.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

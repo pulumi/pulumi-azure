@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			_, err = cosmosdb.NewSqlDedicatedGateway(ctx, "example", &cosmosdb.SqlDedicatedGatewayArgs{
-//				CosmosdbAccountId: exampleAccount.ID(),
+//				CosmosdbAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				InstanceCount:     pulumi.Int(1),
 //				InstanceSize:      pulumi.String("Cosmos.D4s"),
 //			})

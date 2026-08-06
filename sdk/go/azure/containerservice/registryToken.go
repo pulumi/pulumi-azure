@@ -70,7 +70,7 @@ import (
 //				Name:                  pulumi.String("exampletoken"),
 //				ContainerRegistryName: exampleRegistry.Name,
 //				ResourceGroupName:     example.Name,
-//				ScopeMapId:            exampleRegistryScopeMap.ID(),
+//				ScopeMapId:            exampleRegistryScopeMap.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -46,12 +46,12 @@ import (
 //			}
 //			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
 //				Name:               pulumi.String("exampleAssignment"),
-//				ResourceGroupId:    exampleResourceGroup.ID(),
+//				ResourceGroupId:    exampleResourceGroup.ID().ToIDOutput().ToStringOutput(),
 //				PolicyDefinitionId: pulumi.String(example.Id),
 //				Parameters: exampleResourceGroup.Location.ApplyT(func(location string) (pulumi.String, error) {
 //					var _zero pulumi.String
-//					tmpJSON0, err := json.Marshal(map[string]interface{}{
-//						"listOfAllowedLocations": map[string]interface{}{
+//					tmpJSON0, err := json.Marshal(map[string]map[string][]string{
+//						"listOfAllowedLocations": map[string][]string{
 //							"value": []string{
 //								location,
 //							},
@@ -69,8 +69,8 @@ import (
 //			}
 //			_, err = core.NewResourceGroupPolicyExemption(ctx, "example", &core.ResourceGroupPolicyExemptionArgs{
 //				Name:               pulumi.String("exampleExemption"),
-//				ResourceGroupId:    exampleResourceGroup.ID(),
-//				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID(),
+//				ResourceGroupId:    exampleResourceGroup.ID().ToIDOutput().ToStringOutput(),
+//				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID().ToIDOutput().ToStringOutput(),
 //				ExemptionCategory:  pulumi.String("Mitigated"),
 //			})
 //			if err != nil {

@@ -52,7 +52,7 @@ import (
 //			}
 //			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
 //				Name:             pulumi.String("example"),
-//				StorageAccountId: exampleAccount.ID(),
+//				StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -73,7 +73,7 @@ import (
 //				return err
 //			}
 //			deployer, err := keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -89,7 +89,7 @@ import (
 //			}
 //			_, err = keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("workspace-encryption-key"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -106,7 +106,7 @@ import (
 //				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               example.Name,
 //				Location:                        example.Location,
-//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID().ToIDOutput().ToStringOutput(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				Identity: &synapse.WorkspaceIdentityArgs{
@@ -120,7 +120,7 @@ import (
 //				return err
 //			}
 //			_, err = synapse.NewWorkspaceSqlAadAdmin(ctx, "example", &synapse.WorkspaceSqlAadAdminArgs{
-//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//				SynapseWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Login:              pulumi.String("AzureAD Admin"),
 //				ObjectId:           pulumi.String(current.ObjectId),
 //				TenantId:           pulumi.String(current.TenantId),

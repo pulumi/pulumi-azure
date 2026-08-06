@@ -47,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]string{
 //				"greeting": "Hello, Terraform Basic Test.",
 //				"language": "en",
 //			})

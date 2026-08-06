@@ -48,7 +48,7 @@ import (
 //				Name:              pulumi.String("example-hub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefix:     pulumi.String("10.0.0.0/24"),
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //				Name:              pulumi.String("example-vpng"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				VirtualHubId:      exampleVirtualHub.ID(),
+//				VirtualHubId:      exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -67,7 +67,7 @@ import (
 //				Name:              pulumi.String("example-vpn-site"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				Links: network.VpnSiteLinkArray{
 //					&network.VpnSiteLinkArgs{
 //						Name:      pulumi.String("link1"),
@@ -84,8 +84,8 @@ import (
 //			}
 //			_, err = network.NewVpnGatewayConnection(ctx, "example", &network.VpnGatewayConnectionArgs{
 //				Name:            pulumi.String("example"),
-//				VpnGatewayId:    exampleVpnGateway.ID(),
-//				RemoteVpnSiteId: exampleVpnSite.ID(),
+//				VpnGatewayId:    exampleVpnGateway.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVpnSiteId: exampleVpnSite.ID().ToIDOutput().ToStringOutput(),
 //				VpnLinks: network.VpnGatewayConnectionVpnLinkArray{
 //					&network.VpnGatewayConnectionVpnLinkArgs{
 //						Name: pulumi.String("link1"),

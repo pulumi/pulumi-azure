@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudDynatraceApplicationPerformanceMonitoring(ctx, "example", &appplatform.SpringCloudDynatraceApplicationPerformanceMonitoringArgs{
 //				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				GloballyEnabled:      pulumi.Bool(true),
 //				ApiUrl:               pulumi.String("https://example-api-url.com"),
 //				ApiToken:             pulumi.String("dt0s01.AAAAAAAAAAAAAAAAAAAAAAAA.BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"),

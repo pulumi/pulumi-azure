@@ -49,7 +49,7 @@ import (
 //			}
 //			exampleWorkspace, err := apimanagement.NewWorkspace(ctx, "example", &apimanagement.WorkspaceArgs{
 //				Name:            pulumi.String("example-workspace"),
-//				ApiManagementId: exampleService.ID(),
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:     pulumi.String("Example Workspace"),
 //				Description:     pulumi.String("Example workspace for development"),
 //			})
@@ -58,7 +58,7 @@ import (
 //			}
 //			_, err = apimanagement.NewWorkspaceApiVersionSet(ctx, "example", &apimanagement.WorkspaceApiVersionSetArgs{
 //				Name:                     pulumi.String("example-version-set"),
-//				ApiManagementWorkspaceId: exampleWorkspace.ID(),
+//				ApiManagementWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:              pulumi.String("Example API Version Set"),
 //				VersioningScheme:         pulumi.String("Segment"),
 //			})

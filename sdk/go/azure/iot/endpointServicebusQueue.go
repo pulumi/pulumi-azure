@@ -50,7 +50,7 @@ import (
 //			}
 //			exampleQueue, err := servicebus.NewQueue(ctx, "example", &servicebus.QueueArgs{
 //				Name:               pulumi.String("exampleQueue"),
-//				NamespaceId:        exampleNamespace.ID(),
+//				NamespaceId:        exampleNamespace.ID().ToIDOutput().ToStringOutput(),
 //				EnablePartitioning: true,
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //			}
 //			exampleQueueAuthorizationRule, err := servicebus.NewQueueAuthorizationRule(ctx, "example", &servicebus.QueueAuthorizationRuleArgs{
 //				Name:    pulumi.String("exampleRule"),
-//				QueueId: exampleQueue.ID(),
+//				QueueId: exampleQueue.ID().ToIDOutput().ToStringOutput(),
 //				Listen:  pulumi.Bool(false),
 //				Send:    pulumi.Bool(true),
 //				Manage:  pulumi.Bool(false),
@@ -83,7 +83,7 @@ import (
 //			}
 //			_, err = iot.NewEndpointServicebusQueue(ctx, "example", &iot.EndpointServicebusQueueArgs{
 //				ResourceGroupName: example.Name,
-//				IothubId:          exampleIoTHub.ID(),
+//				IothubId:          exampleIoTHub.ID().ToIDOutput().ToStringOutput(),
 //				Name:              pulumi.String("example"),
 //				ConnectionString:  exampleQueueAuthorizationRule.PrimaryConnectionString,
 //			})

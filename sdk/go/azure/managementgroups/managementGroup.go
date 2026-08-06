@@ -45,7 +45,7 @@ import (
 //			}
 //			_, err = management.NewGroup(ctx, "example_child", &management.GroupArgs{
 //				DisplayName:             pulumi.String("ChildGroup"),
-//				ParentManagementGroupId: exampleParent.ID(),
+//				ParentManagementGroupId: exampleParent.ID().ToIDOutput().ToStringOutput(),
 //				SubscriptionIds: pulumi.StringArray{
 //					pulumi.String(current.SubscriptionId),
 //				},

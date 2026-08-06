@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				WorkspaceId:               exampleAnalyticsWorkspace.ID(),
+//				WorkspaceId:               exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				CustomerManagedKeyEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -56,9 +56,7 @@ import (
 //				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				DisplayName:             pulumi.String("Potential data staging"),
 //			}, nil)
-//			ctx.Export("id", example.ApplyT(func(example sentinel.GetAlertRuleAnomalyResult) (*string, error) {
-//				return example.Id, nil
-//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("id", example.Id())
 //			return nil
 //		})
 //	}

@@ -48,7 +48,7 @@ import (
 //				Name:              pulumi.String("example-virtualhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefix:     pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //				Name:              pulumi.String("expressRoute1"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualHubId:      exampleVirtualHub.ID(),
+//				VirtualHubId:      exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //				ScaleUnits:        pulumi.Int(1),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),

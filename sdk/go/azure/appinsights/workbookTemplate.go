@@ -43,7 +43,7 @@ import (
 //				"items": []map[string]interface{}{
 //					map[string]interface{}{
 //						"type": 1,
-//						"content": map[string]interface{}{
+//						"content": map[string]string{
 //							"json": "## New workbook\n---\n\nWelcome to your new workbook.",
 //						},
 //						"name": "text - 2",
@@ -56,7 +56,7 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//			tmpJSON1, err := json.Marshal(map[string][]map[string]interface{}{
 //				"ar": []map[string]interface{}{
 //					map[string]interface{}{
 //						"galleries": []map[string]interface{}{
@@ -73,7 +73,7 @@ import (
 //							"items": []map[string]interface{}{
 //								map[string]interface{}{
 //									"type": 1,
-//									"content": map[string]interface{}{
+//									"content": map[string]string{
 //										"json": "## New workbook\n---\n\nWelcome to your new workbook.",
 //									},
 //									"name": "text - 2",

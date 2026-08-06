@@ -51,7 +51,7 @@ import (
 //			}
 //			exampleSpringCloudBuilder, err := appplatform.NewSpringCloudBuilder(ctx, "example", &appplatform.SpringCloudBuilderArgs{
 //				Name:                 pulumi.String("example"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				BuildPackGroups: appplatform.SpringCloudBuilderBuildPackGroupArray{
 //					&appplatform.SpringCloudBuilderBuildPackGroupArgs{
 //						Name: pulumi.String("mix"),
@@ -70,7 +70,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudBuildPackBinding(ctx, "example", &appplatform.SpringCloudBuildPackBindingArgs{
 //				Name:                 pulumi.String("example"),
-//				SpringCloudBuilderId: exampleSpringCloudBuilder.ID(),
+//				SpringCloudBuilderId: exampleSpringCloudBuilder.ID().ToIDOutput().ToStringOutput(),
 //				BindingType:          pulumi.String("ApplicationInsights"),
 //				Launch: &appplatform.SpringCloudBuildPackBindingLaunchArgs{
 //					Properties: pulumi.StringMap{

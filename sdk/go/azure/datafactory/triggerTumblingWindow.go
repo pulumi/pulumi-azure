@@ -46,14 +46,14 @@ import (
 //			}
 //			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = datafactory.NewTriggerTumblingWindow(ctx, "example", &datafactory.TriggerTumblingWindowArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				StartTime:     pulumi.String("2022-09-21T00:00:00Z"),
 //				EndTime:       pulumi.String("2022-09-21T08:00:00Z"),
 //				Frequency:     pulumi.String("Minute"),

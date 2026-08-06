@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = webpubsub.NewHub(ctx, "example", &webpubsub.HubArgs{
 //				Name:        pulumi.String("tfex_wpsh"),
-//				WebPubsubId: exampleService.ID(),
+//				WebPubsubId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				EventHandlers: webpubsub.HubEventHandlerArray{
 //					&webpubsub.HubEventHandlerArgs{
 //						UrlTemplate:      pulumi.String("https://test.com/api/{hub}/{event}"),
@@ -74,7 +74,7 @@ import (
 //							pulumi.String("connected"),
 //						},
 //						Auth: &webpubsub.HubEventHandlerAuthArgs{
-//							ManagedIdentityId: exampleUserAssignedIdentity.ID(),
+//							ManagedIdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},

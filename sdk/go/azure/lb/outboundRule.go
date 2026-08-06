@@ -55,7 +55,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -64,16 +64,16 @@ import (
 //			}
 //			exampleBackendAddressPool, err := lb.NewBackendAddressPool(ctx, "example", &lb.BackendAddressPoolArgs{
 //				Name:           pulumi.String("example"),
-//				LoadbalancerId: exampleLoadBalancer.ID(),
+//				LoadbalancerId: exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lb.NewOutboundRule(ctx, "example", &lb.OutboundRuleArgs{
 //				Name:                 pulumi.String("OutboundRule"),
-//				LoadbalancerId:       exampleLoadBalancer.ID(),
+//				LoadbalancerId:       exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Protocol:             pulumi.String("Tcp"),
-//				BackendAddressPoolId: exampleBackendAddressPool.ID(),
+//				BackendAddressPoolId: exampleBackendAddressPool.ID().ToIDOutput().ToStringOutput(),
 //				FrontendIpConfigurations: lb.OutboundRuleFrontendIpConfigurationArray{
 //					&lb.OutboundRuleFrontendIpConfigurationArgs{
 //						Name: pulumi.String("PublicIPAddress"),

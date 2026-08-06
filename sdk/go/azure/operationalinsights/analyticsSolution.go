@@ -38,7 +38,7 @@ import (
 //				return err
 //			}
 //			workspace, err := random.NewId(ctx, "workspace", &random.IdArgs{
-//				Keepers: map[string]interface{}{
+//				Keepers: map[string]pulumi.String{
 //					"groupName": example.Name,
 //				},
 //				ByteLength: 8,
@@ -59,7 +59,7 @@ import (
 //				SolutionName:        pulumi.String("ContainerInsights"),
 //				Location:            example.Location,
 //				ResourceGroupName:   example.Name,
-//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
+//				WorkspaceResourceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				WorkspaceName:       exampleAnalyticsWorkspace.Name,
 //				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
 //					Publisher: pulumi.String("Microsoft"),

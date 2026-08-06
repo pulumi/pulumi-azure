@@ -57,7 +57,7 @@ import (
 //				ResourceGroupName:          exampleFlexibleServer.ResourceGroupName,
 //				Location:                   exampleFlexibleServer.Location,
 //				CreateMode:                 pulumi.String("Replica"),
-//				SourceServerId:             exampleFlexibleServer.ID(),
+//				SourceServerId:             exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
 //				Version:                    pulumi.String("16"),
 //				PublicNetworkAccessEnabled: pulumi.Bool(false),
 //				Zone:                       pulumi.String("1"),
@@ -70,8 +70,8 @@ import (
 //			}
 //			_, err = postgresql.NewFlexibleServerVirtualEndpoint(ctx, "example", &postgresql.FlexibleServerVirtualEndpointArgs{
 //				Name:            pulumi.String("example-endpoint-1"),
-//				SourceServerId:  exampleFlexibleServer.ID(),
-//				ReplicaServerId: exampleReplica.ID(),
+//				SourceServerId:  exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
+//				ReplicaServerId: exampleReplica.ID().ToIDOutput().ToStringOutput(),
 //				Type:            pulumi.String("ReadWrite"),
 //			})
 //			if err != nil {

@@ -138,7 +138,7 @@ import * as utilities from "../utilities";
  *         source_port_ranges: std.joinOutput({
  *             separator: ",",
  *             input: exampleNetworkManagerAdminRule.sourcePortRanges,
- *         }).apply(invoke => invoke.result),
+ *         }).result,
  *     },
  * }, {
  *     dependsOn: [exampleNetworkManagerAdminRule],

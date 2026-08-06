@@ -33,8 +33,8 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // vnetName := "example-vnet";
-// tmpJSON0, err := json.Marshal(map[string]interface{}{
-// "vnetName": map[string]interface{}{
+// tmpJSON0, err := json.Marshal(map[string]map[string]string{
+// "vnetName": map[string]string{
 // "value": vnetName,
 // },
 // })

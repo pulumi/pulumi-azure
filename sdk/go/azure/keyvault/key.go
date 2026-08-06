@@ -78,7 +78,7 @@ import (
 //			}
 //			_, err = keyvault.NewKey(ctx, "generated", &keyvault.KeyArgs{
 //				Name:       pulumi.String("generated-certificate"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{

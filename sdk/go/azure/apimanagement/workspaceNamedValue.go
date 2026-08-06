@@ -49,7 +49,7 @@ import (
 //			}
 //			exampleWorkspace, err := apimanagement.NewWorkspace(ctx, "example", &apimanagement.WorkspaceArgs{
 //				Name:            pulumi.String("example-workspace"),
-//				ApiManagementId: exampleService.ID(),
+//				ApiManagementId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:     pulumi.String("ExampleWorkspace"),
 //			})
 //			if err != nil {
@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = apimanagement.NewWorkspaceNamedValue(ctx, "example", &apimanagement.WorkspaceNamedValueArgs{
 //				Name:                     pulumi.String("example-named-value"),
-//				ApiManagementWorkspaceId: exampleWorkspace.ID(),
+//				ApiManagementWorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:              pulumi.String("ExampleProperty"),
 //				Value:                    pulumi.String("Example Value"),
 //				Tags: pulumi.StringArray{

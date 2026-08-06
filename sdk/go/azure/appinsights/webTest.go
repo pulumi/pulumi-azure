@@ -51,7 +51,7 @@ import (
 //				Name:                  pulumi.String("tf-test-appinsights-webtest"),
 //				Location:              exampleInsights.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				Kind:                  pulumi.String("ping"),
 //				Frequency:             pulumi.Int(300),
 //				Timeout:               pulumi.Int(60),

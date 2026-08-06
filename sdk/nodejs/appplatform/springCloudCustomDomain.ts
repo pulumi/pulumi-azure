@@ -36,8 +36,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
  *     name: "record1",
- *     zoneName: example.apply(example => example.name),
- *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     zoneName: example.name,
+ *     resourceGroupName: example.resourceGroupName,
  *     ttl: 300,
  *     record: exampleSpringCloudApp.fqdn,
  * });
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *             exampleCNameRecord.name,
  *             exampleCNameRecord.zoneName,
  *         ],
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     springCloudAppId: exampleSpringCloudApp.id,
  * });
  * ```

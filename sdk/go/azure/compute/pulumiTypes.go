@@ -15184,9 +15184,7 @@ type ScaleSetIdentity struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
-	// 		ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-	// 			return identity.PrincipalId, nil
-	// 		}).(pulumi.StringPtrOutput))
+	// 		ctx.Export("principalId", example.Identity.PrincipalId())
 	// 		return nil
 	// 	})
 	// }
@@ -15247,9 +15245,7 @@ type ScaleSetIdentityArgs struct {
 	// 		if err != nil {
 	// 			return err
 	// 		}
-	// 		ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-	// 			return identity.PrincipalId, nil
-	// 		}).(pulumi.StringPtrOutput))
+	// 		ctx.Export("principalId", example.Identity.PrincipalId())
 	// 		return nil
 	// 	})
 	// }
@@ -15377,9 +15373,7 @@ func (o ScaleSetIdentityOutput) ToScaleSetIdentityPtrOutputWithContext(ctx conte
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-//				return identity.PrincipalId, nil
-//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("principalId", example.Identity.PrincipalId())
 //			return nil
 //		})
 //	}
@@ -15465,9 +15459,7 @@ func (o ScaleSetIdentityPtrOutput) Elem() ScaleSetIdentityOutput {
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("principalId", example.Identity.ApplyT(func(identity compute.ScaleSetIdentity) (*string, error) {
-//				return identity.PrincipalId, nil
-//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("principalId", example.Identity.PrincipalId())
 //			return nil
 //		})
 //	}

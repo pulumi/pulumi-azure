@@ -55,7 +55,7 @@ import (
 //			}
 //			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
 //				Name:             pulumi.String("example-eventhub"),
-//				NamespaceId:      exampleEventHubNamespace.ID(),
+//				NamespaceId:      exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
 //				PartitionCount:   pulumi.Int(2),
 //				MessageRetention: pulumi.Int(1),
 //			})
@@ -72,13 +72,9 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewStreamInputEventHub(ctx, "example", &streamanalytics.StreamInputEventHubArgs{
-//				Name: pulumi.String("eventhub-stream-input"),
-//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:                      pulumi.String("eventhub-stream-input"),
+//				StreamAnalyticsJobName:    example.Name(),
+//				ResourceGroupName:         example.ResourceGroupName(),
 //				EventhubConsumerGroupName: exampleConsumerGroup.Name,
 //				EventhubName:              exampleEventHub.Name,
 //				ServicebusNamespace:       exampleEventHubNamespace.Name,

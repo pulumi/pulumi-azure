@@ -74,7 +74,7 @@ import (
 //			}
 //			_, err = management.NewLock(ctx, "resource-group-level", &management.LockArgs{
 //				Name:      pulumi.String("resource-group-level"),
-//				Scope:     example.ID(),
+//				Scope:     example.ID().ToIDOutput().ToStringOutput(),
 //				LockLevel: pulumi.String("ReadOnly"),
 //				Notes:     pulumi.String("This Resource Group is Read-Only"),
 //			})
@@ -122,7 +122,7 @@ import (
 //			}
 //			_, err = management.NewLock(ctx, "public-ip", &management.LockArgs{
 //				Name:      pulumi.String("resource-ip"),
-//				Scope:     examplePublicIp.ID(),
+//				Scope:     examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //				LockLevel: pulumi.String("CanNotDelete"),
 //				Notes:     pulumi.String("Locked because it's needed by a third-party"),
 //			})

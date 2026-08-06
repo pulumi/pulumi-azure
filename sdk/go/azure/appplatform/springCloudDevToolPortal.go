@@ -55,7 +55,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudDevToolPortal(ctx, "example", &appplatform.SpringCloudDevToolPortalArgs{
 //				Name:                       pulumi.String("default"),
-//				SpringCloudServiceId:       exampleSpringCloudService.ID(),
+//				SpringCloudServiceId:       exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				PublicNetworkAccessEnabled: pulumi.Bool(true),
 //				Sso: &appplatform.SpringCloudDevToolPortalSsoArgs{
 //					ClientId:     pulumi.String("example id"),

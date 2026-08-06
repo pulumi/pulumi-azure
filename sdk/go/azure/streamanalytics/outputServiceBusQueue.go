@@ -52,20 +52,16 @@ import (
 //			}
 //			exampleQueue, err := servicebus.NewQueue(ctx, "example", &servicebus.QueueArgs{
 //				Name:               pulumi.String("example-queue"),
-//				NamespaceId:        exampleNamespace.ID(),
+//				NamespaceId:        exampleNamespace.ID().ToIDOutput().ToStringOutput(),
 //				EnablePartitioning: true,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputServiceBusQueue(ctx, "example", &streamanalytics.OutputServiceBusQueueArgs{
-//				Name: pulumi.String("blob-storage-output"),
-//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Name:                   pulumi.String("blob-storage-output"),
+//				StreamAnalyticsJobName: example.Name(),
+//				ResourceGroupName:      example.ResourceGroupName(),
 //				QueueName:              exampleQueue.Name,
 //				ServicebusNamespace:    exampleNamespace.Name,
 //				SharedAccessPolicyKey:  exampleNamespace.DefaultPrimaryKey,

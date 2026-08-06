@@ -79,8 +79,8 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudAppMysqlAssociation(ctx, "example", &appplatform.SpringCloudAppMysqlAssociationArgs{
 //				Name:             pulumi.String("example-bind"),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
-//				MysqlServerId:    exampleFlexibleServer.ID(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
+//				MysqlServerId:    exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
 //				DatabaseName:     exampleFlexibleDatabase.Name,
 //				Username:         exampleFlexibleServer.AdministratorLogin,
 //				Password:         exampleFlexibleServer.AdministratorLoginPassword,

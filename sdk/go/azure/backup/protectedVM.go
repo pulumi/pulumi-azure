@@ -69,10 +69,8 @@ import (
 //			_, err = backup.NewProtectedVM(ctx, "vm1", &backup.ProtectedVMArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				RecoveryVaultName: exampleVault.Name,
-//				SourceVmId: pulumi.String(example.ApplyT(func(example compute.GetVirtualMachineResult) (*string, error) {
-//					return example.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				BackupPolicyId: examplePolicyVM.ID(),
+//				SourceVmId:        example.Id(),
+//				BackupPolicyId:    examplePolicyVM.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

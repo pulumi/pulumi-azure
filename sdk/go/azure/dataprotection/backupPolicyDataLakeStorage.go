@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = dataprotection.NewBackupPolicyDataLakeStorage(ctx, "example", &dataprotection.BackupPolicyDataLakeStorageArgs{
 //				Name:                        pulumi.String("example-backup-policy"),
-//				DataProtectionBackupVaultId: exampleBackupVault.ID(),
+//				DataProtectionBackupVaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
 //				BackupSchedules: pulumi.StringArray{
 //					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
 //				},

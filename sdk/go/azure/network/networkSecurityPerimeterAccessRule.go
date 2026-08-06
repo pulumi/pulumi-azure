@@ -46,14 +46,14 @@ import (
 //			}
 //			exampleNetworkSecurityPerimeterProfile, err := network.NewNetworkSecurityPerimeterProfile(ctx, "example", &network.NetworkSecurityPerimeterProfileArgs{
 //				Name:                       pulumi.String("example"),
-//				NetworkSecurityPerimeterId: exampleNetworkSecurityPerimeter.ID(),
+//				NetworkSecurityPerimeterId: exampleNetworkSecurityPerimeter.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewNetworkSecurityPerimeterAccessRule(ctx, "example", &network.NetworkSecurityPerimeterAccessRuleArgs{
 //				Name:                              pulumi.String("example"),
-//				NetworkSecurityPerimeterProfileId: exampleNetworkSecurityPerimeterProfile.ID(),
+//				NetworkSecurityPerimeterProfileId: exampleNetworkSecurityPerimeterProfile.ID().ToIDOutput().ToStringOutput(),
 //				Direction:                         pulumi.String("Inbound"),
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("8.8.8.8/32"),

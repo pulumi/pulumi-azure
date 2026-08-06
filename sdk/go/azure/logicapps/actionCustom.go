@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = logicapps.NewActionCustom(ctx, "example", &logicapps.ActionCustomArgs{
 //				Name:       pulumi.String("example-action"),
-//				LogicAppId: exampleWorkflow.ID(),
+//				LogicAppId: exampleWorkflow.ID().ToIDOutput().ToStringOutput(),
 //				Body: pulumi.String(`{
 //	    \"description\": \"A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).\",
 //	    \"inputs\": {

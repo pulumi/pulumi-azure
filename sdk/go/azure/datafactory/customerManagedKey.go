@@ -58,7 +58,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("examplekey"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -70,7 +70,7 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "current_client_policy", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -106,13 +106,9 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewAccessPolicy(ctx, "datafactory", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
-//				TenantId: pulumi.String(exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
-//					return identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ObjectId: pulumi.String(exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				TenantId:   exampleFactory.Identity.TenantId(),
+//				ObjectId:   exampleFactory.Identity.PrincipalId(),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Create"),
 //					pulumi.String("Delete"),
@@ -134,8 +130,8 @@ import (
 //				return err
 //			}
 //			_, err = datafactory.NewCustomerManagedKey(ctx, "example", &datafactory.CustomerManagedKeyArgs{
-//				DataFactoryId:        exampleFactory.ID(),
-//				CustomerManagedKeyId: exampleKey.ID(),
+//				DataFactoryId:        exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				CustomerManagedKeyId: exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

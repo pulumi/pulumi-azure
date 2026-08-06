@@ -80,8 +80,8 @@ import (
 //			}
 //			_, err = appconfiguration.NewLicationLoadBalancerSubnetAssociation(ctx, "example", &appconfiguration.LicationLoadBalancerSubnetAssociationArgs{
 //				Name:                      pulumi.String("example"),
-//				ApplicationLoadBalancerId: exampleLicationLoadBalancer.ID(),
-//				SubnetId:                  exampleSubnet.ID(),
+//				ApplicationLoadBalancerId: exampleLicationLoadBalancer.ID().ToIDOutput().ToStringOutput(),
+//				SubnetId:                  exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -51,14 +51,14 @@ import (
 //				Name:                    pulumi.String("Example-Environment"),
 //				Location:                example.Location,
 //				ResourceGroupName:       example.Name,
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = containerapp.NewApp(ctx, "example", &containerapp.AppArgs{
 //				Name:                      pulumi.String("example-app"),
-//				ContainerAppEnvironmentId: exampleEnvironment.ID(),
+//				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
 //				ResourceGroupName:         example.Name,
 //				RevisionMode:              pulumi.String("Single"),
 //				Template: &containerapp.AppTemplateArgs{

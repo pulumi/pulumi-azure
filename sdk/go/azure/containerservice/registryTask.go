@@ -47,7 +47,7 @@ import (
 //			}
 //			_, err = containerservice.NewRegistryTask(ctx, "example", &containerservice.RegistryTaskArgs{
 //				Name:                pulumi.String("example-task"),
-//				ContainerRegistryId: exampleRegistry.ID(),
+//				ContainerRegistryId: exampleRegistry.ID().ToIDOutput().ToStringOutput(),
 //				Platform: &containerservice.RegistryTaskPlatformArgs{
 //					Os: pulumi.String("Linux"),
 //				},

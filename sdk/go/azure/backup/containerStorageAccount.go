@@ -60,7 +60,7 @@ import (
 //			_, err = backup.NewContainerStorageAccount(ctx, "container", &backup.ContainerStorageAccountArgs{
 //				ResourceGroupName: example.Name,
 //				RecoveryVaultName: vault.Name,
-//				StorageAccountId:  sa.ID(),
+//				StorageAccountId:  sa.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

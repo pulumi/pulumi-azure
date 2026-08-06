@@ -75,11 +75,11 @@ import (
 //				Name:              pulumi.String("example-privateendpoint"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				SubnetId:          exampleSubnet.ID(),
+//				SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        pulumi.String("psc-sig-test"),
 //					IsManualConnection:          pulumi.Bool(false),
-//					PrivateConnectionResourceId: exampleService.ID(),
+//					PrivateConnectionResourceId: exampleService.ID().ToIDOutput().ToStringOutput(),
 //					SubresourceNames: pulumi.StringArray{
 //						pulumi.String("webpubsub"),
 //					},
@@ -89,7 +89,7 @@ import (
 //				return err
 //			}
 //			_, err = webpubsub.NewNetworkAcl(ctx, "example", &webpubsub.NetworkAclArgs{
-//				WebPubsubId:   exampleService.ID(),
+//				WebPubsubId:   exampleService.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: pulumi.String("Allow"),
 //				PublicNetwork: &webpubsub.NetworkAclPublicNetworkArgs{
 //					DeniedRequestTypes: pulumi.StringArray{
@@ -98,7 +98,7 @@ import (
 //				},
 //				PrivateEndpoints: webpubsub.NetworkAclPrivateEndpointArray{
 //					&webpubsub.NetworkAclPrivateEndpointArgs{
-//						Id: exampleEndpoint.ID(),
+//						Id: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
 //						DeniedRequestTypes: pulumi.StringArray{
 //							pulumi.String("RESTAPI"),
 //							pulumi.String("ClientConnection"),

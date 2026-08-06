@@ -59,7 +59,7 @@ import (
 //			}
 //			exampleSpringCloudJavaDeployment, err := appplatform.NewSpringCloudJavaDeployment(ctx, "example", &appplatform.SpringCloudJavaDeploymentArgs{
 //				Name:             pulumi.String("deploy1"),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //				InstanceCount:    pulumi.Int(2),
 //				JvmOptions:       pulumi.String("-XX:+PrintGC"),
 //				RuntimeVersion:   pulumi.String("Java_11"),
@@ -75,7 +75,7 @@ import (
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudActiveDeployment(ctx, "example", &appplatform.SpringCloudActiveDeploymentArgs{
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //				DeploymentName:   exampleSpringCloudJavaDeployment.Name,
 //			})
 //			if err != nil {

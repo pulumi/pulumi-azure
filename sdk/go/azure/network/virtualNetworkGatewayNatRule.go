@@ -76,9 +76,9 @@ import (
 //				Sku:               pulumi.String("Basic"),
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
-//						PublicIpAddressId:          examplePublicIp.ID(),
+//						PublicIpAddressId:          examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -90,16 +90,14 @@ import (
 //				ResourceGroupName: exampleVirtualNetworkGateway.ResourceGroupName,
 //			}, nil)
 //			_, err = network.NewVirtualNetworkGatewayNatRule(ctx, "example", &network.VirtualNetworkGatewayNatRuleArgs{
-//				Name:              pulumi.String("example-vnetgwnatrule"),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				VirtualNetworkGatewayId: pulumi.String(example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
-//					return example.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Mode: pulumi.String("EgressSnat"),
-//				Type: pulumi.String("Dynamic"),
-//				IpConfigurationId: pulumi.String(example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
+//				Name:                    pulumi.String("example-vnetgwnatrule"),
+//				ResourceGroupName:       exampleResourceGroup.Name,
+//				VirtualNetworkGatewayId: example.Id(),
+//				Mode:                    pulumi.String("EgressSnat"),
+//				Type:                    pulumi.String("Dynamic"),
+//				IpConfigurationId: example.ApplyT(func(example network.GetVirtualNetworkGatewayResult) (*string, error) {
 //					return example.IpConfigurations[0].Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //				ExternalMappings: network.VirtualNetworkGatewayNatRuleExternalMappingArray{
 //					&network.VirtualNetworkGatewayNatRuleExternalMappingArgs{
 //						AddressSpace: pulumi.String("10.2.0.0/26"),

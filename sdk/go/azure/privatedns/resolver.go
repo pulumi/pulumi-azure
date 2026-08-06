@@ -52,7 +52,7 @@ import (
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualNetworkId:  exampleVirtualNetwork.ID(),
+//				VirtualNetworkId:  exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

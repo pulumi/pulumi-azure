@@ -72,7 +72,7 @@ import (
 //				Identifier:              pulumi.String("applicationinsights"),
 //				ResourceGroupName:       example.Name,
 //				ApiManagementName:       exampleService.Name,
-//				ApiManagementLoggerId:   exampleLogger.ID(),
+//				ApiManagementLoggerId:   exampleLogger.ID().ToIDOutput().ToStringOutput(),
 //				SamplingPercentage:      pulumi.Float64(5),
 //				AlwaysLogErrors:         pulumi.Bool(true),
 //				LogClientIp:             pulumi.Bool(true),

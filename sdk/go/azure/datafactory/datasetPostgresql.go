@@ -46,7 +46,7 @@ import (
 //			}
 //			exampleLinkedServicePostgresql, err := datafactory.NewLinkedServicePostgresql(ctx, "example", &datafactory.LinkedServicePostgresqlArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example"),
 //			})
 //			if err != nil {
@@ -54,7 +54,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetPostgresql(ctx, "example", &datafactory.DatasetPostgresqlArgs{
 //				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID(),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				LinkedServiceName: exampleLinkedServicePostgresql.Name,
 //			})
 //			if err != nil {

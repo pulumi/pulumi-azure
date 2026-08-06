@@ -56,7 +56,7 @@ import (
 //			}
 //			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
 //				Name:             pulumi.String("example-eh"),
-//				NamespaceId:      exampleEventHubNamespace.ID(),
+//				NamespaceId:      exampleEventHubNamespace.ID().ToIDOutput().ToStringOutput(),
 //				PartitionCount:   pulumi.Int(2),
 //				MessageRetention: pulumi.Int(1),
 //			})
@@ -77,7 +77,7 @@ import (
 //			}
 //			_, err = digitaltwins.NewEndpointEventHub(ctx, "example", &digitaltwins.EndpointEventHubArgs{
 //				Name:                              pulumi.String("example-EH"),
-//				DigitalTwinsId:                    exampleInstance.ID(),
+//				DigitalTwinsId:                    exampleInstance.ID().ToIDOutput().ToStringOutput(),
 //				EventhubPrimaryConnectionString:   exampleAuthorizationRule.PrimaryConnectionString,
 //				EventhubSecondaryConnectionString: exampleAuthorizationRule.SecondaryConnectionString,
 //			})

@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleCluster.id,
  *     roleDefinitionName: "Contributor",
- *     principalId: exampleAccount.identity.apply(identity => identity.principalId),
+ *     principalId: exampleAccount.identity.principalId,
  * });
  * const exampleDatasetKustoDatabase = new azure.datashare.DatasetKustoDatabase("example", {
  *     name: "example-dskd",

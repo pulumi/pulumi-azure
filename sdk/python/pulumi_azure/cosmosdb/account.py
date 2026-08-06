@@ -1364,7 +1364,7 @@ class Account(pulumi.CustomResource):
                 input=[
                     "UserAssignedIdentity",
                     example.id,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[{
@@ -1494,7 +1494,7 @@ class Account(pulumi.CustomResource):
                 input=[
                     "UserAssignedIdentity",
                     example.id,
-                ]).apply(lambda invoke: invoke.result),
+                ]).result,
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[{

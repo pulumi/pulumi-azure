@@ -81,8 +81,8 @@ import (
 //				NetworkWatcherName: testNetworkWatcher.Name,
 //				ResourceGroupName:  example.Name,
 //				Name:               pulumi.String("example-log"),
-//				TargetResourceId:   test.ID(),
-//				StorageAccountId:   testAccount.ID(),
+//				TargetResourceId:   test.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:   testAccount.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:            pulumi.Bool(true),
 //				RetentionPolicy: &network.NetworkWatcherFlowLogRetentionPolicyArgs{
 //					Enabled: pulumi.Bool(true),
@@ -92,7 +92,7 @@ import (
 //					Enabled:             pulumi.Bool(true),
 //					WorkspaceId:         testAnalyticsWorkspace.WorkspaceId,
 //					WorkspaceRegion:     testAnalyticsWorkspace.Location,
-//					WorkspaceResourceId: testAnalyticsWorkspace.ID(),
+//					WorkspaceResourceId: testAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //					IntervalInMinutes:   pulumi.Int(10),
 //				},
 //			})

@@ -52,8 +52,8 @@ import (
 //			_, err = devcenter.NewDevBoxDefinition(ctx, "example", &devcenter.DevBoxDefinitionArgs{
 //				Name:        pulumi.String("example-dcet"),
 //				Location:    example.Location,
-//				DevCenterId: exampleDevCenter.ID(),
-//				ImageReferenceId: exampleDevCenter.ID().ApplyT(func(id string) (string, error) {
+//				DevCenterId: exampleDevCenter.ID().ToIDOutput().ToStringOutput(),
+//				ImageReferenceId: exampleDevCenter.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //					return fmt.Sprintf("%v/galleries/default/images/microsoftvisualstudio_visualstudioplustools_vs-2022-ent-general-win10-m365-gen2", id), nil
 //				}).(pulumi.StringOutput),
 //				SkuName: pulumi.String("general_i_8c32gb256ssd_v2"),

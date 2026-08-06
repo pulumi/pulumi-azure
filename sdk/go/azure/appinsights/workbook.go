@@ -43,7 +43,7 @@ import (
 //				"items": []map[string]interface{}{
 //					map[string]interface{}{
 //						"type": 1,
-//						"content": map[string]interface{}{
+//						"content": map[string]string{
 //							"json": "Test2022",
 //						},
 //						"name": "text - 0",

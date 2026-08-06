@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewStaticSiteCustomDomain(ctx, "example", &appservice.StaticSiteCustomDomainArgs{
-//				StaticSiteId: exampleStaticSite.ID(),
+//				StaticSiteId: exampleStaticSite.ID().ToIDOutput().ToStringOutput(),
 //				DomainName: pulumi.All(exampleCNameRecord.Name, exampleCNameRecord.ZoneName).ApplyT(func(_args []interface{}) (string, error) {
 //					name := _args[0].(string)
 //					zoneName := _args[1].(string)
@@ -113,7 +113,7 @@ import (
 //				return err
 //			}
 //			exampleStaticSiteCustomDomain, err := appservice.NewStaticSiteCustomDomain(ctx, "example", &appservice.StaticSiteCustomDomainArgs{
-//				StaticSiteId:   exampleStaticSite.ID(),
+//				StaticSiteId:   exampleStaticSite.ID().ToIDOutput().ToStringOutput(),
 //				DomainName:     pulumi.String("my-domain.contoso.com"),
 //				ValidationType: pulumi.String("dns-txt-token"),
 //			})

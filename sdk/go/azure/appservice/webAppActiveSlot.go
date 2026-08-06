@@ -52,7 +52,7 @@ import (
 //				Name:              pulumi.String("example-windows-web-app"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
-//				ServicePlanId:     exampleServicePlan.ID(),
+//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
@@ -67,7 +67,7 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewWebAppActiveSlot(ctx, "example", &appservice.WebAppActiveSlotArgs{
-//				SlotId: exampleWindowsWebAppSlot.ID(),
+//				SlotId: exampleWindowsWebAppSlot.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -114,7 +114,7 @@ import (
 //				Name:              pulumi.String("example-linux-web-app"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
-//				ServicePlanId:     exampleServicePlan.ID(),
+//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
@@ -124,14 +124,14 @@ import (
 //				Name:           pulumi.String("example-linux-web-app-slot"),
 //				AppServiceName: exampleLinuxWebApp.Name,
 //				Location:       exampleServicePlan.Location,
-//				ServicePlanId:  exampleServicePlan.ID(),
+//				ServicePlanId:  exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:     &appservice.LinuxWebAppSlotSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewWebAppActiveSlot(ctx, "example", &appservice.WebAppActiveSlotArgs{
-//				SlotId: exampleLinuxWebAppSlot.ID(),
+//				SlotId: exampleLinuxWebAppSlot.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

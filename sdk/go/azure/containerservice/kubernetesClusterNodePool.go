@@ -62,7 +62,7 @@ import (
 //			}
 //			_, err = containerservice.NewKubernetesClusterNodePool(ctx, "example", &containerservice.KubernetesClusterNodePoolArgs{
 //				Name:                pulumi.String("internal"),
-//				KubernetesClusterId: exampleKubernetesCluster.ID(),
+//				KubernetesClusterId: exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //				VmSize:              pulumi.String("Standard_DS2_v2"),
 //				NodeCount:           pulumi.Int(1),
 //				Tags: pulumi.StringMap{

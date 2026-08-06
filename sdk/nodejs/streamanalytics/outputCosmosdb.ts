@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleOutputCosmosdb = new azure.streamanalytics.OutputCosmosdb("example", {
  *     name: "output-to-cosmosdb",
- *     streamAnalyticsJobId: example.apply(example => example.id),
+ *     streamAnalyticsJobId: example.id,
  *     cosmosdbAccountKey: exampleAccount.primaryKey,
  *     cosmosdbSqlDatabaseId: exampleSqlDatabase.id,
  *     containerName: exampleSqlContainer.name,

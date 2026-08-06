@@ -219,8 +219,8 @@ import (
 //				return err
 //			}
 //			exampleSubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               exampleSubnet.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//				SubnetId:               exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -237,8 +237,8 @@ import (
 //				return err
 //			}
 //			exampleSubnetRouteTableAssociation, err := network.NewSubnetRouteTableAssociation(ctx, "example", &network.SubnetRouteTableAssociationArgs{
-//				SubnetId:     exampleSubnet.ID(),
-//				RouteTableId: exampleRouteTable.ID(),
+//				SubnetId:     exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				RouteTableId: exampleRouteTable.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -250,7 +250,7 @@ import (
 //				LicenseType:                pulumi.String("BasePrice"),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				StorageSizeInGb:            pulumi.Int(32),
-//				SubnetId:                   exampleSubnet.ID(),
+//				SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				Vcores:                     pulumi.Int(4),
 //				AdministratorLogin:         pulumi.String("mradministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
@@ -262,7 +262,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewManagedInstanceStartStopSchedule(ctx, "example", &mssql.ManagedInstanceStartStopScheduleArgs{
-//				ManagedInstanceId: exampleManagedInstance.ID(),
+//				ManagedInstanceId: exampleManagedInstance.ID().ToIDOutput().ToStringOutput(),
 //				TimezoneId:        pulumi.String("Central European Standard Time"),
 //				Schedules: mssql.ManagedInstanceStartStopScheduleScheduleArray{
 //					&mssql.ManagedInstanceStartStopScheduleScheduleArgs{

@@ -51,14 +51,14 @@ import (
 //			}
 //			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
 //				Name:                 pulumi.String("default"),
-//				SpringCloudServiceId: exampleSpringCloudService.ID(),
+//				SpringCloudServiceId: exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appplatform.NewSpringCloudGatewayCustomDomain(ctx, "example", &appplatform.SpringCloudGatewayCustomDomainArgs{
 //				Name:                 pulumi.String("example.com"),
-//				SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
+//				SpringCloudGatewayId: exampleSpringCloudGateway.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

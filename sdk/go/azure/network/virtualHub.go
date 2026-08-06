@@ -48,7 +48,7 @@ import (
 //				Name:              pulumi.String("example-virtualhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefix:     pulumi.String("10.0.0.0/23"),
 //			})
 //			if err != nil {

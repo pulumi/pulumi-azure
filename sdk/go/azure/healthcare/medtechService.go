@@ -56,8 +56,8 @@ import (
 //							"typeMatchExpression": "$..[?(@heartrate)]",
 //							"deviceIdExpression":  "$.deviceid",
 //							"timestampExpression": "$.measurementdatetime",
-//							"values": []map[string]interface{}{
-//								map[string]interface{}{
+//							"values": []map[string]string{
+//								{
 //									"required":        "true",
 //									"valueExpression": "$.heartrate",
 //									"valueName":       "hr",
@@ -73,7 +73,7 @@ import (
 //			json0 := string(tmpJSON0)
 //			_, err = healthcare.NewMedtechService(ctx, "example", &healthcare.MedtechServiceArgs{
 //				Name:        pulumi.String("examplemed"),
-//				WorkspaceId: exampleWorkspace.ID(),
+//				WorkspaceId: exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Location:    pulumi.String("east us"),
 //				Identity: &healthcare.MedtechServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

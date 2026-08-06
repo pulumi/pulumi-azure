@@ -48,7 +48,7 @@ import (
 //				Name:              pulumi.String("example-vhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefix:     pulumi.String("10.0.1.0/24"),
 //			})
 //			if err != nil {
@@ -56,7 +56,7 @@ import (
 //			}
 //			_, err = network.NewRouteMapResource(ctx, "example", &network.RouteMapResourceArgs{
 //				Name:         pulumi.String("example-rm"),
-//				VirtualHubId: exampleVirtualHub.ID(),
+//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //				Rules: network.RouteMapRuleArray{
 //					&network.RouteMapRuleArgs{
 //						Name:              pulumi.String("rule1"),

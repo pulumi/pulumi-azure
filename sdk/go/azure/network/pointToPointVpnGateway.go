@@ -48,7 +48,7 @@ import (
 //				Name:              pulumi.String("example-virtualhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefix:     pulumi.String("10.0.0.0/23"),
 //			})
 //			if err != nil {
@@ -97,8 +97,8 @@ import (
 //				Name:                     pulumi.String("example-vpn-gateway"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
-//				VirtualHubId:             exampleVirtualHub.ID(),
-//				VpnServerConfigurationId: exampleVpnServerConfiguration.ID(),
+//				VirtualHubId:             exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//				VpnServerConfigurationId: exampleVpnServerConfiguration.ID().ToIDOutput().ToStringOutput(),
 //				ScaleUnit:                pulumi.Int(1),
 //				ConnectionConfigurations: network.PointToPointVpnGatewayConnectionConfigurationArray{
 //					&network.PointToPointVpnGatewayConnectionConfigurationArgs{

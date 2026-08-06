@@ -72,7 +72,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -93,7 +93,7 @@ import (
 //				Size:              pulumi.String("Standard_D4_v5"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineAdminSshKeyArgs{
@@ -117,7 +117,7 @@ import (
 //			}
 //			_, err = compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
 //				Name:               pulumi.String("hostname"),
-//				VirtualMachineId:   exampleLinuxVirtualMachine.ID(),
+//				VirtualMachineId:   exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Publisher:          pulumi.String("Microsoft.Azure.Extensions"),
 //				Type:               pulumi.String("CustomScript"),
 //				TypeHandlerVersion: pulumi.String("2.0"),

@@ -80,7 +80,7 @@ import (
 //				RuleGroupEnabled:  pulumi.Bool(false),
 //				Interval:          pulumi.String("PT1M"),
 //				Scopes: pulumi.StringArray{
-//					exampleWorkspace.ID(),
+//					exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Rules: monitoring.AlertPrometheusRuleGroupRuleArray{
 //					&monitoring.AlertPrometheusRuleGroupRuleArgs{
@@ -99,7 +99,7 @@ import (
 //						Severity:   pulumi.Int(2),
 //						Actions: monitoring.AlertPrometheusRuleGroupRuleActionArray{
 //							&monitoring.AlertPrometheusRuleGroupRuleActionArgs{
-//								ActionGroupId: exampleActionGroup.ID(),
+//								ActionGroupId: exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //						AlertResolution: &monitoring.AlertPrometheusRuleGroupRuleAlertResolutionArgs{

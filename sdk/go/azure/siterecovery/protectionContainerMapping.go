@@ -105,8 +105,8 @@ import (
 //				RecoveryVaultName:                     vault.Name,
 //				RecoveryFabricName:                    primaryFabric.Name,
 //				RecoverySourceProtectionContainerName: primaryProtectionContainer.Name,
-//				RecoveryTargetProtectionContainerId:   secondaryProtectionContainer.ID(),
-//				RecoveryReplicationPolicyId:           policy.ID(),
+//				RecoveryTargetProtectionContainerId:   secondaryProtectionContainer.ID().ToIDOutput().ToStringOutput(),
+//				RecoveryReplicationPolicyId:           policy.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

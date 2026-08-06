@@ -87,12 +87,8 @@ import (
 //						},
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//							return identity.TenantId, nil
-//						}).(pulumi.StringPtrOutput),
-//						ObjectId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//							return identity.PrincipalId, nil
-//						}).(pulumi.StringPtrOutput),
+//						TenantId: exampleBackupVault.Identity.TenantId(),
+//						ObjectId: exampleBackupVault.Identity.PrincipalId(),
 //						KeyPermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Decrypt"),
@@ -117,7 +113,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("example-key"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -133,8 +129,8 @@ import (
 //				return err
 //			}
 //			_, err = dataprotection.NewBackupVaultCustomerManagedKey(ctx, "example", &dataprotection.BackupVaultCustomerManagedKeyArgs{
-//				DataProtectionBackupVaultId: exampleBackupVault.ID(),
-//				KeyVaultKeyId:               exampleKey.ID(),
+//				DataProtectionBackupVaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultKeyId:               exampleKey.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

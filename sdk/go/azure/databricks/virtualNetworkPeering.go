@@ -60,9 +60,9 @@ import (
 //			exampleVirtualNetworkPeering, err := databricks.NewVirtualNetworkPeering(ctx, "example", &databricks.VirtualNetworkPeeringArgs{
 //				Name:                       pulumi.String("databricks-vnet-peer"),
 //				ResourceGroupName:          example.Name,
-//				WorkspaceId:                exampleWorkspace.ID(),
+//				WorkspaceId:                exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				RemoteAddressSpacePrefixes: remote.AddressSpaces,
-//				RemoteVirtualNetworkId:     remote.ID(),
+//				RemoteVirtualNetworkId:     remote.ID().ToIDOutput().ToStringOutput(),
 //				AllowVirtualNetworkAccess:  pulumi.Bool(true),
 //			})
 //			if err != nil {

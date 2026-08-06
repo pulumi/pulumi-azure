@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = datafactory.NewIntegrationRuntimeSsis(ctx, "example", &datafactory.IntegrationRuntimeSsisArgs{
 //				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID(),
+//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				Location:      example.Location,
 //				NodeSize:      pulumi.String("Standard_D8_v3"),
 //			})

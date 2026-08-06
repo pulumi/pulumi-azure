@@ -40,13 +40,11 @@ import (
 //			}
 //			mgContributor := authorization.LookupRoleDefinitionOutput(ctx, authorization.GetRoleDefinitionOutputArgs{
 //				Name:  pulumi.String("Contributor"),
-//				Scope: example.ID(),
+//				Scope: example.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			_, err = pim.NewRoleManagementPolicy(ctx, "example", &pim.RoleManagementPolicyArgs{
-//				Scope: example.ID(),
-//				RoleDefinitionId: pulumi.String(mgContributor.ApplyT(func(mgContributor authorization.GetRoleDefinitionResult) (*string, error) {
-//					return mgContributor.Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				Scope:            example.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionId: mgContributor.Id(),
 //				EligibleAssignmentRules: &pim.RoleManagementPolicyEligibleAssignmentRulesArgs{
 //					ExpirationRequired: pulumi.Bool(false),
 //				},

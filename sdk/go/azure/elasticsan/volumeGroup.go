@@ -102,7 +102,7 @@ import (
 //				return err
 //			}
 //			userAssignedIdentity, err := keyvault.NewAccessPolicy(ctx, "userAssignedIdentity", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   exampleUserAssignedIdentity.PrincipalId,
 //				KeyPermissions: pulumi.StringArray{
@@ -118,7 +118,7 @@ import (
 //				return err
 //			}
 //			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				TenantId:   pulumi.String(current.TenantId),
 //				ObjectId:   pulumi.String(current.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
@@ -146,7 +146,7 @@ import (
 //			}
 //			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
 //				Name:       pulumi.String("example-kvk"),
-//				KeyVaultId: exampleKeyVault.ID(),
+//				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
 //				KeyOpts: pulumi.StringArray{
@@ -166,21 +166,21 @@ import (
 //			}
 //			_, err = elasticsan.NewVolumeGroup(ctx, "example", &elasticsan.VolumeGroupArgs{
 //				Name:           pulumi.String("example-esvg"),
-//				ElasticSanId:   exampleElasticSan.ID(),
+//				ElasticSanId:   exampleElasticSan.ID().ToIDOutput().ToStringOutput(),
 //				EncryptionType: pulumi.String("EncryptionAtRestWithCustomerManagedKey"),
 //				Encryption: &elasticsan.VolumeGroupEncryptionArgs{
 //					KeyVaultKeyId:          exampleKey.VersionlessId,
-//					UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
+//					UserAssignedIdentityId: exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Identity: &elasticsan.VolumeGroupIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						exampleUserAssignedIdentity.ID(),
+//						exampleUserAssignedIdentity.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				NetworkRules: elasticsan.VolumeGroupNetworkRuleArray{
 //					&elasticsan.VolumeGroupNetworkRuleArgs{
-//						SubnetId: exampleSubnet.ID(),
+//						SubnetId: exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						Action:   pulumi.String("Allow"),
 //					},
 //				},

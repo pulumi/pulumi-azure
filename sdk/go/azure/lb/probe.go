@@ -55,7 +55,7 @@ import (
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -63,7 +63,7 @@ import (
 //				return err
 //			}
 //			_, err = lb.NewProbe(ctx, "example", &lb.ProbeArgs{
-//				LoadbalancerId: exampleLoadBalancer.ID(),
+//				LoadbalancerId: exampleLoadBalancer.ID().ToIDOutput().ToStringOutput(),
 //				Name:           pulumi.String("ssh-running-probe"),
 //				Port:           pulumi.Int(22),
 //			})

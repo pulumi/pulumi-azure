@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * const exampleAlertRuleAnomalyDuplicate = new azure.sentinel.AlertRuleAnomalyDuplicate("example", {
  *     displayName: "example duplicated UEBA Anomalous Sign In",
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
- *     builtInRuleId: example.apply(example => example.id),
+ *     builtInRuleId: example.id,
  *     enabled: true,
  *     mode: "Flighting",
  *     thresholdObservations: [{

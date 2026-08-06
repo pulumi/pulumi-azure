@@ -49,7 +49,7 @@ import (
 //			}
 //			_, err = loganalytics.NewSavedSearch(ctx, "example", &loganalytics.SavedSearchArgs{
 //				Name:                    pulumi.String("exampleSavedSearch"),
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Category:                pulumi.String("exampleCategory"),
 //				DisplayName:             pulumi.String("exampleDisplayName"),
 //				Query:                   pulumi.String("exampleQuery"),

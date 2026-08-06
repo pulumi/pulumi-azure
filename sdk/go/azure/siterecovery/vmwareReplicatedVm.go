@@ -49,7 +49,7 @@ import (
 //				return err
 //			}
 //			exampleVMWareReplicationPolicy, err := siterecovery.NewVMWareReplicationPolicy(ctx, "example", &siterecovery.VMWareReplicationPolicyArgs{
-//				RecoveryVaultId:                 exampleVault.ID(),
+//				RecoveryVaultId:                 exampleVault.ID().ToIDOutput().ToStringOutput(),
 //				Name:                            pulumi.String("example-policy"),
 //				RecoveryPointRetentionInMinutes: pulumi.Int(1440),
 //				ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(240),
@@ -59,8 +59,8 @@ import (
 //			}
 //			_, err = siterecovery.NewVmwareReplicationPolicyAssociation(ctx, "test", &siterecovery.VmwareReplicationPolicyAssociationArgs{
 //				Name:            pulumi.String("example-association"),
-//				RecoveryVaultId: exampleVault.ID(),
-//				PolicyId:        exampleVMWareReplicationPolicy.ID(),
+//				RecoveryVaultId: exampleVault.ID().ToIDOutput().ToStringOutput(),
+//				PolicyId:        exampleVMWareReplicationPolicy.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -100,18 +100,18 @@ import (
 //			}
 //			_, err = siterecovery.NewVmwareReplicatedVm(ctx, "example", &siterecovery.VmwareReplicatedVmArgs{
 //				Name:                                  pulumi.String("example-vmware-vm"),
-//				RecoveryVaultId:                       exampleVault.ID(),
+//				RecoveryVaultId:                       exampleVault.ID().ToIDOutput().ToStringOutput(),
 //				SourceVmName:                          pulumi.String("example-vm"),
 //				ApplianceName:                         pulumi.String("example-appliance"),
 //				RecoveryReplicationPolicyId:           pulumi.Any(exampleAzurermSiteRecoveryVmwareReplicationPolicyAssociation.PolicyId),
 //				PhysicalServerCredentialName:          pulumi.String("example-creds"),
 //				LicenseType:                           pulumi.String("NotSpecified"),
-//				TargetBootDiagnosticsStorageAccountId: exampleAccount.ID(),
+//				TargetBootDiagnosticsStorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				TargetVmName:                          pulumi.String("example_replicated_vm"),
-//				TargetResourceGroupId:                 example.ID(),
-//				DefaultLogStorageAccountId:            exampleAccount.ID(),
+//				TargetResourceGroupId:                 example.ID().ToIDOutput().ToStringOutput(),
+//				DefaultLogStorageAccountId:            exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				DefaultRecoveryDiskType:               pulumi.String("Standard_LRS"),
-//				TargetNetworkId:                       exampleVirtualNetwork.ID(),
+//				TargetNetworkId:                       exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //				NetworkInterfaces: siterecovery.VmwareReplicatedVmNetworkInterfaceArray{
 //					&siterecovery.VmwareReplicatedVmNetworkInterfaceArgs{
 //						SourceMacAddress: pulumi.String("00:00:00:00:00:00"),

@@ -108,7 +108,7 @@ import (
 //				ZoneName:          exampleZone.Name,
 //				ResourceGroupName: example.Name,
 //				Ttl:               pulumi.Int(300),
-//				TargetResourceId:  examplePublicIp.ID(),
+//				TargetResourceId:  examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

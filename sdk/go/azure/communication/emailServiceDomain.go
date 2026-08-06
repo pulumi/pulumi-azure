@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = communication.NewEmailServiceDomain(ctx, "example", &communication.EmailServiceDomainArgs{
 //				Name:             pulumi.String("AzureManagedDomain"),
-//				EmailServiceId:   exampleEmailService.ID(),
+//				EmailServiceId:   exampleEmailService.ID().ToIDOutput().ToStringOutput(),
 //				DomainManagement: pulumi.String("AzureManaged"),
 //			})
 //			if err != nil {

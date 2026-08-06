@@ -51,7 +51,7 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
 //				Name:                       pulumi.String("default"),
-//				SpringCloudServiceId:       exampleSpringCloudService.ID(),
+//				SpringCloudServiceId:       exampleSpringCloudService.ID().ToIDOutput().ToStringOutput(),
 //				HttpsOnly:                  pulumi.Bool(false),
 //				PublicNetworkAccessEnabled: pulumi.Bool(true),
 //				InstanceCount:              pulumi.Int(2),

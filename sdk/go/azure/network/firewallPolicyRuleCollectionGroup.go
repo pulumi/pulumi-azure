@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = network.NewFirewallPolicyRuleCollectionGroup(ctx, "example", &network.FirewallPolicyRuleCollectionGroupArgs{
 //				Name:             pulumi.String("example-fwpolicy-rcg"),
-//				FirewallPolicyId: exampleFirewallPolicy.ID(),
+//				FirewallPolicyId: exampleFirewallPolicy.ID().ToIDOutput().ToStringOutput(),
 //				Priority:         pulumi.Int(500),
 //				ApplicationRuleCollections: network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArray{
 //					&network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs{

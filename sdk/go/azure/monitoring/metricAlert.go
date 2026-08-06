@@ -65,7 +65,7 @@ import (
 //				Name:              pulumi.String("example-metricalert"),
 //				ResourceGroupName: example.Name,
 //				Scopes: pulumi.StringArray{
-//					toMonitor.ID(),
+//					toMonitor.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Description: pulumi.String("Action will be triggered when Transactions count is greater than 50."),
 //				Criterias: monitoring.MetricAlertCriteriaArray{
@@ -88,7 +88,7 @@ import (
 //				},
 //				Actions: monitoring.MetricAlertActionArray{
 //					&monitoring.MetricAlertActionArgs{
-//						ActionGroupId: main.ID(),
+//						ActionGroupId: main.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

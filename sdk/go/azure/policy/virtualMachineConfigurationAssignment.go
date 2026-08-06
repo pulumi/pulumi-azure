@@ -69,7 +69,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -85,7 +85,7 @@ import (
 //				AdminUsername:     pulumi.String("adminuser"),
 //				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Identity: &compute.WindowsVirtualMachineIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
@@ -106,7 +106,7 @@ import (
 //			}
 //			_, err = compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
 //				Name:                    pulumi.String("AzurePolicyforWindows"),
-//				VirtualMachineId:        exampleWindowsVirtualMachine.ID(),
+//				VirtualMachineId:        exampleWindowsVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Publisher:               pulumi.String("Microsoft.GuestConfiguration"),
 //				Type:                    pulumi.String("ConfigurationforWindows"),
 //				TypeHandlerVersion:      pulumi.String("1.29"),
@@ -118,7 +118,7 @@ import (
 //			_, err = policy.NewVirtualMachineConfigurationAssignment(ctx, "example", &policy.VirtualMachineConfigurationAssignmentArgs{
 //				Name:             pulumi.String("AzureWindowsBaseline"),
 //				Location:         exampleWindowsVirtualMachine.Location,
-//				VirtualMachineId: exampleWindowsVirtualMachine.ID(),
+//				VirtualMachineId: exampleWindowsVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				Configuration: &policy.VirtualMachineConfigurationAssignmentConfigurationArgs{
 //					AssignmentType: pulumi.String("ApplyAndMonitor"),
 //					Version:        pulumi.String("1.*"),

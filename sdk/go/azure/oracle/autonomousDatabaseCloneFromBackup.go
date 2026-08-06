@@ -63,7 +63,7 @@ import (
 //				Name:                         pulumi.String("example"),
 //				ResourceGroupName:            exampleAutonomousDatabase.ResourceGroupName,
 //				Location:                     exampleAutonomousDatabase.Location,
-//				SourceAutonomousDatabaseId:   exampleAutonomousDatabase.ID(),
+//				SourceAutonomousDatabaseId:   exampleAutonomousDatabase.ID().ToIDOutput().ToStringOutput(),
 //				CloneType:                    pulumi.String("Metadata"),
 //				BackupTimestamp:              pulumi.String("2025-09-23T02:22:13.000Z"),
 //				AdminPassword:                pulumi.String("BEstrO0ng_#11"),

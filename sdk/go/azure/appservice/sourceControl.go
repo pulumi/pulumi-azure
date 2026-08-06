@@ -50,14 +50,14 @@ import (
 //				Name:              pulumi.String("example"),
 //				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
-//				ServicePlanId:     exampleServicePlan.ID(),
+//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:        &appservice.LinuxWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewSourceControl(ctx, "example", &appservice.SourceControlArgs{
-//				AppId:   exampleLinuxWebApp.ID(),
+//				AppId:   exampleLinuxWebApp.ID().ToIDOutput().ToStringOutput(),
 //				RepoUrl: pulumi.String("https://github.com/Azure-Samples/python-docs-hello-world"),
 //				Branch:  pulumi.String("master"),
 //			})

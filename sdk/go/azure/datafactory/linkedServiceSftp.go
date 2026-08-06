@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceSftp(ctx, "example", &datafactory.LinkedServiceSftpArgs{
 //				Name:               pulumi.String("example"),
-//				DataFactoryId:      exampleFactory.ID(),
+//				DataFactoryId:      exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				AuthenticationType: pulumi.String("Basic"),
 //				Host:               pulumi.String("http://www.bing.com"),
 //				Port:               pulumi.Int(22),

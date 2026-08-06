@@ -69,8 +69,8 @@ import (
 //			}
 //			_, err = appplatform.NewSpringCloudAppRedisAssociation(ctx, "example", &appplatform.SpringCloudAppRedisAssociationArgs{
 //				Name:             pulumi.String("example-bind"),
-//				SpringCloudAppId: exampleSpringCloudApp.ID(),
-//				RedisCacheId:     exampleCache.ID(),
+//				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
+//				RedisCacheId:     exampleCache.ID().ToIDOutput().ToStringOutput(),
 //				RedisAccessKey:   exampleCache.PrimaryAccessKey,
 //				SslEnabled:       pulumi.Bool(true),
 //			})

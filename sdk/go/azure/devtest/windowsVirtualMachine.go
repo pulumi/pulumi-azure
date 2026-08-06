@@ -67,12 +67,10 @@ import (
 //				Size:                pulumi.String("Standard_DS2"),
 //				Username:            pulumi.String("exampleuser99"),
 //				Password:            pulumi.String("Pa$w0rd1234!"),
-//				LabVirtualNetworkId: exampleVirtualNetwork.ID(),
-//				LabSubnetName: pulumi.String(exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (*string, error) {
-//					return subnet.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				StorageType: pulumi.String("Premium"),
-//				Notes:       pulumi.String("Some notes about this Virtual Machine."),
+//				LabVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				LabSubnetName:       exampleVirtualNetwork.Subnet.Name(),
+//				StorageType:         pulumi.String("Premium"),
+//				Notes:               pulumi.String("Some notes about this Virtual Machine."),
 //				GalleryImageReference: &devtest.WindowsVirtualMachineGalleryImageReferenceArgs{
 //					Offer:     pulumi.String("WindowsServer"),
 //					Publisher: pulumi.String("MicrosoftWindowsServer"),

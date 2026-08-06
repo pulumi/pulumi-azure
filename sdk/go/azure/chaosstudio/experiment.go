@@ -76,7 +76,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("example"),
-//						SubnetId:                   exampleSubnet.ID(),
+//						SubnetId:                   exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -93,7 +93,7 @@ import (
 //				AdminPassword:                 pulumi.String("example"),
 //				DisablePasswordAuthentication: pulumi.Bool(false),
 //				NetworkInterfaceIds: pulumi.StringArray{
-//					exampleNetworkInterface.ID(),
+//					exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
 //					Caching:            pulumi.String("ReadWrite"),
@@ -111,14 +111,14 @@ import (
 //			}
 //			exampleTarget, err := chaosstudio.NewTarget(ctx, "example", &chaosstudio.TargetArgs{
 //				Location:         example.Location,
-//				TargetResourceId: exampleLinuxVirtualMachine.ID(),
+//				TargetResourceId: exampleLinuxVirtualMachine.ID().ToIDOutput().ToStringOutput(),
 //				TargetType:       pulumi.String("Microsoft-VirtualMachine"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleCapability, err := chaosstudio.NewCapability(ctx, "example", &chaosstudio.CapabilityArgs{
-//				ChaosStudioTargetId: exampleTarget.ID(),
+//				ChaosStudioTargetId: exampleTarget.ID().ToIDOutput().ToStringOutput(),
 //				CapabilityType:      pulumi.String("Shutdown-1.0"),
 //			})
 //			if err != nil {
@@ -135,7 +135,7 @@ import (
 //					&chaosstudio.ExperimentSelectorArgs{
 //						Name: pulumi.String("Selector1"),
 //						ChaosStudioTargetIds: pulumi.StringArray{
-//							exampleTarget.ID(),
+//							exampleTarget.ID().ToIDOutput().ToStringOutput(),
 //						},
 //					},
 //				},

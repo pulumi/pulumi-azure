@@ -53,7 +53,7 @@ import (
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				CustomLocationId:  exampleVirtualMachineManagerServer.CustomLocationId,
-//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID(),
+//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -57,7 +57,7 @@ import (
 //			}
 //			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
 //				Name:                  pulumi.String("example-originGroup"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
 //					AdditionalLatencyInMilliseconds: pulumi.Int(0),
 //					SampleSize:                      pulumi.Int(16),
@@ -69,7 +69,7 @@ import (
 //			}
 //			exampleFrontdoorOrigin, err := cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
 //				Name:                        pulumi.String("example-origin"),
-//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
+//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
 //				Enabled:                     pulumi.Bool(true),
 //				CertificateNameCheckEnabled: pulumi.Bool(false),
 //				HostName:                    pulumi.String("contoso.com"),
@@ -84,32 +84,29 @@ import (
 //			}
 //			exampleFrontdoorEndpoint, err := cdn.NewFrontdoorEndpoint(ctx, "example", &cdn.FrontdoorEndpointArgs{
 //				Name:                  pulumi.String("example-endpoint"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleFrontdoorRuleSet, err := cdn.NewFrontdoorRuleSet(ctx, "example", &cdn.FrontdoorRuleSetArgs{
 //				Name:                  pulumi.String("ExampleRuleSet"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			contoso, err := cdn.NewFrontdoorCustomDomain(ctx, "contoso", &cdn.FrontdoorCustomDomainArgs{
 //				Name:                  pulumi.String("contoso-custom-domain"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				DnsZoneId:             exampleZone.ID(),
-//				HostName: pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
 //					Separator: pulumi.String("."),
 //					Input: pulumi.StringArray{
 //						pulumi.String("contoso"),
 //						exampleZone.Name,
 //					},
-//				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
 //					MinimumTlsVersion: pulumi.String("TLS12"),
@@ -120,18 +117,15 @@ import (
 //			}
 //			fabrikam, err := cdn.NewFrontdoorCustomDomain(ctx, "fabrikam", &cdn.FrontdoorCustomDomainArgs{
 //				Name:                  pulumi.String("fabrikam-custom-domain"),
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				DnsZoneId:             exampleZone.ID(),
-//				HostName: pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
+//				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
 //					Separator: pulumi.String("."),
 //					Input: pulumi.StringArray{
 //						pulumi.String("fabrikam"),
 //						exampleZone.Name,
 //					},
-//				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
 //					MinimumTlsVersion: pulumi.String("TLS12"),
@@ -142,13 +136,13 @@ import (
 //			}
 //			exampleFrontdoorRoute, err := cdn.NewFrontdoorRoute(ctx, "example", &cdn.FrontdoorRouteArgs{
 //				Name:                      pulumi.String("example-route"),
-//				CdnFrontdoorEndpointId:    exampleFrontdoorEndpoint.ID(),
-//				CdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.ID(),
+//				CdnFrontdoorEndpointId:    exampleFrontdoorEndpoint.ID().ToIDOutput().ToStringOutput(),
+//				CdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.ID().ToIDOutput().ToStringOutput(),
 //				CdnFrontdoorOriginIds: pulumi.StringArray{
-//					exampleFrontdoorOrigin.ID(),
+//					exampleFrontdoorOrigin.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				CdnFrontdoorRuleSetIds: pulumi.StringArray{
-//					exampleFrontdoorRuleSet.ID(),
+//					exampleFrontdoorRuleSet.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Enabled:              pulumi.Bool(true),
 //				ForwardingProtocol:   pulumi.String("HttpsOnly"),
@@ -161,8 +155,8 @@ import (
 //					pulumi.String("Https"),
 //				},
 //				CdnFrontdoorCustomDomainIds: pulumi.StringArray{
-//					contoso.ID(),
-//					fabrikam.ID(),
+//					contoso.ID().ToIDOutput().ToStringOutput(),
+//					fabrikam.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				LinkToDefaultDomain: pulumi.Bool(false),
 //				Cache: &cdn.FrontdoorRouteCacheArgs{
@@ -183,18 +177,18 @@ import (
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorCustomDomainAssociation(ctx, "contoso", &cdn.FrontdoorCustomDomainAssociationArgs{
-//				CdnFrontdoorCustomDomainId: contoso.ID(),
+//				CdnFrontdoorCustomDomainId: contoso.ID().ToIDOutput().ToStringOutput(),
 //				CdnFrontdoorRouteIds: pulumi.StringArray{
-//					exampleFrontdoorRoute.ID(),
+//					exampleFrontdoorRoute.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cdn.NewFrontdoorCustomDomainAssociation(ctx, "fabrikam", &cdn.FrontdoorCustomDomainAssociationArgs{
-//				CdnFrontdoorCustomDomainId: fabrikam.ID(),
+//				CdnFrontdoorCustomDomainId: fabrikam.ID().ToIDOutput().ToStringOutput(),
 //				CdnFrontdoorRouteIds: pulumi.StringArray{
-//					exampleFrontdoorRoute.ID(),
+//					exampleFrontdoorRoute.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

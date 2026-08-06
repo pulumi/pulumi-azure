@@ -106,7 +106,7 @@ import * as utilities from "../utilities";
  * const exampleNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation = new azure.network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociation("example", {
  *     networkInterfaceId: exampleNetworkInterface.id,
  *     ipConfigurationName: "testconfiguration1",
- *     backendAddressPoolId: network.backendAddressPools.apply(backendAddressPools => backendAddressPools[0].id),
+ *     backendAddressPoolId: network.backendAddressPools[0].id,
  * });
  * ```
  *

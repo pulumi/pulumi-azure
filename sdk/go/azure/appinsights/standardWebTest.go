@@ -49,7 +49,7 @@ import (
 //				Name:                  pulumi.String("example-test"),
 //				ResourceGroupName:     example.Name,
 //				Location:              pulumi.String("West Europe"),
-//				ApplicationInsightsId: exampleInsights.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
 //				GeoLocations: pulumi.StringArray{
 //					pulumi.String("example"),
 //				},

@@ -37,7 +37,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			server, err := random.NewId(ctx, "server", &random.IdArgs{
-//				Keepers: map[string]interface{}{
+//				Keepers: map[string]int{
 //					"aziId": 1,
 //				},
 //				ByteLength: 8,
@@ -68,7 +68,7 @@ import (
 //				Name:              server.Hex,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig: &appservice.AppServiceSiteConfigArgs{
 //					DotnetFrameworkVersion: pulumi.String("v4.0"),
 //				},
@@ -91,7 +91,7 @@ import (
 //				AppServiceName:    exampleAppService.Name,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig: &appservice.SlotSiteConfigArgs{
 //					DotnetFrameworkVersion: pulumi.String("v4.0"),
 //				},
@@ -132,7 +132,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			server, err := random.NewId(ctx, "server", &random.IdArgs{
-//				Keepers: map[string]interface{}{
+//				Keepers: map[string]int{
 //					"aziId": 1,
 //				},
 //				ByteLength: 8,
@@ -163,7 +163,7 @@ import (
 //				Name:              server.Hex,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig: &appservice.AppServiceSiteConfigArgs{
 //					JavaVersion:          pulumi.String("1.8"),
 //					JavaContainer:        pulumi.String("JETTY"),
@@ -178,7 +178,7 @@ import (
 //				AppServiceName:    exampleAppService.Name,
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID(),
+//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig: &appservice.SlotSiteConfigArgs{
 //					JavaVersion:          pulumi.String("1.8"),
 //					JavaContainer:        pulumi.String("JETTY"),

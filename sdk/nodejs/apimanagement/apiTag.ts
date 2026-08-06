@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  * const exampleApi = new azure.apimanagement.Api("example", {
  *     name: "example-api",
  *     resourceGroupName: exampleResourceGroup.name,
- *     apiManagementName: example.apply(example => example.name),
+ *     apiManagementName: example.name,
  *     revision: "1",
  * });
  * const exampleTag = new azure.apimanagement.Tag("example", {
- *     apiManagementId: example.apply(example => example.id),
+ *     apiManagementId: example.id,
  *     name: "example-tag",
  * });
  * const exampleApiTag = new azure.apimanagement.ApiTag("example", {

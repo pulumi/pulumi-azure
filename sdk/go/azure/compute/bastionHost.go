@@ -77,8 +77,8 @@ import (
 //				ResourceGroupName: example.Name,
 //				IpConfiguration: &compute.BastionHostIpConfigurationArgs{
 //					Name:              pulumi.String("configuration"),
-//					SubnetId:          exampleSubnet.ID(),
-//					PublicIpAddressId: examplePublicIp.ID(),
+//					SubnetId:          exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//					PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {

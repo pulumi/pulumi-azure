@@ -54,7 +54,7 @@ import (
 //			}
 //			_, err = avs.NewCluster(ctx, "example", &avs.ClusterArgs{
 //				Name:             pulumi.String("example-Cluster"),
-//				VmwareCloudId:    examplePrivateCloud.ID(),
+//				VmwareCloudId:    examplePrivateCloud.ID().ToIDOutput().ToStringOutput(),
 //				ClusterNodeCount: pulumi.Int(3),
 //				SkuName:          pulumi.String("av36"),
 //			})

@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = management.NewGroupSubscriptionAssociation(ctx, "example", &management.GroupSubscriptionAssociationArgs{
-//				ManagementGroupId: example.ID(),
+//				ManagementGroupId: example.ID().ToIDOutput().ToStringOutput(),
 //				SubscriptionId:    pulumi.String(alt.Id),
 //			})
 //			if err != nil {
@@ -57,7 +57,7 @@ import (
 //				return err
 //			}
 //			networkContributor, err := authorization.NewAssignment(ctx, "network_contributor", &authorization.AssignmentArgs{
-//				Scope:              example.ID(),
+//				Scope:              example.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Network Contributor"),
 //				PrincipalId:        pulumi.String(currentGetClientConfig.ObjectId),
 //			})
@@ -89,8 +89,8 @@ import (
 //			}
 //			_, err = network.NewNetworkManagerManagementGroupConnection(ctx, "example", &network.NetworkManagerManagementGroupConnectionArgs{
 //				Name:              pulumi.String("example-nmmgc"),
-//				ManagementGroupId: example.ID(),
-//				NetworkManagerId:  exampleNetworkManager.ID(),
+//				ManagementGroupId: example.ID().ToIDOutput().ToStringOutput(),
+//				NetworkManagerId:  exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				Description:       pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				networkContributor,

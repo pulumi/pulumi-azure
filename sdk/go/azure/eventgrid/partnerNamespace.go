@@ -47,7 +47,7 @@ import (
 //				Name:                  pulumi.String("example-partner-namespace"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				PartnerRegistrationId: examplePartnerRegistration.ID(),
+//				PartnerRegistrationId: examplePartnerRegistration.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

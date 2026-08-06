@@ -71,10 +71,10 @@ import (
 //			}
 //			_, err = network.NewTrafficManagerAzureEndpoint(ctx, "example", &network.TrafficManagerAzureEndpointArgs{
 //				Name:               pulumi.String("example-endpoint"),
-//				ProfileId:          exampleTrafficManagerProfile.ID(),
+//				ProfileId:          exampleTrafficManagerProfile.ID().ToIDOutput().ToStringOutput(),
 //				AlwaysServeEnabled: pulumi.Bool(true),
 //				Weight:             pulumi.Int(100),
-//				TargetResourceId:   examplePublicIp.ID(),
+//				TargetResourceId:   examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

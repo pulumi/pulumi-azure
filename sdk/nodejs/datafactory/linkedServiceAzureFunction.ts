@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * const exampleLinkedServiceAzureFunction = new azure.datafactory.LinkedServiceAzureFunction("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
- *     url: example.apply(example => `https://${example.defaultHostname}`),
+ *     url: pulumi.interpolate`https://${example.defaultHostname}`,
  *     key: "foo",
  * });
  * ```

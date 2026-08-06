@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = logicapps.NewTriggerCustom(ctx, "example", &logicapps.TriggerCustomArgs{
 //				Name:       pulumi.String("example-trigger"),
-//				LogicAppId: exampleWorkflow.ID(),
+//				LogicAppId: exampleWorkflow.ID().ToIDOutput().ToStringOutput(),
 //				Body: pulumi.String(`{
 //	  \"recurrence\": {
 //	    \"frequency\": \"Day\",

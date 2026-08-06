@@ -97,7 +97,7 @@ import (
 //							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
 //								Name:     pulumi.String("internal"),
 //								Primary:  pulumi.Bool(true),
-//								SubnetId: internal.ID(),
+//								SubnetId: internal.ID().ToIDOutput().ToStringOutput(),
 //							},
 //						},
 //					},

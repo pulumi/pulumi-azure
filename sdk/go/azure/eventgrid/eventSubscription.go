@@ -59,9 +59,9 @@ import (
 //			}
 //			_, err = eventgrid.NewEventSubscription(ctx, "example", &eventgrid.EventSubscriptionArgs{
 //				Name:  pulumi.String("example-aees"),
-//				Scope: example.ID(),
+//				Scope: example.ID().ToIDOutput().ToStringOutput(),
 //				StorageQueueEndpoint: &eventgrid.EventSubscriptionStorageQueueEndpointArgs{
-//					StorageAccountId: exampleAccount.ID(),
+//					StorageAccountId: exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //					QueueName:        exampleQueue.Name,
 //				},
 //			})

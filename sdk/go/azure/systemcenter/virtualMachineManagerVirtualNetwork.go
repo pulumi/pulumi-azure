@@ -50,16 +50,16 @@ import (
 //			}
 //			example := systemcenter.GetVirtualMachineManagerInventoryItemsOutput(ctx, systemcenter.GetVirtualMachineManagerInventoryItemsOutputArgs{
 //				InventoryType: pulumi.String("VirtualNetwork"),
-//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID(),
+//				SystemCenterVirtualMachineManagerServerId: exampleVirtualMachineManagerServer.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			_, err = systemcenter.NewVirtualMachineManagerVirtualNetwork(ctx, "example", &systemcenter.VirtualMachineManagerVirtualNetworkArgs{
 //				Name:              pulumi.String("example-scvmmvnet"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				CustomLocationId:  exampleVirtualMachineManagerServer.CustomLocationId,
-//				SystemCenterVirtualMachineManagerServerInventoryItemId: pulumi.String(example.ApplyT(func(example systemcenter.GetVirtualMachineManagerInventoryItemsResult) (*string, error) {
+//				SystemCenterVirtualMachineManagerServerInventoryItemId: example.ApplyT(func(example systemcenter.GetVirtualMachineManagerInventoryItemsResult) (*string, error) {
 //					return example.InventoryItems[0].Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

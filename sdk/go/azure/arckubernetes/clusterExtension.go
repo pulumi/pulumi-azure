@@ -60,7 +60,7 @@ import (
 //			}
 //			_, err = arckubernetes.NewClusterExtension(ctx, "example", &arckubernetes.ClusterExtensionArgs{
 //				Name:          pulumi.String("example-ext"),
-//				ClusterId:     exampleCluster.ID(),
+//				ClusterId:     exampleCluster.ID().ToIDOutput().ToStringOutput(),
 //				ExtensionType: pulumi.String("microsoft.flux"),
 //			})
 //			if err != nil {

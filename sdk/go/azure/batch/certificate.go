@@ -55,7 +55,7 @@ import (
 //				ResourceGroupName:                example.Name,
 //				Location:                         example.Location,
 //				PoolAllocationMode:               pulumi.String("BatchService"),
-//				StorageAccountId:                 exampleAccount.ID(),
+//				StorageAccountId:                 exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountAuthenticationMode: pulumi.String("StorageKeys"),
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("test"),

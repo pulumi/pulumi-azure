@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *     location: exampleResourceGroup.location,
  * });
  * const exampleAutomanageConfigurationAssignment = new azure.arcmachine.AutomanageConfigurationAssignment("example", {
- *     arcMachineId: example.apply(example => example.id),
+ *     arcMachineId: example.id,
  *     configurationId: exampleConfiguration.id,
  * });
  * ```

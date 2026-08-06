@@ -47,7 +47,7 @@ import (
 //				return err
 //			}
 //			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				WorkspaceId:               exampleAnalyticsWorkspace.ID(),
+//				WorkspaceId:               exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				CustomerManagedKeyEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {
@@ -59,12 +59,10 @@ import (
 //			}, nil)
 //			_, err = sentinel.NewAlertRuleAnomalyDuplicate(ctx, "example", &sentinel.AlertRuleAnomalyDuplicateArgs{
 //				DisplayName:             pulumi.String("example duplicated UEBA Anomalous Sign In"),
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
-//				BuiltInRuleId: pulumi.String(example.ApplyT(func(example sentinel.GetAlertRuleAnomalyResult) (*string, error) {
-//					return example.Id, nil
-//				}).(pulumi.StringPtrOutput)),
-//				Enabled: pulumi.Bool(true),
-//				Mode:    pulumi.String("Flighting"),
+//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				BuiltInRuleId:           example.Id(),
+//				Enabled:                 pulumi.Bool(true),
+//				Mode:                    pulumi.String("Flighting"),
 //				ThresholdObservations: sentinel.AlertRuleAnomalyDuplicateThresholdObservationArray{
 //					&sentinel.AlertRuleAnomalyDuplicateThresholdObservationArgs{
 //						Name:  pulumi.String("Anomaly score threshold"),

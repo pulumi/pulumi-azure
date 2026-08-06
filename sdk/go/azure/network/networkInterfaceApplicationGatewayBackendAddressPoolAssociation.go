@@ -110,7 +110,7 @@ import (
 //				GatewayIpConfigurations: network.ApplicationGatewayGatewayIpConfigurationArray{
 //					&network.ApplicationGatewayGatewayIpConfigurationArgs{
 //						Name:     pulumi.String("my-gateway-ip-configuration"),
-//						SubnetId: backend.ID(),
+//						SubnetId: backend.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				FrontendPorts: network.ApplicationGatewayFrontendPortArray{
@@ -122,7 +122,7 @@ import (
 //				FrontendIpConfigurations: network.ApplicationGatewayFrontendIpConfigurationArray{
 //					&network.ApplicationGatewayFrontendIpConfigurationArgs{
 //						Name:              pulumi.String(frontendIpConfigurationName),
-//						PublicIpAddressId: examplePublicIp.ID(),
+//						PublicIpAddressId: examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				BackendAddressPools: network.ApplicationGatewayBackendAddressPoolArray{
@@ -168,7 +168,7 @@ import (
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
-//						SubnetId:                   frontend.ID(),
+//						SubnetId:                   frontend.ID().ToIDOutput().ToStringOutput(),
 //						PrivateIpAddressAllocation: pulumi.String("Dynamic"),
 //					},
 //				},
@@ -177,11 +177,11 @@ import (
 //				return err
 //			}
 //			_, err = network.NewNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(ctx, "example", &network.NetworkInterfaceApplicationGatewayBackendAddressPoolAssociationArgs{
-//				NetworkInterfaceId:  exampleNetworkInterface.ID(),
+//				NetworkInterfaceId:  exampleNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //				IpConfigurationName: pulumi.String("testconfiguration1"),
-//				BackendAddressPoolId: pulumi.String(network2.BackendAddressPools.ApplyT(func(backendAddressPools []network.ApplicationGatewayBackendAddressPool) (*string, error) {
+//				BackendAddressPoolId: network2.BackendAddressPools.ApplyT(func(backendAddressPools []network.ApplicationGatewayBackendAddressPool) (*string, error) {
 //					return backendAddressPools[0].Id, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err

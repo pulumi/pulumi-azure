@@ -92,14 +92,14 @@ import (
 //				ZoneName:          pulumi.String(example.Name),
 //				ResourceGroupName: pulumi.String(example.ResourceGroupName),
 //				Ttl:               pulumi.Int(3600),
-//				TargetResourceId:  exampleEndpoint.ID(),
+//				TargetResourceId:  exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cdn.NewEndpointCustomDomain(ctx, "example", &cdn.EndpointCustomDomainArgs{
 //				Name:          pulumi.String("example-domain"),
-//				CdnEndpointId: exampleEndpoint.ID(),
+//				CdnEndpointId: exampleEndpoint.ID().ToIDOutput().ToStringOutput(),
 //				HostName: exampleCNameRecord.Name.ApplyT(func(name string) (string, error) {
 //					return fmt.Sprintf("%v.%v", name, example.Name), nil
 //				}).(pulumi.StringOutput),

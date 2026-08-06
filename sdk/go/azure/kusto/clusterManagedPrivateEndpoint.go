@@ -67,7 +67,7 @@ import (
 //				Name:                      pulumi.String("examplempe"),
 //				ResourceGroupName:         example.Name,
 //				ClusterName:               exampleCluster.Name,
-//				PrivateLinkResourceId:     exampleAccount.ID(),
+//				PrivateLinkResourceId:     exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				PrivateLinkResourceRegion: exampleAccount.Location,
 //				GroupId:                   pulumi.String("blob"),
 //				RequestMessage:            pulumi.String("Please Approve"),

@@ -53,7 +53,7 @@ import (
 //			}
 //			exampleEnvironmentType, err := devcenter.NewEnvironmentType(ctx, "example", &devcenter.EnvironmentTypeArgs{
 //				Name:        pulumi.String("example-et"),
-//				DevCenterId: exampleDevCenter.ID(),
+//				DevCenterId: exampleDevCenter.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -62,7 +62,7 @@ import (
 //				Name:              pulumi.String("example-dcp"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				DevCenterId:       exampleDevCenter.ID(),
+//				DevCenterId:       exampleDevCenter.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleEnvironmentType,
 //			}))
@@ -72,7 +72,7 @@ import (
 //			_, err = devcenter.NewProjectEnvironmentType(ctx, "example", &devcenter.ProjectEnvironmentTypeArgs{
 //				Name:               pulumi.String("example-et"),
 //				Location:           example.Location,
-//				DevCenterProjectId: exampleProject.ID(),
+//				DevCenterProjectId: exampleProject.ID().ToIDOutput().ToStringOutput(),
 //				DeploymentTargetId: pulumi.Sprintf("/subscriptions/%v", current.SubscriptionId),
 //				Identity: &devcenter.ProjectEnvironmentTypeIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

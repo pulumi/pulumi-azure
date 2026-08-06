@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = dataprotection.NewBackupPolicyBlobStorage(ctx, "example", &dataprotection.BackupPolicyBlobStorageArgs{
 //				Name:                                pulumi.String("example-backup-policy"),
-//				VaultId:                             exampleBackupVault.ID(),
+//				VaultId:                             exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
 //				OperationalDefaultRetentionDuration: pulumi.String("P30D"),
 //				VaultDefaultRetentionDuration:       pulumi.String("P7D"),
 //				RetentionRules: dataprotection.BackupPolicyBlobStorageRetentionRuleArray{

@@ -67,7 +67,7 @@ import (
 //			}
 //			_, err = apimanagement.NewApiRelease(ctx, "example", &apimanagement.ApiReleaseArgs{
 //				Name:  pulumi.String("example-Api-Release"),
-//				ApiId: exampleApi.ID(),
+//				ApiId: exampleApi.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

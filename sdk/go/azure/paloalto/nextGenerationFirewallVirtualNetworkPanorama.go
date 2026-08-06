@@ -92,8 +92,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "trust", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               trust.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//				SubnetId:               trust.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -121,8 +121,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "untrust", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               untrust.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//				SubnetId:               untrust.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -134,12 +134,12 @@ import (
 //				PanoramaBase64Config: pulumi.String("e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg=="),
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs{
 //					PublicIpAddressIds: pulumi.StringArray{
-//						examplePublicIp.ID(),
+//						examplePublicIp.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					VnetConfiguration: &paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs{
-//						VirtualNetworkId:  exampleVirtualNetwork.ID(),
-//						TrustedSubnetId:   trust.ID(),
-//						UntrustedSubnetId: untrust.ID(),
+//						VirtualNetworkId:  exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//						TrustedSubnetId:   trust.ID().ToIDOutput().ToStringOutput(),
+//						UntrustedSubnetId: untrust.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

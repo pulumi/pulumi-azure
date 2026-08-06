@@ -62,7 +62,7 @@ import (
 //				Name:                       pulumi.String("exampleprivateendpoint"),
 //				ResourceGroupName:          example.Name,
 //				StreamAnalyticsClusterName: exampleCluster.Name,
-//				TargetResourceId:           exampleAccount.ID(),
+//				TargetResourceId:           exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				SubresourceName:            pulumi.String("blob"),
 //			})
 //			if err != nil {

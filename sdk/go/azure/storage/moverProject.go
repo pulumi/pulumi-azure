@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = storage.NewMoverProject(ctx, "example", &storage.MoverProjectArgs{
 //				Name:           pulumi.String("example-sp"),
-//				StorageMoverId: exampleMover.ID(),
+//				StorageMoverId: exampleMover.ID().ToIDOutput().ToStringOutput(),
 //				Description:    pulumi.String("Example Project Description"),
 //			})
 //			if err != nil {

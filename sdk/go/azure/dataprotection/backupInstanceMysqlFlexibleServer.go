@@ -66,28 +66,24 @@ import (
 //				return err
 //			}
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
-//				Scope:              example.ID(),
+//				Scope:              example.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("Reader"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example2, err := authorization.NewAssignment(ctx, "example2", &authorization.AssignmentArgs{
-//				Scope:              exampleFlexibleServer.ID(),
+//				Scope:              exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
 //				RoleDefinitionName: pulumi.String("MySQL Backup And Export Operator"),
-//				PrincipalId: pulumi.String(exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleBackupVault.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			exampleBackupPolicyMysqlFlexibleServer, err := dataprotection.NewBackupPolicyMysqlFlexibleServer(ctx, "example", &dataprotection.BackupPolicyMysqlFlexibleServerArgs{
 //				Name:    pulumi.String("example-dp"),
-//				VaultId: exampleBackupVault.ID(),
+//				VaultId: exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
 //					pulumi.String("R/2021-05-23T02:30:00+00:00/P1W"),
 //				},
@@ -109,9 +105,9 @@ import (
 //			_, err = dataprotection.NewBackupInstanceMysqlFlexibleServer(ctx, "example", &dataprotection.BackupInstanceMysqlFlexibleServerArgs{
 //				Name:           pulumi.String("example-dbi"),
 //				Location:       example.Location,
-//				VaultId:        exampleBackupVault.ID(),
-//				ServerId:       exampleFlexibleServer.ID(),
-//				BackupPolicyId: exampleBackupPolicyMysqlFlexibleServer.ID(),
+//				VaultId:        exampleBackupVault.ID().ToIDOutput().ToStringOutput(),
+//				ServerId:       exampleFlexibleServer.ID().ToIDOutput().ToStringOutput(),
+//				BackupPolicyId: exampleBackupPolicyMysqlFlexibleServer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

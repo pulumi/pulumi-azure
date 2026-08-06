@@ -102,8 +102,8 @@ import (
 //				RecoveryVaultName:        vault.Name,
 //				SourceRecoveryFabricName: pulumi.String("primary-fabric"),
 //				TargetRecoveryFabricName: pulumi.String("secondary-fabric"),
-//				SourceNetworkId:          primaryVirtualNetwork.ID(),
-//				TargetNetworkId:          secondaryVirtualNetwork.ID(),
+//				SourceNetworkId:          primaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				TargetNetworkId:          secondaryVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

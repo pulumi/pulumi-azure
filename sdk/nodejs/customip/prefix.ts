@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *         input: global.cidr,
  *         newbits: 16,
  *         netnum: 1,
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     zones: ["1"],
  * });
  * ```

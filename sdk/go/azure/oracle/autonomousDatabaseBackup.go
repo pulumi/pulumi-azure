@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = oracle.NewAutonomousDatabaseBackup(ctx, "example", &oracle.AutonomousDatabaseBackupArgs{
 //				Name:                  pulumi.String("example-backup"),
-//				AutonomousDatabaseId:  exampleAutonomousDatabase.ID(),
+//				AutonomousDatabaseId:  exampleAutonomousDatabase.ID().ToIDOutput().ToStringOutput(),
 //				RetentionPeriodInDays: pulumi.Int(120),
 //				BackupType:            "Full",
 //			})

@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = storage.NewContainer(ctx, "example", &storage.ContainerArgs{
 //				Name:                pulumi.String("vhds"),
-//				StorageAccountId:    exampleAccount.ID(),
+//				StorageAccountId:    exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {

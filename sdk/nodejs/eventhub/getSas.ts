@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleGetSas = azure.eventhub.getSasOutput({
- *     connectionString: example.apply(example => example.primaryConnectionString),
+ *     connectionString: example.primaryConnectionString,
  *     expiry: "2023-06-23T00:00:00Z",
  * });
  * ```
@@ -130,7 +130,7 @@ export interface GetSasResult {
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * const exampleGetSas = azure.eventhub.getSasOutput({
- *     connectionString: example.apply(example => example.primaryConnectionString),
+ *     connectionString: example.primaryConnectionString,
  *     expiry: "2023-06-23T00:00:00Z",
  * });
  * ```

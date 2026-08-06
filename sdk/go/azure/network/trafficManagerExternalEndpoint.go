@@ -61,7 +61,7 @@ import (
 //			}
 //			_, err = network.NewTrafficManagerExternalEndpoint(ctx, "example", &network.TrafficManagerExternalEndpointArgs{
 //				Name:               pulumi.String("example-endpoint"),
-//				ProfileId:          exampleTrafficManagerProfile.ID(),
+//				ProfileId:          exampleTrafficManagerProfile.ID().ToIDOutput().ToStringOutput(),
 //				AlwaysServeEnabled: pulumi.Bool(true),
 //				Weight:             pulumi.Int(100),
 //				Target:             pulumi.String("www.example.com"),

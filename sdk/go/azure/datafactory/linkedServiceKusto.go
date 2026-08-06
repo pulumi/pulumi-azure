@@ -71,7 +71,7 @@ import (
 //			}
 //			_, err = datafactory.NewLinkedServiceKusto(ctx, "example", &datafactory.LinkedServiceKustoArgs{
 //				Name:               pulumi.String("example"),
-//				DataFactoryId:      exampleFactory.ID(),
+//				DataFactoryId:      exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				KustoEndpoint:      exampleCluster.Uri,
 //				KustoDatabaseName:  exampleDatabase.Name,
 //				UseManagedIdentity: pulumi.Bool(true),
@@ -84,14 +84,10 @@ import (
 //				ResourceGroupName: example.Name,
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
-//				TenantId: pulumi.String(exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
-//					return identity.TenantId, nil
-//				}).(pulumi.StringPtrOutput)),
-//				PrincipalId: pulumi.String(exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
-//				PrincipalType: pulumi.String("App"),
-//				Role:          pulumi.String("Viewer"),
+//				TenantId:          exampleFactory.Identity.TenantId(),
+//				PrincipalId:       exampleFactory.Identity.PrincipalId(),
+//				PrincipalType:     pulumi.String("App"),
+//				Role:              pulumi.String("Viewer"),
 //			})
 //			if err != nil {
 //				return err

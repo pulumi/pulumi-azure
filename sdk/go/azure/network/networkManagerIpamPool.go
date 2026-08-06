@@ -60,7 +60,7 @@ import (
 //			_, err = network.NewNetworkManagerIpamPool(ctx, "example", &network.NetworkManagerIpamPoolArgs{
 //				Name:             pulumi.String("example-ipam-pool"),
 //				Location:         pulumi.String("West Europe"),
-//				NetworkManagerId: exampleNetworkManager.ID(),
+//				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				DisplayName:      pulumi.String("example-pool"),
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/24"),

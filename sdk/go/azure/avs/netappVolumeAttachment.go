@@ -104,8 +104,8 @@ import (
 //				IpConfigurations: network.VirtualNetworkGatewayIpConfigurationArray{
 //					&network.VirtualNetworkGatewayIpConfigurationArgs{
 //						Name:              pulumi.String("vnetGatewayConfig"),
-//						PublicIpAddressId: test.ID(),
-//						SubnetId:          gatewaySubnet.ID(),
+//						PublicIpAddressId: test.ID().ToIDOutput().ToStringOutput(),
+//						SubnetId:          gatewaySubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -139,7 +139,7 @@ import (
 //				PoolName:          testPool.Name,
 //				VolumePath:        pulumi.String("my-unique-file-path-%d"),
 //				ServiceLevel:      pulumi.String("Standard"),
-//				SubnetId:          netappSubnet.ID(),
+//				SubnetId:          netappSubnet.ID().ToIDOutput().ToStringOutput(),
 //				Protocols: pulumi.StringArray{
 //					pulumi.String("NFSv3"),
 //				},
@@ -176,7 +176,7 @@ import (
 //			}
 //			testCluster, err := avs.NewCluster(ctx, "test", &avs.ClusterArgs{
 //				Name:             pulumi.String("example-vm-cluster"),
-//				VmwareCloudId:    testPrivateCloud.ID(),
+//				VmwareCloudId:    testPrivateCloud.ID().ToIDOutput().ToStringOutput(),
 //				ClusterNodeCount: pulumi.Int(3),
 //				SkuName:          pulumi.String("av36"),
 //			})
@@ -185,7 +185,7 @@ import (
 //			}
 //			testExpressRouteAuthorization, err := avs.NewExpressRouteAuthorization(ctx, "test", &avs.ExpressRouteAuthorizationArgs{
 //				Name:           pulumi.String("example-VmwareAuthorization"),
-//				PrivateCloudId: testPrivateCloud.ID(),
+//				PrivateCloudId: testPrivateCloud.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -195,10 +195,10 @@ import (
 //				Location:                pulumi.Any(testAzurermResourceGroup.Location),
 //				ResourceGroupName:       pulumi.Any(testAzurermResourceGroup.Name),
 //				Type:                    pulumi.String("ExpressRoute"),
-//				VirtualNetworkGatewayId: testVirtualNetworkGateway.ID(),
-//				ExpressRouteCircuitId: pulumi.String(testPrivateCloud.Circuits.ApplyT(func(circuits []avs.PrivateCloudCircuit) (*string, error) {
+//				VirtualNetworkGatewayId: testVirtualNetworkGateway.ID().ToIDOutput().ToStringOutput(),
+//				ExpressRouteCircuitId: testPrivateCloud.Circuits.ApplyT(func(circuits []avs.PrivateCloudCircuit) (*string, error) {
 //					return circuits[0].ExpressRouteId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}).(pulumi.StringPtrOutput),
 //				AuthorizationKey: testExpressRouteAuthorization.ExpressRouteAuthorizationKey,
 //			})
 //			if err != nil {
@@ -206,8 +206,8 @@ import (
 //			}
 //			_, err = avs.NewNetappVolumeAttachment(ctx, "test", &avs.NetappVolumeAttachmentArgs{
 //				Name:            pulumi.String("example-vmwareattachment"),
-//				NetappVolumeId:  testVolume.ID(),
-//				VmwareClusterId: testCluster.ID(),
+//				NetappVolumeId:  testVolume.ID().ToIDOutput().ToStringOutput(),
+//				VmwareClusterId: testCluster.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				testVirtualNetworkGatewayConnection,
 //			}))

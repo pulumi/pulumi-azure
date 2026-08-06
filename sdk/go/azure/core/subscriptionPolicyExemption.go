@@ -54,7 +54,7 @@ import (
 //			_, err = core.NewSubscriptionPolicyExemption(ctx, "example", &core.SubscriptionPolicyExemptionArgs{
 //				Name:               pulumi.String("exampleExemption"),
 //				SubscriptionId:     pulumi.String(example.Id),
-//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
+//				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID().ToIDOutput().ToStringOutput(),
 //				ExemptionCategory:  pulumi.String("Mitigated"),
 //			})
 //			if err != nil {

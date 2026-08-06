@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const exampleExtension = new azure.arcmachine.Extension("example", {
  *     name: "example",
  *     location: "West Europe",
- *     arcMachineId: example.apply(example => example.id),
+ *     arcMachineId: example.id,
  *     publisher: "Microsoft.Azure.Monitor",
  *     type: "AzureMonitorLinuxAgent",
  * });

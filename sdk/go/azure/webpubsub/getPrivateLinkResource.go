@@ -46,7 +46,7 @@ import (
 //				return err
 //			}
 //			_ = webpubsub.GetPrivateLinkResourceOutput(ctx, webpubsub.GetPrivateLinkResourceOutputArgs{
-//				WebPubsubId: testService.ID(),
+//				WebPubsubId: testService.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			return nil
 //		})

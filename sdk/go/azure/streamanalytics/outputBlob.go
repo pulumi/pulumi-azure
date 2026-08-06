@@ -60,19 +60,15 @@ import (
 //				return err
 //			}
 //			_, err = streamanalytics.NewOutputBlob(ctx, "example", &streamanalytics.OutputBlobArgs{
-//				Name: pulumi.String("output-to-blob-storage"),
-//				StreamAnalyticsJobName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.Name, nil
-//				}).(pulumi.StringPtrOutput)),
-//				ResourceGroupName: pulumi.String(example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
-//					return example.ResourceGroupName, nil
-//				}).(pulumi.StringPtrOutput)),
-//				StorageAccountName:   exampleAccount.Name,
-//				StorageAccountKey:    exampleAccount.PrimaryAccessKey,
-//				StorageContainerName: exampleContainer.Name,
-//				PathPattern:          pulumi.String("some-pattern"),
-//				DateFormat:           pulumi.String("yyyy-MM-dd"),
-//				TimeFormat:           pulumi.String("HH"),
+//				Name:                   pulumi.String("output-to-blob-storage"),
+//				StreamAnalyticsJobName: example.Name(),
+//				ResourceGroupName:      example.ResourceGroupName(),
+//				StorageAccountName:     exampleAccount.Name,
+//				StorageAccountKey:      exampleAccount.PrimaryAccessKey,
+//				StorageContainerName:   exampleContainer.Name,
+//				PathPattern:            pulumi.String("some-pattern"),
+//				DateFormat:             pulumi.String("yyyy-MM-dd"),
+//				TimeFormat:             pulumi.String("HH"),
 //				Serialization: &streamanalytics.OutputBlobSerializationArgs{
 //					Type:           pulumi.String("Csv"),
 //					Encoding:       pulumi.String("UTF8"),

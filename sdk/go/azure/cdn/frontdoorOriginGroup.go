@@ -46,7 +46,7 @@ import (
 //			}
 //			_, err = cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
 //				Name:                   pulumi.String("example-origin-group"),
-//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID(),
+//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				SessionAffinityEnabled: pulumi.Bool(true),
 //				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
 //				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{

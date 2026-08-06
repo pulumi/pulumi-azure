@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *             exampleService.name,
  *             ".search.windows.net",
  *         ],
- *     }).apply(invoke => invoke.result),
+ *     }).result,
  *     searchServiceKey: exampleService.primaryKey,
  * });
  * ```

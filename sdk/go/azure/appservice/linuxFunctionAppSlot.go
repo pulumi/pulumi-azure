@@ -61,7 +61,7 @@ import (
 //				Name:               pulumi.String("example-linux-function-app"),
 //				ResourceGroupName:  example.Name,
 //				Location:           example.Location,
-//				ServicePlanId:      exampleServicePlan.ID(),
+//				ServicePlanId:      exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName: exampleAccount.Name,
 //				SiteConfig:         &appservice.LinuxFunctionAppSiteConfigArgs{},
 //			})
@@ -70,7 +70,7 @@ import (
 //			}
 //			_, err = appservice.NewLinuxFunctionAppSlot(ctx, "example", &appservice.LinuxFunctionAppSlotArgs{
 //				Name:               pulumi.String("example-linux-function-app-slot"),
-//				FunctionAppId:      exampleLinuxFunctionApp.ID(),
+//				FunctionAppId:      exampleLinuxFunctionApp.ID().ToIDOutput().ToStringOutput(),
 //				StorageAccountName: exampleAccount.Name,
 //				SiteConfig:         &appservice.LinuxFunctionAppSlotSiteConfigArgs{},
 //			})

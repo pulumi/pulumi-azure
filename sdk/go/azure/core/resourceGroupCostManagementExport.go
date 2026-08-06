@@ -55,13 +55,13 @@ import (
 //			}
 //			_, err = core.NewResourceGroupCostManagementExport(ctx, "example", &core.ResourceGroupCostManagementExportArgs{
 //				Name:                      pulumi.String("example"),
-//				ResourceGroupId:           example.ID(),
+//				ResourceGroupId:           example.ID().ToIDOutput().ToStringOutput(),
 //				RecurrenceType:            pulumi.String("Monthly"),
 //				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
 //				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),
 //				FileFormat:                pulumi.String("Csv"),
 //				ExportDataStorageLocation: &core.ResourceGroupCostManagementExportExportDataStorageLocationArgs{
-//					ContainerId:    exampleContainer.ID(),
+//					ContainerId:    exampleContainer.ID().ToIDOutput().ToStringOutput(),
 //					RootFolderPath: pulumi.String("/root/updated"),
 //				},
 //				ExportDataOptions: &core.ResourceGroupCostManagementExportExportDataOptionsArgs{

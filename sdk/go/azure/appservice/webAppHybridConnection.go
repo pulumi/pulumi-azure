@@ -68,15 +68,15 @@ import (
 //				Name:              pulumi.String("example-web-app"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				ServicePlanId:     exampleServicePlan.ID(),
+//				ServicePlanId:     exampleServicePlan.ID().ToIDOutput().ToStringOutput(),
 //				SiteConfig:        &appservice.WindowsWebAppSiteConfigArgs{},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewWebAppHybridConnection(ctx, "example", &appservice.WebAppHybridConnectionArgs{
-//				WebAppId: exampleWindowsWebApp.ID(),
-//				RelayId:  exampleHybridConnection.ID(),
+//				WebAppId: exampleWindowsWebApp.ID().ToIDOutput().ToStringOutput(),
+//				RelayId:  exampleHybridConnection.ID().ToIDOutput().ToStringOutput(),
 //				Hostname: pulumi.String("myhostname.example"),
 //				Port:     pulumi.Int(8081),
 //			})

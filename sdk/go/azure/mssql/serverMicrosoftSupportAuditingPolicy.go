@@ -59,7 +59,7 @@ import (
 //				return err
 //			}
 //			_, err = mssql.NewServerMicrosoftSupportAuditingPolicy(ctx, "example", &mssql.ServerMicrosoftSupportAuditingPolicyArgs{
-//				ServerId:                exampleServer.ID(),
+//				ServerId:                exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				BlobStorageEndpoint:     exampleAccount.PrimaryBlobEndpoint,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
 //			})
@@ -150,9 +150,7 @@ import (
 //			exampleAssignment, err := authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              pulumi.String(primary.Id),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-//				PrincipalId: pulumi.String(exampleServer.Identity.ApplyT(func(identity mssql.ServerIdentity) (*string, error) {
-//					return identity.PrincipalId, nil
-//				}).(pulumi.StringPtrOutput)),
+//				PrincipalId:        exampleServer.Identity.PrincipalId(),
 //			})
 //			if err != nil {
 //				return err
@@ -190,7 +188,7 @@ import (
 //						pulumi.String("127.0.0.1"),
 //					},
 //					VirtualNetworkSubnetIds: pulumi.StringArray{
-//						exampleSubnet.ID(),
+//						exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //					},
 //					Bypasses: pulumi.StringArray{
 //						pulumi.String("AzureServices"),
@@ -205,7 +203,7 @@ import (
 //			}
 //			_, err = mssql.NewServerMicrosoftSupportAuditingPolicy(ctx, "example", &mssql.ServerMicrosoftSupportAuditingPolicyArgs{
 //				BlobStorageEndpoint:          exampleAccount.PrimaryBlobEndpoint,
-//				ServerId:                     exampleServer.ID(),
+//				ServerId:                     exampleServer.ID().ToIDOutput().ToStringOutput(),
 //				LogMonitoringEnabled:         pulumi.Bool(false),
 //				StorageAccountSubscriptionId: pulumi.Any(primaryAzurermSubscription.SubscriptionId),
 //			}, pulumi.DependsOn([]pulumi.Resource{

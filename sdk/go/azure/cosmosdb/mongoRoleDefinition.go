@@ -72,7 +72,7 @@ import (
 //				return err
 //			}
 //			_, err = cosmosdb.NewMongoRoleDefinition(ctx, "example", &cosmosdb.MongoRoleDefinitionArgs{
-//				CosmosMongoDatabaseId: exampleMongoDatabase.ID(),
+//				CosmosMongoDatabaseId: exampleMongoDatabase.ID().ToIDOutput().ToStringOutput(),
 //				RoleName:              pulumi.String("example-roledefinition"),
 //			})
 //			if err != nil {

@@ -64,7 +64,7 @@ import (
 //				ResourceGroupName:   example.Name,
 //				Location:            example.Location,
 //				SkuName:             pulumi.String("AMLFS-Durable-Premium-250"),
-//				SubnetId:            exampleSubnet.ID(),
+//				SubnetId:            exampleSubnet.ID().ToIDOutput().ToStringOutput(),
 //				StorageCapacityInTb: pulumi.Int(8),
 //				Zones: pulumi.StringArray{
 //					pulumi.String("2"),

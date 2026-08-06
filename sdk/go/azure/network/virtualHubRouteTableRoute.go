@@ -69,8 +69,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               exampleSubnet.ID(),
-//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
+//				SubnetId:               exampleSubnet.ID().ToIDOutput().ToStringOutput(),
+//				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -87,7 +87,7 @@ import (
 //				Name:              pulumi.String("example-vhub"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				VirtualWanId:      exampleVirtualWan.ID(),
+//				VirtualWanId:      exampleVirtualWan.ID().ToIDOutput().ToStringOutput(),
 //				AddressPrefix:     pulumi.String("10.0.2.0/24"),
 //			})
 //			if err != nil {
@@ -95,7 +95,7 @@ import (
 //			}
 //			exampleVirtualHubRouteTable, err := network.NewVirtualHubRouteTable(ctx, "example", &network.VirtualHubRouteTableArgs{
 //				Name:         pulumi.String("example-vhubroutetable"),
-//				VirtualHubId: exampleVirtualHub.ID(),
+//				VirtualHubId: exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
 //				Labels: pulumi.StringArray{
 //					pulumi.String("label1"),
 //				},
@@ -105,24 +105,24 @@ import (
 //			}
 //			exampleVirtualHubConnection, err := network.NewVirtualHubConnection(ctx, "example", &network.VirtualHubConnectionArgs{
 //				Name:                   pulumi.String("example-vhubconn"),
-//				VirtualHubId:           exampleVirtualHub.ID(),
-//				RemoteVirtualNetworkId: exampleVirtualNetwork.ID(),
+//				VirtualHubId:           exampleVirtualHub.ID().ToIDOutput().ToStringOutput(),
+//				RemoteVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //				Routing: &network.VirtualHubConnectionRoutingArgs{
-//					AssociatedRouteTableId: exampleVirtualHubRouteTable.ID(),
+//					AssociatedRouteTableId: exampleVirtualHubRouteTable.ID().ToIDOutput().ToStringOutput(),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewVirtualHubRouteTableRoute(ctx, "example", &network.VirtualHubRouteTableRouteArgs{
-//				RouteTableId:     exampleVirtualHubRouteTable.ID(),
+//				RouteTableId:     exampleVirtualHubRouteTable.ID().ToIDOutput().ToStringOutput(),
 //				Name:             pulumi.String("example-route"),
 //				DestinationsType: pulumi.String("CIDR"),
 //				Destinations: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
 //				NextHopType: pulumi.String("ResourceId"),
-//				NextHop:     exampleVirtualHubConnection.ID(),
+//				NextHop:     exampleVirtualHubConnection.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

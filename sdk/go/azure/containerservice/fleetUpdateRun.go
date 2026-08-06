@@ -63,8 +63,8 @@ import (
 //			}
 //			_, err = containerservice.NewFleetMember(ctx, "example", &containerservice.FleetMemberArgs{
 //				Name:                pulumi.String("example"),
-//				KubernetesFleetId:   exampleKubernetesFleetManager.ID(),
-//				KubernetesClusterId: exampleKubernetesCluster.ID(),
+//				KubernetesFleetId:   exampleKubernetesFleetManager.ID().ToIDOutput().ToStringOutput(),
+//				KubernetesClusterId: exampleKubernetesCluster.ID().ToIDOutput().ToStringOutput(),
 //				Group:               pulumi.String("example-group"),
 //			})
 //			if err != nil {
@@ -72,7 +72,7 @@ import (
 //			}
 //			_, err = containerservice.NewFleetUpdateRun(ctx, "example", &containerservice.FleetUpdateRunArgs{
 //				Name:                     pulumi.String("example"),
-//				KubernetesFleetManagerId: exampleKubernetesFleetManager.ID(),
+//				KubernetesFleetManagerId: exampleKubernetesFleetManager.ID().ToIDOutput().ToStringOutput(),
 //				ManagedClusterUpdate: &containerservice.FleetUpdateRunManagedClusterUpdateArgs{
 //					Upgrade: &containerservice.FleetUpdateRunManagedClusterUpdateUpgradeArgs{
 //						Type:              pulumi.String("Full"),

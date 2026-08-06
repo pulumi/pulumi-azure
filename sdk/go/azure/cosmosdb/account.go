@@ -118,16 +118,13 @@ import (
 //				Name:              pulumi.String("example-resource"),
 //				Location:          pulumi.Any(exampleAzurermResourceGroup.Location),
 //				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
-//				DefaultIdentityType: pulumi.String(std.JoinOutput(ctx, std.JoinOutputArgs{
+//				DefaultIdentityType: std.JoinOutput(ctx, std.JoinOutputArgs{
 //					Separator: pulumi.String("="),
 //					Input: pulumi.StringArray{
 //						pulumi.String("UserAssignedIdentity"),
-//						example.ID(),
+//						example.ID().ToIDOutput().ToStringOutput(),
 //					},
-//				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
-//					val := invoke.Result
-//					return &val, nil
-//				}).(pulumi.StringPtrOutput)),
+//				}, nil).Result(),
 //				OfferType: pulumi.String("Standard"),
 //				Kind:      pulumi.String("MongoDB"),
 //				Capabilities: cosmosdb.AccountCapabilityArray{
@@ -147,7 +144,7 @@ import (
 //				Identity: &cosmosdb.AccountIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						example.ID(),
+//						example.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})

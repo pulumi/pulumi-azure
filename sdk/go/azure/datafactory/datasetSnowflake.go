@@ -46,7 +46,7 @@ import (
 //			}
 //			exampleLinkedServiceSnowflake, err := datafactory.NewLinkedServiceSnowflake(ctx, "example", &datafactory.LinkedServiceSnowflakeArgs{
 //				Name:             pulumi.String("example"),
-//				DataFactoryId:    exampleFactory.ID(),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 //			})
 //			if err != nil {
@@ -54,7 +54,7 @@ import (
 //			}
 //			_, err = datafactory.NewDatasetSnowflake(ctx, "example", &datafactory.DatasetSnowflakeArgs{
 //				Name:              pulumi.String("example"),
-//				DataFactoryId:     exampleFactory.ID(),
+//				DataFactoryId:     exampleFactory.ID().ToIDOutput().ToStringOutput(),
 //				LinkedServiceName: exampleLinkedServiceSnowflake.Name,
 //				SchemaName:        pulumi.String("foo_schema"),
 //				TableName:         pulumi.String("foo_table"),

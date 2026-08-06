@@ -66,7 +66,7 @@ import (
 //				Name:              pulumi.String("example-metricalert"),
 //				ResourceGroupName: example.Name,
 //				Scopes: pulumi.StringArray{
-//					exampleAnalyticsWorkspace.ID(),
+//					exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Description: pulumi.String("Action will be triggered when Average_% Idle Time metric is less than 10."),
 //				Frequency:   pulumi.String("PT1M"),
@@ -82,7 +82,7 @@ import (
 //				},
 //				Actions: monitoring.MetricAlertActionArray{
 //					&monitoring.MetricAlertActionArgs{
-//						ActionGroupId: exampleActionGroup.ID(),
+//						ActionGroupId: exampleActionGroup.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //			})
@@ -106,7 +106,7 @@ import (
 //						},
 //					},
 //				},
-//				DataSourceId: exampleAnalyticsWorkspace.ID(),
+//				DataSourceId: exampleAnalyticsWorkspace.ID().ToIDOutput().ToStringOutput(),
 //				Description:  pulumi.String("Scheduled query rule LogToMetric example"),
 //				Enabled:      pulumi.Bool(true),
 //				Tags: pulumi.StringMap{

@@ -53,7 +53,7 @@ import (
 //			}
 //			_, err = mongocluster.NewFirewallRule(ctx, "example", &mongocluster.FirewallRuleArgs{
 //				Name:           pulumi.String("example-firewall-rule"),
-//				MongoClusterId: exampleMongoCluster.ID(),
+//				MongoClusterId: exampleMongoCluster.ID().ToIDOutput().ToStringOutput(),
 //				StartIpAddress: pulumi.String("10.0.0.1"),
 //				EndIpAddress:   pulumi.String("10.0.0.255"),
 //			})

@@ -74,7 +74,7 @@ import (
 //						AddressPrefixes: pulumi.StringArray{
 //							pulumi.String("10.0.2.0/24"),
 //						},
-//						SecurityGroup: exampleNetworkSecurityGroup.ID(),
+//						SecurityGroup: exampleNetworkSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

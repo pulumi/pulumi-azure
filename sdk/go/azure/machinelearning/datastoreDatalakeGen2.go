@@ -76,9 +76,9 @@ import (
 //				Name:                  pulumi.String("example-workspace"),
 //				Location:              example.Location,
 //				ResourceGroupName:     example.Name,
-//				ApplicationInsightsId: exampleInsights.ID(),
-//				KeyVaultId:            exampleKeyVault.ID(),
-//				StorageAccountId:      exampleAccount.ID(),
+//				ApplicationInsightsId: exampleInsights.ID().ToIDOutput().ToStringOutput(),
+//				KeyVaultId:            exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
+//				StorageAccountId:      exampleAccount.ID().ToIDOutput().ToStringOutput(),
 //				Identity: &machinelearning.WorkspaceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -96,8 +96,8 @@ import (
 //			}
 //			_, err = machinelearning.NewDatastoreDatalakeGen2(ctx, "example", &machinelearning.DatastoreDatalakeGen2Args{
 //				Name:               pulumi.String("example-datastore"),
-//				WorkspaceId:        exampleWorkspace.ID(),
-//				StorageContainerId: exampleContainer.ID(),
+//				WorkspaceId:        exampleWorkspace.ID().ToIDOutput().ToStringOutput(),
+//				StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
