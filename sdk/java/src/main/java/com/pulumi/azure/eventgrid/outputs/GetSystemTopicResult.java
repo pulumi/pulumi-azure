@@ -24,7 +24,6 @@ public final class GetSystemTopicResult {
      */
     private List<GetSystemTopicIdentity> identities;
     private String location;
-    private String metricArmResourceId;
     /**
      * @return The Metric Resource ID of the Event Grid System Topic.
      * 
@@ -32,7 +31,6 @@ public final class GetSystemTopicResult {
     private String metricResourceId;
     private String name;
     private String resourceGroupName;
-    private String sourceArmResourceId;
     /**
      * @return The ID of the Event Grid System Topic ARM Source.
      * 
@@ -67,9 +65,6 @@ public final class GetSystemTopicResult {
     public String location() {
         return this.location;
     }
-    public String metricArmResourceId() {
-        return this.metricArmResourceId;
-    }
     /**
      * @return The Metric Resource ID of the Event Grid System Topic.
      * 
@@ -82,9 +77,6 @@ public final class GetSystemTopicResult {
     }
     public String resourceGroupName() {
         return this.resourceGroupName;
-    }
-    public String sourceArmResourceId() {
-        return this.sourceArmResourceId;
     }
     /**
      * @return The ID of the Event Grid System Topic ARM Source.
@@ -120,11 +112,9 @@ public final class GetSystemTopicResult {
         private String id;
         private List<GetSystemTopicIdentity> identities;
         private String location;
-        private String metricArmResourceId;
         private String metricResourceId;
         private String name;
         private String resourceGroupName;
-        private String sourceArmResourceId;
         private String sourceResourceId;
         private Map<String,String> tags;
         private String topicType;
@@ -134,11 +124,9 @@ public final class GetSystemTopicResult {
     	      this.id = defaults.id;
     	      this.identities = defaults.identities;
     	      this.location = defaults.location;
-    	      this.metricArmResourceId = defaults.metricArmResourceId;
     	      this.metricResourceId = defaults.metricResourceId;
     	      this.name = defaults.name;
     	      this.resourceGroupName = defaults.resourceGroupName;
-    	      this.sourceArmResourceId = defaults.sourceArmResourceId;
     	      this.sourceResourceId = defaults.sourceResourceId;
     	      this.tags = defaults.tags;
     	      this.topicType = defaults.topicType;
@@ -172,14 +160,6 @@ public final class GetSystemTopicResult {
             return this;
         }
         @CustomType.Setter
-        public Builder metricArmResourceId(String metricArmResourceId) {
-            if (metricArmResourceId == null) {
-              throw new MissingRequiredPropertyException("GetSystemTopicResult", "metricArmResourceId");
-            }
-            this.metricArmResourceId = metricArmResourceId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder metricResourceId(String metricResourceId) {
             if (metricResourceId == null) {
               throw new MissingRequiredPropertyException("GetSystemTopicResult", "metricResourceId");
@@ -201,14 +181,6 @@ public final class GetSystemTopicResult {
               throw new MissingRequiredPropertyException("GetSystemTopicResult", "resourceGroupName");
             }
             this.resourceGroupName = resourceGroupName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder sourceArmResourceId(String sourceArmResourceId) {
-            if (sourceArmResourceId == null) {
-              throw new MissingRequiredPropertyException("GetSystemTopicResult", "sourceArmResourceId");
-            }
-            this.sourceArmResourceId = sourceArmResourceId;
             return this;
         }
         @CustomType.Setter
@@ -240,11 +212,9 @@ public final class GetSystemTopicResult {
             _resultValue.id = id;
             _resultValue.identities = identities;
             _resultValue.location = location;
-            _resultValue.metricArmResourceId = metricArmResourceId;
             _resultValue.metricResourceId = metricResourceId;
             _resultValue.name = name;
             _resultValue.resourceGroupName = resourceGroupName;
-            _resultValue.sourceArmResourceId = sourceArmResourceId;
             _resultValue.sourceResourceId = sourceResourceId;
             _resultValue.tags = tags;
             _resultValue.topicType = topicType;

@@ -106,6 +106,7 @@ import javax.annotation.Nullable;
  *             .name("example-keyvault")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(example.tenantId())
  *             .skuName("standard")
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()

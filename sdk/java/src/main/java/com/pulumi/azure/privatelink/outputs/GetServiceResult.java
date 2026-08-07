@@ -25,15 +25,6 @@ public final class GetServiceResult {
      */
     private List<String> autoApprovalSubscriptionIds;
     /**
-     * @return Does the Private Link Service support the Proxy Protocol?
-     * 
-     * @deprecated
-     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    private Boolean enableProxyProtocol;
-    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -85,17 +76,6 @@ public final class GetServiceResult {
      */
     public List<String> autoApprovalSubscriptionIds() {
         return this.autoApprovalSubscriptionIds;
-    }
-    /**
-     * @return Does the Private Link Service support the Proxy Protocol?
-     * 
-     * @deprecated
-     * the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Boolean enableProxyProtocol() {
-        return this.enableProxyProtocol;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -164,7 +144,6 @@ public final class GetServiceResult {
     public static final class Builder {
         private String alias;
         private List<String> autoApprovalSubscriptionIds;
-        private Boolean enableProxyProtocol;
         private String id;
         private List<String> loadBalancerFrontendIpConfigurationIds;
         private String location;
@@ -179,7 +158,6 @@ public final class GetServiceResult {
     	      Objects.requireNonNull(defaults);
     	      this.alias = defaults.alias;
     	      this.autoApprovalSubscriptionIds = defaults.autoApprovalSubscriptionIds;
-    	      this.enableProxyProtocol = defaults.enableProxyProtocol;
     	      this.id = defaults.id;
     	      this.loadBalancerFrontendIpConfigurationIds = defaults.loadBalancerFrontendIpConfigurationIds;
     	      this.location = defaults.location;
@@ -209,14 +187,6 @@ public final class GetServiceResult {
         }
         public Builder autoApprovalSubscriptionIds(String... autoApprovalSubscriptionIds) {
             return autoApprovalSubscriptionIds(List.of(autoApprovalSubscriptionIds));
-        }
-        @CustomType.Setter
-        public Builder enableProxyProtocol(Boolean enableProxyProtocol) {
-            if (enableProxyProtocol == null) {
-              throw new MissingRequiredPropertyException("GetServiceResult", "enableProxyProtocol");
-            }
-            this.enableProxyProtocol = enableProxyProtocol;
-            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -303,7 +273,6 @@ public final class GetServiceResult {
             final var _resultValue = new GetServiceResult();
             _resultValue.alias = alias;
             _resultValue.autoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
-            _resultValue.enableProxyProtocol = enableProxyProtocol;
             _resultValue.id = id;
             _resultValue.loadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
             _resultValue.location = location;

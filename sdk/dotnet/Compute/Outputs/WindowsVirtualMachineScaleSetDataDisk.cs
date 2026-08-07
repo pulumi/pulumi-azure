@@ -30,6 +30,14 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// </summary>
+        public readonly int? DiskIopsReadWrite;
+        /// <summary>
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// </summary>
+        public readonly int? DiskMbpsReadWrite;
+        /// <summary>
         /// The size of the Data Disk which should be created.
         /// </summary>
         public readonly int DiskSizeGb;
@@ -48,14 +56,6 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string StorageAccountType;
         /// <summary>
-        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        /// </summary>
-        public readonly int? UltraSsdDiskIopsReadWrite;
-        /// <summary>
-        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        /// </summary>
-        public readonly int? UltraSsdDiskMbpsReadWrite;
-        /// <summary>
         /// Should Write Accelerator be enabled for this Data Disk? Defaults to `False`.
         /// 
         /// &gt; **Note:** This requires that the `StorageAccountType` is set to `Premium_LRS` and that `Caching` is set to `None`.
@@ -70,6 +70,10 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? diskEncryptionSetId,
 
+            int? diskIopsReadWrite,
+
+            int? diskMbpsReadWrite,
+
             int diskSizeGb,
 
             int lun,
@@ -78,21 +82,17 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string storageAccountType,
 
-            int? ultraSsdDiskIopsReadWrite,
-
-            int? ultraSsdDiskMbpsReadWrite,
-
             bool? writeAcceleratorEnabled)
         {
             Caching = caching;
             CreateOption = createOption;
             DiskEncryptionSetId = diskEncryptionSetId;
+            DiskIopsReadWrite = diskIopsReadWrite;
+            DiskMbpsReadWrite = diskMbpsReadWrite;
             DiskSizeGb = diskSizeGb;
             Lun = lun;
             Name = name;
             StorageAccountType = storageAccountType;
-            UltraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            UltraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             WriteAcceleratorEnabled = writeAcceleratorEnabled;
         }
     }

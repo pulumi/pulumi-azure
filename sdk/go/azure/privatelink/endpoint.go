@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,11 +23,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatelink"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatelink"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -148,9 +148,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatelink"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatelink"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -206,11 +206,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatelink"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatelink"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -287,10 +287,9 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				Name:               pulumi.String("example-link"),
-//				ResourceGroupName:  example.Name,
-//				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				Name:             pulumi.String("example-link"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -333,6 +332,8 @@ type Endpoint struct {
 	CustomDnsConfigs EndpointCustomDnsConfigArrayOutput `pulumi:"customDnsConfigs"`
 	// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 	CustomNetworkInterfaceName pulumi.StringPtrOutput `pulumi:"customNetworkInterfaceName"`
+	// Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations EndpointIpConfigurationArrayOutput `pulumi:"ipConfigurations"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -398,6 +399,8 @@ type endpointState struct {
 	CustomDnsConfigs []EndpointCustomDnsConfig `pulumi:"customDnsConfigs"`
 	// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 	CustomNetworkInterfaceName *string `pulumi:"customNetworkInterfaceName"`
+	// Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations []EndpointIpConfiguration `pulumi:"ipConfigurations"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -425,6 +428,8 @@ type EndpointState struct {
 	CustomDnsConfigs EndpointCustomDnsConfigArrayInput
 	// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 	CustomNetworkInterfaceName pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+	EdgeZone pulumi.StringPtrInput
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations EndpointIpConfigurationArrayInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -454,6 +459,8 @@ func (EndpointState) ElementType() reflect.Type {
 type endpointArgs struct {
 	// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 	CustomNetworkInterfaceName *string `pulumi:"customNetworkInterfaceName"`
+	// Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+	EdgeZone *string `pulumi:"edgeZone"`
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations []EndpointIpConfiguration `pulumi:"ipConfigurations"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -476,6 +483,8 @@ type endpointArgs struct {
 type EndpointArgs struct {
 	// The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 	CustomNetworkInterfaceName pulumi.StringPtrInput
+	// Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+	EdgeZone pulumi.StringPtrInput
 	// One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
 	IpConfigurations EndpointIpConfigurationArrayInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -589,6 +598,11 @@ func (o EndpointOutput) CustomDnsConfigs() EndpointCustomDnsConfigArrayOutput {
 // The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
 func (o EndpointOutput) CustomNetworkInterfaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.CustomNetworkInterfaceName }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+func (o EndpointOutput) EdgeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
 }
 
 // One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.

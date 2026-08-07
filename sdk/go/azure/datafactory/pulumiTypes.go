@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -12515,154 +12515,6 @@ func (o LinkedCustomServiceIntegrationRuntimePtrOutput) Parameters() pulumi.Stri
 	}).(pulumi.StringMapOutput)
 }
 
-type LinkedServiceAzureBlobStorageKeyVaultSasToken struct {
-	LinkedServiceName string `pulumi:"linkedServiceName"`
-	SecretName        string `pulumi:"secretName"`
-}
-
-// LinkedServiceAzureBlobStorageKeyVaultSasTokenInput is an input type that accepts LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs and LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput values.
-// You can construct a concrete instance of `LinkedServiceAzureBlobStorageKeyVaultSasTokenInput` via:
-//
-//	LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{...}
-type LinkedServiceAzureBlobStorageKeyVaultSasTokenInput interface {
-	pulumi.Input
-
-	ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput
-	ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutputWithContext(context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput
-}
-
-type LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs struct {
-	LinkedServiceName pulumi.StringInput `pulumi:"linkedServiceName"`
-	SecretName        pulumi.StringInput `pulumi:"secretName"`
-}
-
-func (LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureBlobStorageKeyVaultSasToken)(nil)).Elem()
-}
-
-func (i LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
-	return i.ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutputWithContext(context.Background())
-}
-
-func (i LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput)
-}
-
-func (i LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
-	return i.ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(context.Background())
-}
-
-func (i LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput).ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx)
-}
-
-// LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput is an input type that accepts LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs, LinkedServiceAzureBlobStorageKeyVaultSasTokenPtr and LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput values.
-// You can construct a concrete instance of `LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput` via:
-//
-//	        LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{...}
-//
-//	or:
-//
-//	        nil
-type LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput interface {
-	pulumi.Input
-
-	ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput
-	ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput
-}
-
-type linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs
-
-func LinkedServiceAzureBlobStorageKeyVaultSasTokenPtr(v *LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput {
-	return (*linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType)(v)
-}
-
-func (*linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureBlobStorageKeyVaultSasToken)(nil)).Elem()
-}
-
-func (i *linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
-	return i.ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(context.Background())
-}
-
-func (i *linkedServiceAzureBlobStorageKeyVaultSasTokenPtrType) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput)
-}
-
-type LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LinkedServiceAzureBlobStorageKeyVaultSasToken)(nil)).Elem()
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
-	return o
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
-	return o
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
-	return o.ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(context.Background())
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LinkedServiceAzureBlobStorageKeyVaultSasToken) *LinkedServiceAzureBlobStorageKeyVaultSasToken {
-		return &v
-	}).(LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput)
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) LinkedServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedServiceAzureBlobStorageKeyVaultSasToken) string { return v.LinkedServiceName }).(pulumi.StringOutput)
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput) SecretName() pulumi.StringOutput {
-	return o.ApplyT(func(v LinkedServiceAzureBlobStorageKeyVaultSasToken) string { return v.SecretName }).(pulumi.StringOutput)
-}
-
-type LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput struct{ *pulumi.OutputState }
-
-func (LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LinkedServiceAzureBlobStorageKeyVaultSasToken)(nil)).Elem()
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput() LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) ToLinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutputWithContext(ctx context.Context) LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput {
-	return o
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) Elem() LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureBlobStorageKeyVaultSasToken) LinkedServiceAzureBlobStorageKeyVaultSasToken {
-		if v != nil {
-			return *v
-		}
-		var ret LinkedServiceAzureBlobStorageKeyVaultSasToken
-		return ret
-	}).(LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput)
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) LinkedServiceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureBlobStorageKeyVaultSasToken) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LinkedServiceName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput) SecretName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LinkedServiceAzureBlobStorageKeyVaultSasToken) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecretName
-	}).(pulumi.StringPtrOutput)
-}
-
 type LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey struct {
 	// Specifies the name of an existing Key Vault Data Factory Linked Service.
 	LinkedServiceName string `pulumi:"linkedServiceName"`
@@ -17782,8 +17634,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationRuntimeSsisVnetIntegrationPtrInput)(nil)).Elem(), IntegrationRuntimeSsisVnetIntegrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedCustomServiceIntegrationRuntimeInput)(nil)).Elem(), LinkedCustomServiceIntegrationRuntimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedCustomServiceIntegrationRuntimePtrInput)(nil)).Elem(), LinkedCustomServiceIntegrationRuntimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageKeyVaultSasTokenInput)(nil)).Elem(), LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrInput)(nil)).Elem(), LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyInput)(nil)).Elem(), LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyPtrInput)(nil)).Elem(), LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyInput)(nil)).Elem(), LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyArgs{})
@@ -18002,8 +17852,6 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationRuntimeSsisVnetIntegrationPtrOutput{})
 	pulumi.RegisterOutputType(LinkedCustomServiceIntegrationRuntimeOutput{})
 	pulumi.RegisterOutputType(LinkedCustomServiceIntegrationRuntimePtrOutput{})
-	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageKeyVaultSasTokenOutput{})
-	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageKeyVaultSasTokenPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyPtrOutput{})
 	pulumi.RegisterOutputType(LinkedServiceAzureBlobStorageServicePrincipalLinkedKeyVaultKeyOutput{})

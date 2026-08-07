@@ -15,15 +15,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RegistryGeoreplication {
     /**
+     * @return Whether this geo-replicated location participates in global endpoint routing for the Container Registry&#39;s geo-replicated login server.
+     * 
+     */
+    private Boolean globalEndpointRoutingEnabled;
+    /**
      * @return A location where the container registry should be geo-replicated.
      * 
      */
     private String location;
-    /**
-     * @return Whether regional endpoint is enabled for this Container Registry?
-     * 
-     */
-    private @Nullable Boolean regionalEndpointEnabled;
     /**
      * @return A mapping of tags to assign to this replication location.
      * 
@@ -39,18 +39,18 @@ public final class RegistryGeoreplication {
 
     private RegistryGeoreplication() {}
     /**
+     * @return Whether this geo-replicated location participates in global endpoint routing for the Container Registry&#39;s geo-replicated login server.
+     * 
+     */
+    public Boolean globalEndpointRoutingEnabled() {
+        return this.globalEndpointRoutingEnabled;
+    }
+    /**
      * @return A location where the container registry should be geo-replicated.
      * 
      */
     public String location() {
         return this.location;
-    }
-    /**
-     * @return Whether regional endpoint is enabled for this Container Registry?
-     * 
-     */
-    public Optional<Boolean> regionalEndpointEnabled() {
-        return Optional.ofNullable(this.regionalEndpointEnabled);
     }
     /**
      * @return A mapping of tags to assign to this replication location.
@@ -78,31 +78,33 @@ public final class RegistryGeoreplication {
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean globalEndpointRoutingEnabled;
         private String location;
-        private @Nullable Boolean regionalEndpointEnabled;
         private @Nullable Map<String,String> tags;
         private @Nullable Boolean zoneRedundancyEnabled;
         public Builder() {}
         public Builder(RegistryGeoreplication defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.globalEndpointRoutingEnabled = defaults.globalEndpointRoutingEnabled;
     	      this.location = defaults.location;
-    	      this.regionalEndpointEnabled = defaults.regionalEndpointEnabled;
     	      this.tags = defaults.tags;
     	      this.zoneRedundancyEnabled = defaults.zoneRedundancyEnabled;
         }
 
+        @CustomType.Setter
+        public Builder globalEndpointRoutingEnabled(Boolean globalEndpointRoutingEnabled) {
+            if (globalEndpointRoutingEnabled == null) {
+              throw new MissingRequiredPropertyException("RegistryGeoreplication", "globalEndpointRoutingEnabled");
+            }
+            this.globalEndpointRoutingEnabled = globalEndpointRoutingEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder location(String location) {
             if (location == null) {
               throw new MissingRequiredPropertyException("RegistryGeoreplication", "location");
             }
             this.location = location;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder regionalEndpointEnabled(@Nullable Boolean regionalEndpointEnabled) {
-
-            this.regionalEndpointEnabled = regionalEndpointEnabled;
             return this;
         }
         @CustomType.Setter
@@ -119,8 +121,8 @@ public final class RegistryGeoreplication {
         }
         public RegistryGeoreplication build() {
             final var _resultValue = new RegistryGeoreplication();
+            _resultValue.globalEndpointRoutingEnabled = globalEndpointRoutingEnabled;
             _resultValue.location = location;
-            _resultValue.regionalEndpointEnabled = regionalEndpointEnabled;
             _resultValue.tags = tags;
             _resultValue.zoneRedundancyEnabled = zoneRedundancyEnabled;
             return _resultValue;

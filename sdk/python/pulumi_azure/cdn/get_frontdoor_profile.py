@@ -27,13 +27,13 @@ class GetFrontdoorProfileResult:
     """
     A collection of values returned by getFrontdoorProfile.
     """
-    def __init__(__self__, id=None, identity=None, log_scrubbing_rules=None, name=None, resource_group_name=None, resource_guid=None, response_timeout_seconds=None, sku_name=None, tags=None):
+    def __init__(__self__, id=None, identities=None, log_scrubbing_rules=None, name=None, resource_group_name=None, resource_guid=None, response_timeout_seconds=None, sku_name=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if identity and not isinstance(identity, dict):
-            raise TypeError("Expected argument 'identity' to be a dict")
-        pulumi.set(__self__, "identity", identity)
+        if identities and not isinstance(identities, list):
+            raise TypeError("Expected argument 'identities' to be a list")
+        pulumi.set(__self__, "identities", identities)
         if log_scrubbing_rules and not isinstance(log_scrubbing_rules, list):
             raise TypeError("Expected argument 'log_scrubbing_rules' to be a list")
         pulumi.set(__self__, "log_scrubbing_rules", log_scrubbing_rules)
@@ -66,11 +66,11 @@ class GetFrontdoorProfileResult:
 
     @_builtins.property
     @pulumi.getter
-    def identity(self) -> 'outputs.GetFrontdoorProfileIdentityResult':
+    def identities(self) -> Sequence['outputs.GetFrontdoorProfileIdentityResult']:
         """
         An `identity` block as defined below.
         """
-        return pulumi.get(self, "identity")
+        return pulumi.get(self, "identities")
 
     @_builtins.property
     @pulumi.getter(name="logScrubbingRules")
@@ -130,7 +130,7 @@ class AwaitableGetFrontdoorProfileResult(GetFrontdoorProfileResult):
             yield self
         return GetFrontdoorProfileResult(
             id=self.id,
-            identity=self.identity,
+            identities=self.identities,
             log_scrubbing_rules=self.log_scrubbing_rules,
             name=self.name,
             resource_group_name=self.resource_group_name,
@@ -163,7 +163,7 @@ def get_frontdoor_profile(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2024-02-01
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Profile.
@@ -177,7 +177,7 @@ def get_frontdoor_profile(name: Optional[_builtins.str] = None,
 
     return AwaitableGetFrontdoorProfileResult(
         id=pulumi.get(__ret__, 'id'),
-        identity=pulumi.get(__ret__, 'identity'),
+        identities=pulumi.get(__ret__, 'identities'),
         log_scrubbing_rules=pulumi.get(__ret__, 'log_scrubbing_rules'),
         name=pulumi.get(__ret__, 'name'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
@@ -208,7 +208,7 @@ def get_frontdoor_profile_output(name: pulumi.Input[Optional[_builtins.str]] = N
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2024-02-01
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Profile.
@@ -221,7 +221,7 @@ def get_frontdoor_profile_output(name: pulumi.Input[Optional[_builtins.str]] = N
     __ret__ = pulumi.runtime.invoke_output('azure:cdn/getFrontdoorProfile:getFrontdoorProfile', __args__, opts=opts, typ=GetFrontdoorProfileResult)
     return __ret__.apply(lambda __response__: GetFrontdoorProfileResult(
         id=pulumi.get(__response__, 'id'),
-        identity=pulumi.get(__response__, 'identity'),
+        identities=pulumi.get(__response__, 'identities'),
         log_scrubbing_rules=pulumi.get(__response__, 'log_scrubbing_rules'),
         name=pulumi.get(__response__, 'name'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),

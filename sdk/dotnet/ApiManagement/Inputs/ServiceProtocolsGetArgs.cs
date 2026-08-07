@@ -12,9 +12,6 @@ namespace Pulumi.Azure.ApiManagement.Inputs
 
     public sealed class ServiceProtocolsGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("enableHttp2")]
-        public Input<bool>? EnableHttp2 { get; set; }
-
         /// <summary>
         /// Should HTTP/2 be supported by the API Management Service? Defaults to `False`.
         /// </summary>

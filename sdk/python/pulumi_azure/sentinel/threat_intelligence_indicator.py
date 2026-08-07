@@ -44,15 +44,15 @@ class ThreatIntelligenceIndicatorArgs:
         """
         The set of arguments for constructing a ThreatIntelligenceIndicator resource.
 
-        :param pulumi.Input[_builtins.str] display_name: The display name of the Threat Intelligence Indicator.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] pattern: The pattern used by the Threat Intelligence Indicator. When `pattern_type` set to `file`, `pattern` must be specified with `<HashName>:<Value>` format, such as `MD5:78ecc5c05cd8b79af480df2f8fba0b9d`.
         :param pulumi.Input[_builtins.str] pattern_type: The type of pattern used by the Threat Intelligence Indicator. Possible values are `domain-name`, `file`, `ipv4-addr`, `ipv6-addr` and `url`.
         :param pulumi.Input[_builtins.str] source: Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] validate_from_utc: The start of validate date in RFC3339.
+        :param pulumi.Input[_builtins.str] validate_from_utc: The start of validate date in RFC3339. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
         :param pulumi.Input[_builtins.int] confidence: Confidence levels of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] created_by: The creator of the Threat Intelligence Indicator.
-        :param pulumi.Input[_builtins.str] description: The description of the Threat Intelligence Indicator.
+        :param pulumi.Input[_builtins.str] description: The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] extension: The extension config of the Threat Intelligence Indicator in JSON format.
         :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorExternalReferenceArgs']]] external_references: One or more `external_reference` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['ThreatIntelligenceIndicatorGranularMarkingArgs']]] granular_markings: One or more `granular_marking` blocks as defined below.
@@ -104,7 +104,7 @@ class ThreatIntelligenceIndicatorArgs:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The display name of the Threat Intelligence Indicator.
+        The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -152,7 +152,7 @@ class ThreatIntelligenceIndicatorArgs:
     @pulumi.getter(name="validateFromUtc")
     def validate_from_utc(self) -> pulumi.Input[_builtins.str]:
         """
-        The start of validate date in RFC3339.
+        The start of validate date in RFC3339. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "validate_from_utc")
 
@@ -200,7 +200,7 @@ class ThreatIntelligenceIndicatorArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the Threat Intelligence Indicator.
+        The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "description")
 
@@ -379,8 +379,8 @@ class _ThreatIntelligenceIndicatorState:
         :param pulumi.Input[_builtins.str] created_by: The creator of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] created_on: The date of this Threat Intelligence Indicator created.
         :param pulumi.Input[_builtins.bool] defanged: Whether the Threat Intelligence entity is defanged?
-        :param pulumi.Input[_builtins.str] description: The description of the Threat Intelligence Indicator.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the Threat Intelligence Indicator.
+        :param pulumi.Input[_builtins.str] description: The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] extension: The extension config of the Threat Intelligence Indicator in JSON format.
         :param pulumi.Input[_builtins.str] external_id: The external ID of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] external_last_updated_time_utc: the External last updated time in UTC.
@@ -400,7 +400,7 @@ class _ThreatIntelligenceIndicatorState:
         :param pulumi.Input[_builtins.str] source: Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Specifies a list of tags of the Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] threat_types: Specifies a list of threat types of this Threat Intelligence Indicator.
-        :param pulumi.Input[_builtins.str] validate_from_utc: The start of validate date in RFC3339.
+        :param pulumi.Input[_builtins.str] validate_from_utc: The start of validate date in RFC3339. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] validate_until_utc: The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
         """
@@ -513,7 +513,7 @@ class _ThreatIntelligenceIndicatorState:
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The description of the Threat Intelligence Indicator.
+        The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "description")
 
@@ -525,7 +525,7 @@ class _ThreatIntelligenceIndicatorState:
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The display name of the Threat Intelligence Indicator.
+        The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -765,7 +765,7 @@ class _ThreatIntelligenceIndicatorState:
     @pulumi.getter(name="validateFromUtc")
     def validate_from_utc(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The start of validate date in RFC3339.
+        The start of validate date in RFC3339. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "validate_from_utc")
 
@@ -847,11 +847,20 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         example_threat_intelligence_indicator = azure.sentinel.ThreatIntelligenceIndicator("example",
             workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             pattern_type="domain-name",
-            pattern="http://example.com",
+            pattern="example.com",
             source="Microsoft Sentinel",
             validate_from_utc="2022-12-14T16:00:00Z",
             display_name="example-indicator")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
+
+        * `Microsoft.SecurityInsights` - 2022-10-01-preview
 
         ## Import
 
@@ -866,8 +875,8 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] confidence: Confidence levels of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] created_by: The creator of the Threat Intelligence Indicator.
-        :param pulumi.Input[_builtins.str] description: The description of the Threat Intelligence Indicator.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the Threat Intelligence Indicator.
+        :param pulumi.Input[_builtins.str] description: The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] extension: The extension config of the Threat Intelligence Indicator in JSON format.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorExternalReferenceArgs', 'ThreatIntelligenceIndicatorExternalReferenceArgsDict']]]] external_references: One or more `external_reference` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ThreatIntelligenceIndicatorGranularMarkingArgs', 'ThreatIntelligenceIndicatorGranularMarkingArgsDict']]]] granular_markings: One or more `granular_marking` blocks as defined below.
@@ -881,7 +890,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source: Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Specifies a list of tags of the Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] threat_types: Specifies a list of threat types of this Threat Intelligence Indicator.
-        :param pulumi.Input[_builtins.str] validate_from_utc: The start of validate date in RFC3339.
+        :param pulumi.Input[_builtins.str] validate_from_utc: The start of validate date in RFC3339. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] validate_until_utc: The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
         """
@@ -913,11 +922,20 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         example_threat_intelligence_indicator = azure.sentinel.ThreatIntelligenceIndicator("example",
             workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             pattern_type="domain-name",
-            pattern="http://example.com",
+            pattern="example.com",
             source="Microsoft Sentinel",
             validate_from_utc="2022-12-14T16:00:00Z",
             display_name="example-indicator")
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
+
+        * `Microsoft.SecurityInsights` - 2022-10-01-preview
 
         ## Import
 
@@ -1061,8 +1079,8 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_by: The creator of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] created_on: The date of this Threat Intelligence Indicator created.
         :param pulumi.Input[_builtins.bool] defanged: Whether the Threat Intelligence entity is defanged?
-        :param pulumi.Input[_builtins.str] description: The description of the Threat Intelligence Indicator.
-        :param pulumi.Input[_builtins.str] display_name: The display name of the Threat Intelligence Indicator.
+        :param pulumi.Input[_builtins.str] description: The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] extension: The extension config of the Threat Intelligence Indicator in JSON format.
         :param pulumi.Input[_builtins.str] external_id: The external ID of the Threat Intelligence Indicator.
         :param pulumi.Input[_builtins.str] external_last_updated_time_utc: the External last updated time in UTC.
@@ -1082,7 +1100,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source: Source of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: Specifies a list of tags of the Threat Intelligence Indicator.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] threat_types: Specifies a list of threat types of this Threat Intelligence Indicator.
-        :param pulumi.Input[_builtins.str] validate_from_utc: The start of validate date in RFC3339.
+        :param pulumi.Input[_builtins.str] validate_from_utc: The start of validate date in RFC3339. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] validate_until_utc: The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
         :param pulumi.Input[_builtins.str] workspace_id: The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
         """
@@ -1156,7 +1174,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The description of the Threat Intelligence Indicator.
+        The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "description")
 
@@ -1164,7 +1182,7 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The display name of the Threat Intelligence Indicator.
+        The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "display_name")
 
@@ -1324,13 +1342,13 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
     @pulumi.getter(name="validateFromUtc")
     def validate_from_utc(self) -> pulumi.Output[_builtins.str]:
         """
-        The start of validate date in RFC3339.
+        The start of validate date in RFC3339. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "validate_from_utc")
 
     @_builtins.property
     @pulumi.getter(name="validateUntilUtc")
-    def validate_until_utc(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def validate_until_utc(self) -> pulumi.Output[_builtins.str]:
         """
         The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
         """

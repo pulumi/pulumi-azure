@@ -95,13 +95,9 @@ export class EventHub extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the ID of the EventHub Namespace.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
     declare public readonly namespaceId: pulumi.Output<string>;
-    /**
-     * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly namespaceName: pulumi.Output<string>;
     /**
      * Specifies the current number of shards on the Event Hub.
      *
@@ -114,10 +110,6 @@ export class EventHub extends pulumi.CustomResource {
      * The identifiers for partitions created for Event Hubs.
      */
     declare public /*out*/ readonly partitionIds: pulumi.Output<string[]>;
-    /**
-     * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * A `retentionDescription` block as defined below.
      */
@@ -144,14 +136,15 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["messageRetention"] = state?.messageRetention;
             resourceInputs["name"] = state?.name;
             resourceInputs["namespaceId"] = state?.namespaceId;
-            resourceInputs["namespaceName"] = state?.namespaceName;
             resourceInputs["partitionCount"] = state?.partitionCount;
             resourceInputs["partitionIds"] = state?.partitionIds;
-            resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["retentionDescription"] = state?.retentionDescription;
             resourceInputs["status"] = state?.status;
         } else {
             const args = argsOrState as EventHubArgs | undefined;
+            if (args?.namespaceId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'namespaceId'");
+            }
             if (args?.partitionCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partitionCount'");
             }
@@ -159,9 +152,7 @@ export class EventHub extends pulumi.CustomResource {
             resourceInputs["messageRetention"] = args?.messageRetention;
             resourceInputs["name"] = args?.name;
             resourceInputs["namespaceId"] = args?.namespaceId;
-            resourceInputs["namespaceName"] = args?.namespaceName;
             resourceInputs["partitionCount"] = args?.partitionCount;
-            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["retentionDescription"] = args?.retentionDescription;
             resourceInputs["status"] = args?.status;
             resourceInputs["partitionIds"] = undefined /*out*/;
@@ -190,13 +181,9 @@ export interface EventHubState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the ID of the EventHub Namespace.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
     namespaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    namespaceName?: pulumi.Input<string | undefined>;
     /**
      * Specifies the current number of shards on the Event Hub.
      *
@@ -209,10 +196,6 @@ export interface EventHubState {
      * The identifiers for partitions created for Event Hubs.
      */
     partitionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `retentionDescription` block as defined below.
      */
@@ -242,13 +225,9 @@ export interface EventHubArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the ID of the EventHub Namespace.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      */
-    namespaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    namespaceName?: pulumi.Input<string | undefined>;
+    namespaceId: pulumi.Input<string>;
     /**
      * Specifies the current number of shards on the Event Hub.
      *
@@ -257,10 +236,6 @@ export interface EventHubArgs {
      * > **Note:** When using a dedicated Event Hubs cluster, maximum value of `partitionCount` is 1024. When using a shared parent EventHub Namespace, maximum value is 32.
      */
     partitionCount: pulumi.Input<number>;
-    /**
-     * @deprecated `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
     /**
      * A `retentionDescription` block as defined below.
      */

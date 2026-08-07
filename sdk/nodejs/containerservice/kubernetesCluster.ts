@@ -302,11 +302,11 @@ export class KubernetesCluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly nodeResourceGroupId: pulumi.Output<string>;
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
      *
      * > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
-    declare public readonly oidcIssuerEnabled: pulumi.Output<boolean>;
+    declare public readonly oidcIssuerEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The OIDC issuer URL that is associated with the cluster.
      */
@@ -527,6 +527,9 @@ export class KubernetesCluster extends pulumi.CustomResource {
             const args = argsOrState as KubernetesClusterArgs | undefined;
             if (args?.defaultNodePool === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultNodePool'");
+            }
+            if (args?.nodeProvisioningProfile === undefined && !opts.urn) {
+                throw new Error("Missing required property 'nodeProvisioningProfile'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -828,7 +831,7 @@ export interface KubernetesClusterState {
      */
     nodeResourceGroupId?: pulumi.Input<string | undefined>;
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
      *
      * > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */
@@ -1146,7 +1149,7 @@ export interface KubernetesClusterArgs {
     /**
      * A `nodeProvisioningProfile` block as defined below.
      */
-    nodeProvisioningProfile?: pulumi.Input<inputs.containerservice.KubernetesClusterNodeProvisioningProfile | undefined>;
+    nodeProvisioningProfile: pulumi.Input<inputs.containerservice.KubernetesClusterNodeProvisioningProfile>;
     /**
      * The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
      *
@@ -1154,7 +1157,7 @@ export interface KubernetesClusterArgs {
      */
     nodeResourceGroup?: pulumi.Input<string | undefined>;
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
      *
      * > **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      */

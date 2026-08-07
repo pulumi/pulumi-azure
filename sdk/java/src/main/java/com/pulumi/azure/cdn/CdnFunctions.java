@@ -4,6 +4,8 @@
 package com.pulumi.azure.cdn;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorBatchRuleSetArgs;
+import com.pulumi.azure.cdn.inputs.GetFrontdoorBatchRuleSetPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorCustomDomainPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorEndpointArgs;
@@ -22,6 +24,7 @@ import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyArgs;
 import com.pulumi.azure.cdn.inputs.GetFrontdoorSecurityPolicyPlainArgs;
 import com.pulumi.azure.cdn.inputs.GetProfileArgs;
 import com.pulumi.azure.cdn.inputs.GetProfilePlainArgs;
+import com.pulumi.azure.cdn.outputs.GetFrontdoorBatchRuleSetResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorCustomDomainResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorEndpointResult;
 import com.pulumi.azure.cdn.outputs.GetFrontdoorFirewallPolicyResult;
@@ -39,6 +42,261 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class CdnFunctions {
+    /**
+     * Gets information about an existing Front Door (standard/premium) Batch Rule Set.
+     * 
+     * &gt; **Note:** This data source can only read Rule Sets that were provisioned in batch mode. Use the `azure.cdn.FrontdoorRuleSet` data source for Rule Sets that were not provisioned in batch mode.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorBatchRuleSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorBatchRuleSet(GetFrontdoorBatchRuleSetArgs.builder()
+     *             .name("existing")
+     *             .profileName("existing-profile")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
+     */
+    public static Output<GetFrontdoorBatchRuleSetResult> getFrontdoorBatchRuleSet(GetFrontdoorBatchRuleSetArgs args) {
+        return getFrontdoorBatchRuleSet(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets information about an existing Front Door (standard/premium) Batch Rule Set.
+     * 
+     * &gt; **Note:** This data source can only read Rule Sets that were provisioned in batch mode. Use the `azure.cdn.FrontdoorRuleSet` data source for Rule Sets that were not provisioned in batch mode.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorBatchRuleSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorBatchRuleSet(GetFrontdoorBatchRuleSetArgs.builder()
+     *             .name("existing")
+     *             .profileName("existing-profile")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorBatchRuleSetResult> getFrontdoorBatchRuleSetPlain(GetFrontdoorBatchRuleSetPlainArgs args) {
+        return getFrontdoorBatchRuleSetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Gets information about an existing Front Door (standard/premium) Batch Rule Set.
+     * 
+     * &gt; **Note:** This data source can only read Rule Sets that were provisioned in batch mode. Use the `azure.cdn.FrontdoorRuleSet` data source for Rule Sets that were not provisioned in batch mode.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorBatchRuleSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorBatchRuleSet(GetFrontdoorBatchRuleSetArgs.builder()
+     *             .name("existing")
+     *             .profileName("existing-profile")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
+     */
+    public static Output<GetFrontdoorBatchRuleSetResult> getFrontdoorBatchRuleSet(GetFrontdoorBatchRuleSetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:cdn/getFrontdoorBatchRuleSet:getFrontdoorBatchRuleSet", TypeShape.of(GetFrontdoorBatchRuleSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets information about an existing Front Door (standard/premium) Batch Rule Set.
+     * 
+     * &gt; **Note:** This data source can only read Rule Sets that were provisioned in batch mode. Use the `azure.cdn.FrontdoorRuleSet` data source for Rule Sets that were not provisioned in batch mode.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorBatchRuleSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorBatchRuleSet(GetFrontdoorBatchRuleSetArgs.builder()
+     *             .name("existing")
+     *             .profileName("existing-profile")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
+     */
+    public static Output<GetFrontdoorBatchRuleSetResult> getFrontdoorBatchRuleSet(GetFrontdoorBatchRuleSetArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("azure:cdn/getFrontdoorBatchRuleSet:getFrontdoorBatchRuleSet", TypeShape.of(GetFrontdoorBatchRuleSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Gets information about an existing Front Door (standard/premium) Batch Rule Set.
+     * 
+     * &gt; **Note:** This data source can only read Rule Sets that were provisioned in batch mode. Use the `azure.cdn.FrontdoorRuleSet` data source for Rule Sets that were not provisioned in batch mode.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.cdn.CdnFunctions;
+     * import com.pulumi.azure.cdn.inputs.GetFrontdoorBatchRuleSetArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = CdnFunctions.getFrontdoorBatchRuleSet(GetFrontdoorBatchRuleSetArgs.builder()
+     *             .name("existing")
+     *             .profileName("existing-profile")
+     *             .resourceGroupName("existing-resources")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
+     */
+    public static CompletableFuture<GetFrontdoorBatchRuleSetResult> getFrontdoorBatchRuleSetPlain(GetFrontdoorBatchRuleSetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:cdn/getFrontdoorBatchRuleSet:getFrontdoorBatchRuleSet", TypeShape.of(GetFrontdoorBatchRuleSetResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Gets information about an existing Front Door (standard/premium) Custom Domain.
      * 
@@ -82,7 +340,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2025-04-15
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args) {
@@ -131,7 +389,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2025-04-15
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args) {
@@ -180,7 +438,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2025-04-15
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args, InvokeOptions options) {
@@ -229,7 +487,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2025-04-15
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs args, InvokeOutputOptions options) {
@@ -278,7 +536,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2025-04-15
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorCustomDomainResult> getFrontdoorCustomDomainPlain(GetFrontdoorCustomDomainPlainArgs args, InvokeOptions options) {
@@ -322,6 +580,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorEndpointResult> getFrontdoorEndpoint(GetFrontdoorEndpointArgs args) {
         return getFrontdoorEndpoint(args, InvokeOptions.Empty);
@@ -363,6 +628,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorEndpointResult> getFrontdoorEndpointPlain(GetFrontdoorEndpointPlainArgs args) {
@@ -406,6 +678,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorEndpointResult> getFrontdoorEndpoint(GetFrontdoorEndpointArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", TypeShape.of(GetFrontdoorEndpointResult.class), args, Utilities.withVersion(options));
@@ -448,6 +727,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorEndpointResult> getFrontdoorEndpoint(GetFrontdoorEndpointArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", TypeShape.of(GetFrontdoorEndpointResult.class), args, Utilities.withVersion(options));
@@ -489,6 +775,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorEndpointResult> getFrontdoorEndpointPlain(GetFrontdoorEndpointPlainArgs args, InvokeOptions options) {
@@ -737,6 +1030,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args) {
         return getFrontdoorOriginGroup(args, InvokeOptions.Empty);
@@ -778,6 +1078,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args) {
@@ -821,6 +1128,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", TypeShape.of(GetFrontdoorOriginGroupResult.class), args, Utilities.withVersion(options));
@@ -863,6 +1177,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", TypeShape.of(GetFrontdoorOriginGroupResult.class), args, Utilities.withVersion(options));
@@ -904,6 +1225,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args, InvokeOptions options) {
@@ -953,7 +1281,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args) {
@@ -1003,7 +1331,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args) {
@@ -1053,7 +1381,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args, InvokeOptions options) {
@@ -1103,7 +1431,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorProfileResult> getFrontdoorProfile(GetFrontdoorProfileArgs args, InvokeOutputOptions options) {
@@ -1153,7 +1481,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorProfileResult> getFrontdoorProfilePlain(GetFrontdoorProfilePlainArgs args, InvokeOptions options) {
@@ -1162,6 +1490,8 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
+     * &gt; **Note:** This data source can only read Rule Sets that were not provisioned in batch mode. Use the `azure.cdn.FrontdoorBatchRuleSet` data source for Rule Sets that were provisioned in batch mode.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1202,7 +1532,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args) {
@@ -1211,6 +1541,8 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
+     * &gt; **Note:** This data source can only read Rule Sets that were not provisioned in batch mode. Use the `azure.cdn.FrontdoorBatchRuleSet` data source for Rule Sets that were provisioned in batch mode.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1251,7 +1583,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args) {
@@ -1260,6 +1592,8 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
+     * &gt; **Note:** This data source can only read Rule Sets that were not provisioned in batch mode. Use the `azure.cdn.FrontdoorBatchRuleSet` data source for Rule Sets that were provisioned in batch mode.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1300,7 +1634,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args, InvokeOptions options) {
@@ -1309,6 +1643,8 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
+     * &gt; **Note:** This data source can only read Rule Sets that were not provisioned in batch mode. Use the `azure.cdn.FrontdoorBatchRuleSet` data source for Rule Sets that were provisioned in batch mode.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1349,7 +1685,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorRuleSetResult> getFrontdoorRuleSet(GetFrontdoorRuleSetArgs args, InvokeOutputOptions options) {
@@ -1358,6 +1694,8 @@ public final class CdnFunctions {
     /**
      * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
      * 
+     * &gt; **Note:** This data source can only read Rule Sets that were not provisioned in batch mode. Use the `azure.cdn.FrontdoorBatchRuleSet` data source for Rule Sets that were provisioned in batch mode.
+     * 
      * ## Example Usage
      * 
      * <pre>
@@ -1398,7 +1736,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorRuleSetResult> getFrontdoorRuleSetPlain(GetFrontdoorRuleSetPlainArgs args, InvokeOptions options) {
@@ -1442,6 +1780,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args) {
         return getFrontdoorSecret(args, InvokeOptions.Empty);
@@ -1483,6 +1828,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorSecretResult> getFrontdoorSecretPlain(GetFrontdoorSecretPlainArgs args) {
@@ -1526,6 +1878,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", TypeShape.of(GetFrontdoorSecretResult.class), args, Utilities.withVersion(options));
@@ -1568,6 +1927,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", TypeShape.of(GetFrontdoorSecretResult.class), args, Utilities.withVersion(options));
@@ -1609,6 +1975,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorSecretResult> getFrontdoorSecretPlain(GetFrontdoorSecretPlainArgs args, InvokeOptions options) {
@@ -1743,7 +2116,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs args) {
@@ -1878,7 +2251,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicyPlain(GetFrontdoorSecurityPolicyPlainArgs args) {
@@ -2013,7 +2386,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs args, InvokeOptions options) {
@@ -2148,7 +2521,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static Output<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicy(GetFrontdoorSecurityPolicyArgs args, InvokeOutputOptions options) {
@@ -2283,7 +2656,7 @@ public final class CdnFunctions {
      * &lt;!-- This section is generated, changes will be overwritten --&gt;
      * This data source uses the following Azure API Providers:
      * 
-     * * `Microsoft.Cdn` - 2024-02-01
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorSecurityPolicyResult> getFrontdoorSecurityPolicyPlain(GetFrontdoorSecurityPolicyPlainArgs args, InvokeOptions options) {

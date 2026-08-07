@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cdn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Cdn` - 2024-02-01
+// * `Microsoft.Cdn` - 2025-12-01
 func LookupFrontdoorProfile(ctx *pulumi.Context, args *LookupFrontdoorProfileArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorProfileResult
@@ -71,7 +71,7 @@ type LookupFrontdoorProfileResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// An `identity` block as defined below.
-	Identity GetFrontdoorProfileIdentity `pulumi:"identity"`
+	Identities []GetFrontdoorProfileIdentity `pulumi:"identities"`
 	// One or more `logScrubbingRule` blocks as defined below.
 	LogScrubbingRules []GetFrontdoorProfileLogScrubbingRule `pulumi:"logScrubbingRules"`
 	Name              string                                `pulumi:"name"`
@@ -128,8 +128,8 @@ func (o LookupFrontdoorProfileResultOutput) Id() pulumi.StringOutput {
 }
 
 // An `identity` block as defined below.
-func (o LookupFrontdoorProfileResultOutput) Identity() GetFrontdoorProfileIdentityOutput {
-	return o.ApplyT(func(v LookupFrontdoorProfileResult) GetFrontdoorProfileIdentity { return v.Identity }).(GetFrontdoorProfileIdentityOutput)
+func (o LookupFrontdoorProfileResultOutput) Identities() GetFrontdoorProfileIdentityArrayOutput {
+	return o.ApplyT(func(v LookupFrontdoorProfileResult) []GetFrontdoorProfileIdentity { return v.Identities }).(GetFrontdoorProfileIdentityArrayOutput)
 }
 
 // One or more `logScrubbingRule` blocks as defined below.

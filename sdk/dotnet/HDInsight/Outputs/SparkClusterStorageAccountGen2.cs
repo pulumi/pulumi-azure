@@ -24,15 +24,15 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly bool IsDefault;
         /// <summary>
-        /// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string StorageAccountId;
+        /// <summary>
+        /// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** This can be obtained from the `Id` of the `azure.storage.Container` resource.
         /// </summary>
-        public readonly string ManagedIdentityResourceId;
-        /// <summary>
-        /// The ID of the Storage Account. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string StorageResourceId;
+        public readonly string UserAssignedIdentityId;
 
         [OutputConstructor]
         private SparkClusterStorageAccountGen2(
@@ -40,14 +40,14 @@ namespace Pulumi.Azure.HDInsight.Outputs
 
             bool isDefault,
 
-            string managedIdentityResourceId,
+            string storageAccountId,
 
-            string storageResourceId)
+            string userAssignedIdentityId)
         {
             FilesystemId = filesystemId;
             IsDefault = isDefault;
-            ManagedIdentityResourceId = managedIdentityResourceId;
-            StorageResourceId = storageResourceId;
+            StorageAccountId = storageAccountId;
+            UserAssignedIdentityId = userAssignedIdentityId;
         }
     }
 }

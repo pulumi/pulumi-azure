@@ -98,6 +98,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetServiceEndpointArgs;
  * import com.pulumi.azure.mssql.Server;
  * import com.pulumi.azure.mssql.ServerArgs;
  * import com.pulumi.azure.mssql.inputs.ServerIdentityArgs;
@@ -150,8 +151,12 @@ import javax.annotation.Nullable;
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .serviceEndpoints(            
- *                 "Microsoft.Sql",
- *                 "Microsoft.Storage")
+ *                 SubnetServiceEndpointArgs.builder()
+ *                     .service("Microsoft.Sql")
+ *                     .build(),
+ *                 SubnetServiceEndpointArgs.builder()
+ *                     .service("Microsoft.Storage")
+ *                     .build())
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 

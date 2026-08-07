@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,8 +29,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,9 +82,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -129,6 +129,7 @@ import (
 //				Name:                     pulumi.String("example"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
 //				EnabledForDiskEncryption: pulumi.Bool(true),
 //				TenantId:                 pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays:  pulumi.Int(7),
@@ -218,8 +219,6 @@ type ServerTransparentDataEncryption struct {
 	//
 	// > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
 	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 }
@@ -265,8 +264,6 @@ type serverTransparentDataEncryptionState struct {
 	//
 	// > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId *string `pulumi:"serverId"`
 }
@@ -280,8 +277,6 @@ type ServerTransparentDataEncryptionState struct {
 	//
 	// > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
 	KeyVaultKeyId pulumi.StringPtrInput
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringPtrInput
 }
@@ -299,8 +294,6 @@ type serverTransparentDataEncryptionArgs struct {
 	//
 	// > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
 	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId string `pulumi:"serverId"`
 }
@@ -315,8 +308,6 @@ type ServerTransparentDataEncryptionArgs struct {
 	//
 	// > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
 	KeyVaultKeyId pulumi.StringPtrInput
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
 	ServerId pulumi.StringInput
 }
@@ -420,11 +411,6 @@ func (o ServerTransparentDataEncryptionOutput) AutoRotationEnabled() pulumi.Bool
 // > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
 func (o ServerTransparentDataEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerTransparentDataEncryption) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-func (o ServerTransparentDataEncryptionOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServerTransparentDataEncryption) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.

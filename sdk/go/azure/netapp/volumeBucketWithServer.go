@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,9 +35,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi-tls/sdk/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -186,10 +186,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -281,23 +281,25 @@ import (
 //				return err
 //			}
 //			certificate, err := keyvault.NewKeyVault(ctx, "certificate", &keyvault.KeyVaultArgs{
-//				Name:                    pulumi.String("example-cert-kv"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				TenantId:                pulumi.String(current.TenantId),
-//				SkuName:                 pulumi.String("standard"),
-//				SoftDeleteRetentionDays: pulumi.Int(7),
+//				Name:                     pulumi.String("example-cert-kv"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("standard"),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			credentials, err := keyvault.NewKeyVault(ctx, "credentials", &keyvault.KeyVaultArgs{
-//				Name:                    pulumi.String("example-creds-kv"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				TenantId:                pulumi.String(current.TenantId),
-//				SkuName:                 pulumi.String("standard"),
-//				SoftDeleteRetentionDays: pulumi.Int(7),
+//				Name:                     pulumi.String("example-creds-kv"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("standard"),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
 //			})
 //			if err != nil {
 //				return err

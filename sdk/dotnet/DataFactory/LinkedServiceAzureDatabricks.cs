@@ -209,14 +209,11 @@ namespace Pulumi.Azure.DataFactory
         [Output("keyVaultPassword")]
         public Output<Outputs.LinkedServiceAzureDatabricksKeyVaultPassword?> KeyVaultPassword { get; private set; } = null!;
 
-        [Output("msiWorkSpaceResourceId")]
-        public Output<string> MsiWorkSpaceResourceId { get; private set; } = null!;
-
         /// <summary>
         /// Authenticate to ADB via managed service identity.
         /// </summary>
         [Output("msiWorkspaceId")]
-        public Output<string> MsiWorkspaceId { get; private set; } = null!;
+        public Output<string?> MsiWorkspaceId { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
@@ -368,9 +365,6 @@ namespace Pulumi.Azure.DataFactory
         [Input("keyVaultPassword")]
         public Input<Inputs.LinkedServiceAzureDatabricksKeyVaultPasswordArgs>? KeyVaultPassword { get; set; }
 
-        [Input("msiWorkSpaceResourceId")]
-        public Input<string>? MsiWorkSpaceResourceId { get; set; }
-
         /// <summary>
         /// Authenticate to ADB via managed service identity.
         /// </summary>
@@ -490,9 +484,6 @@ namespace Pulumi.Azure.DataFactory
         /// </summary>
         [Input("keyVaultPassword")]
         public Input<Inputs.LinkedServiceAzureDatabricksKeyVaultPasswordGetArgs>? KeyVaultPassword { get; set; }
-
-        [Input("msiWorkSpaceResourceId")]
-        public Input<string>? MsiWorkSpaceResourceId { get; set; }
 
         /// <summary>
         /// Authenticate to ADB via managed service identity.

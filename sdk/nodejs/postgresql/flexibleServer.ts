@@ -30,7 +30,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
- *     serviceEndpoints: ["Microsoft.Storage"],
+ *     serviceEndpoints: [{
+ *         service: "Microsoft.Storage",
+ *     }],
  *     delegations: [{
  *         name: "fs",
  *         serviceDelegation: {
@@ -45,9 +47,8 @@ import * as utilities from "../utilities";
  * });
  * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
  *     name: "exampleVnetZone.com",
- *     privateDnsZoneName: exampleZone.name,
+ *     privateDnsZoneId: exampleZone.id,
  *     virtualNetworkId: exampleVirtualNetwork.id,
- *     resourceGroupName: example.name,
  * }, {
  *     dependsOn: [exampleSubnet],
  * });

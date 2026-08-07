@@ -29,6 +29,7 @@ import * as utilities from "../utilities";
  *     name: "anfcmkakv",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     enabledForDiskEncryption: true,
  *     enabledForDeployment: true,
  *     enabledForTemplateDeployment: true,

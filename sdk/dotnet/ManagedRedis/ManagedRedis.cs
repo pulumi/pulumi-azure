@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.ManagedRedis
 {
     /// <summary>
-    /// Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes azure.redis.EnterpriseCluster and azure.redis.EnterpriseDatabase resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
+    /// Manages a [Managed Redis](https://learn.microsoft.com/azure/redis/overview). This resource supersedes AzurermRedisEnterpriseCluster and AzurermRedisEnterpriseDatabase resources. Please refer to the migration guide for more information on migrating from Redis Enterprise to Managed Redis: [Migrating from Redis Enterprise to Managed Redis](https://learn.microsoft.com/azure/redis/migrate/migrate-overview).
     /// 
     /// ## Example Usage
     /// 
@@ -73,6 +73,7 @@ namespace Pulumi.Azure.ManagedRedis
     ///         Name = "example",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         PurgeProtectionEnabled = true,

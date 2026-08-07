@@ -114,9 +114,9 @@ export class Volume extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * A list of IPv4 Addresses which should be used to mount the volume.
+     * One or more `mountTarget` blocks as defined below.
      */
-    declare public /*out*/ readonly mountIpAddresses: pulumi.Output<string[]>;
+    declare public /*out*/ readonly mountTargets: pulumi.Output<outputs.netapp.VolumeMountTarget[]>;
     /**
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      */
@@ -226,7 +226,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["keyVaultPrivateEndpointId"] = state?.keyVaultPrivateEndpointId;
             resourceInputs["largeVolumeEnabled"] = state?.largeVolumeEnabled;
             resourceInputs["location"] = state?.location;
-            resourceInputs["mountIpAddresses"] = state?.mountIpAddresses;
+            resourceInputs["mountTargets"] = state?.mountTargets;
             resourceInputs["name"] = state?.name;
             resourceInputs["networkFeatures"] = state?.networkFeatures;
             resourceInputs["poolName"] = state?.poolName;
@@ -301,7 +301,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["throughputInMibps"] = args?.throughputInMibps;
             resourceInputs["volumePath"] = args?.volumePath;
             resourceInputs["zone"] = args?.zone;
-            resourceInputs["mountIpAddresses"] = undefined /*out*/;
+            resourceInputs["mountTargets"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
@@ -379,9 +379,9 @@ export interface VolumeState {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * A list of IPv4 Addresses which should be used to mount the volume.
+     * One or more `mountTarget` blocks as defined below.
      */
-    mountIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    mountTargets?: pulumi.Input<pulumi.Input<inputs.netapp.VolumeMountTarget>[] | undefined>;
     /**
      * The name of the NetApp Volume. Changing this forces a new resource to be created.
      */

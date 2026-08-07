@@ -239,9 +239,9 @@ namespace Pulumi.Azure.NetApp
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// A list of IPv4 Addresses which should be used to mount the volume.
+        /// One or more `MountTarget` blocks as defined below.
         /// </summary>
-        public readonly ImmutableArray<string> MountIpAddresses;
+        public readonly ImmutableArray<Outputs.GetVolumeMountTargetResult> MountTargets;
         public readonly string Name;
         /// <summary>
         /// Network features in use `Basic` or `Standard`.
@@ -308,7 +308,7 @@ namespace Pulumi.Azure.NetApp
 
             string location,
 
-            ImmutableArray<string> mountIpAddresses,
+            ImmutableArray<Outputs.GetVolumeMountTargetResult> mountTargets,
 
             string name,
 
@@ -346,7 +346,7 @@ namespace Pulumi.Azure.NetApp
             KeyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             LargeVolumeEnabled = largeVolumeEnabled;
             Location = location;
-            MountIpAddresses = mountIpAddresses;
+            MountTargets = mountTargets;
             Name = name;
             NetworkFeatures = networkFeatures;
             PoolName = poolName;

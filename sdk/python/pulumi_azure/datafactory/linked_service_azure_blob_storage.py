@@ -28,7 +28,6 @@ class LinkedServiceAzureBlobStorageArgs:
                  connection_string_insecure: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_sas_token: pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  sas_token_linked_key_vault_key: pulumi.Input[Optional['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']] = None,
@@ -72,11 +71,6 @@ class LinkedServiceAzureBlobStorageArgs:
             pulumi.set(__self__, "description", description)
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
-        if key_vault_sas_token is not None:
-            warnings.warn("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""key_vault_sas_token is deprecated: the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
-        if key_vault_sas_token is not None:
-            pulumi.set(__self__, "key_vault_sas_token", key_vault_sas_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -187,16 +181,6 @@ class LinkedServiceAzureBlobStorageArgs:
     @integration_runtime_name.setter
     def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_runtime_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultSasToken")
-    @_utilities.deprecated("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
-    def key_vault_sas_token(self) -> pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
-        return pulumi.get(self, "key_vault_sas_token")
-
-    @key_vault_sas_token.setter
-    def key_vault_sas_token(self, value: pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]):
-        pulumi.set(self, "key_vault_sas_token", value)
 
     @_builtins.property
     @pulumi.getter
@@ -320,7 +304,6 @@ class _LinkedServiceAzureBlobStorageState:
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_sas_token: pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  sas_token_linked_key_vault_key: pulumi.Input[Optional['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs']] = None,
@@ -365,11 +348,6 @@ class _LinkedServiceAzureBlobStorageState:
             pulumi.set(__self__, "description", description)
         if integration_runtime_name is not None:
             pulumi.set(__self__, "integration_runtime_name", integration_runtime_name)
-        if key_vault_sas_token is not None:
-            warnings.warn("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""key_vault_sas_token is deprecated: the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
-        if key_vault_sas_token is not None:
-            pulumi.set(__self__, "key_vault_sas_token", key_vault_sas_token)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -480,16 +458,6 @@ class _LinkedServiceAzureBlobStorageState:
     @integration_runtime_name.setter
     def integration_runtime_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "integration_runtime_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultSasToken")
-    @_utilities.deprecated("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
-    def key_vault_sas_token(self) -> pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]:
-        return pulumi.get(self, "key_vault_sas_token")
-
-    @key_vault_sas_token.setter
-    def key_vault_sas_token(self, value: pulumi.Input[Optional['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs']]):
-        pulumi.set(self, "key_vault_sas_token", value)
 
     @_builtins.property
     @pulumi.getter
@@ -616,7 +584,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_sas_token: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
@@ -741,7 +708,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_sas_token: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
@@ -771,7 +737,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["integration_runtime_name"] = integration_runtime_name
-            __props__.__dict__["key_vault_sas_token"] = key_vault_sas_token
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["sas_token_linked_key_vault_key"] = sas_token_linked_key_vault_key
@@ -802,7 +767,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
             data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             integration_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-            key_vault_sas_token: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageKeyVaultSasTokenArgs', 'LinkedServiceAzureBlobStorageKeyVaultSasTokenArgsDict']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             sas_token_linked_key_vault_key: pulumi.Input[Optional[Union['LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgs', 'LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKeyArgsDict']]] = None,
@@ -848,7 +812,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["description"] = description
         __props__.__dict__["integration_runtime_name"] = integration_runtime_name
-        __props__.__dict__["key_vault_sas_token"] = key_vault_sas_token
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["sas_token_linked_key_vault_key"] = sas_token_linked_key_vault_key
@@ -923,12 +886,6 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
         return pulumi.get(self, "integration_runtime_name")
 
     @_builtins.property
-    @pulumi.getter(name="keyVaultSasToken")
-    @_utilities.deprecated("""the `key_vault_sas_token` property has been deprecated in favour of the `sas_token_linked_key_vault_key` property and will be removed in v5.0 of the AzureRM Provider""")
-    def key_vault_sas_token(self) -> pulumi.Output['outputs.LinkedServiceAzureBlobStorageKeyVaultSasToken']:
-        return pulumi.get(self, "key_vault_sas_token")
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -946,7 +903,7 @@ class LinkedServiceAzureBlobStorage(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="sasTokenLinkedKeyVaultKey")
-    def sas_token_linked_key_vault_key(self) -> pulumi.Output['outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey']:
+    def sas_token_linked_key_vault_key(self) -> pulumi.Output[Optional['outputs.LinkedServiceAzureBlobStorageSasTokenLinkedKeyVaultKey']]:
         """
         A `sas_token_linked_key_vault_key` block as defined below. Use this argument to store SAS Token in an existing Key Vault. It needs an existing Key Vault Data Factory Linked Service. A `sas_uri` is required.
         """

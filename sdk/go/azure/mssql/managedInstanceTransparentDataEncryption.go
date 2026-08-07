@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,9 +27,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -115,10 +115,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -194,6 +194,7 @@ import (
 //				Name:                     pulumi.String("example"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
 //				EnabledForDiskEncryption: pulumi.Bool(true),
 //				TenantId:                 pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays:  pulumi.Int(7),
@@ -284,8 +285,7 @@ type ManagedInstanceTransparentDataEncryption struct {
 	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
 	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
-	KeyVaultKeyId   pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
-	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
+	KeyVaultKeyId pulumi.StringPtrOutput `pulumi:"keyVaultKeyId"`
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringOutput `pulumi:"managedInstanceId"`
 }
@@ -332,8 +332,7 @@ type managedInstanceTransparentDataEncryptionState struct {
 	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
 	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
-	KeyVaultKeyId   *string `pulumi:"keyVaultKeyId"`
-	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId *string `pulumi:"managedInstanceId"`
 }
@@ -348,8 +347,7 @@ type ManagedInstanceTransparentDataEncryptionState struct {
 	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
 	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
-	KeyVaultKeyId   pulumi.StringPtrInput
-	ManagedHsmKeyId pulumi.StringPtrInput
+	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringPtrInput
 }
@@ -368,8 +366,7 @@ type managedInstanceTransparentDataEncryptionArgs struct {
 	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
 	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
-	KeyVaultKeyId   *string `pulumi:"keyVaultKeyId"`
-	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
+	KeyVaultKeyId *string `pulumi:"keyVaultKeyId"`
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId string `pulumi:"managedInstanceId"`
 }
@@ -385,8 +382,7 @@ type ManagedInstanceTransparentDataEncryptionArgs struct {
 	// > **Note:** When `autoRotationEnabled` is `true`, `keyVaultKeyId` can be either a versioned or versionless Key Vault Key ID. When using a versionless `keyVaultKeyId`, the principal running Terraform must have permission to read the latest key version from Key Vault. When `autoRotationEnabled` is `false`, `keyVaultKeyId` must be a versioned Key Vault Key ID.
 	//
 	// > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
-	KeyVaultKeyId   pulumi.StringPtrInput
-	ManagedHsmKeyId pulumi.StringPtrInput
+	KeyVaultKeyId pulumi.StringPtrInput
 	// Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
 	ManagedInstanceId pulumi.StringInput
 }
@@ -492,10 +488,6 @@ func (o ManagedInstanceTransparentDataEncryptionOutput) AutoRotationEnabled() pu
 // > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
 func (o ManagedInstanceTransparentDataEncryptionOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedInstanceTransparentDataEncryption) pulumi.StringPtrOutput { return v.KeyVaultKeyId }).(pulumi.StringPtrOutput)
-}
-
-func (o ManagedInstanceTransparentDataEncryptionOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ManagedInstanceTransparentDataEncryption) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.

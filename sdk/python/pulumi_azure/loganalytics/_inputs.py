@@ -21,6 +21,10 @@ __all__ = [
     'WorkspaceTableCustomLogColumnArgsDict',
     'WorkspaceTableCustomLogStandardColumnArgs',
     'WorkspaceTableCustomLogStandardColumnArgsDict',
+    'WorkspaceTableMicrosoftColumnArgs',
+    'WorkspaceTableMicrosoftColumnArgsDict',
+    'WorkspaceTableMicrosoftStandardColumnArgs',
+    'WorkspaceTableMicrosoftStandardColumnArgsDict',
 ]
 
 class ClusterIdentityArgsDict(TypedDict):
@@ -303,5 +307,281 @@ class WorkspaceTableCustomLogStandardColumnArgs:
     @type.setter
     def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+
+class WorkspaceTableMicrosoftColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this column.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The column data type. Possible values are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, `dynamic`.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The description of the column.
+    """
+    display_by_default: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the column defaults to being displayed. Defaults to `true`.
+    """
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The display name of the column.
+    """
+    hidden: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the column is hidden. Defaults to `false`.
+    """
+
+@pulumi.input_type
+class WorkspaceTableMicrosoftColumnArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 type: pulumi.Input[_builtins.str],
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hidden: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this column.
+        :param pulumi.Input[_builtins.str] type: The column data type. Possible values are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, `dynamic`.
+        :param pulumi.Input[_builtins.str] description: The description of the column.
+        :param pulumi.Input[_builtins.bool] display_by_default: Whether the column defaults to being displayed. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the column.
+        :param pulumi.Input[_builtins.bool] hidden: Whether the column is hidden. Defaults to `false`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_by_default is not None:
+            pulumi.set(__self__, "display_by_default", display_by_default)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if hidden is not None:
+            pulumi.set(__self__, "hidden", hidden)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name which should be used for this column.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The column data type. Possible values are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, `dynamic`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The description of the column.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayByDefault")
+    def display_by_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the column defaults to being displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "display_by_default")
+
+    @display_by_default.setter
+    def display_by_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "display_by_default", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The display name of the column.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def hidden(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the column is hidden. Defaults to `false`.
+        """
+        return pulumi.get(self, "hidden")
+
+    @hidden.setter
+    def hidden(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hidden", value)
+
+
+class WorkspaceTableMicrosoftStandardColumnArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A description of the table.
+    """
+    display_by_default: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether the column defaults to being displayed. Defaults to `true`.
+    """
+    display_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The display name of the table.
+    """
+    hidden: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Is the column hidden? Defaults to `false`.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name which should be used for this Log Analytics Workspace Table Microsoft. Possible values are `Alert`, `AppCenterError`, `ComputerGroup`, `InsightsMetrics`, `Operation` and `Usage`. Changing this forces a new Log Analytics Workspace Table Microsoft to be created.
+    """
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type of the column.
+    """
+    type_hint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The type hint of the column.
+    """
+
+@pulumi.input_type
+class WorkspaceTableMicrosoftStandardColumnArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 display_by_default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 display_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 hidden: pulumi.Input[Optional[_builtins.bool]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 type_hint: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] description: A description of the table.
+        :param pulumi.Input[_builtins.bool] display_by_default: Whether the column defaults to being displayed. Defaults to `true`.
+        :param pulumi.Input[_builtins.str] display_name: The display name of the table.
+        :param pulumi.Input[_builtins.bool] hidden: Is the column hidden? Defaults to `false`.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Log Analytics Workspace Table Microsoft. Possible values are `Alert`, `AppCenterError`, `ComputerGroup`, `InsightsMetrics`, `Operation` and `Usage`. Changing this forces a new Log Analytics Workspace Table Microsoft to be created.
+        :param pulumi.Input[_builtins.str] type: The type of the column.
+        :param pulumi.Input[_builtins.str] type_hint: The type hint of the column.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_by_default is not None:
+            pulumi.set(__self__, "display_by_default", display_by_default)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if hidden is not None:
+            pulumi.set(__self__, "hidden", hidden)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if type_hint is not None:
+            pulumi.set(__self__, "type_hint", type_hint)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A description of the table.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayByDefault")
+    def display_by_default(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the column defaults to being displayed. Defaults to `true`.
+        """
+        return pulumi.get(self, "display_by_default")
+
+    @display_by_default.setter
+    def display_by_default(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "display_by_default", value)
+
+    @_builtins.property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The display name of the table.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def hidden(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Is the column hidden? Defaults to `false`.
+        """
+        return pulumi.get(self, "hidden")
+
+    @hidden.setter
+    def hidden(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "hidden", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name which should be used for this Log Analytics Workspace Table Microsoft. Possible values are `Alert`, `AppCenterError`, `ComputerGroup`, `InsightsMetrics`, `Operation` and `Usage`. Changing this forces a new Log Analytics Workspace Table Microsoft to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type of the column.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="typeHint")
+    def type_hint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The type hint of the column.
+        """
+        return pulumi.get(self, "type_hint")
+
+    @type_hint.setter
+    def type_hint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type_hint", value)
 
 

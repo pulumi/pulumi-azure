@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .automatic_cluster import *
 from .cluster_deployment_safeguard import *
 from .cluster_trusted_access_role_binding import *
 from .connected_registry import *
@@ -13,6 +14,7 @@ from .fleet_member import *
 from .fleet_update_run import *
 from .fleet_update_strategy import *
 from .flux_configuration import *
+from .get_automatic_cluster import *
 from .get_cluster_node_pool import *
 from .get_fleet_manager import *
 from .get_group import *

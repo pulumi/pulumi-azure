@@ -99,7 +99,7 @@ export class ElasticPool extends pulumi.CustomResource {
      *
      * > **Note:** The default value for `enclaveType` field is unset not `Default`.
      */
-    declare public readonly enclaveType: pulumi.Output<string>;
+    declare public readonly enclaveType: pulumi.Output<string | undefined>;
     /**
      * Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
      *

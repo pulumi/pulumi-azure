@@ -69,37 +69,18 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the ID of the EventHub Namespace.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="namespaceId")
     private @Nullable Output<String> namespaceId;
 
     /**
-     * @return Specifies the ID of the EventHub Namespace.
+     * @return Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> namespaceId() {
         return Optional.ofNullable(this.namespaceId);
-    }
-
-    /**
-     * @deprecated
-     * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="namespaceName")
-    private @Nullable Output<String> namespaceName;
-
-    /**
-     * @deprecated
-     * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<String>> namespaceName() {
-        return Optional.ofNullable(this.namespaceName);
     }
 
     /**
@@ -141,25 +122,6 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="resourceGroupName")
-    private @Nullable Output<String> resourceGroupName;
-
-    /**
-     * @deprecated
-     * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<String>> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-
-    /**
      * A `retentionDescription` block as defined below.
      * 
      */
@@ -196,10 +158,8 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         this.messageRetention = $.messageRetention;
         this.name = $.name;
         this.namespaceId = $.namespaceId;
-        this.namespaceName = $.namespaceName;
         this.partitionCount = $.partitionCount;
         this.partitionIds = $.partitionIds;
-        this.resourceGroupName = $.resourceGroupName;
         this.retentionDescription = $.retentionDescription;
         this.status = $.status;
     }
@@ -290,7 +250,7 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceId Specifies the ID of the EventHub Namespace.
+         * @param namespaceId Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -301,38 +261,13 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceId Specifies the ID of the EventHub Namespace.
+         * @param namespaceId Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
          */
         public Builder namespaceId(String namespaceId) {
             return namespaceId(Output.of(namespaceId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder namespaceName(@Nullable Output<String> namespaceName) {
-            $.namespaceName = namespaceName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder namespaceName(String namespaceName) {
-            return namespaceName(Output.of(namespaceName));
         }
 
         /**
@@ -393,31 +328,6 @@ public final class EventHubState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder partitionIds(String... partitionIds) {
             return partitionIds(List.of(partitionIds));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
         }
 
         /**

@@ -212,6 +212,13 @@ class FrontdoorEndpoint(pulumi.CustomResource):
             })
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn` - 2025-12-01
+
         ## Import
 
         Front Door Endpoints can be imported using the `resource id`, e.g.
@@ -257,6 +264,13 @@ class FrontdoorEndpoint(pulumi.CustomResource):
                 "ENV": "example",
             })
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn` - 2025-12-01
 
         ## Import
 

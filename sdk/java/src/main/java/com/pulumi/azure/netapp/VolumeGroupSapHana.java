@@ -376,6 +376,7 @@ import javax.annotation.Nullable;
  *             .name(String.format("%skv", prefix))
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .purgeProtectionEnabled(true)

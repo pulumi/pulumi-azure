@@ -19,25 +19,36 @@ __all__ = ['ServiceArgs', 'Service']
 @pulumi.input_type
 class ServiceArgs:
     def __init__(__self__, *,
+                 data_location: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 data_location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
 
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[_builtins.str] data_location: The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Communication Service should exist. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[_builtins.str] name: The name of the Communication Service resource. Changing this forces a new Communication Service to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to the Communication Service.
         """
+        pulumi.set(__self__, "data_location", data_location)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if data_location is not None:
-            pulumi.set(__self__, "data_location", data_location)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="dataLocation")
+    def data_location(self) -> pulumi.Input[_builtins.str]:
+        """
+        The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
+        """
+        return pulumi.get(self, "data_location")
+
+    @data_location.setter
+    def data_location(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_location", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -50,18 +61,6 @@ class ServiceArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataLocation")
-    def data_location(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
-        """
-        return pulumi.get(self, "data_location")
-
-    @data_location.setter
-    def data_location(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "data_location", value)
 
     @_builtins.property
     @pulumi.getter
@@ -361,6 +360,8 @@ class Service(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
+            if data_location is None and not opts.urn:
+                raise TypeError("Missing required property 'data_location'")
             __props__.__dict__["data_location"] = data_location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
@@ -427,7 +428,7 @@ class Service(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="dataLocation")
-    def data_location(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def data_location(self) -> pulumi.Output[_builtins.str]:
         """
         The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
         """

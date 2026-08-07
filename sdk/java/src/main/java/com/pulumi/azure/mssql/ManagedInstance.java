@@ -494,7 +494,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maintenanceConfigurationName);
     }
     /**
-     * The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -503,7 +503,7 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> minimumTlsVersion;
 
     /**
-     * @return The Minimum TLS Version. Default value is `1.2` Valid values include `1.0`, `1.1`, `1.2`.
+     * @return The Minimum TLS Version. The only possible value is `1.2`. Defaults to `1.2`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -526,18 +526,18 @@ public class ManagedInstance extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+     * Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
      * 
      */
     @Export(name="proxyOverride", refs={String.class}, tree="[0]")
-    private Output<String> proxyOverride;
+    private Output</* @Nullable */ String> proxyOverride;
 
     /**
-     * @return Specifies how the SQL Managed Instance will be accessed. Defaults to `Default`. Possible values are `Default`, `Proxy`, and `Redirect`.
+     * @return Specifies how the SQL Managed Instance will be accessed. Possible values are `Proxy` and `Redirect`. Defaults to `Redirect`.
      * 
      */
-    public Output<String> proxyOverride() {
-        return this.proxyOverride;
+    public Output<Optional<String>> proxyOverride() {
+        return Codegen.optional(this.proxyOverride);
     }
     /**
      * Is the public data endpoint enabled? Defaults to `false`.

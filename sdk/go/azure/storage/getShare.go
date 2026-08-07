@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -38,7 +38,7 @@ import (
 //			}
 //			_, err = storage.LookupShare(ctx, &storage.LookupShareArgs{
 //				Name:             "existing",
-//				StorageAccountId: pulumi.StringRef(example.Id),
+//				StorageAccountId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -74,11 +74,7 @@ type LookupShareArgs struct {
 	// The name of the share.
 	Name string `pulumi:"name"`
 	// The ID of the storage account in which the share exists.
-	//
-	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
-	StorageAccountName *string `pulumi:"storageAccountName"`
+	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
 // A collection of values returned by getShare.
@@ -93,11 +89,8 @@ type LookupShareResult struct {
 	// The quota of the File Share in GB.
 	Quota int `pulumi:"quota"`
 	// The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
-	RbacScopeId string `pulumi:"rbacScopeId"`
-	// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-	ResourceManagerId  string  `pulumi:"resourceManagerId"`
-	StorageAccountId   *string `pulumi:"storageAccountId"`
-	StorageAccountName *string `pulumi:"storageAccountName"`
+	RbacScopeId      string `pulumi:"rbacScopeId"`
+	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
 func LookupShareOutput(ctx *pulumi.Context, args LookupShareOutputArgs, opts ...pulumi.InvokeOption) LookupShareResultOutput {
@@ -118,11 +111,7 @@ type LookupShareOutputArgs struct {
 	// The name of the share.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the storage account in which the share exists.
-	//
-	// > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
-	// The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
-	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
 func (LookupShareOutputArgs) ElementType() reflect.Type {
@@ -173,17 +162,8 @@ func (o LookupShareResultOutput) RbacScopeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupShareResult) string { return v.RbacScopeId }).(pulumi.StringOutput)
 }
 
-// Deprecated: this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-func (o LookupShareResultOutput) ResourceManagerId() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupShareResult) string { return v.ResourceManagerId }).(pulumi.StringOutput)
-}
-
-func (o LookupShareResultOutput) StorageAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupShareResult) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupShareResultOutput) StorageAccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupShareResult) *string { return v.StorageAccountName }).(pulumi.StringPtrOutput)
+func (o LookupShareResultOutput) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupShareResult) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
 func init() {

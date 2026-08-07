@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *     name: "keyvaultkeyexample",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     accessPolicies: [

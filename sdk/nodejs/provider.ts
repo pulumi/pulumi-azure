@@ -130,7 +130,6 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["clientSecretFilePath"] = args?.clientSecretFilePath ? pulumi.secret(args.clientSecretFilePath) : undefined;
             resourceInputs["disableCorrelationRequestId"] = pulumi.output(args?.disableCorrelationRequestId).apply(JSON.stringify);
             resourceInputs["disableTerraformPartnerId"] = pulumi.output(args?.disableTerraformPartnerId).apply(JSON.stringify);
-            resourceInputs["enhancedValidation"] = pulumi.output(args?.enhancedValidation).apply(JSON.stringify);
             resourceInputs["environment"] = (args?.environment) ?? (utilities.getEnv("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT") || "public");
             resourceInputs["features"] = pulumi.output(args?.features).apply(JSON.stringify);
             resourceInputs["metadataHost"] = (args?.metadataHost) ?? utilities.getEnv("ARM_METADATA_HOSTNAME");
@@ -143,7 +142,6 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["partnerId"] = args?.partnerId;
             resourceInputs["resourceProviderRegistrations"] = args?.resourceProviderRegistrations;
             resourceInputs["resourceProvidersToRegisters"] = pulumi.output(args?.resourceProvidersToRegisters).apply(JSON.stringify);
-            resourceInputs["skipProviderRegistration"] = pulumi.output((args?.skipProviderRegistration) ?? (utilities.getEnvBoolean("ARM_SKIP_PROVIDER_REGISTRATION") || false)).apply(JSON.stringify);
             resourceInputs["storageUseAzuread"] = pulumi.output((args?.storageUseAzuread) ?? (utilities.getEnvBoolean("ARM_STORAGE_USE_AZUREAD") || false)).apply(JSON.stringify);
             resourceInputs["subscriptionId"] = (args?.subscriptionId ? pulumi.secret(args.subscriptionId) : undefined) ?? (utilities.getEnv("ARM_SUBSCRIPTION_ID") || "");
             resourceInputs["tenantId"] = args?.tenantId ? pulumi.secret(args.tenantId) : undefined;
@@ -213,7 +211,6 @@ export interface ProviderArgs {
      * This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
      */
     disableTerraformPartnerId?: pulumi.Input<boolean | undefined>;
-    enhancedValidation?: pulumi.Input<inputs.ProviderEnhancedValidation | undefined>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
      */
@@ -259,12 +256,6 @@ export interface ProviderArgs {
      * A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
      */
     resourceProvidersToRegisters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
-     *
-     * @deprecated This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
-     */
-    skipProviderRegistration?: pulumi.Input<boolean | undefined>;
     /**
      * Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
      */

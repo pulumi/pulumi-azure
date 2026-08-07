@@ -1463,7 +1463,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute` - 2024-11-01
+        * `Microsoft.Compute` - 2025-04-01
 
         ## Import
 
@@ -1583,7 +1583,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute` - 2024-11-01
+        * `Microsoft.Compute` - 2025-04-01
 
         ## Import
 

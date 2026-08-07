@@ -257,14 +257,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="logsDestination", refs={String.class}, tree="[0]")
-    private Output<String> logsDestination;
+    private Output</* @Nullable */ String> logsDestination;
 
     /**
      * @return Where the application logs will be saved for this Container Apps Managed Environment. Possible values include `log-analytics` and `azure-monitor`. Omitting this value will result in logs being streamed only.
      * 
      */
-    public Output<String> logsDestination() {
-        return this.logsDestination;
+    public Output<Optional<String>> logsDestination() {
+        return Codegen.optional(this.logsDestination);
     }
     /**
      * Should mutual transport layer security (mTLS) be enabled? Defaults to `false`.

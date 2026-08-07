@@ -19,6 +19,7 @@ namespace Pulumi.Azure.AppService
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// using Random = Pulumi.Random;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
@@ -38,24 +39,27 @@ namespace Pulumi.Azure.AppService
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var exampleAppServicePlan = new Azurerm.AppServicePlan("example", new()
     ///     {
     ///         Name = "some-app-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = new[]
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             
+    ///             {
+    ///                 { "tier", "Standard" },
+    ///                 { "size", "S1" },
+    ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azurerm.AppService("example", new()
     ///     {
     ///         Name = server.Hex,
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppServicePlanId = exampleAppServicePlan.Id,
     ///     });
     /// 
     ///     var exampleCustomHostnameBinding = new Azure.AppService.CustomHostnameBinding("example", new()

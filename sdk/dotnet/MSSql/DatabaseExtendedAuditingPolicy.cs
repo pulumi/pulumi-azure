@@ -56,7 +56,7 @@ namespace Pulumi.Azure.MSSql
     ///     var exampleDatabaseExtendedAuditingPolicy = new Azure.MSSql.DatabaseExtendedAuditingPolicy("example", new()
     ///     {
     ///         DatabaseId = exampleDatabase.Id,
-    ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
+    ///         BlobStorageEndpoint = exampleAccount.PrimaryBlobEndpoint,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         StorageAccountAccessKeyIsSecondary = false,
     ///         RetentionInDays = 6,
@@ -84,15 +84,21 @@ namespace Pulumi.Azure.MSSql
     public partial class DatabaseExtendedAuditingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+        /// </summary>
+        [Output("blobStorageEndpoint")]
+        public Output<string?> BlobStorageEndpoint { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         /// </summary>
         [Output("databaseId")]
         public Output<string> DatabaseId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the extended auditing policy. Possible values are `True` and `False`. Defaults to `True`.
+        /// Whether to enable the extended auditing policy. Defaults to `True`.
         /// 
-        /// &gt; **Note:** If `Enabled` is `True`, `StorageEndpoint` or `LogMonitoringEnabled` are required.
+        /// &gt; **Note:** If `Enabled` is `True`, `BlobStorageEndpoint` or `LogMonitoringEnabled` are required.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -123,12 +129,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Output("storageAccountAccessKeyIsSecondary")]
         public Output<bool?> StorageAccountAccessKeyIsSecondary { get; private set; } = null!;
-
-        /// <summary>
-        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-        /// </summary>
-        [Output("storageEndpoint")]
-        public Output<string?> StorageEndpoint { get; private set; } = null!;
 
 
         /// <summary>
@@ -181,15 +181,21 @@ namespace Pulumi.Azure.MSSql
     public sealed class DatabaseExtendedAuditingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+        /// </summary>
+        [Input("blobStorageEndpoint")]
+        public Input<string>? BlobStorageEndpoint { get; set; }
+
+        /// <summary>
         /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseId", required: true)]
         public Input<string> DatabaseId { get; set; } = null!;
 
         /// <summary>
-        /// Whether to enable the extended auditing policy. Possible values are `True` and `False`. Defaults to `True`.
+        /// Whether to enable the extended auditing policy. Defaults to `True`.
         /// 
-        /// &gt; **Note:** If `Enabled` is `True`, `StorageEndpoint` or `LogMonitoringEnabled` are required.
+        /// &gt; **Note:** If `Enabled` is `True`, `BlobStorageEndpoint` or `LogMonitoringEnabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -230,12 +236,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
-
-        /// <summary>
-        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-        /// </summary>
-        [Input("storageEndpoint")]
-        public Input<string>? StorageEndpoint { get; set; }
 
         public DatabaseExtendedAuditingPolicyArgs()
         {
@@ -246,15 +246,21 @@ namespace Pulumi.Azure.MSSql
     public sealed class DatabaseExtendedAuditingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+        /// </summary>
+        [Input("blobStorageEndpoint")]
+        public Input<string>? BlobStorageEndpoint { get; set; }
+
+        /// <summary>
         /// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
         /// </summary>
         [Input("databaseId")]
         public Input<string>? DatabaseId { get; set; }
 
         /// <summary>
-        /// Whether to enable the extended auditing policy. Possible values are `True` and `False`. Defaults to `True`.
+        /// Whether to enable the extended auditing policy. Defaults to `True`.
         /// 
-        /// &gt; **Note:** If `Enabled` is `True`, `StorageEndpoint` or `LogMonitoringEnabled` are required.
+        /// &gt; **Note:** If `Enabled` is `True`, `BlobStorageEndpoint` or `LogMonitoringEnabled` are required.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -295,12 +301,6 @@ namespace Pulumi.Azure.MSSql
         /// </summary>
         [Input("storageAccountAccessKeyIsSecondary")]
         public Input<bool>? StorageAccountAccessKeyIsSecondary { get; set; }
-
-        /// <summary>
-        /// The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-        /// </summary>
-        [Input("storageEndpoint")]
-        public Input<string>? StorageEndpoint { get; set; }
 
         public DatabaseExtendedAuditingPolicyState()
         {

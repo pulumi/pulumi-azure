@@ -820,29 +820,6 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-     * 
-     */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
-    @Import(name="vmAgentPlatformUpdatesEnabled")
-    private @Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled;
-
-    /**
-     * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-     * 
-     */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
-    public Optional<Output<Boolean>> vmAgentPlatformUpdatesEnabled() {
-        return Optional.ofNullable(this.vmAgentPlatformUpdatesEnabled);
-    }
-
-    /**
      * Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
      * 
      */
@@ -922,7 +899,6 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
         this.terminationNotification = $.terminationNotification;
         this.userData = $.userData;
         this.virtualMachineScaleSetId = $.virtualMachineScaleSetId;
-        this.vmAgentPlatformUpdatesEnabled = $.vmAgentPlatformUpdatesEnabled;
         this.vtpmEnabled = $.vtpmEnabled;
         this.zone = $.zone;
     }
@@ -2056,35 +2032,6 @@ public final class LinuxVirtualMachineArgs extends com.pulumi.resources.Resource
          */
         public Builder virtualMachineScaleSetId(String virtualMachineScaleSetId) {
             return virtualMachineScaleSetId(Output.of(virtualMachineScaleSetId));
-        }
-
-        /**
-         * @param vmAgentPlatformUpdatesEnabled Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-         * 
-         */
-        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
-        public Builder vmAgentPlatformUpdatesEnabled(@Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled) {
-            $.vmAgentPlatformUpdatesEnabled = vmAgentPlatformUpdatesEnabled;
-            return this;
-        }
-
-        /**
-         * @param vmAgentPlatformUpdatesEnabled Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-         * 
-         */
-        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
-        public Builder vmAgentPlatformUpdatesEnabled(Boolean vmAgentPlatformUpdatesEnabled) {
-            return vmAgentPlatformUpdatesEnabled(Output.of(vmAgentPlatformUpdatesEnabled));
         }
 
         /**

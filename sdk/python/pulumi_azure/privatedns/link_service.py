@@ -25,7 +25,6 @@ class LinkServiceArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
                  fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -56,11 +55,6 @@ class LinkServiceArgs:
             pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
         if destination_ip_address is not None:
             pulumi.set(__self__, "destination_ip_address", destination_ip_address)
-        if enable_proxy_protocol is not None:
-            warnings.warn("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_proxy_protocol is deprecated: the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_proxy_protocol is not None:
-            pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
         if fqdns is not None:
             pulumi.set(__self__, "fqdns", fqdns)
         if load_balancer_frontend_ip_configuration_ids is not None:
@@ -123,16 +117,6 @@ class LinkServiceArgs:
     @destination_ip_address.setter
     def destination_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_ip_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableProxyProtocol")
-    @_utilities.deprecated("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_proxy_protocol(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_proxy_protocol")
-
-    @enable_proxy_protocol.setter
-    def enable_proxy_protocol(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_proxy_protocol", value)
 
     @_builtins.property
     @pulumi.getter
@@ -227,7 +211,6 @@ class _LinkServiceState:
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
                  fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -261,11 +244,6 @@ class _LinkServiceState:
             pulumi.set(__self__, "auto_approval_subscription_ids", auto_approval_subscription_ids)
         if destination_ip_address is not None:
             pulumi.set(__self__, "destination_ip_address", destination_ip_address)
-        if enable_proxy_protocol is not None:
-            warnings.warn("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""enable_proxy_protocol is deprecated: the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-        if enable_proxy_protocol is not None:
-            pulumi.set(__self__, "enable_proxy_protocol", enable_proxy_protocol)
         if fqdns is not None:
             pulumi.set(__self__, "fqdns", fqdns)
         if load_balancer_frontend_ip_configuration_ids is not None:
@@ -320,16 +298,6 @@ class _LinkServiceState:
     @destination_ip_address.setter
     def destination_ip_address(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "destination_ip_address", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableProxyProtocol")
-    @_utilities.deprecated("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_proxy_protocol(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_proxy_protocol")
-
-    @enable_proxy_protocol.setter
-    def enable_proxy_protocol(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_proxy_protocol", value)
 
     @_builtins.property
     @pulumi.getter
@@ -450,7 +418,6 @@ class LinkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
                  fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -662,7 +629,6 @@ class LinkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
                  fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -683,7 +649,6 @@ class LinkService(pulumi.CustomResource):
 
             __props__.__dict__["auto_approval_subscription_ids"] = auto_approval_subscription_ids
             __props__.__dict__["destination_ip_address"] = destination_ip_address
-            __props__.__dict__["enable_proxy_protocol"] = enable_proxy_protocol
             __props__.__dict__["fqdns"] = fqdns
             __props__.__dict__["load_balancer_frontend_ip_configuration_ids"] = load_balancer_frontend_ip_configuration_ids
             __props__.__dict__["location"] = location
@@ -711,7 +676,6 @@ class LinkService(pulumi.CustomResource):
             alias: pulumi.Input[Optional[_builtins.str]] = None,
             auto_approval_subscription_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             destination_ip_address: pulumi.Input[Optional[_builtins.str]] = None,
-            enable_proxy_protocol: pulumi.Input[Optional[_builtins.bool]] = None,
             fqdns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             load_balancer_frontend_ip_configuration_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
@@ -750,7 +714,6 @@ class LinkService(pulumi.CustomResource):
         __props__.__dict__["alias"] = alias
         __props__.__dict__["auto_approval_subscription_ids"] = auto_approval_subscription_ids
         __props__.__dict__["destination_ip_address"] = destination_ip_address
-        __props__.__dict__["enable_proxy_protocol"] = enable_proxy_protocol
         __props__.__dict__["fqdns"] = fqdns
         __props__.__dict__["load_balancer_frontend_ip_configuration_ids"] = load_balancer_frontend_ip_configuration_ids
         __props__.__dict__["location"] = location
@@ -785,12 +748,6 @@ class LinkService(pulumi.CustomResource):
         The destination IP address of the Private Link Service.
         """
         return pulumi.get(self, "destination_ip_address")
-
-    @_builtins.property
-    @pulumi.getter(name="enableProxyProtocol")
-    @_utilities.deprecated("""the `enable_proxy_protocol` property has been deprecated in favour of the `proxy_protocol_enabled` property and will be removed in v5.0 of the AzureRM Provider""")
-    def enable_proxy_protocol(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_proxy_protocol")
 
     @_builtins.property
     @pulumi.getter
@@ -834,7 +791,7 @@ class LinkService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="proxyProtocolEnabled")
-    def proxy_protocol_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def proxy_protocol_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Should the Private Link Service support the Proxy Protocol? Defaults to `false`.
         """

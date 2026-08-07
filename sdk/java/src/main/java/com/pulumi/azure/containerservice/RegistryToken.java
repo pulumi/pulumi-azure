@@ -63,9 +63,11 @@ import javax.annotation.Nullable;
  *             .georeplications(            
  *                 RegistryGeoreplicationArgs.builder()
  *                     .location("East US")
+ *                     .globalEndpointRoutingEnabled(true)
  *                     .build(),
  *                 RegistryGeoreplicationArgs.builder()
  *                     .location("West Europe")
+ *                     .globalEndpointRoutingEnabled(true)
  *                     .build())
  *             .build());
  * 

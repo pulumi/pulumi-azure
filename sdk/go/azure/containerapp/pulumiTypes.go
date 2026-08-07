@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -2555,8 +2555,6 @@ type AppTemplateContainerLivenessProbe struct {
 	Path *string `pulumi:"path"`
 	// The port number on which to connect. Possible values are between `1` and `65535`.
 	Port int `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds *int `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
 	Timeout *int `pulumi:"timeout"`
 	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
@@ -2589,8 +2587,6 @@ type AppTemplateContainerLivenessProbeArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port number on which to connect. Possible values are between `1` and `65535`.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds pulumi.IntPtrInput `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
@@ -2681,11 +2677,6 @@ func (o AppTemplateContainerLivenessProbeOutput) Path() pulumi.StringPtrOutput {
 // The port number on which to connect. Possible values are between `1` and `65535`.
 func (o AppTemplateContainerLivenessProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v AppTemplateContainerLivenessProbe) int { return v.Port }).(pulumi.IntOutput)
-}
-
-// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-func (o AppTemplateContainerLivenessProbeOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppTemplateContainerLivenessProbe) *int { return v.TerminationGracePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
@@ -3125,8 +3116,6 @@ type AppTemplateContainerStartupProbe struct {
 	Path *string `pulumi:"path"`
 	// The port number on which to connect. Possible values are between `1` and `65535`.
 	Port int `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds *int `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
 	Timeout *int `pulumi:"timeout"`
 	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
@@ -3159,8 +3148,6 @@ type AppTemplateContainerStartupProbeArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port number on which to connect. Possible values are between `1` and `65535`.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds pulumi.IntPtrInput `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
@@ -3251,11 +3238,6 @@ func (o AppTemplateContainerStartupProbeOutput) Path() pulumi.StringPtrOutput {
 // The port number on which to connect. Possible values are between `1` and `65535`.
 func (o AppTemplateContainerStartupProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v AppTemplateContainerStartupProbe) int { return v.Port }).(pulumi.IntOutput)
-}
-
-// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-func (o AppTemplateContainerStartupProbeOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v AppTemplateContainerStartupProbe) *int { return v.TerminationGracePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
@@ -7320,8 +7302,6 @@ type JobTemplateContainerLivenessProbe struct {
 	Path *string `pulumi:"path"`
 	// The port number on which to connect. Possible values are between `1` and `65535`.
 	Port int `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds *int `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
 	Timeout *int `pulumi:"timeout"`
 	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
@@ -7354,8 +7334,6 @@ type JobTemplateContainerLivenessProbeArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port number on which to connect. Possible values are between `1` and `65535`.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds pulumi.IntPtrInput `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
@@ -7446,11 +7424,6 @@ func (o JobTemplateContainerLivenessProbeOutput) Path() pulumi.StringPtrOutput {
 // The port number on which to connect. Possible values are between `1` and `65535`.
 func (o JobTemplateContainerLivenessProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) int { return v.Port }).(pulumi.IntOutput)
-}
-
-// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-func (o JobTemplateContainerLivenessProbeOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobTemplateContainerLivenessProbe) *int { return v.TerminationGracePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
@@ -7890,8 +7863,6 @@ type JobTemplateContainerStartupProbe struct {
 	Path *string `pulumi:"path"`
 	// The port number on which to connect. Possible values are between `1` and `65535`.
 	Port int `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds *int `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
 	Timeout *int `pulumi:"timeout"`
 	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
@@ -7924,8 +7895,6 @@ type JobTemplateContainerStartupProbeArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port number on which to connect. Possible values are between `1` and `65535`.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds pulumi.IntPtrInput `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
 	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
 	// Type of probe. Possible values are `TCP`, `HTTP`, and `HTTPS`.
@@ -8016,11 +7985,6 @@ func (o JobTemplateContainerStartupProbeOutput) Path() pulumi.StringPtrOutput {
 // The port number on which to connect. Possible values are between `1` and `65535`.
 func (o JobTemplateContainerStartupProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v JobTemplateContainerStartupProbe) int { return v.Port }).(pulumi.IntOutput)
-}
-
-// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-func (o JobTemplateContainerStartupProbeOutput) TerminationGracePeriodSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobTemplateContainerStartupProbe) *int { return v.TerminationGracePeriodSeconds }).(pulumi.IntPtrOutput)
 }
 
 // Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
@@ -10727,8 +10691,6 @@ type GetAppTemplateContainerLivenessProbe struct {
 	Path string `pulumi:"path"`
 	// The port number on which to connect.
 	Port int `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds int `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out.
 	Timeout int `pulumi:"timeout"`
 	// The transport method for the Ingress.
@@ -10761,8 +10723,6 @@ type GetAppTemplateContainerLivenessProbeArgs struct {
 	Path pulumi.StringInput `pulumi:"path"`
 	// The port number on which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds pulumi.IntInput `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
 	// The transport method for the Ingress.
@@ -10855,11 +10815,6 @@ func (o GetAppTemplateContainerLivenessProbeOutput) Path() pulumi.StringOutput {
 // The port number on which to connect.
 func (o GetAppTemplateContainerLivenessProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.Port }).(pulumi.IntOutput)
-}
-
-// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-func (o GetAppTemplateContainerLivenessProbeOutput) TerminationGracePeriodSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetAppTemplateContainerLivenessProbe) int { return v.TerminationGracePeriodSeconds }).(pulumi.IntOutput)
 }
 
 // Time in seconds after which the probe times out.
@@ -11299,8 +11254,6 @@ type GetAppTemplateContainerStartupProbe struct {
 	Path string `pulumi:"path"`
 	// The port number on which to connect.
 	Port int `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds int `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out.
 	Timeout int `pulumi:"timeout"`
 	// The transport method for the Ingress.
@@ -11333,8 +11286,6 @@ type GetAppTemplateContainerStartupProbeArgs struct {
 	Path pulumi.StringInput `pulumi:"path"`
 	// The port number on which to connect.
 	Port pulumi.IntInput `pulumi:"port"`
-	// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-	TerminationGracePeriodSeconds pulumi.IntInput `pulumi:"terminationGracePeriodSeconds"`
 	// Time in seconds after which the probe times out.
 	Timeout pulumi.IntInput `pulumi:"timeout"`
 	// The transport method for the Ingress.
@@ -11427,11 +11378,6 @@ func (o GetAppTemplateContainerStartupProbeOutput) Path() pulumi.StringOutput {
 // The port number on which to connect.
 func (o GetAppTemplateContainerStartupProbeOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.Port }).(pulumi.IntOutput)
-}
-
-// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-func (o GetAppTemplateContainerStartupProbeOutput) TerminationGracePeriodSeconds() pulumi.IntOutput {
-	return o.ApplyT(func(v GetAppTemplateContainerStartupProbe) int { return v.TerminationGracePeriodSeconds }).(pulumi.IntOutput)
 }
 
 // Time in seconds after which the probe times out.

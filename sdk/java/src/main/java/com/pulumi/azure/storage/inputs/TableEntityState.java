@@ -62,14 +62,14 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Storage Share ID in which this file will be placed into.
+     * The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageTableId")
     private @Nullable Output<String> storageTableId;
 
     /**
-     * @return The Storage Share ID in which this file will be placed into.
+     * @return The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> storageTableId() {
@@ -167,7 +167,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageTableId The Storage Share ID in which this file will be placed into.
+         * @param storageTableId The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class TableEntityState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageTableId The Storage Share ID in which this file will be placed into.
+         * @param storageTableId The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

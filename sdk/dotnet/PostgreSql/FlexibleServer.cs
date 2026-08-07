@@ -50,7 +50,10 @@ namespace Pulumi.Azure.PostgreSql
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Storage",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
     ///         },
     ///         Delegations = new[]
     ///         {
@@ -78,9 +81,8 @@ namespace Pulumi.Azure.PostgreSql
     ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("example", new()
     ///     {
     ///         Name = "exampleVnetZone.com",
-    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         PrivateDnsZoneId = exampleZone.Id,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
-    ///         ResourceGroupName = example.Name,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

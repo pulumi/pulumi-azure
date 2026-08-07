@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cosmosdb"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,8 +79,8 @@ type LookupAccountResult struct {
 	GeoLocations    []GetAccountGeoLocation `pulumi:"geoLocations"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The current IP Filter for this CosmosDB account
-	IpRangeFilter string `pulumi:"ipRangeFilter"`
+	// A list of IP ranges associated with this CosmosDB account.
+	IpRangeFilters []string `pulumi:"ipRangeFilters"`
 	// If virtual network filtering is enabled for this Cosmos DB account.
 	IsVirtualNetworkFilterEnabled bool `pulumi:"isVirtualNetworkFilterEnabled"`
 	// The Key Vault key URI for CMK encryption.
@@ -198,9 +198,9 @@ func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The current IP Filter for this CosmosDB account
-func (o LookupAccountResultOutput) IpRangeFilter() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupAccountResult) string { return v.IpRangeFilter }).(pulumi.StringOutput)
+// A list of IP ranges associated with this CosmosDB account.
+func (o LookupAccountResultOutput) IpRangeFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupAccountResult) []string { return v.IpRangeFilters }).(pulumi.StringArrayOutput)
 }
 
 // If virtual network filtering is enabled for this Cosmos DB account.

@@ -37,6 +37,21 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="edgeZone")
+    private @Nullable Output<String> edgeZone;
+
+    /**
+     * @return Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> edgeZone() {
+        return Optional.ofNullable(this.edgeZone);
+    }
+
+    /**
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      * 
      */
@@ -160,6 +175,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
 
     private EndpointArgs(EndpointArgs $) {
         this.customNetworkInterfaceName = $.customNetworkInterfaceName;
+        this.edgeZone = $.edgeZone;
         this.ipConfigurations = $.ipConfigurations;
         this.location = $.location;
         this.name = $.name;
@@ -207,6 +223,27 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customNetworkInterfaceName(String customNetworkInterfaceName) {
             return customNetworkInterfaceName(Output.of(customNetworkInterfaceName));
+        }
+
+        /**
+         * @param edgeZone Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeZone(@Nullable Output<String> edgeZone) {
+            $.edgeZone = edgeZone;
+            return this;
+        }
+
+        /**
+         * @param edgeZone Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder edgeZone(String edgeZone) {
+            return edgeZone(Output.of(edgeZone));
         }
 
         /**

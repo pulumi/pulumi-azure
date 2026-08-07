@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -155,7 +155,7 @@ type VirtualNetworkGateway struct {
 	// If `true`, an active-active Virtual Network Gateway will be created. An active-active gateway requires a `HighPerformance` or an `UltraPerformance` SKU. If `false`, an active-standby gateway will be created. Defaults to `false`.
 	ActiveActive pulumi.BoolOutput `pulumi:"activeActive"`
 	// If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
-	BgpEnabled pulumi.BoolOutput `pulumi:"bgpEnabled"`
+	BgpEnabled pulumi.BoolPtrOutput `pulumi:"bgpEnabled"`
 	// Is BGP Route Translation for NAT enabled? Defaults to `false`.
 	BgpRouteTranslationForNatEnabled pulumi.BoolPtrOutput `pulumi:"bgpRouteTranslationForNatEnabled"`
 	// A `bgpSettings` block which is documented below. In this block the BGP specific settings can be defined.
@@ -168,8 +168,6 @@ type VirtualNetworkGateway struct {
 	DnsForwardingEnabled pulumi.BoolPtrOutput `pulumi:"dnsForwardingEnabled"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
 	EdgeZone pulumi.StringPtrOutput `pulumi:"edgeZone"`
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp pulumi.BoolOutput `pulumi:"enableBgp"`
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
@@ -278,8 +276,6 @@ type virtualNetworkGatewayState struct {
 	DnsForwardingEnabled *bool `pulumi:"dnsForwardingEnabled"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp *bool `pulumi:"enableBgp"`
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
@@ -347,8 +343,6 @@ type VirtualNetworkGatewayState struct {
 	DnsForwardingEnabled pulumi.BoolPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp pulumi.BoolPtrInput
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
@@ -420,8 +414,6 @@ type virtualNetworkGatewayArgs struct {
 	DnsForwardingEnabled *bool `pulumi:"dnsForwardingEnabled"`
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
 	EdgeZone *string `pulumi:"edgeZone"`
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp *bool `pulumi:"enableBgp"`
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
@@ -490,8 +482,6 @@ type VirtualNetworkGatewayArgs struct {
 	DnsForwardingEnabled pulumi.BoolPtrInput
 	// Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
 	EdgeZone pulumi.StringPtrInput
-	// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableBgp pulumi.BoolPtrInput
 	// The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
@@ -635,8 +625,8 @@ func (o VirtualNetworkGatewayOutput) ActiveActive() pulumi.BoolOutput {
 }
 
 // If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
-func (o VirtualNetworkGatewayOutput) BgpEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolOutput { return v.BgpEnabled }).(pulumi.BoolOutput)
+func (o VirtualNetworkGatewayOutput) BgpEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolPtrOutput { return v.BgpEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Is BGP Route Translation for NAT enabled? Defaults to `false`.
@@ -667,11 +657,6 @@ func (o VirtualNetworkGatewayOutput) DnsForwardingEnabled() pulumi.BoolPtrOutput
 // Specifies the Edge Zone within the Azure Region where this Virtual Network Gateway should exist. Changing this forces a new Virtual Network Gateway to be created.
 func (o VirtualNetworkGatewayOutput) EdgeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.StringPtrOutput { return v.EdgeZone }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-func (o VirtualNetworkGatewayOutput) EnableBgp() pulumi.BoolOutput {
-	return o.ApplyT(func(v *VirtualNetworkGateway) pulumi.BoolOutput { return v.EnableBgp }).(pulumi.BoolOutput)
 }
 
 // The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.

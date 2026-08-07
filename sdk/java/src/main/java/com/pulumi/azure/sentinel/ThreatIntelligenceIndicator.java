@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  *         var exampleThreatIntelligenceIndicator = new ThreatIntelligenceIndicator("exampleThreatIntelligenceIndicator", ThreatIntelligenceIndicatorArgs.builder()
  *             .workspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .patternType("domain-name")
- *             .pattern("http://example.com")
+ *             .pattern("example.com")
  *             .source("Microsoft Sentinel")
  *             .validateFromUtc("2022-12-14T16:00:00Z")
  *             .displayName("example-indicator")
@@ -84,6 +84,15 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+ * 
+ * * `Microsoft.SecurityInsights` - 2022-10-01-preview
  * 
  * ## Import
  * 
@@ -153,28 +162,28 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
         return this.defanged;
     }
     /**
-     * The description of the Threat Intelligence Indicator.
+     * The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the Threat Intelligence Indicator.
+     * @return The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The display name of the Threat Intelligence Indicator.
+     * The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
-     * @return The display name of the Threat Intelligence Indicator.
+     * @return The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> displayName() {
@@ -447,14 +456,14 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
         return Codegen.optional(this.threatTypes);
     }
     /**
-     * The start of validate date in RFC3339.
+     * The start of validate date in RFC3339. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="validateFromUtc", refs={String.class}, tree="[0]")
     private Output<String> validateFromUtc;
 
     /**
-     * @return The start of validate date in RFC3339.
+     * @return The start of validate date in RFC3339. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> validateFromUtc() {
@@ -465,14 +474,14 @@ public class ThreatIntelligenceIndicator extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="validateUntilUtc", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> validateUntilUtc;
+    private Output<String> validateUntilUtc;
 
     /**
      * @return The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
      * 
      */
-    public Output<Optional<String>> validateUntilUtc() {
-        return Codegen.optional(this.validateUntilUtc);
+    public Output<String> validateUntilUtc() {
+        return this.validateUntilUtc;
     }
     /**
      * The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.

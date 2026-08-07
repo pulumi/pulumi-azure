@@ -204,7 +204,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`, or from `storageKeyVaultSecretId` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     @Export(name="appSettings", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -213,7 +213,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
     /**
      * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`, or from `storageKeyVaultSecretId` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     public Output<Map<String,String>> appSettings() {
@@ -248,14 +248,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.clientAffinityEnabled;
     }
     /**
-     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      * 
      */
     @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
-     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      * 
      */
     public Output<Optional<String>> clientCertificateMode() {
@@ -454,7 +454,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
-    private Output<String> publicNetworkAccess;
+    private Output</* @Nullable */ String> publicNetworkAccess;
 
     /**
      * @return Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
@@ -462,8 +462,8 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Setting this property will also set it in the Site Config.
      * 
      */
-    public Output<String> publicNetworkAccess() {
-        return this.publicNetworkAccess;
+    public Output<Optional<String>> publicNetworkAccess() {
+        return Codegen.optional(this.publicNetworkAccess);
     }
     /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
@@ -522,32 +522,32 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.siteCredentials;
     }
     /**
-     * The access key which will be used to access the backend storage account for the Logic App.
+     * The access key which will be used to access the backend storage account for the Logic App. Required when `storageAccountName` is specified. Conflicts with `storageKeyVaultSecretId`.
      * 
      */
     @Export(name="storageAccountAccessKey", refs={String.class}, tree="[0]")
-    private Output<String> storageAccountAccessKey;
+    private Output</* @Nullable */ String> storageAccountAccessKey;
 
     /**
-     * @return The access key which will be used to access the backend storage account for the Logic App.
+     * @return The access key which will be used to access the backend storage account for the Logic App. Required when `storageAccountName` is specified. Conflicts with `storageKeyVaultSecretId`.
      * 
      */
-    public Output<String> storageAccountAccessKey() {
-        return this.storageAccountAccessKey;
+    public Output<Optional<String>> storageAccountAccessKey() {
+        return Codegen.optional(this.storageAccountAccessKey);
     }
     /**
-     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
      * 
      */
     @Export(name="storageAccountName", refs={String.class}, tree="[0]")
-    private Output<String> storageAccountName;
+    private Output</* @Nullable */ String> storageAccountName;
 
     /**
-     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
      * 
      */
-    public Output<String> storageAccountName() {
-        return this.storageAccountName;
+    public Output<Optional<String>> storageAccountName() {
+        return Codegen.optional(this.storageAccountName);
     }
     /**
      * The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don&#39;t specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `azure.storage.Share`.
@@ -570,6 +570,28 @@ public class Standard extends com.pulumi.resources.CustomResource {
      */
     public Output<String> storageAccountShareName() {
         return this.storageAccountShareName;
+    }
+    /**
+     * The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
+     * 
+     * &gt; **Note:** When using `storageKeyVaultSecretId`, a `keyVaultReferenceIdentityId` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+     * 
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * 
+     */
+    @Export(name="storageKeyVaultSecretId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> storageKeyVaultSecretId;
+
+    /**
+     * @return The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
+     * 
+     * &gt; **Note:** When using `storageKeyVaultSecretId`, a `keyVaultReferenceIdentityId` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+     * 
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * 
+     */
+    public Output<Optional<String>> storageKeyVaultSecretId() {
+        return Codegen.optional(this.storageKeyVaultSecretId);
     }
     /**
      * A mapping of tags to assign to the resource.

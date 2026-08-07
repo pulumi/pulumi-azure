@@ -19,6 +19,7 @@ namespace Pulumi.Azure.AppService
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -86,7 +87,7 @@ namespace Pulumi.Azure.AppService
     ///         OsType = "Linux",
     ///     });
     /// 
-    ///     var test = new Azure.AppService.FunctionApp("test", new()
+    ///     var test = new Azurerm.FunctionApp("test", new()
     ///     {
     ///         Name = "example-function-app",
     ///         Location = testAzurermResourceGroup.Location,

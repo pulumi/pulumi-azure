@@ -67,6 +67,7 @@ import javax.annotation.Nullable;
  *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .purgeProtectionEnabled(true)
@@ -178,30 +179,6 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.federatedIdentityClientId);
     }
     /**
-     * @deprecated
-     * `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    @Export(name="keyName", refs={String.class}, tree="[0]")
-    private Output<String> keyName;
-
-    public Output<String> keyName() {
-        return this.keyName;
-    }
-    /**
-     * @deprecated
-     * `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    @Export(name="keyVaultId", refs={String.class}, tree="[0]")
-    private Output<String> keyVaultId;
-
-    public Output<String> keyVaultId() {
-        return this.keyVaultId;
-    }
-    /**
      * The ID of the Key Vault Key.
      * 
      */
@@ -214,42 +191,6 @@ public class CustomerManagedKey extends com.pulumi.resources.CustomResource {
      */
     public Output<String> keyVaultKeyId() {
         return this.keyVaultKeyId;
-    }
-    /**
-     * @deprecated
-     * `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    @Export(name="keyVaultUri", refs={String.class}, tree="[0]")
-    private Output<String> keyVaultUri;
-
-    public Output<String> keyVaultUri() {
-        return this.keyVaultUri;
-    }
-    /**
-     * @deprecated
-     * `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    @Export(name="keyVersion", refs={String.class}, tree="[0]")
-    private Output<String> keyVersion;
-
-    public Output<String> keyVersion() {
-        return this.keyVersion;
-    }
-    /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    @Export(name="managedHsmKeyId", refs={String.class}, tree="[0]")
-    private Output<String> managedHsmKeyId;
-
-    public Output<String> managedHsmKeyId() {
-        return this.managedHsmKeyId;
     }
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.

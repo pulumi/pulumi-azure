@@ -646,6 +646,13 @@ class FrontdoorRoute(pulumi.CustomResource):
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn` - 2025-12-01
+
         ## Import
 
         Front Door Routes can be imported using the `resource id`, e.g.
@@ -798,6 +805,13 @@ class FrontdoorRoute(pulumi.CustomResource):
             cdn_frontdoor_custom_domain_id=fabrikam.id,
             cdn_frontdoor_route_ids=[example_frontdoor_route.id])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.Cdn` - 2025-12-01
 
         ## Import
 

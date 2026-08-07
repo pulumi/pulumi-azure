@@ -8,7 +8,6 @@ import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingState;
 import com.pulumi.azure.monitoring.outputs.DiagnosticSettingEnabledLog;
 import com.pulumi.azure.monitoring.outputs.DiagnosticSettingEnabledMetric;
-import com.pulumi.azure.monitoring.outputs.DiagnosticSettingMetric;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -73,6 +72,7 @@ import javax.annotation.Nullable;
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .softDeleteRetentionDays(7)
  *             .purgeProtectionEnabled(false)
@@ -141,7 +141,7 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enabledMetrics", refs={List.class,DiagnosticSettingEnabledMetric.class}, tree="[0,1]")
-    private Output<List<DiagnosticSettingEnabledMetric>> enabledMetrics;
+    private Output</* @Nullable */ List<DiagnosticSettingEnabledMetric>> enabledMetrics;
 
     /**
      * @return One or more `enabledMetric` blocks as defined below.
@@ -149,8 +149,8 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** At least one `enabledLog` or `enabledMetric` block must be specified.
      * 
      */
-    public Output<List<DiagnosticSettingEnabledMetric>> enabledMetrics() {
-        return this.enabledMetrics;
+    public Output<Optional<List<DiagnosticSettingEnabledMetric>>> enabledMetrics() {
+        return Codegen.optional(this.enabledMetrics);
     }
     /**
      * Specifies the ID of an Event Hub Namespace Authorization Rule used to send Diagnostics Data.
@@ -227,18 +227,6 @@ public class DiagnosticSetting extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> logAnalyticsWorkspaceId() {
         return Codegen.optional(this.logAnalyticsWorkspaceId);
-    }
-    /**
-     * @deprecated
-     * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
-    @Export(name="metrics", refs={List.class,DiagnosticSettingMetric.class}, tree="[0,1]")
-    private Output<List<DiagnosticSettingMetric>> metrics;
-
-    public Output<List<DiagnosticSettingMetric>> metrics() {
-        return this.metrics;
     }
     /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.

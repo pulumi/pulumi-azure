@@ -167,17 +167,9 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The ID of the storage account in which the share exists.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
-        [Input("storageAccountId")]
-        public string? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the storage account in which the share exists. This property is deprecated in favour of `StorageAccountId`.
-        /// </summary>
-        [Input("storageAccountName")]
-        public string? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public string StorageAccountId { get; set; } = null!;
 
         public GetShareArgs()
         {
@@ -219,17 +211,9 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// The ID of the storage account in which the share exists.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
         /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the storage account in which the share exists. This property is deprecated in favour of `StorageAccountId`.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public Input<string> StorageAccountId { get; set; } = null!;
 
         public GetShareInvokeArgs()
         {
@@ -262,9 +246,7 @@ namespace Pulumi.Azure.Storage
         /// The ID that is supposed to be used as the `Scope` of an `AzurermRoleAssignmet` for this File Share.
         /// </summary>
         public readonly string RbacScopeId;
-        public readonly string ResourceManagerId;
-        public readonly string? StorageAccountId;
-        public readonly string? StorageAccountName;
+        public readonly string StorageAccountId;
 
         [OutputConstructor]
         private GetShareResult(
@@ -280,11 +262,7 @@ namespace Pulumi.Azure.Storage
 
             string rbacScopeId,
 
-            string resourceManagerId,
-
-            string? storageAccountId,
-
-            string? storageAccountName)
+            string storageAccountId)
         {
             Acls = acls;
             Id = id;
@@ -292,9 +270,7 @@ namespace Pulumi.Azure.Storage
             Name = name;
             Quota = quota;
             RbacScopeId = rbacScopeId;
-            ResourceManagerId = resourceManagerId;
             StorageAccountId = storageAccountId;
-            StorageAccountName = storageAccountName;
         }
     }
 }

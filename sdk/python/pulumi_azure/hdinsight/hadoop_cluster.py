@@ -27,6 +27,7 @@ class HadoopClusterArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  roles: pulumi.Input['HadoopClusterRolesArgs'],
                  tier: pulumi.Input[_builtins.str],
+                 tls_min_version: pulumi.Input[_builtins.str],
                  compute_isolation: pulumi.Input[Optional['HadoopClusterComputeIsolationArgs']] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]]] = None,
                  extension: pulumi.Input[Optional['HadoopClusterExtensionArgs']] = None,
@@ -39,8 +40,7 @@ class HadoopClusterArgs:
                  security_profile: pulumi.Input[Optional['HadoopClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: pulumi.Input[Optional['HadoopClusterStorageAccountGen2Args']] = None,
                  storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HadoopCluster resource.
 
@@ -50,6 +50,7 @@ class HadoopClusterArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Hadoop Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[_builtins.str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
         :param pulumi.Input['HadoopClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
         :param pulumi.Input['HadoopClusterExtensionArgs'] extension: An `extension` block as defined below.
@@ -63,9 +64,6 @@ class HadoopClusterArgs:
         :param pulumi.Input['HadoopClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['HadoopClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
-        :param pulumi.Input[_builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-               
-               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         pulumi.set(__self__, "cluster_version", cluster_version)
         pulumi.set(__self__, "component_version", component_version)
@@ -73,6 +71,7 @@ class HadoopClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "tls_min_version", tls_min_version)
         if compute_isolation is not None:
             pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
@@ -99,8 +98,6 @@ class HadoopClusterArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tls_min_version is not None:
-            pulumi.set(__self__, "tls_min_version", tls_min_version)
 
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
@@ -173,6 +170,18 @@ class HadoopClusterArgs:
     @tier.setter
     def tier(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "tier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tlsMinVersion")
+    def tls_min_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tls_min_version")
+
+    @tls_min_version.setter
+    def tls_min_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tls_min_version", value)
 
     @_builtins.property
     @pulumi.getter(name="computeIsolation")
@@ -330,20 +339,6 @@ class HadoopClusterArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @_builtins.property
-    @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-
-        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-        """
-        return pulumi.get(self, "tls_min_version")
-
-    @tls_min_version.setter
-    def tls_min_version(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "tls_min_version", value)
-
 
 @pulumi.input_type
 class _HadoopClusterState:
@@ -395,8 +390,6 @@ class _HadoopClusterState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[_builtins.str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-               
-               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         if cluster_version is not None:
             pulumi.set(__self__, "cluster_version", cluster_version)
@@ -700,8 +693,6 @@ class _HadoopClusterState:
     def tls_min_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-
-        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "tls_min_version")
 
@@ -763,34 +754,35 @@ class HadoopCluster(pulumi.CustomResource):
             name="example-hdicluster",
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="3.6",
+            cluster_version="5.1",
             tier="Standard",
+            tls_min_version="1.2",
             component_version={
-                "hadoop": "2.7",
+                "hadoop": "3.3",
             },
             gateway={
                 "username": "acctestusrgw",
                 "password": "PAssword123!",
             },
             storage_accounts=[{
-                "storage_container_id": example_container.id,
+                "storage_container_url": example_container.url,
                 "storage_account_key": example_account.primary_access_key,
                 "is_default": True,
             }],
             roles={
                 "head_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
                 "worker_node": {
-                    "vm_size": "Standard_D4_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                     "target_instance_count": 3,
                 },
                 "zookeeper_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
@@ -835,8 +827,6 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[_builtins.str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-               
-               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         ...
     @overload
@@ -870,34 +860,35 @@ class HadoopCluster(pulumi.CustomResource):
             name="example-hdicluster",
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="3.6",
+            cluster_version="5.1",
             tier="Standard",
+            tls_min_version="1.2",
             component_version={
-                "hadoop": "2.7",
+                "hadoop": "3.3",
             },
             gateway={
                 "username": "acctestusrgw",
                 "password": "PAssword123!",
             },
             storage_accounts=[{
-                "storage_container_id": example_container.id,
+                "storage_container_url": example_container.url,
                 "storage_account_key": example_account.primary_access_key,
                 "is_default": True,
             }],
             roles={
                 "head_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
                 "worker_node": {
-                    "vm_size": "Standard_D4_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                     "target_instance_count": 3,
                 },
                 "zookeeper_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
@@ -995,6 +986,8 @@ class HadoopCluster(pulumi.CustomResource):
             if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")
             __props__.__dict__["tier"] = tier
+            if tls_min_version is None and not opts.urn:
+                raise TypeError("Missing required property 'tls_min_version'")
             __props__.__dict__["tls_min_version"] = tls_min_version
             __props__.__dict__["https_endpoint"] = None
             __props__.__dict__["ssh_endpoint"] = None
@@ -1059,8 +1052,6 @@ class HadoopCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of Tags which should be assigned to this HDInsight Hadoop Cluster.
         :param pulumi.Input[_builtins.str] tier: Specifies the Tier which should be used for this HDInsight Hadoop Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] tls_min_version: The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-               
-               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1260,11 +1251,9 @@ class HadoopCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def tls_min_version(self) -> pulumi.Output[_builtins.str]:
         """
         The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-
-        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "tls_min_version")
 

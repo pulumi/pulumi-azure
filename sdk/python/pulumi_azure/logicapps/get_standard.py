@@ -27,7 +27,7 @@ class GetStandardResult:
     """
     A collection of values returned by getStandard.
     """
-    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, ftp_publish_basic_authentication_enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, resource_group_name=None, scm_publish_basic_authentication_enabled=None, site_config=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, tags=None, use_extension_bundle=None, version=None, virtual_network_subnet_id=None):
+    def __init__(__self__, app_service_plan_id=None, app_settings=None, bundle_version=None, client_affinity_enabled=None, client_certificate_mode=None, connection_strings=None, custom_domain_verification_id=None, default_hostname=None, enabled=None, ftp_publish_basic_authentication_enabled=None, https_only=None, id=None, identities=None, kind=None, location=None, name=None, outbound_ip_addresses=None, possible_outbound_ip_addresses=None, public_network_access=None, resource_group_name=None, scm_publish_basic_authentication_enabled=None, site_configs=None, site_credentials=None, storage_account_access_key=None, storage_account_name=None, storage_account_share_name=None, storage_key_vault_secret_id=None, tags=None, use_extension_bundle=None, version=None, virtual_network_subnet_id=None):
         if app_service_plan_id and not isinstance(app_service_plan_id, str):
             raise TypeError("Expected argument 'app_service_plan_id' to be a str")
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
@@ -91,9 +91,9 @@ class GetStandardResult:
         if scm_publish_basic_authentication_enabled and not isinstance(scm_publish_basic_authentication_enabled, bool):
             raise TypeError("Expected argument 'scm_publish_basic_authentication_enabled' to be a bool")
         pulumi.set(__self__, "scm_publish_basic_authentication_enabled", scm_publish_basic_authentication_enabled)
-        if site_config and not isinstance(site_config, dict):
-            raise TypeError("Expected argument 'site_config' to be a dict")
-        pulumi.set(__self__, "site_config", site_config)
+        if site_configs and not isinstance(site_configs, list):
+            raise TypeError("Expected argument 'site_configs' to be a list")
+        pulumi.set(__self__, "site_configs", site_configs)
         if site_credentials and not isinstance(site_credentials, list):
             raise TypeError("Expected argument 'site_credentials' to be a list")
         pulumi.set(__self__, "site_credentials", site_credentials)
@@ -106,6 +106,9 @@ class GetStandardResult:
         if storage_account_share_name and not isinstance(storage_account_share_name, str):
             raise TypeError("Expected argument 'storage_account_share_name' to be a str")
         pulumi.set(__self__, "storage_account_share_name", storage_account_share_name)
+        if storage_key_vault_secret_id and not isinstance(storage_key_vault_secret_id, str):
+            raise TypeError("Expected argument 'storage_key_vault_secret_id' to be a str")
+        pulumi.set(__self__, "storage_key_vault_secret_id", storage_key_vault_secret_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -285,12 +288,12 @@ class GetStandardResult:
         return pulumi.get(self, "scm_publish_basic_authentication_enabled")
 
     @_builtins.property
-    @pulumi.getter(name="siteConfig")
-    def site_config(self) -> 'outputs.GetStandardSiteConfigResult':
+    @pulumi.getter(name="siteConfigs")
+    def site_configs(self) -> Sequence['outputs.GetStandardSiteConfigResult']:
         """
         A `site_config` object as defined below.
         """
-        return pulumi.get(self, "site_config")
+        return pulumi.get(self, "site_configs")
 
     @_builtins.property
     @pulumi.getter(name="siteCredentials")
@@ -323,6 +326,14 @@ class GetStandardResult:
         The name of the share used by the logic app.
         """
         return pulumi.get(self, "storage_account_share_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageKeyVaultSecretId")
+    def storage_key_vault_secret_id(self) -> _builtins.str:
+        """
+        The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+        """
+        return pulumi.get(self, "storage_key_vault_secret_id")
 
     @_builtins.property
     @pulumi.getter
@@ -384,11 +395,12 @@ class AwaitableGetStandardResult(GetStandardResult):
             public_network_access=self.public_network_access,
             resource_group_name=self.resource_group_name,
             scm_publish_basic_authentication_enabled=self.scm_publish_basic_authentication_enabled,
-            site_config=self.site_config,
+            site_configs=self.site_configs,
             site_credentials=self.site_credentials,
             storage_account_access_key=self.storage_account_access_key,
             storage_account_name=self.storage_account_name,
             storage_account_share_name=self.storage_account_share_name,
+            storage_key_vault_secret_id=self.storage_key_vault_secret_id,
             tags=self.tags,
             use_extension_bundle=self.use_extension_bundle,
             version=self.version,
@@ -451,11 +463,12 @@ def get_standard(name: Optional[_builtins.str] = None,
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         scm_publish_basic_authentication_enabled=pulumi.get(__ret__, 'scm_publish_basic_authentication_enabled'),
-        site_config=pulumi.get(__ret__, 'site_config'),
+        site_configs=pulumi.get(__ret__, 'site_configs'),
         site_credentials=pulumi.get(__ret__, 'site_credentials'),
         storage_account_access_key=pulumi.get(__ret__, 'storage_account_access_key'),
         storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
         storage_account_share_name=pulumi.get(__ret__, 'storage_account_share_name'),
+        storage_key_vault_secret_id=pulumi.get(__ret__, 'storage_key_vault_secret_id'),
         tags=pulumi.get(__ret__, 'tags'),
         use_extension_bundle=pulumi.get(__ret__, 'use_extension_bundle'),
         version=pulumi.get(__ret__, 'version'),
@@ -515,11 +528,12 @@ def get_standard_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         public_network_access=pulumi.get(__response__, 'public_network_access'),
         resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         scm_publish_basic_authentication_enabled=pulumi.get(__response__, 'scm_publish_basic_authentication_enabled'),
-        site_config=pulumi.get(__response__, 'site_config'),
+        site_configs=pulumi.get(__response__, 'site_configs'),
         site_credentials=pulumi.get(__response__, 'site_credentials'),
         storage_account_access_key=pulumi.get(__response__, 'storage_account_access_key'),
         storage_account_name=pulumi.get(__response__, 'storage_account_name'),
         storage_account_share_name=pulumi.get(__response__, 'storage_account_share_name'),
+        storage_key_vault_secret_id=pulumi.get(__response__, 'storage_key_vault_secret_id'),
         tags=pulumi.get(__response__, 'tags'),
         use_extension_bundle=pulumi.get(__response__, 'use_extension_bundle'),
         version=pulumi.get(__response__, 'version'),

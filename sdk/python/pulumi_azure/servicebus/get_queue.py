@@ -26,7 +26,7 @@ class GetQueueResult:
     """
     A collection of values returned by getQueue.
     """
-    def __init__(__self__, auto_delete_on_idle=None, batched_operations_enabled=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, enable_batched_operations=None, enable_express=None, enable_partitioning=None, express_enabled=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_id=None, namespace_name=None, partitioning_enabled=None, requires_duplicate_detection=None, requires_session=None, resource_group_name=None, status=None):
+    def __init__(__self__, auto_delete_on_idle=None, batched_operations_enabled=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, duplicate_detection_history_time_window=None, express_enabled=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, max_size_in_megabytes=None, name=None, namespace_id=None, partitioning_enabled=None, requires_duplicate_detection=None, requires_session=None, status=None):
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
@@ -42,15 +42,6 @@ class GetQueueResult:
         if duplicate_detection_history_time_window and not isinstance(duplicate_detection_history_time_window, str):
             raise TypeError("Expected argument 'duplicate_detection_history_time_window' to be a str")
         pulumi.set(__self__, "duplicate_detection_history_time_window", duplicate_detection_history_time_window)
-        if enable_batched_operations and not isinstance(enable_batched_operations, bool):
-            raise TypeError("Expected argument 'enable_batched_operations' to be a bool")
-        pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
-        if enable_express and not isinstance(enable_express, bool):
-            raise TypeError("Expected argument 'enable_express' to be a bool")
-        pulumi.set(__self__, "enable_express", enable_express)
-        if enable_partitioning and not isinstance(enable_partitioning, bool):
-            raise TypeError("Expected argument 'enable_partitioning' to be a bool")
-        pulumi.set(__self__, "enable_partitioning", enable_partitioning)
         if express_enabled and not isinstance(express_enabled, bool):
             raise TypeError("Expected argument 'express_enabled' to be a bool")
         pulumi.set(__self__, "express_enabled", express_enabled)
@@ -78,9 +69,6 @@ class GetQueueResult:
         if namespace_id and not isinstance(namespace_id, str):
             raise TypeError("Expected argument 'namespace_id' to be a str")
         pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name and not isinstance(namespace_name, str):
-            raise TypeError("Expected argument 'namespace_name' to be a str")
-        pulumi.set(__self__, "namespace_name", namespace_name)
         if partitioning_enabled and not isinstance(partitioning_enabled, bool):
             raise TypeError("Expected argument 'partitioning_enabled' to be a bool")
         pulumi.set(__self__, "partitioning_enabled", partitioning_enabled)
@@ -90,9 +78,6 @@ class GetQueueResult:
         if requires_session and not isinstance(requires_session, bool):
             raise TypeError("Expected argument 'requires_session' to be a bool")
         pulumi.set(__self__, "requires_session", requires_session)
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -136,21 +121,6 @@ class GetQueueResult:
         The ISO 8601 timespan duration during which duplicates can be detected.
         """
         return pulumi.get(self, "duplicate_detection_history_time_window")
-
-    @_builtins.property
-    @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> _builtins.bool:
-        return pulumi.get(self, "enable_batched_operations")
-
-    @_builtins.property
-    @pulumi.getter(name="enableExpress")
-    def enable_express(self) -> _builtins.bool:
-        return pulumi.get(self, "enable_express")
-
-    @_builtins.property
-    @pulumi.getter(name="enablePartitioning")
-    def enable_partitioning(self) -> _builtins.bool:
-        return pulumi.get(self, "enable_partitioning")
 
     @_builtins.property
     @pulumi.getter(name="expressEnabled")
@@ -215,14 +185,8 @@ class GetQueueResult:
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[_builtins.str]:
+    def namespace_id(self) -> _builtins.str:
         return pulumi.get(self, "namespace_id")
-
-    @_builtins.property
-    @pulumi.getter(name="namespaceName")
-    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.""")
-    def namespace_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "namespace_name")
 
     @_builtins.property
     @pulumi.getter(name="partitioningEnabled")
@@ -249,12 +213,6 @@ class GetQueueResult:
         return pulumi.get(self, "requires_session")
 
     @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.""")
-    def resource_group_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "resource_group_name")
-
-    @_builtins.property
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
@@ -274,9 +232,6 @@ class AwaitableGetQueueResult(GetQueueResult):
             dead_lettering_on_message_expiration=self.dead_lettering_on_message_expiration,
             default_message_ttl=self.default_message_ttl,
             duplicate_detection_history_time_window=self.duplicate_detection_history_time_window,
-            enable_batched_operations=self.enable_batched_operations,
-            enable_express=self.enable_express,
-            enable_partitioning=self.enable_partitioning,
             express_enabled=self.express_enabled,
             forward_dead_lettered_messages_to=self.forward_dead_lettered_messages_to,
             forward_to=self.forward_to,
@@ -286,18 +241,14 @@ class AwaitableGetQueueResult(GetQueueResult):
             max_size_in_megabytes=self.max_size_in_megabytes,
             name=self.name,
             namespace_id=self.namespace_id,
-            namespace_name=self.namespace_name,
             partitioning_enabled=self.partitioning_enabled,
             requires_duplicate_detection=self.requires_duplicate_detection,
             requires_session=self.requires_session,
-            resource_group_name=self.resource_group_name,
             status=self.status)
 
 
 def get_queue(name: Optional[_builtins.str] = None,
               namespace_id: Optional[_builtins.str] = None,
-              namespace_name: Optional[_builtins.str] = None,
-              resource_group_name: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetQueueResult:
     """
     Use this data source to access information about an existing Service Bus Queue.
@@ -327,8 +278,6 @@ def get_queue(name: Optional[_builtins.str] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult).value
 
@@ -338,9 +287,6 @@ def get_queue(name: Optional[_builtins.str] = None,
         dead_lettering_on_message_expiration=pulumi.get(__ret__, 'dead_lettering_on_message_expiration'),
         default_message_ttl=pulumi.get(__ret__, 'default_message_ttl'),
         duplicate_detection_history_time_window=pulumi.get(__ret__, 'duplicate_detection_history_time_window'),
-        enable_batched_operations=pulumi.get(__ret__, 'enable_batched_operations'),
-        enable_express=pulumi.get(__ret__, 'enable_express'),
-        enable_partitioning=pulumi.get(__ret__, 'enable_partitioning'),
         express_enabled=pulumi.get(__ret__, 'express_enabled'),
         forward_dead_lettered_messages_to=pulumi.get(__ret__, 'forward_dead_lettered_messages_to'),
         forward_to=pulumi.get(__ret__, 'forward_to'),
@@ -350,16 +296,12 @@ def get_queue(name: Optional[_builtins.str] = None,
         max_size_in_megabytes=pulumi.get(__ret__, 'max_size_in_megabytes'),
         name=pulumi.get(__ret__, 'name'),
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
-        namespace_name=pulumi.get(__ret__, 'namespace_name'),
         partitioning_enabled=pulumi.get(__ret__, 'partitioning_enabled'),
         requires_duplicate_detection=pulumi.get(__ret__, 'requires_duplicate_detection'),
         requires_session=pulumi.get(__ret__, 'requires_session'),
-        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         status=pulumi.get(__ret__, 'status'))
 def get_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                     namespace_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                     namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                     resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueueResult]:
     """
     Use this data source to access information about an existing Service Bus Queue.
@@ -389,8 +331,6 @@ def get_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getQueue:getQueue', __args__, opts=opts, typ=GetQueueResult)
     return __ret__.apply(lambda __response__: GetQueueResult(
@@ -399,9 +339,6 @@ def get_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         dead_lettering_on_message_expiration=pulumi.get(__response__, 'dead_lettering_on_message_expiration'),
         default_message_ttl=pulumi.get(__response__, 'default_message_ttl'),
         duplicate_detection_history_time_window=pulumi.get(__response__, 'duplicate_detection_history_time_window'),
-        enable_batched_operations=pulumi.get(__response__, 'enable_batched_operations'),
-        enable_express=pulumi.get(__response__, 'enable_express'),
-        enable_partitioning=pulumi.get(__response__, 'enable_partitioning'),
         express_enabled=pulumi.get(__response__, 'express_enabled'),
         forward_dead_lettered_messages_to=pulumi.get(__response__, 'forward_dead_lettered_messages_to'),
         forward_to=pulumi.get(__response__, 'forward_to'),
@@ -411,9 +348,7 @@ def get_queue_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         max_size_in_megabytes=pulumi.get(__response__, 'max_size_in_megabytes'),
         name=pulumi.get(__response__, 'name'),
         namespace_id=pulumi.get(__response__, 'namespace_id'),
-        namespace_name=pulumi.get(__response__, 'namespace_name'),
         partitioning_enabled=pulumi.get(__response__, 'partitioning_enabled'),
         requires_duplicate_detection=pulumi.get(__response__, 'requires_duplicate_detection'),
         requires_session=pulumi.get(__response__, 'requires_session'),
-        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         status=pulumi.get(__response__, 'status')))

@@ -8,11 +8,13 @@ import com.pulumi.azure.network.SubnetArgs;
 import com.pulumi.azure.network.inputs.SubnetState;
 import com.pulumi.azure.network.outputs.SubnetDelegation;
 import com.pulumi.azure.network.outputs.SubnetIpAddressPool;
+import com.pulumi.azure.network.outputs.SubnetServiceEndpoint;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -184,6 +186,46 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     public Output<String> name() {
         return this.name;
     }
+    @Export(name="networkSecurityGroupId", refs={String.class}, tree="[0]")
+    private Output<String> networkSecurityGroupId;
+
+    public Output<String> networkSecurityGroupId() {
+        return this.networkSecurityGroupId;
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Network Security Group to associate with the subnet.
+     * 
+     * &gt; **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+     * 
+     */
+    @Export(name="networkSecurityGroupIdWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> networkSecurityGroupIdWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Network Security Group to associate with the subnet.
+     * 
+     * &gt; **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+     * 
+     */
+    public Output<Optional<String>> networkSecurityGroupIdWo() {
+        return Codegen.optional(this.networkSecurityGroupIdWo);
+    }
+    /**
+     * An integer that must be incremented whenever `networkSecurityGroupIdWo` is updated. Required if `networkSecurityGroupIdWo` is specified.
+     * 
+     */
+    @Export(name="networkSecurityGroupIdWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> networkSecurityGroupIdWoVersion;
+
+    /**
+     * @return An integer that must be incremented whenever `networkSecurityGroupIdWo` is updated. Required if `networkSecurityGroupIdWo` is specified.
+     * 
+     */
+    public Output<Optional<Integer>> networkSecurityGroupIdWoVersion() {
+        return Codegen.optional(this.networkSecurityGroupIdWoVersion);
+    }
     /**
      * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      * 
@@ -242,6 +284,46 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
     }
+    @Export(name="routeTableId", refs={String.class}, tree="[0]")
+    private Output<String> routeTableId;
+
+    public Output<String> routeTableId() {
+        return this.routeTableId;
+    }
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Route Table to associate with the subnet.
+     * 
+     * &gt; **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+     * 
+     */
+    @Export(name="routeTableIdWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> routeTableIdWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Route Table to associate with the subnet.
+     * 
+     * &gt; **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+     * 
+     */
+    public Output<Optional<String>> routeTableIdWo() {
+        return Codegen.optional(this.routeTableIdWo);
+    }
+    /**
+     * An integer that must be incremented whenever `routeTableIdWo` is updated. Required if `routeTableIdWo` is specified.
+     * 
+     */
+    @Export(name="routeTableIdWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> routeTableIdWoVersion;
+
+    /**
+     * @return An integer that must be incremented whenever `routeTableIdWo` is updated. Required if `routeTableIdWo` is specified.
+     * 
+     */
+    public Output<Optional<Integer>> routeTableIdWoVersion() {
+        return Codegen.optional(this.routeTableIdWoVersion);
+    }
     /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      * 
@@ -256,22 +338,10 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> serviceEndpointPolicyIds() {
         return Codegen.optional(this.serviceEndpointPolicyIds);
     }
-    /**
-     * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-     * 
-     * &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
-     * 
-     */
-    @Export(name="serviceEndpoints", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> serviceEndpoints;
+    @Export(name="serviceEndpoints", refs={List.class,SubnetServiceEndpoint.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<SubnetServiceEndpoint>> serviceEndpoints;
 
-    /**
-     * @return The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-     * 
-     * &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
-     * 
-     */
-    public Output<Optional<List<String>>> serviceEndpoints() {
+    public Output<Optional<List<SubnetServiceEndpoint>>> serviceEndpoints() {
         return Codegen.optional(this.serviceEndpoints);
     }
     /**
@@ -350,6 +420,10 @@ public class Subnet extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "networkSecurityGroupIdWo",
+                "routeTableIdWo"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

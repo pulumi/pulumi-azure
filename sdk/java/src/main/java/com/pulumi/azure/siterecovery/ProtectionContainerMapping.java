@@ -12,10 +12,11 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
+ * Manages an Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
  * 
  * ## Example Usage
  * 
@@ -52,12 +53,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ResourceGroup("primary", ResourceGroupArgs.builder()
- *             .name("tfex-network-mapping-primary")
+ *             .name("example-network-mapping-primary")
  *             .location("West US")
  *             .build());
  * 
  *         var secondary = new ResourceGroup("secondary", ResourceGroupArgs.builder()
- *             .name("tfex-network-mapping-secondary")
+ *             .name("example-network-mapping-secondary")
  *             .location("East US")
  *             .build());
  * 
@@ -138,18 +139,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:siterecovery/protectionContainerMapping:ProtectionContainerMapping")
 public class ProtectionContainerMapping extends com.pulumi.resources.CustomResource {
     /**
-     * a `automaticUpdate` block defined as below.
+     * An `automaticUpdate` block defined as below.
      * 
      */
     @Export(name="automaticUpdate", refs={ProtectionContainerMappingAutomaticUpdate.class}, tree="[0]")
-    private Output<ProtectionContainerMappingAutomaticUpdate> automaticUpdate;
+    private Output</* @Nullable */ ProtectionContainerMappingAutomaticUpdate> automaticUpdate;
 
     /**
-     * @return a `automaticUpdate` block defined as below.
+     * @return An `automaticUpdate` block defined as below.
      * 
      */
-    public Output<ProtectionContainerMappingAutomaticUpdate> automaticUpdate() {
-        return this.automaticUpdate;
+    public Output<Optional<ProtectionContainerMappingAutomaticUpdate>> automaticUpdate() {
+        return Codegen.optional(this.automaticUpdate);
     }
     /**
      * The name of the protection container mapping. Changing this forces a new resource to be created.
@@ -166,14 +167,14 @@ public class ProtectionContainerMapping extends com.pulumi.resources.CustomResou
         return this.name;
     }
     /**
-     * Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+     * Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="recoveryFabricName", refs={String.class}, tree="[0]")
     private Output<String> recoveryFabricName;
 
     /**
-     * @return Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+     * @return Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> recoveryFabricName() {

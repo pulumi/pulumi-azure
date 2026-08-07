@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const vaultUri = example.then(example => example.vaultUri);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.KeyVault` - 2026-02-01
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -53,12 +60,6 @@ export interface GetKeyVaultResult {
      */
     readonly accessPolicies: outputs.keyvault.GetKeyVaultAccessPolicy[];
     /**
-     * Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
-     *
-     * @deprecated the `enableRbacAuthorization` property is deprecated in favour of `rbacAuthorizationEnabled` and will be removed in v5.0 of the AzureRM Provider.
-     */
-    readonly enableRbacAuthorization: boolean;
-    /**
      * Can Azure Virtual Machines retrieve certificates stored as secrets from the Key Vault?
      */
     readonly enabledForDeployment: boolean;
@@ -88,6 +89,9 @@ export interface GetKeyVaultResult {
      * Is purge protection enabled on this Key Vault?
      */
     readonly purgeProtectionEnabled: boolean;
+    /**
+     * Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+     */
     readonly rbacAuthorizationEnabled: boolean;
     readonly resourceGroupName: string;
     /**
@@ -122,6 +126,13 @@ export interface GetKeyVaultResult {
  * });
  * export const vaultUri = example.then(example => example.vaultUri);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.KeyVault` - 2026-02-01
  */
 export function getKeyVaultOutput(args: GetKeyVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

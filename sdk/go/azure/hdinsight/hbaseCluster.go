@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/hdinsight"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/hdinsight"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,10 +59,11 @@ import (
 //				Name:              pulumi.String("example-hdicluster"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				ClusterVersion:    pulumi.String("3.6"),
+//				ClusterVersion:    pulumi.String("5.1"),
 //				Tier:              pulumi.String("Standard"),
+//				TlsMinVersion:     pulumi.String("1.2"),
 //				ComponentVersion: &hdinsight.HBaseClusterComponentVersionArgs{
-//					Hbase: pulumi.String("1.1"),
+//					Hbase: pulumi.String("2.4"),
 //				},
 //				Gateway: &hdinsight.HBaseClusterGatewayArgs{
 //					Username: pulumi.String("acctestusrgw"),
@@ -70,9 +71,9 @@ import (
 //				},
 //				StorageAccounts: hdinsight.HBaseClusterStorageAccountArray{
 //					&hdinsight.HBaseClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
-//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-//						IsDefault:          pulumi.Bool(true),
+//						StorageContainerUrl: exampleContainer.Url,
+//						StorageAccountKey:   exampleAccount.PrimaryAccessKey,
+//						IsDefault:           pulumi.Bool(true),
 //					},
 //				},
 //				Roles: &hdinsight.HBaseClusterRolesArgs{
@@ -163,9 +164,7 @@ type HBaseCluster struct {
 	// Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier pulumi.StringOutput `pulumi:"tier"`
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-	TlsMinVersion pulumi.StringPtrOutput `pulumi:"tlsMinVersion"`
+	TlsMinVersion pulumi.StringOutput `pulumi:"tlsMinVersion"`
 }
 
 // NewHBaseCluster registers a new resource with the given unique name, arguments, and options.
@@ -192,6 +191,9 @@ func NewHBaseCluster(ctx *pulumi.Context,
 	}
 	if args.Tier == nil {
 		return nil, errors.New("invalid value for required argument 'Tier'")
+	}
+	if args.TlsMinVersion == nil {
+		return nil, errors.New("invalid value for required argument 'TlsMinVersion'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource HBaseCluster
@@ -259,8 +261,6 @@ type hbaseClusterState struct {
 	// Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier *string `pulumi:"tier"`
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	TlsMinVersion *string `pulumi:"tlsMinVersion"`
 }
 
@@ -308,8 +308,6 @@ type HBaseClusterState struct {
 	// Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier pulumi.StringPtrInput
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	TlsMinVersion pulumi.StringPtrInput
 }
 
@@ -357,9 +355,7 @@ type hbaseClusterArgs struct {
 	// Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier string `pulumi:"tier"`
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-	TlsMinVersion *string `pulumi:"tlsMinVersion"`
+	TlsMinVersion string `pulumi:"tlsMinVersion"`
 }
 
 // The set of arguments for constructing a HBaseCluster resource.
@@ -403,9 +399,7 @@ type HBaseClusterArgs struct {
 	// Specifies the Tier which should be used for this HDInsight HBase Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier pulumi.StringInput
 	// The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-	TlsMinVersion pulumi.StringPtrInput
+	TlsMinVersion pulumi.StringInput
 }
 
 func (HBaseClusterArgs) ElementType() reflect.Type {
@@ -601,10 +595,8 @@ func (o HBaseClusterOutput) Tier() pulumi.StringOutput {
 }
 
 // The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
-//
-// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-func (o HBaseClusterOutput) TlsMinVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HBaseCluster) pulumi.StringPtrOutput { return v.TlsMinVersion }).(pulumi.StringPtrOutput)
+func (o HBaseClusterOutput) TlsMinVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *HBaseCluster) pulumi.StringOutput { return v.TlsMinVersion }).(pulumi.StringOutput)
 }
 
 type HBaseClusterArrayOutput struct{ *pulumi.OutputState }

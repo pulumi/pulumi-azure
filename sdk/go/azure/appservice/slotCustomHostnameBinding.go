@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -36,39 +37,41 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("some-app-service-plan"),
+//			exampleAppServicePlan, err := azurerm.NewAppServicePlan(ctx, "example", &azurerm.AppServicePlanArgs{
+//				Name:              "some-app-service-plan",
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Standard"),
-//					Size: pulumi.String("S1"),
+//				Sku: []map[string]string{
+//					{
+//						"tier": "Standard",
+//						"size": "S1",
+//					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              pulumi.String("some-app-service"),
+//			exampleAppService, err := azurerm.NewAppService(ctx, "example", &azurerm.AppServiceArgs{
+//				Name:              "some-app-service",
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  exampleAppServicePlan.Id,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSlot, err := appservice.NewSlot(ctx, "example", &appservice.SlotArgs{
-//				Name:              pulumi.String("staging"),
+//			exampleAppServiceSlot, err := azurerm.NewAppServiceSlot(ctx, "example", &azurerm.AppServiceSlotArgs{
+//				Name:              "staging",
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				AppServiceName:    exampleAppService.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  exampleAppServicePlan.Id,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = appservice.NewSlotCustomHostnameBinding(ctx, "example", &appservice.SlotCustomHostnameBindingArgs{
-//				AppServiceSlotId: exampleSlot.ID().ToIDOutput().ToStringOutput(),
+//				AppServiceSlotId: exampleAppServiceSlot.Id,
 //				Hostname:         pulumi.String("www.mywebsite.com"),
 //			})
 //			if err != nil {

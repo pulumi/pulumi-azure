@@ -84,7 +84,7 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     declare public readonly dedicatedHostGroupId: pulumi.Output<string>;
     /**
-     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
      */
     declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
@@ -167,7 +167,7 @@ export interface DedicatedHostState {
      */
     dedicatedHostGroupId?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
      */
     licenseType?: pulumi.Input<string | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface DedicatedHostArgs {
      */
     dedicatedHostGroupId: pulumi.Input<string>;
     /**
-     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+     * Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
      */
     licenseType?: pulumi.Input<string | undefined>;
     /**

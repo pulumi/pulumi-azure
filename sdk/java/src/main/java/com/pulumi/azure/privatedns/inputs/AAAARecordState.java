@@ -49,6 +49,21 @@ public final class AAAARecordState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="privateDnsZoneId")
+    private @Nullable Output<String> privateDnsZoneId;
+
+    /**
+     * @return Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> privateDnsZoneId() {
+        return Optional.ofNullable(this.privateDnsZoneId);
+    }
+
+    /**
      * A list of IPv6 Addresses.
      * 
      */
@@ -61,21 +76,6 @@ public final class AAAARecordState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<String>>> records() {
         return Optional.ofNullable(this.records);
-    }
-
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Import(name="resourceGroupName")
-    private @Nullable Output<String> resourceGroupName;
-
-    /**
-     * @return Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Optional<Output<String>> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
     }
 
     /**
@@ -108,31 +108,15 @@ public final class AAAARecordState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.ttl);
     }
 
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Import(name="zoneName")
-    private @Nullable Output<String> zoneName;
-
-    /**
-     * @return Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Optional<Output<String>> zoneName() {
-        return Optional.ofNullable(this.zoneName);
-    }
-
     private AAAARecordState() {}
 
     private AAAARecordState(AAAARecordState $) {
         this.fqdn = $.fqdn;
         this.name = $.name;
+        this.privateDnsZoneId = $.privateDnsZoneId;
         this.records = $.records;
-        this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.ttl = $.ttl;
-        this.zoneName = $.zoneName;
     }
 
     public static Builder builder() {
@@ -196,6 +180,27 @@ public final class AAAARecordState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param privateDnsZoneId Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsZoneId(@Nullable Output<String> privateDnsZoneId) {
+            $.privateDnsZoneId = privateDnsZoneId;
+            return this;
+        }
+
+        /**
+         * @param privateDnsZoneId Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsZoneId(String privateDnsZoneId) {
+            return privateDnsZoneId(Output.of(privateDnsZoneId));
+        }
+
+        /**
          * @param records A list of IPv6 Addresses.
          * 
          * @return builder
@@ -224,27 +229,6 @@ public final class AAAARecordState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder records(String... records) {
             return records(List.of(records));
-        }
-
-        /**
-         * @param resourceGroupName Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @param resourceGroupName Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
         }
 
         /**
@@ -287,27 +271,6 @@ public final class AAAARecordState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ttl(Integer ttl) {
             return ttl(Output.of(ttl));
-        }
-
-        /**
-         * @param zoneName Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneName(@Nullable Output<String> zoneName) {
-            $.zoneName = zoneName;
-            return this;
-        }
-
-        /**
-         * @param zoneName Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneName(String zoneName) {
-            return zoneName(Output.of(zoneName));
         }
 
         public AAAARecordState build() {

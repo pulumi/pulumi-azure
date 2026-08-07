@@ -70,6 +70,11 @@ export type WorkspaceTableCustomLog = import("./workspaceTableCustomLog").Worksp
 export const WorkspaceTableCustomLog: typeof import("./workspaceTableCustomLog").WorkspaceTableCustomLog = null as any;
 utilities.lazyLoad(exports, ["WorkspaceTableCustomLog"], () => require("./workspaceTableCustomLog"));
 
+export { WorkspaceTableMicrosoftArgs, WorkspaceTableMicrosoftState } from "./workspaceTableMicrosoft";
+export type WorkspaceTableMicrosoft = import("./workspaceTableMicrosoft").WorkspaceTableMicrosoft;
+export const WorkspaceTableMicrosoft: typeof import("./workspaceTableMicrosoft").WorkspaceTableMicrosoft = null as any;
+utilities.lazyLoad(exports, ["WorkspaceTableMicrosoft"], () => require("./workspaceTableMicrosoft"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -99,6 +104,8 @@ const _module = {
                 return new WorkspaceTable(name, <any>undefined, { urn })
             case "azure:loganalytics/workspaceTableCustomLog:WorkspaceTableCustomLog":
                 return new WorkspaceTableCustomLog(name, <any>undefined, { urn })
+            case "azure:loganalytics/workspaceTableMicrosoft:WorkspaceTableMicrosoft":
+                return new WorkspaceTableMicrosoft(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -116,3 +123,4 @@ pulumi.runtime.registerResourceModule("azure", "loganalytics/savedSearch", _modu
 pulumi.runtime.registerResourceModule("azure", "loganalytics/storageInsights", _module)
 pulumi.runtime.registerResourceModule("azure", "loganalytics/workspaceTable", _module)
 pulumi.runtime.registerResourceModule("azure", "loganalytics/workspaceTableCustomLog", _module)
+pulumi.runtime.registerResourceModule("azure", "loganalytics/workspaceTableMicrosoft", _module)

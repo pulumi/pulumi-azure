@@ -114,26 +114,10 @@ namespace Pulumi.Azure.Storage
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Resource Manager ID of this Storage Container.
-        /// </summary>
-        [Output("resourceManagerId")]
-        public Output<string> ResourceManagerId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Storage Account where the Container should be created.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// The ID of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
-        public Output<string?> StorageAccountId { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `StorageAccountId`.
-        /// 
-        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string?> StorageAccountName { get; private set; } = null!;
+        public Output<string> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.
@@ -149,7 +133,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Container(string name, ContainerArgs? args = null, CustomResourceOptions? options = null)
+        public Container(string name, ContainerArgs args, CustomResourceOptions? options = null)
             : base("azure:storage/container:Container", name, args ?? new ContainerArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -226,20 +210,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The name of the Storage Account where the Container should be created.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// The ID of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `StorageAccountId`.
-        /// 
-        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public Input<string> StorageAccountId { get; set; } = null!;
 
         public ContainerArgs()
         {
@@ -300,26 +274,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Resource Manager ID of this Storage Container.
-        /// </summary>
-        [Input("resourceManagerId")]
-        public Input<string>? ResourceManagerId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Container should be created.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// The ID of the Storage Account where the Container should be created. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// The name of the Storage Account where the Container should be created. This property is deprecated in favour of `StorageAccountId`.
-        /// 
-        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
         /// The data plane URL of the Storage Container in the format of `&lt;storage blob endpoint&gt;/&lt;container name&gt;`. E.g. `https://example.blob.core.windows.net/mycontainer`.

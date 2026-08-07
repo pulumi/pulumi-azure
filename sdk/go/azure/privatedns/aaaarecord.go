@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,10 +44,9 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewAAAARecord(ctx, "test", &privatedns.AAAARecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          test.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
+//				Name:             pulumi.String("test"),
+//				PrivateDnsZoneId: test.ID().ToIDOutput().ToStringOutput(),
+//				Ttl:              pulumi.Int(300),
 //				Records: pulumi.StringArray{
 //					pulumi.String("fd5d:70bc:930e:d008:0000:0000:0000:7334"),
 //					pulumi.String("fd5d:70bc:930e:d008::7335"),
@@ -83,16 +82,14 @@ type AAAARecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// A list of IPv6 Addresses.
 	Records pulumi.StringArrayOutput `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewAAAARecord registers a new resource with the given unique name, arguments, and options.
@@ -102,17 +99,14 @@ func NewAAAARecord(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.PrivateDnsZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateDnsZoneId'")
+	}
 	if args.Records == nil {
 		return nil, errors.New("invalid value for required argument 'Records'")
 	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
 	if args.Ttl == nil {
 		return nil, errors.New("invalid value for required argument 'Ttl'")
-	}
-	if args.ZoneName == nil {
-		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource AAAARecord
@@ -141,16 +135,14 @@ type aaaarecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// A list of IPv6 Addresses.
 	Records []string `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl *int `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName *string `pulumi:"zoneName"`
 }
 
 type AAAARecordState struct {
@@ -158,16 +150,14 @@ type AAAARecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringPtrInput
 	// A list of IPv6 Addresses.
 	Records pulumi.StringArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntPtrInput
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringPtrInput
 }
 
 func (AAAARecordState) ElementType() reflect.Type {
@@ -177,32 +167,28 @@ func (AAAARecordState) ElementType() reflect.Type {
 type aaaarecordArgs struct {
 	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId string `pulumi:"privateDnsZoneId"`
 	// A list of IPv6 Addresses.
 	Records []string `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl int `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName string `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a AAAARecord resource.
 type AAAARecordArgs struct {
 	// The name of the DNS A Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringInput
 	// A list of IPv6 Addresses.
 	Records pulumi.StringArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntInput
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringInput
 }
 
 func (AAAARecordArgs) ElementType() reflect.Type {
@@ -302,14 +288,14 @@ func (o AAAARecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AAAARecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+func (o AAAARecordOutput) PrivateDnsZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AAAARecord) pulumi.StringOutput { return v.PrivateDnsZoneId }).(pulumi.StringOutput)
+}
+
 // A list of IPv6 Addresses.
 func (o AAAARecordOutput) Records() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AAAARecord) pulumi.StringArrayOutput { return v.Records }).(pulumi.StringArrayOutput)
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (o AAAARecordOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *AAAARecord) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.
@@ -320,11 +306,6 @@ func (o AAAARecordOutput) Tags() pulumi.StringMapOutput {
 // The Time To Live (TTL) of the DNS record in seconds.
 func (o AAAARecordOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *AAAARecord) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
-}
-
-// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (o AAAARecordOutput) ZoneName() pulumi.StringOutput {
-	return o.ApplyT(func(v *AAAARecord) pulumi.StringOutput { return v.ZoneName }).(pulumi.StringOutput)
 }
 
 type AAAARecordArrayOutput struct{ *pulumi.OutputState }

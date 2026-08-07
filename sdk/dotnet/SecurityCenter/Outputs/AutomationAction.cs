@@ -32,7 +32,7 @@ namespace Pulumi.Azure.SecurityCenter.Outputs
         /// <summary>
         /// Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
 
         [OutputConstructor]
         private AutomationAction(
@@ -42,7 +42,7 @@ namespace Pulumi.Azure.SecurityCenter.Outputs
 
             string? triggerUrl,
 
-            string? type)
+            string type)
         {
             ConnectionString = connectionString;
             ResourceId = resourceId;

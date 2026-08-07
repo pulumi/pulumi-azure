@@ -27,13 +27,10 @@ class GetKeyVaultResult:
     """
     A collection of values returned by getKeyVault.
     """
-    def __init__(__self__, access_policies=None, enable_rbac_authorization=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, public_network_access_enabled=None, purge_protection_enabled=None, rbac_authorization_enabled=None, resource_group_name=None, sku_name=None, tags=None, tenant_id=None, vault_uri=None):
+    def __init__(__self__, access_policies=None, enabled_for_deployment=None, enabled_for_disk_encryption=None, enabled_for_template_deployment=None, id=None, location=None, name=None, network_acls=None, public_network_access_enabled=None, purge_protection_enabled=None, rbac_authorization_enabled=None, resource_group_name=None, sku_name=None, tags=None, tenant_id=None, vault_uri=None):
         if access_policies and not isinstance(access_policies, list):
             raise TypeError("Expected argument 'access_policies' to be a list")
         pulumi.set(__self__, "access_policies", access_policies)
-        if enable_rbac_authorization and not isinstance(enable_rbac_authorization, bool):
-            raise TypeError("Expected argument 'enable_rbac_authorization' to be a bool")
-        pulumi.set(__self__, "enable_rbac_authorization", enable_rbac_authorization)
         if enabled_for_deployment and not isinstance(enabled_for_deployment, bool):
             raise TypeError("Expected argument 'enabled_for_deployment' to be a bool")
         pulumi.set(__self__, "enabled_for_deployment", enabled_for_deployment)
@@ -87,15 +84,6 @@ class GetKeyVaultResult:
         One or more `access_policy` blocks as defined below.
         """
         return pulumi.get(self, "access_policies")
-
-    @_builtins.property
-    @pulumi.getter(name="enableRbacAuthorization")
-    @_utilities.deprecated("""the `enable_rbac_authorization` property is deprecated in favour of `rbac_authorization_enabled` and will be removed in v5.0 of the AzureRM Provider.""")
-    def enable_rbac_authorization(self) -> _builtins.bool:
-        """
-        Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
-        """
-        return pulumi.get(self, "enable_rbac_authorization")
 
     @_builtins.property
     @pulumi.getter(name="enabledForDeployment")
@@ -166,6 +154,9 @@ class GetKeyVaultResult:
     @_builtins.property
     @pulumi.getter(name="rbacAuthorizationEnabled")
     def rbac_authorization_enabled(self) -> _builtins.bool:
+        """
+        Is Role Based Access Control (RBAC) for authorization of data actions enabled on this Key Vault?
+        """
         return pulumi.get(self, "rbac_authorization_enabled")
 
     @_builtins.property
@@ -213,7 +204,6 @@ class AwaitableGetKeyVaultResult(GetKeyVaultResult):
             yield self
         return GetKeyVaultResult(
             access_policies=self.access_policies,
-            enable_rbac_authorization=self.enable_rbac_authorization,
             enabled_for_deployment=self.enabled_for_deployment,
             enabled_for_disk_encryption=self.enabled_for_disk_encryption,
             enabled_for_template_deployment=self.enabled_for_template_deployment,
@@ -248,6 +238,13 @@ def get_key_vault(name: Optional[_builtins.str] = None,
     pulumi.export("vaultUri", example.vault_uri)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.KeyVault` - 2026-02-01
+
 
     :param _builtins.str name: Specifies the name of the Key Vault.
     :param _builtins.str resource_group_name: The name of the Resource Group in which the Key Vault exists.
@@ -260,7 +257,6 @@ def get_key_vault(name: Optional[_builtins.str] = None,
 
     return AwaitableGetKeyVaultResult(
         access_policies=pulumi.get(__ret__, 'access_policies'),
-        enable_rbac_authorization=pulumi.get(__ret__, 'enable_rbac_authorization'),
         enabled_for_deployment=pulumi.get(__ret__, 'enabled_for_deployment'),
         enabled_for_disk_encryption=pulumi.get(__ret__, 'enabled_for_disk_encryption'),
         enabled_for_template_deployment=pulumi.get(__ret__, 'enabled_for_template_deployment'),
@@ -293,6 +289,13 @@ def get_key_vault_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     pulumi.export("vaultUri", example.vault_uri)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.KeyVault` - 2026-02-01
+
 
     :param _builtins.str name: Specifies the name of the Key Vault.
     :param _builtins.str resource_group_name: The name of the Resource Group in which the Key Vault exists.
@@ -304,7 +307,6 @@ def get_key_vault_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('azure:keyvault/getKeyVault:getKeyVault', __args__, opts=opts, typ=GetKeyVaultResult)
     return __ret__.apply(lambda __response__: GetKeyVaultResult(
         access_policies=pulumi.get(__response__, 'access_policies'),
-        enable_rbac_authorization=pulumi.get(__response__, 'enable_rbac_authorization'),
         enabled_for_deployment=pulumi.get(__response__, 'enabled_for_deployment'),
         enabled_for_disk_encryption=pulumi.get(__response__, 'enabled_for_disk_encryption'),
         enabled_for_template_deployment=pulumi.get(__response__, 'enabled_for_template_deployment'),

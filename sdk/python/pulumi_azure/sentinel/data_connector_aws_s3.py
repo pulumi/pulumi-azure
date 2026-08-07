@@ -228,6 +228,13 @@ class DataConnectorAwsS3(pulumi.CustomResource):
             sqs_urls=["https://sqs.us-east-1.amazonaws.com/000000000000/example"])
         ```
 
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
+
         ## Import
 
         AWS S3 Data Connectors can be imported using the `resource id`, e.g.
@@ -276,6 +283,13 @@ class DataConnectorAwsS3(pulumi.CustomResource):
             destination_table="AWSGuardDuty",
             sqs_urls=["https://sqs.us-east-1.amazonaws.com/000000000000/example"])
         ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.OperationalInsights` - 2022-10-01-preview
 
         ## Import
 

@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetServiceEndpointArgs;
  * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
  * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.privatedns.Zone;
@@ -81,7 +82,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
- *             .serviceEndpoints("Microsoft.Storage")
+ *             .serviceEndpoints(SubnetServiceEndpointArgs.builder()
+ *                 .service("Microsoft.Storage")
+ *                 .build())
  *             .delegations(SubnetDelegationArgs.builder()
  *                 .name("fs")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
@@ -98,9 +101,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("exampleVnetZone.com")
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
- *             .resourceGroupName(example.name())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleSubnet)
  *                 .build());

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/logicapps"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/logicapps"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -109,7 +109,7 @@ type LookupStandardResult struct {
 	// Whether the default SCM basic authentication publishing profile is enabled.
 	ScmPublishBasicAuthenticationEnabled bool `pulumi:"scmPublishBasicAuthenticationEnabled"`
 	// A `siteConfig` object as defined below.
-	SiteConfig GetStandardSiteConfig `pulumi:"siteConfig"`
+	SiteConfigs []GetStandardSiteConfig `pulumi:"siteConfigs"`
 	// A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
 	SiteCredentials []GetStandardSiteCredential `pulumi:"siteCredentials"`
 	// The access key which will be used to access the backend storage account for the Logic App.
@@ -118,6 +118,8 @@ type LookupStandardResult struct {
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// The name of the share used by the logic app.
 	StorageAccountShareName string `pulumi:"storageAccountShareName"`
+	// The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+	StorageKeyVaultSecretId string `pulumi:"storageKeyVaultSecretId"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether the logic app should use the bundled extension package.
@@ -269,8 +271,8 @@ func (o LookupStandardResultOutput) ScmPublishBasicAuthenticationEnabled() pulum
 }
 
 // A `siteConfig` object as defined below.
-func (o LookupStandardResultOutput) SiteConfig() GetStandardSiteConfigOutput {
-	return o.ApplyT(func(v LookupStandardResult) GetStandardSiteConfig { return v.SiteConfig }).(GetStandardSiteConfigOutput)
+func (o LookupStandardResultOutput) SiteConfigs() GetStandardSiteConfigArrayOutput {
+	return o.ApplyT(func(v LookupStandardResult) []GetStandardSiteConfig { return v.SiteConfigs }).(GetStandardSiteConfigArrayOutput)
 }
 
 // A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
@@ -291,6 +293,11 @@ func (o LookupStandardResultOutput) StorageAccountName() pulumi.StringOutput {
 // The name of the share used by the logic app.
 func (o LookupStandardResultOutput) StorageAccountShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.StorageAccountShareName }).(pulumi.StringOutput)
+}
+
+// The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+func (o LookupStandardResultOutput) StorageKeyVaultSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStandardResult) string { return v.StorageKeyVaultSecretId }).(pulumi.StringOutput)
 }
 
 // A mapping of tags assigned to the resource.

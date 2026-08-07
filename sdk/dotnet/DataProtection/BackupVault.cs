@@ -67,9 +67,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<bool?> CrossRegionRestoreEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("datastoreType")]
         public Output<string> DatastoreType { get; private set; } = null!;
@@ -187,9 +185,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<bool>? CrossRegionRestoreEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("datastoreType", required: true)]
         public Input<string> DatastoreType { get; set; } = null!;
@@ -275,9 +271,7 @@ namespace Pulumi.Azure.DataProtection
         public Input<bool>? CrossRegionRestoreEnabled { get; set; }
 
         /// <summary>
-        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        /// Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("datastoreType")]
         public Input<string>? DatastoreType { get; set; }

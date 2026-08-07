@@ -69,10 +69,6 @@ export interface GetPoolResult {
      */
     readonly autoScales: outputs.batch.GetPoolAutoScale[];
     /**
-     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-     */
-    readonly certificates: outputs.batch.GetPoolCertificate[];
-    /**
      * The container configuration used in the pool's VMs.
      */
     readonly containerConfigurations: outputs.batch.GetPoolContainerConfiguration[];

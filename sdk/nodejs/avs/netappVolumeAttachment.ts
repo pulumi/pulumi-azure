@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  *     exportPolicyRules: [{
  *         ruleIndex: 1,
  *         allowedClients: ["0.0.0.0/0"],
- *         protocolsEnabled: "NFSv3",
+ *         protocolsEnabled: ["NFSv3"],
  *         unixReadOnly: false,
  *         unixReadWrite: true,
  *         rootAccessEnabled: true,

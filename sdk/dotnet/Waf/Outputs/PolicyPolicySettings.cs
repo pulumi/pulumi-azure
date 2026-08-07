@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Waf.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Whether the firewall should block a request with upload size greater then `FileUploadLimitInMb`.
+        /// Whether the firewall should block a request with upload size greater then `FileUploadLimitInMb`. Defaults to `True`.
         /// </summary>
         public readonly bool? FileUploadEnforcement;
         /// <summary>

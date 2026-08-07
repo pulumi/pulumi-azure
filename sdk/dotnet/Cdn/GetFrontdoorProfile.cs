@@ -43,7 +43,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn` - 2024-02-01
+        /// * `Microsoft.Cdn` - 2025-12-01
         /// </summary>
         public static Task<GetFrontdoorProfileResult> InvokeAsync(GetFrontdoorProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileArgs(), options.WithDefaults());
@@ -80,7 +80,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn` - 2024-02-01
+        /// * `Microsoft.Cdn` - 2025-12-01
         /// </summary>
         public static Output<GetFrontdoorProfileResult> Invoke(GetFrontdoorProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileInvokeArgs(), options.WithDefaults());
@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Cdn
         /// &lt;!-- This section is generated, changes will be overwritten --&gt;
         /// This data source uses the following Azure API Providers:
         /// 
-        /// * `Microsoft.Cdn` - 2024-02-01
+        /// * `Microsoft.Cdn` - 2025-12-01
         /// </summary>
         public static Output<GetFrontdoorProfileResult> Invoke(GetFrontdoorProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrontdoorProfileResult>("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args ?? new GetFrontdoorProfileInvokeArgs(), options.WithDefaults());
@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// An `Identity` block as defined below.
         /// </summary>
-        public readonly Outputs.GetFrontdoorProfileIdentityResult Identity;
+        public readonly ImmutableArray<Outputs.GetFrontdoorProfileIdentityResult> Identities;
         /// <summary>
         /// One or more `LogScrubbingRule` blocks as defined below.
         /// </summary>
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Cdn
         private GetFrontdoorProfileResult(
             string id,
 
-            Outputs.GetFrontdoorProfileIdentityResult identity,
+            ImmutableArray<Outputs.GetFrontdoorProfileIdentityResult> identities,
 
             ImmutableArray<Outputs.GetFrontdoorProfileLogScrubbingRuleResult> logScrubbingRules,
 
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Cdn
             ImmutableDictionary<string, string> tags)
         {
             Id = id;
-            Identity = identity;
+            Identities = identities;
             LogScrubbingRules = logScrubbingRules;
             Name = name;
             ResourceGroupName = resourceGroupName;

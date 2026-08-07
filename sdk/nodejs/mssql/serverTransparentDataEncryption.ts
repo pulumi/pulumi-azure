@@ -79,6 +79,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     enabledForDiskEncryption: true,
  *     tenantId: current.then(current => current.tenantId),
  *     softDeleteRetentionDays: 7,
@@ -186,10 +187,6 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
      */
     declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
     /**
-     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
-    /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
     declare public readonly serverId: pulumi.Output<string>;
@@ -209,7 +206,6 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
             const state = argsOrState as ServerTransparentDataEncryptionState | undefined;
             resourceInputs["autoRotationEnabled"] = state?.autoRotationEnabled;
             resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
-            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
             resourceInputs["serverId"] = state?.serverId;
         } else {
             const args = argsOrState as ServerTransparentDataEncryptionArgs | undefined;
@@ -218,7 +214,6 @@ export class ServerTransparentDataEncryption extends pulumi.CustomResource {
             }
             resourceInputs["autoRotationEnabled"] = args?.autoRotationEnabled;
             resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
-            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
             resourceInputs["serverId"] = args?.serverId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -243,10 +238,6 @@ export interface ServerTransparentDataEncryptionState {
      */
     keyVaultKeyId?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    managedHsmKeyId?: pulumi.Input<string | undefined>;
-    /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */
     serverId?: pulumi.Input<string | undefined>;
@@ -268,10 +259,6 @@ export interface ServerTransparentDataEncryptionArgs {
      * > **Note:** If `serverId` denotes a secondary server deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
      */
     keyVaultKeyId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
      */

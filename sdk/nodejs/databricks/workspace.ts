@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *
  * * `Microsoft.Databricks` - 2026-01-01
  *
- * * `Microsoft.Network` - 2025-01-01, 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  *
  * ## Import
  *

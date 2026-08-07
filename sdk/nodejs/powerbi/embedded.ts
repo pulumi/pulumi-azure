@@ -78,7 +78,7 @@ export class Embedded extends pulumi.CustomResource {
      */
     declare public readonly location: pulumi.Output<string>;
     /**
-     * Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     * Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
      */
     declare public readonly mode: pulumi.Output<string | undefined>;
     /**
@@ -155,7 +155,7 @@ export interface EmbeddedState {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     * Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
      */
     mode?: pulumi.Input<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface EmbeddedArgs {
      */
     location?: pulumi.Input<string | undefined>;
     /**
-     * Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+     * Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
      */
     mode?: pulumi.Input<string | undefined>;
     /**

@@ -21,15 +21,15 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
      * The resource id of the cluster where the databases you would like to attach reside.
      * 
      */
-    @Import(name="clusterId")
-    private @Nullable Output<String> clusterId;
+    @Import(name="clusterId", required=true)
+    private Output<String> clusterId;
 
     /**
      * @return The resource id of the cluster where the databases you would like to attach reside.
      * 
      */
-    public Optional<Output<String>> clusterId() {
-        return Optional.ofNullable(this.clusterId);
+    public Output<String> clusterId() {
+        return this.clusterId;
     }
 
     /**
@@ -45,25 +45,6 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
      */
     public Output<String> clusterName() {
         return this.clusterName;
-    }
-
-    /**
-     * @deprecated
-     * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
-    @Import(name="clusterResourceId")
-    private @Nullable Output<String> clusterResourceId;
-
-    /**
-     * @deprecated
-     * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
-    public Optional<Output<String>> clusterResourceId() {
-        return Optional.ofNullable(this.clusterResourceId);
     }
 
     /**
@@ -195,7 +176,6 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
     private AttachedDatabaseConfigurationArgs(AttachedDatabaseConfigurationArgs $) {
         this.clusterId = $.clusterId;
         this.clusterName = $.clusterName;
-        this.clusterResourceId = $.clusterResourceId;
         this.databaseName = $.databaseName;
         this.databaseNameOverride = $.databaseNameOverride;
         this.databaseNamePrefix = $.databaseNamePrefix;
@@ -230,7 +210,7 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder clusterId(@Nullable Output<String> clusterId) {
+        public Builder clusterId(Output<String> clusterId) {
             $.clusterId = clusterId;
             return this;
         }
@@ -264,31 +244,6 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
          */
         public Builder clusterName(String clusterName) {
             return clusterName(Output.of(clusterName));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder clusterResourceId(@Nullable Output<String> clusterResourceId) {
-            $.clusterResourceId = clusterResourceId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder clusterResourceId(String clusterResourceId) {
-            return clusterResourceId(Output.of(clusterResourceId));
         }
 
         /**
@@ -464,6 +419,9 @@ public final class AttachedDatabaseConfigurationArgs extends com.pulumi.resource
         }
 
         public AttachedDatabaseConfigurationArgs build() {
+            if ($.clusterId == null) {
+                throw new MissingRequiredPropertyException("AttachedDatabaseConfigurationArgs", "clusterId");
+            }
             if ($.clusterName == null) {
                 throw new MissingRequiredPropertyException("AttachedDatabaseConfigurationArgs", "clusterName");
             }

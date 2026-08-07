@@ -12,26 +12,27 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  * import * as std from "@pulumi/std";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     name: "webapp",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleAppServicePlan = new azurerm.index.AppServicePlan("example", {
  *     name: "appserviceplan",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     sku: {
+ *     sku: [{
  *         tier: "Premium",
  *         size: "P1",
- *     },
+ *     }],
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azurerm.index.AppService("example", {
  *     name: "mywebapp",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  * });
  * const example = azure.dns.getZoneOutput({
  *     name: "example.com",

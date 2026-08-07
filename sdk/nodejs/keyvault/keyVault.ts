@@ -30,6 +30,7 @@ import * as utilities from "../utilities";
  *     name: "examplekeyvault",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     enabledForDiskEncryption: true,
  *     tenantId: current.then(current => current.tenantId),
  *     softDeleteRetentionDays: 7,
@@ -44,6 +45,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.KeyVault` - 2026-02-01
  *
  * ## Import
  *
@@ -88,14 +96,6 @@ export class KeyVault extends pulumi.CustomResource {
      */
     declare public readonly accessPolicies: pulumi.Output<outputs.keyvault.KeyVaultAccessPolicy[]>;
     /**
-     * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
-     */
-    declare public readonly contacts: pulumi.Output<outputs.keyvault.KeyVaultContact[]>;
-    /**
-     * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
-     */
-    declare public readonly enableRbacAuthorization: pulumi.Output<boolean>;
-    /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      */
     declare public readonly enabledForDeployment: pulumi.Output<boolean | undefined>;
@@ -105,6 +105,8 @@ export class KeyVault extends pulumi.CustomResource {
     declare public readonly enabledForDiskEncryption: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+     *
+     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
      */
     declare public readonly enabledForTemplateDeployment: pulumi.Output<boolean | undefined>;
     /**
@@ -131,8 +133,6 @@ export class KeyVault extends pulumi.CustomResource {
     declare public readonly purgeProtectionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-     *
-     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
      */
     declare public readonly rbacAuthorizationEnabled: pulumi.Output<boolean>;
     /**
@@ -176,8 +176,6 @@ export class KeyVault extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as KeyVaultState | undefined;
             resourceInputs["accessPolicies"] = state?.accessPolicies;
-            resourceInputs["contacts"] = state?.contacts;
-            resourceInputs["enableRbacAuthorization"] = state?.enableRbacAuthorization;
             resourceInputs["enabledForDeployment"] = state?.enabledForDeployment;
             resourceInputs["enabledForDiskEncryption"] = state?.enabledForDiskEncryption;
             resourceInputs["enabledForTemplateDeployment"] = state?.enabledForTemplateDeployment;
@@ -195,6 +193,9 @@ export class KeyVault extends pulumi.CustomResource {
             resourceInputs["vaultUri"] = state?.vaultUri;
         } else {
             const args = argsOrState as KeyVaultArgs | undefined;
+            if (args?.rbacAuthorizationEnabled === undefined && !opts.urn) {
+                throw new Error("Missing required property 'rbacAuthorizationEnabled'");
+            }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -205,8 +206,6 @@ export class KeyVault extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tenantId'");
             }
             resourceInputs["accessPolicies"] = args?.accessPolicies;
-            resourceInputs["contacts"] = args?.contacts;
-            resourceInputs["enableRbacAuthorization"] = args?.enableRbacAuthorization;
             resourceInputs["enabledForDeployment"] = args?.enabledForDeployment;
             resourceInputs["enabledForDiskEncryption"] = args?.enabledForDiskEncryption;
             resourceInputs["enabledForTemplateDeployment"] = args?.enabledForTemplateDeployment;
@@ -239,14 +238,6 @@ export interface KeyVaultState {
      */
     accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[] | undefined>;
     /**
-     * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
-     */
-    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[] | undefined>;
-    /**
-     * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
-     */
-    enableRbacAuthorization?: pulumi.Input<boolean | undefined>;
-    /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      */
     enabledForDeployment?: pulumi.Input<boolean | undefined>;
@@ -256,6 +247,8 @@ export interface KeyVaultState {
     enabledForDiskEncryption?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+     *
+     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
      */
     enabledForTemplateDeployment?: pulumi.Input<boolean | undefined>;
     /**
@@ -282,8 +275,6 @@ export interface KeyVaultState {
     purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-     *
-     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
      */
     rbacAuthorizationEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -325,14 +316,6 @@ export interface KeyVaultArgs {
      */
     accessPolicies?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultAccessPolicy>[] | undefined>;
     /**
-     * @deprecated As the `contact` property uses a data plane API, to better support private endpoints and key vaults with public network access disabled, new key vaults with the `contact` field defined in the configuration file will now be required to use the `azure.keyvault.CertificateContacts` resource instead of the exposed `contact` field in the key vault resource itself. This field will be removed in v5.0 of the provider.
-     */
-    contacts?: pulumi.Input<pulumi.Input<inputs.keyvault.KeyVaultContact>[] | undefined>;
-    /**
-     * @deprecated This property has been renamed to `rbacAuthorizationEnabled` and will be removed in v5.0 of the provider
-     */
-    enableRbacAuthorization?: pulumi.Input<boolean | undefined>;
-    /**
      * Boolean flag to specify whether Azure Virtual Machines are permitted to retrieve certificates stored as secrets from the key vault.
      */
     enabledForDeployment?: pulumi.Input<boolean | undefined>;
@@ -342,6 +325,8 @@ export interface KeyVaultArgs {
     enabledForDiskEncryption?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Resource Manager is permitted to retrieve secrets from the key vault.
+     *
+     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
      */
     enabledForTemplateDeployment?: pulumi.Input<boolean | undefined>;
     /**
@@ -368,10 +353,8 @@ export interface KeyVaultArgs {
     purgeProtectionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Boolean flag to specify whether Azure Key Vault uses Role Based Access Control (RBAC) for authorization of data actions.
-     *
-     * > **Note:** Changing the permission model requires unrestricted (no conditions on the role assignment) `Microsoft.Authorization/roleAssignments/write` permission, which is part of the `Owner` and `User Access Administrator` roles. Classic subscription administrator roles like `Service Administrator` and `Co-Administrator`, or restricted `Key Vault Data Access Administrator` cannot be used to change the permission model. For more information, please see the [product documentation](https://learn.microsoft.com/azure/key-vault/general/rbac-guide?tabs=azure-cli#using-azure-rbac-secret-key-and-certificate-permissions-with-key-vault:~:text=Enable%20Azure%20RBAC,change%20permission%20model).
      */
-    rbacAuthorizationEnabled?: pulumi.Input<boolean | undefined>;
+    rbacAuthorizationEnabled: pulumi.Input<boolean>;
     /**
      * The name of the resource group in which to create the Key Vault. Changing this forces a new resource to be created.
      */

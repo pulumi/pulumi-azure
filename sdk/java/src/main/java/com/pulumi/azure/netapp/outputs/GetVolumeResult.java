@@ -6,6 +6,7 @@ package com.pulumi.azure.netapp.outputs;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionAdvancedRansomware;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionBackupPolicy;
 import com.pulumi.azure.netapp.outputs.GetVolumeDataProtectionReplication;
+import com.pulumi.azure.netapp.outputs.GetVolumeMountTarget;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -57,10 +58,10 @@ public final class GetVolumeResult {
      */
     private String location;
     /**
-     * @return A list of IPv4 Addresses which should be used to mount the volume.
+     * @return One or more `mountTarget` blocks as defined below.
      * 
      */
-    private List<String> mountIpAddresses;
+    private List<GetVolumeMountTarget> mountTargets;
     private String name;
     /**
      * @return Network features in use `Basic` or `Standard`.
@@ -175,11 +176,11 @@ public final class GetVolumeResult {
         return this.location;
     }
     /**
-     * @return A list of IPv4 Addresses which should be used to mount the volume.
+     * @return One or more `mountTarget` blocks as defined below.
      * 
      */
-    public List<String> mountIpAddresses() {
-        return this.mountIpAddresses;
+    public List<GetVolumeMountTarget> mountTargets() {
+        return this.mountTargets;
     }
     public String name() {
         return this.name;
@@ -280,7 +281,7 @@ public final class GetVolumeResult {
         private String keyVaultPrivateEndpointId;
         private Boolean largeVolumeEnabled;
         private String location;
-        private List<String> mountIpAddresses;
+        private List<GetVolumeMountTarget> mountTargets;
         private String name;
         private String networkFeatures;
         private String poolName;
@@ -307,7 +308,7 @@ public final class GetVolumeResult {
     	      this.keyVaultPrivateEndpointId = defaults.keyVaultPrivateEndpointId;
     	      this.largeVolumeEnabled = defaults.largeVolumeEnabled;
     	      this.location = defaults.location;
-    	      this.mountIpAddresses = defaults.mountIpAddresses;
+    	      this.mountTargets = defaults.mountTargets;
     	      this.name = defaults.name;
     	      this.networkFeatures = defaults.networkFeatures;
     	      this.poolName = defaults.poolName;
@@ -413,15 +414,15 @@ public final class GetVolumeResult {
             return this;
         }
         @CustomType.Setter
-        public Builder mountIpAddresses(List<String> mountIpAddresses) {
-            if (mountIpAddresses == null) {
-              throw new MissingRequiredPropertyException("GetVolumeResult", "mountIpAddresses");
+        public Builder mountTargets(List<GetVolumeMountTarget> mountTargets) {
+            if (mountTargets == null) {
+              throw new MissingRequiredPropertyException("GetVolumeResult", "mountTargets");
             }
-            this.mountIpAddresses = mountIpAddresses;
+            this.mountTargets = mountTargets;
             return this;
         }
-        public Builder mountIpAddresses(String... mountIpAddresses) {
-            return mountIpAddresses(List.of(mountIpAddresses));
+        public Builder mountTargets(GetVolumeMountTarget... mountTargets) {
+            return mountTargets(List.of(mountTargets));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -540,7 +541,7 @@ public final class GetVolumeResult {
             _resultValue.keyVaultPrivateEndpointId = keyVaultPrivateEndpointId;
             _resultValue.largeVolumeEnabled = largeVolumeEnabled;
             _resultValue.location = location;
-            _resultValue.mountIpAddresses = mountIpAddresses;
+            _resultValue.mountTargets = mountTargets;
             _resultValue.name = name;
             _resultValue.networkFeatures = networkFeatures;
             _resultValue.poolName = poolName;

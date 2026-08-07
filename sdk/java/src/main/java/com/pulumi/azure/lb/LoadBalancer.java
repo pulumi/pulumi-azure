@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  * 
  * ## Import
  * 
@@ -183,20 +183,6 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
         return this.privateIpAddresses;
     }
     /**
-     * The ID of a Public IP Address which is associated with this Load Balancer.
-     * 
-     */
-    @Export(name="publicIpAddressId", refs={String.class}, tree="[0]")
-    private Output<String> publicIpAddressId;
-
-    /**
-     * @return The ID of a Public IP Address which is associated with this Load Balancer.
-     * 
-     */
-    public Output<String> publicIpAddressId() {
-        return this.publicIpAddressId;
-    }
-    /**
      * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      * 
      */
@@ -241,20 +227,6 @@ public class LoadBalancer extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> skuTier() {
         return Codegen.optional(this.skuTier);
-    }
-    /**
-     * The ID of the Subnet which is associated with the IP Configuration.
-     * 
-     */
-    @Export(name="subnetId", refs={String.class}, tree="[0]")
-    private Output<String> subnetId;
-
-    /**
-     * @return The ID of the Subnet which is associated with the IP Configuration.
-     * 
-     */
-    public Output<String> subnetId() {
-        return this.subnetId;
     }
     /**
      * A mapping of tags to assign to the resource.

@@ -84,7 +84,7 @@ public final class StandardSiteConfig {
      */
     private @Nullable String linuxFxVersion;
     /**
-     * @return The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+     * @return The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -95,13 +95,6 @@ public final class StandardSiteConfig {
      * 
      */
     private @Nullable Integer preWarmedInstanceCount;
-    /**
-     * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
-    private @Nullable Boolean publicNetworkAccessEnabled;
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
      * 
@@ -120,7 +113,7 @@ public final class StandardSiteConfig {
      */
     private @Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions;
     /**
-     * @return Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+     * @return Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -246,7 +239,7 @@ public final class StandardSiteConfig {
         return Optional.ofNullable(this.linuxFxVersion);
     }
     /**
-     * @return The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+     * @return The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -260,15 +253,6 @@ public final class StandardSiteConfig {
      */
     public Optional<Integer> preWarmedInstanceCount() {
         return Optional.ofNullable(this.preWarmedInstanceCount);
-    }
-    /**
-     * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
-    public Optional<Boolean> publicNetworkAccessEnabled() {
-        return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
     /**
      * @return Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
@@ -294,7 +278,7 @@ public final class StandardSiteConfig {
         return this.scmIpRestrictions == null ? List.of() : this.scmIpRestrictions;
     }
     /**
-     * @return Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+     * @return Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -363,7 +347,6 @@ public final class StandardSiteConfig {
         private @Nullable String linuxFxVersion;
         private @Nullable String minTlsVersion;
         private @Nullable Integer preWarmedInstanceCount;
-        private @Nullable Boolean publicNetworkAccessEnabled;
         private @Nullable Boolean runtimeScaleMonitoringEnabled;
         private @Nullable String scmIpRestrictionDefaultAction;
         private @Nullable List<StandardSiteConfigScmIpRestriction> scmIpRestrictions;
@@ -390,7 +373,6 @@ public final class StandardSiteConfig {
     	      this.linuxFxVersion = defaults.linuxFxVersion;
     	      this.minTlsVersion = defaults.minTlsVersion;
     	      this.preWarmedInstanceCount = defaults.preWarmedInstanceCount;
-    	      this.publicNetworkAccessEnabled = defaults.publicNetworkAccessEnabled;
     	      this.runtimeScaleMonitoringEnabled = defaults.runtimeScaleMonitoringEnabled;
     	      this.scmIpRestrictionDefaultAction = defaults.scmIpRestrictionDefaultAction;
     	      this.scmIpRestrictions = defaults.scmIpRestrictions;
@@ -490,12 +472,6 @@ public final class StandardSiteConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder publicNetworkAccessEnabled(@Nullable Boolean publicNetworkAccessEnabled) {
-
-            this.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            return this;
-        }
-        @CustomType.Setter
         public Builder runtimeScaleMonitoringEnabled(@Nullable Boolean runtimeScaleMonitoringEnabled) {
 
             this.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
@@ -568,7 +544,6 @@ public final class StandardSiteConfig {
             _resultValue.linuxFxVersion = linuxFxVersion;
             _resultValue.minTlsVersion = minTlsVersion;
             _resultValue.preWarmedInstanceCount = preWarmedInstanceCount;
-            _resultValue.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
             _resultValue.runtimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             _resultValue.scmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             _resultValue.scmIpRestrictions = scmIpRestrictions;

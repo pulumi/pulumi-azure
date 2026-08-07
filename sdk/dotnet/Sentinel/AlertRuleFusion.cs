@@ -86,9 +86,6 @@ namespace Pulumi.Azure.Sentinel
         [Output("logAnalyticsWorkspaceId")]
         public Output<string> LogAnalyticsWorkspaceId { get; private set; } = null!;
 
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
         /// <summary>
         /// One or more `Source` blocks as defined below.
         /// </summary>
@@ -159,9 +156,6 @@ namespace Pulumi.Azure.Sentinel
         [Input("logAnalyticsWorkspaceId", required: true)]
         public Input<string> LogAnalyticsWorkspaceId { get; set; } = null!;
 
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
         [Input("sources")]
         private InputList<Inputs.AlertRuleFusionSourceArgs>? _sources;
 
@@ -199,9 +193,6 @@ namespace Pulumi.Azure.Sentinel
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
-
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         [Input("sources")]
         private InputList<Inputs.AlertRuleFusionSourceGetArgs>? _sources;

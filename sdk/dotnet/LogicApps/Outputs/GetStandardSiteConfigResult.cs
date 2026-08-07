@@ -28,7 +28,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// <summary>
         /// A `Cors` block as defined below.
         /// </summary>
-        public readonly Outputs.GetStandardSiteConfigCorsResult Cors;
+        public readonly ImmutableArray<Outputs.GetStandardSiteConfigCorResult> Cors;
         /// <summary>
         /// The version of the .NET framework's CLR used in this Logic App.
         /// </summary>
@@ -69,7 +69,6 @@ namespace Pulumi.Azure.LogicApps.Outputs
         /// The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
         /// </summary>
         public readonly int PreWarmedInstanceCount;
-        public readonly bool PublicNetworkAccessEnabled;
         /// <summary>
         /// Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan.
         /// </summary>
@@ -115,7 +114,7 @@ namespace Pulumi.Azure.LogicApps.Outputs
 
             string autoSwapSlotName,
 
-            Outputs.GetStandardSiteConfigCorsResult cors,
+            ImmutableArray<Outputs.GetStandardSiteConfigCorResult> cors,
 
             string dotnetFrameworkVersion,
 
@@ -136,8 +135,6 @@ namespace Pulumi.Azure.LogicApps.Outputs
             string minTlsVersion,
 
             int preWarmedInstanceCount,
-
-            bool publicNetworkAccessEnabled,
 
             bool runtimeScaleMonitoringEnabled,
 
@@ -171,7 +168,6 @@ namespace Pulumi.Azure.LogicApps.Outputs
             LinuxFxVersion = linuxFxVersion;
             MinTlsVersion = minTlsVersion;
             PreWarmedInstanceCount = preWarmedInstanceCount;
-            PublicNetworkAccessEnabled = publicNetworkAccessEnabled;
             RuntimeScaleMonitoringEnabled = runtimeScaleMonitoringEnabled;
             ScmIpRestrictionDefaultAction = scmIpRestrictionDefaultAction;
             ScmIpRestrictions = scmIpRestrictions;

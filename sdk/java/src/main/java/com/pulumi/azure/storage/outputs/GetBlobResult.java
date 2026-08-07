@@ -42,21 +42,7 @@ public final class GetBlobResult {
      */
     private Map<String,String> metadata;
     private String name;
-    /**
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    private String storageAccountName;
     private String storageContainerId;
-    /**
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    private String storageContainerName;
     /**
      * @return The type of the storage blob
      * 
@@ -114,26 +100,8 @@ public final class GetBlobResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @deprecated
-     * `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageAccountName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    public String storageAccountName() {
-        return this.storageAccountName;
-    }
     public String storageContainerId() {
         return this.storageContainerId;
-    }
-    /**
-     * @deprecated
-     * `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `storageContainerName` has been deprecated in favour of `storageContainerId` and will be removed in v5.0 of the AzureRM Provider */
-    public String storageContainerName() {
-        return this.storageContainerName;
     }
     /**
      * @return The type of the storage blob
@@ -166,9 +134,7 @@ public final class GetBlobResult {
         private String id;
         private Map<String,String> metadata;
         private String name;
-        private String storageAccountName;
         private String storageContainerId;
-        private String storageContainerName;
         private String type;
         private String url;
         public Builder() {}
@@ -181,9 +147,7 @@ public final class GetBlobResult {
     	      this.id = defaults.id;
     	      this.metadata = defaults.metadata;
     	      this.name = defaults.name;
-    	      this.storageAccountName = defaults.storageAccountName;
     	      this.storageContainerId = defaults.storageContainerId;
-    	      this.storageContainerName = defaults.storageContainerName;
     	      this.type = defaults.type;
     	      this.url = defaults.url;
         }
@@ -245,27 +209,11 @@ public final class GetBlobResult {
             return this;
         }
         @CustomType.Setter
-        public Builder storageAccountName(String storageAccountName) {
-            if (storageAccountName == null) {
-              throw new MissingRequiredPropertyException("GetBlobResult", "storageAccountName");
-            }
-            this.storageAccountName = storageAccountName;
-            return this;
-        }
-        @CustomType.Setter
         public Builder storageContainerId(String storageContainerId) {
             if (storageContainerId == null) {
               throw new MissingRequiredPropertyException("GetBlobResult", "storageContainerId");
             }
             this.storageContainerId = storageContainerId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder storageContainerName(String storageContainerName) {
-            if (storageContainerName == null) {
-              throw new MissingRequiredPropertyException("GetBlobResult", "storageContainerName");
-            }
-            this.storageContainerName = storageContainerName;
             return this;
         }
         @CustomType.Setter
@@ -293,9 +241,7 @@ public final class GetBlobResult {
             _resultValue.id = id;
             _resultValue.metadata = metadata;
             _resultValue.name = name;
-            _resultValue.storageAccountName = storageAccountName;
             _resultValue.storageContainerId = storageContainerId;
-            _resultValue.storageContainerName = storageContainerName;
             _resultValue.type = type;
             _resultValue.url = url;
             return _resultValue;

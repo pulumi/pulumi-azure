@@ -190,7 +190,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         """
         Manages a Customer Managed Key for a EventHub Namespace.
 
-        > **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
+        > **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider changed this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
 
         ## Example Usage
 
@@ -222,6 +222,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             name="examplekv",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
@@ -302,6 +303,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             name="examplekv",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
@@ -386,7 +388,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         """
         Manages a Customer Managed Key for a EventHub Namespace.
 
-        > **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider will change this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
+        > **Note:** In 2.x versions of the Azure Provider during deletion this resource will **delete and recreate the parent EventHub Namespace which may involve data loss** as it's not possible to remove the Customer Managed Key from the EventHub Namespace once it's been added. Version 3.0 of the Azure Provider changed this so that the Delete operation is a noop, requiring the parent EventHub Namespace is deleted/recreated to remove the Customer Managed Key.
 
         ## Example Usage
 
@@ -418,6 +420,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             name="examplekv",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
@@ -498,6 +501,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
             name="examplekv",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)

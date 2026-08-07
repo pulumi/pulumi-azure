@@ -21,7 +21,6 @@ public final class GetServiceHostnameConfigurationManagement {
      * 
      */
     private String keyVaultCertificateId;
-    private String keyVaultId;
     /**
      * @return Is Client Certificate Negotiation enabled?
      * 
@@ -43,9 +42,6 @@ public final class GetServiceHostnameConfigurationManagement {
     public String keyVaultCertificateId() {
         return this.keyVaultCertificateId;
     }
-    public String keyVaultId() {
-        return this.keyVaultId;
-    }
     /**
      * @return Is Client Certificate Negotiation enabled?
      * 
@@ -65,14 +61,12 @@ public final class GetServiceHostnameConfigurationManagement {
     public static final class Builder {
         private String hostName;
         private String keyVaultCertificateId;
-        private String keyVaultId;
         private Boolean negotiateClientCertificate;
         public Builder() {}
         public Builder(GetServiceHostnameConfigurationManagement defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostName = defaults.hostName;
     	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
-    	      this.keyVaultId = defaults.keyVaultId;
     	      this.negotiateClientCertificate = defaults.negotiateClientCertificate;
         }
 
@@ -93,14 +87,6 @@ public final class GetServiceHostnameConfigurationManagement {
             return this;
         }
         @CustomType.Setter
-        public Builder keyVaultId(String keyVaultId) {
-            if (keyVaultId == null) {
-              throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationManagement", "keyVaultId");
-            }
-            this.keyVaultId = keyVaultId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder negotiateClientCertificate(Boolean negotiateClientCertificate) {
             if (negotiateClientCertificate == null) {
               throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationManagement", "negotiateClientCertificate");
@@ -112,7 +98,6 @@ public final class GetServiceHostnameConfigurationManagement {
             final var _resultValue = new GetServiceHostnameConfigurationManagement();
             _resultValue.hostName = hostName;
             _resultValue.keyVaultCertificateId = keyVaultCertificateId;
-            _resultValue.keyVaultId = keyVaultId;
             _resultValue.negotiateClientCertificate = negotiateClientCertificate;
             return _resultValue;
         }

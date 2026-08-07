@@ -20,6 +20,7 @@ __all__ = ['ServiceAzureBotArgs', 'ServiceAzureBot']
 class ServiceAzureBotArgs:
     def __init__(__self__, *,
                  microsoft_app_id: pulumi.Input[_builtins.str],
+                 microsoft_app_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
                  cmk_key_vault_key_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,7 +36,6 @@ class ServiceAzureBotArgs:
                  luis_key: pulumi.Input[Optional[_builtins.str]] = None,
                  microsoft_app_msi_id: pulumi.Input[Optional[_builtins.str]] = None,
                  microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  streaming_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -44,6 +44,9 @@ class ServiceAzureBotArgs:
         The set of arguments for constructing a ServiceAzureBot resource.
 
         :param pulumi.Input[_builtins.str] microsoft_app_id: The Microsoft Application ID for the Azure Bot Service. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+               
+               > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Azure Bot Service should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Azure Bot Service. Accepted values are `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cmk_key_vault_key_url: The CMK Key Vault Key URL that will be used to encrypt the Bot with the Customer Managed Encryption Key.
@@ -61,15 +64,13 @@ class ServiceAzureBotArgs:
         :param pulumi.Input[_builtins.str] luis_key: The LUIS key to associate with this Azure Bot Service.
         :param pulumi.Input[_builtins.str] microsoft_app_msi_id: The ID of the Microsoft App Managed Identity for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_tenant_id: The Tenant ID of the Microsoft App for this Azure Bot Service. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] microsoft_app_type: The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
-               
-               > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is enabled. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] streaming_endpoint_enabled: Is the streaming endpoint enabled for this Azure Bot Service. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags which should be assigned to this Azure Bot Service.
         """
         pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
+        pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if cmk_key_vault_key_url is not None:
@@ -98,8 +99,6 @@ class ServiceAzureBotArgs:
             pulumi.set(__self__, "microsoft_app_msi_id", microsoft_app_msi_id)
         if microsoft_app_tenant_id is not None:
             pulumi.set(__self__, "microsoft_app_tenant_id", microsoft_app_tenant_id)
-        if microsoft_app_type is not None:
-            pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if public_network_access_enabled is not None:
@@ -120,6 +119,20 @@ class ServiceAzureBotArgs:
     @microsoft_app_id.setter
     def microsoft_app_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "microsoft_app_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="microsoftAppType")
+    def microsoft_app_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+
+        > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+        """
+        return pulumi.get(self, "microsoft_app_type")
+
+    @microsoft_app_type.setter
+    def microsoft_app_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "microsoft_app_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -302,20 +315,6 @@ class ServiceAzureBotArgs:
     @microsoft_app_tenant_id.setter
     def microsoft_app_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_tenant_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="microsoftAppType")
-    def microsoft_app_type(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
-
-        > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
-        """
-        return pulumi.get(self, "microsoft_app_type")
-
-    @microsoft_app_type.setter
-    def microsoft_app_type(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "microsoft_app_type", value)
 
     @_builtins.property
     @pulumi.getter
@@ -866,6 +865,8 @@ class ServiceAzureBot(pulumi.CustomResource):
             __props__.__dict__["microsoft_app_id"] = microsoft_app_id
             __props__.__dict__["microsoft_app_msi_id"] = microsoft_app_msi_id
             __props__.__dict__["microsoft_app_tenant_id"] = microsoft_app_tenant_id
+            if microsoft_app_type is None and not opts.urn:
+                raise TypeError("Missing required property 'microsoft_app_type'")
             __props__.__dict__["microsoft_app_type"] = microsoft_app_type
             __props__.__dict__["name"] = name
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled

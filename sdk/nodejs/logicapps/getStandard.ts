@@ -139,7 +139,7 @@ export interface GetStandardResult {
     /**
      * A `siteConfig` object as defined below.
      */
-    readonly siteConfig: outputs.logicapps.GetStandardSiteConfig;
+    readonly siteConfigs: outputs.logicapps.GetStandardSiteConfig[];
     /**
      * A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
      */
@@ -156,6 +156,10 @@ export interface GetStandardResult {
      * The name of the share used by the logic app.
      */
     readonly storageAccountShareName: string;
+    /**
+     * The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+     */
+    readonly storageKeyVaultSecretId: string;
     /**
      * A mapping of tags assigned to the resource.
      */

@@ -316,11 +316,14 @@ class VolumeGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            service_endpoints=["Microsoft.Storage.Global"])
+            service_endpoints=[{
+                "service": "Microsoft.Storage.Global",
+            }])
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             enabled_for_disk_encryption=True,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
@@ -461,11 +464,14 @@ class VolumeGroup(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
-            service_endpoints=["Microsoft.Storage.Global"])
+            service_endpoints=[{
+                "service": "Microsoft.Storage.Global",
+            }])
         example_key_vault = azure.keyvault.KeyVault("example",
             name="examplekv",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             enabled_for_disk_encryption=True,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,

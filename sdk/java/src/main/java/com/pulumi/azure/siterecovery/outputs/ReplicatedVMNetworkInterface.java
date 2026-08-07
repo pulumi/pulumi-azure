@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.siterecovery.outputs;
 
+import com.pulumi.azure.siterecovery.outputs.ReplicatedVMNetworkInterfaceIpConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.List;
@@ -13,102 +14,30 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReplicatedVMNetworkInterface {
     /**
-     * @return Id of the public IP object to use when a test failover is done.
+     * @return IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
      * 
      */
-    private @Nullable String failoverTestPublicIpAddressId;
+    private @Nullable List<ReplicatedVMNetworkInterfaceIpConfiguration> ipConfigurations;
     /**
-     * @return Static IP to assign when a test failover is done.
-     * 
-     */
-    private @Nullable String failoverTestStaticIp;
-    /**
-     * @return Name of the subnet to use when a test failover is done.
-     * 
-     */
-    private @Nullable String failoverTestSubnetName;
-    /**
-     * @return A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-     * 
-     */
-    private @Nullable List<String> recoveryLoadBalancerBackendAddressPoolIds;
-    /**
-     * @return Id of the public IP object to use when a failover is done.
-     * 
-     */
-    private @Nullable String recoveryPublicIpAddressId;
-    /**
-     * @return (Required if the networkInterface block is specified) Id source network interface.
+     * @return Id source network interface.
      * 
      */
     private @Nullable String sourceNetworkInterfaceId;
-    /**
-     * @return Static IP to assign when a failover is done.
-     * 
-     */
-    private @Nullable String targetStaticIp;
-    /**
-     * @return Name of the subnet to use when a failover is done.
-     * 
-     */
-    private @Nullable String targetSubnetName;
 
     private ReplicatedVMNetworkInterface() {}
     /**
-     * @return Id of the public IP object to use when a test failover is done.
+     * @return IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
      * 
      */
-    public Optional<String> failoverTestPublicIpAddressId() {
-        return Optional.ofNullable(this.failoverTestPublicIpAddressId);
+    public List<ReplicatedVMNetworkInterfaceIpConfiguration> ipConfigurations() {
+        return this.ipConfigurations == null ? List.of() : this.ipConfigurations;
     }
     /**
-     * @return Static IP to assign when a test failover is done.
-     * 
-     */
-    public Optional<String> failoverTestStaticIp() {
-        return Optional.ofNullable(this.failoverTestStaticIp);
-    }
-    /**
-     * @return Name of the subnet to use when a test failover is done.
-     * 
-     */
-    public Optional<String> failoverTestSubnetName() {
-        return Optional.ofNullable(this.failoverTestSubnetName);
-    }
-    /**
-     * @return A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-     * 
-     */
-    public List<String> recoveryLoadBalancerBackendAddressPoolIds() {
-        return this.recoveryLoadBalancerBackendAddressPoolIds == null ? List.of() : this.recoveryLoadBalancerBackendAddressPoolIds;
-    }
-    /**
-     * @return Id of the public IP object to use when a failover is done.
-     * 
-     */
-    public Optional<String> recoveryPublicIpAddressId() {
-        return Optional.ofNullable(this.recoveryPublicIpAddressId);
-    }
-    /**
-     * @return (Required if the networkInterface block is specified) Id source network interface.
+     * @return Id source network interface.
      * 
      */
     public Optional<String> sourceNetworkInterfaceId() {
         return Optional.ofNullable(this.sourceNetworkInterfaceId);
-    }
-    /**
-     * @return Static IP to assign when a failover is done.
-     * 
-     */
-    public Optional<String> targetStaticIp() {
-        return Optional.ofNullable(this.targetStaticIp);
-    }
-    /**
-     * @return Name of the subnet to use when a failover is done.
-     * 
-     */
-    public Optional<String> targetSubnetName() {
-        return Optional.ofNullable(this.targetSubnetName);
     }
 
     public static Builder builder() {
@@ -120,59 +49,23 @@ public final class ReplicatedVMNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String failoverTestPublicIpAddressId;
-        private @Nullable String failoverTestStaticIp;
-        private @Nullable String failoverTestSubnetName;
-        private @Nullable List<String> recoveryLoadBalancerBackendAddressPoolIds;
-        private @Nullable String recoveryPublicIpAddressId;
+        private @Nullable List<ReplicatedVMNetworkInterfaceIpConfiguration> ipConfigurations;
         private @Nullable String sourceNetworkInterfaceId;
-        private @Nullable String targetStaticIp;
-        private @Nullable String targetSubnetName;
         public Builder() {}
         public Builder(ReplicatedVMNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.failoverTestPublicIpAddressId = defaults.failoverTestPublicIpAddressId;
-    	      this.failoverTestStaticIp = defaults.failoverTestStaticIp;
-    	      this.failoverTestSubnetName = defaults.failoverTestSubnetName;
-    	      this.recoveryLoadBalancerBackendAddressPoolIds = defaults.recoveryLoadBalancerBackendAddressPoolIds;
-    	      this.recoveryPublicIpAddressId = defaults.recoveryPublicIpAddressId;
+    	      this.ipConfigurations = defaults.ipConfigurations;
     	      this.sourceNetworkInterfaceId = defaults.sourceNetworkInterfaceId;
-    	      this.targetStaticIp = defaults.targetStaticIp;
-    	      this.targetSubnetName = defaults.targetSubnetName;
         }
 
         @CustomType.Setter
-        public Builder failoverTestPublicIpAddressId(@Nullable String failoverTestPublicIpAddressId) {
+        public Builder ipConfigurations(@Nullable List<ReplicatedVMNetworkInterfaceIpConfiguration> ipConfigurations) {
 
-            this.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
+            this.ipConfigurations = ipConfigurations;
             return this;
         }
-        @CustomType.Setter
-        public Builder failoverTestStaticIp(@Nullable String failoverTestStaticIp) {
-
-            this.failoverTestStaticIp = failoverTestStaticIp;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder failoverTestSubnetName(@Nullable String failoverTestSubnetName) {
-
-            this.failoverTestSubnetName = failoverTestSubnetName;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder recoveryLoadBalancerBackendAddressPoolIds(@Nullable List<String> recoveryLoadBalancerBackendAddressPoolIds) {
-
-            this.recoveryLoadBalancerBackendAddressPoolIds = recoveryLoadBalancerBackendAddressPoolIds;
-            return this;
-        }
-        public Builder recoveryLoadBalancerBackendAddressPoolIds(String... recoveryLoadBalancerBackendAddressPoolIds) {
-            return recoveryLoadBalancerBackendAddressPoolIds(List.of(recoveryLoadBalancerBackendAddressPoolIds));
-        }
-        @CustomType.Setter
-        public Builder recoveryPublicIpAddressId(@Nullable String recoveryPublicIpAddressId) {
-
-            this.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
-            return this;
+        public Builder ipConfigurations(ReplicatedVMNetworkInterfaceIpConfiguration... ipConfigurations) {
+            return ipConfigurations(List.of(ipConfigurations));
         }
         @CustomType.Setter
         public Builder sourceNetworkInterfaceId(@Nullable String sourceNetworkInterfaceId) {
@@ -180,28 +73,10 @@ public final class ReplicatedVMNetworkInterface {
             this.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
             return this;
         }
-        @CustomType.Setter
-        public Builder targetStaticIp(@Nullable String targetStaticIp) {
-
-            this.targetStaticIp = targetStaticIp;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder targetSubnetName(@Nullable String targetSubnetName) {
-
-            this.targetSubnetName = targetSubnetName;
-            return this;
-        }
         public ReplicatedVMNetworkInterface build() {
             final var _resultValue = new ReplicatedVMNetworkInterface();
-            _resultValue.failoverTestPublicIpAddressId = failoverTestPublicIpAddressId;
-            _resultValue.failoverTestStaticIp = failoverTestStaticIp;
-            _resultValue.failoverTestSubnetName = failoverTestSubnetName;
-            _resultValue.recoveryLoadBalancerBackendAddressPoolIds = recoveryLoadBalancerBackendAddressPoolIds;
-            _resultValue.recoveryPublicIpAddressId = recoveryPublicIpAddressId;
+            _resultValue.ipConfigurations = ipConfigurations;
             _resultValue.sourceNetworkInterfaceId = sourceNetworkInterfaceId;
-            _resultValue.targetStaticIp = targetStaticIp;
-            _resultValue.targetSubnetName = targetSubnetName;
             return _resultValue;
         }
     }

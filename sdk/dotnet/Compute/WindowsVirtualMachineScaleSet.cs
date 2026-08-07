@@ -111,7 +111,7 @@ namespace Pulumi.Azure.Compute
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Compute` - 2024-11-01
+    /// * `Microsoft.Compute` - 2025-04-01
     /// 
     /// ## Import
     /// 
@@ -163,6 +163,12 @@ namespace Pulumi.Azure.Compute
         public Output<Outputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy?> AutomaticOsUpgradePolicy { get; private set; } = null!;
 
         /// <summary>
+        /// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `True`.
+        /// </summary>
+        [Output("automaticUpdatesEnabled")]
+        public Output<bool?> AutomaticUpdatesEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Output("bootDiagnostics")]
@@ -209,12 +215,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Output("edgeZone")]
         public Output<string?> EdgeZone { get; private set; } = null!;
-
-        /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
-        /// </summary>
-        [Output("enableAutomaticUpdates")]
-        public Output<bool?> EnableAutomaticUpdates { get; private set; } = null!;
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -612,6 +612,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs>? AutomaticOsUpgradePolicy { get; set; }
 
         /// <summary>
+        /// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `True`.
+        /// </summary>
+        [Input("automaticUpdatesEnabled")]
+        public Input<bool>? AutomaticUpdatesEnabled { get; set; }
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
@@ -674,12 +680,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
-        /// </summary>
-        [Input("enableAutomaticUpdates")]
-        public Input<bool>? EnableAutomaticUpdates { get; set; }
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
@@ -1070,6 +1070,12 @@ namespace Pulumi.Azure.Compute
         public Input<Inputs.WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyGetArgs>? AutomaticOsUpgradePolicy { get; set; }
 
         /// <summary>
+        /// (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `True`.
+        /// </summary>
+        [Input("automaticUpdatesEnabled")]
+        public Input<bool>? AutomaticUpdatesEnabled { get; set; }
+
+        /// <summary>
         /// A `BootDiagnostics` block as defined below.
         /// </summary>
         [Input("bootDiagnostics")]
@@ -1132,12 +1138,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("edgeZone")]
         public Input<string>? EdgeZone { get; set; }
-
-        /// <summary>
-        /// Are automatic updates enabled for this Virtual Machine? Defaults to `True`.
-        /// </summary>
-        [Input("enableAutomaticUpdates")]
-        public Input<bool>? EnableAutomaticUpdates { get; set; }
 
         /// <summary>
         /// Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?

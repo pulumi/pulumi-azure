@@ -28,7 +28,6 @@ class DiagnosticSettingArgs:
                  eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None):
@@ -79,11 +78,6 @@ class DiagnosticSettingArgs:
             pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        if metrics is not None:
-            warnings.warn("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""metrics is deprecated: `metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
-        if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if partner_solution_id is not None:
@@ -191,16 +185,6 @@ class DiagnosticSettingArgs:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
-    def metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]:
-        return pulumi.get(self, "metrics")
-
-    @metrics.setter
-    def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]):
-        pulumi.set(self, "metrics", value)
-
-    @_builtins.property
-    @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
@@ -251,7 +235,6 @@ class _DiagnosticSettingState:
                  eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -302,11 +285,6 @@ class _DiagnosticSettingState:
             pulumi.set(__self__, "log_analytics_destination_type", log_analytics_destination_type)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        if metrics is not None:
-            warnings.warn("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""metrics is deprecated: `metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
-        if metrics is not None:
-            pulumi.set(__self__, "metrics", metrics)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if partner_solution_id is not None:
@@ -404,16 +382,6 @@ class _DiagnosticSettingState:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
-    def metrics(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]:
-        return pulumi.get(self, "metrics")
-
-    @metrics.setter
-    def metrics(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DiagnosticSettingMetricArgs']]]]):
-        pulumi.set(self, "metrics", value)
-
-    @_builtins.property
-    @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
@@ -479,7 +447,6 @@ class DiagnosticSetting(pulumi.CustomResource):
                  eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticSettingMetricArgs', 'DiagnosticSettingMetricArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -508,6 +475,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             name="examplekeyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
             purge_protection_enabled=False,
@@ -604,6 +572,7 @@ class DiagnosticSetting(pulumi.CustomResource):
             name="examplekeyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
             purge_protection_enabled=False,
@@ -659,7 +628,6 @@ class DiagnosticSetting(pulumi.CustomResource):
                  eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticSettingMetricArgs', 'DiagnosticSettingMetricArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  partner_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -679,7 +647,6 @@ class DiagnosticSetting(pulumi.CustomResource):
             __props__.__dict__["eventhub_name"] = eventhub_name
             __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
             __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
-            __props__.__dict__["metrics"] = metrics
             __props__.__dict__["name"] = name
             __props__.__dict__["partner_solution_id"] = partner_solution_id
             __props__.__dict__["storage_account_id"] = storage_account_id
@@ -702,7 +669,6 @@ class DiagnosticSetting(pulumi.CustomResource):
             eventhub_name: pulumi.Input[Optional[_builtins.str]] = None,
             log_analytics_destination_type: pulumi.Input[Optional[_builtins.str]] = None,
             log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-            metrics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DiagnosticSettingMetricArgs', 'DiagnosticSettingMetricArgsDict']]]]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             partner_solution_id: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -755,7 +721,6 @@ class DiagnosticSetting(pulumi.CustomResource):
         __props__.__dict__["eventhub_name"] = eventhub_name
         __props__.__dict__["log_analytics_destination_type"] = log_analytics_destination_type
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
-        __props__.__dict__["metrics"] = metrics
         __props__.__dict__["name"] = name
         __props__.__dict__["partner_solution_id"] = partner_solution_id
         __props__.__dict__["storage_account_id"] = storage_account_id
@@ -774,7 +739,7 @@ class DiagnosticSetting(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="enabledMetrics")
-    def enabled_metrics(self) -> pulumi.Output[Sequence['outputs.DiagnosticSettingEnabledMetric']]:
+    def enabled_metrics(self) -> pulumi.Output[Optional[Sequence['outputs.DiagnosticSettingEnabledMetric']]]:
         """
         One or more `enabled_metric` blocks as defined below.
 
@@ -823,12 +788,6 @@ class DiagnosticSetting(pulumi.CustomResource):
         > **NOTE:** At least one of `eventhub_authorization_rule_id`, `log_analytics_workspace_id`, `partner_solution_id` and `storage_account_id` must be specified.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""`metric` has been deprecated in favour of the `enabled_metric` property and will be removed in v5.0 of the AzureRM provider""")
-    def metrics(self) -> pulumi.Output[Sequence['outputs.DiagnosticSettingMetric']]:
-        return pulumi.get(self, "metrics")
 
     @_builtins.property
     @pulumi.getter

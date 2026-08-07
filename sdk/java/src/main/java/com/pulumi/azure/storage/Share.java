@@ -220,62 +220,18 @@ public class Share extends com.pulumi.resources.CustomResource {
         return this.rbacScopeId;
     }
     /**
-     * The Resource Manager ID of this File Share.
-     * 
-     * @deprecated
-     * this property is deprecated and will be removed 5.0 and replaced by the `id` property.
-     * 
-     */
-    @Deprecated /* this property is deprecated and will be removed 5.0 and replaced by the `id` property. */
-    @Export(name="resourceManagerId", refs={String.class}, tree="[0]")
-    private Output<String> resourceManagerId;
-
-    /**
-     * @return The Resource Manager ID of this File Share.
-     * 
-     */
-    public Output<String> resourceManagerId() {
-        return this.resourceManagerId;
-    }
-    /**
-     * Specifies the storage account in which to create the share.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageAccountId;
+    private Output<String> storageAccountId;
 
     /**
-     * @return Specifies the storage account in which to create the share.
-     * 
-     * &gt; **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * @return Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<String>> storageAccountId() {
-        return Codegen.optional(this.storageAccountId);
-    }
-    /**
-     * Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
-     * 
-     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-     * 
-     * @deprecated
-     * This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This property has been deprecated and will be replaced by `storageAccountId` in version 5.0 of the provider. */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageAccountName;
-
-    /**
-     * @return Specifies the storage account in which to create the share. This property is deprecated in favour of `storageAccountId`.
-     * 
-     * &gt; **Note:** Migrating from the deprecated `storageAccountName` to `storageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-     * 
-     */
-    public Output<Optional<String>> storageAccountName() {
-        return Codegen.optional(this.storageAccountName);
+    public Output<String> storageAccountId() {
+        return this.storageAccountId;
     }
     /**
      * The URL of the File Share

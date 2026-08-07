@@ -45,12 +45,15 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
- *     serviceEndpoints: ["Microsoft.Storage.Global"],
+ *     serviceEndpoints: [{
+ *         service: "Microsoft.Storage.Global",
+ *     }],
  * });
  * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
  *     name: "examplekv",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     enabledForDiskEncryption: true,
  *     tenantId: current.then(current => current.tenantId),
  *     softDeleteRetentionDays: 7,

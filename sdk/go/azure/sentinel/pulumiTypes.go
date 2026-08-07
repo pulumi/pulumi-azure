@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type AlertRuleAnomalyBuiltInMultiSelectObservation struct {
 	// The description of the threshold observation.
 	Description *string `pulumi:"description"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of supported values of the single select observation.
 	SupportedValues []string `pulumi:"supportedValues"`
@@ -38,7 +38,7 @@ type AlertRuleAnomalyBuiltInMultiSelectObservationInput interface {
 type AlertRuleAnomalyBuiltInMultiSelectObservationArgs struct {
 	// The description of the threshold observation.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// A list of supported values of the single select observation.
 	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
@@ -102,7 +102,7 @@ func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) Description() pulum
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInMultiSelectObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the built-in Anomaly Alert Rule.
+// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 func (o AlertRuleAnomalyBuiltInMultiSelectObservationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInMultiSelectObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -142,7 +142,7 @@ type AlertRuleAnomalyBuiltInPrioritizedExcludeObservation struct {
 	Description *string `pulumi:"description"`
 	// The excluded value per `description`.
 	Exclude *string `pulumi:"exclude"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The prioritized value per `description`.
 	Prioritize *string `pulumi:"prioritize"`
@@ -164,7 +164,7 @@ type AlertRuleAnomalyBuiltInPrioritizedExcludeObservationArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// The excluded value per `description`.
 	Exclude pulumi.StringPtrInput `pulumi:"exclude"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The prioritized value per `description`.
 	Prioritize pulumi.StringPtrInput `pulumi:"prioritize"`
@@ -231,7 +231,7 @@ func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) Exclude() pu
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInPrioritizedExcludeObservation) *string { return v.Exclude }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the built-in Anomaly Alert Rule.
+// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 func (o AlertRuleAnomalyBuiltInPrioritizedExcludeObservationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInPrioritizedExcludeObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -370,7 +370,7 @@ func (o AlertRuleAnomalyBuiltInRequiredDataConnectorArrayOutput) Index(i pulumi.
 type AlertRuleAnomalyBuiltInSingleSelectObservation struct {
 	// The description of the threshold observation.
 	Description *string `pulumi:"description"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// A list of supported values of the single select observation.
 	SupportedValues []string `pulumi:"supportedValues"`
@@ -392,7 +392,7 @@ type AlertRuleAnomalyBuiltInSingleSelectObservationInput interface {
 type AlertRuleAnomalyBuiltInSingleSelectObservationArgs struct {
 	// The description of the threshold observation.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// A list of supported values of the single select observation.
 	SupportedValues pulumi.StringArrayInput `pulumi:"supportedValues"`
@@ -456,7 +456,7 @@ func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) Description() pulu
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInSingleSelectObservation) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the built-in Anomaly Alert Rule.
+// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 func (o AlertRuleAnomalyBuiltInSingleSelectObservationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInSingleSelectObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -498,7 +498,7 @@ type AlertRuleAnomalyBuiltInThresholdObservation struct {
 	Max *string `pulumi:"max"`
 	// The min value of the threshold observation.
 	Min *string `pulumi:"min"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The value of the threshold observation.
 	Value *string `pulumi:"value"`
@@ -522,7 +522,7 @@ type AlertRuleAnomalyBuiltInThresholdObservationArgs struct {
 	Max pulumi.StringPtrInput `pulumi:"max"`
 	// The min value of the threshold observation.
 	Min pulumi.StringPtrInput `pulumi:"min"`
-	// The Name of the built-in Anomaly Alert Rule.
+	// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The value of the threshold observation.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -594,7 +594,7 @@ func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) Min() pulumi.StringPt
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInThresholdObservation) *string { return v.Min }).(pulumi.StringPtrOutput)
 }
 
-// The Name of the built-in Anomaly Alert Rule.
+// The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
 func (o AlertRuleAnomalyBuiltInThresholdObservationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AlertRuleAnomalyBuiltInThresholdObservation) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

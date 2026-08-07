@@ -99,8 +99,14 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Sql",
-    ///             "Microsoft.Storage",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Sql",
+    ///             },
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
     ///         },
     ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
     ///     });

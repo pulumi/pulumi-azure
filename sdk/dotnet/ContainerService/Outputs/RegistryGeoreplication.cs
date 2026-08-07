@@ -14,13 +14,13 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class RegistryGeoreplication
     {
         /// <summary>
+        /// Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+        /// </summary>
+        public readonly bool GlobalEndpointRoutingEnabled;
+        /// <summary>
         /// A location where the container registry should be geo-replicated.
         /// </summary>
         public readonly string Location;
-        /// <summary>
-        /// Whether regional endpoint is enabled for this Container Registry?
-        /// </summary>
-        public readonly bool? RegionalEndpointEnabled;
         /// <summary>
         /// A mapping of tags to assign to this replication location.
         /// </summary>
@@ -34,16 +34,16 @@ namespace Pulumi.Azure.ContainerService.Outputs
 
         [OutputConstructor]
         private RegistryGeoreplication(
-            string location,
+            bool globalEndpointRoutingEnabled,
 
-            bool? regionalEndpointEnabled,
+            string location,
 
             ImmutableDictionary<string, string>? tags,
 
             bool? zoneRedundancyEnabled)
         {
+            GlobalEndpointRoutingEnabled = globalEndpointRoutingEnabled;
             Location = location;
-            RegionalEndpointEnabled = regionalEndpointEnabled;
             Tags = tags;
             ZoneRedundancyEnabled = zoneRedundancyEnabled;
         }

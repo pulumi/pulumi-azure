@@ -27,10 +27,13 @@ class GetGatewayConnectionResult:
     """
     A collection of values returned by getGatewayConnection.
     """
-    def __init__(__self__, authorization_key=None, connection_protocol=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, enable_bgp=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_azure_ip_address_enabled=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, private_link_fast_path_enabled=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
+    def __init__(__self__, authorization_key=None, bgp_enabled=None, connection_protocol=None, dpd_timeout_seconds=None, egress_bytes_transferred=None, express_route_circuit_id=None, express_route_gateway_bypass=None, id=None, ingress_bytes_transferred=None, ipsec_policies=None, local_azure_ip_address_enabled=None, local_network_gateway_id=None, location=None, name=None, peer_virtual_network_gateway_id=None, private_link_fast_path_enabled=None, resource_group_name=None, resource_guid=None, routing_weight=None, shared_key=None, tags=None, traffic_selector_policies=None, type=None, use_policy_based_traffic_selectors=None, virtual_network_gateway_id=None):
         if authorization_key and not isinstance(authorization_key, str):
             raise TypeError("Expected argument 'authorization_key' to be a str")
         pulumi.set(__self__, "authorization_key", authorization_key)
+        if bgp_enabled and not isinstance(bgp_enabled, bool):
+            raise TypeError("Expected argument 'bgp_enabled' to be a bool")
+        pulumi.set(__self__, "bgp_enabled", bgp_enabled)
         if connection_protocol and not isinstance(connection_protocol, str):
             raise TypeError("Expected argument 'connection_protocol' to be a str")
         pulumi.set(__self__, "connection_protocol", connection_protocol)
@@ -40,9 +43,6 @@ class GetGatewayConnectionResult:
         if egress_bytes_transferred and not isinstance(egress_bytes_transferred, int):
             raise TypeError("Expected argument 'egress_bytes_transferred' to be a int")
         pulumi.set(__self__, "egress_bytes_transferred", egress_bytes_transferred)
-        if enable_bgp and not isinstance(enable_bgp, bool):
-            raise TypeError("Expected argument 'enable_bgp' to be a bool")
-        pulumi.set(__self__, "enable_bgp", enable_bgp)
         if express_route_circuit_id and not isinstance(express_route_circuit_id, str):
             raise TypeError("Expected argument 'express_route_circuit_id' to be a str")
         pulumi.set(__self__, "express_route_circuit_id", express_route_circuit_id)
@@ -115,6 +115,14 @@ class GetGatewayConnectionResult:
         return pulumi.get(self, "authorization_key")
 
     @_builtins.property
+    @pulumi.getter(name="bgpEnabled")
+    def bgp_enabled(self) -> _builtins.bool:
+        """
+        If `true`, BGP (Border Gateway Protocol) is enabled for this connection.
+        """
+        return pulumi.get(self, "bgp_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="connectionProtocol")
     def connection_protocol(self) -> _builtins.str:
         return pulumi.get(self, "connection_protocol")
@@ -131,15 +139,6 @@ class GetGatewayConnectionResult:
     @pulumi.getter(name="egressBytesTransferred")
     def egress_bytes_transferred(self) -> _builtins.int:
         return pulumi.get(self, "egress_bytes_transferred")
-
-    @_builtins.property
-    @pulumi.getter(name="enableBgp")
-    def enable_bgp(self) -> _builtins.bool:
-        """
-        If `true`, BGP (Border Gateway Protocol) is enabled
-        for this connection.
-        """
-        return pulumi.get(self, "enable_bgp")
 
     @_builtins.property
     @pulumi.getter(name="expressRouteCircuitId")
@@ -311,10 +310,10 @@ class AwaitableGetGatewayConnectionResult(GetGatewayConnectionResult):
             yield self
         return GetGatewayConnectionResult(
             authorization_key=self.authorization_key,
+            bgp_enabled=self.bgp_enabled,
             connection_protocol=self.connection_protocol,
             dpd_timeout_seconds=self.dpd_timeout_seconds,
             egress_bytes_transferred=self.egress_bytes_transferred,
-            enable_bgp=self.enable_bgp,
             express_route_circuit_id=self.express_route_circuit_id,
             express_route_gateway_bypass=self.express_route_gateway_bypass,
             id=self.id,
@@ -373,10 +372,10 @@ def get_gateway_connection(name: Optional[_builtins.str] = None,
 
     return AwaitableGetGatewayConnectionResult(
         authorization_key=pulumi.get(__ret__, 'authorization_key'),
+        bgp_enabled=pulumi.get(__ret__, 'bgp_enabled'),
         connection_protocol=pulumi.get(__ret__, 'connection_protocol'),
         dpd_timeout_seconds=pulumi.get(__ret__, 'dpd_timeout_seconds'),
         egress_bytes_transferred=pulumi.get(__ret__, 'egress_bytes_transferred'),
-        enable_bgp=pulumi.get(__ret__, 'enable_bgp'),
         express_route_circuit_id=pulumi.get(__ret__, 'express_route_circuit_id'),
         express_route_gateway_bypass=pulumi.get(__ret__, 'express_route_gateway_bypass'),
         id=pulumi.get(__ret__, 'id'),
@@ -432,10 +431,10 @@ def get_gateway_connection_output(name: pulumi.Input[Optional[_builtins.str]] = 
     __ret__ = pulumi.runtime.invoke_output('azure:network/getGatewayConnection:getGatewayConnection', __args__, opts=opts, typ=GetGatewayConnectionResult)
     return __ret__.apply(lambda __response__: GetGatewayConnectionResult(
         authorization_key=pulumi.get(__response__, 'authorization_key'),
+        bgp_enabled=pulumi.get(__response__, 'bgp_enabled'),
         connection_protocol=pulumi.get(__response__, 'connection_protocol'),
         dpd_timeout_seconds=pulumi.get(__response__, 'dpd_timeout_seconds'),
         egress_bytes_transferred=pulumi.get(__response__, 'egress_bytes_transferred'),
-        enable_bgp=pulumi.get(__response__, 'enable_bgp'),
         express_route_circuit_id=pulumi.get(__response__, 'express_route_circuit_id'),
         express_route_gateway_bypass=pulumi.get(__response__, 'express_route_gateway_bypass'),
         id=pulumi.get(__response__, 'id'),

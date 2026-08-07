@@ -26,7 +26,7 @@ class GetBlobResult:
     """
     A collection of values returned by getBlob.
     """
-    def __init__(__self__, access_tier=None, content_md5=None, content_type=None, encryption_scope=None, id=None, metadata=None, name=None, storage_account_name=None, storage_container_id=None, storage_container_name=None, type=None, url=None):
+    def __init__(__self__, access_tier=None, content_md5=None, content_type=None, encryption_scope=None, id=None, metadata=None, name=None, storage_container_id=None, type=None, url=None):
         if access_tier and not isinstance(access_tier, str):
             raise TypeError("Expected argument 'access_tier' to be a str")
         pulumi.set(__self__, "access_tier", access_tier)
@@ -48,15 +48,9 @@ class GetBlobResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if storage_account_name and not isinstance(storage_account_name, str):
-            raise TypeError("Expected argument 'storage_account_name' to be a str")
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if storage_container_id and not isinstance(storage_container_id, str):
             raise TypeError("Expected argument 'storage_container_id' to be a str")
         pulumi.set(__self__, "storage_container_id", storage_container_id)
-        if storage_container_name and not isinstance(storage_container_name, str):
-            raise TypeError("Expected argument 'storage_container_name' to be a str")
-        pulumi.set(__self__, "storage_container_name", storage_container_name)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -118,21 +112,9 @@ class GetBlobResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="storageAccountName")
-    @_utilities.deprecated("""`storage_account_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def storage_account_name(self) -> _builtins.str:
-        return pulumi.get(self, "storage_account_name")
-
-    @_builtins.property
     @pulumi.getter(name="storageContainerId")
     def storage_container_id(self) -> _builtins.str:
         return pulumi.get(self, "storage_container_id")
-
-    @_builtins.property
-    @pulumi.getter(name="storageContainerName")
-    @_utilities.deprecated("""`storage_container_name` has been deprecated in favour of `storage_container_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def storage_container_name(self) -> _builtins.str:
-        return pulumi.get(self, "storage_container_name")
 
     @_builtins.property
     @pulumi.getter
@@ -164,18 +146,14 @@ class AwaitableGetBlobResult(GetBlobResult):
             id=self.id,
             metadata=self.metadata,
             name=self.name,
-            storage_account_name=self.storage_account_name,
             storage_container_id=self.storage_container_id,
-            storage_container_name=self.storage_container_name,
             type=self.type,
             url=self.url)
 
 
 def get_blob(metadata: Optional[Mapping[str, _builtins.str]] = None,
              name: Optional[_builtins.str] = None,
-             storage_account_name: Optional[_builtins.str] = None,
              storage_container_id: Optional[_builtins.str] = None,
-             storage_container_name: Optional[_builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetBlobResult:
     """
     Use this data source to access information about an existing Storage Blob.
@@ -193,20 +171,12 @@ def get_blob(metadata: Optional[Mapping[str, _builtins.str]] = None,
 
     :param Mapping[str, _builtins.str] metadata: A map of custom blob metadata.
     :param _builtins.str name: The name of the Blob.
-    :param _builtins.str storage_account_name: The name of the Storage Account where the Container exists.
-           
-           > **Note:** This property is deprecated in favour of `storage_container_id` and will be removed in version 5.0 of the AzureRM Provider.
     :param _builtins.str storage_container_id: The ID of the Storage Container where the Blob exists.
-    :param _builtins.str storage_container_name: The name of the Storage Container where the Blob exists.
-           
-           > **Note:** This property is deprecated in favour of `storage_container_id` and will be removed in version 5.0 of the AzureRM Provider.
     """
     __args__ = dict()
     __args__['metadata'] = metadata
     __args__['name'] = name
-    __args__['storageAccountName'] = storage_account_name
     __args__['storageContainerId'] = storage_container_id
-    __args__['storageContainerName'] = storage_container_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:storage/getBlob:getBlob', __args__, opts=opts, typ=GetBlobResult).value
 
@@ -218,16 +188,12 @@ def get_blob(metadata: Optional[Mapping[str, _builtins.str]] = None,
         id=pulumi.get(__ret__, 'id'),
         metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
-        storage_account_name=pulumi.get(__ret__, 'storage_account_name'),
         storage_container_id=pulumi.get(__ret__, 'storage_container_id'),
-        storage_container_name=pulumi.get(__ret__, 'storage_container_name'),
         type=pulumi.get(__ret__, 'type'),
         url=pulumi.get(__ret__, 'url'))
 def get_blob_output(metadata: pulumi.Input[Optional[Optional[Mapping[str, _builtins.str]]]] = None,
                     name: pulumi.Input[Optional[_builtins.str]] = None,
-                    storage_account_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                    storage_container_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                    storage_container_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                    storage_container_id: pulumi.Input[Optional[_builtins.str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBlobResult]:
     """
     Use this data source to access information about an existing Storage Blob.
@@ -245,20 +211,12 @@ def get_blob_output(metadata: pulumi.Input[Optional[Optional[Mapping[str, _built
 
     :param Mapping[str, _builtins.str] metadata: A map of custom blob metadata.
     :param _builtins.str name: The name of the Blob.
-    :param _builtins.str storage_account_name: The name of the Storage Account where the Container exists.
-           
-           > **Note:** This property is deprecated in favour of `storage_container_id` and will be removed in version 5.0 of the AzureRM Provider.
     :param _builtins.str storage_container_id: The ID of the Storage Container where the Blob exists.
-    :param _builtins.str storage_container_name: The name of the Storage Container where the Blob exists.
-           
-           > **Note:** This property is deprecated in favour of `storage_container_id` and will be removed in version 5.0 of the AzureRM Provider.
     """
     __args__ = dict()
     __args__['metadata'] = metadata
     __args__['name'] = name
-    __args__['storageAccountName'] = storage_account_name
     __args__['storageContainerId'] = storage_container_id
-    __args__['storageContainerName'] = storage_container_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getBlob:getBlob', __args__, opts=opts, typ=GetBlobResult)
     return __ret__.apply(lambda __response__: GetBlobResult(
@@ -269,8 +227,6 @@ def get_blob_output(metadata: pulumi.Input[Optional[Optional[Mapping[str, _built
         id=pulumi.get(__response__, 'id'),
         metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
-        storage_account_name=pulumi.get(__response__, 'storage_account_name'),
         storage_container_id=pulumi.get(__response__, 'storage_container_id'),
-        storage_container_name=pulumi.get(__response__, 'storage_container_name'),
         type=pulumi.get(__response__, 'type'),
         url=pulumi.get(__response__, 'url')))

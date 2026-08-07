@@ -214,7 +214,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+     * The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -223,7 +223,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> minTlsVersion;
 
     /**
-     * @return The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+     * @return The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -245,25 +245,6 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
      */
     public Optional<Output<Integer>> preWarmedInstanceCount() {
         return Optional.ofNullable(this.preWarmedInstanceCount);
-    }
-
-    /**
-     * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
-    @Import(name="publicNetworkAccessEnabled")
-    private @Nullable Output<Boolean> publicNetworkAccessEnabled;
-
-    /**
-     * @deprecated
-     * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
-    public Optional<Output<Boolean>> publicNetworkAccessEnabled() {
-        return Optional.ofNullable(this.publicNetworkAccessEnabled);
     }
 
     /**
@@ -316,7 +297,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+     * Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -325,7 +306,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> scmMinTlsVersion;
 
     /**
-     * @return Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+     * @return Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
      * 
      * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
      * 
@@ -430,7 +411,6 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         this.linuxFxVersion = $.linuxFxVersion;
         this.minTlsVersion = $.minTlsVersion;
         this.preWarmedInstanceCount = $.preWarmedInstanceCount;
-        this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.runtimeScaleMonitoringEnabled = $.runtimeScaleMonitoringEnabled;
         this.scmIpRestrictionDefaultAction = $.scmIpRestrictionDefaultAction;
         this.scmIpRestrictions = $.scmIpRestrictions;
@@ -737,7 +717,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param minTlsVersion The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+         * @param minTlsVersion The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -750,7 +730,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param minTlsVersion The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+         * @param minTlsVersion The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -780,31 +760,6 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
          */
         public Builder preWarmedInstanceCount(Integer preWarmedInstanceCount) {
             return preWarmedInstanceCount(Output.of(preWarmedInstanceCount));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder publicNetworkAccessEnabled(@Nullable Output<Boolean> publicNetworkAccessEnabled) {
-            $.publicNetworkAccessEnabled = publicNetworkAccessEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider.
-         * 
-         */
-        @Deprecated /* the `site_config.public_network_access_enabled` property has been superseded by the `publicNetworkAccess` property and will be removed in v5.0 of the AzureRM Provider. */
-        public Builder publicNetworkAccessEnabled(Boolean publicNetworkAccessEnabled) {
-            return publicNetworkAccessEnabled(Output.of(publicNetworkAccessEnabled));
         }
 
         /**
@@ -887,7 +842,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 
@@ -900,7 +855,7 @@ public final class StandardSiteConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+         * @param scmMinTlsVersion Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
          * 
          * &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
          * 

@@ -13,7 +13,6 @@ namespace Pulumi.Azure.MSSql.Outputs
     [OutputType]
     public sealed class VirtualMachineAutoBackup
     {
-        public readonly bool? EncryptionEnabled;
         /// <summary>
         /// Encryption password to use. Setting a password will enable encryption.
         /// </summary>
@@ -41,8 +40,6 @@ namespace Pulumi.Azure.MSSql.Outputs
 
         [OutputConstructor]
         private VirtualMachineAutoBackup(
-            bool? encryptionEnabled,
-
             string? encryptionPassword,
 
             Outputs.VirtualMachineAutoBackupManualSchedule? manualSchedule,
@@ -55,7 +52,6 @@ namespace Pulumi.Azure.MSSql.Outputs
 
             bool? systemDatabasesBackupEnabled)
         {
-            EncryptionEnabled = encryptionEnabled;
             EncryptionPassword = encryptionPassword;
             ManualSchedule = manualSchedule;
             RetentionPeriodInDays = retentionPeriodInDays;

@@ -36,13 +36,6 @@ public final class ApplicationGatewaySslProfile {
      */
     private @Nullable List<String> trustedClientCertificateNames;
     /**
-     * @deprecated
-     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
-    private @Nullable Boolean verifyClientCertIssuerDn;
-    /**
      * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
      */
@@ -83,15 +76,6 @@ public final class ApplicationGatewaySslProfile {
         return this.trustedClientCertificateNames == null ? List.of() : this.trustedClientCertificateNames;
     }
     /**
-     * @deprecated
-     * the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Boolean> verifyClientCertIssuerDn() {
-        return Optional.ofNullable(this.verifyClientCertIssuerDn);
-    }
-    /**
      * @return Should client certificate issuer DN be verified? Defaults to `false`.
      * 
      */
@@ -119,7 +103,6 @@ public final class ApplicationGatewaySslProfile {
         private String name;
         private @Nullable ApplicationGatewaySslProfileSslPolicy sslPolicy;
         private @Nullable List<String> trustedClientCertificateNames;
-        private @Nullable Boolean verifyClientCertIssuerDn;
         private @Nullable Boolean verifyClientCertificateIssuerDn;
         private @Nullable String verifyClientCertificateRevocation;
         public Builder() {}
@@ -129,7 +112,6 @@ public final class ApplicationGatewaySslProfile {
     	      this.name = defaults.name;
     	      this.sslPolicy = defaults.sslPolicy;
     	      this.trustedClientCertificateNames = defaults.trustedClientCertificateNames;
-    	      this.verifyClientCertIssuerDn = defaults.verifyClientCertIssuerDn;
     	      this.verifyClientCertificateIssuerDn = defaults.verifyClientCertificateIssuerDn;
     	      this.verifyClientCertificateRevocation = defaults.verifyClientCertificateRevocation;
         }
@@ -164,12 +146,6 @@ public final class ApplicationGatewaySslProfile {
             return trustedClientCertificateNames(List.of(trustedClientCertificateNames));
         }
         @CustomType.Setter
-        public Builder verifyClientCertIssuerDn(@Nullable Boolean verifyClientCertIssuerDn) {
-
-            this.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
-            return this;
-        }
-        @CustomType.Setter
         public Builder verifyClientCertificateIssuerDn(@Nullable Boolean verifyClientCertificateIssuerDn) {
 
             this.verifyClientCertificateIssuerDn = verifyClientCertificateIssuerDn;
@@ -187,7 +163,6 @@ public final class ApplicationGatewaySslProfile {
             _resultValue.name = name;
             _resultValue.sslPolicy = sslPolicy;
             _resultValue.trustedClientCertificateNames = trustedClientCertificateNames;
-            _resultValue.verifyClientCertIssuerDn = verifyClientCertIssuerDn;
             _resultValue.verifyClientCertificateIssuerDn = verifyClientCertificateIssuerDn;
             _resultValue.verifyClientCertificateRevocation = verifyClientCertificateRevocation;
             return _resultValue;

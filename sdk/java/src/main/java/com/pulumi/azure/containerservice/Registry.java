@@ -66,12 +66,14 @@ import javax.annotation.Nullable;
  *             .georeplications(            
  *                 RegistryGeoreplicationArgs.builder()
  *                     .location("East US")
+ *                     .globalEndpointRoutingEnabled(true)
  *                     .zoneRedundancyEnabled(true)
  *                     .tags(Map.ofEntries(
  *                     ))
  *                     .build(),
  *                 RegistryGeoreplicationArgs.builder()
  *                     .location("North Europe")
+ *                     .globalEndpointRoutingEnabled(true)
  *                     .zoneRedundancyEnabled(true)
  *                     .tags(Map.ofEntries(
  *                     ))
@@ -298,6 +300,24 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.anonymousPullEnabled);
     }
     /**
+     * Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+     * 
+     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * 
+     */
+    @Export(name="azureadAuthenticationAsArmPolicyEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> azureadAuthenticationAsArmPolicyEnabled;
+
+    /**
+     * @return Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+     * 
+     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * 
+     */
+    public Output<Optional<Boolean>> azureadAuthenticationAsArmPolicyEnabled() {
+        return Codegen.optional(this.azureadAuthenticationAsArmPolicyEnabled);
+    }
+    /**
      * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      * 
      */
@@ -330,19 +350,17 @@ public class Registry extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="encryption", refs={RegistryEncryption.class}, tree="[0]")
-    private Output<RegistryEncryption> encryption;
+    private Output</* @Nullable */ RegistryEncryption> encryption;
 
     /**
      * @return An `encryption` block as documented below.
      * 
      */
-    public Output<RegistryEncryption> encryption() {
-        return this.encryption;
+    public Output<Optional<RegistryEncryption>> encryption() {
+        return Codegen.optional(this.encryption);
     }
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
-     * 
-     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     @Export(name="exportPolicyEnabled", refs={Boolean.class}, tree="[0]")
@@ -350,8 +368,6 @@ public class Registry extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
-     * 
-     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     public Output<Optional<Boolean>> exportPolicyEnabled() {
@@ -440,6 +456,20 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
+     * 
+     */
+    @Export(name="networkRuleBypassForTasksEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> networkRuleBypassForTasksEnabled;
+
+    /**
+     * @return Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> networkRuleBypassForTasksEnabled() {
+        return Codegen.optional(this.networkRuleBypassForTasksEnabled);
+    }
+    /**
      * Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
      * 
      */
@@ -524,6 +554,20 @@ public class Registry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.retentionPolicyInDays);
     }
     /**
+     * The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+     * 
+     */
+    @Export(name="roleAssignmentMode", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> roleAssignmentMode;
+
+    /**
+     * @return The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+     * 
+     */
+    public Output<Optional<String>> roleAssignmentMode() {
+        return Codegen.optional(this.roleAssignmentMode);
+    }
+    /**
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      * 
      */
@@ -550,20 +594,6 @@ public class Registry extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
-    }
-    /**
-     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-     * 
-     */
-    @Export(name="trustPolicyEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> trustPolicyEnabled;
-
-    /**
-     * @return Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-     * 
-     */
-    public Output<Optional<Boolean>> trustPolicyEnabled() {
-        return Codegen.optional(this.trustPolicyEnabled);
     }
     /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.

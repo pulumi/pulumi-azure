@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,18 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "azure:cognitive/aIServices:AIServices":
-		r = &AIServices{}
 	case "azure:cognitive/account:Account":
 		r = &Account{}
+	case "azure:cognitive/accountConnectionAccountKey:AccountConnectionAccountKey":
+		r = &AccountConnectionAccountKey{}
+	case "azure:cognitive/accountConnectionAccountManagedIdentity:AccountConnectionAccountManagedIdentity":
+		r = &AccountConnectionAccountManagedIdentity{}
+	case "azure:cognitive/accountConnectionApiKey:AccountConnectionApiKey":
+		r = &AccountConnectionApiKey{}
+	case "azure:cognitive/accountConnectionCustomKeys:AccountConnectionCustomKeys":
+		r = &AccountConnectionCustomKeys{}
+	case "azure:cognitive/accountConnectionEntraId:AccountConnectionEntraId":
+		r = &AccountConnectionEntraId{}
 	case "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey":
 		r = &AccountCustomerManagedKey{}
 	case "azure:cognitive/accountProject:AccountProject":
@@ -50,12 +58,32 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"azure",
-		"cognitive/aIServices",
+		"cognitive/account",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
-		"cognitive/account",
+		"cognitive/accountConnectionAccountKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountConnectionAccountManagedIdentity",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountConnectionApiKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountConnectionCustomKeys",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountConnectionEntraId",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

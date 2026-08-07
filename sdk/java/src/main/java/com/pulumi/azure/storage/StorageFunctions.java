@@ -2170,6 +2170,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -2184,9 +2185,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetQueue = StorageFunctions.getQueue(GetQueueArgs.builder()
      *             .name("example-queue-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2218,6 +2224,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -2232,9 +2239,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetQueue = StorageFunctions.getQueue(GetQueueArgs.builder()
      *             .name("example-queue-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2266,6 +2278,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -2280,9 +2293,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetQueue = StorageFunctions.getQueue(GetQueueArgs.builder()
      *             .name("example-queue-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2314,6 +2332,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -2328,9 +2347,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetQueue = StorageFunctions.getQueue(GetQueueArgs.builder()
      *             .name("example-queue-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -2362,6 +2386,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetQueueArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -2376,9 +2401,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetQueue = StorageFunctions.getQueue(GetQueueArgs.builder()
      *             .name("example-queue-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -3450,6 +3480,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -3464,9 +3495,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetTable = StorageFunctions.getTable(GetTableArgs.builder()
      *             .name("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -3491,6 +3527,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -3505,9 +3542,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetTable = StorageFunctions.getTable(GetTableArgs.builder()
      *             .name("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -3532,6 +3574,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -3546,9 +3589,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetTable = StorageFunctions.getTable(GetTableArgs.builder()
      *             .name("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -3573,6 +3621,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -3587,9 +3636,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetTable = StorageFunctions.getTable(GetTableArgs.builder()
      *             .name("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }
@@ -3614,6 +3668,7 @@ public final class StorageFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azure.storage.StorageFunctions;
+     * import com.pulumi.azure.storage.inputs.GetAccountArgs;
      * import com.pulumi.azure.storage.inputs.GetTableArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
@@ -3628,9 +3683,14 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = StorageFunctions.getTable(GetTableArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *             .name("exampleaccount")
+     *             .resourceGroupName("examples")
+     *             .build());
+     * 
+     *         final var exampleGetTable = StorageFunctions.getTable(GetTableArgs.builder()
      *             .name("example-table-name")
-     *             .storageAccountName("example-storage-account-name")
+     *             .storageAccountId(example.id())
      *             .build());
      * 
      *     }

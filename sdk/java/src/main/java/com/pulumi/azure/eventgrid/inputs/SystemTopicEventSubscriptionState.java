@@ -140,15 +140,15 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
      * Specifies the id where the Event Hub is located.
      * 
      */
-    @Import(name="eventhubEndpointId")
-    private @Nullable Output<String> eventhubEndpointId;
+    @Import(name="eventhubId")
+    private @Nullable Output<String> eventhubId;
 
     /**
      * @return Specifies the id where the Event Hub is located.
      * 
      */
-    public Optional<Output<String>> eventhubEndpointId() {
-        return Optional.ofNullable(this.eventhubEndpointId);
+    public Optional<Output<String>> eventhubId() {
+        return Optional.ofNullable(this.eventhubId);
     }
 
     /**
@@ -170,15 +170,15 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
      * Specifies the id where the Hybrid Connection is located.
      * 
      */
-    @Import(name="hybridConnectionEndpointId")
-    private @Nullable Output<String> hybridConnectionEndpointId;
+    @Import(name="hybridConnectionId")
+    private @Nullable Output<String> hybridConnectionId;
 
     /**
      * @return Specifies the id where the Hybrid Connection is located.
      * 
      */
-    public Optional<Output<String>> hybridConnectionEndpointId() {
-        return Optional.ofNullable(this.hybridConnectionEndpointId);
+    public Optional<Output<String>> hybridConnectionId() {
+        return Optional.ofNullable(this.hybridConnectionId);
     }
 
     /**
@@ -260,30 +260,30 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
      * Specifies the id where the Service Bus Queue is located.
      * 
      */
-    @Import(name="serviceBusQueueEndpointId")
-    private @Nullable Output<String> serviceBusQueueEndpointId;
+    @Import(name="serviceBusQueueId")
+    private @Nullable Output<String> serviceBusQueueId;
 
     /**
      * @return Specifies the id where the Service Bus Queue is located.
      * 
      */
-    public Optional<Output<String>> serviceBusQueueEndpointId() {
-        return Optional.ofNullable(this.serviceBusQueueEndpointId);
+    public Optional<Output<String>> serviceBusQueueId() {
+        return Optional.ofNullable(this.serviceBusQueueId);
     }
 
     /**
      * Specifies the id where the Service Bus Topic is located.
      * 
      */
-    @Import(name="serviceBusTopicEndpointId")
-    private @Nullable Output<String> serviceBusTopicEndpointId;
+    @Import(name="serviceBusTopicId")
+    private @Nullable Output<String> serviceBusTopicId;
 
     /**
      * @return Specifies the id where the Service Bus Topic is located.
      * 
      */
-    public Optional<Output<String>> serviceBusTopicEndpointId() {
-        return Optional.ofNullable(this.serviceBusTopicEndpointId);
+    public Optional<Output<String>> serviceBusTopicId() {
+        return Optional.ofNullable(this.serviceBusTopicId);
     }
 
     /**
@@ -349,7 +349,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     /**
      * A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      * 
      */
     @Import(name="webhookEndpoint")
@@ -358,7 +358,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
     /**
      * @return A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+     * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
      * 
      */
     public Optional<Output<SystemTopicEventSubscriptionWebhookEndpointArgs>> webhookEndpoint() {
@@ -375,16 +375,16 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         this.deliveryIdentity = $.deliveryIdentity;
         this.deliveryProperties = $.deliveryProperties;
         this.eventDeliverySchema = $.eventDeliverySchema;
-        this.eventhubEndpointId = $.eventhubEndpointId;
+        this.eventhubId = $.eventhubId;
         this.expirationTimeUtc = $.expirationTimeUtc;
-        this.hybridConnectionEndpointId = $.hybridConnectionEndpointId;
+        this.hybridConnectionId = $.hybridConnectionId;
         this.includedEventTypes = $.includedEventTypes;
         this.labels = $.labels;
         this.name = $.name;
         this.resourceGroupName = $.resourceGroupName;
         this.retryPolicy = $.retryPolicy;
-        this.serviceBusQueueEndpointId = $.serviceBusQueueEndpointId;
-        this.serviceBusTopicEndpointId = $.serviceBusTopicEndpointId;
+        this.serviceBusQueueId = $.serviceBusQueueId;
+        this.serviceBusTopicId = $.serviceBusTopicId;
         this.storageBlobDeadLetterDestination = $.storageBlobDeadLetterDestination;
         this.storageQueueEndpoint = $.storageQueueEndpoint;
         this.subjectFilter = $.subjectFilter;
@@ -572,24 +572,24 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param eventhubEndpointId Specifies the id where the Event Hub is located.
+         * @param eventhubId Specifies the id where the Event Hub is located.
          * 
          * @return builder
          * 
          */
-        public Builder eventhubEndpointId(@Nullable Output<String> eventhubEndpointId) {
-            $.eventhubEndpointId = eventhubEndpointId;
+        public Builder eventhubId(@Nullable Output<String> eventhubId) {
+            $.eventhubId = eventhubId;
             return this;
         }
 
         /**
-         * @param eventhubEndpointId Specifies the id where the Event Hub is located.
+         * @param eventhubId Specifies the id where the Event Hub is located.
          * 
          * @return builder
          * 
          */
-        public Builder eventhubEndpointId(String eventhubEndpointId) {
-            return eventhubEndpointId(Output.of(eventhubEndpointId));
+        public Builder eventhubId(String eventhubId) {
+            return eventhubId(Output.of(eventhubId));
         }
 
         /**
@@ -614,24 +614,24 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param hybridConnectionEndpointId Specifies the id where the Hybrid Connection is located.
+         * @param hybridConnectionId Specifies the id where the Hybrid Connection is located.
          * 
          * @return builder
          * 
          */
-        public Builder hybridConnectionEndpointId(@Nullable Output<String> hybridConnectionEndpointId) {
-            $.hybridConnectionEndpointId = hybridConnectionEndpointId;
+        public Builder hybridConnectionId(@Nullable Output<String> hybridConnectionId) {
+            $.hybridConnectionId = hybridConnectionId;
             return this;
         }
 
         /**
-         * @param hybridConnectionEndpointId Specifies the id where the Hybrid Connection is located.
+         * @param hybridConnectionId Specifies the id where the Hybrid Connection is located.
          * 
          * @return builder
          * 
          */
-        public Builder hybridConnectionEndpointId(String hybridConnectionEndpointId) {
-            return hybridConnectionEndpointId(Output.of(hybridConnectionEndpointId));
+        public Builder hybridConnectionId(String hybridConnectionId) {
+            return hybridConnectionId(Output.of(hybridConnectionId));
         }
 
         /**
@@ -760,45 +760,45 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         }
 
         /**
-         * @param serviceBusQueueEndpointId Specifies the id where the Service Bus Queue is located.
+         * @param serviceBusQueueId Specifies the id where the Service Bus Queue is located.
          * 
          * @return builder
          * 
          */
-        public Builder serviceBusQueueEndpointId(@Nullable Output<String> serviceBusQueueEndpointId) {
-            $.serviceBusQueueEndpointId = serviceBusQueueEndpointId;
+        public Builder serviceBusQueueId(@Nullable Output<String> serviceBusQueueId) {
+            $.serviceBusQueueId = serviceBusQueueId;
             return this;
         }
 
         /**
-         * @param serviceBusQueueEndpointId Specifies the id where the Service Bus Queue is located.
+         * @param serviceBusQueueId Specifies the id where the Service Bus Queue is located.
          * 
          * @return builder
          * 
          */
-        public Builder serviceBusQueueEndpointId(String serviceBusQueueEndpointId) {
-            return serviceBusQueueEndpointId(Output.of(serviceBusQueueEndpointId));
+        public Builder serviceBusQueueId(String serviceBusQueueId) {
+            return serviceBusQueueId(Output.of(serviceBusQueueId));
         }
 
         /**
-         * @param serviceBusTopicEndpointId Specifies the id where the Service Bus Topic is located.
+         * @param serviceBusTopicId Specifies the id where the Service Bus Topic is located.
          * 
          * @return builder
          * 
          */
-        public Builder serviceBusTopicEndpointId(@Nullable Output<String> serviceBusTopicEndpointId) {
-            $.serviceBusTopicEndpointId = serviceBusTopicEndpointId;
+        public Builder serviceBusTopicId(@Nullable Output<String> serviceBusTopicId) {
+            $.serviceBusTopicId = serviceBusTopicId;
             return this;
         }
 
         /**
-         * @param serviceBusTopicEndpointId Specifies the id where the Service Bus Topic is located.
+         * @param serviceBusTopicId Specifies the id where the Service Bus Topic is located.
          * 
          * @return builder
          * 
          */
-        public Builder serviceBusTopicEndpointId(String serviceBusTopicEndpointId) {
-            return serviceBusTopicEndpointId(Output.of(serviceBusTopicEndpointId));
+        public Builder serviceBusTopicId(String serviceBusTopicId) {
+            return serviceBusTopicId(Output.of(serviceBusTopicId));
         }
 
         /**
@@ -888,7 +888,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         /**
          * @param webhookEndpoint A `webhookEndpoint` block as defined below.
          * 
-         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
          * 
          * @return builder
          * 
@@ -901,7 +901,7 @@ public final class SystemTopicEventSubscriptionState extends com.pulumi.resource
         /**
          * @param webhookEndpoint A `webhookEndpoint` block as defined below.
          * 
-         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubEndpointId`, `hybridConnectionEndpoint`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
+         * &gt; **Note:** One of `azureFunctionEndpoint`, `eventhubId`, `hybridConnectionEndpoint`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint` or `webhookEndpoint` must be specified.
          * 
          * @return builder
          * 

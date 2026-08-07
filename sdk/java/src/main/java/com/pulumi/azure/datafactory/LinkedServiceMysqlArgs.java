@@ -94,7 +94,7 @@ public final class LinkedServiceMysqlArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
      * 
      * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
      * 
@@ -103,7 +103,7 @@ public final class LinkedServiceMysqlArgs extends com.pulumi.resources.ResourceA
     private @Nullable Output<String> driverVersion;
 
     /**
-     * @return The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * @return The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
      * 
      * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
      * 
@@ -305,7 +305,7 @@ public final class LinkedServiceMysqlArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param driverVersion The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+         * @param driverVersion The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
          * 
          * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
          * 
@@ -318,7 +318,7 @@ public final class LinkedServiceMysqlArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param driverVersion The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+         * @param driverVersion The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
          * 
          * &gt; **Note:** New linked services must set `driverVersion` to `V2`.
          * 

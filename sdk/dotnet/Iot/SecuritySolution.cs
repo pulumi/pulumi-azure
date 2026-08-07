@@ -139,10 +139,10 @@ namespace Pulumi.Azure.Iot
         public Output<ImmutableArray<string>> QuerySubscriptionIds { get; private set; } = null!;
 
         /// <summary>
-        /// A `RecommendationsEnabled` block of options to enable or disable as defined below.
+        /// A `Recommendations` block as defined below.
         /// </summary>
-        [Output("recommendationsEnabled")]
-        public Output<Outputs.SecuritySolutionRecommendationsEnabled> RecommendationsEnabled { get; private set; } = null!;
+        [Output("recommendations")]
+        public Output<Outputs.SecuritySolutionRecommendations> Recommendations { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
@@ -305,10 +305,10 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// A `RecommendationsEnabled` block of options to enable or disable as defined below.
+        /// A `Recommendations` block as defined below.
         /// </summary>
-        [Input("recommendationsEnabled")]
-        public Input<Inputs.SecuritySolutionRecommendationsEnabledArgs>? RecommendationsEnabled { get; set; }
+        [Input("recommendations")]
+        public Input<Inputs.SecuritySolutionRecommendationsArgs>? Recommendations { get; set; }
 
         /// <summary>
         /// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
@@ -439,10 +439,10 @@ namespace Pulumi.Azure.Iot
         }
 
         /// <summary>
-        /// A `RecommendationsEnabled` block of options to enable or disable as defined below.
+        /// A `Recommendations` block as defined below.
         /// </summary>
-        [Input("recommendationsEnabled")]
-        public Input<Inputs.SecuritySolutionRecommendationsEnabledGetArgs>? RecommendationsEnabled { get; set; }
+        [Input("recommendations")]
+        public Input<Inputs.SecuritySolutionRecommendationsGetArgs>? Recommendations { get; set; }
 
         /// <summary>
         /// Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.

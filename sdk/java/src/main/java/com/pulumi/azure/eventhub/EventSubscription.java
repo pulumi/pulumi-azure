@@ -221,15 +221,15 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the id where the Event Hub is located.
      * 
      */
-    @Export(name="eventhubEndpointId", refs={String.class}, tree="[0]")
-    private Output<String> eventhubEndpointId;
+    @Export(name="eventhubId", refs={String.class}, tree="[0]")
+    private Output<String> eventhubId;
 
     /**
      * @return Specifies the id where the Event Hub is located.
      * 
      */
-    public Output<String> eventhubEndpointId() {
-        return this.eventhubEndpointId;
+    public Output<String> eventhubId() {
+        return this.eventhubId;
     }
     /**
      * Specifies the expiration time of the event subscription (Datetime Format `RFC 3339`).
@@ -249,15 +249,15 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the id where the Hybrid Connection is located.
      * 
      */
-    @Export(name="hybridConnectionEndpointId", refs={String.class}, tree="[0]")
-    private Output<String> hybridConnectionEndpointId;
+    @Export(name="hybridConnectionId", refs={String.class}, tree="[0]")
+    private Output<String> hybridConnectionId;
 
     /**
      * @return Specifies the id where the Hybrid Connection is located.
      * 
      */
-    public Output<String> hybridConnectionEndpointId() {
-        return this.hybridConnectionEndpointId;
+    public Output<String> hybridConnectionId() {
+        return this.hybridConnectionId;
     }
     /**
      * A list of applicable event types that need to be part of the event subscription.
@@ -333,29 +333,29 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
      * Specifies the id where the Service Bus Queue is located.
      * 
      */
-    @Export(name="serviceBusQueueEndpointId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> serviceBusQueueEndpointId;
+    @Export(name="serviceBusQueueId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> serviceBusQueueId;
 
     /**
      * @return Specifies the id where the Service Bus Queue is located.
      * 
      */
-    public Output<Optional<String>> serviceBusQueueEndpointId() {
-        return Codegen.optional(this.serviceBusQueueEndpointId);
+    public Output<Optional<String>> serviceBusQueueId() {
+        return Codegen.optional(this.serviceBusQueueId);
     }
     /**
      * Specifies the id where the Service Bus Topic is located.
      * 
      */
-    @Export(name="serviceBusTopicEndpointId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> serviceBusTopicEndpointId;
+    @Export(name="serviceBusTopicId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> serviceBusTopicId;
 
     /**
      * @return Specifies the id where the Service Bus Topic is located.
      * 
      */
-    public Output<Optional<String>> serviceBusTopicEndpointId() {
-        return Codegen.optional(this.serviceBusTopicEndpointId);
+    public Output<Optional<String>> serviceBusTopicId() {
+        return Codegen.optional(this.serviceBusTopicId);
     }
     /**
      * A `storageBlobDeadLetterDestination` block as defined below.
@@ -402,7 +402,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
      * A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
+     * &gt; **Note:** One of `eventhubId`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
      * 
      */
     @Export(name="webhookEndpoint", refs={EventSubscriptionWebhookEndpoint.class}, tree="[0]")
@@ -411,7 +411,7 @@ public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
      * @return A `webhookEndpoint` block as defined below.
      * 
-     * &gt; **Note:** One of `eventhubEndpointId`, `hybridConnectionEndpointId`, `serviceBusQueueEndpointId`, `serviceBusTopicEndpointId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
+     * &gt; **Note:** One of `eventhubId`, `hybridConnectionId`, `serviceBusQueueId`, `serviceBusTopicId`, `storageQueueEndpoint`, `webhookEndpoint` or `azureFunctionEndpoint` must be specified.
      * 
      */
     public Output<Optional<EventSubscriptionWebhookEndpoint>> webhookEndpoint() {

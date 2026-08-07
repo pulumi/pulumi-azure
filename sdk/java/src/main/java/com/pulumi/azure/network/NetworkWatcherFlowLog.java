@@ -180,18 +180,6 @@ public class NetworkWatcherFlowLog extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * @deprecated
-     * The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* The property `networkSecurityGroupId` has been superseded by `targetResourceId` and will be removed in version 5.0 of the AzureRM Provider. */
-    @Export(name="networkSecurityGroupId", refs={String.class}, tree="[0]")
-    private Output<String> networkSecurityGroupId;
-
-    public Output<String> networkSecurityGroupId() {
-        return this.networkSecurityGroupId;
-    }
-    /**
      * The name of the Network Watcher. Changing this forces a new resource to be created.
      * 
      */

@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  *
  * ## Import
  *
@@ -103,10 +103,6 @@ export class OutboundRule extends pulumi.CustomResource {
      */
     declare public readonly backendAddressPoolId: pulumi.Output<string>;
     /**
-     * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     */
-    declare public readonly enableTcpReset: pulumi.Output<boolean>;
-    /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
     declare public readonly frontendIpConfigurations: pulumi.Output<outputs.lb.OutboundRuleFrontendIpConfiguration[] | undefined>;
@@ -129,7 +125,7 @@ export class OutboundRule extends pulumi.CustomResource {
     /**
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
-    declare public readonly tcpResetEnabled: pulumi.Output<boolean>;
+    declare public readonly tcpResetEnabled: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a OutboundRule resource with the given unique name, arguments, and options.
@@ -146,7 +142,6 @@ export class OutboundRule extends pulumi.CustomResource {
             const state = argsOrState as OutboundRuleState | undefined;
             resourceInputs["allocatedOutboundPorts"] = state?.allocatedOutboundPorts;
             resourceInputs["backendAddressPoolId"] = state?.backendAddressPoolId;
-            resourceInputs["enableTcpReset"] = state?.enableTcpReset;
             resourceInputs["frontendIpConfigurations"] = state?.frontendIpConfigurations;
             resourceInputs["idleTimeoutInMinutes"] = state?.idleTimeoutInMinutes;
             resourceInputs["loadbalancerId"] = state?.loadbalancerId;
@@ -166,7 +161,6 @@ export class OutboundRule extends pulumi.CustomResource {
             }
             resourceInputs["allocatedOutboundPorts"] = args?.allocatedOutboundPorts;
             resourceInputs["backendAddressPoolId"] = args?.backendAddressPoolId;
-            resourceInputs["enableTcpReset"] = args?.enableTcpReset;
             resourceInputs["frontendIpConfigurations"] = args?.frontendIpConfigurations;
             resourceInputs["idleTimeoutInMinutes"] = args?.idleTimeoutInMinutes;
             resourceInputs["loadbalancerId"] = args?.loadbalancerId;
@@ -191,10 +185,6 @@ export interface OutboundRuleState {
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
     backendAddressPoolId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     */
-    enableTcpReset?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */
@@ -233,10 +223,6 @@ export interface OutboundRuleArgs {
      * The ID of the Backend Address Pool. Outbound traffic is randomly load balanced across IPs in the backend IPs.
      */
     backendAddressPoolId: pulumi.Input<string>;
-    /**
-     * @deprecated This property is being deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     */
-    enableTcpReset?: pulumi.Input<boolean | undefined>;
     /**
      * One or more `frontendIpConfiguration` blocks as defined below.
      */

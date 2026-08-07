@@ -29,6 +29,9 @@ namespace Pulumi.Azure.Network.Outputs
         /// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
         /// </summary>
         public readonly ImmutableArray<string> TrustedClientCertificateNames;
+        /// <summary>
+        /// Will the client certificate issuer DN be verified?
+        /// </summary>
         public readonly bool VerifyClientCertificateIssuerDn;
         /// <summary>
         /// The method used to check client certificate revocation status.

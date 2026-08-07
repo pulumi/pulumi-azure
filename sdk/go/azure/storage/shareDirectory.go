@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,8 +83,6 @@ type ShareDirectory struct {
 	Metadata pulumi.StringMapOutput `pulumi:"metadata"`
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId pulumi.StringOutput `pulumi:"storageShareId"`
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareUrl pulumi.StringOutput `pulumi:"storageShareUrl"`
 }
@@ -92,9 +91,12 @@ type ShareDirectory struct {
 func NewShareDirectory(ctx *pulumi.Context,
 	name string, args *ShareDirectoryArgs, opts ...pulumi.ResourceOption) (*ShareDirectory, error) {
 	if args == nil {
-		args = &ShareDirectoryArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.StorageShareUrl == nil {
+		return nil, errors.New("invalid value for required argument 'StorageShareUrl'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ShareDirectory
 	err := ctx.RegisterResource("azure:storage/shareDirectory:ShareDirectory", name, args, &resource, opts...)
@@ -122,8 +124,6 @@ type shareDirectoryState struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId *string `pulumi:"storageShareId"`
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareUrl *string `pulumi:"storageShareUrl"`
 }
@@ -133,8 +133,6 @@ type ShareDirectoryState struct {
 	Metadata pulumi.StringMapInput
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId pulumi.StringPtrInput
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareUrl pulumi.StringPtrInput
 }
@@ -148,10 +146,8 @@ type shareDirectoryArgs struct {
 	Metadata map[string]string `pulumi:"metadata"`
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId *string `pulumi:"storageShareId"`
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
-	StorageShareUrl *string `pulumi:"storageShareUrl"`
+	StorageShareUrl string `pulumi:"storageShareUrl"`
 }
 
 // The set of arguments for constructing a ShareDirectory resource.
@@ -160,10 +156,8 @@ type ShareDirectoryArgs struct {
 	Metadata pulumi.StringMapInput
 	// The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId pulumi.StringPtrInput
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
-	StorageShareUrl pulumi.StringPtrInput
+	StorageShareUrl pulumi.StringInput
 }
 
 func (ShareDirectoryArgs) ElementType() reflect.Type {
@@ -261,11 +255,6 @@ func (o ShareDirectoryOutput) Metadata() pulumi.StringMapOutput {
 // The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created.
 func (o ShareDirectoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ShareDirectory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-func (o ShareDirectoryOutput) StorageShareId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ShareDirectory) pulumi.StringOutput { return v.StorageShareId }).(pulumi.StringOutput)
 }
 
 // The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.

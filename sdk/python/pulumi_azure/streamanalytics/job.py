@@ -30,7 +30,7 @@ class JobArgs:
                  events_out_of_order_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  events_out_of_order_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['JobIdentityArgs']] = None,
-                 job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]] = None,
+                 job_storage_account: pulumi.Input[Optional['JobJobStorageAccountArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  output_error_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -52,7 +52,7 @@ class JobArgs:
         :param pulumi.Input[_builtins.int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
         :param pulumi.Input[_builtins.str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input['JobIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+        :param pulumi.Input['JobJobStorageAccountArgs'] job_storage_account: The details of the job storage account. A `job_storage_account` block as defined below.
                
                > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -83,8 +83,8 @@ class JobArgs:
             pulumi.set(__self__, "events_out_of_order_policy", events_out_of_order_policy)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
-        if job_storage_accounts is not None:
-            pulumi.set(__self__, "job_storage_accounts", job_storage_accounts)
+        if job_storage_account is not None:
+            pulumi.set(__self__, "job_storage_account", job_storage_account)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -210,18 +210,18 @@ class JobArgs:
         pulumi.set(self, "identity", value)
 
     @_builtins.property
-    @pulumi.getter(name="jobStorageAccounts")
-    def job_storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]:
+    @pulumi.getter(name="jobStorageAccount")
+    def job_storage_account(self) -> pulumi.Input[Optional['JobJobStorageAccountArgs']]:
         """
         The details of the job storage account. A `job_storage_account` block as defined below.
 
         > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         """
-        return pulumi.get(self, "job_storage_accounts")
+        return pulumi.get(self, "job_storage_account")
 
-    @job_storage_accounts.setter
-    def job_storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]):
-        pulumi.set(self, "job_storage_accounts", value)
+    @job_storage_account.setter
+    def job_storage_account(self, value: pulumi.Input[Optional['JobJobStorageAccountArgs']]):
+        pulumi.set(self, "job_storage_account", value)
 
     @_builtins.property
     @pulumi.getter
@@ -332,7 +332,7 @@ class _JobState:
                  events_out_of_order_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional['JobIdentityArgs']] = None,
                  job_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]] = None,
+                 job_storage_account: pulumi.Input[Optional['JobJobStorageAccountArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  output_error_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -356,7 +356,7 @@ class _JobState:
         :param pulumi.Input[_builtins.str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input['JobIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] job_id: The Job ID assigned by the Stream Analytics Job.
-        :param pulumi.Input[Sequence[pulumi.Input['JobJobStorageAccountArgs']]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+        :param pulumi.Input['JobJobStorageAccountArgs'] job_storage_account: The details of the job storage account. A `job_storage_account` block as defined below.
                
                > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -388,8 +388,8 @@ class _JobState:
             pulumi.set(__self__, "identity", identity)
         if job_id is not None:
             pulumi.set(__self__, "job_id", job_id)
-        if job_storage_accounts is not None:
-            pulumi.set(__self__, "job_storage_accounts", job_storage_accounts)
+        if job_storage_account is not None:
+            pulumi.set(__self__, "job_storage_account", job_storage_account)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -510,18 +510,18 @@ class _JobState:
         pulumi.set(self, "job_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="jobStorageAccounts")
-    def job_storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]:
+    @pulumi.getter(name="jobStorageAccount")
+    def job_storage_account(self) -> pulumi.Input[Optional['JobJobStorageAccountArgs']]:
         """
         The details of the job storage account. A `job_storage_account` block as defined below.
 
         > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         """
-        return pulumi.get(self, "job_storage_accounts")
+        return pulumi.get(self, "job_storage_account")
 
-    @job_storage_accounts.setter
-    def job_storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['JobJobStorageAccountArgs']]]]):
-        pulumi.set(self, "job_storage_accounts", value)
+    @job_storage_account.setter
+    def job_storage_account(self, value: pulumi.Input[Optional['JobJobStorageAccountArgs']]):
+        pulumi.set(self, "job_storage_account", value)
 
     @_builtins.property
     @pulumi.getter
@@ -655,7 +655,7 @@ class Job(pulumi.CustomResource):
                  events_out_of_order_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  events_out_of_order_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict']]] = None,
-                 job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]]] = None,
+                 job_storage_account: pulumi.Input[Optional[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  output_error_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -727,7 +727,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] events_out_of_order_max_delay_in_seconds: Specifies the maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order. Supported range is `0` to `599` (9m 59s). Default is `0`.
         :param pulumi.Input[_builtins.str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input[Union['JobIdentityArgs', 'JobIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+        :param pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']] job_storage_account: The details of the job storage account. A `job_storage_account` block as defined below.
                
                > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -820,7 +820,7 @@ class Job(pulumi.CustomResource):
                  events_out_of_order_max_delay_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  events_out_of_order_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict']]] = None,
-                 job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]]] = None,
+                 job_storage_account: pulumi.Input[Optional[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  output_error_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -847,7 +847,7 @@ class Job(pulumi.CustomResource):
             __props__.__dict__["events_out_of_order_max_delay_in_seconds"] = events_out_of_order_max_delay_in_seconds
             __props__.__dict__["events_out_of_order_policy"] = events_out_of_order_policy
             __props__.__dict__["identity"] = identity
-            __props__.__dict__["job_storage_accounts"] = job_storage_accounts
+            __props__.__dict__["job_storage_account"] = job_storage_account
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["output_error_policy"] = output_error_policy
@@ -881,7 +881,7 @@ class Job(pulumi.CustomResource):
             events_out_of_order_policy: pulumi.Input[Optional[_builtins.str]] = None,
             identity: pulumi.Input[Optional[Union['JobIdentityArgs', 'JobIdentityArgsDict']]] = None,
             job_id: pulumi.Input[Optional[_builtins.str]] = None,
-            job_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]]] = None,
+            job_storage_account: pulumi.Input[Optional[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             output_error_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -909,7 +909,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] events_out_of_order_policy: Specifies the policy which should be applied to events which arrive out of order in the input event stream. Possible values are `Adjust` and `Drop`. Default is `Adjust`.
         :param pulumi.Input[Union['JobIdentityArgs', 'JobIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] job_id: The Job ID assigned by the Stream Analytics Job.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']]]] job_storage_accounts: The details of the job storage account. A `job_storage_account` block as defined below.
+        :param pulumi.Input[Union['JobJobStorageAccountArgs', 'JobJobStorageAccountArgsDict']] job_storage_account: The details of the job storage account. A `job_storage_account` block as defined below.
                
                > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         :param pulumi.Input[_builtins.str] location: The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
@@ -937,7 +937,7 @@ class Job(pulumi.CustomResource):
         __props__.__dict__["events_out_of_order_policy"] = events_out_of_order_policy
         __props__.__dict__["identity"] = identity
         __props__.__dict__["job_id"] = job_id
-        __props__.__dict__["job_storage_accounts"] = job_storage_accounts
+        __props__.__dict__["job_storage_account"] = job_storage_account
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["output_error_policy"] = output_error_policy
@@ -1017,14 +1017,14 @@ class Job(pulumi.CustomResource):
         return pulumi.get(self, "job_id")
 
     @_builtins.property
-    @pulumi.getter(name="jobStorageAccounts")
-    def job_storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.JobJobStorageAccount']]]:
+    @pulumi.getter(name="jobStorageAccount")
+    def job_storage_account(self) -> pulumi.Output[Optional['outputs.JobJobStorageAccount']]:
         """
         The details of the job storage account. A `job_storage_account` block as defined below.
 
         > **Note:** `content_storage_policy` must be set to `JobStorageAccount` when specifying `job_storage_account`.
         """
-        return pulumi.get(self, "job_storage_accounts")
+        return pulumi.get(self, "job_storage_account")
 
     @_builtins.property
     @pulumi.getter

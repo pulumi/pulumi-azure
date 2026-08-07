@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2024-02-01
+ * * `Microsoft.Cdn` - 2025-12-01
  */
 export function getFrontdoorProfile(args: GetFrontdoorProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -63,7 +63,7 @@ export interface GetFrontdoorProfileResult {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity: outputs.cdn.GetFrontdoorProfileIdentity;
+    readonly identities: outputs.cdn.GetFrontdoorProfileIdentity[];
     /**
      * One or more `logScrubbingRule` blocks as defined below.
      */
@@ -109,7 +109,7 @@ export interface GetFrontdoorProfileResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2024-02-01
+ * * `Microsoft.Cdn` - 2025-12-01
  */
 export function getFrontdoorProfileOutput(args: GetFrontdoorProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

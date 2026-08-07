@@ -87,7 +87,7 @@ export class TableEntity extends pulumi.CustomResource {
      */
     declare public readonly rowKey: pulumi.Output<string>;
     /**
-     * The Storage Share ID in which this file will be placed into.
+     * The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
      */
     declare public readonly storageTableId: pulumi.Output<string>;
 
@@ -149,7 +149,7 @@ export interface TableEntityState {
      */
     rowKey?: pulumi.Input<string | undefined>;
     /**
-     * The Storage Share ID in which this file will be placed into.
+     * The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
      */
     storageTableId?: pulumi.Input<string | undefined>;
 }
@@ -171,7 +171,7 @@ export interface TableEntityArgs {
      */
     rowKey: pulumi.Input<string>;
     /**
-     * The Storage Share ID in which this file will be placed into.
+     * The ID of the storage table in which this entity will be placed. Changing this forces a new resource to be created.
      */
     storageTableId: pulumi.Input<string>;
 }

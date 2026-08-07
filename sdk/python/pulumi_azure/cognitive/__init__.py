@@ -7,11 +7,15 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .account import *
+from .account_connection_account_key import *
+from .account_connection_account_managed_identity import *
+from .account_connection_api_key import *
+from .account_connection_custom_keys import *
+from .account_connection_entra_id import *
 from .account_customer_managed_key import *
 from .account_project import *
 from .account_rai_blocklist import *
 from .account_rai_policy import *
-from .ai_services import *
 from .deployment import *
 from .get_account import *
 from .get_account_project import *

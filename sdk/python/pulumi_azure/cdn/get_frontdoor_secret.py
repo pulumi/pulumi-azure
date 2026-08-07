@@ -119,6 +119,13 @@ def get_frontdoor_secret(name: Optional[_builtins.str] = None,
         resource_group_name="example-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cdn` - 2025-12-01
+
 
     :param _builtins.str name: Specifies the name of the Front Door Secret.
     :param _builtins.str profile_name: The name of the Front Door Profile within which the Front Door Secret exists.
@@ -155,6 +162,13 @@ def get_frontdoor_secret_output(name: pulumi.Input[Optional[_builtins.str]] = No
         profile_name="example-profile",
         resource_group_name="example-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Secret.

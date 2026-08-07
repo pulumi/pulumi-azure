@@ -58,6 +58,7 @@ import * as utilities from "../utilities";
  *     name: "example-keyvault",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
+ *     rbacAuthorizationEnabled: false,
  *     tenantId: example.then(example => example.tenantId),
  *     skuName: "standard",
  *     accessPolicies: [{

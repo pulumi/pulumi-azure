@@ -21,22 +21,20 @@ public final class HBaseClusterStorageAccount {
      */
     private Boolean isDefault;
     /**
+     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable String storageAccountId;
+    /**
      * @return The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
      * 
      */
     private String storageAccountKey;
     /**
-     * @return The ID of the Storage Container. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+     * @return The URL of the Storage Container. Changing this forces a new resource to be created.
      * 
      */
-    private String storageContainerId;
-    /**
-     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
-     * 
-     */
-    private @Nullable String storageResourceId;
+    private String storageContainerUrl;
 
     private HBaseClusterStorageAccount() {}
     /**
@@ -49,6 +47,13 @@ public final class HBaseClusterStorageAccount {
         return this.isDefault;
     }
     /**
+     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<String> storageAccountId() {
+        return Optional.ofNullable(this.storageAccountId);
+    }
+    /**
      * @return The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
      * 
      */
@@ -56,20 +61,11 @@ public final class HBaseClusterStorageAccount {
         return this.storageAccountKey;
     }
     /**
-     * @return The ID of the Storage Container. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** When the `azure.storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `storageAccountId`, please use `azure.storage.getContainers` data source to get the `dataPlaneId` of the `azure.storage.Container` resource for this field.
+     * @return The URL of the Storage Container. Changing this forces a new resource to be created.
      * 
      */
-    public String storageContainerId() {
-        return this.storageContainerId;
-    }
-    /**
-     * @return The ID of the Storage Account. Changing this forces a new resource to be created.
-     * 
-     */
-    public Optional<String> storageResourceId() {
-        return Optional.ofNullable(this.storageResourceId);
+    public String storageContainerUrl() {
+        return this.storageContainerUrl;
     }
 
     public static Builder builder() {
@@ -82,16 +78,16 @@ public final class HBaseClusterStorageAccount {
     @CustomType.Builder
     public static final class Builder {
         private Boolean isDefault;
+        private @Nullable String storageAccountId;
         private String storageAccountKey;
-        private String storageContainerId;
-        private @Nullable String storageResourceId;
+        private String storageContainerUrl;
         public Builder() {}
         public Builder(HBaseClusterStorageAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.isDefault = defaults.isDefault;
+    	      this.storageAccountId = defaults.storageAccountId;
     	      this.storageAccountKey = defaults.storageAccountKey;
-    	      this.storageContainerId = defaults.storageContainerId;
-    	      this.storageResourceId = defaults.storageResourceId;
+    	      this.storageContainerUrl = defaults.storageContainerUrl;
         }
 
         @CustomType.Setter
@@ -103,6 +99,12 @@ public final class HBaseClusterStorageAccount {
             return this;
         }
         @CustomType.Setter
+        public Builder storageAccountId(@Nullable String storageAccountId) {
+
+            this.storageAccountId = storageAccountId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder storageAccountKey(String storageAccountKey) {
             if (storageAccountKey == null) {
               throw new MissingRequiredPropertyException("HBaseClusterStorageAccount", "storageAccountKey");
@@ -111,25 +113,19 @@ public final class HBaseClusterStorageAccount {
             return this;
         }
         @CustomType.Setter
-        public Builder storageContainerId(String storageContainerId) {
-            if (storageContainerId == null) {
-              throw new MissingRequiredPropertyException("HBaseClusterStorageAccount", "storageContainerId");
+        public Builder storageContainerUrl(String storageContainerUrl) {
+            if (storageContainerUrl == null) {
+              throw new MissingRequiredPropertyException("HBaseClusterStorageAccount", "storageContainerUrl");
             }
-            this.storageContainerId = storageContainerId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder storageResourceId(@Nullable String storageResourceId) {
-
-            this.storageResourceId = storageResourceId;
+            this.storageContainerUrl = storageContainerUrl;
             return this;
         }
         public HBaseClusterStorageAccount build() {
             final var _resultValue = new HBaseClusterStorageAccount();
             _resultValue.isDefault = isDefault;
+            _resultValue.storageAccountId = storageAccountId;
             _resultValue.storageAccountKey = storageAccountKey;
-            _resultValue.storageContainerId = storageContainerId;
-            _resultValue.storageResourceId = storageResourceId;
+            _resultValue.storageContainerUrl = storageContainerUrl;
             return _resultValue;
         }
     }

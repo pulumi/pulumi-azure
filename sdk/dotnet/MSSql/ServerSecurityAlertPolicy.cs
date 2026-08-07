@@ -93,10 +93,10 @@ namespace Pulumi.Azure.MSSql
         public Output<ImmutableArray<string>> DisabledAlerts { get; private set; } = null!;
 
         /// <summary>
-        /// Are the alerts sent to the account administrators? Possible values are `True` or `False`. Defaults to `False`.
+        /// Are the alerts sent to the account administrators? Defaults to `False`.
         /// </summary>
-        [Output("emailAccountAdmins")]
-        public Output<bool?> EmailAccountAdmins { get; private set; } = null!;
+        [Output("emailAccountAdminsEnabled")]
+        public Output<bool?> EmailAccountAdminsEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies an array of email addresses to which the alert is sent.
@@ -209,10 +209,10 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Are the alerts sent to the account administrators? Possible values are `True` or `False`. Defaults to `False`.
+        /// Are the alerts sent to the account administrators? Defaults to `False`.
         /// </summary>
-        [Input("emailAccountAdmins")]
-        public Input<bool>? EmailAccountAdmins { get; set; }
+        [Input("emailAccountAdminsEnabled")]
+        public Input<bool>? EmailAccountAdminsEnabled { get; set; }
 
         [Input("emailAddresses")]
         private InputList<string>? _emailAddresses;
@@ -299,10 +299,10 @@ namespace Pulumi.Azure.MSSql
         }
 
         /// <summary>
-        /// Are the alerts sent to the account administrators? Possible values are `True` or `False`. Defaults to `False`.
+        /// Are the alerts sent to the account administrators? Defaults to `False`.
         /// </summary>
-        [Input("emailAccountAdmins")]
-        public Input<bool>? EmailAccountAdmins { get; set; }
+        [Input("emailAccountAdminsEnabled")]
+        public Input<bool>? EmailAccountAdminsEnabled { get; set; }
 
         [Input("emailAddresses")]
         private InputList<string>? _emailAddresses;

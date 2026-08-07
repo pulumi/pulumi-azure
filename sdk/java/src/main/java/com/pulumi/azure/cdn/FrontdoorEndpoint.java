@@ -69,6 +69,13 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cdn` - 2025-12-01
+ * 
  * ## Import
  * 
  * Front Door Endpoints can be imported using the `resource id`, e.g.

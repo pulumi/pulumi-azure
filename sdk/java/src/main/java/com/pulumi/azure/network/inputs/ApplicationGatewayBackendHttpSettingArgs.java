@@ -3,7 +3,6 @@
 
 package com.pulumi.azure.network.inputs;
 
-import com.pulumi.azure.network.inputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayBackendHttpSettingConnectionDrainingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -34,21 +33,6 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
      */
     public Optional<Output<String>> affinityCookieName() {
         return Optional.ofNullable(this.affinityCookieName);
-    }
-
-    /**
-     * One or more `authenticationCertificateBackend` blocks as defined below.
-     * 
-     */
-    @Import(name="authenticationCertificates")
-    private @Nullable Output<List<ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs>> authenticationCertificates;
-
-    /**
-     * @return One or more `authenticationCertificateBackend` blocks as defined below.
-     * 
-     */
-    public Optional<Output<List<ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs>>> authenticationCertificates() {
-        return Optional.ofNullable(this.authenticationCertificates);
     }
 
     /**
@@ -142,14 +126,14 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
     }
 
     /**
-     * The name of the Authentication Certificate.
+     * The name of the Backend HTTP Settings Collection.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the Authentication Certificate.
+     * @return The name of the Backend HTTP Settings Collection.
      * 
      */
     public Output<String> name() {
@@ -314,7 +298,6 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
 
     private ApplicationGatewayBackendHttpSettingArgs(ApplicationGatewayBackendHttpSettingArgs $) {
         this.affinityCookieName = $.affinityCookieName;
-        this.authenticationCertificates = $.authenticationCertificates;
         this.certificateChainValidationEnabled = $.certificateChainValidationEnabled;
         this.connectionDraining = $.connectionDraining;
         this.cookieBasedAffinity = $.cookieBasedAffinity;
@@ -371,37 +354,6 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
          */
         public Builder affinityCookieName(String affinityCookieName) {
             return affinityCookieName(Output.of(affinityCookieName));
-        }
-
-        /**
-         * @param authenticationCertificates One or more `authenticationCertificateBackend` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder authenticationCertificates(@Nullable Output<List<ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs>> authenticationCertificates) {
-            $.authenticationCertificates = authenticationCertificates;
-            return this;
-        }
-
-        /**
-         * @param authenticationCertificates One or more `authenticationCertificateBackend` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder authenticationCertificates(List<ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs> authenticationCertificates) {
-            return authenticationCertificates(Output.of(authenticationCertificates));
-        }
-
-        /**
-         * @param authenticationCertificates One or more `authenticationCertificateBackend` blocks as defined below.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder authenticationCertificates(ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs... authenticationCertificates) {
-            return authenticationCertificates(List.of(authenticationCertificates));
         }
 
         /**
@@ -531,7 +483,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param name The name of the Authentication Certificate.
+         * @param name The name of the Backend HTTP Settings Collection.
          * 
          * @return builder
          * 
@@ -542,7 +494,7 @@ public final class ApplicationGatewayBackendHttpSettingArgs extends com.pulumi.r
         }
 
         /**
-         * @param name The name of the Authentication Certificate.
+         * @param name The name of the Backend HTTP Settings Collection.
          * 
          * @return builder
          * 

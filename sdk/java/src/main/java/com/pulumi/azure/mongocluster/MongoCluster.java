@@ -472,6 +472,7 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
+                Output.of(Alias.builder().type("azure:cosmosdb/mongoCluster:MongoCluster").build()),
                 Output.of(Alias.builder().type("azure:cosmosdb/mongoCluster:MongoCluster").build())
             ))
             .additionalSecretOutputs(List.of(
