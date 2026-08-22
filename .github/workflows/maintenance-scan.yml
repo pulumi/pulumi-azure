@@ -32,9 +32,7 @@ jobs:
         with:
           go-version-file: provider/go.mod
 
-      # provider/go.mod replaces the upstream provider with ../upstream, and packages it
-      # imports only exist once the patches are applied. Without this the module does not
-      # typecheck, osv-scanner skips call analysis, and every finding reports as unreachable.
+      # Upstream needed for call analysis.
       - name: Prepare upstream
         run: |
           set -euo pipefail
@@ -42,6 +40,15 @@ jobs:
             ./scripts/upstream.sh init
           else
             echo "no scripts/upstream.sh; nothing to prepare"
+          fi
+
+      # The generated SDKs ship manifests but no lockfiles, and osv-scanner only reads
+      # lockfiles. Without this their dependencies are never scanned.
+      - name: Resolve SDK dependencies
+        run: |
+          set -euo pipefail
+          if [ -f sdk/nodejs/package.json ]; then
+            npm --prefix sdk/nodejs install --package-lock-only --ignore-scripts --no-audit --no-fund
           fi
 
       - name: Install osv-scanner
