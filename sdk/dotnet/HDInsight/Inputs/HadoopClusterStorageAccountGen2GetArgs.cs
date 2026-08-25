@@ -27,18 +27,18 @@ namespace Pulumi.Azure.HDInsight.Inputs
         public Input<bool> IsDefault { get; set; } = null!;
 
         /// <summary>
-        /// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+        /// The ID of the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("storageAccountId", required: true)]
+        public Input<string> StorageAccountId { get; set; } = null!;
+
+        /// <summary>
+        /// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** This can be obtained from the `Id` of the `azure.storage.Container` resource.
         /// </summary>
-        [Input("managedIdentityResourceId", required: true)]
-        public Input<string> ManagedIdentityResourceId { get; set; } = null!;
-
-        /// <summary>
-        /// The ID of the Storage Account. Changing this forces a new resource to be created.
-        /// </summary>
-        [Input("storageResourceId", required: true)]
-        public Input<string> StorageResourceId { get; set; } = null!;
+        [Input("userAssignedIdentityId", required: true)]
+        public Input<string> UserAssignedIdentityId { get; set; } = null!;
 
         public HadoopClusterStorageAccountGen2GetArgs()
         {

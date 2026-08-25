@@ -15,6 +15,24 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AutomaticClusterApiServerAccessArgs',
+    'AutomaticClusterApiServerAccessArgsDict',
+    'AutomaticClusterHostedSystemArgs',
+    'AutomaticClusterHostedSystemArgsDict',
+    'AutomaticClusterIdentityArgs',
+    'AutomaticClusterIdentityArgsDict',
+    'AutomaticClusterKubeConfigArgs',
+    'AutomaticClusterKubeConfigArgsDict',
+    'AutomaticClusterPrivateClusterArgs',
+    'AutomaticClusterPrivateClusterArgsDict',
+    'AutomaticClusterServiceMeshArgs',
+    'AutomaticClusterServiceMeshArgsDict',
+    'AutomaticClusterServiceMeshCertificateAuthorityArgs',
+    'AutomaticClusterServiceMeshCertificateAuthorityArgsDict',
+    'AutomaticClusterWebAppRoutingIngressArgs',
+    'AutomaticClusterWebAppRoutingIngressArgsDict',
+    'AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs',
+    'AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgsDict',
     'ConnectedRegistryNotificationArgs',
     'ConnectedRegistryNotificationArgsDict',
     'FleetUpdateRunManagedClusterUpdateArgs',
@@ -254,6 +272,755 @@ __all__ = [
     'TokenPasswordPassword2Args',
     'TokenPasswordPassword2ArgsDict',
 ]
+
+class AutomaticClusterApiServerAccessArgsDict(TypedDict):
+    authorized_ip_ranges: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+    """
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the Subnet where the API server endpoint is delegated to. Is required for bring your own networking.
+    """
+
+@pulumi.input_type
+class AutomaticClusterApiServerAccessArgs:
+    def __init__(__self__, *,
+                 authorized_ip_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authorized_ip_ranges: Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+        :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet where the API server endpoint is delegated to. Is required for bring your own networking.
+        """
+        if authorized_ip_ranges is not None:
+            pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizedIpRanges")
+    def authorized_ip_ranges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+        """
+        return pulumi.get(self, "authorized_ip_ranges")
+
+    @authorized_ip_ranges.setter
+    def authorized_ip_ranges(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "authorized_ip_ranges", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the Subnet where the API server endpoint is delegated to. Is required for bring your own networking.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+class AutomaticClusterHostedSystemArgsDict(TypedDict):
+    node_subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Subnet where the user nodes are hosted. Is required for bring your own networking
+    """
+    system_node_subnet_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Subnet where the system nodes are hosted. Changing this forces a new resource to be created. Is required for bring your own networking
+    """
+
+@pulumi.input_type
+class AutomaticClusterHostedSystemArgs:
+    def __init__(__self__, *,
+                 node_subnet_id: pulumi.Input[_builtins.str],
+                 system_node_subnet_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] node_subnet_id: The ID of the Subnet where the user nodes are hosted. Is required for bring your own networking
+        :param pulumi.Input[_builtins.str] system_node_subnet_id: The ID of the Subnet where the system nodes are hosted. Changing this forces a new resource to be created. Is required for bring your own networking
+        """
+        pulumi.set(__self__, "node_subnet_id", node_subnet_id)
+        pulumi.set(__self__, "system_node_subnet_id", system_node_subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="nodeSubnetId")
+    def node_subnet_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Subnet where the user nodes are hosted. Is required for bring your own networking
+        """
+        return pulumi.get(self, "node_subnet_id")
+
+    @node_subnet_id.setter
+    def node_subnet_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "node_subnet_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="systemNodeSubnetId")
+    def system_node_subnet_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Subnet where the system nodes are hosted. Changing this forces a new resource to be created. Is required for bring your own networking
+        """
+        return pulumi.get(self, "system_node_subnet_id")
+
+    @system_node_subnet_id.setter
+    def system_node_subnet_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "system_node_subnet_id", value)
+
+
+class AutomaticClusterIdentityArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.  `UserAssigned` is required for bring your own networking
+    """
+    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+
+    > **Note:** This is required when `type` is set to `UserAssigned`.
+    """
+    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Principal ID associated with this Managed Service Identity.
+    """
+    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Tenant ID associated with this Managed Service Identity.
+    """
+
+@pulumi.input_type
+class AutomaticClusterIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.  `UserAssigned` is required for bring your own networking
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+               
+               > **Note:** This is required when `type` is set to `UserAssigned`.
+        :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
+        :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
+        """
+        pulumi.set(__self__, "type", type)
+        if identity_ids is not None:
+            pulumi.set(__self__, "identity_ids", identity_ids)
+        if principal_id is not None:
+            pulumi.set(__self__, "principal_id", principal_id)
+        if tenant_id is not None:
+            pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.  `UserAssigned` is required for bring your own networking
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityIds")
+    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+
+        > **Note:** This is required when `type` is set to `UserAssigned`.
+        """
+        return pulumi.get(self, "identity_ids")
+
+    @identity_ids.setter
+    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "identity_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Principal ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "principal_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Tenant ID associated with this Managed Service Identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tenant_id", value)
+
+
+class AutomaticClusterKubeConfigArgsDict(TypedDict):
+    client_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+    """
+    client_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+    """
+    cluster_ca_certificate: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+    """
+    host: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Kubernetes cluster server host.
+    """
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A password or token used to authenticate to the Kubernetes cluster.
+    """
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A username used to authenticate to the Kubernetes cluster.
+    """
+
+@pulumi.input_type
+class AutomaticClusterKubeConfigArgs:
+    def __init__(__self__, *,
+                 client_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 client_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 cluster_ca_certificate: pulumi.Input[Optional[_builtins.str]] = None,
+                 host: pulumi.Input[Optional[_builtins.str]] = None,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] client_certificate: Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+        :param pulumi.Input[_builtins.str] client_key: Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+        :param pulumi.Input[_builtins.str] cluster_ca_certificate: Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+        :param pulumi.Input[_builtins.str] host: The Kubernetes cluster server host.
+        :param pulumi.Input[_builtins.str] password: A password or token used to authenticate to the Kubernetes cluster.
+        :param pulumi.Input[_builtins.str] username: A username used to authenticate to the Kubernetes cluster.
+        """
+        if client_certificate is not None:
+            pulumi.set(__self__, "client_certificate", client_certificate)
+        if client_key is not None:
+            pulumi.set(__self__, "client_key", client_key)
+        if cluster_ca_certificate is not None:
+            pulumi.set(__self__, "cluster_ca_certificate", cluster_ca_certificate)
+        if host is not None:
+            pulumi.set(__self__, "host", host)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCertificate")
+    def client_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "client_certificate")
+
+    @client_certificate.setter
+    def client_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_certificate", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientKey")
+    def client_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "client_key")
+
+    @client_key.setter
+    def client_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterCaCertificate")
+    def cluster_ca_certificate(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+        """
+        return pulumi.get(self, "cluster_ca_certificate")
+
+    @cluster_ca_certificate.setter
+    def cluster_ca_certificate(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "cluster_ca_certificate", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Kubernetes cluster server host.
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "host", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A password or token used to authenticate to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A username used to authenticate to the Kubernetes cluster.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+class AutomaticClusterPrivateClusterArgsDict(TypedDict):
+    private_dns_zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the Private DNS Zone which should be used for this Kubernetes Cluster. Possible values are `System`, `None` or the ID of a Private DNS Zone. Defaults to `System`. Changing this forces a new resource to be created.
+    """
+    public_fully_qualified_domain_name_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Provisions a Public FQDN for the private cluster. Defaults to `false`.
+    """
+
+@pulumi.input_type
+class AutomaticClusterPrivateClusterArgs:
+    def __init__(__self__, *,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 public_fully_qualified_domain_name_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: The ID of the Private DNS Zone which should be used for this Kubernetes Cluster. Possible values are `System`, `None` or the ID of a Private DNS Zone. Defaults to `System`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] public_fully_qualified_domain_name_enabled: Provisions a Public FQDN for the private cluster. Defaults to `false`.
+        """
+        if private_dns_zone_id is not None:
+            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
+        if public_fully_qualified_domain_name_enabled is not None:
+            pulumi.set(__self__, "public_fully_qualified_domain_name_enabled", public_fully_qualified_domain_name_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the Private DNS Zone which should be used for this Kubernetes Cluster. Possible values are `System`, `None` or the ID of a Private DNS Zone. Defaults to `System`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
+
+    @private_dns_zone_id.setter
+    def private_dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_dns_zone_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicFullyQualifiedDomainNameEnabled")
+    def public_fully_qualified_domain_name_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Provisions a Public FQDN for the private cluster. Defaults to `false`.
+        """
+        return pulumi.get(self, "public_fully_qualified_domain_name_enabled")
+
+    @public_fully_qualified_domain_name_enabled.setter
+    def public_fully_qualified_domain_name_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "public_fully_qualified_domain_name_enabled", value)
+
+
+class AutomaticClusterServiceMeshArgsDict(TypedDict):
+    revisions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+
+    > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+    """
+    certificate_authority: NotRequired[pulumi.Input[Optional['AutomaticClusterServiceMeshCertificateAuthorityArgsDict']]]
+    """
+    A `certificate_authority` block as defined below. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+    """
+    external_ingress_gateway_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables Istio External Ingress Gateway. Defaults to `false`.
+
+    > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+    """
+    internal_ingress_gateway_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables Istio Internal Ingress Gateway. Defaults to `false`.
+    """
+    proxy_redirect_mechanism: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The mechanism used to redirect application traffic to the Istio sidecar proxy. Possible values are `CNIChaining` and `InitContainers`. Defaults to `InitContainers`.
+    """
+
+@pulumi.input_type
+class AutomaticClusterServiceMeshArgs:
+    def __init__(__self__, *,
+                 revisions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 certificate_authority: pulumi.Input[Optional['AutomaticClusterServiceMeshCertificateAuthorityArgs']] = None,
+                 external_ingress_gateway_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 internal_ingress_gateway_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 proxy_redirect_mechanism: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] revisions: Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+               
+               > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+        :param pulumi.Input['AutomaticClusterServiceMeshCertificateAuthorityArgs'] certificate_authority: A `certificate_authority` block as defined below. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+        :param pulumi.Input[_builtins.bool] external_ingress_gateway_enabled: Enables Istio External Ingress Gateway. Defaults to `false`.
+               
+               > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+        :param pulumi.Input[_builtins.bool] internal_ingress_gateway_enabled: Enables Istio Internal Ingress Gateway. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] proxy_redirect_mechanism: The mechanism used to redirect application traffic to the Istio sidecar proxy. Possible values are `CNIChaining` and `InitContainers`. Defaults to `InitContainers`.
+        """
+        pulumi.set(__self__, "revisions", revisions)
+        if certificate_authority is not None:
+            pulumi.set(__self__, "certificate_authority", certificate_authority)
+        if external_ingress_gateway_enabled is not None:
+            pulumi.set(__self__, "external_ingress_gateway_enabled", external_ingress_gateway_enabled)
+        if internal_ingress_gateway_enabled is not None:
+            pulumi.set(__self__, "internal_ingress_gateway_enabled", internal_ingress_gateway_enabled)
+        if proxy_redirect_mechanism is not None:
+            pulumi.set(__self__, "proxy_redirect_mechanism", proxy_redirect_mechanism)
+
+    @_builtins.property
+    @pulumi.getter
+    def revisions(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+
+        > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+        """
+        return pulumi.get(self, "revisions")
+
+    @revisions.setter
+    def revisions(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "revisions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> pulumi.Input[Optional['AutomaticClusterServiceMeshCertificateAuthorityArgs']]:
+        """
+        A `certificate_authority` block as defined below. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+        """
+        return pulumi.get(self, "certificate_authority")
+
+    @certificate_authority.setter
+    def certificate_authority(self, value: pulumi.Input[Optional['AutomaticClusterServiceMeshCertificateAuthorityArgs']]):
+        pulumi.set(self, "certificate_authority", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalIngressGatewayEnabled")
+    def external_ingress_gateway_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables Istio External Ingress Gateway. Defaults to `false`.
+
+        > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+        """
+        return pulumi.get(self, "external_ingress_gateway_enabled")
+
+    @external_ingress_gateway_enabled.setter
+    def external_ingress_gateway_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "external_ingress_gateway_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="internalIngressGatewayEnabled")
+    def internal_ingress_gateway_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables Istio Internal Ingress Gateway. Defaults to `false`.
+        """
+        return pulumi.get(self, "internal_ingress_gateway_enabled")
+
+    @internal_ingress_gateway_enabled.setter
+    def internal_ingress_gateway_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "internal_ingress_gateway_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="proxyRedirectMechanism")
+    def proxy_redirect_mechanism(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The mechanism used to redirect application traffic to the Istio sidecar proxy. Possible values are `CNIChaining` and `InitContainers`. Defaults to `InitContainers`.
+        """
+        return pulumi.get(self, "proxy_redirect_mechanism")
+
+    @proxy_redirect_mechanism.setter
+    def proxy_redirect_mechanism(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "proxy_redirect_mechanism", value)
+
+
+class AutomaticClusterServiceMeshCertificateAuthorityArgsDict(TypedDict):
+    certificate_chain_object_name: pulumi.Input[_builtins.str]
+    """
+    The certificate chain object name in Azure Key Vault.
+    """
+    certificate_object_name: pulumi.Input[_builtins.str]
+    """
+    The intermediate certificate object name in Azure Key Vault.
+    """
+    key_object_name: pulumi.Input[_builtins.str]
+    """
+    The intermediate certificate private key object name in Azure Key Vault.
+
+    > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+    """
+    key_vault_id: pulumi.Input[_builtins.str]
+    """
+    The resource ID of the Key Vault.
+    """
+    root_certificate_object_name: pulumi.Input[_builtins.str]
+    """
+    The root certificate object name in Azure Key Vault.
+    """
+
+@pulumi.input_type
+class AutomaticClusterServiceMeshCertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 certificate_chain_object_name: pulumi.Input[_builtins.str],
+                 certificate_object_name: pulumi.Input[_builtins.str],
+                 key_object_name: pulumi.Input[_builtins.str],
+                 key_vault_id: pulumi.Input[_builtins.str],
+                 root_certificate_object_name: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] certificate_chain_object_name: The certificate chain object name in Azure Key Vault.
+        :param pulumi.Input[_builtins.str] certificate_object_name: The intermediate certificate object name in Azure Key Vault.
+        :param pulumi.Input[_builtins.str] key_object_name: The intermediate certificate private key object name in Azure Key Vault.
+               
+               > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        :param pulumi.Input[_builtins.str] key_vault_id: The resource ID of the Key Vault.
+        :param pulumi.Input[_builtins.str] root_certificate_object_name: The root certificate object name in Azure Key Vault.
+        """
+        pulumi.set(__self__, "certificate_chain_object_name", certificate_chain_object_name)
+        pulumi.set(__self__, "certificate_object_name", certificate_object_name)
+        pulumi.set(__self__, "key_object_name", key_object_name)
+        pulumi.set(__self__, "key_vault_id", key_vault_id)
+        pulumi.set(__self__, "root_certificate_object_name", root_certificate_object_name)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateChainObjectName")
+    def certificate_chain_object_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The certificate chain object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "certificate_chain_object_name")
+
+    @certificate_chain_object_name.setter
+    def certificate_chain_object_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "certificate_chain_object_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateObjectName")
+    def certificate_object_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The intermediate certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "certificate_object_name")
+
+    @certificate_object_name.setter
+    def certificate_object_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "certificate_object_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyObjectName")
+    def key_object_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The intermediate certificate private key object name in Azure Key Vault.
+
+        > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+        """
+        return pulumi.get(self, "key_object_name")
+
+    @key_object_name.setter
+    def key_object_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_object_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultId")
+    def key_vault_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The resource ID of the Key Vault.
+        """
+        return pulumi.get(self, "key_vault_id")
+
+    @key_vault_id.setter
+    def key_vault_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_vault_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rootCertificateObjectName")
+    def root_certificate_object_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The root certificate object name in Azure Key Vault.
+        """
+        return pulumi.get(self, "root_certificate_object_name")
+
+    @root_certificate_object_name.setter
+    def root_certificate_object_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "root_certificate_object_name", value)
+
+
+class AutomaticClusterWebAppRoutingIngressArgsDict(TypedDict):
+    default_nginx_controller: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `Internal`, `External` and `AnnotationControlled`. At least one of `default_nginx_controller` or `istio_enabled` must be specified.
+    """
+    dns_zone_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Resource IDs of the DNS zones to be associated with the Application Routing add-on. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
+    """
+    istio_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Enables Istio as a Gateway API implementation. Defaults to `false`. At least one of `default_nginx_controller` or `istio_enabled` must be specified.
+    """
+    web_app_routing_identities: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgsDict']]]]]
+
+@pulumi.input_type
+class AutomaticClusterWebAppRoutingIngressArgs:
+    def __init__(__self__, *,
+                 default_nginx_controller: pulumi.Input[Optional[_builtins.str]] = None,
+                 dns_zone_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 istio_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 web_app_routing_identities: pulumi.Input[Optional[Sequence[pulumi.Input['AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] default_nginx_controller: Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `Internal`, `External` and `AnnotationControlled`. At least one of `default_nginx_controller` or `istio_enabled` must be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_zone_ids: Resource IDs of the DNS zones to be associated with the Application Routing add-on. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
+        :param pulumi.Input[_builtins.bool] istio_enabled: Enables Istio as a Gateway API implementation. Defaults to `false`. At least one of `default_nginx_controller` or `istio_enabled` must be specified.
+        """
+        if default_nginx_controller is not None:
+            pulumi.set(__self__, "default_nginx_controller", default_nginx_controller)
+        if dns_zone_ids is not None:
+            pulumi.set(__self__, "dns_zone_ids", dns_zone_ids)
+        if istio_enabled is not None:
+            pulumi.set(__self__, "istio_enabled", istio_enabled)
+        if web_app_routing_identities is not None:
+            pulumi.set(__self__, "web_app_routing_identities", web_app_routing_identities)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNginxController")
+    def default_nginx_controller(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `Internal`, `External` and `AnnotationControlled`. At least one of `default_nginx_controller` or `istio_enabled` must be specified.
+        """
+        return pulumi.get(self, "default_nginx_controller")
+
+    @default_nginx_controller.setter
+    def default_nginx_controller(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_nginx_controller", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dnsZoneIds")
+    def dns_zone_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Resource IDs of the DNS zones to be associated with the Application Routing add-on. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
+        """
+        return pulumi.get(self, "dns_zone_ids")
+
+    @dns_zone_ids.setter
+    def dns_zone_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "dns_zone_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="istioEnabled")
+    def istio_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Enables Istio as a Gateway API implementation. Defaults to `false`. At least one of `default_nginx_controller` or `istio_enabled` must be specified.
+        """
+        return pulumi.get(self, "istio_enabled")
+
+    @istio_enabled.setter
+    def istio_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "istio_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="webAppRoutingIdentities")
+    def web_app_routing_identities(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs']]]]:
+        return pulumi.get(self, "web_app_routing_identities")
+
+    @web_app_routing_identities.setter
+    def web_app_routing_identities(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs']]]]):
+        pulumi.set(self, "web_app_routing_identities", value)
+
+
+class AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgsDict(TypedDict):
+    client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Client ID of the user-defined Managed Identity used for Web App Routing.
+    """
+    object_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Object ID of the user-defined Managed Identity used for Web App Routing
+    """
+    user_assigned_identity_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the User Assigned Identity used for Web App Routing.
+    """
+
+@pulumi.input_type
+class AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 object_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] client_id: The Client ID of the user-defined Managed Identity used for Web App Routing.
+        :param pulumi.Input[_builtins.str] object_id: The Object ID of the user-defined Managed Identity used for Web App Routing
+        :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of the User Assigned Identity used for Web App Routing.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if object_id is not None:
+            pulumi.set(__self__, "object_id", object_id)
+        if user_assigned_identity_id is not None:
+            pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Client ID of the user-defined Managed Identity used for Web App Routing.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="objectId")
+    def object_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Object ID of the user-defined Managed Identity used for Web App Routing
+        """
+        return pulumi.get(self, "object_id")
+
+    @object_id.setter
+    def object_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "object_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAssignedIdentityId")
+    def user_assigned_identity_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the User Assigned Identity used for Web App Routing.
+        """
+        return pulumi.get(self, "user_assigned_identity_id")
+
+    @user_assigned_identity_id.setter
+    def user_assigned_identity_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_assigned_identity_id", value)
+
 
 class ConnectedRegistryNotificationArgsDict(TypedDict):
     action: pulumi.Input[_builtins.str]
@@ -5334,7 +6101,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgsDict(TypedDict):
     """
     Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
     """
-    container_log_max_line: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     container_log_max_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -5373,7 +6139,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  container_log_max_files: pulumi.Input[Optional[_builtins.int]] = None,
-                 container_log_max_line: pulumi.Input[Optional[_builtins.int]] = None,
                  container_log_max_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  cpu_cfs_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cpu_cfs_quota_period: pulumi.Input[Optional[_builtins.str]] = None,
@@ -5398,11 +6163,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_files is not None:
             pulumi.set(__self__, "container_log_max_files", container_log_max_files)
-        if container_log_max_line is not None:
-            warnings.warn("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""container_log_max_line is deprecated: `container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-        if container_log_max_line is not None:
-            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
             pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota_enabled is not None:
@@ -5443,16 +6203,6 @@ class KubernetesClusterDefaultNodePoolKubeletConfigArgs:
     @container_log_max_files.setter
     def container_log_max_files(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "container_log_max_files", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerLogMaxLine")
-    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-    def container_log_max_line(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "container_log_max_line")
-
-    @container_log_max_line.setter
-    def container_log_max_line(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "container_log_max_line", value)
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxSizeMb")
@@ -5568,7 +6318,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgsDict(TypedDict):
     """
     specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
     """
-    transparent_huge_page_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
@@ -5576,8 +6325,7 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
                  swap_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  sysctl_config: pulumi.Input[Optional['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
                  transparent_huge_page: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_enabled: pulumi.Input[Optional[_builtins.str]] = None):
+                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] swap_file_size_mb: Specifies the size of the swap file on each node in MB.
         :param pulumi.Input['KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below.
@@ -5592,11 +6340,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
             pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
-        if transparent_huge_page_enabled is not None:
-            warnings.warn("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
-            pulumi.log.warn("""transparent_huge_page_enabled is deprecated: this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-        if transparent_huge_page_enabled is not None:
-            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
 
     @_builtins.property
     @pulumi.getter(name="swapFileSizeMb")
@@ -5645,16 +6388,6 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs:
     @transparent_huge_page_defrag.setter
     def transparent_huge_page_defrag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_huge_page_defrag", value)
-
-    @_builtins.property
-    @pulumi.getter(name="transparentHugePageEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-    def transparent_huge_page_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "transparent_huge_page_enabled")
-
-    @transparent_huge_page_enabled.setter
-    def transparent_huge_page_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "transparent_huge_page_enabled", value)
 
 
 class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgsDict(TypedDict):
@@ -9143,7 +9876,6 @@ class KubernetesClusterNodePoolKubeletConfigArgsDict(TypedDict):
     """
     Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
     """
-    container_log_max_line: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     container_log_max_size_mb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
@@ -9182,7 +9914,6 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
     def __init__(__self__, *,
                  allowed_unsafe_sysctls: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  container_log_max_files: pulumi.Input[Optional[_builtins.int]] = None,
-                 container_log_max_line: pulumi.Input[Optional[_builtins.int]] = None,
                  container_log_max_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  cpu_cfs_quota_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cpu_cfs_quota_period: pulumi.Input[Optional[_builtins.str]] = None,
@@ -9207,11 +9938,6 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
         if container_log_max_files is not None:
             pulumi.set(__self__, "container_log_max_files", container_log_max_files)
-        if container_log_max_line is not None:
-            warnings.warn("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""container_log_max_line is deprecated: `container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-        if container_log_max_line is not None:
-            pulumi.set(__self__, "container_log_max_line", container_log_max_line)
         if container_log_max_size_mb is not None:
             pulumi.set(__self__, "container_log_max_size_mb", container_log_max_size_mb)
         if cpu_cfs_quota_enabled is not None:
@@ -9252,16 +9978,6 @@ class KubernetesClusterNodePoolKubeletConfigArgs:
     @container_log_max_files.setter
     def container_log_max_files(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "container_log_max_files", value)
-
-    @_builtins.property
-    @pulumi.getter(name="containerLogMaxLine")
-    @_utilities.deprecated("""`container_log_max_line` has been renamed to `container_log_max_files` to align with the API property name and will be removed in v5.0 of the AzureRM Provider""")
-    def container_log_max_line(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "container_log_max_line")
-
-    @container_log_max_line.setter
-    def container_log_max_line(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "container_log_max_line", value)
 
     @_builtins.property
     @pulumi.getter(name="containerLogMaxSizeMb")
@@ -9377,7 +10093,6 @@ class KubernetesClusterNodePoolLinuxOsConfigArgsDict(TypedDict):
     """
     specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
     """
-    transparent_huge_page_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class KubernetesClusterNodePoolLinuxOsConfigArgs:
@@ -9385,8 +10100,7 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
                  swap_file_size_mb: pulumi.Input[Optional[_builtins.int]] = None,
                  sysctl_config: pulumi.Input[Optional['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs']] = None,
                  transparent_huge_page: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None,
-                 transparent_huge_page_enabled: pulumi.Input[Optional[_builtins.str]] = None):
+                 transparent_huge_page_defrag: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.int] swap_file_size_mb: Specifies the size of swap file on each node in MB.
         :param pulumi.Input['KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs'] sysctl_config: A `sysctl_config` block as defined below.
@@ -9401,11 +10115,6 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
             pulumi.set(__self__, "transparent_huge_page", transparent_huge_page)
         if transparent_huge_page_defrag is not None:
             pulumi.set(__self__, "transparent_huge_page_defrag", transparent_huge_page_defrag)
-        if transparent_huge_page_enabled is not None:
-            warnings.warn("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
-            pulumi.log.warn("""transparent_huge_page_enabled is deprecated: this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-        if transparent_huge_page_enabled is not None:
-            pulumi.set(__self__, "transparent_huge_page_enabled", transparent_huge_page_enabled)
 
     @_builtins.property
     @pulumi.getter(name="swapFileSizeMb")
@@ -9454,16 +10163,6 @@ class KubernetesClusterNodePoolLinuxOsConfigArgs:
     @transparent_huge_page_defrag.setter
     def transparent_huge_page_defrag(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "transparent_huge_page_defrag", value)
-
-    @_builtins.property
-    @pulumi.getter(name="transparentHugePageEnabled")
-    @_utilities.deprecated("""this property has been deprecated in favour of `transparent_huge_page` and will be removed in version 5.0 of the Provider.""")
-    def transparent_huge_page_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "transparent_huge_page_enabled")
-
-    @transparent_huge_page_enabled.setter
-    def transparent_huge_page_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "transparent_huge_page_enabled", value)
 
 
 class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgsDict(TypedDict):
@@ -11493,13 +12192,13 @@ class RegistryEncryptionArgs:
 
 
 class RegistryGeoreplicationArgsDict(TypedDict):
+    global_endpoint_routing_enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+    """
     location: pulumi.Input[_builtins.str]
     """
     A location where the container registry should be geo-replicated.
-    """
-    regional_endpoint_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Whether regional endpoint is enabled for this Container Registry?
     """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
@@ -11515,25 +12214,36 @@ class RegistryGeoreplicationArgsDict(TypedDict):
 @pulumi.input_type
 class RegistryGeoreplicationArgs:
     def __init__(__self__, *,
+                 global_endpoint_routing_enabled: pulumi.Input[_builtins.bool],
                  location: pulumi.Input[_builtins.str],
-                 regional_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
+        :param pulumi.Input[_builtins.bool] global_endpoint_routing_enabled: Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
         :param pulumi.Input[_builtins.str] location: A location where the container registry should be geo-replicated.
-        :param pulumi.Input[_builtins.bool] regional_endpoint_enabled: Whether regional endpoint is enabled for this Container Registry?
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to this replication location.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this replication location? Defaults to `false`.
                
                > **Note:** Changing the `zone_redundancy_enabled` forces an underlying replication to be created.
         """
+        pulumi.set(__self__, "global_endpoint_routing_enabled", global_endpoint_routing_enabled)
         pulumi.set(__self__, "location", location)
-        if regional_endpoint_enabled is not None:
-            pulumi.set(__self__, "regional_endpoint_enabled", regional_endpoint_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundancy_enabled is not None:
             pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="globalEndpointRoutingEnabled")
+    def global_endpoint_routing_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+        """
+        return pulumi.get(self, "global_endpoint_routing_enabled")
+
+    @global_endpoint_routing_enabled.setter
+    def global_endpoint_routing_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "global_endpoint_routing_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -11546,18 +12256,6 @@ class RegistryGeoreplicationArgs:
     @location.setter
     def location(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="regionalEndpointEnabled")
-    def regional_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Whether regional endpoint is enabled for this Container Registry?
-        """
-        return pulumi.get(self, "regional_endpoint_enabled")
-
-    @regional_endpoint_enabled.setter
-    def regional_endpoint_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "regional_endpoint_enabled", value)
 
     @_builtins.property
     @pulumi.getter

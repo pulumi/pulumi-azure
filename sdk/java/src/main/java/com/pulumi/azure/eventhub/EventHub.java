@@ -140,30 +140,18 @@ public class EventHub extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the ID of the EventHub Namespace.
+     * Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="namespaceId", refs={String.class}, tree="[0]")
     private Output<String> namespaceId;
 
     /**
-     * @return Specifies the ID of the EventHub Namespace.
+     * @return Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> namespaceId() {
         return this.namespaceId;
-    }
-    /**
-     * @deprecated
-     * `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `namespaceName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-    @Export(name="namespaceName", refs={String.class}, tree="[0]")
-    private Output<String> namespaceName;
-
-    public Output<String> namespaceName() {
-        return this.namespaceName;
     }
     /**
      * Specifies the current number of shards on the Event Hub.
@@ -200,18 +188,6 @@ public class EventHub extends com.pulumi.resources.CustomResource {
      */
     public Output<List<String>> partitionIds() {
         return this.partitionIds;
-    }
-    /**
-     * @deprecated
-     * `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `resourceGroupName` has been deprecated in favour of `namespaceId` and will be removed in v5.0 of the AzureRM Provider */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
-    private Output<String> resourceGroupName;
-
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
     }
     /**
      * A `retentionDescription` block as defined below.

@@ -28,13 +28,6 @@ public final class GetFrontdoorCustomDomainTl {
      */
     private List<GetFrontdoorCustomDomainTlCipherSuite> cipherSuites;
     /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-    private String minimumTlsVersion;
-    /**
      * @return The TLS protocol version that will be used for Https connections.
      * 
      */
@@ -63,15 +56,6 @@ public final class GetFrontdoorCustomDomainTl {
         return this.cipherSuites;
     }
     /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-    public String minimumTlsVersion() {
-        return this.minimumTlsVersion;
-    }
-    /**
      * @return The TLS protocol version that will be used for Https connections.
      * 
      */
@@ -91,7 +75,6 @@ public final class GetFrontdoorCustomDomainTl {
         private String cdnFrontdoorSecretId;
         private String certificateType;
         private List<GetFrontdoorCustomDomainTlCipherSuite> cipherSuites;
-        private String minimumTlsVersion;
         private String minimumVersion;
         public Builder() {}
         public Builder(GetFrontdoorCustomDomainTl defaults) {
@@ -99,7 +82,6 @@ public final class GetFrontdoorCustomDomainTl {
     	      this.cdnFrontdoorSecretId = defaults.cdnFrontdoorSecretId;
     	      this.certificateType = defaults.certificateType;
     	      this.cipherSuites = defaults.cipherSuites;
-    	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.minimumVersion = defaults.minimumVersion;
         }
 
@@ -131,14 +113,6 @@ public final class GetFrontdoorCustomDomainTl {
             return cipherSuites(List.of(cipherSuites));
         }
         @CustomType.Setter
-        public Builder minimumTlsVersion(String minimumTlsVersion) {
-            if (minimumTlsVersion == null) {
-              throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainTl", "minimumTlsVersion");
-            }
-            this.minimumTlsVersion = minimumTlsVersion;
-            return this;
-        }
-        @CustomType.Setter
         public Builder minimumVersion(String minimumVersion) {
             if (minimumVersion == null) {
               throw new MissingRequiredPropertyException("GetFrontdoorCustomDomainTl", "minimumVersion");
@@ -151,7 +125,6 @@ public final class GetFrontdoorCustomDomainTl {
             _resultValue.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
             _resultValue.certificateType = certificateType;
             _resultValue.cipherSuites = cipherSuites;
-            _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.minimumVersion = minimumVersion;
             return _resultValue;
         }

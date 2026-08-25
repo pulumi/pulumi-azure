@@ -71,6 +71,7 @@ import javax.annotation.Nullable;
  *             .name("keyvaultkeyexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .accessPolicies(            

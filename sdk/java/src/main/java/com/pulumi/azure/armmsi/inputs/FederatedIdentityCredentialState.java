@@ -61,44 +61,6 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
     }
 
     /**
-     * @deprecated
-     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="parentId")
-    private @Nullable Output<String> parentId;
-
-    /**
-     * @deprecated
-     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<String>> parentId() {
-        return Optional.ofNullable(this.parentId);
-    }
-
-    /**
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    @Import(name="resourceGroupName")
-    private @Nullable Output<String> resourceGroupName;
-
-    /**
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    public Optional<Output<String>> resourceGroupName() {
-        return Optional.ofNullable(this.resourceGroupName);
-    }
-
-    /**
      * Specifies the subject for this Federated Identity Credential.
      * 
      */
@@ -134,8 +96,6 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
         this.audience = $.audience;
         this.issuer = $.issuer;
         this.name = $.name;
-        this.parentId = $.parentId;
-        this.resourceGroupName = $.resourceGroupName;
         this.subject = $.subject;
         this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
@@ -219,56 +179,6 @@ public final class FederatedIdentityCredentialState extends com.pulumi.resources
          */
         public Builder name(String name) {
             return name(Output.of(name));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder parentId(@Nullable Output<String> parentId) {
-            $.parentId = parentId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
-        public Builder parentId(String parentId) {
-            return parentId(Output.of(parentId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-        public Builder resourceGroupName(@Nullable Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is no longer used and will be removed in the next major version of the Azure Provider
-         * 
-         */
-        @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
         }
 
         /**

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,7 +40,7 @@ import (
 //
 // where `11111111-1111-1111-1111-111111111111` is the `objectId`.
 //
-// > **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
+// > **Note:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
 type AccessPolicy struct {
 	pulumi.CustomResourceState
 

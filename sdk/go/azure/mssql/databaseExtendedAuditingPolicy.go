@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,7 +67,7 @@ import (
 //			}
 //			_, err = mssql.NewDatabaseExtendedAuditingPolicy(ctx, "example", &mssql.DatabaseExtendedAuditingPolicyArgs{
 //				DatabaseId:                         exampleDatabase.ID().ToIDOutput().ToStringOutput(),
-//				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
+//				BlobStorageEndpoint:                exampleAccount.PrimaryBlobEndpoint,
 //				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,
 //				StorageAccountAccessKeyIsSecondary: pulumi.Bool(false),
 //				RetentionInDays:                    pulumi.Int(6),
@@ -98,11 +98,13 @@ import (
 type DatabaseExtendedAuditingPolicy struct {
 	pulumi.CustomResourceState
 
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint pulumi.StringPtrOutput `pulumi:"blobStorageEndpoint"`
 	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId pulumi.StringOutput `pulumi:"databaseId"`
-	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	// Whether to enable the extended auditing policy. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? Defaults to `true`.
 	//
@@ -115,8 +117,6 @@ type DatabaseExtendedAuditingPolicy struct {
 	StorageAccountAccessKey pulumi.StringPtrOutput `pulumi:"storageAccountAccessKey"`
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrOutput `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint pulumi.StringPtrOutput `pulumi:"storageEndpoint"`
 }
 
 // NewDatabaseExtendedAuditingPolicy registers a new resource with the given unique name, arguments, and options.
@@ -159,11 +159,13 @@ func GetDatabaseExtendedAuditingPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DatabaseExtendedAuditingPolicy resources.
 type databaseExtendedAuditingPolicyState struct {
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint *string `pulumi:"blobStorageEndpoint"`
 	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId *string `pulumi:"databaseId"`
-	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	// Whether to enable the extended auditing policy. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled *bool `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? Defaults to `true`.
 	//
@@ -176,16 +178,16 @@ type databaseExtendedAuditingPolicyState struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
 type DatabaseExtendedAuditingPolicyState struct {
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint pulumi.StringPtrInput
 	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId pulumi.StringPtrInput
-	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	// Whether to enable the extended auditing policy. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled pulumi.BoolPtrInput
 	// Enable audit events to Azure Monitor? Defaults to `true`.
 	//
@@ -198,8 +200,6 @@ type DatabaseExtendedAuditingPolicyState struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint pulumi.StringPtrInput
 }
 
 func (DatabaseExtendedAuditingPolicyState) ElementType() reflect.Type {
@@ -207,11 +207,13 @@ func (DatabaseExtendedAuditingPolicyState) ElementType() reflect.Type {
 }
 
 type databaseExtendedAuditingPolicyArgs struct {
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint *string `pulumi:"blobStorageEndpoint"`
 	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId string `pulumi:"databaseId"`
-	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	// Whether to enable the extended auditing policy. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled *bool `pulumi:"enabled"`
 	// Enable audit events to Azure Monitor? Defaults to `true`.
 	//
@@ -224,17 +226,17 @@ type databaseExtendedAuditingPolicyArgs struct {
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary *bool `pulumi:"storageAccountAccessKeyIsSecondary"`
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint *string `pulumi:"storageEndpoint"`
 }
 
 // The set of arguments for constructing a DatabaseExtendedAuditingPolicy resource.
 type DatabaseExtendedAuditingPolicyArgs struct {
+	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+	BlobStorageEndpoint pulumi.StringPtrInput
 	// The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 	DatabaseId pulumi.StringInput
-	// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+	// Whether to enable the extended auditing policy. Defaults to `true`.
 	//
-	// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+	// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 	Enabled pulumi.BoolPtrInput
 	// Enable audit events to Azure Monitor? Defaults to `true`.
 	//
@@ -247,8 +249,6 @@ type DatabaseExtendedAuditingPolicyArgs struct {
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Is `storageAccountAccessKey` value the storage's secondary key?
 	StorageAccountAccessKeyIsSecondary pulumi.BoolPtrInput
-	// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-	StorageEndpoint pulumi.StringPtrInput
 }
 
 func (DatabaseExtendedAuditingPolicyArgs) ElementType() reflect.Type {
@@ -338,14 +338,19 @@ func (o DatabaseExtendedAuditingPolicyOutput) ToDatabaseExtendedAuditingPolicyOu
 	return o
 }
 
+// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
+func (o DatabaseExtendedAuditingPolicyOutput) BlobStorageEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) pulumi.StringPtrOutput { return v.BlobStorageEndpoint }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the SQL database to set the extended auditing policy. Changing this forces a new resource to be created.
 func (o DatabaseExtendedAuditingPolicyOutput) DatabaseId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) pulumi.StringOutput { return v.DatabaseId }).(pulumi.StringOutput)
 }
 
-// Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
+// Whether to enable the extended auditing policy. Defaults to `true`.
 //
-// > **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+// > **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
 func (o DatabaseExtendedAuditingPolicyOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -373,11 +378,6 @@ func (o DatabaseExtendedAuditingPolicyOutput) StorageAccountAccessKeyIsSecondary
 	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) pulumi.BoolPtrOutput {
 		return v.StorageAccountAccessKeyIsSecondary
 	}).(pulumi.BoolPtrOutput)
-}
-
-// The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs.
-func (o DatabaseExtendedAuditingPolicyOutput) StorageEndpoint() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DatabaseExtendedAuditingPolicy) pulumi.StringPtrOutput { return v.StorageEndpoint }).(pulumi.StringPtrOutput)
 }
 
 type DatabaseExtendedAuditingPolicyArrayOutput struct{ *pulumi.OutputState }

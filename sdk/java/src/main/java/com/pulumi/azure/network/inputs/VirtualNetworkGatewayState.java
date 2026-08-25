@@ -145,25 +145,6 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
     }
 
     /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="enableBgp")
-    private @Nullable Output<Boolean> enableBgp;
-
-    /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> enableBgp() {
-        return Optional.ofNullable(this.enableBgp);
-    }
-
-    /**
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.
      * 
      * &gt; **Note:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`.
@@ -457,7 +438,6 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
         this.defaultLocalNetworkGatewayId = $.defaultLocalNetworkGatewayId;
         this.dnsForwardingEnabled = $.dnsForwardingEnabled;
         this.edgeZone = $.edgeZone;
-        this.enableBgp = $.enableBgp;
         this.generation = $.generation;
         this.ipConfigurations = $.ipConfigurations;
         this.ipSecReplayProtectionEnabled = $.ipSecReplayProtectionEnabled;
@@ -661,31 +641,6 @@ public final class VirtualNetworkGatewayState extends com.pulumi.resources.Resou
          */
         public Builder edgeZone(String edgeZone) {
             return edgeZone(Output.of(edgeZone));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder enableBgp(@Nullable Output<Boolean> enableBgp) {
-            $.enableBgp = enableBgp;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder enableBgp(Boolean enableBgp) {
-            return enableBgp(Output.of(enableBgp));
         }
 
         /**

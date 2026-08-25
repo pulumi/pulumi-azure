@@ -299,8 +299,12 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                {
+                    "service": "Microsoft.Sql",
+                },
+                {
+                    "service": "Microsoft.Storage",
+                },
             ],
             enforce_private_link_endpoint_network_policies=True)
         example_server = azure.mssql.Server("example",
@@ -443,8 +447,12 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                {
+                    "service": "Microsoft.Sql",
+                },
+                {
+                    "service": "Microsoft.Storage",
+                },
             ],
             enforce_private_link_endpoint_network_policies=True)
         example_server = azure.mssql.Server("example",

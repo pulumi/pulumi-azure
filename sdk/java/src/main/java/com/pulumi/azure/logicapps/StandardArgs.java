@@ -40,7 +40,7 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`, or from `storageKeyVaultSecretId` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     @Import(name="appSettings")
@@ -49,7 +49,7 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * @return A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
      * 
-     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+     * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`, or from `storageKeyVaultSecretId` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
      * 
      */
     public Optional<Output<Map<String,String>>> appSettings() {
@@ -87,14 +87,14 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      * 
      */
     @Import(name="clientCertificateMode")
     private @Nullable Output<String> clientCertificateMode;
 
     /**
-     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      * 
      */
     public Optional<Output<String>> clientCertificateMode() {
@@ -290,33 +290,33 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The access key which will be used to access the backend storage account for the Logic App.
+     * The access key which will be used to access the backend storage account for the Logic App. Required when `storageAccountName` is specified. Conflicts with `storageKeyVaultSecretId`.
      * 
      */
-    @Import(name="storageAccountAccessKey", required=true)
-    private Output<String> storageAccountAccessKey;
+    @Import(name="storageAccountAccessKey")
+    private @Nullable Output<String> storageAccountAccessKey;
 
     /**
-     * @return The access key which will be used to access the backend storage account for the Logic App.
+     * @return The access key which will be used to access the backend storage account for the Logic App. Required when `storageAccountName` is specified. Conflicts with `storageKeyVaultSecretId`.
      * 
      */
-    public Output<String> storageAccountAccessKey() {
-        return this.storageAccountAccessKey;
+    public Optional<Output<String>> storageAccountAccessKey() {
+        return Optional.ofNullable(this.storageAccountAccessKey);
     }
 
     /**
-     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+     * The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
      * 
      */
-    @Import(name="storageAccountName", required=true)
-    private Output<String> storageAccountName;
+    @Import(name="storageAccountName")
+    private @Nullable Output<String> storageAccountName;
 
     /**
-     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+     * @return The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
      * 
      */
-    public Output<String> storageAccountName() {
-        return this.storageAccountName;
+    public Optional<Output<String>> storageAccountName() {
+        return Optional.ofNullable(this.storageAccountName);
     }
 
     /**
@@ -340,6 +340,29 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> storageAccountShareName() {
         return Optional.ofNullable(this.storageAccountShareName);
+    }
+
+    /**
+     * The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
+     * 
+     * &gt; **Note:** When using `storageKeyVaultSecretId`, a `keyVaultReferenceIdentityId` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+     * 
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * 
+     */
+    @Import(name="storageKeyVaultSecretId")
+    private @Nullable Output<String> storageKeyVaultSecretId;
+
+    /**
+     * @return The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
+     * 
+     * &gt; **Note:** When using `storageKeyVaultSecretId`, a `keyVaultReferenceIdentityId` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+     * 
+     * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+     * 
+     */
+    public Optional<Output<String>> storageKeyVaultSecretId() {
+        return Optional.ofNullable(this.storageKeyVaultSecretId);
     }
 
     /**
@@ -448,6 +471,7 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         this.storageAccountAccessKey = $.storageAccountAccessKey;
         this.storageAccountName = $.storageAccountName;
         this.storageAccountShareName = $.storageAccountShareName;
+        this.storageKeyVaultSecretId = $.storageKeyVaultSecretId;
         this.tags = $.tags;
         this.useExtensionBundle = $.useExtensionBundle;
         this.version = $.version;
@@ -497,7 +521,7 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
          * 
-         * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+         * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`, or from `storageKeyVaultSecretId` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
          * 
          * @return builder
          * 
@@ -510,7 +534,7 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param appSettings A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
          * 
-         * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+         * &gt; **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn&#39;t* be configured separately as part of the appSettings you specify.  `AzureWebJobsStorage` is filled based on `storageAccountName` and `storageAccountAccessKey`, or from `storageKeyVaultSecretId` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
          * 
          * @return builder
          * 
@@ -562,7 +586,7 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -573,7 +597,7 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -853,18 +877,18 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Logic App.
+         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Logic App. Required when `storageAccountName` is specified. Conflicts with `storageKeyVaultSecretId`.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountAccessKey(Output<String> storageAccountAccessKey) {
+        public Builder storageAccountAccessKey(@Nullable Output<String> storageAccountAccessKey) {
             $.storageAccountAccessKey = storageAccountAccessKey;
             return this;
         }
 
         /**
-         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Logic App.
+         * @param storageAccountAccessKey The access key which will be used to access the backend storage account for the Logic App. Required when `storageAccountName` is specified. Conflicts with `storageKeyVaultSecretId`.
          * 
          * @return builder
          * 
@@ -874,18 +898,18 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageAccountName The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+         * @param storageAccountName The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder storageAccountName(Output<String> storageAccountName) {
+        public Builder storageAccountName(@Nullable Output<String> storageAccountName) {
             $.storageAccountName = storageAccountName;
             return this;
         }
 
         /**
-         * @param storageAccountName The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+         * @param storageAccountName The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
          * 
          * @return builder
          * 
@@ -921,6 +945,35 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder storageAccountShareName(String storageAccountShareName) {
             return storageAccountShareName(Output.of(storageAccountShareName));
+        }
+
+        /**
+         * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
+         * 
+         * &gt; **Note:** When using `storageKeyVaultSecretId`, a `keyVaultReferenceIdentityId` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+         * 
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageKeyVaultSecretId(@Nullable Output<String> storageKeyVaultSecretId) {
+            $.storageKeyVaultSecretId = storageKeyVaultSecretId;
+            return this;
+        }
+
+        /**
+         * @param storageKeyVaultSecretId The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storageAccountName` or `storageKeyVaultSecretId` must be specified.
+         * 
+         * &gt; **Note:** When using `storageKeyVaultSecretId`, a `keyVaultReferenceIdentityId` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+         * 
+         * &gt; **Note:** `storageKeyVaultSecretId` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder storageKeyVaultSecretId(String storageKeyVaultSecretId) {
+            return storageKeyVaultSecretId(Output.of(storageKeyVaultSecretId));
         }
 
         /**
@@ -1042,12 +1095,6 @@ public final class StandardArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("StandardArgs", "resourceGroupName");
-            }
-            if ($.storageAccountAccessKey == null) {
-                throw new MissingRequiredPropertyException("StandardArgs", "storageAccountAccessKey");
-            }
-            if ($.storageAccountName == null) {
-                throw new MissingRequiredPropertyException("StandardArgs", "storageAccountName");
             }
             return $;
         }

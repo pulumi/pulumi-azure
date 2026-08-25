@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,11 +75,6 @@ func NewProvider(ctx *pulumi.Context,
 	if args.MetadataHost == nil {
 		if d := internal.GetEnvOrDefault(nil, nil, "ARM_METADATA_HOSTNAME"); d != nil {
 			args.MetadataHost = pulumi.StringPtr(d.(string))
-		}
-	}
-	if args.SkipProviderRegistration == nil {
-		if d := internal.GetEnvOrDefault(false, internal.ParseEnvBool, "ARM_SKIP_PROVIDER_REGISTRATION"); d != nil {
-			args.SkipProviderRegistration = pulumi.BoolPtr(d.(bool))
 		}
 	}
 	if args.StorageUseAzuread == nil {
@@ -176,8 +171,7 @@ type providerArgs struct {
 	// This will disable the x-ms-correlation-request-id header.
 	DisableCorrelationRequestId *bool `pulumi:"disableCorrelationRequestId"`
 	// This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
-	DisableTerraformPartnerId *bool                       `pulumi:"disableTerraformPartnerId"`
-	EnhancedValidation        *ProviderEnhancedValidation `pulumi:"enhancedValidation"`
+	DisableTerraformPartnerId *bool `pulumi:"disableTerraformPartnerId"`
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
 	Environment *string           `pulumi:"environment"`
 	Features    *ProviderFeatures `pulumi:"features"`
@@ -201,10 +195,6 @@ type providerArgs struct {
 	ResourceProviderRegistrations *string `pulumi:"resourceProviderRegistrations"`
 	// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
 	ResourceProvidersToRegisters []string `pulumi:"resourceProvidersToRegisters"`
-	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
-	//
-	// Deprecated: This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
-	SkipProviderRegistration *bool `pulumi:"skipProviderRegistration"`
 	// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
 	StorageUseAzuread *bool `pulumi:"storageUseAzuread"`
 	// The Subscription ID which should be used.
@@ -244,7 +234,6 @@ type ProviderArgs struct {
 	DisableCorrelationRequestId pulumi.BoolPtrInput
 	// This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
 	DisableTerraformPartnerId pulumi.BoolPtrInput
-	EnhancedValidation        ProviderEnhancedValidationPtrInput
 	// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
 	Environment pulumi.StringPtrInput
 	Features    ProviderFeaturesPtrInput
@@ -268,10 +257,6 @@ type ProviderArgs struct {
 	ResourceProviderRegistrations pulumi.StringPtrInput
 	// A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resourceProviderRegistrations` property.
 	ResourceProvidersToRegisters pulumi.StringArrayInput
-	// Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
-	//
-	// Deprecated: This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
-	SkipProviderRegistration pulumi.BoolPtrInput
 	// Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
 	StorageUseAzuread pulumi.BoolPtrInput
 	// The Subscription ID which should be used.

@@ -166,10 +166,6 @@ namespace Pulumi.Azure.Network
     public sealed class GetApplicationGatewayResult
     {
         /// <summary>
-        /// One or more `AuthenticationCertificate` blocks as defined below.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.GetApplicationGatewayAuthenticationCertificateResult> AuthenticationCertificates;
-        /// <summary>
         /// An `AutoscaleConfiguration` block as defined below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetApplicationGatewayAutoscaleConfigurationResult> AutoscaleConfigurations;
@@ -314,8 +310,6 @@ namespace Pulumi.Azure.Network
 
         [OutputConstructor]
         private GetApplicationGatewayResult(
-            ImmutableArray<Outputs.GetApplicationGatewayAuthenticationCertificateResult> authenticationCertificates,
-
             ImmutableArray<Outputs.GetApplicationGatewayAutoscaleConfigurationResult> autoscaleConfigurations,
 
             ImmutableArray<Outputs.GetApplicationGatewayBackendAddressPoolResult> backendAddressPools,
@@ -390,7 +384,6 @@ namespace Pulumi.Azure.Network
 
             ImmutableArray<string> zones)
         {
-            AuthenticationCertificates = authenticationCertificates;
             AutoscaleConfigurations = autoscaleConfigurations;
             BackendAddressPools = backendAddressPools;
             BackendHttpSettings = backendHttpSettings;

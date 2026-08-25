@@ -122,10 +122,10 @@ namespace Pulumi.Azure.NetApp
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IPv4 Addresses which should be used to mount the volume.
+        /// One or more `MountTarget` blocks as defined below.
         /// </summary>
-        [Output("mountIpAddresses")]
-        public Output<ImmutableArray<string>> MountIpAddresses { get; private set; } = null!;
+        [Output("mountTargets")]
+        public Output<ImmutableArray<Outputs.VolumeMountTarget>> MountTargets { get; private set; } = null!;
 
         /// <summary>
         /// The name of the NetApp Volume. Changing this forces a new resource to be created.
@@ -629,16 +629,16 @@ namespace Pulumi.Azure.NetApp
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("mountIpAddresses")]
-        private InputList<string>? _mountIpAddresses;
+        [Input("mountTargets")]
+        private InputList<Inputs.VolumeMountTargetGetArgs>? _mountTargets;
 
         /// <summary>
-        /// A list of IPv4 Addresses which should be used to mount the volume.
+        /// One or more `MountTarget` blocks as defined below.
         /// </summary>
-        public InputList<string> MountIpAddresses
+        public InputList<Inputs.VolumeMountTargetGetArgs> MountTargets
         {
-            get => _mountIpAddresses ?? (_mountIpAddresses = new InputList<string>());
-            set => _mountIpAddresses = value;
+            get => _mountTargets ?? (_mountTargets = new InputList<Inputs.VolumeMountTargetGetArgs>());
+            set => _mountTargets = value;
         }
 
         /// <summary>

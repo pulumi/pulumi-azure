@@ -110,9 +110,6 @@ namespace Pulumi.Azure.Kusto
         /// <summary>
         /// A `LanguageExtension` block as defined below.
         /// </summary>
-        [Output("languageExtension")]
-        public Output<ImmutableArray<Outputs.ClusterLanguageExtension>> LanguageExtension { get; private set; } = null!;
-
         [Output("languageExtensions")]
         public Output<ImmutableArray<Outputs.ClusterLanguageExtension>> LanguageExtensions { get; private set; } = null!;
 
@@ -195,9 +192,6 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Output("uri")]
         public Output<string> Uri { get; private set; } = null!;
-
-        [Output("virtualNetworkConfiguration")]
-        public Output<Outputs.ClusterVirtualNetworkConfiguration?> VirtualNetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.
@@ -299,21 +293,12 @@ namespace Pulumi.Azure.Kusto
         [Input("identity")]
         public Input<Inputs.ClusterIdentityArgs>? Identity { get; set; }
 
-        [Input("languageExtension")]
-        private InputList<Inputs.ClusterLanguageExtensionArgs>? _languageExtension;
+        [Input("languageExtensions")]
+        private InputList<Inputs.ClusterLanguageExtensionArgs>? _languageExtensions;
 
         /// <summary>
         /// A `LanguageExtension` block as defined below.
         /// </summary>
-        public InputList<Inputs.ClusterLanguageExtensionArgs> LanguageExtension
-        {
-            get => _languageExtension ?? (_languageExtension = new InputList<Inputs.ClusterLanguageExtensionArgs>());
-            set => _languageExtension = value;
-        }
-
-        [Input("languageExtensions")]
-        private InputList<Inputs.ClusterLanguageExtensionArgs>? _languageExtensions;
-        [Obsolete(@"`LanguageExtensions` has been deprecated in favour of `LanguageExtension` and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.ClusterLanguageExtensionArgs> LanguageExtensions
         {
             get => _languageExtensions ?? (_languageExtensions = new InputList<Inputs.ClusterLanguageExtensionArgs>());
@@ -406,9 +391,6 @@ namespace Pulumi.Azure.Kusto
             set => _trustedExternalTenants = value;
         }
 
-        [Input("virtualNetworkConfiguration")]
-        public Input<Inputs.ClusterVirtualNetworkConfigurationArgs>? VirtualNetworkConfiguration { get; set; }
-
         [Input("zones")]
         private InputList<string>? _zones;
 
@@ -483,21 +465,12 @@ namespace Pulumi.Azure.Kusto
         [Input("identity")]
         public Input<Inputs.ClusterIdentityGetArgs>? Identity { get; set; }
 
-        [Input("languageExtension")]
-        private InputList<Inputs.ClusterLanguageExtensionGetArgs>? _languageExtension;
+        [Input("languageExtensions")]
+        private InputList<Inputs.ClusterLanguageExtensionGetArgs>? _languageExtensions;
 
         /// <summary>
         /// A `LanguageExtension` block as defined below.
         /// </summary>
-        public InputList<Inputs.ClusterLanguageExtensionGetArgs> LanguageExtension
-        {
-            get => _languageExtension ?? (_languageExtension = new InputList<Inputs.ClusterLanguageExtensionGetArgs>());
-            set => _languageExtension = value;
-        }
-
-        [Input("languageExtensions")]
-        private InputList<Inputs.ClusterLanguageExtensionGetArgs>? _languageExtensions;
-        [Obsolete(@"`LanguageExtensions` has been deprecated in favour of `LanguageExtension` and will be removed in v5.0 of the AzureRM provider")]
         public InputList<Inputs.ClusterLanguageExtensionGetArgs> LanguageExtensions
         {
             get => _languageExtensions ?? (_languageExtensions = new InputList<Inputs.ClusterLanguageExtensionGetArgs>());
@@ -595,9 +568,6 @@ namespace Pulumi.Azure.Kusto
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }
-
-        [Input("virtualNetworkConfiguration")]
-        public Input<Inputs.ClusterVirtualNetworkConfigurationGetArgs>? VirtualNetworkConfiguration { get; set; }
 
         [Input("zones")]
         private InputList<string>? _zones;

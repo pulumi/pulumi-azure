@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.inputs;
 
 import com.pulumi.azure.network.inputs.VirtualNetworkSubnetDelegationArgs;
+import com.pulumi.azure.network.inputs.VirtualNetworkSubnetServiceEndpointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -190,17 +191,17 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+     * A `serviceEndpoint` block as defined below.
      * 
      */
     @Import(name="serviceEndpoints")
-    private @Nullable Output<List<String>> serviceEndpoints;
+    private @Nullable Output<List<VirtualNetworkSubnetServiceEndpointArgs>> serviceEndpoints;
 
     /**
-     * @return The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+     * @return A `serviceEndpoint` block as defined below.
      * 
      */
-    public Optional<Output<List<String>>> serviceEndpoints() {
+    public Optional<Output<List<VirtualNetworkSubnetServiceEndpointArgs>>> serviceEndpoints() {
         return Optional.ofNullable(this.serviceEndpoints);
     }
 
@@ -489,33 +490,33 @@ public final class VirtualNetworkSubnetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param serviceEndpoints The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+         * @param serviceEndpoints A `serviceEndpoint` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder serviceEndpoints(@Nullable Output<List<String>> serviceEndpoints) {
+        public Builder serviceEndpoints(@Nullable Output<List<VirtualNetworkSubnetServiceEndpointArgs>> serviceEndpoints) {
             $.serviceEndpoints = serviceEndpoints;
             return this;
         }
 
         /**
-         * @param serviceEndpoints The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+         * @param serviceEndpoints A `serviceEndpoint` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder serviceEndpoints(List<String> serviceEndpoints) {
+        public Builder serviceEndpoints(List<VirtualNetworkSubnetServiceEndpointArgs> serviceEndpoints) {
             return serviceEndpoints(Output.of(serviceEndpoints));
         }
 
         /**
-         * @param serviceEndpoints The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+         * @param serviceEndpoints A `serviceEndpoint` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder serviceEndpoints(String... serviceEndpoints) {
+        public Builder serviceEndpoints(VirtualNetworkSubnetServiceEndpointArgs... serviceEndpoints) {
             return serviceEndpoints(List.of(serviceEndpoints));
         }
 

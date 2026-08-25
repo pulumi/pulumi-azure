@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Azure.SiteRecovery
 {
     /// <summary>
-    /// Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
+    /// Manages an Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
     /// 
     /// ## Example Usage
     /// 
@@ -24,13 +24,13 @@ namespace Pulumi.Azure.SiteRecovery
     /// {
     ///     var primary = new Azure.Core.ResourceGroup("primary", new()
     ///     {
-    ///         Name = "tfex-network-mapping-primary",
+    ///         Name = "example-network-mapping-primary",
     ///         Location = "West US",
     ///     });
     /// 
     ///     var secondary = new Azure.Core.ResourceGroup("secondary", new()
     ///     {
-    ///         Name = "tfex-network-mapping-secondary",
+    ///         Name = "example-network-mapping-secondary",
     ///         Location = "East US",
     ///     });
     /// 
@@ -116,10 +116,10 @@ namespace Pulumi.Azure.SiteRecovery
     public partial class ProtectionContainerMapping : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// a `AutomaticUpdate` block defined as below.
+        /// An `AutomaticUpdate` block defined as below.
         /// </summary>
         [Output("automaticUpdate")]
-        public Output<Outputs.ProtectionContainerMappingAutomaticUpdate> AutomaticUpdate { get; private set; } = null!;
+        public Output<Outputs.ProtectionContainerMappingAutomaticUpdate?> AutomaticUpdate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the protection container mapping. Changing this forces a new resource to be created.
@@ -128,7 +128,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        /// Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         /// </summary>
         [Output("recoveryFabricName")]
         public Output<string> RecoveryFabricName { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ProtectionContainerMappingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// a `AutomaticUpdate` block defined as below.
+        /// An `AutomaticUpdate` block defined as below.
         /// </summary>
         [Input("automaticUpdate")]
         public Input<Inputs.ProtectionContainerMappingAutomaticUpdateArgs>? AutomaticUpdate { get; set; }
@@ -222,7 +222,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        /// Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryFabricName", required: true)]
         public Input<string> RecoveryFabricName { get; set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Azure.SiteRecovery
     public sealed class ProtectionContainerMappingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// a `AutomaticUpdate` block defined as below.
+        /// An `AutomaticUpdate` block defined as below.
         /// </summary>
         [Input("automaticUpdate")]
         public Input<Inputs.ProtectionContainerMappingAutomaticUpdateGetArgs>? AutomaticUpdate { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Azure.SiteRecovery
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        /// Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         /// </summary>
         [Input("recoveryFabricName")]
         public Input<string>? RecoveryFabricName { get; set; }

@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -63,6 +62,7 @@ import javax.annotation.Nullable;
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .build());
@@ -112,14 +112,14 @@ public class CertificateContacts extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="contacts", refs={List.class,CertificateContactsContact.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<CertificateContactsContact>> contacts;
+    private Output<List<CertificateContactsContact>> contacts;
 
     /**
      * @return One or more `contact` blocks as defined below.
      * 
      */
-    public Output<Optional<List<CertificateContactsContact>>> contacts() {
-        return Codegen.optional(this.contacts);
+    public Output<List<CertificateContactsContact>> contacts() {
+        return this.contacts;
     }
     /**
      * The ID of the Key Vault. Changing this forces a new resource to be created.

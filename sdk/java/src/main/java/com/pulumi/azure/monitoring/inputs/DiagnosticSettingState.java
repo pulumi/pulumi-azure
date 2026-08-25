@@ -5,7 +5,6 @@ package com.pulumi.azure.monitoring.inputs;
 
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledLogArgs;
 import com.pulumi.azure.monitoring.inputs.DiagnosticSettingEnabledMetricArgs;
-import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -138,25 +137,6 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * @deprecated
-     * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="metrics")
-    private @Nullable Output<List<DiagnosticSettingMetricArgs>> metrics;
-
-    /**
-     * @deprecated
-     * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<List<DiagnosticSettingMetricArgs>>> metrics() {
-        return Optional.ofNullable(this.metrics);
-    }
-
-    /**
      * Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** If the name is set to &#39;service&#39; it will not be possible to fully delete the diagnostic setting. This is due to legacy API support.
@@ -237,7 +217,6 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
         this.eventhubName = $.eventhubName;
         this.logAnalyticsDestinationType = $.logAnalyticsDestinationType;
         this.logAnalyticsWorkspaceId = $.logAnalyticsWorkspaceId;
-        this.metrics = $.metrics;
         this.name = $.name;
         this.partnerSolutionId = $.partnerSolutionId;
         this.storageAccountId = $.storageAccountId;
@@ -438,43 +417,6 @@ public final class DiagnosticSettingState extends com.pulumi.resources.ResourceA
          */
         public Builder logAnalyticsWorkspaceId(String logAnalyticsWorkspaceId) {
             return logAnalyticsWorkspaceId(Output.of(logAnalyticsWorkspaceId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
-        public Builder metrics(@Nullable Output<List<DiagnosticSettingMetricArgs>> metrics) {
-            $.metrics = metrics;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
-        public Builder metrics(List<DiagnosticSettingMetricArgs> metrics) {
-            return metrics(Output.of(metrics));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `metric` has been deprecated in favour of the `enabledMetric` property and will be removed in v5.0 of the AzureRM provider */
-        public Builder metrics(DiagnosticSettingMetricArgs... metrics) {
-            return metrics(List.of(metrics));
         }
 
         /**

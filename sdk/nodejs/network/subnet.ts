@@ -114,6 +114,18 @@ export class Subnet extends pulumi.CustomResource {
      * The name of the subnet. Changing this forces a new resource to be created.
      */
     declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly networkSecurityGroupId: pulumi.Output<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Network Security Group to associate with the subnet.
+     *
+     * > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+     */
+    declare public readonly networkSecurityGroupIdWo: pulumi.Output<string | undefined>;
+    /**
+     * An integer that must be incremented whenever `networkSecurityGroupIdWo` is updated. Required if `networkSecurityGroupIdWo` is specified.
+     */
+    declare public readonly networkSecurityGroupIdWoVersion: pulumi.Output<number | undefined>;
     /**
      * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      *
@@ -134,16 +146,23 @@ export class Subnet extends pulumi.CustomResource {
      * The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
+    declare public /*out*/ readonly routeTableId: pulumi.Output<string>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Route Table to associate with the subnet.
+     *
+     * > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+     */
+    declare public readonly routeTableIdWo: pulumi.Output<string | undefined>;
+    /**
+     * An integer that must be incremented whenever `routeTableIdWo` is updated. Required if `routeTableIdWo` is specified.
+     */
+    declare public readonly routeTableIdWoVersion: pulumi.Output<number | undefined>;
     /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      */
     declare public readonly serviceEndpointPolicyIds: pulumi.Output<string[] | undefined>;
-    /**
-     * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-     *
-     * > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
-     */
-    declare public readonly serviceEndpoints: pulumi.Output<string[] | undefined>;
+    declare public readonly serviceEndpoints: pulumi.Output<outputs.network.SubnetServiceEndpoint[] | undefined>;
     /**
      * The sharing scope of the subnet. Possible value is `Tenant`.
      *
@@ -175,9 +194,15 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["delegations"] = state?.delegations;
             resourceInputs["ipAddressPool"] = state?.ipAddressPool;
             resourceInputs["name"] = state?.name;
+            resourceInputs["networkSecurityGroupId"] = state?.networkSecurityGroupId;
+            resourceInputs["networkSecurityGroupIdWo"] = state?.networkSecurityGroupIdWo;
+            resourceInputs["networkSecurityGroupIdWoVersion"] = state?.networkSecurityGroupIdWoVersion;
             resourceInputs["privateEndpointNetworkPolicies"] = state?.privateEndpointNetworkPolicies;
             resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = state?.privateLinkServiceNetworkPoliciesEnabled;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
+            resourceInputs["routeTableId"] = state?.routeTableId;
+            resourceInputs["routeTableIdWo"] = state?.routeTableIdWo;
+            resourceInputs["routeTableIdWoVersion"] = state?.routeTableIdWoVersion;
             resourceInputs["serviceEndpointPolicyIds"] = state?.serviceEndpointPolicyIds;
             resourceInputs["serviceEndpoints"] = state?.serviceEndpoints;
             resourceInputs["sharingScope"] = state?.sharingScope;
@@ -195,15 +220,23 @@ export class Subnet extends pulumi.CustomResource {
             resourceInputs["delegations"] = args?.delegations;
             resourceInputs["ipAddressPool"] = args?.ipAddressPool;
             resourceInputs["name"] = args?.name;
+            resourceInputs["networkSecurityGroupIdWo"] = args?.networkSecurityGroupIdWo ? pulumi.secret(args.networkSecurityGroupIdWo) : undefined;
+            resourceInputs["networkSecurityGroupIdWoVersion"] = args?.networkSecurityGroupIdWoVersion;
             resourceInputs["privateEndpointNetworkPolicies"] = args?.privateEndpointNetworkPolicies;
             resourceInputs["privateLinkServiceNetworkPoliciesEnabled"] = args?.privateLinkServiceNetworkPoliciesEnabled;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeTableIdWo"] = args?.routeTableIdWo ? pulumi.secret(args.routeTableIdWo) : undefined;
+            resourceInputs["routeTableIdWoVersion"] = args?.routeTableIdWoVersion;
             resourceInputs["serviceEndpointPolicyIds"] = args?.serviceEndpointPolicyIds;
             resourceInputs["serviceEndpoints"] = args?.serviceEndpoints;
             resourceInputs["sharingScope"] = args?.sharingScope;
             resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
+            resourceInputs["networkSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["routeTableId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["networkSecurityGroupIdWo", "routeTableIdWo"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Subnet.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -236,6 +269,18 @@ export interface SubnetState {
      * The name of the subnet. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string | undefined>;
+    networkSecurityGroupId?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Network Security Group to associate with the subnet.
+     *
+     * > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+     */
+    networkSecurityGroupIdWo?: pulumi.Input<string | undefined>;
+    /**
+     * An integer that must be incremented whenever `networkSecurityGroupIdWo` is updated. Required if `networkSecurityGroupIdWo` is specified.
+     */
+    networkSecurityGroupIdWoVersion?: pulumi.Input<number | undefined>;
     /**
      * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      *
@@ -256,16 +301,23 @@ export interface SubnetState {
      * The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
+    routeTableId?: pulumi.Input<string | undefined>;
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Route Table to associate with the subnet.
+     *
+     * > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+     */
+    routeTableIdWo?: pulumi.Input<string | undefined>;
+    /**
+     * An integer that must be incremented whenever `routeTableIdWo` is updated. Required if `routeTableIdWo` is specified.
+     */
+    routeTableIdWoVersion?: pulumi.Input<number | undefined>;
     /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      */
     serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-     *
-     * > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
-     */
-    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.SubnetServiceEndpoint>[] | undefined>;
     /**
      * The sharing scope of the subnet. Possible value is `Tenant`.
      *
@@ -309,6 +361,17 @@ export interface SubnetArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Network Security Group to associate with the subnet.
+     *
+     * > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+     */
+    networkSecurityGroupIdWo?: pulumi.Input<string | undefined>;
+    /**
+     * An integer that must be incremented whenever `networkSecurityGroupIdWo` is updated. Required if `networkSecurityGroupIdWo` is specified.
+     */
+    networkSecurityGroupIdWoVersion?: pulumi.Input<number | undefined>;
+    /**
      * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      *
      * > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `privateEndpointNetworkPolicies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `azure.network.SubnetNetworkSecurityGroupAssociation` resource.
@@ -329,15 +392,21 @@ export interface SubnetArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Route Table to associate with the subnet.
+     *
+     * > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+     */
+    routeTableIdWo?: pulumi.Input<string | undefined>;
+    /**
+     * An integer that must be incremented whenever `routeTableIdWo` is updated. Required if `routeTableIdWo` is specified.
+     */
+    routeTableIdWoVersion?: pulumi.Input<number | undefined>;
+    /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      */
     serviceEndpointPolicyIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
-    /**
-     * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-     *
-     * > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
-     */
-    serviceEndpoints?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    serviceEndpoints?: pulumi.Input<pulumi.Input<inputs.network.SubnetServiceEndpoint>[] | undefined>;
     /**
      * The sharing scope of the subnet. Possible value is `Tenant`.
      *

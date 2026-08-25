@@ -27,6 +27,8 @@ __all__ = [
     'ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgsDict',
     'ReplicatedVMNetworkInterfaceArgs',
     'ReplicatedVMNetworkInterfaceArgsDict',
+    'ReplicatedVMNetworkInterfaceIpConfigurationArgs',
+    'ReplicatedVMNetworkInterfaceIpConfigurationArgsDict',
     'ReplicatedVMUnmanagedDiskArgs',
     'ReplicatedVMUnmanagedDiskArgsDict',
     'ReplicationRecoveryPlanAzureToAzureSettingsArgs',
@@ -56,48 +58,43 @@ __all__ = [
 ]
 
 class ProtectionContainerMappingAutomaticUpdateArgsDict(TypedDict):
+    automation_account_id: pulumi.Input[_builtins.str]
+    """
+    The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
+    """
     authentication_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
 
     > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
     """
-    automation_account_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-
-    > **Note:** `automation_account_id` is required when `enabled` is specified.
-    """
-    enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-
-    > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-    """
 
 @pulumi.input_type
 class ProtectionContainerMappingAutomaticUpdateArgs:
     def __init__(__self__, *,
-                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 automation_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 automation_account_id: pulumi.Input[_builtins.str],
+                 authentication_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
+        :param pulumi.Input[_builtins.str] automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
         :param pulumi.Input[_builtins.str] authentication_type: The authentication type used for automation account. Possible values are `RunAsAccount` and `SystemAssignedIdentity`. Defaults to `SystemAssignedIdentity`.
                
                > **Note:** `RunAsAccount` of `authentication_type` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
-        :param pulumi.Input[_builtins.str] automation_account_id: The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-               
-               > **Note:** `automation_account_id` is required when `enabled` is specified.
-        :param pulumi.Input[_builtins.bool] enabled: Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-               
-               > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
         """
+        pulumi.set(__self__, "automation_account_id", automation_account_id)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
-        if automation_account_id is not None:
-            pulumi.set(__self__, "automation_account_id", automation_account_id)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="automationAccountId")
+    def automation_account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
+        """
+        return pulumi.get(self, "automation_account_id")
+
+    @automation_account_id.setter
+    def automation_account_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "automation_account_id", value)
 
     @_builtins.property
     @pulumi.getter(name="authenticationType")
@@ -112,34 +109,6 @@ class ProtectionContainerMappingAutomaticUpdateArgs:
     @authentication_type.setter
     def authentication_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "authentication_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="automationAccountId")
-    def automation_account_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-
-        > **Note:** `automation_account_id` is required when `enabled` is specified.
-        """
-        return pulumi.get(self, "automation_account_id")
-
-    @automation_account_id.setter
-    def automation_account_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "automation_account_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-
-        > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-        """
-        return pulumi.get(self, "enabled")
-
-    @enabled.setter
-    def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enabled", value)
 
 
 class ReplicatedVMManagedDiskArgsDict(TypedDict):
@@ -435,6 +404,55 @@ class ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs:
 
 
 class ReplicatedVMNetworkInterfaceArgsDict(TypedDict):
+    ip_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceIpConfigurationArgsDict']]]]]
+    """
+    IP configuration to assign when a failover is done. One or more `ip_configuration` blocks as defined below.
+    """
+    source_network_interface_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Id source network interface.
+    """
+
+@pulumi.input_type
+class ReplicatedVMNetworkInterfaceArgs:
+    def __init__(__self__, *,
+                 ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceIpConfigurationArgs']]]] = None,
+                 source_network_interface_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceIpConfigurationArgs']]] ip_configurations: IP configuration to assign when a failover is done. One or more `ip_configuration` blocks as defined below.
+        :param pulumi.Input[_builtins.str] source_network_interface_id: Id source network interface.
+        """
+        if ip_configurations is not None:
+            pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if source_network_interface_id is not None:
+            pulumi.set(__self__, "source_network_interface_id", source_network_interface_id)
+
+    @_builtins.property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceIpConfigurationArgs']]]]:
+        """
+        IP configuration to assign when a failover is done. One or more `ip_configuration` blocks as defined below.
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @ip_configurations.setter
+    def ip_configurations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ReplicatedVMNetworkInterfaceIpConfigurationArgs']]]]):
+        pulumi.set(self, "ip_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceNetworkInterfaceId")
+    def source_network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Id source network interface.
+        """
+        return pulumi.get(self, "source_network_interface_id")
+
+    @source_network_interface_id.setter
+    def source_network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_network_interface_id", value)
+
+
+class ReplicatedVMNetworkInterfaceIpConfigurationArgsDict(TypedDict):
     failover_test_public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of the public IP object to use when a test failover is done.
@@ -447,6 +465,16 @@ class ReplicatedVMNetworkInterfaceArgsDict(TypedDict):
     """
     Name of the subnet to use when a test failover is done.
     """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the IP configuration, which must be consistent with the name of the IP configuration of the source virtual machine.
+
+    > **Note:** `name` is required when more than one `ip_configuration` block is specified.
+    """
+    primary: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether this IP configuration is primary. If only one `ip_configuration` block is specified, it will be treated as primary when omitted. Must be specified if there is more than 1 `ip_configuration`.
+    """
     recovery_load_balancer_backend_address_pool_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
     A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
@@ -454,10 +482,6 @@ class ReplicatedVMNetworkInterfaceArgsDict(TypedDict):
     recovery_public_ip_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Id of the public IP object to use when a failover is done.
-    """
-    source_network_interface_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    (Required if the network_interface block is specified) Id source network interface.
     """
     target_static_ip: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -469,23 +493,27 @@ class ReplicatedVMNetworkInterfaceArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class ReplicatedVMNetworkInterfaceArgs:
+class ReplicatedVMNetworkInterfaceIpConfigurationArgs:
     def __init__(__self__, *,
                  failover_test_public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
                  failover_test_static_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  failover_test_subnet_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
                  recovery_load_balancer_backend_address_pool_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  recovery_public_ip_address_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  target_static_ip: pulumi.Input[Optional[_builtins.str]] = None,
                  target_subnet_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] failover_test_public_ip_address_id: Id of the public IP object to use when a test failover is done.
         :param pulumi.Input[_builtins.str] failover_test_static_ip: Static IP to assign when a test failover is done.
         :param pulumi.Input[_builtins.str] failover_test_subnet_name: Name of the subnet to use when a test failover is done.
+        :param pulumi.Input[_builtins.str] name: Name of the IP configuration, which must be consistent with the name of the IP configuration of the source virtual machine.
+               
+               > **Note:** `name` is required when more than one `ip_configuration` block is specified.
+        :param pulumi.Input[_builtins.bool] primary: Whether this IP configuration is primary. If only one `ip_configuration` block is specified, it will be treated as primary when omitted. Must be specified if there is more than 1 `ip_configuration`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recovery_load_balancer_backend_address_pool_ids: A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
         :param pulumi.Input[_builtins.str] recovery_public_ip_address_id: Id of the public IP object to use when a failover is done.
-        :param pulumi.Input[_builtins.str] source_network_interface_id: (Required if the network_interface block is specified) Id source network interface.
         :param pulumi.Input[_builtins.str] target_static_ip: Static IP to assign when a failover is done.
         :param pulumi.Input[_builtins.str] target_subnet_name: Name of the subnet to use when a failover is done.
         """
@@ -495,12 +523,14 @@ class ReplicatedVMNetworkInterfaceArgs:
             pulumi.set(__self__, "failover_test_static_ip", failover_test_static_ip)
         if failover_test_subnet_name is not None:
             pulumi.set(__self__, "failover_test_subnet_name", failover_test_subnet_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
         if recovery_load_balancer_backend_address_pool_ids is not None:
             pulumi.set(__self__, "recovery_load_balancer_backend_address_pool_ids", recovery_load_balancer_backend_address_pool_ids)
         if recovery_public_ip_address_id is not None:
             pulumi.set(__self__, "recovery_public_ip_address_id", recovery_public_ip_address_id)
-        if source_network_interface_id is not None:
-            pulumi.set(__self__, "source_network_interface_id", source_network_interface_id)
         if target_static_ip is not None:
             pulumi.set(__self__, "target_static_ip", target_static_ip)
         if target_subnet_name is not None:
@@ -543,6 +573,32 @@ class ReplicatedVMNetworkInterfaceArgs:
         pulumi.set(self, "failover_test_subnet_name", value)
 
     @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the IP configuration, which must be consistent with the name of the IP configuration of the source virtual machine.
+
+        > **Note:** `name` is required when more than one `ip_configuration` block is specified.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def primary(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether this IP configuration is primary. If only one `ip_configuration` block is specified, it will be treated as primary when omitted. Must be specified if there is more than 1 `ip_configuration`.
+        """
+        return pulumi.get(self, "primary")
+
+    @primary.setter
+    def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "primary", value)
+
+    @_builtins.property
     @pulumi.getter(name="recoveryLoadBalancerBackendAddressPoolIds")
     def recovery_load_balancer_backend_address_pool_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -565,18 +621,6 @@ class ReplicatedVMNetworkInterfaceArgs:
     @recovery_public_ip_address_id.setter
     def recovery_public_ip_address_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "recovery_public_ip_address_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="sourceNetworkInterfaceId")
-    def source_network_interface_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        (Required if the network_interface block is specified) Id source network interface.
-        """
-        return pulumi.get(self, "source_network_interface_id")
-
-    @source_network_interface_id.setter
-    def source_network_interface_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "source_network_interface_id", value)
 
     @_builtins.property
     @pulumi.getter(name="targetStaticIp")

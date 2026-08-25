@@ -26,7 +26,7 @@ class GetNamespaceAuthorizationRuleResult:
     """
     A collection of values returned by getNamespaceAuthorizationRule.
     """
-    def __init__(__self__, id=None, name=None, namespace_id=None, namespace_name=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, resource_group_name=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None):
+    def __init__(__self__, id=None, name=None, namespace_id=None, primary_connection_string=None, primary_connection_string_alias=None, primary_key=None, secondary_connection_string=None, secondary_connection_string_alias=None, secondary_key=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -36,9 +36,6 @@ class GetNamespaceAuthorizationRuleResult:
         if namespace_id and not isinstance(namespace_id, str):
             raise TypeError("Expected argument 'namespace_id' to be a str")
         pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name and not isinstance(namespace_name, str):
-            raise TypeError("Expected argument 'namespace_name' to be a str")
-        pulumi.set(__self__, "namespace_name", namespace_name)
         if primary_connection_string and not isinstance(primary_connection_string, str):
             raise TypeError("Expected argument 'primary_connection_string' to be a str")
         pulumi.set(__self__, "primary_connection_string", primary_connection_string)
@@ -48,9 +45,6 @@ class GetNamespaceAuthorizationRuleResult:
         if primary_key and not isinstance(primary_key, str):
             raise TypeError("Expected argument 'primary_key' to be a str")
         pulumi.set(__self__, "primary_key", primary_key)
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_connection_string and not isinstance(secondary_connection_string, str):
             raise TypeError("Expected argument 'secondary_connection_string' to be a str")
         pulumi.set(__self__, "secondary_connection_string", secondary_connection_string)
@@ -76,14 +70,8 @@ class GetNamespaceAuthorizationRuleResult:
 
     @_builtins.property
     @pulumi.getter(name="namespaceId")
-    def namespace_id(self) -> Optional[_builtins.str]:
+    def namespace_id(self) -> _builtins.str:
         return pulumi.get(self, "namespace_id")
-
-    @_builtins.property
-    @pulumi.getter(name="namespaceName")
-    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider.""")
-    def namespace_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "namespace_name")
 
     @_builtins.property
     @pulumi.getter(name="primaryConnectionString")
@@ -108,12 +96,6 @@ class GetNamespaceAuthorizationRuleResult:
         The primary access key for the authorization rule.
         """
         return pulumi.get(self, "primary_key")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `namespace_id` in v5.0 of the AzureRM Provider.""")
-    def resource_group_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "resource_group_name")
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionString")
@@ -149,11 +131,9 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
             id=self.id,
             name=self.name,
             namespace_id=self.namespace_id,
-            namespace_name=self.namespace_name,
             primary_connection_string=self.primary_connection_string,
             primary_connection_string_alias=self.primary_connection_string_alias,
             primary_key=self.primary_key,
-            resource_group_name=self.resource_group_name,
             secondary_connection_string=self.secondary_connection_string,
             secondary_connection_string_alias=self.secondary_connection_string_alias,
             secondary_key=self.secondary_key)
@@ -161,8 +141,6 @@ class AwaitableGetNamespaceAuthorizationRuleResult(GetNamespaceAuthorizationRule
 
 def get_namespace_authorization_rule(name: Optional[_builtins.str] = None,
                                      namespace_id: Optional[_builtins.str] = None,
-                                     namespace_name: Optional[_builtins.str] = None,
-                                     resource_group_name: Optional[_builtins.str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceAuthorizationRuleResult:
     """
     Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
@@ -192,8 +170,6 @@ def get_namespace_authorization_rule(name: Optional[_builtins.str] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule', __args__, opts=opts, typ=GetNamespaceAuthorizationRuleResult).value
 
@@ -201,18 +177,14 @@ def get_namespace_authorization_rule(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
-        namespace_name=pulumi.get(__ret__, 'namespace_name'),
         primary_connection_string=pulumi.get(__ret__, 'primary_connection_string'),
         primary_connection_string_alias=pulumi.get(__ret__, 'primary_connection_string_alias'),
         primary_key=pulumi.get(__ret__, 'primary_key'),
-        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_connection_string=pulumi.get(__ret__, 'secondary_connection_string'),
         secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'),
         secondary_key=pulumi.get(__ret__, 'secondary_key'))
 def get_namespace_authorization_rule_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                                            namespace_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                            namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                            resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                            namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceAuthorizationRuleResult]:
     """
     Use this data source to access information about an existing ServiceBus Namespace Authorization Rule.
@@ -242,19 +214,15 @@ def get_namespace_authorization_rule_output(name: pulumi.Input[Optional[_builtin
     __args__ = dict()
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule', __args__, opts=opts, typ=GetNamespaceAuthorizationRuleResult)
     return __ret__.apply(lambda __response__: GetNamespaceAuthorizationRuleResult(
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         namespace_id=pulumi.get(__response__, 'namespace_id'),
-        namespace_name=pulumi.get(__response__, 'namespace_name'),
         primary_connection_string=pulumi.get(__response__, 'primary_connection_string'),
         primary_connection_string_alias=pulumi.get(__response__, 'primary_connection_string_alias'),
         primary_key=pulumi.get(__response__, 'primary_key'),
-        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         secondary_connection_string=pulumi.get(__response__, 'secondary_connection_string'),
         secondary_connection_string_alias=pulumi.get(__response__, 'secondary_connection_string_alias'),
         secondary_key=pulumi.get(__response__, 'secondary_key')))

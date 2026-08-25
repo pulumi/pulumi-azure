@@ -102,18 +102,14 @@ public class BackupVault extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.crossRegionRestoreEnabled);
     }
     /**
-     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+     * Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="datastoreType", refs={String.class}, tree="[0]")
     private Output<String> datastoreType;
 
     /**
-     * @return Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+     * @return Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> datastoreType() {

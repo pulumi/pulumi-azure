@@ -10,7 +10,6 @@ import com.pulumi.azure.kusto.outputs.ClusterIdentity;
 import com.pulumi.azure.kusto.outputs.ClusterLanguageExtension;
 import com.pulumi.azure.kusto.outputs.ClusterOptimizedAutoScale;
 import com.pulumi.azure.kusto.outputs.ClusterSku;
-import com.pulumi.azure.kusto.outputs.ClusterVirtualNetworkConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -193,27 +192,15 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      * A `languageExtension` block as defined below.
      * 
      */
-    @Export(name="languageExtension", refs={List.class,ClusterLanguageExtension.class}, tree="[0,1]")
-    private Output<List<ClusterLanguageExtension>> languageExtension;
+    @Export(name="languageExtensions", refs={List.class,ClusterLanguageExtension.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<ClusterLanguageExtension>> languageExtensions;
 
     /**
      * @return A `languageExtension` block as defined below.
      * 
      */
-    public Output<List<ClusterLanguageExtension>> languageExtension() {
-        return this.languageExtension;
-    }
-    /**
-     * @deprecated
-     * `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `languageExtensions` has been deprecated in favour of `languageExtension` and will be removed in v5.0 of the AzureRM provider */
-    @Export(name="languageExtensions", refs={List.class,ClusterLanguageExtension.class}, tree="[0,1]")
-    private Output<List<ClusterLanguageExtension>> languageExtensions;
-
-    public Output<List<ClusterLanguageExtension>> languageExtensions() {
-        return this.languageExtensions;
+    public Output<Optional<List<ClusterLanguageExtension>>> languageExtensions() {
+        return Codegen.optional(this.languageExtensions);
     }
     /**
      * The location where the Kusto Cluster should be created. Changing this forces a new resource to be created.
@@ -400,18 +387,6 @@ public class Cluster extends com.pulumi.resources.CustomResource {
      */
     public Output<String> uri() {
         return this.uri;
-    }
-    /**
-     * @deprecated
-     * The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192
-     * 
-     */
-    @Deprecated /* The `virtualNetworkConfiguration` block has been deprecated as it is no longer supported by Azure and will be removed in v5.0 of the AzureRM Provider - for more information see https://techcommunity.microsoft.com/blog/azuredataexplorer/deprecation-of-virtual-network-injection-for-azure-data-explorer/4198192 */
-    @Export(name="virtualNetworkConfiguration", refs={ClusterVirtualNetworkConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ ClusterVirtualNetworkConfiguration> virtualNetworkConfiguration;
-
-    public Output<Optional<ClusterVirtualNetworkConfiguration>> virtualNetworkConfiguration() {
-        return Codegen.optional(this.virtualNetworkConfiguration);
     }
     /**
      * Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created.

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AccountQueueProperties{}
 	case "azure:storage/accountStaticWebsite:AccountStaticWebsite":
 		r = &AccountStaticWebsite{}
+	case "azure:storage/accountTableProperties:AccountTableProperties":
+		r = &AccountTableProperties{}
 	case "azure:storage/blob:Blob":
 		r = &Blob{}
 	case "azure:storage/blobInventoryPolicy:BlobInventoryPolicy":
@@ -116,6 +118,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"storage/accountStaticWebsite",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"storage/accountTableProperties",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

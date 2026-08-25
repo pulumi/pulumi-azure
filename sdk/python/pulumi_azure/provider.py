@@ -31,7 +31,6 @@ class ProviderArgs:
                  client_secret_file_path: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_correlation_request_id: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_terraform_partner_id: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enhanced_validation: pulumi.Input[Optional['ProviderEnhancedValidationArgs']] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  features: pulumi.Input[Optional['ProviderFeaturesArgs']] = None,
                  metadata_host: pulumi.Input[Optional[_builtins.str]] = None,
@@ -44,7 +43,6 @@ class ProviderArgs:
                  partner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_provider_registrations: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_providers_to_registers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_provider_registration: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_use_azuread: pulumi.Input[Optional[_builtins.bool]] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -76,7 +74,6 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[_builtins.str] resource_provider_registrations: The set of Resource Providers which should be automatically registered for the subscription.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_providers_to_registers: A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
-        :param pulumi.Input[_builtins.bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
         :param pulumi.Input[_builtins.bool] storage_use_azuread: Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         :param pulumi.Input[_builtins.str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID which should be used.
@@ -107,8 +104,6 @@ class ProviderArgs:
             pulumi.set(__self__, "disable_correlation_request_id", disable_correlation_request_id)
         if disable_terraform_partner_id is not None:
             pulumi.set(__self__, "disable_terraform_partner_id", disable_terraform_partner_id)
-        if enhanced_validation is not None:
-            pulumi.set(__self__, "enhanced_validation", enhanced_validation)
         if environment is None:
             environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
         if environment is not None:
@@ -137,13 +132,6 @@ class ProviderArgs:
             pulumi.set(__self__, "resource_provider_registrations", resource_provider_registrations)
         if resource_providers_to_registers is not None:
             pulumi.set(__self__, "resource_providers_to_registers", resource_providers_to_registers)
-        if skip_provider_registration is not None:
-            warnings.warn("""This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.""", DeprecationWarning)
-            pulumi.log.warn("""skip_provider_registration is deprecated: This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.""")
-        if skip_provider_registration is None:
-            skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
-        if skip_provider_registration is not None:
-            pulumi.set(__self__, "skip_provider_registration", skip_provider_registration)
         if storage_use_azuread is None:
             storage_use_azuread = (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
         if storage_use_azuread is not None:
@@ -293,15 +281,6 @@ class ProviderArgs:
         pulumi.set(self, "disable_terraform_partner_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="enhancedValidation")
-    def enhanced_validation(self) -> pulumi.Input[Optional['ProviderEnhancedValidationArgs']]:
-        return pulumi.get(self, "enhanced_validation")
-
-    @enhanced_validation.setter
-    def enhanced_validation(self, value: pulumi.Input[Optional['ProviderEnhancedValidationArgs']]):
-        pulumi.set(self, "enhanced_validation", value)
-
-    @_builtins.property
     @pulumi.getter
     def environment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -443,19 +422,6 @@ class ProviderArgs:
         pulumi.set(self, "resource_providers_to_registers", value)
 
     @_builtins.property
-    @pulumi.getter(name="skipProviderRegistration")
-    @_utilities.deprecated("""This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resource_provider_registrations` property instead.""")
-    def skip_provider_registration(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
-        """
-        return pulumi.get(self, "skip_provider_registration")
-
-    @skip_provider_registration.setter
-    def skip_provider_registration(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "skip_provider_registration", value)
-
-    @_builtins.property
     @pulumi.getter(name="storageUseAzuread")
     def storage_use_azuread(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -557,7 +523,6 @@ class Provider(pulumi.ProviderResource):
                  client_secret_file_path: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_correlation_request_id: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_terraform_partner_id: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enhanced_validation: pulumi.Input[Optional[Union['ProviderEnhancedValidationArgs', 'ProviderEnhancedValidationArgsDict']]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  features: pulumi.Input[Optional[Union['ProviderFeaturesArgs', 'ProviderFeaturesArgsDict']]] = None,
                  metadata_host: pulumi.Input[Optional[_builtins.str]] = None,
@@ -570,7 +535,6 @@ class Provider(pulumi.ProviderResource):
                  partner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_provider_registrations: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_providers_to_registers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_provider_registration: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_use_azuread: pulumi.Input[Optional[_builtins.bool]] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -609,7 +573,6 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[_builtins.str] resource_provider_registrations: The set of Resource Providers which should be automatically registered for the subscription.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_providers_to_registers: A list of Resource Providers to explicitly register for the subscription, in addition to those specified by the `resource_provider_registrations` property.
-        :param pulumi.Input[_builtins.bool] skip_provider_registration: Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they're not already registered?
         :param pulumi.Input[_builtins.bool] storage_use_azuread: Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
         :param pulumi.Input[_builtins.str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID which should be used.
@@ -657,7 +620,6 @@ class Provider(pulumi.ProviderResource):
                  client_secret_file_path: pulumi.Input[Optional[_builtins.str]] = None,
                  disable_correlation_request_id: pulumi.Input[Optional[_builtins.bool]] = None,
                  disable_terraform_partner_id: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enhanced_validation: pulumi.Input[Optional[Union['ProviderEnhancedValidationArgs', 'ProviderEnhancedValidationArgsDict']]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  features: pulumi.Input[Optional[Union['ProviderFeaturesArgs', 'ProviderFeaturesArgsDict']]] = None,
                  metadata_host: pulumi.Input[Optional[_builtins.str]] = None,
@@ -670,7 +632,6 @@ class Provider(pulumi.ProviderResource):
                  partner_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_provider_registrations: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_providers_to_registers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 skip_provider_registration: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_use_azuread: pulumi.Input[Optional[_builtins.bool]] = None,
                  subscription_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -698,7 +659,6 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["client_secret_file_path"] = None if client_secret_file_path is None else pulumi.Output.secret(client_secret_file_path)
             __props__.__dict__["disable_correlation_request_id"] = pulumi.Output.from_input(disable_correlation_request_id).apply(pulumi.runtime.to_json) if disable_correlation_request_id is not None else None
             __props__.__dict__["disable_terraform_partner_id"] = pulumi.Output.from_input(disable_terraform_partner_id).apply(pulumi.runtime.to_json) if disable_terraform_partner_id is not None else None
-            __props__.__dict__["enhanced_validation"] = pulumi.Output.from_input(enhanced_validation).apply(pulumi.runtime.to_json) if enhanced_validation is not None else None
             if environment is None:
                 environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
             __props__.__dict__["environment"] = environment
@@ -715,9 +675,6 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["partner_id"] = partner_id
             __props__.__dict__["resource_provider_registrations"] = resource_provider_registrations
             __props__.__dict__["resource_providers_to_registers"] = pulumi.Output.from_input(resource_providers_to_registers).apply(pulumi.runtime.to_json) if resource_providers_to_registers is not None else None
-            if skip_provider_registration is None:
-                skip_provider_registration = (_utilities.get_env_bool('ARM_SKIP_PROVIDER_REGISTRATION') or False)
-            __props__.__dict__["skip_provider_registration"] = pulumi.Output.from_input(skip_provider_registration).apply(pulumi.runtime.to_json) if skip_provider_registration is not None else None
             if storage_use_azuread is None:
                 storage_use_azuread = (_utilities.get_env_bool('ARM_STORAGE_USE_AZUREAD') or False)
             __props__.__dict__["storage_use_azuread"] = pulumi.Output.from_input(storage_use_azuread).apply(pulumi.runtime.to_json) if storage_use_azuread is not None else None

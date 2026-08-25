@@ -34,14 +34,14 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+     * Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
      * 
      */
     @Import(name="fileUploadEnforcement")
     private @Nullable Output<Boolean> fileUploadEnforcement;
 
     /**
-     * @return Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+     * @return Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
      * 
      */
     public Optional<Output<Boolean>> fileUploadEnforcement() {
@@ -223,7 +223,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class PolicyPolicySettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+         * @param fileUploadEnforcement Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
          * 
          * @return builder
          * 

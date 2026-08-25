@@ -21,8 +21,7 @@ class ManagedInstanceTransparentDataEncryptionArgs:
     def __init__(__self__, *,
                  managed_instance_id: pulumi.Input[_builtins.str],
                  auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ManagedInstanceTransparentDataEncryption resource.
 
@@ -41,8 +40,6 @@ class ManagedInstanceTransparentDataEncryptionArgs:
             pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceId")
@@ -86,22 +83,12 @@ class ManagedInstanceTransparentDataEncryptionArgs:
     def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
-
 
 @pulumi.input_type
 class _ManagedInstanceTransparentDataEncryptionState:
     def __init__(__self__, *,
                  auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ManagedInstanceTransparentDataEncryption resources.
@@ -120,8 +107,6 @@ class _ManagedInstanceTransparentDataEncryptionState:
             pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if managed_instance_id is not None:
             pulumi.set(__self__, "managed_instance_id", managed_instance_id)
 
@@ -156,15 +141,6 @@ class _ManagedInstanceTransparentDataEncryptionState:
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="managedInstanceId")
     def managed_instance_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -185,7 +161,6 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -294,6 +269,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             enabled_for_disk_encryption=True,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
@@ -481,6 +457,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             enabled_for_disk_encryption=True,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
@@ -561,7 +538,6 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -574,7 +550,6 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
 
             __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
-            __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             if managed_instance_id is None and not opts.urn:
                 raise TypeError("Missing required property 'managed_instance_id'")
             __props__.__dict__["managed_instance_id"] = managed_instance_id
@@ -590,7 +565,6 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             managed_instance_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ManagedInstanceTransparentDataEncryption':
         """
         Get an existing ManagedInstanceTransparentDataEncryption resource's state with the given name, id, and optional extra
@@ -615,7 +589,6 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
 
         __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
-        __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["managed_instance_id"] = managed_instance_id
         return ManagedInstanceTransparentDataEncryption(resource_name, opts=opts, __props__=__props__)
 
@@ -640,11 +613,6 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         > **Note:** If `managed_instance_id` denotes a secondary instance deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
-
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    def managed_hsm_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
 
     @_builtins.property
     @pulumi.getter(name="managedInstanceId")

@@ -165,8 +165,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
  *     name: "example-link",
- *     resourceGroupName: example.name,
- *     privateDnsZoneName: exampleZone.name,
+ *     privateDnsZoneId: exampleZone.id,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
  * ```
@@ -234,6 +233,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public readonly customNetworkInterfaceName: pulumi.Output<string | undefined>;
     /**
+     * Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+     */
+    declare public readonly edgeZone: pulumi.Output<string | undefined>;
+    /**
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
     declare public readonly ipConfigurations: pulumi.Output<outputs.privatelink.EndpointIpConfiguration[] | undefined>;
@@ -289,6 +292,7 @@ export class Endpoint extends pulumi.CustomResource {
             const state = argsOrState as EndpointState | undefined;
             resourceInputs["customDnsConfigs"] = state?.customDnsConfigs;
             resourceInputs["customNetworkInterfaceName"] = state?.customNetworkInterfaceName;
+            resourceInputs["edgeZone"] = state?.edgeZone;
             resourceInputs["ipConfigurations"] = state?.ipConfigurations;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
@@ -311,6 +315,7 @@ export class Endpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'subnetId'");
             }
             resourceInputs["customNetworkInterfaceName"] = args?.customNetworkInterfaceName;
+            resourceInputs["edgeZone"] = args?.edgeZone;
             resourceInputs["ipConfigurations"] = args?.ipConfigurations;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
@@ -340,6 +345,10 @@ export interface EndpointState {
      * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
      */
     customNetworkInterfaceName?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+     */
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */
@@ -390,6 +399,10 @@ export interface EndpointArgs {
      * The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
      */
     customNetworkInterfaceName?: pulumi.Input<string | undefined>;
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+     */
+    edgeZone?: pulumi.Input<string | undefined>;
     /**
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
      */

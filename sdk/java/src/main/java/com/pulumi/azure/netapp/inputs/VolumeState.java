@@ -9,6 +9,7 @@ import com.pulumi.azure.netapp.inputs.VolumeDataProtectionBackupPolicyArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionReplicationArgs;
 import com.pulumi.azure.netapp.inputs.VolumeDataProtectionSnapshotPolicyArgs;
 import com.pulumi.azure.netapp.inputs.VolumeExportPolicyRuleArgs;
+import com.pulumi.azure.netapp.inputs.VolumeMountTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -264,18 +265,18 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of IPv4 Addresses which should be used to mount the volume.
+     * One or more `mountTarget` blocks as defined below.
      * 
      */
-    @Import(name="mountIpAddresses")
-    private @Nullable Output<List<String>> mountIpAddresses;
+    @Import(name="mountTargets")
+    private @Nullable Output<List<VolumeMountTargetArgs>> mountTargets;
 
     /**
-     * @return A list of IPv4 Addresses which should be used to mount the volume.
+     * @return One or more `mountTarget` blocks as defined below.
      * 
      */
-    public Optional<Output<List<String>>> mountIpAddresses() {
-        return Optional.ofNullable(this.mountIpAddresses);
+    public Optional<Output<List<VolumeMountTargetArgs>>> mountTargets() {
+        return Optional.ofNullable(this.mountTargets);
     }
 
     /**
@@ -582,7 +583,7 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         this.keyVaultPrivateEndpointId = $.keyVaultPrivateEndpointId;
         this.largeVolumeEnabled = $.largeVolumeEnabled;
         this.location = $.location;
-        this.mountIpAddresses = $.mountIpAddresses;
+        this.mountTargets = $.mountTargets;
         this.name = $.name;
         this.networkFeatures = $.networkFeatures;
         this.poolName = $.poolName;
@@ -959,34 +960,34 @@ public final class VolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mountIpAddresses A list of IPv4 Addresses which should be used to mount the volume.
+         * @param mountTargets One or more `mountTarget` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder mountIpAddresses(@Nullable Output<List<String>> mountIpAddresses) {
-            $.mountIpAddresses = mountIpAddresses;
+        public Builder mountTargets(@Nullable Output<List<VolumeMountTargetArgs>> mountTargets) {
+            $.mountTargets = mountTargets;
             return this;
         }
 
         /**
-         * @param mountIpAddresses A list of IPv4 Addresses which should be used to mount the volume.
+         * @param mountTargets One or more `mountTarget` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder mountIpAddresses(List<String> mountIpAddresses) {
-            return mountIpAddresses(Output.of(mountIpAddresses));
+        public Builder mountTargets(List<VolumeMountTargetArgs> mountTargets) {
+            return mountTargets(Output.of(mountTargets));
         }
 
         /**
-         * @param mountIpAddresses A list of IPv4 Addresses which should be used to mount the volume.
+         * @param mountTargets One or more `mountTarget` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder mountIpAddresses(String... mountIpAddresses) {
-            return mountIpAddresses(List.of(mountIpAddresses));
+        public Builder mountTargets(VolumeMountTargetArgs... mountTargets) {
+            return mountTargets(List.of(mountTargets));
         }
 
         /**

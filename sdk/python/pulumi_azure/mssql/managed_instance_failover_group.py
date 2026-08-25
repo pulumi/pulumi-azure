@@ -333,8 +333,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"])
         primary_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("primary",
             name="primary-link",
-            resource_group_name=primary.name,
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=primary_virtual_network.id)
         primary_subnet = azure.network.Subnet("primary",
             name=primary_name,
@@ -392,8 +391,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             address_spaces=["10.1.0.0/16"])
         failover_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("failover",
             name="failover-link",
-            resource_group_name=example_zone.resource_group_name,
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=failover_virtual_network.id)
         failover_subnet = azure.network.Subnet("failover",
             name="ManagedInstance",
@@ -536,8 +534,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             address_spaces=["10.0.0.0/16"])
         primary_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("primary",
             name="primary-link",
-            resource_group_name=primary.name,
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=primary_virtual_network.id)
         primary_subnet = azure.network.Subnet("primary",
             name=primary_name,
@@ -595,8 +592,7 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             address_spaces=["10.1.0.0/16"])
         failover_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("failover",
             name="failover-link",
-            resource_group_name=example_zone.resource_group_name,
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=failover_virtual_network.id)
         failover_subnet = azure.network.Subnet("failover",
             name="ManagedInstance",

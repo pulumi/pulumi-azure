@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/hdinsight"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/hdinsight"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -59,10 +59,11 @@ import (
 //				Name:              pulumi.String("example-hdicluster"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
-//				ClusterVersion:    pulumi.String("4.0"),
+//				ClusterVersion:    pulumi.String("5.1"),
 //				Tier:              pulumi.String("Standard"),
+//				TlsMinVersion:     pulumi.String("1.2"),
 //				ComponentVersion: &hdinsight.KafkaClusterComponentVersionArgs{
-//					Kafka: pulumi.String("2.1"),
+//					Kafka: pulumi.String("3.2"),
 //				},
 //				Gateway: &hdinsight.KafkaClusterGatewayArgs{
 //					Username: pulumi.String("acctestusrgw"),
@@ -70,26 +71,26 @@ import (
 //				},
 //				StorageAccounts: hdinsight.KafkaClusterStorageAccountArray{
 //					&hdinsight.KafkaClusterStorageAccountArgs{
-//						StorageContainerId: exampleContainer.ID().ToIDOutput().ToStringOutput(),
-//						StorageAccountKey:  exampleAccount.PrimaryAccessKey,
-//						IsDefault:          pulumi.Bool(true),
+//						StorageContainerUrl: exampleContainer.Url,
+//						StorageAccountKey:   exampleAccount.PrimaryAccessKey,
+//						IsDefault:           pulumi.Bool(true),
 //					},
 //				},
 //				Roles: &hdinsight.KafkaClusterRolesArgs{
 //					HeadNode: &hdinsight.KafkaClusterRolesHeadNodeArgs{
-//						VmSize:   pulumi.String("Standard_D3_V2"),
+//						VmSize:   pulumi.String("Standard_A4_V2"),
 //						Username: pulumi.String("acctestusrvm"),
 //						Password: pulumi.String("AccTestvdSC4daf986!"),
 //					},
 //					WorkerNode: &hdinsight.KafkaClusterRolesWorkerNodeArgs{
-//						VmSize:               pulumi.String("Standard_D3_V2"),
+//						VmSize:               pulumi.String("Standard_A4_V2"),
 //						Username:             pulumi.String("acctestusrvm"),
 //						Password:             pulumi.String("AccTestvdSC4daf986!"),
 //						NumberOfDisksPerNode: pulumi.Int(3),
 //						TargetInstanceCount:  pulumi.Int(3),
 //					},
 //					ZookeeperNode: &hdinsight.KafkaClusterRolesZookeeperNodeArgs{
-//						VmSize:   pulumi.String("Standard_D3_V2"),
+//						VmSize:   pulumi.String("Standard_A4_V2"),
 //						Username: pulumi.String("acctestusrvm"),
 //						Password: pulumi.String("AccTestvdSC4daf986!"),
 //					},
@@ -128,8 +129,6 @@ type KafkaCluster struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation KafkaClusterComputeIsolationPtrOutput `pulumi:"computeIsolation"`
 	// One or more `diskEncryption` block as defined below.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions KafkaClusterDiskEncryptionArrayOutput `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrOutput `pulumi:"encryptionInTransitEnabled"`
@@ -172,7 +171,7 @@ type KafkaCluster struct {
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier pulumi.StringOutput `pulumi:"tier"`
 	// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
-	TlsMinVersion pulumi.StringPtrOutput `pulumi:"tlsMinVersion"`
+	TlsMinVersion pulumi.StringOutput `pulumi:"tlsMinVersion"`
 }
 
 // NewKafkaCluster registers a new resource with the given unique name, arguments, and options.
@@ -199,6 +198,9 @@ func NewKafkaCluster(ctx *pulumi.Context,
 	}
 	if args.Tier == nil {
 		return nil, errors.New("invalid value for required argument 'Tier'")
+	}
+	if args.TlsMinVersion == nil {
+		return nil, errors.New("invalid value for required argument 'TlsMinVersion'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource KafkaCluster
@@ -230,8 +232,6 @@ type kafkaClusterState struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation *KafkaClusterComputeIsolation `pulumi:"computeIsolation"`
 	// One or more `diskEncryption` block as defined below.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions []KafkaClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
@@ -285,8 +285,6 @@ type KafkaClusterState struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation KafkaClusterComputeIsolationPtrInput
 	// One or more `diskEncryption` block as defined below.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -344,8 +342,6 @@ type kafkaClusterArgs struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation *KafkaClusterComputeIsolation `pulumi:"computeIsolation"`
 	// One or more `diskEncryption` block as defined below.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions []KafkaClusterDiskEncryption `pulumi:"diskEncryptions"`
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled *bool `pulumi:"encryptionInTransitEnabled"`
@@ -382,7 +378,7 @@ type kafkaClusterArgs struct {
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier string `pulumi:"tier"`
 	// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
-	TlsMinVersion *string `pulumi:"tlsMinVersion"`
+	TlsMinVersion string `pulumi:"tlsMinVersion"`
 }
 
 // The set of arguments for constructing a KafkaCluster resource.
@@ -394,8 +390,6 @@ type KafkaClusterArgs struct {
 	// A `computeIsolation` block as defined below.
 	ComputeIsolation KafkaClusterComputeIsolationPtrInput
 	// One or more `diskEncryption` block as defined below.
-	//
-	// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 	DiskEncryptions KafkaClusterDiskEncryptionArrayInput
 	// Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
 	EncryptionInTransitEnabled pulumi.BoolPtrInput
@@ -432,7 +426,7 @@ type KafkaClusterArgs struct {
 	// Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
 	Tier pulumi.StringInput
 	// The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
-	TlsMinVersion pulumi.StringPtrInput
+	TlsMinVersion pulumi.StringInput
 }
 
 func (KafkaClusterArgs) ElementType() reflect.Type {
@@ -538,8 +532,6 @@ func (o KafkaClusterOutput) ComputeIsolation() KafkaClusterComputeIsolationPtrOu
 }
 
 // One or more `diskEncryption` block as defined below.
-//
-// > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
 func (o KafkaClusterOutput) DiskEncryptions() KafkaClusterDiskEncryptionArrayOutput {
 	return o.ApplyT(func(v *KafkaCluster) KafkaClusterDiskEncryptionArrayOutput { return v.DiskEncryptions }).(KafkaClusterDiskEncryptionArrayOutput)
 }
@@ -645,8 +637,8 @@ func (o KafkaClusterOutput) Tier() pulumi.StringOutput {
 }
 
 // The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
-func (o KafkaClusterOutput) TlsMinVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KafkaCluster) pulumi.StringPtrOutput { return v.TlsMinVersion }).(pulumi.StringPtrOutput)
+func (o KafkaClusterOutput) TlsMinVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *KafkaCluster) pulumi.StringOutput { return v.TlsMinVersion }).(pulumi.StringOutput)
 }
 
 type KafkaClusterArrayOutput struct{ *pulumi.OutputState }

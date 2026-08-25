@@ -34,18 +34,18 @@ public final class ServerSecurityAlertPolicyState extends com.pulumi.resources.R
     }
 
     /**
-     * Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+     * Are the alerts sent to the account administrators? Defaults to `false`.
      * 
      */
-    @Import(name="emailAccountAdmins")
-    private @Nullable Output<Boolean> emailAccountAdmins;
+    @Import(name="emailAccountAdminsEnabled")
+    private @Nullable Output<Boolean> emailAccountAdminsEnabled;
 
     /**
-     * @return Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+     * @return Are the alerts sent to the account administrators? Defaults to `false`.
      * 
      */
-    public Optional<Output<Boolean>> emailAccountAdmins() {
-        return Optional.ofNullable(this.emailAccountAdmins);
+    public Optional<Output<Boolean>> emailAccountAdminsEnabled() {
+        return Optional.ofNullable(this.emailAccountAdminsEnabled);
     }
 
     /**
@@ -169,7 +169,7 @@ public final class ServerSecurityAlertPolicyState extends com.pulumi.resources.R
 
     private ServerSecurityAlertPolicyState(ServerSecurityAlertPolicyState $) {
         this.disabledAlerts = $.disabledAlerts;
-        this.emailAccountAdmins = $.emailAccountAdmins;
+        this.emailAccountAdminsEnabled = $.emailAccountAdminsEnabled;
         this.emailAddresses = $.emailAddresses;
         this.resourceGroupName = $.resourceGroupName;
         this.retentionDays = $.retentionDays;
@@ -229,24 +229,24 @@ public final class ServerSecurityAlertPolicyState extends com.pulumi.resources.R
         }
 
         /**
-         * @param emailAccountAdmins Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+         * @param emailAccountAdminsEnabled Are the alerts sent to the account administrators? Defaults to `false`.
          * 
          * @return builder
          * 
          */
-        public Builder emailAccountAdmins(@Nullable Output<Boolean> emailAccountAdmins) {
-            $.emailAccountAdmins = emailAccountAdmins;
+        public Builder emailAccountAdminsEnabled(@Nullable Output<Boolean> emailAccountAdminsEnabled) {
+            $.emailAccountAdminsEnabled = emailAccountAdminsEnabled;
             return this;
         }
 
         /**
-         * @param emailAccountAdmins Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+         * @param emailAccountAdminsEnabled Are the alerts sent to the account administrators? Defaults to `false`.
          * 
          * @return builder
          * 
          */
-        public Builder emailAccountAdmins(Boolean emailAccountAdmins) {
-            return emailAccountAdmins(Output.of(emailAccountAdmins));
+        public Builder emailAccountAdminsEnabled(Boolean emailAccountAdminsEnabled) {
+            return emailAccountAdminsEnabled(Output.of(emailAccountAdminsEnabled));
         }
 
         /**

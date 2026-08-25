@@ -25,6 +25,11 @@ export type AccountStaticWebsite = import("./accountStaticWebsite").AccountStati
 export const AccountStaticWebsite: typeof import("./accountStaticWebsite").AccountStaticWebsite = null as any;
 utilities.lazyLoad(exports, ["AccountStaticWebsite"], () => require("./accountStaticWebsite"));
 
+export { AccountTablePropertiesArgs, AccountTablePropertiesState } from "./accountTableProperties";
+export type AccountTableProperties = import("./accountTableProperties").AccountTableProperties;
+export const AccountTableProperties: typeof import("./accountTableProperties").AccountTableProperties = null as any;
+utilities.lazyLoad(exports, ["AccountTableProperties"], () => require("./accountTableProperties"));
+
 export { BlobArgs, BlobState } from "./blob";
 export type Blob = import("./blob").Blob;
 export const Blob: typeof import("./blob").Blob = null as any;
@@ -254,6 +259,8 @@ const _module = {
                 return new AccountQueueProperties(name, <any>undefined, { urn })
             case "azure:storage/accountStaticWebsite:AccountStaticWebsite":
                 return new AccountStaticWebsite(name, <any>undefined, { urn })
+            case "azure:storage/accountTableProperties:AccountTableProperties":
+                return new AccountTableProperties(name, <any>undefined, { urn })
             case "azure:storage/blob:Blob":
                 return new Blob(name, <any>undefined, { urn })
             case "azure:storage/blobInventoryPolicy:BlobInventoryPolicy":
@@ -319,6 +326,7 @@ pulumi.runtime.registerResourceModule("azure", "storage/account", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/accountNetworkRules", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/accountQueueProperties", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/accountStaticWebsite", _module)
+pulumi.runtime.registerResourceModule("azure", "storage/accountTableProperties", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/blob", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/blobInventoryPolicy", _module)
 pulumi.runtime.registerResourceModule("azure", "storage/container", _module)

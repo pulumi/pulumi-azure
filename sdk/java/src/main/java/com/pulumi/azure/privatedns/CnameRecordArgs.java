@@ -34,6 +34,21 @@ public final class CnameRecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="privateDnsZoneId", required=true)
+    private Output<String> privateDnsZoneId;
+
+    /**
+     * @return Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> privateDnsZoneId() {
+        return this.privateDnsZoneId;
+    }
+
+    /**
      * The target of the CNAME.
      * 
      */
@@ -46,21 +61,6 @@ public final class CnameRecordArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> record() {
         return this.record;
-    }
-
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Import(name="resourceGroupName", required=true)
-    private Output<String> resourceGroupName;
-
-    /**
-     * @return Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
     }
 
     /**
@@ -93,30 +93,14 @@ public final class CnameRecordArgs extends com.pulumi.resources.ResourceArgs {
         return this.ttl;
     }
 
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Import(name="zoneName", required=true)
-    private Output<String> zoneName;
-
-    /**
-     * @return Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<String> zoneName() {
-        return this.zoneName;
-    }
-
     private CnameRecordArgs() {}
 
     private CnameRecordArgs(CnameRecordArgs $) {
         this.name = $.name;
+        this.privateDnsZoneId = $.privateDnsZoneId;
         this.record = $.record;
-        this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.ttl = $.ttl;
-        this.zoneName = $.zoneName;
     }
 
     public static Builder builder() {
@@ -159,6 +143,27 @@ public final class CnameRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param privateDnsZoneId Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsZoneId(Output<String> privateDnsZoneId) {
+            $.privateDnsZoneId = privateDnsZoneId;
+            return this;
+        }
+
+        /**
+         * @param privateDnsZoneId Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsZoneId(String privateDnsZoneId) {
+            return privateDnsZoneId(Output.of(privateDnsZoneId));
+        }
+
+        /**
          * @param record The target of the CNAME.
          * 
          * @return builder
@@ -177,27 +182,6 @@ public final class CnameRecordArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder record(String record) {
             return record(Output.of(record));
-        }
-
-        /**
-         * @param resourceGroupName Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceGroupName(Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @param resourceGroupName Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
         }
 
         /**
@@ -242,39 +226,15 @@ public final class CnameRecordArgs extends com.pulumi.resources.ResourceArgs {
             return ttl(Output.of(ttl));
         }
 
-        /**
-         * @param zoneName Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneName(Output<String> zoneName) {
-            $.zoneName = zoneName;
-            return this;
-        }
-
-        /**
-         * @param zoneName Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneName(String zoneName) {
-            return zoneName(Output.of(zoneName));
-        }
-
         public CnameRecordArgs build() {
+            if ($.privateDnsZoneId == null) {
+                throw new MissingRequiredPropertyException("CnameRecordArgs", "privateDnsZoneId");
+            }
             if ($.record == null) {
                 throw new MissingRequiredPropertyException("CnameRecordArgs", "record");
             }
-            if ($.resourceGroupName == null) {
-                throw new MissingRequiredPropertyException("CnameRecordArgs", "resourceGroupName");
-            }
             if ($.ttl == null) {
                 throw new MissingRequiredPropertyException("CnameRecordArgs", "ttl");
-            }
-            if ($.zoneName == null) {
-                throw new MissingRequiredPropertyException("CnameRecordArgs", "zoneName");
             }
             return $;
         }

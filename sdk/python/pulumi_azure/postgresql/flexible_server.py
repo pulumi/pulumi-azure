@@ -1124,7 +1124,9 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"],
+            service_endpoints=[{
+                "service": "Microsoft.Storage",
+            }],
             delegations=[{
                 "name": "fs",
                 "service_delegation": {
@@ -1137,9 +1139,8 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name)
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="exampleVnetZone.com",
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=example_virtual_network.id,
-            resource_group_name=example.name,
             opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_flexible_server = azure.postgresql.FlexibleServer("example",
             name="example-psqlflexibleserver",
@@ -1284,7 +1285,9 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
-            service_endpoints=["Microsoft.Storage"],
+            service_endpoints=[{
+                "service": "Microsoft.Storage",
+            }],
             delegations=[{
                 "name": "fs",
                 "service_delegation": {
@@ -1297,9 +1300,8 @@ class FlexibleServer(pulumi.CustomResource):
             resource_group_name=example.name)
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="exampleVnetZone.com",
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=example_virtual_network.id,
-            resource_group_name=example.name,
             opts = pulumi.ResourceOptions(depends_on=[example_subnet]))
         example_flexible_server = azure.postgresql.FlexibleServer("example",
             name="example-psqlflexibleserver",

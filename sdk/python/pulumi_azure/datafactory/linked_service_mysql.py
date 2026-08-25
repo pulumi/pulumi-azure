@@ -36,7 +36,7 @@ class LinkedServiceMysqlArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_properties: A map of additional properties to associate with the Data Factory Linked Service MySQL.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] annotations: List of tags that can be used for describing the Data Factory Linked Service MySQL.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service MySQL.
-        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
                
                > **Note:** New linked services must set `driver_version` to `V2`.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service MySQL.
@@ -124,7 +124,7 @@ class LinkedServiceMysqlArgs:
     @pulumi.getter(name="driverVersion")
     def driver_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
 
         > **Note:** New linked services must set `driver_version` to `V2`.
         """
@@ -191,7 +191,7 @@ class _LinkedServiceMysqlState:
         :param pulumi.Input[_builtins.str] connection_string: The connection string in which to authenticate with MySQL.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service MySQL.
-        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
                
                > **Note:** New linked services must set `driver_version` to `V2`.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service MySQL.
@@ -281,7 +281,7 @@ class _LinkedServiceMysqlState:
     @pulumi.getter(name="driverVersion")
     def driver_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
 
         > **Note:** New linked services must set `driver_version` to `V2`.
         """
@@ -382,7 +382,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connection_string: The connection string in which to authenticate with MySQL.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service MySQL.
-        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
                
                > **Note:** New linked services must set `driver_version` to `V2`.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service MySQL.
@@ -503,7 +503,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] connection_string: The connection string in which to authenticate with MySQL.
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Linked Service MySQL.
-        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        :param pulumi.Input[_builtins.str] driver_version: The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
                
                > **Note:** New linked services must set `driver_version` to `V2`.
         :param pulumi.Input[_builtins.str] integration_runtime_name: The integration runtime reference to associate with the Data Factory Linked Service MySQL.
@@ -569,7 +569,7 @@ class LinkedServiceMysql(pulumi.CustomResource):
     @pulumi.getter(name="driverVersion")
     def driver_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+        The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
 
         > **Note:** New linked services must set `driver_version` to `V2`.
         """

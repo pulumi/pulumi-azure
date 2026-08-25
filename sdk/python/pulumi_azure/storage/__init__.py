@@ -10,6 +10,7 @@ from .account import *
 from .account_network_rules import *
 from .account_queue_properties import *
 from .account_static_website import *
+from .account_table_properties import *
 from .blob import *
 from .blob_inventory_policy import *
 from .container import *

@@ -57,8 +57,8 @@ namespace Pulumi.Azure.SecurityCenter.Inputs
         /// <summary>
         /// Type of Azure resource to send data to. Possible values are `EventHub`, `LogicApp` and `Workspace`.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         public AutomationActionArgs()
         {

@@ -12,35 +12,36 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "some-resource-group",
  *     location: "West Europe",
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleAppServicePlan = new azurerm.index.AppServicePlan("example", {
  *     name: "some-app-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     sku: {
+ *     sku: [{
  *         tier: "Standard",
  *         size: "S1",
- *     },
+ *     }],
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azurerm.index.AppService("example", {
  *     name: "some-app-service",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  * });
- * const exampleSlot = new azure.appservice.Slot("example", {
+ * const exampleAppServiceSlot = new azurerm.index.AppServiceSlot("example", {
  *     name: "staging",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     appServiceName: exampleAppService.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  * });
  * const exampleSlotCustomHostnameBinding = new azure.appservice.SlotCustomHostnameBinding("example", {
- *     appServiceSlotId: exampleSlot.id,
+ *     appServiceSlotId: exampleAppServiceSlot.id,
  *     hostname: "www.mywebsite.com",
  * });
  * ```

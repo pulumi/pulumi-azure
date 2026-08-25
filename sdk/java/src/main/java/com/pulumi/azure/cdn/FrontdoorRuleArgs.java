@@ -35,29 +35,33 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+     * The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
      * 
      */
-    @Import(name="behaviorOnMatch")
-    private @Nullable Output<String> behaviorOnMatch;
+    @Import(name="behaviourOnMatch")
+    private @Nullable Output<String> behaviourOnMatch;
 
     /**
-     * @return If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+     * @return The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
      * 
      */
-    public Optional<Output<String>> behaviorOnMatch() {
-        return Optional.ofNullable(this.behaviorOnMatch);
+    public Optional<Output<String>> behaviourOnMatch() {
+        return Optional.ofNullable(this.behaviourOnMatch);
     }
 
     /**
-     * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+     * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
      * 
      */
     @Import(name="cdnFrontdoorRuleSetId", required=true)
     private Output<String> cdnFrontdoorRuleSetId;
 
     /**
-     * @return The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+     * @return The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
      * 
      */
     public Output<String> cdnFrontdoorRuleSetId() {
@@ -80,14 +84,14 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+     * The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+     * @return The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -117,7 +121,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     private FrontdoorRuleArgs(FrontdoorRuleArgs $) {
         this.actions = $.actions;
-        this.behaviorOnMatch = $.behaviorOnMatch;
+        this.behaviourOnMatch = $.behaviourOnMatch;
         this.cdnFrontdoorRuleSetId = $.cdnFrontdoorRuleSetId;
         this.conditions = $.conditions;
         this.name = $.name;
@@ -164,28 +168,30 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param behaviorOnMatch If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+         * @param behaviourOnMatch The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
          * 
          * @return builder
          * 
          */
-        public Builder behaviorOnMatch(@Nullable Output<String> behaviorOnMatch) {
-            $.behaviorOnMatch = behaviorOnMatch;
+        public Builder behaviourOnMatch(@Nullable Output<String> behaviourOnMatch) {
+            $.behaviourOnMatch = behaviourOnMatch;
             return this;
         }
 
         /**
-         * @param behaviorOnMatch If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+         * @param behaviourOnMatch The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
          * 
          * @return builder
          * 
          */
-        public Builder behaviorOnMatch(String behaviorOnMatch) {
-            return behaviorOnMatch(Output.of(behaviorOnMatch));
+        public Builder behaviourOnMatch(String behaviourOnMatch) {
+            return behaviourOnMatch(Output.of(behaviourOnMatch));
         }
 
         /**
-         * @param cdnFrontdoorRuleSetId The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+         * @param cdnFrontdoorRuleSetId The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
          * 
          * @return builder
          * 
@@ -196,7 +202,9 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cdnFrontdoorRuleSetId The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+         * @param cdnFrontdoorRuleSetId The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
          * 
          * @return builder
          * 
@@ -227,7 +235,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+         * @param name The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -238,7 +246,7 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
+         * @param name The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

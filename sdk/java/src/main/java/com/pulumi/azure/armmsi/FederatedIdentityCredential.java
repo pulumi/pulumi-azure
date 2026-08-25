@@ -129,30 +129,6 @@ public class FederatedIdentityCredential extends com.pulumi.resources.CustomReso
         return this.name;
     }
     /**
-     * @deprecated
-     * `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `parentId` has been renamed to `userAssignedIdentityId` and will be removed in v5.0 of the AzureRM Provider */
-    @Export(name="parentId", refs={String.class}, tree="[0]")
-    private Output<String> parentId;
-
-    public Output<String> parentId() {
-        return this.parentId;
-    }
-    /**
-     * @deprecated
-     * This field is no longer used and will be removed in the next major version of the Azure Provider
-     * 
-     */
-    @Deprecated /* This field is no longer used and will be removed in the next major version of the Azure Provider */
-    @Export(name="resourceGroupName", refs={String.class}, tree="[0]")
-    private Output<String> resourceGroupName;
-
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
-    }
-    /**
      * Specifies the subject for this Federated Identity Credential.
      * 
      */

@@ -141,8 +141,6 @@ if typing.TYPE_CHECKING:
     hdinsight = __hdinsight
     import pulumi_azure.healthcare as __healthcare
     healthcare = __healthcare
-    import pulumi_azure.hpc as __hpc
-    hpc = __hpc
     import pulumi_azure.hsm as __hsm
     hsm = __hsm
     import pulumi_azure.iot as __iot
@@ -209,8 +207,6 @@ if typing.TYPE_CHECKING:
     operationalinsights = __operationalinsights
     import pulumi_azure.oracle as __oracle
     oracle = __oracle
-    import pulumi_azure.orbital as __orbital
-    orbital = __orbital
     import pulumi_azure.paloalto as __paloalto
     paloalto = __paloalto
     import pulumi_azure.pim as __pim
@@ -345,7 +341,6 @@ else:
     graph = _utilities.lazy_import('pulumi_azure.graph')
     hdinsight = _utilities.lazy_import('pulumi_azure.hdinsight')
     healthcare = _utilities.lazy_import('pulumi_azure.healthcare')
-    hpc = _utilities.lazy_import('pulumi_azure.hpc')
     hsm = _utilities.lazy_import('pulumi_azure.hsm')
     iot = _utilities.lazy_import('pulumi_azure.iot')
     iotcentral = _utilities.lazy_import('pulumi_azure.iotcentral')
@@ -379,7 +374,6 @@ else:
     notificationhub = _utilities.lazy_import('pulumi_azure.notificationhub')
     operationalinsights = _utilities.lazy_import('pulumi_azure.operationalinsights')
     oracle = _utilities.lazy_import('pulumi_azure.oracle')
-    orbital = _utilities.lazy_import('pulumi_azure.orbital')
     paloalto = _utilities.lazy_import('pulumi_azure.paloalto')
     pim = _utilities.lazy_import('pulumi_azure.pim')
     policy = _utilities.lazy_import('pulumi_azure.policy')
@@ -1252,14 +1246,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "appservice/activeSlot",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/activeSlot:ActiveSlot": "ActiveSlot"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "appservice/appConnection",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -1272,14 +1258,6 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/appFlexConsumption:AppFlexConsumption": "AppFlexConsumption"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "appservice/appService",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/appService:AppService": "AppService"
   }
  },
  {
@@ -1332,14 +1310,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "appservice/functionApp",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/functionApp:FunctionApp": "FunctionApp"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "appservice/functionAppActiveSlot",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -1360,22 +1330,6 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/functionAppHybridConnection:FunctionAppHybridConnection": "FunctionAppHybridConnection"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "appservice/functionAppSlot",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/functionAppSlot:FunctionAppSlot": "FunctionAppSlot"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "appservice/hybridConnection",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/hybridConnection:HybridConnection": "HybridConnection"
   }
  },
  {
@@ -1420,14 +1374,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "appservice/plan",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/plan:Plan": "Plan"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "appservice/publicCertificate",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -1444,14 +1390,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "appservice/slot",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/slot:Slot": "Slot"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "appservice/slotCustomHostnameBinding",
   "fqn": "pulumi_azure.appservice",
   "classes": {
@@ -1464,14 +1402,6 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/slotVirtualNetworkSwiftConnection:SlotVirtualNetworkSwiftConnection": "SlotVirtualNetworkSwiftConnection"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "appservice/sourceCodeToken",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/sourceCodeToken:SourceCodeToken": "SourceCodeToken"
   }
  },
  {
@@ -1496,22 +1426,6 @@ _utilities.register(
   "fqn": "pulumi_azure.appservice",
   "classes": {
    "azure:appservice/sourceControlToken:SourceControlToken": "SourceControlToken"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "appservice/staticSite",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/staticSite:StaticSite": "StaticSite"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "appservice/staticSiteCustomDomain",
-  "fqn": "pulumi_azure.appservice",
-  "classes": {
-   "azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain": "StaticSiteCustomDomain"
   }
  },
  {
@@ -1900,14 +1814,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "automation/softwareUpdateConfiguration",
-  "fqn": "pulumi_azure.automation",
-  "classes": {
-   "azure:automation/softwareUpdateConfiguration:SoftwareUpdateConfiguration": "SoftwareUpdateConfiguration"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "automation/sourceControl",
   "fqn": "pulumi_azure.automation",
   "classes": {
@@ -2040,14 +1946,6 @@ _utilities.register(
   "fqn": "pulumi_azure.batch",
   "classes": {
    "azure:batch/application:Application": "Application"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "batch/certificate",
-  "fqn": "pulumi_azure.batch",
-  "classes": {
-   "azure:batch/certificate:Certificate": "Certificate"
   }
  },
  {
@@ -2220,6 +2118,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cdn/frontdoorBatchRuleSet",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorBatchRuleSet:FrontdoorBatchRuleSet": "FrontdoorBatchRuleSet"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cdn/frontdoorCustomDomain",
   "fqn": "pulumi_azure.cdn",
   "classes": {
@@ -2348,18 +2254,50 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "cognitive/aIServices",
-  "fqn": "pulumi_azure.cognitive",
-  "classes": {
-   "azure:cognitive/aIServices:AIServices": "AIServices"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "cognitive/account",
   "fqn": "pulumi_azure.cognitive",
   "classes": {
    "azure:cognitive/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionAccountKey",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionAccountKey:AccountConnectionAccountKey": "AccountConnectionAccountKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionAccountManagedIdentity",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionAccountManagedIdentity:AccountConnectionAccountManagedIdentity": "AccountConnectionAccountManagedIdentity"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionApiKey",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionApiKey:AccountConnectionApiKey": "AccountConnectionApiKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionCustomKeys",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionCustomKeys:AccountConnectionCustomKeys": "AccountConnectionCustomKeys"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionEntraId",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionEntraId:AccountConnectionEntraId": "AccountConnectionEntraId"
   }
  },
  {
@@ -2852,6 +2790,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "containerservice/automaticCluster",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/automaticCluster:AutomaticCluster": "AutomaticCluster"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "containerservice/clusterDeploymentSafeguard",
   "fqn": "pulumi_azure.containerservice",
   "classes": {
@@ -3284,14 +3230,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "cosmosdb/mongoCluster",
-  "fqn": "pulumi_azure.cosmosdb",
-  "classes": {
-   "azure:cosmosdb/mongoCluster:MongoCluster": "MongoCluster"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "cosmosdb/mongoCollection",
   "fqn": "pulumi_azure.cosmosdb",
   "classes": {
@@ -3520,14 +3458,6 @@ _utilities.register(
   "fqn": "pulumi_azure.databricks",
   "classes": {
    "azure:databricks/workspace:Workspace": "Workspace"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "databricks/workspaceCustomerManagedKey",
-  "fqn": "pulumi_azure.databricks",
-  "classes": {
-   "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey": "WorkspaceCustomerManagedKey"
   }
  },
  {
@@ -4012,14 +3942,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "dataprotection/backupInstancePostgresql",
-  "fqn": "pulumi_azure.dataprotection",
-  "classes": {
-   "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql": "BackupInstancePostgresql"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "dataprotection/backupInstancePostgresqlFlexibleServer",
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
@@ -4064,14 +3986,6 @@ _utilities.register(
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
    "azure:dataprotection/backupPolicyMysqlFlexibleServer:BackupPolicyMysqlFlexibleServer": "BackupPolicyMysqlFlexibleServer"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "dataprotection/backupPolicyPostgresql",
-  "fqn": "pulumi_azure.dataprotection",
-  "classes": {
-   "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql": "BackupPolicyPostgresql"
   }
  },
  {
@@ -4972,46 +4886,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "hpc/cache",
-  "fqn": "pulumi_azure.hpc",
-  "classes": {
-   "azure:hpc/cache:Cache": "Cache"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "hpc/cacheAccessPolicy",
-  "fqn": "pulumi_azure.hpc",
-  "classes": {
-   "azure:hpc/cacheAccessPolicy:CacheAccessPolicy": "CacheAccessPolicy"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "hpc/cacheBlobNfsTarget",
-  "fqn": "pulumi_azure.hpc",
-  "classes": {
-   "azure:hpc/cacheBlobNfsTarget:CacheBlobNfsTarget": "CacheBlobNfsTarget"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "hpc/cacheBlobTarget",
-  "fqn": "pulumi_azure.hpc",
-  "classes": {
-   "azure:hpc/cacheBlobTarget:CacheBlobTarget": "CacheBlobTarget"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "hpc/cacheNfsTarget",
-  "fqn": "pulumi_azure.hpc",
-  "classes": {
-   "azure:hpc/cacheNfsTarget:CacheNfsTarget": "CacheNfsTarget"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "hsm/module",
   "fqn": "pulumi_azure.hsm",
   "classes": {
@@ -5604,6 +5478,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "loganalytics/workspaceTableMicrosoft",
+  "fqn": "pulumi_azure.loganalytics",
+  "classes": {
+   "azure:loganalytics/workspaceTableMicrosoft:WorkspaceTableMicrosoft": "WorkspaceTableMicrosoft"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "logicapps/actionCustom",
   "fqn": "pulumi_azure.logicapps",
   "classes": {
@@ -6008,14 +5890,6 @@ _utilities.register(
   "fqn": "pulumi_azure.maps",
   "classes": {
    "azure:maps/account:Account": "Account"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "maps/creator",
-  "fqn": "pulumi_azure.maps",
-  "classes": {
-   "azure:maps/creator:Creator": "Creator"
   }
  },
  {
@@ -7564,30 +7438,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "orbital/contact",
-  "fqn": "pulumi_azure.orbital",
-  "classes": {
-   "azure:orbital/contact:Contact": "Contact"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "orbital/contactProfile",
-  "fqn": "pulumi_azure.orbital",
-  "classes": {
-   "azure:orbital/contactProfile:ContactProfile": "ContactProfile"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "orbital/spacecraft",
-  "fqn": "pulumi_azure.orbital",
-  "classes": {
-   "azure:orbital/spacecraft:Spacecraft": "Spacecraft"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "paloalto/localRulestack",
   "fqn": "pulumi_azure.paloalto",
   "classes": {
@@ -7756,38 +7606,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "postgresql/activeDirectoryAdministrator",
-  "fqn": "pulumi_azure.postgresql",
-  "classes": {
-   "azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator": "ActiveDirectoryAdministrator"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "postgresql/configuration",
-  "fqn": "pulumi_azure.postgresql",
-  "classes": {
-   "azure:postgresql/configuration:Configuration": "Configuration"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "postgresql/database",
-  "fqn": "pulumi_azure.postgresql",
-  "classes": {
-   "azure:postgresql/database:Database": "Database"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "postgresql/firewallRule",
-  "fqn": "pulumi_azure.postgresql",
-  "classes": {
-   "azure:postgresql/firewallRule:FirewallRule": "FirewallRule"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "postgresql/flexibleServer",
   "fqn": "pulumi_azure.postgresql",
   "classes": {
@@ -7840,30 +7658,6 @@ _utilities.register(
   "fqn": "pulumi_azure.postgresql",
   "classes": {
    "azure:postgresql/flexibleServerVirtualEndpoint:FlexibleServerVirtualEndpoint": "FlexibleServerVirtualEndpoint"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "postgresql/server",
-  "fqn": "pulumi_azure.postgresql",
-  "classes": {
-   "azure:postgresql/server:Server": "Server"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "postgresql/serverKey",
-  "fqn": "pulumi_azure.postgresql",
-  "classes": {
-   "azure:postgresql/serverKey:ServerKey": "ServerKey"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "postgresql/virtualNetworkRule",
-  "fqn": "pulumi_azure.postgresql",
-  "classes": {
-   "azure:postgresql/virtualNetworkRule:VirtualNetworkRule": "VirtualNetworkRule"
   }
  },
  {
@@ -8092,22 +7886,6 @@ _utilities.register(
  },
  {
   "pkg": "azure",
-  "mod": "redis/enterpriseCluster",
-  "fqn": "pulumi_azure.redis",
-  "classes": {
-   "azure:redis/enterpriseCluster:EnterpriseCluster": "EnterpriseCluster"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "redis/enterpriseDatabase",
-  "fqn": "pulumi_azure.redis",
-  "classes": {
-   "azure:redis/enterpriseDatabase:EnterpriseDatabase": "EnterpriseDatabase"
-  }
- },
- {
-  "pkg": "azure",
   "mod": "redis/firewallRule",
   "fqn": "pulumi_azure.redis",
   "classes": {
@@ -8208,14 +7986,6 @@ _utilities.register(
   "fqn": "pulumi_azure.securitycenter",
   "classes": {
    "azure:securitycenter/assessmentPolicy:AssessmentPolicy": "AssessmentPolicy"
-  }
- },
- {
-  "pkg": "azure",
-  "mod": "securitycenter/autoProvisioning",
-  "fqn": "pulumi_azure.securitycenter",
-  "classes": {
-   "azure:securitycenter/autoProvisioning:AutoProvisioning": "AutoProvisioning"
   }
  },
  {
@@ -8888,6 +8658,14 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/accountStaticWebsite:AccountStaticWebsite": "AccountStaticWebsite"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/accountTableProperties",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/accountTableProperties:AccountTableProperties": "AccountTableProperties"
   }
  },
  {

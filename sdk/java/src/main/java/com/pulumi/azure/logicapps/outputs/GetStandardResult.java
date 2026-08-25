@@ -122,7 +122,7 @@ public final class GetStandardResult {
      * @return A `siteConfig` object as defined below.
      * 
      */
-    private GetStandardSiteConfig siteConfig;
+    private List<GetStandardSiteConfig> siteConfigs;
     /**
      * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
      * 
@@ -143,6 +143,11 @@ public final class GetStandardResult {
      * 
      */
     private String storageAccountShareName;
+    /**
+     * @return The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+     * 
+     */
+    private String storageKeyVaultSecretId;
     /**
      * @return A mapping of tags assigned to the resource.
      * 
@@ -312,8 +317,8 @@ public final class GetStandardResult {
      * @return A `siteConfig` object as defined below.
      * 
      */
-    public GetStandardSiteConfig siteConfig() {
-        return this.siteConfig;
+    public List<GetStandardSiteConfig> siteConfigs() {
+        return this.siteConfigs;
     }
     /**
      * @return A `siteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
@@ -342,6 +347,13 @@ public final class GetStandardResult {
      */
     public String storageAccountShareName() {
         return this.storageAccountShareName;
+    }
+    /**
+     * @return The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+     * 
+     */
+    public String storageKeyVaultSecretId() {
+        return this.storageKeyVaultSecretId;
     }
     /**
      * @return A mapping of tags assigned to the resource.
@@ -402,11 +414,12 @@ public final class GetStandardResult {
         private String publicNetworkAccess;
         private String resourceGroupName;
         private Boolean scmPublishBasicAuthenticationEnabled;
-        private GetStandardSiteConfig siteConfig;
+        private List<GetStandardSiteConfig> siteConfigs;
         private List<GetStandardSiteCredential> siteCredentials;
         private String storageAccountAccessKey;
         private String storageAccountName;
         private String storageAccountShareName;
+        private String storageKeyVaultSecretId;
         private Map<String,String> tags;
         private Boolean useExtensionBundle;
         private String version;
@@ -435,11 +448,12 @@ public final class GetStandardResult {
     	      this.publicNetworkAccess = defaults.publicNetworkAccess;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.scmPublishBasicAuthenticationEnabled = defaults.scmPublishBasicAuthenticationEnabled;
-    	      this.siteConfig = defaults.siteConfig;
+    	      this.siteConfigs = defaults.siteConfigs;
     	      this.siteCredentials = defaults.siteCredentials;
     	      this.storageAccountAccessKey = defaults.storageAccountAccessKey;
     	      this.storageAccountName = defaults.storageAccountName;
     	      this.storageAccountShareName = defaults.storageAccountShareName;
+    	      this.storageKeyVaultSecretId = defaults.storageKeyVaultSecretId;
     	      this.tags = defaults.tags;
     	      this.useExtensionBundle = defaults.useExtensionBundle;
     	      this.version = defaults.version;
@@ -621,12 +635,15 @@ public final class GetStandardResult {
             return this;
         }
         @CustomType.Setter
-        public Builder siteConfig(GetStandardSiteConfig siteConfig) {
-            if (siteConfig == null) {
-              throw new MissingRequiredPropertyException("GetStandardResult", "siteConfig");
+        public Builder siteConfigs(List<GetStandardSiteConfig> siteConfigs) {
+            if (siteConfigs == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "siteConfigs");
             }
-            this.siteConfig = siteConfig;
+            this.siteConfigs = siteConfigs;
             return this;
+        }
+        public Builder siteConfigs(GetStandardSiteConfig... siteConfigs) {
+            return siteConfigs(List.of(siteConfigs));
         }
         @CustomType.Setter
         public Builder siteCredentials(List<GetStandardSiteCredential> siteCredentials) {
@@ -661,6 +678,14 @@ public final class GetStandardResult {
               throw new MissingRequiredPropertyException("GetStandardResult", "storageAccountShareName");
             }
             this.storageAccountShareName = storageAccountShareName;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder storageKeyVaultSecretId(String storageKeyVaultSecretId) {
+            if (storageKeyVaultSecretId == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "storageKeyVaultSecretId");
+            }
+            this.storageKeyVaultSecretId = storageKeyVaultSecretId;
             return this;
         }
         @CustomType.Setter
@@ -718,11 +743,12 @@ public final class GetStandardResult {
             _resultValue.publicNetworkAccess = publicNetworkAccess;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.scmPublishBasicAuthenticationEnabled = scmPublishBasicAuthenticationEnabled;
-            _resultValue.siteConfig = siteConfig;
+            _resultValue.siteConfigs = siteConfigs;
             _resultValue.siteCredentials = siteCredentials;
             _resultValue.storageAccountAccessKey = storageAccountAccessKey;
             _resultValue.storageAccountName = storageAccountName;
             _resultValue.storageAccountShareName = storageAccountShareName;
+            _resultValue.storageKeyVaultSecretId = storageKeyVaultSecretId;
             _resultValue.tags = tags;
             _resultValue.useExtensionBundle = useExtensionBundle;
             _resultValue.version = version;

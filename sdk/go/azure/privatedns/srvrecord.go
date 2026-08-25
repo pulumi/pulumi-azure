@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,10 +44,9 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewSRVRecord(ctx, "example", &privatedns.SRVRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ResourceGroupName: example.Name,
-//				ZoneName:          exampleZone.Name,
-//				Ttl:               pulumi.Int(300),
+//				Name:             pulumi.String("test"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				Ttl:              pulumi.Int(300),
 //				Records: privatedns.SRVRecordRecordArray{
 //					&privatedns.SRVRecordRecordArgs{
 //						Priority: pulumi.Int(1),
@@ -96,16 +95,14 @@ type SRVRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// One or more `record` blocks as defined below.
 	Records SRVRecordRecordArrayOutput `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewSRVRecord registers a new resource with the given unique name, arguments, and options.
@@ -115,17 +112,14 @@ func NewSRVRecord(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.PrivateDnsZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateDnsZoneId'")
+	}
 	if args.Records == nil {
 		return nil, errors.New("invalid value for required argument 'Records'")
 	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
 	if args.Ttl == nil {
 		return nil, errors.New("invalid value for required argument 'Ttl'")
-	}
-	if args.ZoneName == nil {
-		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SRVRecord
@@ -154,16 +148,14 @@ type srvrecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// One or more `record` blocks as defined below.
 	Records []SRVRecordRecord `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl *int `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName *string `pulumi:"zoneName"`
 }
 
 type SRVRecordState struct {
@@ -171,16 +163,14 @@ type SRVRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringPtrInput
 	// One or more `record` blocks as defined below.
 	Records SRVRecordRecordArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntPtrInput
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringPtrInput
 }
 
 func (SRVRecordState) ElementType() reflect.Type {
@@ -190,32 +180,28 @@ func (SRVRecordState) ElementType() reflect.Type {
 type srvrecordArgs struct {
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId string `pulumi:"privateDnsZoneId"`
 	// One or more `record` blocks as defined below.
 	Records []SRVRecordRecord `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl int `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName string `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a SRVRecord resource.
 type SRVRecordArgs struct {
 	// The name of the DNS SRV Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringInput
 	// One or more `record` blocks as defined below.
 	Records SRVRecordRecordArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntInput
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringInput
 }
 
 func (SRVRecordArgs) ElementType() reflect.Type {
@@ -315,14 +301,14 @@ func (o SRVRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SRVRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+func (o SRVRecordOutput) PrivateDnsZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *SRVRecord) pulumi.StringOutput { return v.PrivateDnsZoneId }).(pulumi.StringOutput)
+}
+
 // One or more `record` blocks as defined below.
 func (o SRVRecordOutput) Records() SRVRecordRecordArrayOutput {
 	return o.ApplyT(func(v *SRVRecord) SRVRecordRecordArrayOutput { return v.Records }).(SRVRecordRecordArrayOutput)
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (o SRVRecordOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *SRVRecord) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.
@@ -333,11 +319,6 @@ func (o SRVRecordOutput) Tags() pulumi.StringMapOutput {
 // The Time To Live (TTL) of the DNS record in seconds.
 func (o SRVRecordOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *SRVRecord) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
-}
-
-// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (o SRVRecordOutput) ZoneName() pulumi.StringOutput {
-	return o.ApplyT(func(v *SRVRecord) pulumi.StringOutput { return v.ZoneName }).(pulumi.StringOutput)
 }
 
 type SRVRecordArrayOutput struct{ *pulumi.OutputState }

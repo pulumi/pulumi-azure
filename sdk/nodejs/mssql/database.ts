@@ -77,6 +77,7 @@ import * as utilities from "../utilities";
  *     name: "mssqltdeexample",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     enabledForDiskEncryption: true,
  *     tenantId: exampleUserAssignedIdentity.tenantId,
  *     softDeleteRetentionDays: 7,
@@ -215,7 +216,7 @@ export class Database extends pulumi.CustomResource {
      *
      * > **Note:** The default value for the `enclaveType` field is unset not `Default`.
      */
-    declare public readonly enclaveType: pulumi.Output<string>;
+    declare public readonly enclaveType: pulumi.Output<string | undefined>;
     /**
      * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.
      *

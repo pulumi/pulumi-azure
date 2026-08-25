@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,8 +31,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupInstanceKubernetesCluster{}
 	case "azure:dataprotection/backupInstanceMysqlFlexibleServer:BackupInstanceMysqlFlexibleServer":
 		r = &BackupInstanceMysqlFlexibleServer{}
-	case "azure:dataprotection/backupInstancePostgresql:BackupInstancePostgresql":
-		r = &BackupInstancePostgresql{}
 	case "azure:dataprotection/backupInstancePostgresqlFlexibleServer:BackupInstancePostgresqlFlexibleServer":
 		r = &BackupInstancePostgresqlFlexibleServer{}
 	case "azure:dataprotection/backupPolicyBlobStorage:BackupPolicyBlobStorage":
@@ -45,8 +43,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BackupPolicyKubernetesCluster{}
 	case "azure:dataprotection/backupPolicyMysqlFlexibleServer:BackupPolicyMysqlFlexibleServer":
 		r = &BackupPolicyMysqlFlexibleServer{}
-	case "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql":
-		r = &BackupPolicyPostgresql{}
 	case "azure:dataprotection/backupPolicyPostgresqlFlexibleServer:BackupPolicyPostgresqlFlexibleServer":
 		r = &BackupPolicyPostgresqlFlexibleServer{}
 	case "azure:dataprotection/backupVault:BackupVault":
@@ -95,11 +91,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azure",
-		"dataprotection/backupInstancePostgresql",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
 		"dataprotection/backupInstancePostgresqlFlexibleServer",
 		&module{version},
 	)
@@ -126,11 +117,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"dataprotection/backupPolicyMysqlFlexibleServer",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"dataprotection/backupPolicyPostgresql",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

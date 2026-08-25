@@ -105,6 +105,7 @@ namespace Pulumi.Azure.MSSql
     ///         Name = "mssqltdeexample",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         EnabledForDiskEncryption = true,
     ///         TenantId = exampleUserAssignedIdentity.TenantId,
     ///         SoftDeleteRetentionDays = 7,
@@ -250,7 +251,7 @@ namespace Pulumi.Azure.MSSql
         /// &gt; **Note:** The default value for the `EnclaveType` field is unset not `Default`.
         /// </summary>
         [Output("enclaveType")]
-        public Output<string> EnclaveType { get; private set; } = null!;
+        public Output<string?> EnclaveType { get; private set; } = null!;
 
         /// <summary>
         /// A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `True`.

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -4256,14 +4256,12 @@ type HBaseClusterStorageAccount struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId string `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId *string `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl string `pulumi:"storageContainerUrl"`
 }
 
 // HBaseClusterStorageAccountInput is an input type that accepts HBaseClusterStorageAccountArgs and HBaseClusterStorageAccountOutput values.
@@ -4282,14 +4280,12 @@ type HBaseClusterStorageAccountArgs struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl pulumi.StringInput `pulumi:"storageContainerUrl"`
 }
 
 func (HBaseClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -4350,21 +4346,19 @@ func (o HBaseClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HBaseClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o HBaseClusterStorageAccountOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HBaseClusterStorageAccount) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
 // The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 func (o HBaseClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
 	return o.ApplyT(func(v HBaseClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Container. Changing this forces a new resource to be created.
-//
-// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-func (o HBaseClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func(v HBaseClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
-}
-
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o HBaseClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HBaseClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
+// The URL of the Storage Container. Changing this forces a new resource to be created.
+func (o HBaseClusterStorageAccountOutput) StorageContainerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterStorageAccount) string { return v.StorageContainerUrl }).(pulumi.StringOutput)
 }
 
 type HBaseClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -4394,12 +4388,12 @@ type HBaseClusterStorageAccountGen2 struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId string `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId string `pulumi:"storageResourceId"`
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
 // HBaseClusterStorageAccountGen2Input is an input type that accepts HBaseClusterStorageAccountGen2Args and HBaseClusterStorageAccountGen2Output values.
@@ -4420,12 +4414,12 @@ type HBaseClusterStorageAccountGen2Args struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (HBaseClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -4517,16 +4511,16 @@ func (o HBaseClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o HBaseClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o HBaseClusterStorageAccountGen2Output) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o HBaseClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o HBaseClusterStorageAccountGen2Output) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v HBaseClusterStorageAccountGen2) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 type HBaseClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
@@ -4575,25 +4569,25 @@ func (o HBaseClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o HBaseClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o HBaseClusterStorageAccountGen2PtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ManagedIdentityResourceId
+		return &v.StorageAccountId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o HBaseClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringPtrOutput {
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o HBaseClusterStorageAccountGen2PtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HBaseClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageResourceId
+		return &v.UserAssignedIdentityId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -9618,14 +9612,12 @@ type HadoopClusterStorageAccount struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId string `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId *string `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl string `pulumi:"storageContainerUrl"`
 }
 
 // HadoopClusterStorageAccountInput is an input type that accepts HadoopClusterStorageAccountArgs and HadoopClusterStorageAccountOutput values.
@@ -9644,14 +9636,12 @@ type HadoopClusterStorageAccountArgs struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl pulumi.StringInput `pulumi:"storageContainerUrl"`
 }
 
 func (HadoopClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -9712,21 +9702,19 @@ func (o HadoopClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HadoopClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o HadoopClusterStorageAccountOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HadoopClusterStorageAccount) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
 // The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 func (o HadoopClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
 	return o.ApplyT(func(v HadoopClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Container. Changing this forces a new resource to be created.
-//
-// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-func (o HadoopClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func(v HadoopClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
-}
-
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o HadoopClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HadoopClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
+// The URL of the Storage Container. Changing this forces a new resource to be created.
+func (o HadoopClusterStorageAccountOutput) StorageContainerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterStorageAccount) string { return v.StorageContainerUrl }).(pulumi.StringOutput)
 }
 
 type HadoopClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -9756,12 +9744,12 @@ type HadoopClusterStorageAccountGen2 struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId string `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId string `pulumi:"storageResourceId"`
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
 // HadoopClusterStorageAccountGen2Input is an input type that accepts HadoopClusterStorageAccountGen2Args and HadoopClusterStorageAccountGen2Output values.
@@ -9782,12 +9770,12 @@ type HadoopClusterStorageAccountGen2Args struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (HadoopClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -9879,16 +9867,16 @@ func (o HadoopClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o HadoopClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o HadoopClusterStorageAccountGen2Output) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o HadoopClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o HadoopClusterStorageAccountGen2Output) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v HadoopClusterStorageAccountGen2) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 type HadoopClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
@@ -9937,25 +9925,25 @@ func (o HadoopClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o HadoopClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o HadoopClusterStorageAccountGen2PtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ManagedIdentityResourceId
+		return &v.StorageAccountId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o HadoopClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringPtrOutput {
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o HadoopClusterStorageAccountGen2PtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HadoopClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageResourceId
+		return &v.UserAssignedIdentityId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14220,14 +14208,12 @@ type InteractiveQueryClusterStorageAccount struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId string `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId *string `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl string `pulumi:"storageContainerUrl"`
 }
 
 // InteractiveQueryClusterStorageAccountInput is an input type that accepts InteractiveQueryClusterStorageAccountArgs and InteractiveQueryClusterStorageAccountOutput values.
@@ -14246,14 +14232,12 @@ type InteractiveQueryClusterStorageAccountArgs struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl pulumi.StringInput `pulumi:"storageContainerUrl"`
 }
 
 func (InteractiveQueryClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -14314,21 +14298,19 @@ func (o InteractiveQueryClusterStorageAccountOutput) IsDefault() pulumi.BoolOutp
 	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterStorageAccountOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
 // The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 func (o InteractiveQueryClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
 	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Container. Changing this forces a new resource to be created.
-//
-// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-func (o InteractiveQueryClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
-}
-
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
+// The URL of the Storage Container. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterStorageAccountOutput) StorageContainerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccount) string { return v.StorageContainerUrl }).(pulumi.StringOutput)
 }
 
 type InteractiveQueryClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -14358,12 +14340,12 @@ type InteractiveQueryClusterStorageAccountGen2 struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId string `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId string `pulumi:"storageResourceId"`
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
 // InteractiveQueryClusterStorageAccountGen2Input is an input type that accepts InteractiveQueryClusterStorageAccountGen2Args and InteractiveQueryClusterStorageAccountGen2Output values.
@@ -14384,12 +14366,12 @@ type InteractiveQueryClusterStorageAccountGen2Args struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (InteractiveQueryClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -14481,16 +14463,16 @@ func (o InteractiveQueryClusterStorageAccountGen2Output) IsDefault() pulumi.Bool
 	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o InteractiveQueryClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterStorageAccountGen2Output) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o InteractiveQueryClusterStorageAccountGen2Output) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v InteractiveQueryClusterStorageAccountGen2) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 type InteractiveQueryClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
@@ -14539,25 +14521,25 @@ func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ManagedIdentityResourceId
+		return &v.StorageAccountId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringPtrOutput {
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o InteractiveQueryClusterStorageAccountGen2PtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InteractiveQueryClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageResourceId
+		return &v.UserAssignedIdentityId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16935,8 +16917,6 @@ type KafkaClusterRoles struct {
 	// A `headNode` block as defined above.
 	HeadNode KafkaClusterRolesHeadNode `pulumi:"headNode"`
 	// A `kafkaManagementNode` block as defined below.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0.
 	KafkaManagementNode *KafkaClusterRolesKafkaManagementNode `pulumi:"kafkaManagementNode"`
 	// A `workerNode` block as defined below.
 	WorkerNode KafkaClusterRolesWorkerNode `pulumi:"workerNode"`
@@ -16959,8 +16939,6 @@ type KafkaClusterRolesArgs struct {
 	// A `headNode` block as defined above.
 	HeadNode KafkaClusterRolesHeadNodeInput `pulumi:"headNode"`
 	// A `kafkaManagementNode` block as defined below.
-	//
-	// > **Note:** This property has been deprecated and will be removed in version 4.0.
 	KafkaManagementNode KafkaClusterRolesKafkaManagementNodePtrInput `pulumi:"kafkaManagementNode"`
 	// A `workerNode` block as defined below.
 	WorkerNode KafkaClusterRolesWorkerNodeInput `pulumi:"workerNode"`
@@ -17051,8 +17029,6 @@ func (o KafkaClusterRolesOutput) HeadNode() KafkaClusterRolesHeadNodeOutput {
 }
 
 // A `kafkaManagementNode` block as defined below.
-//
-// > **Note:** This property has been deprecated and will be removed in version 4.0.
 func (o KafkaClusterRolesOutput) KafkaManagementNode() KafkaClusterRolesKafkaManagementNodePtrOutput {
 	return o.ApplyT(func(v KafkaClusterRoles) *KafkaClusterRolesKafkaManagementNode { return v.KafkaManagementNode }).(KafkaClusterRolesKafkaManagementNodePtrOutput)
 }
@@ -17102,8 +17078,6 @@ func (o KafkaClusterRolesPtrOutput) HeadNode() KafkaClusterRolesHeadNodePtrOutpu
 }
 
 // A `kafkaManagementNode` block as defined below.
-//
-// > **Note:** This property has been deprecated and will be removed in version 4.0.
 func (o KafkaClusterRolesPtrOutput) KafkaManagementNode() KafkaClusterRolesKafkaManagementNodePtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRoles) *KafkaClusterRolesKafkaManagementNode {
 		if v == nil {
@@ -17530,7 +17504,7 @@ type KafkaClusterRolesKafkaManagementNode struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// The Username of the local administrator for the Kafka Management Nodes.
 	//
-	// > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+	// > **Note:** The `username` value is automatically generated by the service and cannot be user specified.
 	Username *string `pulumi:"username"`
 	// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
 	VirtualNetworkId *string `pulumi:"virtualNetworkId"`
@@ -17564,7 +17538,7 @@ type KafkaClusterRolesKafkaManagementNodeArgs struct {
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
 	// The Username of the local administrator for the Kafka Management Nodes.
 	//
-	// > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+	// > **Note:** The `username` value is automatically generated by the service and cannot be user specified.
 	Username pulumi.StringPtrInput `pulumi:"username"`
 	// The ID of the Virtual Network where the Kafka Management Nodes should be provisioned within. Changing this forces a new resource to be created.
 	VirtualNetworkId pulumi.StringPtrInput `pulumi:"virtualNetworkId"`
@@ -17677,7 +17651,7 @@ func (o KafkaClusterRolesKafkaManagementNodeOutput) SubnetId() pulumi.StringPtrO
 
 // The Username of the local administrator for the Kafka Management Nodes.
 //
-// > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+// > **Note:** The `username` value is automatically generated by the service and cannot be user specified.
 func (o KafkaClusterRolesKafkaManagementNodeOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KafkaClusterRolesKafkaManagementNode) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
@@ -17762,7 +17736,7 @@ func (o KafkaClusterRolesKafkaManagementNodePtrOutput) SubnetId() pulumi.StringP
 
 // The Username of the local administrator for the Kafka Management Nodes.
 //
-// > **Note:** The `username` value is automatically generated by the service and cannot be user specified. This property will become `Computed` only in 4.0 of the provider.
+// > **Note:** The `username` value is automatically generated by the service and cannot be user specified.
 func (o KafkaClusterRolesKafkaManagementNodePtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterRolesKafkaManagementNode) *string {
 		if v == nil {
@@ -18967,14 +18941,12 @@ type KafkaClusterStorageAccount struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId string `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId *string `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl string `pulumi:"storageContainerUrl"`
 }
 
 // KafkaClusterStorageAccountInput is an input type that accepts KafkaClusterStorageAccountArgs and KafkaClusterStorageAccountOutput values.
@@ -18993,14 +18965,12 @@ type KafkaClusterStorageAccountArgs struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl pulumi.StringInput `pulumi:"storageContainerUrl"`
 }
 
 func (KafkaClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -19061,21 +19031,19 @@ func (o KafkaClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v KafkaClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o KafkaClusterStorageAccountOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KafkaClusterStorageAccount) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
 // The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 func (o KafkaClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
 	return o.ApplyT(func(v KafkaClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Container. Changing this forces a new resource to be created.
-//
-// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-func (o KafkaClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func(v KafkaClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
-}
-
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o KafkaClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KafkaClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
+// The URL of the Storage Container. Changing this forces a new resource to be created.
+func (o KafkaClusterStorageAccountOutput) StorageContainerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterStorageAccount) string { return v.StorageContainerUrl }).(pulumi.StringOutput)
 }
 
 type KafkaClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -19105,12 +19073,12 @@ type KafkaClusterStorageAccountGen2 struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId string `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId string `pulumi:"storageResourceId"`
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
 // KafkaClusterStorageAccountGen2Input is an input type that accepts KafkaClusterStorageAccountGen2Args and KafkaClusterStorageAccountGen2Output values.
@@ -19131,12 +19099,12 @@ type KafkaClusterStorageAccountGen2Args struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (KafkaClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -19228,16 +19196,16 @@ func (o KafkaClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o KafkaClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o KafkaClusterStorageAccountGen2Output) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o KafkaClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o KafkaClusterStorageAccountGen2Output) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v KafkaClusterStorageAccountGen2) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 type KafkaClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
@@ -19286,25 +19254,25 @@ func (o KafkaClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o KafkaClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o KafkaClusterStorageAccountGen2PtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ManagedIdentityResourceId
+		return &v.StorageAccountId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o KafkaClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringPtrOutput {
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o KafkaClusterStorageAccountGen2PtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KafkaClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageResourceId
+		return &v.UserAssignedIdentityId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -23728,14 +23696,12 @@ type SparkClusterStorageAccount struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId *string `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey string `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId string `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId *string `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl string `pulumi:"storageContainerUrl"`
 }
 
 // SparkClusterStorageAccountInput is an input type that accepts SparkClusterStorageAccountArgs and SparkClusterStorageAccountOutput values.
@@ -23754,14 +23720,12 @@ type SparkClusterStorageAccountArgs struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
 	// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 	StorageAccountKey pulumi.StringInput `pulumi:"storageAccountKey"`
-	// The ID of the Storage Container. Changing this forces a new resource to be created.
-	//
-	// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-	StorageContainerId pulumi.StringInput `pulumi:"storageContainerId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringPtrInput `pulumi:"storageResourceId"`
+	// The URL of the Storage Container. Changing this forces a new resource to be created.
+	StorageContainerUrl pulumi.StringInput `pulumi:"storageContainerUrl"`
 }
 
 func (SparkClusterStorageAccountArgs) ElementType() reflect.Type {
@@ -23822,21 +23786,19 @@ func (o SparkClusterStorageAccountOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v SparkClusterStorageAccount) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o SparkClusterStorageAccountOutput) StorageAccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SparkClusterStorageAccount) *string { return v.StorageAccountId }).(pulumi.StringPtrOutput)
+}
+
 // The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
 func (o SparkClusterStorageAccountOutput) StorageAccountKey() pulumi.StringOutput {
 	return o.ApplyT(func(v SparkClusterStorageAccount) string { return v.StorageAccountKey }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Container. Changing this forces a new resource to be created.
-//
-// > **Note:** When the `storage.Container` resource is created with `storageAccountName`, this can be obtained from the `id` of the `storage.Container` resource. When the `storage.Container` resource is created with `storageAccountId`, please use `storage.getContainers` data source to get the `dataPlaneId` of the `storage.Container` resource for this field.
-func (o SparkClusterStorageAccountOutput) StorageContainerId() pulumi.StringOutput {
-	return o.ApplyT(func(v SparkClusterStorageAccount) string { return v.StorageContainerId }).(pulumi.StringOutput)
-}
-
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o SparkClusterStorageAccountOutput) StorageResourceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v SparkClusterStorageAccount) *string { return v.StorageResourceId }).(pulumi.StringPtrOutput)
+// The URL of the Storage Container. Changing this forces a new resource to be created.
+func (o SparkClusterStorageAccountOutput) StorageContainerUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterStorageAccount) string { return v.StorageContainerUrl }).(pulumi.StringOutput)
 }
 
 type SparkClusterStorageAccountArrayOutput struct{ *pulumi.OutputState }
@@ -23866,12 +23828,12 @@ type SparkClusterStorageAccountGen2 struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault bool `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId string `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId string `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId string `pulumi:"storageResourceId"`
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
 }
 
 // SparkClusterStorageAccountGen2Input is an input type that accepts SparkClusterStorageAccountGen2Args and SparkClusterStorageAccountGen2Output values.
@@ -23892,12 +23854,12 @@ type SparkClusterStorageAccountGen2Args struct {
 	//
 	// > **Note:** One of the `storageAccount` or `storageAccountGen2` blocks must be marked as the default.
 	IsDefault pulumi.BoolInput `pulumi:"isDefault"`
-	// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+	// The ID of the Storage Account. Changing this forces a new resource to be created.
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
+	// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-	ManagedIdentityResourceId pulumi.StringInput `pulumi:"managedIdentityResourceId"`
-	// The ID of the Storage Account. Changing this forces a new resource to be created.
-	StorageResourceId pulumi.StringInput `pulumi:"storageResourceId"`
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
 }
 
 func (SparkClusterStorageAccountGen2Args) ElementType() reflect.Type {
@@ -23989,16 +23951,16 @@ func (o SparkClusterStorageAccountGen2Output) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v SparkClusterStorageAccountGen2) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o SparkClusterStorageAccountGen2Output) ManagedIdentityResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.ManagedIdentityResourceId }).(pulumi.StringOutput)
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o SparkClusterStorageAccountGen2Output) StorageAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.StorageAccountId }).(pulumi.StringOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o SparkClusterStorageAccountGen2Output) StorageResourceId() pulumi.StringOutput {
-	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.StorageResourceId }).(pulumi.StringOutput)
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o SparkClusterStorageAccountGen2Output) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v SparkClusterStorageAccountGen2) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
 }
 
 type SparkClusterStorageAccountGen2PtrOutput struct{ *pulumi.OutputState }
@@ -24047,25 +24009,25 @@ func (o SparkClusterStorageAccountGen2PtrOutput) IsDefault() pulumi.BoolPtrOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The ID of Managed Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
-//
-// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
-func (o SparkClusterStorageAccountGen2PtrOutput) ManagedIdentityResourceId() pulumi.StringPtrOutput {
+// The ID of the Storage Account. Changing this forces a new resource to be created.
+func (o SparkClusterStorageAccountGen2PtrOutput) StorageAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.ManagedIdentityResourceId
+		return &v.StorageAccountId
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Storage Account. Changing this forces a new resource to be created.
-func (o SparkClusterStorageAccountGen2PtrOutput) StorageResourceId() pulumi.StringPtrOutput {
+// The ID of User Assigned Identity to use for accessing the Gen2 filesystem. Changing this forces a new resource to be created.
+//
+// > **Note:** This can be obtained from the `id` of the `storage.Container` resource.
+func (o SparkClusterStorageAccountGen2PtrOutput) UserAssignedIdentityId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SparkClusterStorageAccountGen2) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.StorageResourceId
+		return &v.UserAssignedIdentityId
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -195,8 +195,8 @@ namespace Pulumi.Azure.Maintenance
     ///         },
     ///         AutomaticOsUpgradePolicy = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs
     ///         {
-    ///             DisableAutomaticRollback = true,
-    ///             EnableAutomaticOsUpgrade = true,
+    ///             AutomaticRollbackEnabled = false,
+    ///             AutomaticOsUpgradeEnabled = true,
     ///         },
     ///         RollingUpgradePolicy = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs
     ///         {

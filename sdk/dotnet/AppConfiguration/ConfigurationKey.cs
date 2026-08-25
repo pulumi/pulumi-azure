@@ -95,6 +95,7 @@ namespace Pulumi.Azure.AppConfiguration
     ///         Name = "kv",
     ///         Location = testAzurermResourceGroup.Location,
     ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         SoftDeleteRetentionDays = 7,

@@ -38,7 +38,7 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// where `11111111-1111-1111-1111-111111111111` is the `ObjectId`.
     /// 
-    /// &gt; **NOTE:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
+    /// &gt; **Note:** Both Identifiers are unique to this provider and don't map to an existing object within Azure.
     /// </summary>
     [AzureResourceType("azure:keyvault/accessPolicy:AccessPolicy")]
     public partial class AccessPolicy : global::Pulumi.CustomResource

@@ -249,7 +249,7 @@ namespace Pulumi.Azure.LogicApps
         /// <summary>
         /// A `SiteConfig` object as defined below.
         /// </summary>
-        public readonly Outputs.GetStandardSiteConfigResult SiteConfig;
+        public readonly ImmutableArray<Outputs.GetStandardSiteConfigResult> SiteConfigs;
         /// <summary>
         /// A `SiteCredential` block as defined below, which contains the site-level credentials used to publish to this Logic App.
         /// </summary>
@@ -266,6 +266,10 @@ namespace Pulumi.Azure.LogicApps
         /// The name of the share used by the logic app.
         /// </summary>
         public readonly string StorageAccountShareName;
+        /// <summary>
+        /// The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+        /// </summary>
+        public readonly string StorageKeyVaultSecretId;
         /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
@@ -327,7 +331,7 @@ namespace Pulumi.Azure.LogicApps
 
             bool scmPublishBasicAuthenticationEnabled,
 
-            Outputs.GetStandardSiteConfigResult siteConfig,
+            ImmutableArray<Outputs.GetStandardSiteConfigResult> siteConfigs,
 
             ImmutableArray<Outputs.GetStandardSiteCredentialResult> siteCredentials,
 
@@ -336,6 +340,8 @@ namespace Pulumi.Azure.LogicApps
             string storageAccountName,
 
             string storageAccountShareName,
+
+            string storageKeyVaultSecretId,
 
             ImmutableDictionary<string, string> tags,
 
@@ -366,11 +372,12 @@ namespace Pulumi.Azure.LogicApps
             PublicNetworkAccess = publicNetworkAccess;
             ResourceGroupName = resourceGroupName;
             ScmPublishBasicAuthenticationEnabled = scmPublishBasicAuthenticationEnabled;
-            SiteConfig = siteConfig;
+            SiteConfigs = siteConfigs;
             SiteCredentials = siteCredentials;
             StorageAccountAccessKey = storageAccountAccessKey;
             StorageAccountName = storageAccountName;
             StorageAccountShareName = storageAccountShareName;
+            StorageKeyVaultSecretId = storageKeyVaultSecretId;
             Tags = tags;
             UseExtensionBundle = useExtensionBundle;
             Version = version;

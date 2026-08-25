@@ -27,11 +27,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.appservice.Plan;
- * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
- * import com.pulumi.azure.appservice.AppService;
- * import com.pulumi.azure.appservice.AppServiceArgs;
+ * import com.pulumi.azurerm.AppServicePlan;
+ * import com.pulumi.azurerm.AppServicePlanArgs;
+ * import com.pulumi.azurerm.AppService;
+ * import com.pulumi.azurerm.AppServiceArgs;
  * import com.pulumi.azure.dns.DnsFunctions;
  * import com.pulumi.azure.dns.inputs.GetZoneArgs;
  * import com.pulumi.azure.dns.CNameRecord;
@@ -66,21 +65,21 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *         var exampleAppServicePlan = new AppServicePlan("exampleAppServicePlan", AppServicePlanArgs.builder()
  *             .name("appserviceplan")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("Premium")
- *                 .size("P1")
- *                 .build())
+ *             .sku(Arrays.asList(Map.ofEntries(
+ *                 Map.entry("tier", "Premium"),
+ *                 Map.entry("size", "P1")
+ *             )))
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name("mywebapp")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .appServicePlanId(examplePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.id())
  *             .build());
  * 
  *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()

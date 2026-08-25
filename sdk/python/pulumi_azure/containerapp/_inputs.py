@@ -1881,10 +1881,6 @@ class AppTemplateContainerLivenessProbeArgsDict(TypedDict):
     """
     The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     """
-    termination_grace_period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-    """
     timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
@@ -1901,7 +1897,6 @@ class AppTemplateContainerLivenessProbeArgs:
                  initial_delay: pulumi.Input[Optional[_builtins.int]] = None,
                  interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
-                 termination_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] port: The port number on which to connect. Possible values are between `1` and `65535`.
@@ -1912,7 +1907,6 @@ class AppTemplateContainerLivenessProbeArgs:
         :param pulumi.Input[_builtins.int] initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `1` seconds.
         :param pulumi.Input[_builtins.int] interval_seconds: How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
         :param pulumi.Input[_builtins.str] path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        :param pulumi.Input[_builtins.int] termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param pulumi.Input[_builtins.int] timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
         pulumi.set(__self__, "port", port)
@@ -1929,8 +1923,6 @@ class AppTemplateContainerLivenessProbeArgs:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if termination_grace_period_seconds is not None:
-            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -2029,18 +2021,6 @@ class AppTemplateContainerLivenessProbeArgs:
     @path.setter
     def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
-
-    @_builtins.property
-    @pulumi.getter(name="terminationGracePeriodSeconds")
-    def termination_grace_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        """
-        return pulumi.get(self, "termination_grace_period_seconds")
-
-    @termination_grace_period_seconds.setter
-    def termination_grace_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "termination_grace_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter
@@ -2389,10 +2369,6 @@ class AppTemplateContainerStartupProbeArgsDict(TypedDict):
     """
     The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     """
-    termination_grace_period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-    """
     timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
@@ -2409,7 +2385,6 @@ class AppTemplateContainerStartupProbeArgs:
                  initial_delay: pulumi.Input[Optional[_builtins.int]] = None,
                  interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
-                 termination_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] port: The port number on which to connect. Possible values are between `1` and `65535`.
@@ -2420,7 +2395,6 @@ class AppTemplateContainerStartupProbeArgs:
         :param pulumi.Input[_builtins.int] initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param pulumi.Input[_builtins.int] interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param pulumi.Input[_builtins.str] path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        :param pulumi.Input[_builtins.int] termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param pulumi.Input[_builtins.int] timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
         pulumi.set(__self__, "port", port)
@@ -2437,8 +2411,6 @@ class AppTemplateContainerStartupProbeArgs:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if termination_grace_period_seconds is not None:
-            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -2537,18 +2509,6 @@ class AppTemplateContainerStartupProbeArgs:
     @path.setter
     def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
-
-    @_builtins.property
-    @pulumi.getter(name="terminationGracePeriodSeconds")
-    def termination_grace_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        """
-        return pulumi.get(self, "termination_grace_period_seconds")
-
-    @termination_grace_period_seconds.setter
-    def termination_grace_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "termination_grace_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter
@@ -5025,10 +4985,6 @@ class JobTemplateContainerLivenessProbeArgsDict(TypedDict):
     """
     The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     """
-    termination_grace_period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-    """
     timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
@@ -5045,7 +5001,6 @@ class JobTemplateContainerLivenessProbeArgs:
                  initial_delay: pulumi.Input[Optional[_builtins.int]] = None,
                  interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
-                 termination_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] port: The port number on which to connect. Possible values are between `1` and `65535`.
@@ -5056,7 +5011,6 @@ class JobTemplateContainerLivenessProbeArgs:
         :param pulumi.Input[_builtins.int] initial_delay: The time in seconds to wait after the container has started before the probe is started.
         :param pulumi.Input[_builtins.int] interval_seconds: How often, in seconds, the probe should run. Possible values are in the range `1` - `240`. Defaults to `10`.
         :param pulumi.Input[_builtins.str] path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        :param pulumi.Input[_builtins.int] termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param pulumi.Input[_builtins.int] timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
         pulumi.set(__self__, "port", port)
@@ -5073,8 +5027,6 @@ class JobTemplateContainerLivenessProbeArgs:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if termination_grace_period_seconds is not None:
-            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -5173,18 +5125,6 @@ class JobTemplateContainerLivenessProbeArgs:
     @path.setter
     def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
-
-    @_builtins.property
-    @pulumi.getter(name="terminationGracePeriodSeconds")
-    def termination_grace_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        """
-        return pulumi.get(self, "termination_grace_period_seconds")
-
-    @termination_grace_period_seconds.setter
-    def termination_grace_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "termination_grace_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter
@@ -5533,10 +5473,6 @@ class JobTemplateContainerStartupProbeArgsDict(TypedDict):
     """
     The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
     """
-    termination_grace_period_seconds: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-    """
     timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
@@ -5553,7 +5489,6 @@ class JobTemplateContainerStartupProbeArgs:
                  initial_delay: pulumi.Input[Optional[_builtins.int]] = None,
                  interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
-                 termination_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.int] port: The port number on which to connect. Possible values are between `1` and `65535`.
@@ -5564,7 +5499,6 @@ class JobTemplateContainerStartupProbeArgs:
         :param pulumi.Input[_builtins.int] initial_delay: The number of seconds elapsed after the container has started before the probe is initiated. Possible values are between `0` and `60`. Defaults to `0` seconds.
         :param pulumi.Input[_builtins.int] interval_seconds: How often, in seconds, the probe should run. Possible values are between `1` and `240`. Defaults to `10`
         :param pulumi.Input[_builtins.str] path: The URI to use with the `host` for http type probes. Not valid for `TCP` type probes. Defaults to `/`.
-        :param pulumi.Input[_builtins.int] termination_grace_period_seconds: The time in seconds after the container is sent the termination signal before the process if forcibly killed.
         :param pulumi.Input[_builtins.int] timeout: Time in seconds after which the probe times out. Possible values are in the range `1` - `240`. Defaults to `1`.
         """
         pulumi.set(__self__, "port", port)
@@ -5581,8 +5515,6 @@ class JobTemplateContainerStartupProbeArgs:
             pulumi.set(__self__, "interval_seconds", interval_seconds)
         if path is not None:
             pulumi.set(__self__, "path", path)
-        if termination_grace_period_seconds is not None:
-            pulumi.set(__self__, "termination_grace_period_seconds", termination_grace_period_seconds)
         if timeout is not None:
             pulumi.set(__self__, "timeout", timeout)
 
@@ -5681,18 +5613,6 @@ class JobTemplateContainerStartupProbeArgs:
     @path.setter
     def path(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "path", value)
-
-    @_builtins.property
-    @pulumi.getter(name="terminationGracePeriodSeconds")
-    def termination_grace_period_seconds(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        """
-        return pulumi.get(self, "termination_grace_period_seconds")
-
-    @termination_grace_period_seconds.setter
-    def termination_grace_period_seconds(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "termination_grace_period_seconds", value)
 
     @_builtins.property
     @pulumi.getter

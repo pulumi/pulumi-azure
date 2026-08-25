@@ -901,7 +901,7 @@ class StandardSiteConfigArgsDict(TypedDict):
     """
     min_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+    The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
 
     > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
     """
@@ -909,7 +909,6 @@ class StandardSiteConfigArgsDict(TypedDict):
     """
     The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
     """
-    public_network_access_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     runtime_scale_monitoring_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Runtime Scale Monitoring be enabled?. Only applicable to apps on the Premium plan. Defaults to `false`.
@@ -926,7 +925,7 @@ class StandardSiteConfigArgsDict(TypedDict):
     """
     scm_min_tls_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+    Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
 
     > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
     """
@@ -970,7 +969,6 @@ class StandardSiteConfigArgs:
                  linux_fx_version: pulumi.Input[Optional[_builtins.str]] = None,
                  min_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  pre_warmed_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  runtime_scale_monitoring_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  scm_ip_restriction_default_action: pulumi.Input[Optional[_builtins.str]] = None,
                  scm_ip_restrictions: pulumi.Input[Optional[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]]] = None,
@@ -999,7 +997,7 @@ class StandardSiteConfigArgs:
         :param pulumi.Input[_builtins.str] linux_fx_version: Linux App Framework and version for the App Service, e.g. `DOCKER|(golang:latest)`. Setting this value will also set the `kind` of application deployed to `functionapp,linux,container,workflowapp`.
                
                > **Note:** You must set `os_type` in `appservice.ServicePlan` to `Linux` when this property is set.
-        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+        :param pulumi.Input[_builtins.str] min_tls_version: The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.int] pre_warmed_instance_count: The number of pre-warmed instances for this Logic App Only affects apps on the Premium plan.
@@ -1008,7 +1006,7 @@ class StandardSiteConfigArgs:
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteConfigScmIpRestrictionArgs']]] scm_ip_restrictions: A list of `scm_ip_restriction` objects representing SCM IP restrictions as defined below.
                
                > **Note:** User has to explicitly set `scm_ip_restriction` to empty slice (`[]`) to remove it.
-        :param pulumi.Input[_builtins.str] scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+        :param pulumi.Input[_builtins.str] scm_min_tls_version: Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         :param pulumi.Input[_builtins.str] scm_type: The type of Source Control used by the Logic App in use by the Windows Function App. Defaults to `None`. Possible values are: `BitbucketGit`, `BitbucketHg`, `CodePlexGit`, `CodePlexHg`, `Dropbox`, `ExternalGit`, `ExternalHg`, `GitHub`, `LocalGit`, `None`, `OneDrive`, `Tfs`, `VSO`, and `VSTSRM`
@@ -1047,11 +1045,6 @@ class StandardSiteConfigArgs:
             pulumi.set(__self__, "min_tls_version", min_tls_version)
         if pre_warmed_instance_count is not None:
             pulumi.set(__self__, "pre_warmed_instance_count", pre_warmed_instance_count)
-        if public_network_access_enabled is not None:
-            warnings.warn("""the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""public_network_access_enabled is deprecated: the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.""")
-        if public_network_access_enabled is not None:
-            pulumi.set(__self__, "public_network_access_enabled", public_network_access_enabled)
         if runtime_scale_monitoring_enabled is not None:
             pulumi.set(__self__, "runtime_scale_monitoring_enabled", runtime_scale_monitoring_enabled)
         if scm_ip_restriction_default_action is not None:
@@ -1225,7 +1218,7 @@ class StandardSiteConfigArgs:
     @pulumi.getter(name="minTlsVersion")
     def min_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The minimum supported TLS version for the Logic App. Possible values are `1.0`, `1.1`, `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
+        The minimum supported TLS version for the Logic App. Possible values are `1.2` and `1.3`. Defaults to `1.2` for new Logic Apps.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """
@@ -1246,16 +1239,6 @@ class StandardSiteConfigArgs:
     @pre_warmed_instance_count.setter
     def pre_warmed_instance_count(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "pre_warmed_instance_count", value)
-
-    @_builtins.property
-    @pulumi.getter(name="publicNetworkAccessEnabled")
-    @_utilities.deprecated("""the `site_config.public_network_access_enabled` property has been superseded by the `public_network_access` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def public_network_access_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "public_network_access_enabled")
-
-    @public_network_access_enabled.setter
-    def public_network_access_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "public_network_access_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="runtimeScaleMonitoringEnabled")
@@ -1299,7 +1282,7 @@ class StandardSiteConfigArgs:
     @pulumi.getter(name="scmMinTlsVersion")
     def scm_min_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.0`, `1.1`, `1.2` and `1.3`.
+        Configures the minimum version of TLS required for SSL requests to the SCM site. Possible values are `1.2` and `1.3`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         """

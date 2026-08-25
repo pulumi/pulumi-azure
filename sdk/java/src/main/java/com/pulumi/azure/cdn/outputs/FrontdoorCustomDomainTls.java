@@ -24,7 +24,7 @@ public final class FrontdoorCustomDomainTls {
      * 
      * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
      * 
-     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
      * 
      */
     private @Nullable String certificateType;
@@ -33,13 +33,6 @@ public final class FrontdoorCustomDomainTls {
      * 
      */
     private @Nullable FrontdoorCustomDomainTlsCipherSuite cipherSuite;
-    /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-    private @Nullable String minimumTlsVersion;
     /**
      * @return TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
      * 
@@ -61,7 +54,7 @@ public final class FrontdoorCustomDomainTls {
      * 
      * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
      * 
-     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
      * 
      */
     public Optional<String> certificateType() {
@@ -73,15 +66,6 @@ public final class FrontdoorCustomDomainTls {
      */
     public Optional<FrontdoorCustomDomainTlsCipherSuite> cipherSuite() {
         return Optional.ofNullable(this.cipherSuite);
-    }
-    /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<String> minimumTlsVersion() {
-        return Optional.ofNullable(this.minimumTlsVersion);
     }
     /**
      * @return TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
@@ -103,7 +87,6 @@ public final class FrontdoorCustomDomainTls {
         private @Nullable String cdnFrontdoorSecretId;
         private @Nullable String certificateType;
         private @Nullable FrontdoorCustomDomainTlsCipherSuite cipherSuite;
-        private @Nullable String minimumTlsVersion;
         private @Nullable String minimumVersion;
         public Builder() {}
         public Builder(FrontdoorCustomDomainTls defaults) {
@@ -111,7 +94,6 @@ public final class FrontdoorCustomDomainTls {
     	      this.cdnFrontdoorSecretId = defaults.cdnFrontdoorSecretId;
     	      this.certificateType = defaults.certificateType;
     	      this.cipherSuite = defaults.cipherSuite;
-    	      this.minimumTlsVersion = defaults.minimumTlsVersion;
     	      this.minimumVersion = defaults.minimumVersion;
         }
 
@@ -134,12 +116,6 @@ public final class FrontdoorCustomDomainTls {
             return this;
         }
         @CustomType.Setter
-        public Builder minimumTlsVersion(@Nullable String minimumTlsVersion) {
-
-            this.minimumTlsVersion = minimumTlsVersion;
-            return this;
-        }
-        @CustomType.Setter
         public Builder minimumVersion(@Nullable String minimumVersion) {
 
             this.minimumVersion = minimumVersion;
@@ -150,7 +126,6 @@ public final class FrontdoorCustomDomainTls {
             _resultValue.cdnFrontdoorSecretId = cdnFrontdoorSecretId;
             _resultValue.certificateType = certificateType;
             _resultValue.cipherSuite = cipherSuite;
-            _resultValue.minimumTlsVersion = minimumTlsVersion;
             _resultValue.minimumVersion = minimumVersion;
             return _resultValue;
         }

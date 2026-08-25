@@ -91,7 +91,7 @@ namespace Pulumi.Azure.MSSql
         /// &gt; **Note:** The default value for `EnclaveType` field is unset not `Default`.
         /// </summary>
         [Output("enclaveType")]
-        public Output<string> EnclaveType { get; private set; } = null!;
+        public Output<string?> EnclaveType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.

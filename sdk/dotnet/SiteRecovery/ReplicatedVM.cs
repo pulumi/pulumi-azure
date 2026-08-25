@@ -258,8 +258,15 @@ namespace Pulumi.Azure.SiteRecovery
     ///             new Azure.SiteRecovery.Inputs.ReplicatedVMNetworkInterfaceArgs
     ///             {
     ///                 SourceNetworkInterfaceId = vmNetworkInterface.Id,
-    ///                 TargetSubnetName = secondarySubnet.Name,
-    ///                 RecoveryPublicIpAddressId = secondaryPublicIp.Id,
+    ///                 IpConfigurations = new[]
+    ///                 {
+    ///                     new Azure.SiteRecovery.Inputs.ReplicatedVMNetworkInterfaceIpConfigurationArgs
+    ///                     {
+    ///                         Name = "vm",
+    ///                         TargetSubnetName = secondarySubnet.Name,
+    ///                         RecoveryPublicIpAddressId = secondaryPublicIp.Id,
+    ///                     },
+    ///                 },
     ///             },
     ///         },
     ///     }, new CustomResourceOptions

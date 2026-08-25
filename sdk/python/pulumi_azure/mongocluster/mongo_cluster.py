@@ -1008,7 +1008,7 @@ class MongoCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["connection_strings"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:cosmosdb/mongoCluster:MongoCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:cosmosdb/mongoCluster:MongoCluster"), pulumi.Alias(type_="azure:cosmosdb/mongoCluster:MongoCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorPassword", "connectionStrings"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)

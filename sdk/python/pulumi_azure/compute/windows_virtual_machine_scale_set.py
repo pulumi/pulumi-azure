@@ -32,6 +32,7 @@ class WindowsVirtualMachineScaleSetArgs:
                  additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetAdditionalUnattendContentArgs']]]] = None,
                  automatic_instance_repair: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
                  automatic_os_upgrade_policy: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
+                 automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -39,7 +40,6 @@ class WindowsVirtualMachineScaleSetArgs:
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -96,6 +96,7 @@ class WindowsVirtualMachineScaleSetArgs:
                
                > **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
+        :param pulumi.Input[_builtins.bool] automatic_updates_enabled: (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
         :param pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
@@ -109,7 +110,6 @@ class WindowsVirtualMachineScaleSetArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[_builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
-        :param pulumi.Input[_builtins.bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
@@ -188,6 +188,8 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "automatic_instance_repair", automatic_instance_repair)
         if automatic_os_upgrade_policy is not None:
             pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
+        if automatic_updates_enabled is not None:
+            pulumi.set(__self__, "automatic_updates_enabled", automatic_updates_enabled)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
         if capacity_reservation_group_id is not None:
@@ -202,8 +204,6 @@ class WindowsVirtualMachineScaleSetArgs:
             pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_machines", do_not_run_extensions_on_overprovisioned_machines)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_automatic_updates is not None:
-            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
             pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
@@ -418,6 +418,18 @@ class WindowsVirtualMachineScaleSetArgs:
         pulumi.set(self, "automatic_os_upgrade_policy", value)
 
     @_builtins.property
+    @pulumi.getter(name="automaticUpdatesEnabled")
+    def automatic_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+        """
+        return pulumi.get(self, "automatic_updates_enabled")
+
+    @automatic_updates_enabled.setter
+    def automatic_updates_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "automatic_updates_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
     def boot_diagnostics(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]:
         """
@@ -506,18 +518,6 @@ class WindowsVirtualMachineScaleSetArgs:
     @edge_zone.setter
     def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableAutomaticUpdates")
-    def enable_automatic_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-        """
-        return pulumi.get(self, "enable_automatic_updates")
-
-    @enable_automatic_updates.setter
-    def enable_automatic_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_automatic_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
@@ -1009,6 +1009,7 @@ class _WindowsVirtualMachineScaleSetState:
                  admin_username: pulumi.Input[Optional[_builtins.str]] = None,
                  automatic_instance_repair: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs']] = None,
                  automatic_os_upgrade_policy: pulumi.Input[Optional['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs']] = None,
+                 automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1016,7 +1017,6 @@ class _WindowsVirtualMachineScaleSetState:
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1072,6 +1072,7 @@ class _WindowsVirtualMachineScaleSetState:
                
                > **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         :param pulumi.Input['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs'] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
+        :param pulumi.Input[_builtins.bool] automatic_updates_enabled: (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
         :param pulumi.Input['WindowsVirtualMachineScaleSetBootDiagnosticsArgs'] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
@@ -1085,7 +1086,6 @@ class _WindowsVirtualMachineScaleSetState:
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetDataDiskArgs']]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[_builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
-        :param pulumi.Input[_builtins.bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
@@ -1169,6 +1169,8 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "automatic_instance_repair", automatic_instance_repair)
         if automatic_os_upgrade_policy is not None:
             pulumi.set(__self__, "automatic_os_upgrade_policy", automatic_os_upgrade_policy)
+        if automatic_updates_enabled is not None:
+            pulumi.set(__self__, "automatic_updates_enabled", automatic_updates_enabled)
         if boot_diagnostics is not None:
             pulumi.set(__self__, "boot_diagnostics", boot_diagnostics)
         if capacity_reservation_group_id is not None:
@@ -1183,8 +1185,6 @@ class _WindowsVirtualMachineScaleSetState:
             pulumi.set(__self__, "do_not_run_extensions_on_overprovisioned_machines", do_not_run_extensions_on_overprovisioned_machines)
         if edge_zone is not None:
             pulumi.set(__self__, "edge_zone", edge_zone)
-        if enable_automatic_updates is not None:
-            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if encryption_at_host_enabled is not None:
             pulumi.set(__self__, "encryption_at_host_enabled", encryption_at_host_enabled)
         if eviction_policy is not None:
@@ -1349,6 +1349,18 @@ class _WindowsVirtualMachineScaleSetState:
         pulumi.set(self, "automatic_os_upgrade_policy", value)
 
     @_builtins.property
+    @pulumi.getter(name="automaticUpdatesEnabled")
+    def automatic_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+        """
+        return pulumi.get(self, "automatic_updates_enabled")
+
+    @automatic_updates_enabled.setter
+    def automatic_updates_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "automatic_updates_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
     def boot_diagnostics(self) -> pulumi.Input[Optional['WindowsVirtualMachineScaleSetBootDiagnosticsArgs']]:
         """
@@ -1437,18 +1449,6 @@ class _WindowsVirtualMachineScaleSetState:
     @edge_zone.setter
     def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "edge_zone", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableAutomaticUpdates")
-    def enable_automatic_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-        """
-        return pulumi.get(self, "enable_automatic_updates")
-
-    @enable_automatic_updates.setter
-    def enable_automatic_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_automatic_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")
@@ -2017,6 +2017,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  admin_username: pulumi.Input[Optional[_builtins.str]] = None,
                  automatic_instance_repair: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
                  automatic_os_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
+                 automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2024,7 +2025,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2138,7 +2138,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute` - 2024-11-01
+        * `Microsoft.Compute` - 2025-04-01
 
         ## Import
 
@@ -2159,6 +2159,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
+        :param pulumi.Input[_builtins.bool] automatic_updates_enabled: (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
@@ -2172,7 +2173,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[_builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
-        :param pulumi.Input[_builtins.bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
@@ -2318,7 +2318,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Compute` - 2024-11-01
+        * `Microsoft.Compute` - 2025-04-01
 
         ## Import
 
@@ -2350,6 +2350,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  admin_username: pulumi.Input[Optional[_builtins.str]] = None,
                  automatic_instance_repair: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
                  automatic_os_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
+                 automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
                  capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2357,7 +2358,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
                  do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
                  edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2420,6 +2420,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["admin_username"] = admin_username
             __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
             __props__.__dict__["automatic_os_upgrade_policy"] = automatic_os_upgrade_policy
+            __props__.__dict__["automatic_updates_enabled"] = automatic_updates_enabled
             __props__.__dict__["boot_diagnostics"] = boot_diagnostics
             __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
             __props__.__dict__["computer_name_prefix"] = computer_name_prefix
@@ -2427,7 +2428,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             __props__.__dict__["data_disks"] = data_disks
             __props__.__dict__["do_not_run_extensions_on_overprovisioned_machines"] = do_not_run_extensions_on_overprovisioned_machines
             __props__.__dict__["edge_zone"] = edge_zone
-            __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
             __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
             __props__.__dict__["eviction_policy"] = eviction_policy
             __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
@@ -2500,6 +2500,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             admin_username: pulumi.Input[Optional[_builtins.str]] = None,
             automatic_instance_repair: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs', 'WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgsDict']]] = None,
             automatic_os_upgrade_policy: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']]] = None,
+            automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             boot_diagnostics: pulumi.Input[Optional[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']]] = None,
             capacity_reservation_group_id: pulumi.Input[Optional[_builtins.str]] = None,
             computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2507,7 +2508,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
             data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]]] = None,
             do_not_run_extensions_on_overprovisioned_machines: pulumi.Input[Optional[_builtins.bool]] = None,
             edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
-            enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
             encryption_at_host_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             eviction_policy: pulumi.Input[Optional[_builtins.str]] = None,
             extension_operations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -2567,6 +2567,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **Note:** For more information about Automatic Instance Repair, please refer to [this doc](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs', 'WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict']] automatic_os_upgrade_policy: An `automatic_os_upgrade_policy` block as defined below. This can only be specified when `upgrade_mode` is set to either `Automatic` or `Rolling`.
+        :param pulumi.Input[_builtins.bool] automatic_updates_enabled: (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
         :param pulumi.Input[Union['WindowsVirtualMachineScaleSetBootDiagnosticsArgs', 'WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict']] boot_diagnostics: A `boot_diagnostics` block as defined below.
         :param pulumi.Input[_builtins.str] capacity_reservation_group_id: Specifies the ID of the Capacity Reservation Group which the Virtual Machine Scale Set should be allocated to. Changing this forces a new resource to be created.
                
@@ -2580,7 +2581,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['WindowsVirtualMachineScaleSetDataDiskArgs', 'WindowsVirtualMachineScaleSetDataDiskArgsDict']]]] data_disks: One or more `data_disk` blocks as defined below.
         :param pulumi.Input[_builtins.bool] do_not_run_extensions_on_overprovisioned_machines: Should Virtual Machine Extensions be run on Overprovisioned Virtual Machines in the Scale Set? Defaults to `false`.
         :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
-        :param pulumi.Input[_builtins.bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] encryption_at_host_enabled: Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
         :param pulumi.Input[_builtins.str] eviction_policy: Specifies the eviction policy for Virtual Machines in this Scale Set. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created.
                
@@ -2662,6 +2662,7 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["admin_username"] = admin_username
         __props__.__dict__["automatic_instance_repair"] = automatic_instance_repair
         __props__.__dict__["automatic_os_upgrade_policy"] = automatic_os_upgrade_policy
+        __props__.__dict__["automatic_updates_enabled"] = automatic_updates_enabled
         __props__.__dict__["boot_diagnostics"] = boot_diagnostics
         __props__.__dict__["capacity_reservation_group_id"] = capacity_reservation_group_id
         __props__.__dict__["computer_name_prefix"] = computer_name_prefix
@@ -2669,7 +2670,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         __props__.__dict__["data_disks"] = data_disks
         __props__.__dict__["do_not_run_extensions_on_overprovisioned_machines"] = do_not_run_extensions_on_overprovisioned_machines
         __props__.__dict__["edge_zone"] = edge_zone
-        __props__.__dict__["enable_automatic_updates"] = enable_automatic_updates
         __props__.__dict__["encryption_at_host_enabled"] = encryption_at_host_enabled
         __props__.__dict__["eviction_policy"] = eviction_policy
         __props__.__dict__["extension_operations_enabled"] = extension_operations_enabled
@@ -2767,6 +2767,14 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         return pulumi.get(self, "automatic_os_upgrade_policy")
 
     @_builtins.property
+    @pulumi.getter(name="automaticUpdatesEnabled")
+    def automatic_updates_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+        """
+        return pulumi.get(self, "automatic_updates_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="bootDiagnostics")
     def boot_diagnostics(self) -> pulumi.Output[Optional['outputs.WindowsVirtualMachineScaleSetBootDiagnostics']]:
         """
@@ -2827,14 +2835,6 @@ class WindowsVirtualMachineScaleSet(pulumi.CustomResource):
         Specifies the Edge Zone within the Azure Region where this Windows Virtual Machine Scale Set should exist. Changing this forces a new Windows Virtual Machine Scale Set to be created.
         """
         return pulumi.get(self, "edge_zone")
-
-    @_builtins.property
-    @pulumi.getter(name="enableAutomaticUpdates")
-    def enable_automatic_updates(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-        """
-        return pulumi.get(self, "enable_automatic_updates")
 
     @_builtins.property
     @pulumi.getter(name="encryptionAtHostEnabled")

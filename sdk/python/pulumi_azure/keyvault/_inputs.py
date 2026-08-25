@@ -71,8 +71,6 @@ __all__ = [
     'KeyRotationPolicyAutomaticArgsDict',
     'KeyVaultAccessPolicyArgs',
     'KeyVaultAccessPolicyArgsDict',
-    'KeyVaultContactArgs',
-    'KeyVaultContactArgsDict',
     'KeyVaultNetworkAclsArgs',
     'KeyVaultNetworkAclsArgsDict',
     'ManagedHardwareSecurityModuleNetworkAclsArgs',
@@ -2168,60 +2166,6 @@ class KeyVaultAccessPolicyArgs:
     @storage_permissions.setter
     def storage_permissions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "storage_permissions", value)
-
-
-class KeyVaultContactArgsDict(TypedDict):
-    email: pulumi.Input[_builtins.str]
-    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-    """
-    phone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-
-@pulumi.input_type
-class KeyVaultContactArgs:
-    def __init__(__self__, *,
-                 email: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 phone: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-        """
-        pulumi.set(__self__, "email", email)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if phone is not None:
-            pulumi.set(__self__, "phone", phone)
-
-    @_builtins.property
-    @pulumi.getter
-    def email(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "email")
-
-    @email.setter
-    def email(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "email", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Specifies the name of the Key Vault. Changing this forces a new resource to be created. The name must be globally unique. If the vault is in a recoverable state then the vault will need to be purged before reusing the name.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def phone(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "phone")
-
-    @phone.setter
-    def phone(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "phone", value)
 
 
 class KeyVaultNetworkAclsArgsDict(TypedDict):

@@ -62,6 +62,7 @@ import * as utilities from "../utilities";
  *     name: "kv",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,
+ *     rbacAuthorizationEnabled: false,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     softDeleteRetentionDays: 7,

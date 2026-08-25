@@ -68,7 +68,6 @@ class LinuxVirtualMachineArgs:
                  termination_notification: pulumi.Input[Optional['LinuxVirtualMachineTerminationNotificationArgs']] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -162,7 +161,6 @@ class LinuxVirtualMachineArgs:
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
                
                > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-        :param pulumi.Input[_builtins.bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -256,11 +254,6 @@ class LinuxVirtualMachineArgs:
             pulumi.set(__self__, "user_data", user_data)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
-        if vm_agent_platform_updates_enabled is not None:
-            warnings.warn("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""", DeprecationWarning)
-            pulumi.log.warn("""vm_agent_platform_updates_enabled is deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
-        if vm_agent_platform_updates_enabled is not None:
-            pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
             pulumi.set(__self__, "vtpm_enabled", vtpm_enabled)
         if zone is not None:
@@ -872,19 +865,6 @@ class LinuxVirtualMachineArgs:
         pulumi.set(self, "virtual_machine_scale_set_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
-    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
-    def vm_agent_platform_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-        """
-        return pulumi.get(self, "vm_agent_platform_updates_enabled")
-
-    @vm_agent_platform_updates_enabled.setter
-    def vm_agent_platform_updates_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "vm_agent_platform_updates_enabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="vtpmEnabled")
     def vtpm_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -1171,9 +1151,6 @@ class _LinuxVirtualMachineState:
             pulumi.set(__self__, "virtual_machine_id", virtual_machine_id)
         if virtual_machine_scale_set_id is not None:
             pulumi.set(__self__, "virtual_machine_scale_set_id", virtual_machine_scale_set_id)
-        if vm_agent_platform_updates_enabled is not None:
-            warnings.warn("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""", DeprecationWarning)
-            pulumi.log.warn("""vm_agent_platform_updates_enabled is deprecated: this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
         if vm_agent_platform_updates_enabled is not None:
             pulumi.set(__self__, "vm_agent_platform_updates_enabled", vm_agent_platform_updates_enabled)
         if vtpm_enabled is not None:
@@ -1848,7 +1825,6 @@ class _LinuxVirtualMachineState:
 
     @_builtins.property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
-    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
     def vm_agent_platform_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
@@ -1937,7 +1913,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  termination_notification: pulumi.Input[Optional[Union['LinuxVirtualMachineTerminationNotificationArgs', 'LinuxVirtualMachineTerminationNotificationArgsDict']]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -2116,7 +2091,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                > **NOTE:** Orchestrated Virtual Machine Scale Sets can be provisioned using [the `compute.OrchestratedVirtualMachineScaleSet` resource](https://www.terraform.io/docs/providers/azurerm/r/orchestrated_virtual_machine_scale_set.html).
                
                > **NOTE:** To attach an existing VM to a Virtual Machine Scale Set, the scale set must have `single_placement_group` set to `false`, see [the documentation](https://learn.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-vm-to-a-scale-set) for more information.
-        :param pulumi.Input[_builtins.bool] vm_agent_platform_updates_enabled: Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] vtpm_enabled: Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] zone: Specifies the Availability Zones in which this Linux Virtual Machine should be located. Changing this forces a new Linux Virtual Machine to be created.
         """
@@ -2273,7 +2247,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
                  termination_notification: pulumi.Input[Optional[Union['LinuxVirtualMachineTerminationNotificationArgs', 'LinuxVirtualMachineTerminationNotificationArgsDict']]] = None,
                  user_data: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_machine_scale_set_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vm_agent_platform_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  vtpm_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  zone: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -2340,7 +2313,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["termination_notification"] = termination_notification
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["virtual_machine_scale_set_id"] = virtual_machine_scale_set_id
-            __props__.__dict__["vm_agent_platform_updates_enabled"] = vm_agent_platform_updates_enabled
             __props__.__dict__["vtpm_enabled"] = vtpm_enabled
             __props__.__dict__["zone"] = zone
             __props__.__dict__["private_ip_address"] = None
@@ -2348,6 +2320,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
             __props__.__dict__["public_ip_address"] = None
             __props__.__dict__["public_ip_addresses"] = None
             __props__.__dict__["virtual_machine_id"] = None
+            __props__.__dict__["vm_agent_platform_updates_enabled"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["adminPassword", "customData"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(LinuxVirtualMachine, __self__).__init__(
@@ -3039,7 +3012,6 @@ class LinuxVirtualMachine(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="vmAgentPlatformUpdatesEnabled")
-    @_utilities.deprecated("""this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API""")
     def vm_agent_platform_updates_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
         Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.

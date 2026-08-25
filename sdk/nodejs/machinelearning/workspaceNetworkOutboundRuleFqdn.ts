@@ -28,6 +28,7 @@ import * as utilities from "../utilities";
  *     name: "workspaceexamplekeyvault",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  * });

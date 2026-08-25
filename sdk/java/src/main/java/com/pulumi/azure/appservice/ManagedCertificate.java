@@ -34,11 +34,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupArgs;
  * import com.pulumi.azure.dns.DnsFunctions;
  * import com.pulumi.azure.dns.inputs.GetZoneArgs;
- * import com.pulumi.azure.appservice.Plan;
- * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
- * import com.pulumi.azure.appservice.AppService;
- * import com.pulumi.azure.appservice.AppServiceArgs;
+ * import com.pulumi.azurerm.AppServicePlan;
+ * import com.pulumi.azurerm.AppServicePlanArgs;
+ * import com.pulumi.azurerm.AppService;
+ * import com.pulumi.azurerm.AppServiceArgs;
  * import com.pulumi.azure.dns.TxtRecord;
  * import com.pulumi.azure.dns.TxtRecordArgs;
  * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
@@ -75,23 +74,23 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *         var exampleAppServicePlan = new AppServicePlan("exampleAppServicePlan", AppServicePlanArgs.builder()
  *             .name("example-plan")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .kind("Linux")
  *             .reserved(true)
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("Basic")
- *                 .size("B1")
- *                 .build())
+ *             .sku(Arrays.asList(Map.ofEntries(
+ *                 Map.entry("tier", "Basic"),
+ *                 Map.entry("size", "B1")
+ *             )))
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name("example-app")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .appServicePlanId(examplePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.id())
  *             .build());
  * 
  *         var exampleTxtRecord = new TxtRecord("exampleTxtRecord", TxtRecordArgs.builder()

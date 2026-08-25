@@ -91,13 +91,10 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the EventHub Namespace.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
-
-        [Output("namespaceName")]
-        public Output<string> NamespaceName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
@@ -114,9 +111,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Output("partitionIds")]
         public Output<ImmutableArray<string>> PartitionIds { get; private set; } = null!;
-
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
 
         /// <summary>
         /// A `RetentionDescription` block as defined below.
@@ -197,13 +191,10 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the EventHub Namespace.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceId")]
-        public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceId", required: true)]
+        public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
@@ -214,9 +205,6 @@ namespace Pulumi.Azure.EventHub
         /// </summary>
         [Input("partitionCount", required: true)]
         public Input<int> PartitionCount { get; set; } = null!;
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// A `RetentionDescription` block as defined below.
@@ -259,13 +247,10 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the EventHub Namespace.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
@@ -288,9 +273,6 @@ namespace Pulumi.Azure.EventHub
             get => _partitionIds ?? (_partitionIds = new InputList<string>());
             set => _partitionIds = value;
         }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
 
         /// <summary>
         /// A `RetentionDescription` block as defined below.

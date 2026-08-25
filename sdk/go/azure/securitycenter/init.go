@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,8 +27,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Assessment{}
 	case "azure:securitycenter/assessmentPolicy:AssessmentPolicy":
 		r = &AssessmentPolicy{}
-	case "azure:securitycenter/autoProvisioning:AutoProvisioning":
-		r = &AutoProvisioning{}
 	case "azure:securitycenter/automation:Automation":
 		r = &Automation{}
 	case "azure:securitycenter/contact:Contact":
@@ -71,11 +69,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"securitycenter/assessmentPolicy",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"securitycenter/autoProvisioning",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

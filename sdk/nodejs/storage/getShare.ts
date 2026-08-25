@@ -41,7 +41,6 @@ export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promi
         "metadata": args.metadata,
         "name": args.name,
         "storageAccountId": args.storageAccountId,
-        "storageAccountName": args.storageAccountName,
     }, opts);
 }
 
@@ -63,14 +62,8 @@ export interface GetShareArgs {
     name: string;
     /**
      * The ID of the storage account in which the share exists.
-     *
-     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountId?: string;
-    /**
-     * The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
-     */
-    storageAccountName?: string;
+    storageAccountId: string;
 }
 
 /**
@@ -98,12 +91,7 @@ export interface GetShareResult {
      * The ID that is supposed to be used as the `scope` of an `azurermRoleAssignmet` for this File Share.
      */
     readonly rbacScopeId: string;
-    /**
-     * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-     */
-    readonly resourceManagerId: string;
-    readonly storageAccountId?: string;
-    readonly storageAccountName?: string;
+    readonly storageAccountId: string;
 }
 /**
  * Use this data source to access information about an existing File Share.
@@ -140,7 +128,6 @@ export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOut
         "metadata": args.metadata,
         "name": args.name,
         "storageAccountId": args.storageAccountId,
-        "storageAccountName": args.storageAccountName,
     }, opts);
 }
 
@@ -162,12 +149,6 @@ export interface GetShareOutputArgs {
     name: pulumi.Input<string>;
     /**
      * The ID of the storage account in which the share exists.
-     *
-     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
      */
-    storageAccountId?: pulumi.Input<string | undefined>;
-    /**
-     * The name of the storage account in which the share exists. This property is deprecated in favour of `storageAccountId`.
-     */
-    storageAccountName?: pulumi.Input<string | undefined>;
+    storageAccountId: pulumi.Input<string>;
 }

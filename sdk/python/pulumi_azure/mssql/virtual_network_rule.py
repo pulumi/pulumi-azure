@@ -201,7 +201,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.7.29.0/29"],
-            service_endpoints=["Microsoft.Sql"])
+            service_endpoints=[{
+                "service": "Microsoft.Sql",
+            }])
         example_server = azure.mssql.Server("example",
             name="uniqueazuresqlserver",
             resource_group_name=example.name,
@@ -268,7 +270,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
             resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.7.29.0/29"],
-            service_endpoints=["Microsoft.Sql"])
+            service_endpoints=[{
+                "service": "Microsoft.Sql",
+            }])
         example_server = azure.mssql.Server("example",
             name="uniqueazuresqlserver",
             resource_group_name=example.name,

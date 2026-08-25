@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -488,7 +488,7 @@ func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 type ClusterLanguageExtension struct {
 	// The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
 	Image string `pulumi:"image"`
-	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+	// The name of the language extension. Possible values are `PYTHON` and `R`.
 	Name string `pulumi:"name"`
 }
 
@@ -506,7 +506,7 @@ type ClusterLanguageExtensionInput interface {
 type ClusterLanguageExtensionArgs struct {
 	// The language extension image. Possible values are `Python3_11_7`, `Python3_11_7_DL`, `Python3_10_8`, `Python3_10_8_DL`, `Python3_6_5`, `PythonCustomImage`, and `R`.
 	Image pulumi.StringInput `pulumi:"image"`
-	// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+	// The name of the language extension. Possible values are `PYTHON` and `R`.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -566,7 +566,7 @@ func (o ClusterLanguageExtensionOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLanguageExtension) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// The name of the Kusto Cluster to create. Only lowercase Alphanumeric characters allowed, starting with a letter. Changing this forces a new resource to be created.
+// The name of the language extension. Possible values are `PYTHON` and `R`.
 func (o ClusterLanguageExtensionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterLanguageExtension) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -919,169 +919,6 @@ func (o ClusterSkuPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type ClusterVirtualNetworkConfiguration struct {
-	DataManagementPublicIpId string `pulumi:"dataManagementPublicIpId"`
-	EnginePublicIpId         string `pulumi:"enginePublicIpId"`
-	SubnetId                 string `pulumi:"subnetId"`
-}
-
-// ClusterVirtualNetworkConfigurationInput is an input type that accepts ClusterVirtualNetworkConfigurationArgs and ClusterVirtualNetworkConfigurationOutput values.
-// You can construct a concrete instance of `ClusterVirtualNetworkConfigurationInput` via:
-//
-//	ClusterVirtualNetworkConfigurationArgs{...}
-type ClusterVirtualNetworkConfigurationInput interface {
-	pulumi.Input
-
-	ToClusterVirtualNetworkConfigurationOutput() ClusterVirtualNetworkConfigurationOutput
-	ToClusterVirtualNetworkConfigurationOutputWithContext(context.Context) ClusterVirtualNetworkConfigurationOutput
-}
-
-type ClusterVirtualNetworkConfigurationArgs struct {
-	DataManagementPublicIpId pulumi.StringInput `pulumi:"dataManagementPublicIpId"`
-	EnginePublicIpId         pulumi.StringInput `pulumi:"enginePublicIpId"`
-	SubnetId                 pulumi.StringInput `pulumi:"subnetId"`
-}
-
-func (ClusterVirtualNetworkConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVirtualNetworkConfiguration)(nil)).Elem()
-}
-
-func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigurationOutput() ClusterVirtualNetworkConfigurationOutput {
-	return i.ToClusterVirtualNetworkConfigurationOutputWithContext(context.Background())
-}
-
-func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigurationOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVirtualNetworkConfigurationOutput)
-}
-
-func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput {
-	return i.ToClusterVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterVirtualNetworkConfigurationArgs) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVirtualNetworkConfigurationOutput).ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx)
-}
-
-// ClusterVirtualNetworkConfigurationPtrInput is an input type that accepts ClusterVirtualNetworkConfigurationArgs, ClusterVirtualNetworkConfigurationPtr and ClusterVirtualNetworkConfigurationPtrOutput values.
-// You can construct a concrete instance of `ClusterVirtualNetworkConfigurationPtrInput` via:
-//
-//	        ClusterVirtualNetworkConfigurationArgs{...}
-//
-//	or:
-//
-//	        nil
-type ClusterVirtualNetworkConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput
-	ToClusterVirtualNetworkConfigurationPtrOutputWithContext(context.Context) ClusterVirtualNetworkConfigurationPtrOutput
-}
-
-type clusterVirtualNetworkConfigurationPtrType ClusterVirtualNetworkConfigurationArgs
-
-func ClusterVirtualNetworkConfigurationPtr(v *ClusterVirtualNetworkConfigurationArgs) ClusterVirtualNetworkConfigurationPtrInput {
-	return (*clusterVirtualNetworkConfigurationPtrType)(v)
-}
-
-func (*clusterVirtualNetworkConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterVirtualNetworkConfiguration)(nil)).Elem()
-}
-
-func (i *clusterVirtualNetworkConfigurationPtrType) ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput {
-	return i.ToClusterVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterVirtualNetworkConfigurationPtrType) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVirtualNetworkConfigurationPtrOutput)
-}
-
-type ClusterVirtualNetworkConfigurationOutput struct{ *pulumi.OutputState }
-
-func (ClusterVirtualNetworkConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterVirtualNetworkConfiguration)(nil)).Elem()
-}
-
-func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigurationOutput() ClusterVirtualNetworkConfigurationOutput {
-	return o
-}
-
-func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigurationOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationOutput {
-	return o
-}
-
-func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput {
-	return o.ToClusterVirtualNetworkConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterVirtualNetworkConfigurationOutput) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVirtualNetworkConfiguration) *ClusterVirtualNetworkConfiguration {
-		return &v
-	}).(ClusterVirtualNetworkConfigurationPtrOutput)
-}
-
-func (o ClusterVirtualNetworkConfigurationOutput) DataManagementPublicIpId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) string { return v.DataManagementPublicIpId }).(pulumi.StringOutput)
-}
-
-func (o ClusterVirtualNetworkConfigurationOutput) EnginePublicIpId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) string { return v.EnginePublicIpId }).(pulumi.StringOutput)
-}
-
-func (o ClusterVirtualNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
-	return o.ApplyT(func(v ClusterVirtualNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
-}
-
-type ClusterVirtualNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterVirtualNetworkConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterVirtualNetworkConfiguration)(nil)).Elem()
-}
-
-func (o ClusterVirtualNetworkConfigurationPtrOutput) ToClusterVirtualNetworkConfigurationPtrOutput() ClusterVirtualNetworkConfigurationPtrOutput {
-	return o
-}
-
-func (o ClusterVirtualNetworkConfigurationPtrOutput) ToClusterVirtualNetworkConfigurationPtrOutputWithContext(ctx context.Context) ClusterVirtualNetworkConfigurationPtrOutput {
-	return o
-}
-
-func (o ClusterVirtualNetworkConfigurationPtrOutput) Elem() ClusterVirtualNetworkConfigurationOutput {
-	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) ClusterVirtualNetworkConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterVirtualNetworkConfiguration
-		return ret
-	}).(ClusterVirtualNetworkConfigurationOutput)
-}
-
-func (o ClusterVirtualNetworkConfigurationPtrOutput) DataManagementPublicIpId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataManagementPublicIpId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterVirtualNetworkConfigurationPtrOutput) EnginePublicIpId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EnginePublicIpId
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ClusterVirtualNetworkConfigurationPtrOutput) SubnetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterVirtualNetworkConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SubnetId
-	}).(pulumi.StringPtrOutput)
-}
-
 type GetClusterIdentity struct {
 	// A list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
 	IdentityIds []string `pulumi:"identityIds"`
@@ -1217,8 +1054,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOptimizedAutoScalePtrInput)(nil)).Elem(), ClusterOptimizedAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuInput)(nil)).Elem(), ClusterSkuArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSkuPtrInput)(nil)).Elem(), ClusterSkuArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVirtualNetworkConfigurationPtrInput)(nil)).Elem(), ClusterVirtualNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityInput)(nil)).Elem(), GetClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityArrayInput)(nil)).Elem(), GetClusterIdentityArray{})
 	pulumi.RegisterOutputType(AttachedDatabaseConfigurationSharingOutput{})
@@ -1231,8 +1066,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOptimizedAutoScalePtrOutput{})
 	pulumi.RegisterOutputType(ClusterSkuOutput{})
 	pulumi.RegisterOutputType(ClusterSkuPtrOutput{})
-	pulumi.RegisterOutputType(ClusterVirtualNetworkConfigurationOutput{})
-	pulumi.RegisterOutputType(ClusterVirtualNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityOutput{})
 	pulumi.RegisterOutputType(GetClusterIdentityArrayOutput{})
 }

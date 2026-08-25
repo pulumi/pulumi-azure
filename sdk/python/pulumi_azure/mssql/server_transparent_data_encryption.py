@@ -21,8 +21,7 @@ class ServerTransparentDataEncryptionArgs:
     def __init__(__self__, *,
                  server_id: pulumi.Input[_builtins.str],
                  auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ServerTransparentDataEncryption resource.
 
@@ -39,11 +38,6 @@ class ServerTransparentDataEncryptionArgs:
             pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        if managed_hsm_key_id is not None:
-            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
 
     @_builtins.property
     @pulumi.getter(name="serverId")
@@ -85,23 +79,12 @@ class ServerTransparentDataEncryptionArgs:
     def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key_vault_key_id", value)
 
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
-
 
 @pulumi.input_type
 class _ServerTransparentDataEncryptionState:
     def __init__(__self__, *,
                  auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ServerTransparentDataEncryption resources.
@@ -118,11 +101,6 @@ class _ServerTransparentDataEncryptionState:
             pulumi.set(__self__, "auto_rotation_enabled", auto_rotation_enabled)
         if key_vault_key_id is not None:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        if managed_hsm_key_id is not None:
-            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
 
@@ -155,16 +133,6 @@ class _ServerTransparentDataEncryptionState:
         pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -185,7 +153,6 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -259,6 +226,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             enabled_for_disk_encryption=True,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
@@ -409,6 +377,7 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             enabled_for_disk_encryption=True,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
@@ -489,7 +458,6 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -502,7 +470,6 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
 
             __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
-            __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             if server_id is None and not opts.urn:
                 raise TypeError("Missing required property 'server_id'")
             __props__.__dict__["server_id"] = server_id
@@ -518,7 +485,6 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             server_id: pulumi.Input[Optional[_builtins.str]] = None) -> 'ServerTransparentDataEncryption':
         """
         Get an existing ServerTransparentDataEncryption resource's state with the given name, id, and optional extra
@@ -541,7 +507,6 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
 
         __props__.__dict__["auto_rotation_enabled"] = auto_rotation_enabled
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
-        __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["server_id"] = server_id
         return ServerTransparentDataEncryption(resource_name, opts=opts, __props__=__props__)
 
@@ -564,12 +529,6 @@ class ServerTransparentDataEncryption(pulumi.CustomResource):
         > **Note:** If `server_id` denotes a secondary server deployed for disaster recovery purposes, then the `key_vault_key_id` should be the same key used for the primary server's transparent data encryption. Both primary and secondary servers should be encrypted with same key material.
         """
         return pulumi.get(self, "key_vault_key_id")
-
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
 
     @_builtins.property
     @pulumi.getter(name="serverId")

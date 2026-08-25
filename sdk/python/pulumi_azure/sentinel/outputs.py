@@ -95,7 +95,7 @@ class AlertRuleAnomalyBuiltInMultiSelectObservation(dict):
                  values: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.str description: The description of the threshold observation.
-        :param _builtins.str name: The Name of the built-in Anomaly Alert Rule.
+        :param _builtins.str name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] supported_values: A list of supported values of the single select observation.
         :param Sequence[_builtins.str] values: A list of values of the single select observation.
         """
@@ -120,7 +120,7 @@ class AlertRuleAnomalyBuiltInMultiSelectObservation(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The Name of the built-in Anomaly Alert Rule.
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -151,7 +151,7 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservation(dict):
         """
         :param _builtins.str description: The description of the threshold observation.
         :param _builtins.str exclude: The excluded value per `description`.
-        :param _builtins.str name: The Name of the built-in Anomaly Alert Rule.
+        :param _builtins.str name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         :param _builtins.str prioritize: The prioritized value per `description`.
         """
         if description is not None:
@@ -183,7 +183,7 @@ class AlertRuleAnomalyBuiltInPrioritizedExcludeObservation(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The Name of the built-in Anomaly Alert Rule.
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -272,7 +272,7 @@ class AlertRuleAnomalyBuiltInSingleSelectObservation(dict):
                  value: Optional[_builtins.str] = None):
         """
         :param _builtins.str description: The description of the threshold observation.
-        :param _builtins.str name: The Name of the built-in Anomaly Alert Rule.
+        :param _builtins.str name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         :param Sequence[_builtins.str] supported_values: A list of supported values of the single select observation.
         :param _builtins.str value: The value of the threshold observation.
         """
@@ -297,7 +297,7 @@ class AlertRuleAnomalyBuiltInSingleSelectObservation(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The Name of the built-in Anomaly Alert Rule.
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 
@@ -330,7 +330,7 @@ class AlertRuleAnomalyBuiltInThresholdObservation(dict):
         :param _builtins.str description: The description of the threshold observation.
         :param _builtins.str max: The max value of the threshold observation.
         :param _builtins.str min: The min value of the threshold observation.
-        :param _builtins.str name: The Name of the built-in Anomaly Alert Rule.
+        :param _builtins.str name: The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         :param _builtins.str value: The value of the threshold observation.
         """
         if description is not None:
@@ -372,7 +372,7 @@ class AlertRuleAnomalyBuiltInThresholdObservation(dict):
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
-        The Name of the built-in Anomaly Alert Rule.
+        The Name of the built-in Anomaly Alert Rule. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "name")
 

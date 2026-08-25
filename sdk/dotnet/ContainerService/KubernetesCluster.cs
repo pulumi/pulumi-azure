@@ -389,12 +389,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> NodeResourceGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        /// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `True`.
         /// 
         /// &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         /// </summary>
         [Output("oidcIssuerEnabled")]
-        public Output<bool> OidcIssuerEnabled { get; private set; } = null!;
+        public Output<bool?> OidcIssuerEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The OIDC issuer URL that is associated with the cluster.
@@ -899,8 +899,8 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// A `NodeProvisioningProfile` block as defined below.
         /// </summary>
-        [Input("nodeProvisioningProfile")]
-        public Input<Inputs.KubernetesClusterNodeProvisioningProfileArgs>? NodeProvisioningProfile { get; set; }
+        [Input("nodeProvisioningProfile", required: true)]
+        public Input<Inputs.KubernetesClusterNodeProvisioningProfileArgs> NodeProvisioningProfile { get; set; } = null!;
 
         /// <summary>
         /// The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created.
@@ -911,7 +911,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroup { get; set; }
 
         /// <summary>
-        /// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        /// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `True`.
         /// 
         /// &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         /// </summary>
@@ -1464,7 +1464,7 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? NodeResourceGroupId { get; set; }
 
         /// <summary>
-        /// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+        /// Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `True`.
         /// 
         /// &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
         /// </summary>

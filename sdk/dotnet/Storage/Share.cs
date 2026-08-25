@@ -136,26 +136,10 @@ namespace Pulumi.Azure.Storage
         public Output<string> RbacScopeId { get; private set; } = null!;
 
         /// <summary>
-        /// The Resource Manager ID of this File Share.
-        /// </summary>
-        [Output("resourceManagerId")]
-        public Output<string> ResourceManagerId { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the storage account in which to create the share.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
-        public Output<string?> StorageAccountId { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the storage account in which to create the share. This property is deprecated in favour of `StorageAccountId`.
-        /// 
-        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string?> StorageAccountName { get; private set; } = null!;
+        public Output<string> StorageAccountId { get; private set; } = null!;
 
         /// <summary>
         /// The URL of the File Share
@@ -266,20 +250,10 @@ namespace Pulumi.Azure.Storage
         public Input<int> Quota { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the storage account in which to create the share.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// Specifies the storage account in which to create the share. This property is deprecated in favour of `StorageAccountId`.
-        /// 
-        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public Input<string> StorageAccountId { get; set; } = null!;
 
         public ShareArgs()
         {
@@ -352,26 +326,10 @@ namespace Pulumi.Azure.Storage
         public Input<string>? RbacScopeId { get; set; }
 
         /// <summary>
-        /// The Resource Manager ID of this File Share.
-        /// </summary>
-        [Input("resourceManagerId")]
-        public Input<string>? ResourceManagerId { get; set; }
-
-        /// <summary>
-        /// Specifies the storage account in which to create the share.
-        /// 
-        /// &gt; **Note:** One of `StorageAccountName` or `StorageAccountId` must be specified. When specifying `StorageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+        /// Specifies the ID of the storage account in which to create the share. Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// Specifies the storage account in which to create the share. This property is deprecated in favour of `StorageAccountId`.
-        /// 
-        /// &gt; **Note:** Migrating from the deprecated `StorageAccountName` to `StorageAccountId` is supported without recreation. Any other change to either property will result in the resource being recreated.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
 
         /// <summary>
         /// The URL of the File Share

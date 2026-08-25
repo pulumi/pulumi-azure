@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,9 +87,9 @@ type LookupSubnetResult struct {
 	ResourceGroupName                        string `pulumi:"resourceGroupName"`
 	// The ID of the Route Table associated with this subnet.
 	RouteTableId string `pulumi:"routeTableId"`
-	// A list of Service Endpoints within this subnet.
-	ServiceEndpoints   []string `pulumi:"serviceEndpoints"`
-	VirtualNetworkName string   `pulumi:"virtualNetworkName"`
+	// A `serviceEndpoint` block as defined below.
+	ServiceEndpoints   []GetSubnetServiceEndpoint `pulumi:"serviceEndpoints"`
+	VirtualNetworkName string                     `pulumi:"virtualNetworkName"`
 }
 
 func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
@@ -177,9 +177,9 @@ func (o LookupSubnetResultOutput) RouteTableId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetResult) string { return v.RouteTableId }).(pulumi.StringOutput)
 }
 
-// A list of Service Endpoints within this subnet.
-func (o LookupSubnetResultOutput) ServiceEndpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupSubnetResult) []string { return v.ServiceEndpoints }).(pulumi.StringArrayOutput)
+// A `serviceEndpoint` block as defined below.
+func (o LookupSubnetResultOutput) ServiceEndpoints() GetSubnetServiceEndpointArrayOutput {
+	return o.ApplyT(func(v LookupSubnetResult) []GetSubnetServiceEndpoint { return v.ServiceEndpoints }).(GetSubnetServiceEndpointArrayOutput)
 }
 
 func (o LookupSubnetResultOutput) VirtualNetworkName() pulumi.StringOutput {

@@ -18,7 +18,7 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("allocationStrategy", required: true)]
         public Input<string> AllocationStrategy { get; set; } = null!;
 
-        [Input("virtualMachineSizes")]
+        [Input("virtualMachineSizes", required: true)]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeGetArgs>? _virtualMachineSizes;
 
         /// <summary>
@@ -30,15 +30,6 @@ namespace Pulumi.Azure.Compute.Inputs
         {
             get => _virtualMachineSizes ?? (_virtualMachineSizes = new InputList<Inputs.OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeGetArgs>());
             set => _virtualMachineSizes = value;
-        }
-
-        [Input("vmSizes")]
-        private InputList<string>? _vmSizes;
-        [Obsolete(@"The `VmSizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `VirtualMachineSize` block instead.")]
-        public InputList<string> VmSizes
-        {
-            get => _vmSizes ?? (_vmSizes = new InputList<string>());
-            set => _vmSizes = value;
         }
 
         public OrchestratedVirtualMachineScaleSetSkuProfileGetArgs()

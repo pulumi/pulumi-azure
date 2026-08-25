@@ -159,6 +159,7 @@ import javax.annotation.Nullable;
  *             .name("mssqltdeexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .enabledForDiskEncryption(true)
  *             .tenantId(exampleUserAssignedIdentity.tenantId())
  *             .softDeleteRetentionDays(7)
@@ -326,7 +327,7 @@ public class Database extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="enclaveType", refs={String.class}, tree="[0]")
-    private Output<String> enclaveType;
+    private Output</* @Nullable */ String> enclaveType;
 
     /**
      * @return Specifies the type of enclave to be used by the elastic pool. When `enclaveType` is not specified (e.g., the default) enclaves are not enabled on the database. Once enabled (e.g., by specifying `Default` or `VBS`) removing the `enclaveType` field from the configuration file will force the creation of a new resource. Possible values are `Default` or `VBS`.
@@ -338,8 +339,8 @@ public class Database extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** The default value for the `enclaveType` field is unset not `Default`.
      * 
      */
-    public Output<String> enclaveType() {
-        return this.enclaveType;
+    public Output<Optional<String>> enclaveType() {
+        return Codegen.optional(this.enclaveType);
     }
     /**
      * A boolean that specifies if the Geo Backup Policy is enabled. Defaults to `true`.

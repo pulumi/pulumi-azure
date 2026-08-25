@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Compute` - 2024-11-01
+ * * `Microsoft.Compute` - 2025-04-01
  * 
  * ## Import
  * 
@@ -246,6 +246,20 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      */
     public Output<Optional<WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy>> automaticOsUpgradePolicy() {
         return Codegen.optional(this.automaticOsUpgradePolicy);
+    }
+    /**
+     * (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+     * 
+     */
+    @Export(name="automaticUpdatesEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> automaticUpdatesEnabled;
+
+    /**
+     * @return (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> automaticUpdatesEnabled() {
+        return Codegen.optional(this.automaticUpdatesEnabled);
     }
     /**
      * A `bootDiagnostics` block as defined below.
@@ -356,20 +370,6 @@ public class WindowsVirtualMachineScaleSet extends com.pulumi.resources.CustomRe
      */
     public Output<Optional<String>> edgeZone() {
         return Codegen.optional(this.edgeZone);
-    }
-    /**
-     * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    @Export(name="enableAutomaticUpdates", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> enableAutomaticUpdates;
-
-    /**
-     * @return Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    public Output<Optional<Boolean>> enableAutomaticUpdates() {
-        return Codegen.optional(this.enableAutomaticUpdates);
     }
     /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?

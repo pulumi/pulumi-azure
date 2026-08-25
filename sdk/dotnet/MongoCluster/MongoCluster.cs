@@ -235,6 +235,7 @@ namespace Pulumi.Azure.MongoCluster
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure:cosmosdb/mongoCluster:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure:cosmosdb/mongoCluster:MongoCluster" },
                 },
                 AdditionalSecretOutputs =
                 {

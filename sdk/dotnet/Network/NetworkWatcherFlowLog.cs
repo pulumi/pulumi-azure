@@ -125,9 +125,6 @@ namespace Pulumi.Azure.Network
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        [Output("networkSecurityGroupId")]
-        public Output<string> NetworkSecurityGroupId { get; private set; } = null!;
-
         /// <summary>
         /// The name of the Network Watcher. Changing this forces a new resource to be created.
         /// </summary>
@@ -242,9 +239,6 @@ namespace Pulumi.Azure.Network
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("networkSecurityGroupId")]
-        public Input<string>? NetworkSecurityGroupId { get; set; }
-
         /// <summary>
         /// The name of the Network Watcher. Changing this forces a new resource to be created.
         /// </summary>
@@ -286,8 +280,8 @@ namespace Pulumi.Azure.Network
         /// 
         /// &gt; **Note:** As of July 30, 2025, it is no longer possible to create new flow logs for Network Security Groups.
         /// </summary>
-        [Input("targetResourceId")]
-        public Input<string>? TargetResourceId { get; set; }
+        [Input("targetResourceId", required: true)]
+        public Input<string> TargetResourceId { get; set; } = null!;
 
         /// <summary>
         /// A `TrafficAnalytics` block as documented below.
@@ -326,9 +320,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
-
-        [Input("networkSecurityGroupId")]
-        public Input<string>? NetworkSecurityGroupId { get; set; }
 
         /// <summary>
         /// The name of the Network Watcher. Changing this forces a new resource to be created.

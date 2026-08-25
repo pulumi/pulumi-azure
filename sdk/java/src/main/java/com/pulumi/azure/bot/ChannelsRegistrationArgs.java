@@ -197,8 +197,8 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
      * &gt; **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      * 
      */
-    @Import(name="microsoftAppType")
-    private @Nullable Output<String> microsoftAppType;
+    @Import(name="microsoftAppType", required=true)
+    private Output<String> microsoftAppType;
 
     /**
      * @return The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
@@ -206,8 +206,8 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
      * &gt; **Note:** Creation of `azure.bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      * 
      */
-    public Optional<Output<String>> microsoftAppType() {
-        return Optional.ofNullable(this.microsoftAppType);
+    public Output<String> microsoftAppType() {
+        return this.microsoftAppType;
     }
 
     /**
@@ -604,7 +604,7 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder microsoftAppType(@Nullable Output<String> microsoftAppType) {
+        public Builder microsoftAppType(Output<String> microsoftAppType) {
             $.microsoftAppType = microsoftAppType;
             return this;
         }
@@ -771,6 +771,9 @@ public final class ChannelsRegistrationArgs extends com.pulumi.resources.Resourc
         public ChannelsRegistrationArgs build() {
             if ($.microsoftAppId == null) {
                 throw new MissingRequiredPropertyException("ChannelsRegistrationArgs", "microsoftAppId");
+            }
+            if ($.microsoftAppType == null) {
+                throw new MissingRequiredPropertyException("ChannelsRegistrationArgs", "microsoftAppType");
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("ChannelsRegistrationArgs", "resourceGroupName");

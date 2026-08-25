@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cosmosdb"
 //	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -97,8 +97,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cosmosdb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cosmosdb"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -200,14 +200,10 @@ type Account struct {
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrOutput          `pulumi:"isVirtualNetworkFilterEnabled"`
 	KeyVaultKeyId                 pulumi.StringPtrOutput        `pulumi:"keyVaultKeyId"`
 	Kind                          pulumi.StringPtrOutput        `pulumi:"kind"`
-	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-	LocalAuthenticationDisabled pulumi.BoolOutput `pulumi:"localAuthenticationDisabled"`
-	LocalAuthenticationEnabled  pulumi.BoolOutput `pulumi:"localAuthenticationEnabled"`
+	LocalAuthenticationEnabled    pulumi.BoolPtrOutput          `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId pulumi.StringPtrOutput `pulumi:"managedHsmKeyId"`
-	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	// Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             pulumi.StringPtrOutput `pulumi:"minimalTlsVersion"`
@@ -341,14 +337,10 @@ type accountState struct {
 	IsVirtualNetworkFilterEnabled *bool                `pulumi:"isVirtualNetworkFilterEnabled"`
 	KeyVaultKeyId                 *string              `pulumi:"keyVaultKeyId"`
 	Kind                          *string              `pulumi:"kind"`
-	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
-	LocalAuthenticationEnabled  *bool `pulumi:"localAuthenticationEnabled"`
+	LocalAuthenticationEnabled    *bool                `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
-	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	// Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             *string `pulumi:"minimalTlsVersion"`
@@ -426,14 +418,10 @@ type AccountState struct {
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
 	KeyVaultKeyId                 pulumi.StringPtrInput
 	Kind                          pulumi.StringPtrInput
-	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-	LocalAuthenticationDisabled pulumi.BoolPtrInput
-	LocalAuthenticationEnabled  pulumi.BoolPtrInput
+	LocalAuthenticationEnabled    pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId pulumi.StringPtrInput
-	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	// Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             pulumi.StringPtrInput
@@ -513,14 +501,10 @@ type accountArgs struct {
 	IsVirtualNetworkFilterEnabled *bool                `pulumi:"isVirtualNetworkFilterEnabled"`
 	KeyVaultKeyId                 *string              `pulumi:"keyVaultKeyId"`
 	Kind                          *string              `pulumi:"kind"`
-	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-	LocalAuthenticationDisabled *bool `pulumi:"localAuthenticationDisabled"`
-	LocalAuthenticationEnabled  *bool `pulumi:"localAuthenticationEnabled"`
+	LocalAuthenticationEnabled    *bool                `pulumi:"localAuthenticationEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId *string `pulumi:"managedHsmKeyId"`
-	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	// Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             *string `pulumi:"minimalTlsVersion"`
@@ -569,14 +553,10 @@ type AccountArgs struct {
 	IsVirtualNetworkFilterEnabled pulumi.BoolPtrInput
 	KeyVaultKeyId                 pulumi.StringPtrInput
 	Kind                          pulumi.StringPtrInput
-	// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-	LocalAuthenticationDisabled pulumi.BoolPtrInput
-	LocalAuthenticationEnabled  pulumi.BoolPtrInput
+	LocalAuthenticationEnabled    pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-	ManagedHsmKeyId pulumi.StringPtrInput
-	// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+	// Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 	MinimalTlsVersion             pulumi.StringPtrInput
@@ -772,13 +752,8 @@ func (o AccountOutput) Kind() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-func (o AccountOutput) LocalAuthenticationDisabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.LocalAuthenticationDisabled }).(pulumi.BoolOutput)
-}
-
-func (o AccountOutput) LocalAuthenticationEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolOutput)
+func (o AccountOutput) LocalAuthenticationEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.LocalAuthenticationEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -786,12 +761,7 @@ func (o AccountOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Deprecated: `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-func (o AccountOutput) ManagedHsmKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.ManagedHsmKeyId }).(pulumi.StringPtrOutput)
-}
-
-// Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+// Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
 //
 // > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
 func (o AccountOutput) MinimalTlsVersion() pulumi.StringPtrOutput {

@@ -286,7 +286,7 @@ namespace Pulumi.Azure.Network
         /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `False`.
         /// </summary>
         [Output("bgpEnabled")]
-        public Output<bool> BgpEnabled { get; private set; } = null!;
+        public Output<bool?> BgpEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Connection mode to use. Possible values are `Default`, `InitiatorOnly` and `ResponderOnly`. Defaults to `Default`. Changing this value will force a resource to be created.
@@ -320,9 +320,6 @@ namespace Pulumi.Azure.Network
         /// </summary>
         [Output("egressNatRuleIds")]
         public Output<ImmutableArray<string>> EgressNatRuleIds { get; private set; } = null!;
-
-        [Output("enableBgp")]
-        public Output<bool> EnableBgp { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `Type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
@@ -548,9 +545,6 @@ namespace Pulumi.Azure.Network
             set => _egressNatRuleIds = value;
         }
 
-        [Input("enableBgp")]
-        public Input<bool>? EnableBgp { get; set; }
-
         /// <summary>
         /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `Type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
         /// </summary>
@@ -753,9 +747,6 @@ namespace Pulumi.Azure.Network
             get => _egressNatRuleIds ?? (_egressNatRuleIds = new InputList<string>());
             set => _egressNatRuleIds = value;
         }
-
-        [Input("enableBgp")]
-        public Input<bool>? EnableBgp { get; set; }
 
         /// <summary>
         /// The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `Type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.

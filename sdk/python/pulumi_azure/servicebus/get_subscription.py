@@ -26,7 +26,7 @@ class GetSubscriptionResult:
     """
     A collection of values returned by getSubscription.
     """
-    def __init__(__self__, auto_delete_on_idle=None, batched_operations_enabled=None, dead_lettering_on_filter_evaluation_error=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, enable_batched_operations=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, name=None, namespace_name=None, requires_session=None, resource_group_name=None, topic_id=None, topic_name=None):
+    def __init__(__self__, auto_delete_on_idle=None, batched_operations_enabled=None, dead_lettering_on_filter_evaluation_error=None, dead_lettering_on_message_expiration=None, default_message_ttl=None, forward_dead_lettered_messages_to=None, forward_to=None, id=None, lock_duration=None, max_delivery_count=None, name=None, requires_session=None, topic_id=None):
         if auto_delete_on_idle and not isinstance(auto_delete_on_idle, str):
             raise TypeError("Expected argument 'auto_delete_on_idle' to be a str")
         pulumi.set(__self__, "auto_delete_on_idle", auto_delete_on_idle)
@@ -42,9 +42,6 @@ class GetSubscriptionResult:
         if default_message_ttl and not isinstance(default_message_ttl, str):
             raise TypeError("Expected argument 'default_message_ttl' to be a str")
         pulumi.set(__self__, "default_message_ttl", default_message_ttl)
-        if enable_batched_operations and not isinstance(enable_batched_operations, bool):
-            raise TypeError("Expected argument 'enable_batched_operations' to be a bool")
-        pulumi.set(__self__, "enable_batched_operations", enable_batched_operations)
         if forward_dead_lettered_messages_to and not isinstance(forward_dead_lettered_messages_to, str):
             raise TypeError("Expected argument 'forward_dead_lettered_messages_to' to be a str")
         pulumi.set(__self__, "forward_dead_lettered_messages_to", forward_dead_lettered_messages_to)
@@ -63,21 +60,12 @@ class GetSubscriptionResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if namespace_name and not isinstance(namespace_name, str):
-            raise TypeError("Expected argument 'namespace_name' to be a str")
-        pulumi.set(__self__, "namespace_name", namespace_name)
         if requires_session and not isinstance(requires_session, bool):
             raise TypeError("Expected argument 'requires_session' to be a bool")
         pulumi.set(__self__, "requires_session", requires_session)
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if topic_id and not isinstance(topic_id, str):
             raise TypeError("Expected argument 'topic_id' to be a str")
         pulumi.set(__self__, "topic_id", topic_id)
-        if topic_name and not isinstance(topic_name, str):
-            raise TypeError("Expected argument 'topic_name' to be a str")
-        pulumi.set(__self__, "topic_name", topic_name)
 
     @_builtins.property
     @pulumi.getter(name="autoDeleteOnIdle")
@@ -118,11 +106,6 @@ class GetSubscriptionResult:
         The Default message timespan to live. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         """
         return pulumi.get(self, "default_message_ttl")
-
-    @_builtins.property
-    @pulumi.getter(name="enableBatchedOperations")
-    def enable_batched_operations(self) -> _builtins.bool:
-        return pulumi.get(self, "enable_batched_operations")
 
     @_builtins.property
     @pulumi.getter(name="forwardDeadLetteredMessagesTo")
@@ -170,12 +153,6 @@ class GetSubscriptionResult:
         return pulumi.get(self, "name")
 
     @_builtins.property
-    @pulumi.getter(name="namespaceName")
-    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.""")
-    def namespace_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "namespace_name")
-
-    @_builtins.property
     @pulumi.getter(name="requiresSession")
     def requires_session(self) -> _builtins.bool:
         """
@@ -184,21 +161,9 @@ class GetSubscriptionResult:
         return pulumi.get(self, "requires_session")
 
     @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.""")
-    def resource_group_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "resource_group_name")
-
-    @_builtins.property
     @pulumi.getter(name="topicId")
-    def topic_id(self) -> Optional[_builtins.str]:
+    def topic_id(self) -> _builtins.str:
         return pulumi.get(self, "topic_id")
-
-    @_builtins.property
-    @pulumi.getter(name="topicName")
-    @_utilities.deprecated("""`topic_name` will be removed in favour of the property `topic_id` in version 5.0 of the AzureRM Provider.""")
-    def topic_name(self) -> Optional[_builtins.str]:
-        return pulumi.get(self, "topic_name")
 
 
 class AwaitableGetSubscriptionResult(GetSubscriptionResult):
@@ -212,25 +177,18 @@ class AwaitableGetSubscriptionResult(GetSubscriptionResult):
             dead_lettering_on_filter_evaluation_error=self.dead_lettering_on_filter_evaluation_error,
             dead_lettering_on_message_expiration=self.dead_lettering_on_message_expiration,
             default_message_ttl=self.default_message_ttl,
-            enable_batched_operations=self.enable_batched_operations,
             forward_dead_lettered_messages_to=self.forward_dead_lettered_messages_to,
             forward_to=self.forward_to,
             id=self.id,
             lock_duration=self.lock_duration,
             max_delivery_count=self.max_delivery_count,
             name=self.name,
-            namespace_name=self.namespace_name,
             requires_session=self.requires_session,
-            resource_group_name=self.resource_group_name,
-            topic_id=self.topic_id,
-            topic_name=self.topic_name)
+            topic_id=self.topic_id)
 
 
 def get_subscription(name: Optional[_builtins.str] = None,
-                     namespace_name: Optional[_builtins.str] = None,
-                     resource_group_name: Optional[_builtins.str] = None,
                      topic_id: Optional[_builtins.str] = None,
-                     topic_name: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionResult:
     """
     Use this data source to access information about an existing ServiceBus Subscription.
@@ -259,10 +217,7 @@ def get_subscription(name: Optional[_builtins.str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
     __args__['topicId'] = topic_id
-    __args__['topicName'] = topic_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getSubscription:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult).value
 
@@ -272,23 +227,16 @@ def get_subscription(name: Optional[_builtins.str] = None,
         dead_lettering_on_filter_evaluation_error=pulumi.get(__ret__, 'dead_lettering_on_filter_evaluation_error'),
         dead_lettering_on_message_expiration=pulumi.get(__ret__, 'dead_lettering_on_message_expiration'),
         default_message_ttl=pulumi.get(__ret__, 'default_message_ttl'),
-        enable_batched_operations=pulumi.get(__ret__, 'enable_batched_operations'),
         forward_dead_lettered_messages_to=pulumi.get(__ret__, 'forward_dead_lettered_messages_to'),
         forward_to=pulumi.get(__ret__, 'forward_to'),
         id=pulumi.get(__ret__, 'id'),
         lock_duration=pulumi.get(__ret__, 'lock_duration'),
         max_delivery_count=pulumi.get(__ret__, 'max_delivery_count'),
         name=pulumi.get(__ret__, 'name'),
-        namespace_name=pulumi.get(__ret__, 'namespace_name'),
         requires_session=pulumi.get(__ret__, 'requires_session'),
-        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
-        topic_id=pulumi.get(__ret__, 'topic_id'),
-        topic_name=pulumi.get(__ret__, 'topic_name'))
+        topic_id=pulumi.get(__ret__, 'topic_id'))
 def get_subscription_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                            namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                            resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                            topic_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                            topic_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                            topic_id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Use this data source to access information about an existing ServiceBus Subscription.
@@ -317,10 +265,7 @@ def get_subscription_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
     __args__['topicId'] = topic_id
-    __args__['topicName'] = topic_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getSubscription:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult)
     return __ret__.apply(lambda __response__: GetSubscriptionResult(
@@ -329,15 +274,11 @@ def get_subscription_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         dead_lettering_on_filter_evaluation_error=pulumi.get(__response__, 'dead_lettering_on_filter_evaluation_error'),
         dead_lettering_on_message_expiration=pulumi.get(__response__, 'dead_lettering_on_message_expiration'),
         default_message_ttl=pulumi.get(__response__, 'default_message_ttl'),
-        enable_batched_operations=pulumi.get(__response__, 'enable_batched_operations'),
         forward_dead_lettered_messages_to=pulumi.get(__response__, 'forward_dead_lettered_messages_to'),
         forward_to=pulumi.get(__response__, 'forward_to'),
         id=pulumi.get(__response__, 'id'),
         lock_duration=pulumi.get(__response__, 'lock_duration'),
         max_delivery_count=pulumi.get(__response__, 'max_delivery_count'),
         name=pulumi.get(__response__, 'name'),
-        namespace_name=pulumi.get(__response__, 'namespace_name'),
         requires_session=pulumi.get(__response__, 'requires_session'),
-        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
-        topic_id=pulumi.get(__response__, 'topic_id'),
-        topic_name=pulumi.get(__response__, 'topic_name')))
+        topic_id=pulumi.get(__response__, 'topic_id')))

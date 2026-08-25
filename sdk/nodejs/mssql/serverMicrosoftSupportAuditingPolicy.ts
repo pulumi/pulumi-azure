@@ -63,8 +63,12 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     serviceEndpoints: [
- *         "Microsoft.Sql",
- *         "Microsoft.Storage",
+ *         {
+ *             service: "Microsoft.Sql",
+ *         },
+ *         {
+ *             service: "Microsoft.Storage",
+ *         },
  *     ],
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });

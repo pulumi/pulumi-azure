@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -67,8 +67,6 @@ type LookupApplicationGatewayArgs struct {
 
 // A collection of values returned by getApplicationGateway.
 type LookupApplicationGatewayResult struct {
-	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates []GetApplicationGatewayAuthenticationCertificate `pulumi:"authenticationCertificates"`
 	// An `autoscaleConfiguration` block as defined below.
 	AutoscaleConfigurations []GetApplicationGatewayAutoscaleConfiguration `pulumi:"autoscaleConfigurations"`
 	// One or more `backendAddressPool` blocks as defined below.
@@ -177,13 +175,6 @@ func (o LookupApplicationGatewayResultOutput) ToLookupApplicationGatewayResultOu
 
 func (o LookupApplicationGatewayResultOutput) ToLookupApplicationGatewayResultOutputWithContext(ctx context.Context) LookupApplicationGatewayResultOutput {
 	return o
-}
-
-// One or more `authenticationCertificate` blocks as defined below.
-func (o LookupApplicationGatewayResultOutput) AuthenticationCertificates() GetApplicationGatewayAuthenticationCertificateArrayOutput {
-	return o.ApplyT(func(v LookupApplicationGatewayResult) []GetApplicationGatewayAuthenticationCertificate {
-		return v.AuthenticationCertificates
-	}).(GetApplicationGatewayAuthenticationCertificateArrayOutput)
 }
 
 // An `autoscaleConfiguration` block as defined below.

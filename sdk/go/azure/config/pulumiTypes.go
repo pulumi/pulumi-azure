@@ -7,72 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
-
-type EnhancedValidation struct {
-	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
-	Locations *bool `pulumi:"locations"`
-	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-	ResourceProviders *bool `pulumi:"resourceProviders"`
-}
-
-// EnhancedValidationInput is an input type that accepts EnhancedValidationArgs and EnhancedValidationOutput values.
-// You can construct a concrete instance of `EnhancedValidationInput` via:
-//
-//	EnhancedValidationArgs{...}
-type EnhancedValidationInput interface {
-	pulumi.Input
-
-	ToEnhancedValidationOutput() EnhancedValidationOutput
-	ToEnhancedValidationOutputWithContext(context.Context) EnhancedValidationOutput
-}
-
-type EnhancedValidationArgs struct {
-	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
-	Locations pulumi.BoolPtrInput `pulumi:"locations"`
-	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-	ResourceProviders pulumi.BoolPtrInput `pulumi:"resourceProviders"`
-}
-
-func (EnhancedValidationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnhancedValidation)(nil)).Elem()
-}
-
-func (i EnhancedValidationArgs) ToEnhancedValidationOutput() EnhancedValidationOutput {
-	return i.ToEnhancedValidationOutputWithContext(context.Background())
-}
-
-func (i EnhancedValidationArgs) ToEnhancedValidationOutputWithContext(ctx context.Context) EnhancedValidationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnhancedValidationOutput)
-}
-
-type EnhancedValidationOutput struct{ *pulumi.OutputState }
-
-func (EnhancedValidationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnhancedValidation)(nil)).Elem()
-}
-
-func (o EnhancedValidationOutput) ToEnhancedValidationOutput() EnhancedValidationOutput {
-	return o
-}
-
-func (o EnhancedValidationOutput) ToEnhancedValidationOutputWithContext(ctx context.Context) EnhancedValidationOutput {
-	return o
-}
-
-// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
-func (o EnhancedValidationOutput) Locations() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EnhancedValidation) *bool { return v.Locations }).(pulumi.BoolPtrOutput)
-}
-
-// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
-func (o EnhancedValidationOutput) ResourceProviders() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v EnhancedValidation) *bool { return v.ResourceProviders }).(pulumi.BoolPtrOutput)
-}
 
 type Features struct {
 	ApiManagement         *FeaturesApiManagement         `pulumi:"apiManagement"`
@@ -80,6 +19,7 @@ type Features struct {
 	ApplicationInsights   *FeaturesApplicationInsights   `pulumi:"applicationInsights"`
 	CognitiveAccount      *FeaturesCognitiveAccount      `pulumi:"cognitiveAccount"`
 	DatabricksWorkspace   *FeaturesDatabricksWorkspace   `pulumi:"databricksWorkspace"`
+	EnhancedValidation    *FeaturesEnhancedValidation    `pulumi:"enhancedValidation"`
 	KeyVault              *FeaturesKeyVault              `pulumi:"keyVault"`
 	LogAnalyticsWorkspace *FeaturesLogAnalyticsWorkspace `pulumi:"logAnalyticsWorkspace"`
 	MachineLearning       *FeaturesMachineLearning       `pulumi:"machineLearning"`
@@ -91,6 +31,7 @@ type Features struct {
 	RecoveryService                             *FeaturesRecoveryService          `pulumi:"recoveryService"`
 	RecoveryServicesVaults                      *FeaturesRecoveryServicesVaults   `pulumi:"recoveryServicesVaults"`
 	ResourceGroup                               *FeaturesResourceGroup            `pulumi:"resourceGroup"`
+	Servicebus                                  *FeaturesServicebus               `pulumi:"servicebus"`
 	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
 	SkipImportCheckOnCreateAndAllowOverwritingExistingResources *bool                           `pulumi:"skipImportCheckOnCreateAndAllowOverwritingExistingResources"`
 	Storage                                                     *FeaturesStorage                `pulumi:"storage"`
@@ -117,6 +58,7 @@ type FeaturesArgs struct {
 	ApplicationInsights   FeaturesApplicationInsightsPtrInput   `pulumi:"applicationInsights"`
 	CognitiveAccount      FeaturesCognitiveAccountPtrInput      `pulumi:"cognitiveAccount"`
 	DatabricksWorkspace   FeaturesDatabricksWorkspacePtrInput   `pulumi:"databricksWorkspace"`
+	EnhancedValidation    FeaturesEnhancedValidationPtrInput    `pulumi:"enhancedValidation"`
 	KeyVault              FeaturesKeyVaultPtrInput              `pulumi:"keyVault"`
 	LogAnalyticsWorkspace FeaturesLogAnalyticsWorkspacePtrInput `pulumi:"logAnalyticsWorkspace"`
 	MachineLearning       FeaturesMachineLearningPtrInput       `pulumi:"machineLearning"`
@@ -128,6 +70,7 @@ type FeaturesArgs struct {
 	RecoveryService                             FeaturesRecoveryServicePtrInput          `pulumi:"recoveryService"`
 	RecoveryServicesVaults                      FeaturesRecoveryServicesVaultsPtrInput   `pulumi:"recoveryServicesVaults"`
 	ResourceGroup                               FeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
+	Servicebus                                  FeaturesServicebusPtrInput               `pulumi:"servicebus"`
 	// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
 	SkipImportCheckOnCreateAndAllowOverwritingExistingResources pulumi.BoolPtrInput                    `pulumi:"skipImportCheckOnCreateAndAllowOverwritingExistingResources"`
 	Storage                                                     FeaturesStoragePtrInput                `pulumi:"storage"`
@@ -183,6 +126,10 @@ func (o FeaturesOutput) DatabricksWorkspace() FeaturesDatabricksWorkspacePtrOutp
 	return o.ApplyT(func(v Features) *FeaturesDatabricksWorkspace { return v.DatabricksWorkspace }).(FeaturesDatabricksWorkspacePtrOutput)
 }
 
+func (o FeaturesOutput) EnhancedValidation() FeaturesEnhancedValidationPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesEnhancedValidation { return v.EnhancedValidation }).(FeaturesEnhancedValidationPtrOutput)
+}
+
 func (o FeaturesOutput) KeyVault() FeaturesKeyVaultPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesKeyVault { return v.KeyVault }).(FeaturesKeyVaultPtrOutput)
 }
@@ -222,6 +169,10 @@ func (o FeaturesOutput) RecoveryServicesVaults() FeaturesRecoveryServicesVaultsP
 
 func (o FeaturesOutput) ResourceGroup() FeaturesResourceGroupPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesResourceGroup { return v.ResourceGroup }).(FeaturesResourceGroupPtrOutput)
+}
+
+func (o FeaturesOutput) Servicebus() FeaturesServicebusPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesServicebus { return v.Servicebus }).(FeaturesServicebusPtrOutput)
 }
 
 // Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
@@ -945,6 +896,200 @@ func (o FeaturesDatabricksWorkspacePtrOutput) ForceDelete() pulumi.BoolPtrOutput
 			return nil
 		}
 		return v.ForceDelete
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesEnhancedValidation struct {
+	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+	Locations *bool `pulumi:"locations"`
+	// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+	PreflightEnabled *bool `pulumi:"preflightEnabled"`
+	// The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
+	PreflightLocationFallback *string `pulumi:"preflightLocationFallback"`
+	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+	ResourceProviders *bool `pulumi:"resourceProviders"`
+}
+
+// FeaturesEnhancedValidationInput is an input type that accepts FeaturesEnhancedValidationArgs and FeaturesEnhancedValidationOutput values.
+// You can construct a concrete instance of `FeaturesEnhancedValidationInput` via:
+//
+//	FeaturesEnhancedValidationArgs{...}
+type FeaturesEnhancedValidationInput interface {
+	pulumi.Input
+
+	ToFeaturesEnhancedValidationOutput() FeaturesEnhancedValidationOutput
+	ToFeaturesEnhancedValidationOutputWithContext(context.Context) FeaturesEnhancedValidationOutput
+}
+
+type FeaturesEnhancedValidationArgs struct {
+	// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+	Locations pulumi.BoolPtrInput `pulumi:"locations"`
+	// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+	PreflightEnabled pulumi.BoolPtrInput `pulumi:"preflightEnabled"`
+	// The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
+	PreflightLocationFallback pulumi.StringPtrInput `pulumi:"preflightLocationFallback"`
+	// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+	ResourceProviders pulumi.BoolPtrInput `pulumi:"resourceProviders"`
+}
+
+func (FeaturesEnhancedValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesEnhancedValidation)(nil)).Elem()
+}
+
+func (i FeaturesEnhancedValidationArgs) ToFeaturesEnhancedValidationOutput() FeaturesEnhancedValidationOutput {
+	return i.ToFeaturesEnhancedValidationOutputWithContext(context.Background())
+}
+
+func (i FeaturesEnhancedValidationArgs) ToFeaturesEnhancedValidationOutputWithContext(ctx context.Context) FeaturesEnhancedValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesEnhancedValidationOutput)
+}
+
+func (i FeaturesEnhancedValidationArgs) ToFeaturesEnhancedValidationPtrOutput() FeaturesEnhancedValidationPtrOutput {
+	return i.ToFeaturesEnhancedValidationPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesEnhancedValidationArgs) ToFeaturesEnhancedValidationPtrOutputWithContext(ctx context.Context) FeaturesEnhancedValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesEnhancedValidationOutput).ToFeaturesEnhancedValidationPtrOutputWithContext(ctx)
+}
+
+// FeaturesEnhancedValidationPtrInput is an input type that accepts FeaturesEnhancedValidationArgs, FeaturesEnhancedValidationPtr and FeaturesEnhancedValidationPtrOutput values.
+// You can construct a concrete instance of `FeaturesEnhancedValidationPtrInput` via:
+//
+//	        FeaturesEnhancedValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesEnhancedValidationPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesEnhancedValidationPtrOutput() FeaturesEnhancedValidationPtrOutput
+	ToFeaturesEnhancedValidationPtrOutputWithContext(context.Context) FeaturesEnhancedValidationPtrOutput
+}
+
+type featuresEnhancedValidationPtrType FeaturesEnhancedValidationArgs
+
+func FeaturesEnhancedValidationPtr(v *FeaturesEnhancedValidationArgs) FeaturesEnhancedValidationPtrInput {
+	return (*featuresEnhancedValidationPtrType)(v)
+}
+
+func (*featuresEnhancedValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesEnhancedValidation)(nil)).Elem()
+}
+
+func (i *featuresEnhancedValidationPtrType) ToFeaturesEnhancedValidationPtrOutput() FeaturesEnhancedValidationPtrOutput {
+	return i.ToFeaturesEnhancedValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresEnhancedValidationPtrType) ToFeaturesEnhancedValidationPtrOutputWithContext(ctx context.Context) FeaturesEnhancedValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesEnhancedValidationPtrOutput)
+}
+
+type FeaturesEnhancedValidationOutput struct{ *pulumi.OutputState }
+
+func (FeaturesEnhancedValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesEnhancedValidation)(nil)).Elem()
+}
+
+func (o FeaturesEnhancedValidationOutput) ToFeaturesEnhancedValidationOutput() FeaturesEnhancedValidationOutput {
+	return o
+}
+
+func (o FeaturesEnhancedValidationOutput) ToFeaturesEnhancedValidationOutputWithContext(ctx context.Context) FeaturesEnhancedValidationOutput {
+	return o
+}
+
+func (o FeaturesEnhancedValidationOutput) ToFeaturesEnhancedValidationPtrOutput() FeaturesEnhancedValidationPtrOutput {
+	return o.ToFeaturesEnhancedValidationPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesEnhancedValidationOutput) ToFeaturesEnhancedValidationPtrOutputWithContext(ctx context.Context) FeaturesEnhancedValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesEnhancedValidation) *FeaturesEnhancedValidation {
+		return &v
+	}).(FeaturesEnhancedValidationPtrOutput)
+}
+
+// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+func (o FeaturesEnhancedValidationOutput) Locations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesEnhancedValidation) *bool { return v.Locations }).(pulumi.BoolPtrOutput)
+}
+
+// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+func (o FeaturesEnhancedValidationOutput) PreflightEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesEnhancedValidation) *bool { return v.PreflightEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
+func (o FeaturesEnhancedValidationOutput) PreflightLocationFallback() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturesEnhancedValidation) *string { return v.PreflightLocationFallback }).(pulumi.StringPtrOutput)
+}
+
+// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+func (o FeaturesEnhancedValidationOutput) ResourceProviders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesEnhancedValidation) *bool { return v.ResourceProviders }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesEnhancedValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesEnhancedValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesEnhancedValidation)(nil)).Elem()
+}
+
+func (o FeaturesEnhancedValidationPtrOutput) ToFeaturesEnhancedValidationPtrOutput() FeaturesEnhancedValidationPtrOutput {
+	return o
+}
+
+func (o FeaturesEnhancedValidationPtrOutput) ToFeaturesEnhancedValidationPtrOutputWithContext(ctx context.Context) FeaturesEnhancedValidationPtrOutput {
+	return o
+}
+
+func (o FeaturesEnhancedValidationPtrOutput) Elem() FeaturesEnhancedValidationOutput {
+	return o.ApplyT(func(v *FeaturesEnhancedValidation) FeaturesEnhancedValidation {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesEnhancedValidation
+		return ret
+	}).(FeaturesEnhancedValidationOutput)
+}
+
+// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+func (o FeaturesEnhancedValidationPtrOutput) Locations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesEnhancedValidation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Locations
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+func (o FeaturesEnhancedValidationPtrOutput) PreflightEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesEnhancedValidation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreflightEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
+func (o FeaturesEnhancedValidationPtrOutput) PreflightLocationFallback() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeaturesEnhancedValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreflightLocationFallback
+	}).(pulumi.StringPtrOutput)
+}
+
+// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+func (o FeaturesEnhancedValidationPtrOutput) ResourceProviders() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesEnhancedValidation) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceProviders
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -2392,6 +2537,143 @@ func (o FeaturesResourceGroupPtrOutput) PreventDeletionIfContainsResources() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
+type FeaturesServicebus struct {
+	// When enabled, the $Default rule is automatically deleted after creating a Service Bus subscription, preventing unfiltered message delivery.
+	AutoDeleteSubscriptionDefaultRule *bool `pulumi:"autoDeleteSubscriptionDefaultRule"`
+}
+
+// FeaturesServicebusInput is an input type that accepts FeaturesServicebusArgs and FeaturesServicebusOutput values.
+// You can construct a concrete instance of `FeaturesServicebusInput` via:
+//
+//	FeaturesServicebusArgs{...}
+type FeaturesServicebusInput interface {
+	pulumi.Input
+
+	ToFeaturesServicebusOutput() FeaturesServicebusOutput
+	ToFeaturesServicebusOutputWithContext(context.Context) FeaturesServicebusOutput
+}
+
+type FeaturesServicebusArgs struct {
+	// When enabled, the $Default rule is automatically deleted after creating a Service Bus subscription, preventing unfiltered message delivery.
+	AutoDeleteSubscriptionDefaultRule pulumi.BoolPtrInput `pulumi:"autoDeleteSubscriptionDefaultRule"`
+}
+
+func (FeaturesServicebusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesServicebus)(nil)).Elem()
+}
+
+func (i FeaturesServicebusArgs) ToFeaturesServicebusOutput() FeaturesServicebusOutput {
+	return i.ToFeaturesServicebusOutputWithContext(context.Background())
+}
+
+func (i FeaturesServicebusArgs) ToFeaturesServicebusOutputWithContext(ctx context.Context) FeaturesServicebusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesServicebusOutput)
+}
+
+func (i FeaturesServicebusArgs) ToFeaturesServicebusPtrOutput() FeaturesServicebusPtrOutput {
+	return i.ToFeaturesServicebusPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesServicebusArgs) ToFeaturesServicebusPtrOutputWithContext(ctx context.Context) FeaturesServicebusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesServicebusOutput).ToFeaturesServicebusPtrOutputWithContext(ctx)
+}
+
+// FeaturesServicebusPtrInput is an input type that accepts FeaturesServicebusArgs, FeaturesServicebusPtr and FeaturesServicebusPtrOutput values.
+// You can construct a concrete instance of `FeaturesServicebusPtrInput` via:
+//
+//	        FeaturesServicebusArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesServicebusPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesServicebusPtrOutput() FeaturesServicebusPtrOutput
+	ToFeaturesServicebusPtrOutputWithContext(context.Context) FeaturesServicebusPtrOutput
+}
+
+type featuresServicebusPtrType FeaturesServicebusArgs
+
+func FeaturesServicebusPtr(v *FeaturesServicebusArgs) FeaturesServicebusPtrInput {
+	return (*featuresServicebusPtrType)(v)
+}
+
+func (*featuresServicebusPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesServicebus)(nil)).Elem()
+}
+
+func (i *featuresServicebusPtrType) ToFeaturesServicebusPtrOutput() FeaturesServicebusPtrOutput {
+	return i.ToFeaturesServicebusPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresServicebusPtrType) ToFeaturesServicebusPtrOutputWithContext(ctx context.Context) FeaturesServicebusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesServicebusPtrOutput)
+}
+
+type FeaturesServicebusOutput struct{ *pulumi.OutputState }
+
+func (FeaturesServicebusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesServicebus)(nil)).Elem()
+}
+
+func (o FeaturesServicebusOutput) ToFeaturesServicebusOutput() FeaturesServicebusOutput {
+	return o
+}
+
+func (o FeaturesServicebusOutput) ToFeaturesServicebusOutputWithContext(ctx context.Context) FeaturesServicebusOutput {
+	return o
+}
+
+func (o FeaturesServicebusOutput) ToFeaturesServicebusPtrOutput() FeaturesServicebusPtrOutput {
+	return o.ToFeaturesServicebusPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesServicebusOutput) ToFeaturesServicebusPtrOutputWithContext(ctx context.Context) FeaturesServicebusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesServicebus) *FeaturesServicebus {
+		return &v
+	}).(FeaturesServicebusPtrOutput)
+}
+
+// When enabled, the $Default rule is automatically deleted after creating a Service Bus subscription, preventing unfiltered message delivery.
+func (o FeaturesServicebusOutput) AutoDeleteSubscriptionDefaultRule() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesServicebus) *bool { return v.AutoDeleteSubscriptionDefaultRule }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesServicebusPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesServicebusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesServicebus)(nil)).Elem()
+}
+
+func (o FeaturesServicebusPtrOutput) ToFeaturesServicebusPtrOutput() FeaturesServicebusPtrOutput {
+	return o
+}
+
+func (o FeaturesServicebusPtrOutput) ToFeaturesServicebusPtrOutputWithContext(ctx context.Context) FeaturesServicebusPtrOutput {
+	return o
+}
+
+func (o FeaturesServicebusPtrOutput) Elem() FeaturesServicebusOutput {
+	return o.ApplyT(func(v *FeaturesServicebus) FeaturesServicebus {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesServicebus
+		return ret
+	}).(FeaturesServicebusOutput)
+}
+
+// When enabled, the $Default rule is automatically deleted after creating a Service Bus subscription, preventing unfiltered message delivery.
+func (o FeaturesServicebusPtrOutput) AutoDeleteSubscriptionDefaultRule() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesServicebus) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AutoDeleteSubscriptionDefaultRule
+	}).(pulumi.BoolPtrOutput)
+}
+
 type FeaturesStorage struct {
 	DataPlaneAvailable *bool `pulumi:"dataPlaneAvailable"`
 }
@@ -2794,9 +3076,7 @@ func (o FeaturesTemplateDeploymentPtrOutput) DeleteNestedItemsDuringDeletion() p
 type FeaturesVirtualMachine struct {
 	DeleteOsDiskOnDeletion           *bool `pulumi:"deleteOsDiskOnDeletion"`
 	DetachImplicitDataDiskOnDeletion *bool `pulumi:"detachImplicitDataDiskOnDeletion"`
-	// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
-	GracefulShutdown           *bool `pulumi:"gracefulShutdown"`
-	SkipShutdownAndForceDelete *bool `pulumi:"skipShutdownAndForceDelete"`
+	SkipShutdownAndForceDelete       *bool `pulumi:"skipShutdownAndForceDelete"`
 }
 
 // FeaturesVirtualMachineInput is an input type that accepts FeaturesVirtualMachineArgs and FeaturesVirtualMachineOutput values.
@@ -2813,9 +3093,7 @@ type FeaturesVirtualMachineInput interface {
 type FeaturesVirtualMachineArgs struct {
 	DeleteOsDiskOnDeletion           pulumi.BoolPtrInput `pulumi:"deleteOsDiskOnDeletion"`
 	DetachImplicitDataDiskOnDeletion pulumi.BoolPtrInput `pulumi:"detachImplicitDataDiskOnDeletion"`
-	// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
-	GracefulShutdown           pulumi.BoolPtrInput `pulumi:"gracefulShutdown"`
-	SkipShutdownAndForceDelete pulumi.BoolPtrInput `pulumi:"skipShutdownAndForceDelete"`
+	SkipShutdownAndForceDelete       pulumi.BoolPtrInput `pulumi:"skipShutdownAndForceDelete"`
 }
 
 func (FeaturesVirtualMachineArgs) ElementType() reflect.Type {
@@ -2903,11 +3181,6 @@ func (o FeaturesVirtualMachineOutput) DetachImplicitDataDiskOnDeletion() pulumi.
 	return o.ApplyT(func(v FeaturesVirtualMachine) *bool { return v.DetachImplicitDataDiskOnDeletion }).(pulumi.BoolPtrOutput)
 }
 
-// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
-func (o FeaturesVirtualMachineOutput) GracefulShutdown() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FeaturesVirtualMachine) *bool { return v.GracefulShutdown }).(pulumi.BoolPtrOutput)
-}
-
 func (o FeaturesVirtualMachineOutput) SkipShutdownAndForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v FeaturesVirtualMachine) *bool { return v.SkipShutdownAndForceDelete }).(pulumi.BoolPtrOutput)
 }
@@ -2951,16 +3224,6 @@ func (o FeaturesVirtualMachinePtrOutput) DetachImplicitDataDiskOnDeletion() pulu
 			return nil
 		}
 		return v.DetachImplicitDataDiskOnDeletion
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Deprecated: 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider.
-func (o FeaturesVirtualMachinePtrOutput) GracefulShutdown() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FeaturesVirtualMachine) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.GracefulShutdown
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -3152,7 +3415,6 @@ func (o FeaturesVirtualMachineScaleSetPtrOutput) ScaleToZeroBeforeDeletion() pul
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EnhancedValidationInput)(nil)).Elem(), EnhancedValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesInput)(nil)).Elem(), FeaturesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesApiManagementInput)(nil)).Elem(), FeaturesApiManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesApiManagementPtrInput)(nil)).Elem(), FeaturesApiManagementArgs{})
@@ -3164,6 +3426,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesCognitiveAccountPtrInput)(nil)).Elem(), FeaturesCognitiveAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesDatabricksWorkspaceInput)(nil)).Elem(), FeaturesDatabricksWorkspaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesDatabricksWorkspacePtrInput)(nil)).Elem(), FeaturesDatabricksWorkspaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesEnhancedValidationInput)(nil)).Elem(), FeaturesEnhancedValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesEnhancedValidationPtrInput)(nil)).Elem(), FeaturesEnhancedValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesKeyVaultInput)(nil)).Elem(), FeaturesKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesKeyVaultPtrInput)(nil)).Elem(), FeaturesKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesLogAnalyticsWorkspaceInput)(nil)).Elem(), FeaturesLogAnalyticsWorkspaceArgs{})
@@ -3182,6 +3446,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesRecoveryServicesVaultsPtrInput)(nil)).Elem(), FeaturesRecoveryServicesVaultsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupPtrInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesServicebusInput)(nil)).Elem(), FeaturesServicebusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesServicebusPtrInput)(nil)).Elem(), FeaturesServicebusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesStorageInput)(nil)).Elem(), FeaturesStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesStoragePtrInput)(nil)).Elem(), FeaturesStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesSubscriptionInput)(nil)).Elem(), FeaturesSubscriptionArgs{})
@@ -3192,7 +3458,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesVirtualMachinePtrInput)(nil)).Elem(), FeaturesVirtualMachineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesVirtualMachineScaleSetInput)(nil)).Elem(), FeaturesVirtualMachineScaleSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesVirtualMachineScaleSetPtrInput)(nil)).Elem(), FeaturesVirtualMachineScaleSetArgs{})
-	pulumi.RegisterOutputType(EnhancedValidationOutput{})
 	pulumi.RegisterOutputType(FeaturesOutput{})
 	pulumi.RegisterOutputType(FeaturesApiManagementOutput{})
 	pulumi.RegisterOutputType(FeaturesApiManagementPtrOutput{})
@@ -3204,6 +3469,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesCognitiveAccountPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesDatabricksWorkspaceOutput{})
 	pulumi.RegisterOutputType(FeaturesDatabricksWorkspacePtrOutput{})
+	pulumi.RegisterOutputType(FeaturesEnhancedValidationOutput{})
+	pulumi.RegisterOutputType(FeaturesEnhancedValidationPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultOutput{})
 	pulumi.RegisterOutputType(FeaturesKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspaceOutput{})
@@ -3222,6 +3489,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesRecoveryServicesVaultsPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesServicebusOutput{})
+	pulumi.RegisterOutputType(FeaturesServicebusPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesStorageOutput{})
 	pulumi.RegisterOutputType(FeaturesStoragePtrOutput{})
 	pulumi.RegisterOutputType(FeaturesSubscriptionOutput{})

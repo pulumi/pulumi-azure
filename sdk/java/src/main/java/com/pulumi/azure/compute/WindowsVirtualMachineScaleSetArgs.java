@@ -135,6 +135,21 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
     }
 
     /**
+     * (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+     * 
+     */
+    @Import(name="automaticUpdatesEnabled")
+    private @Nullable Output<Boolean> automaticUpdatesEnabled;
+
+    /**
+     * @return (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> automaticUpdatesEnabled() {
+        return Optional.ofNullable(this.automaticUpdatesEnabled);
+    }
+
+    /**
      * A `bootDiagnostics` block as defined below.
      * 
      */
@@ -249,21 +264,6 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> edgeZone() {
         return Optional.ofNullable(this.edgeZone);
-    }
-
-    /**
-     * Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    @Import(name="enableAutomaticUpdates")
-    private @Nullable Output<Boolean> enableAutomaticUpdates;
-
-    /**
-     * @return Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    public Optional<Output<Boolean>> enableAutomaticUpdates() {
-        return Optional.ofNullable(this.enableAutomaticUpdates);
     }
 
     /**
@@ -972,6 +972,7 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         this.adminUsername = $.adminUsername;
         this.automaticInstanceRepair = $.automaticInstanceRepair;
         this.automaticOsUpgradePolicy = $.automaticOsUpgradePolicy;
+        this.automaticUpdatesEnabled = $.automaticUpdatesEnabled;
         this.bootDiagnostics = $.bootDiagnostics;
         this.capacityReservationGroupId = $.capacityReservationGroupId;
         this.computerNamePrefix = $.computerNamePrefix;
@@ -979,7 +980,6 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         this.dataDisks = $.dataDisks;
         this.doNotRunExtensionsOnOverprovisionedMachines = $.doNotRunExtensionsOnOverprovisionedMachines;
         this.edgeZone = $.edgeZone;
-        this.enableAutomaticUpdates = $.enableAutomaticUpdates;
         this.encryptionAtHostEnabled = $.encryptionAtHostEnabled;
         this.evictionPolicy = $.evictionPolicy;
         this.extensionOperationsEnabled = $.extensionOperationsEnabled;
@@ -1184,6 +1184,27 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
         }
 
         /**
+         * @param automaticUpdatesEnabled (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticUpdatesEnabled(@Nullable Output<Boolean> automaticUpdatesEnabled) {
+            $.automaticUpdatesEnabled = automaticUpdatesEnabled;
+            return this;
+        }
+
+        /**
+         * @param automaticUpdatesEnabled (Optional) Whether to enable automatic update for this Virtual Machine. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder automaticUpdatesEnabled(Boolean automaticUpdatesEnabled) {
+            return automaticUpdatesEnabled(Output.of(automaticUpdatesEnabled));
+        }
+
+        /**
          * @param bootDiagnostics A `bootDiagnostics` block as defined below.
          * 
          * @return builder
@@ -1350,27 +1371,6 @@ public final class WindowsVirtualMachineScaleSetArgs extends com.pulumi.resource
          */
         public Builder edgeZone(String edgeZone) {
             return edgeZone(Output.of(edgeZone));
-        }
-
-        /**
-         * @param enableAutomaticUpdates Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAutomaticUpdates(@Nullable Output<Boolean> enableAutomaticUpdates) {
-            $.enableAutomaticUpdates = enableAutomaticUpdates;
-            return this;
-        }
-
-        /**
-         * @param enableAutomaticUpdates Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAutomaticUpdates(Boolean enableAutomaticUpdates) {
-            return enableAutomaticUpdates(Output.of(enableAutomaticUpdates));
         }
 
         /**

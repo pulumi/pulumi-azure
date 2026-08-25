@@ -3,25 +3,25 @@
 
 package com.pulumi.azure.cdn.inputs;
 
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsClientPortConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsCookiesConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsHostNameConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsHttpVersionConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsIsDeviceConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsPostArgsConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsQueryStringConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRemoteAddressConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestBodyConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestHeaderConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestMethodConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestSchemeConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestUriConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsServerPortConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsSocketAddressConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsSslProtocolConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsUrlFileExtensionConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsUrlFilenameConditionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsUrlPathConditionArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsClientPortArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsDeviceTypeArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsHostNameArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsHttpVersionArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsPostArgumentArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsQueryStringArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRemoteAddressArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestBodyArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestCookyArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestFileExtensionArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestFilenameArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestHeaderArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestMethodArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestPathArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestSchemeArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsRequestUrlArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsServerPortArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsSocketAddressArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsSslProtocolArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -35,312 +35,312 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
     public static final FrontdoorRuleConditionsArgs Empty = new FrontdoorRuleConditionsArgs();
 
     /**
-     * A `clientPortCondition` block as defined below.
+     * One or more `clientPort` blocks as defined below.
      * 
      */
-    @Import(name="clientPortConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsClientPortConditionArgs>> clientPortConditions;
+    @Import(name="clientPorts")
+    private @Nullable Output<List<FrontdoorRuleConditionsClientPortArgs>> clientPorts;
 
     /**
-     * @return A `clientPortCondition` block as defined below.
+     * @return One or more `clientPort` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsClientPortConditionArgs>>> clientPortConditions() {
-        return Optional.ofNullable(this.clientPortConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsClientPortArgs>>> clientPorts() {
+        return Optional.ofNullable(this.clientPorts);
     }
 
     /**
-     * A `cookiesCondition` block as defined below.
+     * One or more `deviceType` blocks as defined below.
      * 
      */
-    @Import(name="cookiesConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsCookiesConditionArgs>> cookiesConditions;
+    @Import(name="deviceTypes")
+    private @Nullable Output<List<FrontdoorRuleConditionsDeviceTypeArgs>> deviceTypes;
 
     /**
-     * @return A `cookiesCondition` block as defined below.
+     * @return One or more `deviceType` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsCookiesConditionArgs>>> cookiesConditions() {
-        return Optional.ofNullable(this.cookiesConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsDeviceTypeArgs>>> deviceTypes() {
+        return Optional.ofNullable(this.deviceTypes);
     }
 
     /**
-     * A `hostNameCondition` block as defined below.
+     * One or more `hostName` blocks as defined below.
      * 
      */
-    @Import(name="hostNameConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsHostNameConditionArgs>> hostNameConditions;
+    @Import(name="hostNames")
+    private @Nullable Output<List<FrontdoorRuleConditionsHostNameArgs>> hostNames;
 
     /**
-     * @return A `hostNameCondition` block as defined below.
+     * @return One or more `hostName` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsHostNameConditionArgs>>> hostNameConditions() {
-        return Optional.ofNullable(this.hostNameConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsHostNameArgs>>> hostNames() {
+        return Optional.ofNullable(this.hostNames);
     }
 
     /**
-     * A `httpVersionCondition` block as defined below.
+     * One or more `httpVersion` blocks as defined below.
      * 
      */
-    @Import(name="httpVersionConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsHttpVersionConditionArgs>> httpVersionConditions;
+    @Import(name="httpVersions")
+    private @Nullable Output<List<FrontdoorRuleConditionsHttpVersionArgs>> httpVersions;
 
     /**
-     * @return A `httpVersionCondition` block as defined below.
+     * @return One or more `httpVersion` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsHttpVersionConditionArgs>>> httpVersionConditions() {
-        return Optional.ofNullable(this.httpVersionConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsHttpVersionArgs>>> httpVersions() {
+        return Optional.ofNullable(this.httpVersions);
     }
 
     /**
-     * A `isDeviceCondition` block as defined below.
+     * One or more `postArgument` blocks as defined below.
      * 
      */
-    @Import(name="isDeviceConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsIsDeviceConditionArgs>> isDeviceConditions;
+    @Import(name="postArguments")
+    private @Nullable Output<List<FrontdoorRuleConditionsPostArgumentArgs>> postArguments;
 
     /**
-     * @return A `isDeviceCondition` block as defined below.
+     * @return One or more `postArgument` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsIsDeviceConditionArgs>>> isDeviceConditions() {
-        return Optional.ofNullable(this.isDeviceConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsPostArgumentArgs>>> postArguments() {
+        return Optional.ofNullable(this.postArguments);
     }
 
     /**
-     * A `postArgsCondition` block as defined below.
+     * One or more `queryString` blocks as defined below.
      * 
      */
-    @Import(name="postArgsConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsPostArgsConditionArgs>> postArgsConditions;
+    @Import(name="queryStrings")
+    private @Nullable Output<List<FrontdoorRuleConditionsQueryStringArgs>> queryStrings;
 
     /**
-     * @return A `postArgsCondition` block as defined below.
+     * @return One or more `queryString` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsPostArgsConditionArgs>>> postArgsConditions() {
-        return Optional.ofNullable(this.postArgsConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsQueryStringArgs>>> queryStrings() {
+        return Optional.ofNullable(this.queryStrings);
     }
 
     /**
-     * A `queryStringCondition` block as defined below.
+     * One or more `remoteAddress` blocks as defined below.
      * 
      */
-    @Import(name="queryStringConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsQueryStringConditionArgs>> queryStringConditions;
+    @Import(name="remoteAddresses")
+    private @Nullable Output<List<FrontdoorRuleConditionsRemoteAddressArgs>> remoteAddresses;
 
     /**
-     * @return A `queryStringCondition` block as defined below.
+     * @return One or more `remoteAddress` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsQueryStringConditionArgs>>> queryStringConditions() {
-        return Optional.ofNullable(this.queryStringConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRemoteAddressArgs>>> remoteAddresses() {
+        return Optional.ofNullable(this.remoteAddresses);
     }
 
     /**
-     * A `remoteAddressCondition` block as defined below.
+     * One or more `requestBody` blocks as defined below.
      * 
      */
-    @Import(name="remoteAddressConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsRemoteAddressConditionArgs>> remoteAddressConditions;
+    @Import(name="requestBodies")
+    private @Nullable Output<List<FrontdoorRuleConditionsRequestBodyArgs>> requestBodies;
 
     /**
-     * @return A `remoteAddressCondition` block as defined below.
+     * @return One or more `requestBody` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsRemoteAddressConditionArgs>>> remoteAddressConditions() {
-        return Optional.ofNullable(this.remoteAddressConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRequestBodyArgs>>> requestBodies() {
+        return Optional.ofNullable(this.requestBodies);
     }
 
     /**
-     * A `requestBodyCondition` block as defined below.
+     * One or more `requestCookies` blocks as defined below.
      * 
      */
-    @Import(name="requestBodyConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsRequestBodyConditionArgs>> requestBodyConditions;
+    @Import(name="requestCookies")
+    private @Nullable Output<List<FrontdoorRuleConditionsRequestCookyArgs>> requestCookies;
 
     /**
-     * @return A `requestBodyCondition` block as defined below.
+     * @return One or more `requestCookies` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsRequestBodyConditionArgs>>> requestBodyConditions() {
-        return Optional.ofNullable(this.requestBodyConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRequestCookyArgs>>> requestCookies() {
+        return Optional.ofNullable(this.requestCookies);
     }
 
     /**
-     * A `requestHeaderCondition` block as defined below.
+     * One or more `requestFileExtension` blocks as defined below.
      * 
      */
-    @Import(name="requestHeaderConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsRequestHeaderConditionArgs>> requestHeaderConditions;
+    @Import(name="requestFileExtensions")
+    private @Nullable Output<List<FrontdoorRuleConditionsRequestFileExtensionArgs>> requestFileExtensions;
 
     /**
-     * @return A `requestHeaderCondition` block as defined below.
+     * @return One or more `requestFileExtension` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsRequestHeaderConditionArgs>>> requestHeaderConditions() {
-        return Optional.ofNullable(this.requestHeaderConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRequestFileExtensionArgs>>> requestFileExtensions() {
+        return Optional.ofNullable(this.requestFileExtensions);
     }
 
     /**
-     * A `requestMethodCondition` block as defined below.
+     * One or more `requestFilename` blocks as defined below.
      * 
      */
-    @Import(name="requestMethodConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsRequestMethodConditionArgs>> requestMethodConditions;
+    @Import(name="requestFilenames")
+    private @Nullable Output<List<FrontdoorRuleConditionsRequestFilenameArgs>> requestFilenames;
 
     /**
-     * @return A `requestMethodCondition` block as defined below.
+     * @return One or more `requestFilename` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsRequestMethodConditionArgs>>> requestMethodConditions() {
-        return Optional.ofNullable(this.requestMethodConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRequestFilenameArgs>>> requestFilenames() {
+        return Optional.ofNullable(this.requestFilenames);
     }
 
     /**
-     * A `requestSchemeCondition` block as defined below.
+     * One or more `requestHeader` blocks as defined below.
      * 
      */
-    @Import(name="requestSchemeConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsRequestSchemeConditionArgs>> requestSchemeConditions;
+    @Import(name="requestHeaders")
+    private @Nullable Output<List<FrontdoorRuleConditionsRequestHeaderArgs>> requestHeaders;
 
     /**
-     * @return A `requestSchemeCondition` block as defined below.
+     * @return One or more `requestHeader` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsRequestSchemeConditionArgs>>> requestSchemeConditions() {
-        return Optional.ofNullable(this.requestSchemeConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRequestHeaderArgs>>> requestHeaders() {
+        return Optional.ofNullable(this.requestHeaders);
     }
 
     /**
-     * A `requestUriCondition` block as defined below.
+     * One or more `requestMethod` blocks as defined below.
      * 
      */
-    @Import(name="requestUriConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsRequestUriConditionArgs>> requestUriConditions;
+    @Import(name="requestMethods")
+    private @Nullable Output<List<FrontdoorRuleConditionsRequestMethodArgs>> requestMethods;
 
     /**
-     * @return A `requestUriCondition` block as defined below.
+     * @return One or more `requestMethod` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsRequestUriConditionArgs>>> requestUriConditions() {
-        return Optional.ofNullable(this.requestUriConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRequestMethodArgs>>> requestMethods() {
+        return Optional.ofNullable(this.requestMethods);
     }
 
     /**
-     * A `serverPortCondition` block as defined below.
+     * One or more `requestPath` blocks as defined below.
      * 
      */
-    @Import(name="serverPortConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsServerPortConditionArgs>> serverPortConditions;
+    @Import(name="requestPaths")
+    private @Nullable Output<List<FrontdoorRuleConditionsRequestPathArgs>> requestPaths;
 
     /**
-     * @return A `serverPortCondition` block as defined below.
+     * @return One or more `requestPath` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsServerPortConditionArgs>>> serverPortConditions() {
-        return Optional.ofNullable(this.serverPortConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRequestPathArgs>>> requestPaths() {
+        return Optional.ofNullable(this.requestPaths);
     }
 
     /**
-     * A `socketAddressCondition` block as defined below.
+     * One or more `requestScheme` blocks as defined below.
      * 
      */
-    @Import(name="socketAddressConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsSocketAddressConditionArgs>> socketAddressConditions;
+    @Import(name="requestSchemes")
+    private @Nullable Output<List<FrontdoorRuleConditionsRequestSchemeArgs>> requestSchemes;
 
     /**
-     * @return A `socketAddressCondition` block as defined below.
+     * @return One or more `requestScheme` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsSocketAddressConditionArgs>>> socketAddressConditions() {
-        return Optional.ofNullable(this.socketAddressConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRequestSchemeArgs>>> requestSchemes() {
+        return Optional.ofNullable(this.requestSchemes);
     }
 
     /**
-     * A `sslProtocolCondition` block as defined below.
+     * One or more `requestUrl` blocks as defined below.
      * 
      */
-    @Import(name="sslProtocolConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsSslProtocolConditionArgs>> sslProtocolConditions;
+    @Import(name="requestUrls")
+    private @Nullable Output<List<FrontdoorRuleConditionsRequestUrlArgs>> requestUrls;
 
     /**
-     * @return A `sslProtocolCondition` block as defined below.
+     * @return One or more `requestUrl` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsSslProtocolConditionArgs>>> sslProtocolConditions() {
-        return Optional.ofNullable(this.sslProtocolConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsRequestUrlArgs>>> requestUrls() {
+        return Optional.ofNullable(this.requestUrls);
     }
 
     /**
-     * A `urlFileExtensionCondition` block as defined below.
+     * One or more `serverPort` blocks as defined below.
      * 
      */
-    @Import(name="urlFileExtensionConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsUrlFileExtensionConditionArgs>> urlFileExtensionConditions;
+    @Import(name="serverPorts")
+    private @Nullable Output<List<FrontdoorRuleConditionsServerPortArgs>> serverPorts;
 
     /**
-     * @return A `urlFileExtensionCondition` block as defined below.
+     * @return One or more `serverPort` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsUrlFileExtensionConditionArgs>>> urlFileExtensionConditions() {
-        return Optional.ofNullable(this.urlFileExtensionConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsServerPortArgs>>> serverPorts() {
+        return Optional.ofNullable(this.serverPorts);
     }
 
     /**
-     * A `urlFilenameCondition` block as defined below.
+     * One or more `socketAddress` blocks as defined below.
      * 
      */
-    @Import(name="urlFilenameConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsUrlFilenameConditionArgs>> urlFilenameConditions;
+    @Import(name="socketAddresses")
+    private @Nullable Output<List<FrontdoorRuleConditionsSocketAddressArgs>> socketAddresses;
 
     /**
-     * @return A `urlFilenameCondition` block as defined below.
+     * @return One or more `socketAddress` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsUrlFilenameConditionArgs>>> urlFilenameConditions() {
-        return Optional.ofNullable(this.urlFilenameConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsSocketAddressArgs>>> socketAddresses() {
+        return Optional.ofNullable(this.socketAddresses);
     }
 
     /**
-     * A `urlPathCondition` block as defined below.
+     * One or more `sslProtocol` blocks as defined below.
      * 
      */
-    @Import(name="urlPathConditions")
-    private @Nullable Output<List<FrontdoorRuleConditionsUrlPathConditionArgs>> urlPathConditions;
+    @Import(name="sslProtocols")
+    private @Nullable Output<List<FrontdoorRuleConditionsSslProtocolArgs>> sslProtocols;
 
     /**
-     * @return A `urlPathCondition` block as defined below.
+     * @return One or more `sslProtocol` blocks as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleConditionsUrlPathConditionArgs>>> urlPathConditions() {
-        return Optional.ofNullable(this.urlPathConditions);
+    public Optional<Output<List<FrontdoorRuleConditionsSslProtocolArgs>>> sslProtocols() {
+        return Optional.ofNullable(this.sslProtocols);
     }
 
     private FrontdoorRuleConditionsArgs() {}
 
     private FrontdoorRuleConditionsArgs(FrontdoorRuleConditionsArgs $) {
-        this.clientPortConditions = $.clientPortConditions;
-        this.cookiesConditions = $.cookiesConditions;
-        this.hostNameConditions = $.hostNameConditions;
-        this.httpVersionConditions = $.httpVersionConditions;
-        this.isDeviceConditions = $.isDeviceConditions;
-        this.postArgsConditions = $.postArgsConditions;
-        this.queryStringConditions = $.queryStringConditions;
-        this.remoteAddressConditions = $.remoteAddressConditions;
-        this.requestBodyConditions = $.requestBodyConditions;
-        this.requestHeaderConditions = $.requestHeaderConditions;
-        this.requestMethodConditions = $.requestMethodConditions;
-        this.requestSchemeConditions = $.requestSchemeConditions;
-        this.requestUriConditions = $.requestUriConditions;
-        this.serverPortConditions = $.serverPortConditions;
-        this.socketAddressConditions = $.socketAddressConditions;
-        this.sslProtocolConditions = $.sslProtocolConditions;
-        this.urlFileExtensionConditions = $.urlFileExtensionConditions;
-        this.urlFilenameConditions = $.urlFilenameConditions;
-        this.urlPathConditions = $.urlPathConditions;
+        this.clientPorts = $.clientPorts;
+        this.deviceTypes = $.deviceTypes;
+        this.hostNames = $.hostNames;
+        this.httpVersions = $.httpVersions;
+        this.postArguments = $.postArguments;
+        this.queryStrings = $.queryStrings;
+        this.remoteAddresses = $.remoteAddresses;
+        this.requestBodies = $.requestBodies;
+        this.requestCookies = $.requestCookies;
+        this.requestFileExtensions = $.requestFileExtensions;
+        this.requestFilenames = $.requestFilenames;
+        this.requestHeaders = $.requestHeaders;
+        this.requestMethods = $.requestMethods;
+        this.requestPaths = $.requestPaths;
+        this.requestSchemes = $.requestSchemes;
+        this.requestUrls = $.requestUrls;
+        this.serverPorts = $.serverPorts;
+        this.socketAddresses = $.socketAddresses;
+        this.sslProtocols = $.sslProtocols;
     }
 
     public static Builder builder() {
@@ -362,592 +362,592 @@ public final class FrontdoorRuleConditionsArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param clientPortConditions A `clientPortCondition` block as defined below.
+         * @param clientPorts One or more `clientPort` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder clientPortConditions(@Nullable Output<List<FrontdoorRuleConditionsClientPortConditionArgs>> clientPortConditions) {
-            $.clientPortConditions = clientPortConditions;
+        public Builder clientPorts(@Nullable Output<List<FrontdoorRuleConditionsClientPortArgs>> clientPorts) {
+            $.clientPorts = clientPorts;
             return this;
         }
 
         /**
-         * @param clientPortConditions A `clientPortCondition` block as defined below.
+         * @param clientPorts One or more `clientPort` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder clientPortConditions(List<FrontdoorRuleConditionsClientPortConditionArgs> clientPortConditions) {
-            return clientPortConditions(Output.of(clientPortConditions));
+        public Builder clientPorts(List<FrontdoorRuleConditionsClientPortArgs> clientPorts) {
+            return clientPorts(Output.of(clientPorts));
         }
 
         /**
-         * @param clientPortConditions A `clientPortCondition` block as defined below.
+         * @param clientPorts One or more `clientPort` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder clientPortConditions(FrontdoorRuleConditionsClientPortConditionArgs... clientPortConditions) {
-            return clientPortConditions(List.of(clientPortConditions));
+        public Builder clientPorts(FrontdoorRuleConditionsClientPortArgs... clientPorts) {
+            return clientPorts(List.of(clientPorts));
         }
 
         /**
-         * @param cookiesConditions A `cookiesCondition` block as defined below.
+         * @param deviceTypes One or more `deviceType` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder cookiesConditions(@Nullable Output<List<FrontdoorRuleConditionsCookiesConditionArgs>> cookiesConditions) {
-            $.cookiesConditions = cookiesConditions;
+        public Builder deviceTypes(@Nullable Output<List<FrontdoorRuleConditionsDeviceTypeArgs>> deviceTypes) {
+            $.deviceTypes = deviceTypes;
             return this;
         }
 
         /**
-         * @param cookiesConditions A `cookiesCondition` block as defined below.
+         * @param deviceTypes One or more `deviceType` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder cookiesConditions(List<FrontdoorRuleConditionsCookiesConditionArgs> cookiesConditions) {
-            return cookiesConditions(Output.of(cookiesConditions));
+        public Builder deviceTypes(List<FrontdoorRuleConditionsDeviceTypeArgs> deviceTypes) {
+            return deviceTypes(Output.of(deviceTypes));
         }
 
         /**
-         * @param cookiesConditions A `cookiesCondition` block as defined below.
+         * @param deviceTypes One or more `deviceType` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder cookiesConditions(FrontdoorRuleConditionsCookiesConditionArgs... cookiesConditions) {
-            return cookiesConditions(List.of(cookiesConditions));
+        public Builder deviceTypes(FrontdoorRuleConditionsDeviceTypeArgs... deviceTypes) {
+            return deviceTypes(List.of(deviceTypes));
         }
 
         /**
-         * @param hostNameConditions A `hostNameCondition` block as defined below.
+         * @param hostNames One or more `hostName` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder hostNameConditions(@Nullable Output<List<FrontdoorRuleConditionsHostNameConditionArgs>> hostNameConditions) {
-            $.hostNameConditions = hostNameConditions;
+        public Builder hostNames(@Nullable Output<List<FrontdoorRuleConditionsHostNameArgs>> hostNames) {
+            $.hostNames = hostNames;
             return this;
         }
 
         /**
-         * @param hostNameConditions A `hostNameCondition` block as defined below.
+         * @param hostNames One or more `hostName` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder hostNameConditions(List<FrontdoorRuleConditionsHostNameConditionArgs> hostNameConditions) {
-            return hostNameConditions(Output.of(hostNameConditions));
+        public Builder hostNames(List<FrontdoorRuleConditionsHostNameArgs> hostNames) {
+            return hostNames(Output.of(hostNames));
         }
 
         /**
-         * @param hostNameConditions A `hostNameCondition` block as defined below.
+         * @param hostNames One or more `hostName` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder hostNameConditions(FrontdoorRuleConditionsHostNameConditionArgs... hostNameConditions) {
-            return hostNameConditions(List.of(hostNameConditions));
+        public Builder hostNames(FrontdoorRuleConditionsHostNameArgs... hostNames) {
+            return hostNames(List.of(hostNames));
         }
 
         /**
-         * @param httpVersionConditions A `httpVersionCondition` block as defined below.
+         * @param httpVersions One or more `httpVersion` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder httpVersionConditions(@Nullable Output<List<FrontdoorRuleConditionsHttpVersionConditionArgs>> httpVersionConditions) {
-            $.httpVersionConditions = httpVersionConditions;
+        public Builder httpVersions(@Nullable Output<List<FrontdoorRuleConditionsHttpVersionArgs>> httpVersions) {
+            $.httpVersions = httpVersions;
             return this;
         }
 
         /**
-         * @param httpVersionConditions A `httpVersionCondition` block as defined below.
+         * @param httpVersions One or more `httpVersion` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder httpVersionConditions(List<FrontdoorRuleConditionsHttpVersionConditionArgs> httpVersionConditions) {
-            return httpVersionConditions(Output.of(httpVersionConditions));
+        public Builder httpVersions(List<FrontdoorRuleConditionsHttpVersionArgs> httpVersions) {
+            return httpVersions(Output.of(httpVersions));
         }
 
         /**
-         * @param httpVersionConditions A `httpVersionCondition` block as defined below.
+         * @param httpVersions One or more `httpVersion` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder httpVersionConditions(FrontdoorRuleConditionsHttpVersionConditionArgs... httpVersionConditions) {
-            return httpVersionConditions(List.of(httpVersionConditions));
+        public Builder httpVersions(FrontdoorRuleConditionsHttpVersionArgs... httpVersions) {
+            return httpVersions(List.of(httpVersions));
         }
 
         /**
-         * @param isDeviceConditions A `isDeviceCondition` block as defined below.
+         * @param postArguments One or more `postArgument` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder isDeviceConditions(@Nullable Output<List<FrontdoorRuleConditionsIsDeviceConditionArgs>> isDeviceConditions) {
-            $.isDeviceConditions = isDeviceConditions;
+        public Builder postArguments(@Nullable Output<List<FrontdoorRuleConditionsPostArgumentArgs>> postArguments) {
+            $.postArguments = postArguments;
             return this;
         }
 
         /**
-         * @param isDeviceConditions A `isDeviceCondition` block as defined below.
+         * @param postArguments One or more `postArgument` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder isDeviceConditions(List<FrontdoorRuleConditionsIsDeviceConditionArgs> isDeviceConditions) {
-            return isDeviceConditions(Output.of(isDeviceConditions));
+        public Builder postArguments(List<FrontdoorRuleConditionsPostArgumentArgs> postArguments) {
+            return postArguments(Output.of(postArguments));
         }
 
         /**
-         * @param isDeviceConditions A `isDeviceCondition` block as defined below.
+         * @param postArguments One or more `postArgument` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder isDeviceConditions(FrontdoorRuleConditionsIsDeviceConditionArgs... isDeviceConditions) {
-            return isDeviceConditions(List.of(isDeviceConditions));
+        public Builder postArguments(FrontdoorRuleConditionsPostArgumentArgs... postArguments) {
+            return postArguments(List.of(postArguments));
         }
 
         /**
-         * @param postArgsConditions A `postArgsCondition` block as defined below.
+         * @param queryStrings One or more `queryString` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder postArgsConditions(@Nullable Output<List<FrontdoorRuleConditionsPostArgsConditionArgs>> postArgsConditions) {
-            $.postArgsConditions = postArgsConditions;
+        public Builder queryStrings(@Nullable Output<List<FrontdoorRuleConditionsQueryStringArgs>> queryStrings) {
+            $.queryStrings = queryStrings;
             return this;
         }
 
         /**
-         * @param postArgsConditions A `postArgsCondition` block as defined below.
+         * @param queryStrings One or more `queryString` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder postArgsConditions(List<FrontdoorRuleConditionsPostArgsConditionArgs> postArgsConditions) {
-            return postArgsConditions(Output.of(postArgsConditions));
+        public Builder queryStrings(List<FrontdoorRuleConditionsQueryStringArgs> queryStrings) {
+            return queryStrings(Output.of(queryStrings));
         }
 
         /**
-         * @param postArgsConditions A `postArgsCondition` block as defined below.
+         * @param queryStrings One or more `queryString` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder postArgsConditions(FrontdoorRuleConditionsPostArgsConditionArgs... postArgsConditions) {
-            return postArgsConditions(List.of(postArgsConditions));
+        public Builder queryStrings(FrontdoorRuleConditionsQueryStringArgs... queryStrings) {
+            return queryStrings(List.of(queryStrings));
         }
 
         /**
-         * @param queryStringConditions A `queryStringCondition` block as defined below.
+         * @param remoteAddresses One or more `remoteAddress` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder queryStringConditions(@Nullable Output<List<FrontdoorRuleConditionsQueryStringConditionArgs>> queryStringConditions) {
-            $.queryStringConditions = queryStringConditions;
+        public Builder remoteAddresses(@Nullable Output<List<FrontdoorRuleConditionsRemoteAddressArgs>> remoteAddresses) {
+            $.remoteAddresses = remoteAddresses;
             return this;
         }
 
         /**
-         * @param queryStringConditions A `queryStringCondition` block as defined below.
+         * @param remoteAddresses One or more `remoteAddress` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder queryStringConditions(List<FrontdoorRuleConditionsQueryStringConditionArgs> queryStringConditions) {
-            return queryStringConditions(Output.of(queryStringConditions));
+        public Builder remoteAddresses(List<FrontdoorRuleConditionsRemoteAddressArgs> remoteAddresses) {
+            return remoteAddresses(Output.of(remoteAddresses));
         }
 
         /**
-         * @param queryStringConditions A `queryStringCondition` block as defined below.
+         * @param remoteAddresses One or more `remoteAddress` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder queryStringConditions(FrontdoorRuleConditionsQueryStringConditionArgs... queryStringConditions) {
-            return queryStringConditions(List.of(queryStringConditions));
+        public Builder remoteAddresses(FrontdoorRuleConditionsRemoteAddressArgs... remoteAddresses) {
+            return remoteAddresses(List.of(remoteAddresses));
         }
 
         /**
-         * @param remoteAddressConditions A `remoteAddressCondition` block as defined below.
+         * @param requestBodies One or more `requestBody` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder remoteAddressConditions(@Nullable Output<List<FrontdoorRuleConditionsRemoteAddressConditionArgs>> remoteAddressConditions) {
-            $.remoteAddressConditions = remoteAddressConditions;
+        public Builder requestBodies(@Nullable Output<List<FrontdoorRuleConditionsRequestBodyArgs>> requestBodies) {
+            $.requestBodies = requestBodies;
             return this;
         }
 
         /**
-         * @param remoteAddressConditions A `remoteAddressCondition` block as defined below.
+         * @param requestBodies One or more `requestBody` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder remoteAddressConditions(List<FrontdoorRuleConditionsRemoteAddressConditionArgs> remoteAddressConditions) {
-            return remoteAddressConditions(Output.of(remoteAddressConditions));
+        public Builder requestBodies(List<FrontdoorRuleConditionsRequestBodyArgs> requestBodies) {
+            return requestBodies(Output.of(requestBodies));
         }
 
         /**
-         * @param remoteAddressConditions A `remoteAddressCondition` block as defined below.
+         * @param requestBodies One or more `requestBody` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder remoteAddressConditions(FrontdoorRuleConditionsRemoteAddressConditionArgs... remoteAddressConditions) {
-            return remoteAddressConditions(List.of(remoteAddressConditions));
+        public Builder requestBodies(FrontdoorRuleConditionsRequestBodyArgs... requestBodies) {
+            return requestBodies(List.of(requestBodies));
         }
 
         /**
-         * @param requestBodyConditions A `requestBodyCondition` block as defined below.
+         * @param requestCookies One or more `requestCookies` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestBodyConditions(@Nullable Output<List<FrontdoorRuleConditionsRequestBodyConditionArgs>> requestBodyConditions) {
-            $.requestBodyConditions = requestBodyConditions;
+        public Builder requestCookies(@Nullable Output<List<FrontdoorRuleConditionsRequestCookyArgs>> requestCookies) {
+            $.requestCookies = requestCookies;
             return this;
         }
 
         /**
-         * @param requestBodyConditions A `requestBodyCondition` block as defined below.
+         * @param requestCookies One or more `requestCookies` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestBodyConditions(List<FrontdoorRuleConditionsRequestBodyConditionArgs> requestBodyConditions) {
-            return requestBodyConditions(Output.of(requestBodyConditions));
+        public Builder requestCookies(List<FrontdoorRuleConditionsRequestCookyArgs> requestCookies) {
+            return requestCookies(Output.of(requestCookies));
         }
 
         /**
-         * @param requestBodyConditions A `requestBodyCondition` block as defined below.
+         * @param requestCookies One or more `requestCookies` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestBodyConditions(FrontdoorRuleConditionsRequestBodyConditionArgs... requestBodyConditions) {
-            return requestBodyConditions(List.of(requestBodyConditions));
+        public Builder requestCookies(FrontdoorRuleConditionsRequestCookyArgs... requestCookies) {
+            return requestCookies(List.of(requestCookies));
         }
 
         /**
-         * @param requestHeaderConditions A `requestHeaderCondition` block as defined below.
+         * @param requestFileExtensions One or more `requestFileExtension` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestHeaderConditions(@Nullable Output<List<FrontdoorRuleConditionsRequestHeaderConditionArgs>> requestHeaderConditions) {
-            $.requestHeaderConditions = requestHeaderConditions;
+        public Builder requestFileExtensions(@Nullable Output<List<FrontdoorRuleConditionsRequestFileExtensionArgs>> requestFileExtensions) {
+            $.requestFileExtensions = requestFileExtensions;
             return this;
         }
 
         /**
-         * @param requestHeaderConditions A `requestHeaderCondition` block as defined below.
+         * @param requestFileExtensions One or more `requestFileExtension` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestHeaderConditions(List<FrontdoorRuleConditionsRequestHeaderConditionArgs> requestHeaderConditions) {
-            return requestHeaderConditions(Output.of(requestHeaderConditions));
+        public Builder requestFileExtensions(List<FrontdoorRuleConditionsRequestFileExtensionArgs> requestFileExtensions) {
+            return requestFileExtensions(Output.of(requestFileExtensions));
         }
 
         /**
-         * @param requestHeaderConditions A `requestHeaderCondition` block as defined below.
+         * @param requestFileExtensions One or more `requestFileExtension` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestHeaderConditions(FrontdoorRuleConditionsRequestHeaderConditionArgs... requestHeaderConditions) {
-            return requestHeaderConditions(List.of(requestHeaderConditions));
+        public Builder requestFileExtensions(FrontdoorRuleConditionsRequestFileExtensionArgs... requestFileExtensions) {
+            return requestFileExtensions(List.of(requestFileExtensions));
         }
 
         /**
-         * @param requestMethodConditions A `requestMethodCondition` block as defined below.
+         * @param requestFilenames One or more `requestFilename` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestMethodConditions(@Nullable Output<List<FrontdoorRuleConditionsRequestMethodConditionArgs>> requestMethodConditions) {
-            $.requestMethodConditions = requestMethodConditions;
+        public Builder requestFilenames(@Nullable Output<List<FrontdoorRuleConditionsRequestFilenameArgs>> requestFilenames) {
+            $.requestFilenames = requestFilenames;
             return this;
         }
 
         /**
-         * @param requestMethodConditions A `requestMethodCondition` block as defined below.
+         * @param requestFilenames One or more `requestFilename` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestMethodConditions(List<FrontdoorRuleConditionsRequestMethodConditionArgs> requestMethodConditions) {
-            return requestMethodConditions(Output.of(requestMethodConditions));
+        public Builder requestFilenames(List<FrontdoorRuleConditionsRequestFilenameArgs> requestFilenames) {
+            return requestFilenames(Output.of(requestFilenames));
         }
 
         /**
-         * @param requestMethodConditions A `requestMethodCondition` block as defined below.
+         * @param requestFilenames One or more `requestFilename` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestMethodConditions(FrontdoorRuleConditionsRequestMethodConditionArgs... requestMethodConditions) {
-            return requestMethodConditions(List.of(requestMethodConditions));
+        public Builder requestFilenames(FrontdoorRuleConditionsRequestFilenameArgs... requestFilenames) {
+            return requestFilenames(List.of(requestFilenames));
         }
 
         /**
-         * @param requestSchemeConditions A `requestSchemeCondition` block as defined below.
+         * @param requestHeaders One or more `requestHeader` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestSchemeConditions(@Nullable Output<List<FrontdoorRuleConditionsRequestSchemeConditionArgs>> requestSchemeConditions) {
-            $.requestSchemeConditions = requestSchemeConditions;
+        public Builder requestHeaders(@Nullable Output<List<FrontdoorRuleConditionsRequestHeaderArgs>> requestHeaders) {
+            $.requestHeaders = requestHeaders;
             return this;
         }
 
         /**
-         * @param requestSchemeConditions A `requestSchemeCondition` block as defined below.
+         * @param requestHeaders One or more `requestHeader` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestSchemeConditions(List<FrontdoorRuleConditionsRequestSchemeConditionArgs> requestSchemeConditions) {
-            return requestSchemeConditions(Output.of(requestSchemeConditions));
+        public Builder requestHeaders(List<FrontdoorRuleConditionsRequestHeaderArgs> requestHeaders) {
+            return requestHeaders(Output.of(requestHeaders));
         }
 
         /**
-         * @param requestSchemeConditions A `requestSchemeCondition` block as defined below.
+         * @param requestHeaders One or more `requestHeader` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestSchemeConditions(FrontdoorRuleConditionsRequestSchemeConditionArgs... requestSchemeConditions) {
-            return requestSchemeConditions(List.of(requestSchemeConditions));
+        public Builder requestHeaders(FrontdoorRuleConditionsRequestHeaderArgs... requestHeaders) {
+            return requestHeaders(List.of(requestHeaders));
         }
 
         /**
-         * @param requestUriConditions A `requestUriCondition` block as defined below.
+         * @param requestMethods One or more `requestMethod` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestUriConditions(@Nullable Output<List<FrontdoorRuleConditionsRequestUriConditionArgs>> requestUriConditions) {
-            $.requestUriConditions = requestUriConditions;
+        public Builder requestMethods(@Nullable Output<List<FrontdoorRuleConditionsRequestMethodArgs>> requestMethods) {
+            $.requestMethods = requestMethods;
             return this;
         }
 
         /**
-         * @param requestUriConditions A `requestUriCondition` block as defined below.
+         * @param requestMethods One or more `requestMethod` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestUriConditions(List<FrontdoorRuleConditionsRequestUriConditionArgs> requestUriConditions) {
-            return requestUriConditions(Output.of(requestUriConditions));
+        public Builder requestMethods(List<FrontdoorRuleConditionsRequestMethodArgs> requestMethods) {
+            return requestMethods(Output.of(requestMethods));
         }
 
         /**
-         * @param requestUriConditions A `requestUriCondition` block as defined below.
+         * @param requestMethods One or more `requestMethod` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestUriConditions(FrontdoorRuleConditionsRequestUriConditionArgs... requestUriConditions) {
-            return requestUriConditions(List.of(requestUriConditions));
+        public Builder requestMethods(FrontdoorRuleConditionsRequestMethodArgs... requestMethods) {
+            return requestMethods(List.of(requestMethods));
         }
 
         /**
-         * @param serverPortConditions A `serverPortCondition` block as defined below.
+         * @param requestPaths One or more `requestPath` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder serverPortConditions(@Nullable Output<List<FrontdoorRuleConditionsServerPortConditionArgs>> serverPortConditions) {
-            $.serverPortConditions = serverPortConditions;
+        public Builder requestPaths(@Nullable Output<List<FrontdoorRuleConditionsRequestPathArgs>> requestPaths) {
+            $.requestPaths = requestPaths;
             return this;
         }
 
         /**
-         * @param serverPortConditions A `serverPortCondition` block as defined below.
+         * @param requestPaths One or more `requestPath` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder serverPortConditions(List<FrontdoorRuleConditionsServerPortConditionArgs> serverPortConditions) {
-            return serverPortConditions(Output.of(serverPortConditions));
+        public Builder requestPaths(List<FrontdoorRuleConditionsRequestPathArgs> requestPaths) {
+            return requestPaths(Output.of(requestPaths));
         }
 
         /**
-         * @param serverPortConditions A `serverPortCondition` block as defined below.
+         * @param requestPaths One or more `requestPath` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder serverPortConditions(FrontdoorRuleConditionsServerPortConditionArgs... serverPortConditions) {
-            return serverPortConditions(List.of(serverPortConditions));
+        public Builder requestPaths(FrontdoorRuleConditionsRequestPathArgs... requestPaths) {
+            return requestPaths(List.of(requestPaths));
         }
 
         /**
-         * @param socketAddressConditions A `socketAddressCondition` block as defined below.
+         * @param requestSchemes One or more `requestScheme` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder socketAddressConditions(@Nullable Output<List<FrontdoorRuleConditionsSocketAddressConditionArgs>> socketAddressConditions) {
-            $.socketAddressConditions = socketAddressConditions;
+        public Builder requestSchemes(@Nullable Output<List<FrontdoorRuleConditionsRequestSchemeArgs>> requestSchemes) {
+            $.requestSchemes = requestSchemes;
             return this;
         }
 
         /**
-         * @param socketAddressConditions A `socketAddressCondition` block as defined below.
+         * @param requestSchemes One or more `requestScheme` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder socketAddressConditions(List<FrontdoorRuleConditionsSocketAddressConditionArgs> socketAddressConditions) {
-            return socketAddressConditions(Output.of(socketAddressConditions));
+        public Builder requestSchemes(List<FrontdoorRuleConditionsRequestSchemeArgs> requestSchemes) {
+            return requestSchemes(Output.of(requestSchemes));
         }
 
         /**
-         * @param socketAddressConditions A `socketAddressCondition` block as defined below.
+         * @param requestSchemes One or more `requestScheme` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder socketAddressConditions(FrontdoorRuleConditionsSocketAddressConditionArgs... socketAddressConditions) {
-            return socketAddressConditions(List.of(socketAddressConditions));
+        public Builder requestSchemes(FrontdoorRuleConditionsRequestSchemeArgs... requestSchemes) {
+            return requestSchemes(List.of(requestSchemes));
         }
 
         /**
-         * @param sslProtocolConditions A `sslProtocolCondition` block as defined below.
+         * @param requestUrls One or more `requestUrl` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder sslProtocolConditions(@Nullable Output<List<FrontdoorRuleConditionsSslProtocolConditionArgs>> sslProtocolConditions) {
-            $.sslProtocolConditions = sslProtocolConditions;
+        public Builder requestUrls(@Nullable Output<List<FrontdoorRuleConditionsRequestUrlArgs>> requestUrls) {
+            $.requestUrls = requestUrls;
             return this;
         }
 
         /**
-         * @param sslProtocolConditions A `sslProtocolCondition` block as defined below.
+         * @param requestUrls One or more `requestUrl` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder sslProtocolConditions(List<FrontdoorRuleConditionsSslProtocolConditionArgs> sslProtocolConditions) {
-            return sslProtocolConditions(Output.of(sslProtocolConditions));
+        public Builder requestUrls(List<FrontdoorRuleConditionsRequestUrlArgs> requestUrls) {
+            return requestUrls(Output.of(requestUrls));
         }
 
         /**
-         * @param sslProtocolConditions A `sslProtocolCondition` block as defined below.
+         * @param requestUrls One or more `requestUrl` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder sslProtocolConditions(FrontdoorRuleConditionsSslProtocolConditionArgs... sslProtocolConditions) {
-            return sslProtocolConditions(List.of(sslProtocolConditions));
+        public Builder requestUrls(FrontdoorRuleConditionsRequestUrlArgs... requestUrls) {
+            return requestUrls(List.of(requestUrls));
         }
 
         /**
-         * @param urlFileExtensionConditions A `urlFileExtensionCondition` block as defined below.
+         * @param serverPorts One or more `serverPort` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlFileExtensionConditions(@Nullable Output<List<FrontdoorRuleConditionsUrlFileExtensionConditionArgs>> urlFileExtensionConditions) {
-            $.urlFileExtensionConditions = urlFileExtensionConditions;
+        public Builder serverPorts(@Nullable Output<List<FrontdoorRuleConditionsServerPortArgs>> serverPorts) {
+            $.serverPorts = serverPorts;
             return this;
         }
 
         /**
-         * @param urlFileExtensionConditions A `urlFileExtensionCondition` block as defined below.
+         * @param serverPorts One or more `serverPort` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlFileExtensionConditions(List<FrontdoorRuleConditionsUrlFileExtensionConditionArgs> urlFileExtensionConditions) {
-            return urlFileExtensionConditions(Output.of(urlFileExtensionConditions));
+        public Builder serverPorts(List<FrontdoorRuleConditionsServerPortArgs> serverPorts) {
+            return serverPorts(Output.of(serverPorts));
         }
 
         /**
-         * @param urlFileExtensionConditions A `urlFileExtensionCondition` block as defined below.
+         * @param serverPorts One or more `serverPort` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlFileExtensionConditions(FrontdoorRuleConditionsUrlFileExtensionConditionArgs... urlFileExtensionConditions) {
-            return urlFileExtensionConditions(List.of(urlFileExtensionConditions));
+        public Builder serverPorts(FrontdoorRuleConditionsServerPortArgs... serverPorts) {
+            return serverPorts(List.of(serverPorts));
         }
 
         /**
-         * @param urlFilenameConditions A `urlFilenameCondition` block as defined below.
+         * @param socketAddresses One or more `socketAddress` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlFilenameConditions(@Nullable Output<List<FrontdoorRuleConditionsUrlFilenameConditionArgs>> urlFilenameConditions) {
-            $.urlFilenameConditions = urlFilenameConditions;
+        public Builder socketAddresses(@Nullable Output<List<FrontdoorRuleConditionsSocketAddressArgs>> socketAddresses) {
+            $.socketAddresses = socketAddresses;
             return this;
         }
 
         /**
-         * @param urlFilenameConditions A `urlFilenameCondition` block as defined below.
+         * @param socketAddresses One or more `socketAddress` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlFilenameConditions(List<FrontdoorRuleConditionsUrlFilenameConditionArgs> urlFilenameConditions) {
-            return urlFilenameConditions(Output.of(urlFilenameConditions));
+        public Builder socketAddresses(List<FrontdoorRuleConditionsSocketAddressArgs> socketAddresses) {
+            return socketAddresses(Output.of(socketAddresses));
         }
 
         /**
-         * @param urlFilenameConditions A `urlFilenameCondition` block as defined below.
+         * @param socketAddresses One or more `socketAddress` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlFilenameConditions(FrontdoorRuleConditionsUrlFilenameConditionArgs... urlFilenameConditions) {
-            return urlFilenameConditions(List.of(urlFilenameConditions));
+        public Builder socketAddresses(FrontdoorRuleConditionsSocketAddressArgs... socketAddresses) {
+            return socketAddresses(List.of(socketAddresses));
         }
 
         /**
-         * @param urlPathConditions A `urlPathCondition` block as defined below.
+         * @param sslProtocols One or more `sslProtocol` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlPathConditions(@Nullable Output<List<FrontdoorRuleConditionsUrlPathConditionArgs>> urlPathConditions) {
-            $.urlPathConditions = urlPathConditions;
+        public Builder sslProtocols(@Nullable Output<List<FrontdoorRuleConditionsSslProtocolArgs>> sslProtocols) {
+            $.sslProtocols = sslProtocols;
             return this;
         }
 
         /**
-         * @param urlPathConditions A `urlPathCondition` block as defined below.
+         * @param sslProtocols One or more `sslProtocol` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlPathConditions(List<FrontdoorRuleConditionsUrlPathConditionArgs> urlPathConditions) {
-            return urlPathConditions(Output.of(urlPathConditions));
+        public Builder sslProtocols(List<FrontdoorRuleConditionsSslProtocolArgs> sslProtocols) {
+            return sslProtocols(Output.of(sslProtocols));
         }
 
         /**
-         * @param urlPathConditions A `urlPathCondition` block as defined below.
+         * @param sslProtocols One or more `sslProtocol` blocks as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlPathConditions(FrontdoorRuleConditionsUrlPathConditionArgs... urlPathConditions) {
-            return urlPathConditions(List.of(urlPathConditions));
+        public Builder sslProtocols(FrontdoorRuleConditionsSslProtocolArgs... sslProtocols) {
+            return sslProtocols(List.of(sslProtocols));
         }
 
         public FrontdoorRuleConditionsArgs build() {

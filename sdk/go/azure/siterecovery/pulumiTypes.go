@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -19,13 +19,7 @@ type ProtectionContainerMappingAutomaticUpdate struct {
 	// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
 	AuthenticationType *string `pulumi:"authenticationType"`
 	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-	//
-	// > **Note:** `automationAccountId` is required when `enabled` is specified.
-	AutomationAccountId *string `pulumi:"automationAccountId"`
-	// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-	//
-	// > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-	Enabled *bool `pulumi:"enabled"`
+	AutomationAccountId string `pulumi:"automationAccountId"`
 }
 
 // ProtectionContainerMappingAutomaticUpdateInput is an input type that accepts ProtectionContainerMappingAutomaticUpdateArgs and ProtectionContainerMappingAutomaticUpdateOutput values.
@@ -45,13 +39,7 @@ type ProtectionContainerMappingAutomaticUpdateArgs struct {
 	// > **Note:** `RunAsAccount` of `authenticationType` is deprecated and will retire on September 30, 2023. Details could be found [here](https://learn.microsoft.com/en-us/azure/automation/whats-new#support-for-run-as-accounts).
 	AuthenticationType pulumi.StringPtrInput `pulumi:"authenticationType"`
 	// The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-	//
-	// > **Note:** `automationAccountId` is required when `enabled` is specified.
-	AutomationAccountId pulumi.StringPtrInput `pulumi:"automationAccountId"`
-	// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-	//
-	// > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	AutomationAccountId pulumi.StringInput `pulumi:"automationAccountId"`
 }
 
 func (ProtectionContainerMappingAutomaticUpdateArgs) ElementType() reflect.Type {
@@ -139,17 +127,8 @@ func (o ProtectionContainerMappingAutomaticUpdateOutput) AuthenticationType() pu
 }
 
 // The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-//
-// > **Note:** `automationAccountId` is required when `enabled` is specified.
-func (o ProtectionContainerMappingAutomaticUpdateOutput) AutomationAccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerMappingAutomaticUpdate) *string { return v.AutomationAccountId }).(pulumi.StringPtrOutput)
-}
-
-// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-//
-// > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-func (o ProtectionContainerMappingAutomaticUpdateOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ProtectionContainerMappingAutomaticUpdate) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+func (o ProtectionContainerMappingAutomaticUpdateOutput) AutomationAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v ProtectionContainerMappingAutomaticUpdate) string { return v.AutomationAccountId }).(pulumi.StringOutput)
 }
 
 type ProtectionContainerMappingAutomaticUpdatePtrOutput struct{ *pulumi.OutputState }
@@ -189,27 +168,13 @@ func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) AuthenticationType()
 }
 
 // The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
-//
-// > **Note:** `automationAccountId` is required when `enabled` is specified.
 func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) AutomationAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProtectionContainerMappingAutomaticUpdate) *string {
 		if v == nil {
 			return nil
 		}
-		return v.AutomationAccountId
+		return &v.AutomationAccountId
 	}).(pulumi.StringPtrOutput)
-}
-
-// Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-//
-// > **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-func (o ProtectionContainerMappingAutomaticUpdatePtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProtectionContainerMappingAutomaticUpdate) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Enabled
-	}).(pulumi.BoolPtrOutput)
 }
 
 type ReplicatedVMManagedDisk struct {
@@ -844,22 +809,10 @@ func (o ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput) Va
 }
 
 type ReplicatedVMNetworkInterface struct {
-	// Id of the public IP object to use when a test failover is done.
-	FailoverTestPublicIpAddressId *string `pulumi:"failoverTestPublicIpAddressId"`
-	// Static IP to assign when a test failover is done.
-	FailoverTestStaticIp *string `pulumi:"failoverTestStaticIp"`
-	// Name of the subnet to use when a test failover is done.
-	FailoverTestSubnetName *string `pulumi:"failoverTestSubnetName"`
-	// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-	RecoveryLoadBalancerBackendAddressPoolIds []string `pulumi:"recoveryLoadBalancerBackendAddressPoolIds"`
-	// Id of the public IP object to use when a failover is done.
-	RecoveryPublicIpAddressId *string `pulumi:"recoveryPublicIpAddressId"`
-	// (Required if the networkInterface block is specified) Id source network interface.
+	// IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
+	IpConfigurations []ReplicatedVMNetworkInterfaceIpConfiguration `pulumi:"ipConfigurations"`
+	// Id source network interface.
 	SourceNetworkInterfaceId *string `pulumi:"sourceNetworkInterfaceId"`
-	// Static IP to assign when a failover is done.
-	TargetStaticIp *string `pulumi:"targetStaticIp"`
-	// Name of the subnet to use when a failover is done.
-	TargetSubnetName *string `pulumi:"targetSubnetName"`
 }
 
 // ReplicatedVMNetworkInterfaceInput is an input type that accepts ReplicatedVMNetworkInterfaceArgs and ReplicatedVMNetworkInterfaceOutput values.
@@ -874,22 +827,10 @@ type ReplicatedVMNetworkInterfaceInput interface {
 }
 
 type ReplicatedVMNetworkInterfaceArgs struct {
-	// Id of the public IP object to use when a test failover is done.
-	FailoverTestPublicIpAddressId pulumi.StringPtrInput `pulumi:"failoverTestPublicIpAddressId"`
-	// Static IP to assign when a test failover is done.
-	FailoverTestStaticIp pulumi.StringPtrInput `pulumi:"failoverTestStaticIp"`
-	// Name of the subnet to use when a test failover is done.
-	FailoverTestSubnetName pulumi.StringPtrInput `pulumi:"failoverTestSubnetName"`
-	// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-	RecoveryLoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"recoveryLoadBalancerBackendAddressPoolIds"`
-	// Id of the public IP object to use when a failover is done.
-	RecoveryPublicIpAddressId pulumi.StringPtrInput `pulumi:"recoveryPublicIpAddressId"`
-	// (Required if the networkInterface block is specified) Id source network interface.
+	// IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
+	IpConfigurations ReplicatedVMNetworkInterfaceIpConfigurationArrayInput `pulumi:"ipConfigurations"`
+	// Id source network interface.
 	SourceNetworkInterfaceId pulumi.StringPtrInput `pulumi:"sourceNetworkInterfaceId"`
-	// Static IP to assign when a failover is done.
-	TargetStaticIp pulumi.StringPtrInput `pulumi:"targetStaticIp"`
-	// Name of the subnet to use when a failover is done.
-	TargetSubnetName pulumi.StringPtrInput `pulumi:"targetSubnetName"`
 }
 
 func (ReplicatedVMNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -943,44 +884,16 @@ func (o ReplicatedVMNetworkInterfaceOutput) ToReplicatedVMNetworkInterfaceOutput
 	return o
 }
 
-// Id of the public IP object to use when a test failover is done.
-func (o ReplicatedVMNetworkInterfaceOutput) FailoverTestPublicIpAddressId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.FailoverTestPublicIpAddressId }).(pulumi.StringPtrOutput)
+// IP configuration to assign when a failover is done. One or more `ipConfiguration` blocks as defined below.
+func (o ReplicatedVMNetworkInterfaceOutput) IpConfigurations() ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterface) []ReplicatedVMNetworkInterfaceIpConfiguration {
+		return v.IpConfigurations
+	}).(ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput)
 }
 
-// Static IP to assign when a test failover is done.
-func (o ReplicatedVMNetworkInterfaceOutput) FailoverTestStaticIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.FailoverTestStaticIp }).(pulumi.StringPtrOutput)
-}
-
-// Name of the subnet to use when a test failover is done.
-func (o ReplicatedVMNetworkInterfaceOutput) FailoverTestSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.FailoverTestSubnetName }).(pulumi.StringPtrOutput)
-}
-
-// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
-func (o ReplicatedVMNetworkInterfaceOutput) RecoveryLoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ReplicatedVMNetworkInterface) []string { return v.RecoveryLoadBalancerBackendAddressPoolIds }).(pulumi.StringArrayOutput)
-}
-
-// Id of the public IP object to use when a failover is done.
-func (o ReplicatedVMNetworkInterfaceOutput) RecoveryPublicIpAddressId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.RecoveryPublicIpAddressId }).(pulumi.StringPtrOutput)
-}
-
-// (Required if the networkInterface block is specified) Id source network interface.
+// Id source network interface.
 func (o ReplicatedVMNetworkInterfaceOutput) SourceNetworkInterfaceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.SourceNetworkInterfaceId }).(pulumi.StringPtrOutput)
-}
-
-// Static IP to assign when a failover is done.
-func (o ReplicatedVMNetworkInterfaceOutput) TargetStaticIp() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.TargetStaticIp }).(pulumi.StringPtrOutput)
-}
-
-// Name of the subnet to use when a failover is done.
-func (o ReplicatedVMNetworkInterfaceOutput) TargetSubnetName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ReplicatedVMNetworkInterface) *string { return v.TargetSubnetName }).(pulumi.StringPtrOutput)
 }
 
 type ReplicatedVMNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
@@ -1001,6 +914,183 @@ func (o ReplicatedVMNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Replic
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatedVMNetworkInterface {
 		return vs[0].([]ReplicatedVMNetworkInterface)[vs[1].(int)]
 	}).(ReplicatedVMNetworkInterfaceOutput)
+}
+
+type ReplicatedVMNetworkInterfaceIpConfiguration struct {
+	// Id of the public IP object to use when a test failover is done.
+	FailoverTestPublicIpAddressId *string `pulumi:"failoverTestPublicIpAddressId"`
+	// Static IP to assign when a test failover is done.
+	FailoverTestStaticIp *string `pulumi:"failoverTestStaticIp"`
+	// Name of the subnet to use when a test failover is done.
+	FailoverTestSubnetName *string `pulumi:"failoverTestSubnetName"`
+	// Name of the IP configuration, which must be consistent with the name of the IP configuration of the source virtual machine.
+	//
+	// > **Note:** `name` is required when more than one `ipConfiguration` block is specified.
+	Name *string `pulumi:"name"`
+	// Whether this IP configuration is primary. If only one `ipConfiguration` block is specified, it will be treated as primary when omitted. Must be specified if there is more than 1 `ipConfiguration`.
+	Primary *bool `pulumi:"primary"`
+	// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+	RecoveryLoadBalancerBackendAddressPoolIds []string `pulumi:"recoveryLoadBalancerBackendAddressPoolIds"`
+	// Id of the public IP object to use when a failover is done.
+	RecoveryPublicIpAddressId *string `pulumi:"recoveryPublicIpAddressId"`
+	// Static IP to assign when a failover is done.
+	TargetStaticIp *string `pulumi:"targetStaticIp"`
+	// Name of the subnet to use when a failover is done.
+	TargetSubnetName *string `pulumi:"targetSubnetName"`
+}
+
+// ReplicatedVMNetworkInterfaceIpConfigurationInput is an input type that accepts ReplicatedVMNetworkInterfaceIpConfigurationArgs and ReplicatedVMNetworkInterfaceIpConfigurationOutput values.
+// You can construct a concrete instance of `ReplicatedVMNetworkInterfaceIpConfigurationInput` via:
+//
+//	ReplicatedVMNetworkInterfaceIpConfigurationArgs{...}
+type ReplicatedVMNetworkInterfaceIpConfigurationInput interface {
+	pulumi.Input
+
+	ToReplicatedVMNetworkInterfaceIpConfigurationOutput() ReplicatedVMNetworkInterfaceIpConfigurationOutput
+	ToReplicatedVMNetworkInterfaceIpConfigurationOutputWithContext(context.Context) ReplicatedVMNetworkInterfaceIpConfigurationOutput
+}
+
+type ReplicatedVMNetworkInterfaceIpConfigurationArgs struct {
+	// Id of the public IP object to use when a test failover is done.
+	FailoverTestPublicIpAddressId pulumi.StringPtrInput `pulumi:"failoverTestPublicIpAddressId"`
+	// Static IP to assign when a test failover is done.
+	FailoverTestStaticIp pulumi.StringPtrInput `pulumi:"failoverTestStaticIp"`
+	// Name of the subnet to use when a test failover is done.
+	FailoverTestSubnetName pulumi.StringPtrInput `pulumi:"failoverTestSubnetName"`
+	// Name of the IP configuration, which must be consistent with the name of the IP configuration of the source virtual machine.
+	//
+	// > **Note:** `name` is required when more than one `ipConfiguration` block is specified.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Whether this IP configuration is primary. If only one `ipConfiguration` block is specified, it will be treated as primary when omitted. Must be specified if there is more than 1 `ipConfiguration`.
+	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+	RecoveryLoadBalancerBackendAddressPoolIds pulumi.StringArrayInput `pulumi:"recoveryLoadBalancerBackendAddressPoolIds"`
+	// Id of the public IP object to use when a failover is done.
+	RecoveryPublicIpAddressId pulumi.StringPtrInput `pulumi:"recoveryPublicIpAddressId"`
+	// Static IP to assign when a failover is done.
+	TargetStaticIp pulumi.StringPtrInput `pulumi:"targetStaticIp"`
+	// Name of the subnet to use when a failover is done.
+	TargetSubnetName pulumi.StringPtrInput `pulumi:"targetSubnetName"`
+}
+
+func (ReplicatedVMNetworkInterfaceIpConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i ReplicatedVMNetworkInterfaceIpConfigurationArgs) ToReplicatedVMNetworkInterfaceIpConfigurationOutput() ReplicatedVMNetworkInterfaceIpConfigurationOutput {
+	return i.ToReplicatedVMNetworkInterfaceIpConfigurationOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMNetworkInterfaceIpConfigurationArgs) ToReplicatedVMNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceIpConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMNetworkInterfaceIpConfigurationOutput)
+}
+
+// ReplicatedVMNetworkInterfaceIpConfigurationArrayInput is an input type that accepts ReplicatedVMNetworkInterfaceIpConfigurationArray and ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput values.
+// You can construct a concrete instance of `ReplicatedVMNetworkInterfaceIpConfigurationArrayInput` via:
+//
+//	ReplicatedVMNetworkInterfaceIpConfigurationArray{ ReplicatedVMNetworkInterfaceIpConfigurationArgs{...} }
+type ReplicatedVMNetworkInterfaceIpConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToReplicatedVMNetworkInterfaceIpConfigurationArrayOutput() ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput
+	ToReplicatedVMNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Context) ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput
+}
+
+type ReplicatedVMNetworkInterfaceIpConfigurationArray []ReplicatedVMNetworkInterfaceIpConfigurationInput
+
+func (ReplicatedVMNetworkInterfaceIpConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatedVMNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (i ReplicatedVMNetworkInterfaceIpConfigurationArray) ToReplicatedVMNetworkInterfaceIpConfigurationArrayOutput() ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput {
+	return i.ToReplicatedVMNetworkInterfaceIpConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicatedVMNetworkInterfaceIpConfigurationArray) ToReplicatedVMNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput)
+}
+
+type ReplicatedVMNetworkInterfaceIpConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMNetworkInterfaceIpConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatedVMNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) ToReplicatedVMNetworkInterfaceIpConfigurationOutput() ReplicatedVMNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) ToReplicatedVMNetworkInterfaceIpConfigurationOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceIpConfigurationOutput {
+	return o
+}
+
+// Id of the public IP object to use when a test failover is done.
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) FailoverTestPublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterfaceIpConfiguration) *string { return v.FailoverTestPublicIpAddressId }).(pulumi.StringPtrOutput)
+}
+
+// Static IP to assign when a test failover is done.
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) FailoverTestStaticIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterfaceIpConfiguration) *string { return v.FailoverTestStaticIp }).(pulumi.StringPtrOutput)
+}
+
+// Name of the subnet to use when a test failover is done.
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) FailoverTestSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterfaceIpConfiguration) *string { return v.FailoverTestSubnetName }).(pulumi.StringPtrOutput)
+}
+
+// Name of the IP configuration, which must be consistent with the name of the IP configuration of the source virtual machine.
+//
+// > **Note:** `name` is required when more than one `ipConfiguration` block is specified.
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterfaceIpConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Whether this IP configuration is primary. If only one `ipConfiguration` block is specified, it will be treated as primary when omitted. Must be specified if there is more than 1 `ipConfiguration`.
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) Primary() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterfaceIpConfiguration) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// A list of IDs of Load Balancer Backend Address Pools to use when a failover is done.
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) RecoveryLoadBalancerBackendAddressPoolIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterfaceIpConfiguration) []string {
+		return v.RecoveryLoadBalancerBackendAddressPoolIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Id of the public IP object to use when a failover is done.
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) RecoveryPublicIpAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterfaceIpConfiguration) *string { return v.RecoveryPublicIpAddressId }).(pulumi.StringPtrOutput)
+}
+
+// Static IP to assign when a failover is done.
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) TargetStaticIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterfaceIpConfiguration) *string { return v.TargetStaticIp }).(pulumi.StringPtrOutput)
+}
+
+// Name of the subnet to use when a failover is done.
+func (o ReplicatedVMNetworkInterfaceIpConfigurationOutput) TargetSubnetName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicatedVMNetworkInterfaceIpConfiguration) *string { return v.TargetSubnetName }).(pulumi.StringPtrOutput)
+}
+
+type ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicatedVMNetworkInterfaceIpConfiguration)(nil)).Elem()
+}
+
+func (o ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput) ToReplicatedVMNetworkInterfaceIpConfigurationArrayOutput() ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput) ToReplicatedVMNetworkInterfaceIpConfigurationArrayOutputWithContext(ctx context.Context) ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicatedVMNetworkInterfaceIpConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicatedVMNetworkInterfaceIpConfiguration {
+		return vs[0].([]ReplicatedVMNetworkInterfaceIpConfiguration)[vs[1].(int)]
+	}).(ReplicatedVMNetworkInterfaceIpConfigurationOutput)
 }
 
 type ReplicatedVMUnmanagedDisk struct {
@@ -3799,6 +3889,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrInput)(nil)).Elem(), ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceArrayInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceIpConfigurationInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceIpConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMNetworkInterfaceIpConfigurationArrayInput)(nil)).Elem(), ReplicatedVMNetworkInterfaceIpConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMUnmanagedDiskInput)(nil)).Elem(), ReplicatedVMUnmanagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatedVMUnmanagedDiskArrayInput)(nil)).Elem(), ReplicatedVMUnmanagedDiskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationRecoveryPlanAzureToAzureSettingsInput)(nil)).Elem(), ReplicationRecoveryPlanAzureToAzureSettingsArgs{})
@@ -3847,6 +3939,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatedVMManagedDiskTargetDiskEncryptionKeyEncryptionKeyPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceIpConfigurationOutput{})
+	pulumi.RegisterOutputType(ReplicatedVMNetworkInterfaceIpConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMUnmanagedDiskOutput{})
 	pulumi.RegisterOutputType(ReplicatedVMUnmanagedDiskArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationRecoveryPlanAzureToAzureSettingsOutput{})

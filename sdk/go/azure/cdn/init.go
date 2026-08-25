@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Endpoint{}
 	case "azure:cdn/endpointCustomDomain:EndpointCustomDomain":
 		r = &EndpointCustomDomain{}
+	case "azure:cdn/frontdoorBatchRuleSet:FrontdoorBatchRuleSet":
+		r = &FrontdoorBatchRuleSet{}
 	case "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain":
 		r = &FrontdoorCustomDomain{}
 	case "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation":
@@ -72,6 +74,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cdn/endpointCustomDomain",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cdn/frontdoorBatchRuleSet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -95,8 +95,6 @@ export class CassandraDatacenter extends pulumi.CustomResource {
     declare public /*out*/ readonly seedNodeIpAddresses: pulumi.Output<string[]>;
     /**
      * Determines the selected sku. Defaults to `Standard_E16s_v5`.
-     *
-     * > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
      */
     declare public readonly skuName: pulumi.Output<string | undefined>;
 
@@ -207,8 +205,6 @@ export interface CassandraDatacenterState {
     seedNodeIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Determines the selected sku. Defaults to `Standard_E16s_v5`.
-     *
-     * > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
      */
     skuName?: pulumi.Input<string | undefined>;
 }
@@ -263,8 +259,6 @@ export interface CassandraDatacenterArgs {
     nodeCount?: pulumi.Input<number | undefined>;
     /**
      * Determines the selected sku. Defaults to `Standard_E16s_v5`.
-     *
-     * > **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
      */
     skuName?: pulumi.Input<string | undefined>;
 }

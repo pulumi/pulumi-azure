@@ -25,6 +25,7 @@ class RegistryArgs:
                  sku: pulumi.Input[_builtins.str],
                  admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azuread_authentication_as_arm_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption: pulumi.Input[Optional['RegistryEncryptionArgs']] = None,
                  export_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -32,13 +33,14 @@ class RegistryArgs:
                  identity: pulumi.Input[Optional['RegistryIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_for_tasks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
                  network_rule_set: pulumi.Input[Optional['RegistryNetworkRuleSetArgs']] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_assignment_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Registry resource.
@@ -47,11 +49,12 @@ class RegistryArgs:
         :param pulumi.Input[_builtins.str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[_builtins.bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[_builtins.bool] azuread_authentication_as_arm_policy_enabled: Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+               
+               > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-               
-               > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: One or more `georeplications` blocks as documented below.
                
                > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
@@ -62,13 +65,14 @@ class RegistryArgs:
         :param pulumi.Input['RegistryIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] network_rule_bypass_for_tasks_enabled: Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged.
+        :param pulumi.Input[_builtins.str] role_assignment_mode: The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -77,6 +81,8 @@ class RegistryArgs:
             pulumi.set(__self__, "admin_enabled", admin_enabled)
         if anonymous_pull_enabled is not None:
             pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
+        if azuread_authentication_as_arm_policy_enabled is not None:
+            pulumi.set(__self__, "azuread_authentication_as_arm_policy_enabled", azuread_authentication_as_arm_policy_enabled)
         if data_endpoint_enabled is not None:
             pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
         if encryption is not None:
@@ -91,6 +97,8 @@ class RegistryArgs:
             pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_rule_bypass_for_tasks_enabled is not None:
+            pulumi.set(__self__, "network_rule_bypass_for_tasks_enabled", network_rule_bypass_for_tasks_enabled)
         if network_rule_bypass_option is not None:
             pulumi.set(__self__, "network_rule_bypass_option", network_rule_bypass_option)
         if network_rule_set is not None:
@@ -101,10 +109,10 @@ class RegistryArgs:
             pulumi.set(__self__, "quarantine_policy_enabled", quarantine_policy_enabled)
         if retention_policy_in_days is not None:
             pulumi.set(__self__, "retention_policy_in_days", retention_policy_in_days)
+        if role_assignment_mode is not None:
+            pulumi.set(__self__, "role_assignment_mode", role_assignment_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if trust_policy_enabled is not None:
-            pulumi.set(__self__, "trust_policy_enabled", trust_policy_enabled)
         if zone_redundancy_enabled is not None:
             pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
 
@@ -157,6 +165,20 @@ class RegistryArgs:
         pulumi.set(self, "anonymous_pull_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="azureadAuthenticationAsArmPolicyEnabled")
+    def azuread_authentication_as_arm_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+
+        > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        """
+        return pulumi.get(self, "azuread_authentication_as_arm_policy_enabled")
+
+    @azuread_authentication_as_arm_policy_enabled.setter
+    def azuread_authentication_as_arm_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "azuread_authentication_as_arm_policy_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="dataEndpointEnabled")
     def data_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -185,8 +207,6 @@ class RegistryArgs:
     def export_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-
-        > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "export_policy_enabled")
 
@@ -249,6 +269,18 @@ class RegistryArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkRuleBypassForTasksEnabled")
+    def network_rule_bypass_for_tasks_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
+        """
+        return pulumi.get(self, "network_rule_bypass_for_tasks_enabled")
+
+    @network_rule_bypass_for_tasks_enabled.setter
+    def network_rule_bypass_for_tasks_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "network_rule_bypass_for_tasks_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="networkRuleBypassOption")
     def network_rule_bypass_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -309,6 +341,18 @@ class RegistryArgs:
         pulumi.set(self, "retention_policy_in_days", value)
 
     @_builtins.property
+    @pulumi.getter(name="roleAssignmentMode")
+    def role_assignment_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+        """
+        return pulumi.get(self, "role_assignment_mode")
+
+    @role_assignment_mode.setter
+    def role_assignment_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_assignment_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -319,18 +363,6 @@ class RegistryArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="trustPolicyEnabled")
-    def trust_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-        """
-        return pulumi.get(self, "trust_policy_enabled")
-
-    @trust_policy_enabled.setter
-    def trust_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "trust_policy_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancyEnabled")
@@ -352,6 +384,7 @@ class _RegistryState:
                  admin_password: pulumi.Input[Optional[_builtins.str]] = None,
                  admin_username: pulumi.Input[Optional[_builtins.str]] = None,
                  anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azuread_authentication_as_arm_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_endpoint_host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  encryption: pulumi.Input[Optional['RegistryEncryptionArgs']] = None,
@@ -361,15 +394,16 @@ class _RegistryState:
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  login_server: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_for_tasks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
                  network_rule_set: pulumi.Input[Optional['RegistryNetworkRuleSetArgs']] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_assignment_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering Registry resources.
@@ -378,12 +412,13 @@ class _RegistryState:
         :param pulumi.Input[_builtins.str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[_builtins.str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[_builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[_builtins.bool] azuread_authentication_as_arm_policy_enabled: Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+               
+               > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_endpoint_host_names: A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
         :param pulumi.Input['RegistryEncryptionArgs'] encryption: An `encryption` block as documented below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-               
-               > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input['RegistryGeoreplicationArgs']]] georeplications: One or more `georeplications` blocks as documented below.
                
                > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
@@ -395,15 +430,16 @@ class _RegistryState:
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] network_rule_bypass_for_tasks_enabled: Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input['RegistryNetworkRuleSetArgs'] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged.
+        :param pulumi.Input[_builtins.str] role_assignment_mode: The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
         :param pulumi.Input[_builtins.str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         if admin_enabled is not None:
@@ -414,6 +450,8 @@ class _RegistryState:
             pulumi.set(__self__, "admin_username", admin_username)
         if anonymous_pull_enabled is not None:
             pulumi.set(__self__, "anonymous_pull_enabled", anonymous_pull_enabled)
+        if azuread_authentication_as_arm_policy_enabled is not None:
+            pulumi.set(__self__, "azuread_authentication_as_arm_policy_enabled", azuread_authentication_as_arm_policy_enabled)
         if data_endpoint_enabled is not None:
             pulumi.set(__self__, "data_endpoint_enabled", data_endpoint_enabled)
         if data_endpoint_host_names is not None:
@@ -432,6 +470,8 @@ class _RegistryState:
             pulumi.set(__self__, "login_server", login_server)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_rule_bypass_for_tasks_enabled is not None:
+            pulumi.set(__self__, "network_rule_bypass_for_tasks_enabled", network_rule_bypass_for_tasks_enabled)
         if network_rule_bypass_option is not None:
             pulumi.set(__self__, "network_rule_bypass_option", network_rule_bypass_option)
         if network_rule_set is not None:
@@ -444,12 +484,12 @@ class _RegistryState:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if retention_policy_in_days is not None:
             pulumi.set(__self__, "retention_policy_in_days", retention_policy_in_days)
+        if role_assignment_mode is not None:
+            pulumi.set(__self__, "role_assignment_mode", role_assignment_mode)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if trust_policy_enabled is not None:
-            pulumi.set(__self__, "trust_policy_enabled", trust_policy_enabled)
         if zone_redundancy_enabled is not None:
             pulumi.set(__self__, "zone_redundancy_enabled", zone_redundancy_enabled)
 
@@ -502,6 +542,20 @@ class _RegistryState:
         pulumi.set(self, "anonymous_pull_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="azureadAuthenticationAsArmPolicyEnabled")
+    def azuread_authentication_as_arm_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+
+        > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        """
+        return pulumi.get(self, "azuread_authentication_as_arm_policy_enabled")
+
+    @azuread_authentication_as_arm_policy_enabled.setter
+    def azuread_authentication_as_arm_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "azuread_authentication_as_arm_policy_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="dataEndpointEnabled")
     def data_endpoint_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -542,8 +596,6 @@ class _RegistryState:
     def export_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-
-        > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "export_policy_enabled")
 
@@ -618,6 +670,18 @@ class _RegistryState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkRuleBypassForTasksEnabled")
+    def network_rule_bypass_for_tasks_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
+        """
+        return pulumi.get(self, "network_rule_bypass_for_tasks_enabled")
+
+    @network_rule_bypass_for_tasks_enabled.setter
+    def network_rule_bypass_for_tasks_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "network_rule_bypass_for_tasks_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="networkRuleBypassOption")
     def network_rule_bypass_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -690,6 +754,18 @@ class _RegistryState:
         pulumi.set(self, "retention_policy_in_days", value)
 
     @_builtins.property
+    @pulumi.getter(name="roleAssignmentMode")
+    def role_assignment_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+        """
+        return pulumi.get(self, "role_assignment_mode")
+
+    @role_assignment_mode.setter
+    def role_assignment_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "role_assignment_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def sku(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -714,18 +790,6 @@ class _RegistryState:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
-    @pulumi.getter(name="trustPolicyEnabled")
-    def trust_policy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-        """
-        return pulumi.get(self, "trust_policy_enabled")
-
-    @trust_policy_enabled.setter
-    def trust_policy_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "trust_policy_enabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="zoneRedundancyEnabled")
     def zone_redundancy_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -746,6 +810,7 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azuread_authentication_as_arm_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption: pulumi.Input[Optional[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
                  export_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -753,15 +818,16 @@ class Registry(pulumi.CustomResource):
                  identity: pulumi.Input[Optional[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_for_tasks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
                  network_rule_set: pulumi.Input[Optional[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_assignment_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -785,11 +851,13 @@ class Registry(pulumi.CustomResource):
             georeplications=[
                 {
                     "location": "East US",
+                    "global_endpoint_routing_enabled": True,
                     "zone_redundancy_enabled": True,
                     "tags": {},
                 },
                 {
                     "location": "North Europe",
+                    "global_endpoint_routing_enabled": True,
                     "zone_redundancy_enabled": True,
                     "tags": {},
                 },
@@ -883,11 +951,12 @@ class Registry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] admin_enabled: Specifies whether the admin user is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[_builtins.bool] azuread_authentication_as_arm_policy_enabled: Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+               
+               > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-               
-               > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]] georeplications: One or more `georeplications` blocks as documented below.
                
                > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
@@ -898,15 +967,16 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] network_rule_bypass_for_tasks_enabled: Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged.
+        :param pulumi.Input[_builtins.str] role_assignment_mode: The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
         :param pulumi.Input[_builtins.str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         ...
@@ -936,11 +1006,13 @@ class Registry(pulumi.CustomResource):
             georeplications=[
                 {
                     "location": "East US",
+                    "global_endpoint_routing_enabled": True,
                     "zone_redundancy_enabled": True,
                     "tags": {},
                 },
                 {
                     "location": "North Europe",
+                    "global_endpoint_routing_enabled": True,
                     "zone_redundancy_enabled": True,
                     "tags": {},
                 },
@@ -1047,6 +1119,7 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 azuread_authentication_as_arm_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption: pulumi.Input[Optional[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
                  export_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1054,15 +1127,16 @@ class Registry(pulumi.CustomResource):
                  identity: pulumi.Input[Optional[Union['RegistryIdentityArgs', 'RegistryIdentityArgsDict']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_rule_bypass_for_tasks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
                  network_rule_set: pulumi.Input[Optional[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+                 role_assignment_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  sku: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1075,6 +1149,7 @@ class Registry(pulumi.CustomResource):
 
             __props__.__dict__["admin_enabled"] = admin_enabled
             __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
+            __props__.__dict__["azuread_authentication_as_arm_policy_enabled"] = azuread_authentication_as_arm_policy_enabled
             __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["export_policy_enabled"] = export_policy_enabled
@@ -1082,6 +1157,7 @@ class Registry(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_rule_bypass_for_tasks_enabled"] = network_rule_bypass_for_tasks_enabled
             __props__.__dict__["network_rule_bypass_option"] = network_rule_bypass_option
             __props__.__dict__["network_rule_set"] = network_rule_set
             __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
@@ -1090,11 +1166,11 @@ class Registry(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["retention_policy_in_days"] = retention_policy_in_days
+            __props__.__dict__["role_assignment_mode"] = role_assignment_mode
             if sku is None and not opts.urn:
                 raise TypeError("Missing required property 'sku'")
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["trust_policy_enabled"] = trust_policy_enabled
             __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
             __props__.__dict__["admin_password"] = None
             __props__.__dict__["admin_username"] = None
@@ -1116,6 +1192,7 @@ class Registry(pulumi.CustomResource):
             admin_password: pulumi.Input[Optional[_builtins.str]] = None,
             admin_username: pulumi.Input[Optional[_builtins.str]] = None,
             anonymous_pull_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+            azuread_authentication_as_arm_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             data_endpoint_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             data_endpoint_host_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             encryption: pulumi.Input[Optional[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']]] = None,
@@ -1125,15 +1202,16 @@ class Registry(pulumi.CustomResource):
             location: pulumi.Input[Optional[_builtins.str]] = None,
             login_server: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_rule_bypass_for_tasks_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             network_rule_bypass_option: pulumi.Input[Optional[_builtins.str]] = None,
             network_rule_set: pulumi.Input[Optional[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']]] = None,
             public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             quarantine_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             retention_policy_in_days: pulumi.Input[Optional[_builtins.int]] = None,
+            role_assignment_mode: pulumi.Input[Optional[_builtins.str]] = None,
             sku: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            trust_policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             zone_redundancy_enabled: pulumi.Input[Optional[_builtins.bool]] = None) -> 'Registry':
         """
         Get an existing Registry resource's state with the given name, id, and optional extra
@@ -1146,12 +1224,13 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] admin_password: The Password associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[_builtins.str] admin_username: The Username associated with the Container Registry Admin account - if the admin account is enabled.
         :param pulumi.Input[_builtins.bool] anonymous_pull_enabled: Whether to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
+        :param pulumi.Input[_builtins.bool] azuread_authentication_as_arm_policy_enabled: Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+               
+               > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[_builtins.bool] data_endpoint_enabled: Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_endpoint_host_names: A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
         :param pulumi.Input[Union['RegistryEncryptionArgs', 'RegistryEncryptionArgsDict']] encryption: An `encryption` block as documented below.
         :param pulumi.Input[_builtins.bool] export_policy_enabled: Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-               
-               > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryGeoreplicationArgs', 'RegistryGeoreplicationArgsDict']]]] georeplications: One or more `georeplications` blocks as documented below.
                
                > **Note:** The `georeplications` is only supported on new resources with the `Premium` SKU.
@@ -1163,15 +1242,16 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] login_server: The URL that can be used to log into the container registry.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Container Registry. Only Alphanumeric characters allowed. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] network_rule_bypass_for_tasks_enabled: Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_rule_bypass_option: Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         :param pulumi.Input[Union['RegistryNetworkRuleSetArgs', 'RegistryNetworkRuleSetArgsDict']] network_rule_set: A `network_rule_set` block as documented below.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Whether public network access is allowed for the container registry. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] quarantine_policy_enabled: Boolean value that indicates whether quarantine policy is enabled.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Container Registry. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_policy_in_days: The number of days to retain and untagged manifest after which it gets purged.
+        :param pulumi.Input[_builtins.str] role_assignment_mode: The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
         :param pulumi.Input[_builtins.str] sku: The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
-        :param pulumi.Input[_builtins.bool] trust_policy_enabled: Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] zone_redundancy_enabled: Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1182,6 +1262,7 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["admin_password"] = admin_password
         __props__.__dict__["admin_username"] = admin_username
         __props__.__dict__["anonymous_pull_enabled"] = anonymous_pull_enabled
+        __props__.__dict__["azuread_authentication_as_arm_policy_enabled"] = azuread_authentication_as_arm_policy_enabled
         __props__.__dict__["data_endpoint_enabled"] = data_endpoint_enabled
         __props__.__dict__["data_endpoint_host_names"] = data_endpoint_host_names
         __props__.__dict__["encryption"] = encryption
@@ -1191,15 +1272,16 @@ class Registry(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["login_server"] = login_server
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_rule_bypass_for_tasks_enabled"] = network_rule_bypass_for_tasks_enabled
         __props__.__dict__["network_rule_bypass_option"] = network_rule_bypass_option
         __props__.__dict__["network_rule_set"] = network_rule_set
         __props__.__dict__["public_network_access_enabled"] = public_network_access_enabled
         __props__.__dict__["quarantine_policy_enabled"] = quarantine_policy_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["retention_policy_in_days"] = retention_policy_in_days
+        __props__.__dict__["role_assignment_mode"] = role_assignment_mode
         __props__.__dict__["sku"] = sku
         __props__.__dict__["tags"] = tags
-        __props__.__dict__["trust_policy_enabled"] = trust_policy_enabled
         __props__.__dict__["zone_redundancy_enabled"] = zone_redundancy_enabled
         return Registry(resource_name, opts=opts, __props__=__props__)
 
@@ -1236,6 +1318,16 @@ class Registry(pulumi.CustomResource):
         return pulumi.get(self, "anonymous_pull_enabled")
 
     @_builtins.property
+    @pulumi.getter(name="azureadAuthenticationAsArmPolicyEnabled")
+    def azuread_authentication_as_arm_policy_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+
+        > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
+        """
+        return pulumi.get(self, "azuread_authentication_as_arm_policy_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="dataEndpointEnabled")
     def data_endpoint_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
@@ -1253,7 +1345,7 @@ class Registry(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def encryption(self) -> pulumi.Output['outputs.RegistryEncryption']:
+    def encryption(self) -> pulumi.Output[Optional['outputs.RegistryEncryption']]:
         """
         An `encryption` block as documented below.
         """
@@ -1264,8 +1356,6 @@ class Registry(pulumi.CustomResource):
     def export_policy_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `public_network_access_enabled` is also set to `false`.
-
-        > **Note:** `quarantine_policy_enabled`, `retention_policy_in_days`, `trust_policy_enabled`, `export_policy_enabled` and `zone_redundancy_enabled` are only supported on resources with the `Premium` SKU.
         """
         return pulumi.get(self, "export_policy_enabled")
 
@@ -1316,6 +1406,14 @@ class Registry(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="networkRuleBypassForTasksEnabled")
+    def network_rule_bypass_for_tasks_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
+        """
+        return pulumi.get(self, "network_rule_bypass_for_tasks_enabled")
+
+    @_builtins.property
     @pulumi.getter(name="networkRuleBypassOption")
     def network_rule_bypass_option(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -1364,6 +1462,14 @@ class Registry(pulumi.CustomResource):
         return pulumi.get(self, "retention_policy_in_days")
 
     @_builtins.property
+    @pulumi.getter(name="roleAssignmentMode")
+    def role_assignment_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+        """
+        return pulumi.get(self, "role_assignment_mode")
+
+    @_builtins.property
     @pulumi.getter
     def sku(self) -> pulumi.Output[_builtins.str]:
         """
@@ -1378,14 +1484,6 @@ class Registry(pulumi.CustomResource):
         A mapping of tags to assign to the resource.
         """
         return pulumi.get(self, "tags")
-
-    @_builtins.property
-    @pulumi.getter(name="trustPolicyEnabled")
-    def trust_policy_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        """
-        Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-        """
-        return pulumi.get(self, "trust_policy_enabled")
 
     @_builtins.property
     @pulumi.getter(name="zoneRedundancyEnabled")

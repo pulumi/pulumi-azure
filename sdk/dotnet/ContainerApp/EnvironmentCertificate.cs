@@ -120,7 +120,7 @@ namespace Pulumi.Azure.ContainerApp
     ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
-    ///         EnableRbacAuthorization = true,
+    ///         RbacAuthorizationEnabled = true,
     ///     });
     /// 
     ///     var userKeyvaultAdmin = new Azure.Authorization.Assignment("user_keyvault_admin", new()

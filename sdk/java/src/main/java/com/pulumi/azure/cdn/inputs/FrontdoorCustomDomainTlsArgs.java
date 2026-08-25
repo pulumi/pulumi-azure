@@ -40,7 +40,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
      * 
      * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
      * 
-     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
      * 
      */
     @Import(name="certificateType")
@@ -51,7 +51,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
      * 
      * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
      * 
-     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+     * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
      * 
      */
     public Optional<Output<String>> certificateType() {
@@ -71,25 +71,6 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
      */
     public Optional<Output<FrontdoorCustomDomainTlsCipherSuiteArgs>> cipherSuite() {
         return Optional.ofNullable(this.cipherSuite);
-    }
-
-    /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="minimumTlsVersion")
-    private @Nullable Output<String> minimumTlsVersion;
-
-    /**
-     * @deprecated
-     * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<String>> minimumTlsVersion() {
-        return Optional.ofNullable(this.minimumTlsVersion);
     }
 
     /**
@@ -113,7 +94,6 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
         this.cdnFrontdoorSecretId = $.cdnFrontdoorSecretId;
         this.certificateType = $.certificateType;
         this.cipherSuite = $.cipherSuite;
-        this.minimumTlsVersion = $.minimumTlsVersion;
         this.minimumVersion = $.minimumVersion;
     }
 
@@ -165,7 +145,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
          * 
          * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
          * 
-         * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+         * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
          * 
          * @return builder
          * 
@@ -180,7 +160,7 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
          * 
          * &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
          * 
-         * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+         * &gt; **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
          * 
          * @return builder
          * 
@@ -208,31 +188,6 @@ public final class FrontdoorCustomDomainTlsArgs extends com.pulumi.resources.Res
          */
         public Builder cipherSuite(FrontdoorCustomDomainTlsCipherSuiteArgs cipherSuite) {
             return cipherSuite(Output.of(cipherSuite));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-        public Builder minimumTlsVersion(@Nullable Output<String> minimumTlsVersion) {
-            $.minimumTlsVersion = minimumTlsVersion;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `minimumTlsVersion` has been deprecated in favour of `minimumVersion` and will be removed in v5.0 of the AzureRM provider */
-        public Builder minimumTlsVersion(String minimumTlsVersion) {
-            return minimumTlsVersion(Output.of(minimumTlsVersion));
         }
 
         /**

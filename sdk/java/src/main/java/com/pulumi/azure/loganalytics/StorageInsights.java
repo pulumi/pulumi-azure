@@ -143,14 +143,14 @@ public class StorageInsights extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * The ID of the Storage Account used by this Log Analytics Storage Insights.
+     * The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
     private Output<String> storageAccountId;
 
     /**
-     * @return The ID of the Storage Account used by this Log Analytics Storage Insights.
+     * @return The ID of the Storage Account used by this Log Analytics Storage Insights. Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountId() {

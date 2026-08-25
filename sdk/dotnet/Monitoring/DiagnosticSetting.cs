@@ -44,6 +44,7 @@ namespace Pulumi.Azure.Monitoring
     ///         Name = "examplekeyvault",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SoftDeleteRetentionDays = 7,
     ///         PurgeProtectionEnabled = false,
@@ -143,9 +144,6 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Output("logAnalyticsWorkspaceId")]
         public Output<string?> LogAnalyticsWorkspaceId { get; private set; } = null!;
-
-        [Output("metrics")]
-        public Output<ImmutableArray<Outputs.DiagnosticSettingMetric>> Metrics { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
@@ -285,15 +283,6 @@ namespace Pulumi.Azure.Monitoring
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
 
-        [Input("metrics")]
-        private InputList<Inputs.DiagnosticSettingMetricArgs>? _metrics;
-        [Obsolete(@"`Metric` has been deprecated in favour of the `EnabledMetric` property and will be removed in v5.0 of the AzureRM provider")]
-        public InputList<Inputs.DiagnosticSettingMetricArgs> Metrics
-        {
-            get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricArgs>());
-            set => _metrics = value;
-        }
-
         /// <summary>
         /// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.
         /// 
@@ -393,15 +382,6 @@ namespace Pulumi.Azure.Monitoring
         /// </summary>
         [Input("logAnalyticsWorkspaceId")]
         public Input<string>? LogAnalyticsWorkspaceId { get; set; }
-
-        [Input("metrics")]
-        private InputList<Inputs.DiagnosticSettingMetricGetArgs>? _metrics;
-        [Obsolete(@"`Metric` has been deprecated in favour of the `EnabledMetric` property and will be removed in v5.0 of the AzureRM provider")]
-        public InputList<Inputs.DiagnosticSettingMetricGetArgs> Metrics
-        {
-            get => _metrics ?? (_metrics = new InputList<Inputs.DiagnosticSettingMetricGetArgs>());
-            set => _metrics = value;
-        }
 
         /// <summary>
         /// Specifies the name of the Diagnostic Setting. Changing this forces a new resource to be created.

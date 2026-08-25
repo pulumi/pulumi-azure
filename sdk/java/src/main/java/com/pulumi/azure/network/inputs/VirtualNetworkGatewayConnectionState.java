@@ -134,25 +134,6 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
     }
 
     /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="enableBgp")
-    private @Nullable Output<Boolean> enableBgp;
-
-    /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Boolean>> enableBgp() {
-        return Optional.ofNullable(this.enableBgp);
-    }
-
-    /**
      * The ID of the Express Route Circuit when creating an ExpressRoute connection (i.e. when `type` is `ExpressRoute`). The Express Route Circuit can be in the same or in a different subscription. Changing this forces a new resource to be created.
      * 
      */
@@ -440,7 +421,6 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
         this.customBgpAddresses = $.customBgpAddresses;
         this.dpdTimeoutSeconds = $.dpdTimeoutSeconds;
         this.egressNatRuleIds = $.egressNatRuleIds;
-        this.enableBgp = $.enableBgp;
         this.expressRouteCircuitId = $.expressRouteCircuitId;
         this.expressRouteGatewayBypass = $.expressRouteGatewayBypass;
         this.ingressNatRuleIds = $.ingressNatRuleIds;
@@ -640,31 +620,6 @@ public final class VirtualNetworkGatewayConnectionState extends com.pulumi.resou
          */
         public Builder egressNatRuleIds(String... egressNatRuleIds) {
             return egressNatRuleIds(List.of(egressNatRuleIds));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder enableBgp(@Nullable Output<Boolean> enableBgp) {
-            $.enableBgp = enableBgp;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-        public Builder enableBgp(Boolean enableBgp) {
-            return enableBgp(Output.of(enableBgp));
         }
 
         /**

@@ -78,6 +78,7 @@ import javax.annotation.Nullable;
  *             .name("workspaceexamplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .build());
@@ -167,6 +168,7 @@ import javax.annotation.Nullable;
  *             .name("workspaceexamplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .purgeProtectionEnabled(true)

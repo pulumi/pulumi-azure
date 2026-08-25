@@ -44,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  * where `11111111-1111-1111-1111-111111111111` is the `objectId`.
  * 
- * &gt; **NOTE:** Both Identifiers are unique to this provider and don&#39;t map to an existing object within Azure.
+ * &gt; **Note:** Both Identifiers are unique to this provider and don&#39;t map to an existing object within Azure.
  * 
  */
 @ResourceType(type="azure:keyvault/accessPolicy:AccessPolicy")

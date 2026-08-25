@@ -18,9 +18,15 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// </summary>
         public readonly string? ConnectionString;
         /// <summary>
-        /// The instrumentation key used to push data to Application Insights.
+        /// The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the "Monitoring Metrics Publisher" role on the target Application Insights resource. Requires `ConnectionString` to be set. Cannot be used with `InstrumentationKey`.
         /// 
         /// &gt; **Note:** Either `ConnectionString` or `InstrumentationKey` have to be specified.
+        /// 
+        /// &gt; **Note:** `IdentityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+        /// </summary>
+        public readonly string? IdentityClientId;
+        /// <summary>
+        /// The instrumentation key used to push data to Application Insights.
         /// </summary>
         public readonly string? InstrumentationKey;
 
@@ -28,9 +34,12 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         private LoggerApplicationInsights(
             string? connectionString,
 
+            string? identityClientId,
+
             string? instrumentationKey)
         {
             ConnectionString = connectionString;
+            IdentityClientId = identityClientId;
             InstrumentationKey = instrumentationKey;
         }
     }

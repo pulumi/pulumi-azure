@@ -211,31 +211,32 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="some-resource-group",
             location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=some-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="some-app-service",
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=some-app-service,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
-        example_slot = azure.appservice.Slot("example",
-            name="staging",
+            app_service_plan_id=example_app_service_plan.id)
+        example_app_service_slot = azurerm.AppServiceSlot("example",
+            name=staging,
             location=example.location,
             resource_group_name=example.name,
             app_service_name=example_app_service.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("example",
-            app_service_slot_id=example_slot.id,
+            app_service_slot_id=example_app_service_slot["id"],
             hostname="www.mywebsite.com")
         ```
 
@@ -280,31 +281,32 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="some-resource-group",
             location="West Europe")
-        example_plan = azure.appservice.Plan("example",
-            name="some-app-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=some-app-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="some-app-service",
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=some-app-service,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
-        example_slot = azure.appservice.Slot("example",
-            name="staging",
+            app_service_plan_id=example_app_service_plan.id)
+        example_app_service_slot = azurerm.AppServiceSlot("example",
+            name=staging,
             location=example.location,
             resource_group_name=example.name,
             app_service_name=example_app_service.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("example",
-            app_service_slot_id=example_slot.id,
+            app_service_slot_id=example_app_service_slot["id"],
             hostname="www.mywebsite.com")
         ```
 

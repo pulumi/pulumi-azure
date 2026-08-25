@@ -142,6 +142,7 @@ import javax.annotation.Nullable;
  *             .name("kv")
  *             .location(testAzurermResourceGroup.location())
  *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .softDeleteRetentionDays(7)

@@ -19,30 +19,39 @@ __all__ = ['CnameRecordArgs', 'CnameRecord']
 @pulumi.input_type
 class CnameRecordArgs:
     def __init__(__self__, *,
+                 private_dns_zone_id: pulumi.Input[_builtins.str],
                  record: pulumi.Input[_builtins.str],
-                 resource_group_name: pulumi.Input[_builtins.str],
                  ttl: pulumi.Input[_builtins.int],
-                 zone_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a CnameRecord resource.
 
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] record: The target of the CNAME.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
-        :param pulumi.Input[_builtins.str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: The name of the DNS CNAME Record. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
+        pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         pulumi.set(__self__, "record", record)
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "ttl", ttl)
-        pulumi.set(__self__, "zone_name", zone_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
+
+    @private_dns_zone_id.setter
+    def private_dns_zone_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "private_dns_zone_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -57,18 +66,6 @@ class CnameRecordArgs:
         pulumi.set(self, "record", value)
 
     @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "resource_group_name", value)
-
-    @_builtins.property
     @pulumi.getter
     def ttl(self) -> pulumi.Input[_builtins.int]:
         """
@@ -79,18 +76,6 @@ class CnameRecordArgs:
     @ttl.setter
     def ttl(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "ttl", value)
-
-    @_builtins.property
-    @pulumi.getter(name="zoneName")
-    def zone_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "zone_name")
-
-    @zone_name.setter
-    def zone_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "zone_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -122,36 +107,32 @@ class _CnameRecordState:
     def __init__(__self__, *,
                  fqdn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  record: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 ttl: pulumi.Input[Optional[_builtins.int]] = None,
-                 zone_name: pulumi.Input[Optional[_builtins.str]] = None):
+                 ttl: pulumi.Input[Optional[_builtins.int]] = None):
         """
         Input properties used for looking up and filtering CnameRecord resources.
 
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS CNAME Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS CNAME Record. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] record: The target of the CNAME.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
-        :param pulumi.Input[_builtins.str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         if fqdn is not None:
             pulumi.set(__self__, "fqdn", fqdn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if private_dns_zone_id is not None:
+            pulumi.set(__self__, "private_dns_zone_id", private_dns_zone_id)
         if record is not None:
             pulumi.set(__self__, "record", record)
-        if resource_group_name is not None:
-            pulumi.set(__self__, "resource_group_name", resource_group_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if ttl is not None:
             pulumi.set(__self__, "ttl", ttl)
-        if zone_name is not None:
-            pulumi.set(__self__, "zone_name", zone_name)
 
     @_builtins.property
     @pulumi.getter
@@ -178,6 +159,18 @@ class _CnameRecordState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
+
+    @private_dns_zone_id.setter
+    def private_dns_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "private_dns_zone_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def record(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -188,18 +181,6 @@ class _CnameRecordState:
     @record.setter
     def record(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "record", value)
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
-
-    @resource_group_name.setter
-    def resource_group_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
     @pulumi.getter
@@ -225,18 +206,6 @@ class _CnameRecordState:
     def ttl(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "ttl", value)
 
-    @_builtins.property
-    @pulumi.getter(name="zoneName")
-    def zone_name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "zone_name")
-
-    @zone_name.setter
-    def zone_name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "zone_name", value)
-
 
 @pulumi.type_token("azure:privatedns/cnameRecord:CnameRecord")
 class CnameRecord(pulumi.CustomResource):
@@ -245,11 +214,10 @@ class CnameRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  record: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
-                 zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Enables you to manage DNS CNAME Records within Azure Private DNS.
@@ -268,8 +236,7 @@ class CnameRecord(pulumi.CustomResource):
             resource_group_name=example.name)
         example_cname_record = azure.privatedns.CnameRecord("example",
             name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
+            private_dns_zone_id=example_zone.id,
             ttl=300,
             record="contoso.com")
         ```
@@ -293,11 +260,10 @@ class CnameRecord(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the DNS CNAME Record. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] record: The target of the CNAME.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
-        :param pulumi.Input[_builtins.str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         ...
     @overload
@@ -322,8 +288,7 @@ class CnameRecord(pulumi.CustomResource):
             resource_group_name=example.name)
         example_cname_record = azure.privatedns.CnameRecord("example",
             name="test",
-            zone_name=example_zone.name,
-            resource_group_name=example.name,
+            private_dns_zone_id=example_zone.id,
             ttl=300,
             record="contoso.com")
         ```
@@ -360,11 +325,10 @@ class CnameRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  record: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  ttl: pulumi.Input[Optional[_builtins.int]] = None,
-                 zone_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,19 +339,16 @@ class CnameRecord(pulumi.CustomResource):
             __props__ = CnameRecordArgs.__new__(CnameRecordArgs)
 
             __props__.__dict__["name"] = name
+            if private_dns_zone_id is None and not opts.urn:
+                raise TypeError("Missing required property 'private_dns_zone_id'")
+            __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
             if record is None and not opts.urn:
                 raise TypeError("Missing required property 'record'")
             __props__.__dict__["record"] = record
-            if resource_group_name is None and not opts.urn:
-                raise TypeError("Missing required property 'resource_group_name'")
-            __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
             if ttl is None and not opts.urn:
                 raise TypeError("Missing required property 'ttl'")
             __props__.__dict__["ttl"] = ttl
-            if zone_name is None and not opts.urn:
-                raise TypeError("Missing required property 'zone_name'")
-            __props__.__dict__["zone_name"] = zone_name
             __props__.__dict__["fqdn"] = None
         super(CnameRecord, __self__).__init__(
             'azure:privatedns/cnameRecord:CnameRecord',
@@ -401,11 +362,10 @@ class CnameRecord(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             fqdn: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            private_dns_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
             record: pulumi.Input[Optional[_builtins.str]] = None,
-            resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-            ttl: pulumi.Input[Optional[_builtins.int]] = None,
-            zone_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'CnameRecord':
+            ttl: pulumi.Input[Optional[_builtins.int]] = None) -> 'CnameRecord':
         """
         Get an existing CnameRecord resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -415,11 +375,10 @@ class CnameRecord(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] fqdn: The FQDN of the DNS CNAME Record.
         :param pulumi.Input[_builtins.str] name: The name of the DNS CNAME Record. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] private_dns_zone_id: Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] record: The target of the CNAME.
-        :param pulumi.Input[_builtins.str] resource_group_name: Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.int] ttl: The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
-        :param pulumi.Input[_builtins.str] zone_name: Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -427,11 +386,10 @@ class CnameRecord(pulumi.CustomResource):
 
         __props__.__dict__["fqdn"] = fqdn
         __props__.__dict__["name"] = name
+        __props__.__dict__["private_dns_zone_id"] = private_dns_zone_id
         __props__.__dict__["record"] = record
-        __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["ttl"] = ttl
-        __props__.__dict__["zone_name"] = zone_name
         return CnameRecord(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -451,20 +409,20 @@ class CnameRecord(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="privateDnsZoneId")
+    def private_dns_zone_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "private_dns_zone_id")
+
+    @_builtins.property
     @pulumi.getter
     def record(self) -> pulumi.Output[_builtins.str]:
         """
         The target of the CNAME.
         """
         return pulumi.get(self, "record")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    def resource_group_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "resource_group_name")
 
     @_builtins.property
     @pulumi.getter
@@ -481,12 +439,4 @@ class CnameRecord(pulumi.CustomResource):
         The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
         """
         return pulumi.get(self, "ttl")
-
-    @_builtins.property
-    @pulumi.getter(name="zoneName")
-    def zone_name(self) -> pulumi.Output[_builtins.str]:
-        """
-        Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "zone_name")
 

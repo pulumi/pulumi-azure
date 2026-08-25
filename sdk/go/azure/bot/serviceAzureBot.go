@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -81,6 +81,9 @@ func NewServiceAzureBot(ctx *pulumi.Context,
 
 	if args.MicrosoftAppId == nil {
 		return nil, errors.New("invalid value for required argument 'MicrosoftAppId'")
+	}
+	if args.MicrosoftAppType == nil {
+		return nil, errors.New("invalid value for required argument 'MicrosoftAppType'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -257,7 +260,7 @@ type serviceAzureBotArgs struct {
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
-	MicrosoftAppType *string `pulumi:"microsoftAppType"`
+	MicrosoftAppType string `pulumi:"microsoftAppType"`
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Whether public network access is enabled. Defaults to `true`.
@@ -307,7 +310,7 @@ type ServiceAzureBotArgs struct {
 	// The Microsoft App Type for this Azure Bot Service. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
 	//
 	// > **Note:** Creation of `bot.ServiceAzureBot` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
-	MicrosoftAppType pulumi.StringPtrInput
+	MicrosoftAppType pulumi.StringInput
 	// The name which should be used for this Azure Bot Service. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Whether public network access is enabled. Defaults to `true`.

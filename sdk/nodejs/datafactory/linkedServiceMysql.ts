@@ -86,7 +86,7 @@ export class LinkedServiceMysql extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
      *
      * > **Note:** New linked services must set `driverVersion` to `V2`.
      */
@@ -174,7 +174,7 @@ export interface LinkedServiceMysqlState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
      *
      * > **Note:** New linked services must set `driverVersion` to `V2`.
      */
@@ -218,7 +218,7 @@ export interface LinkedServiceMysqlArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+     * The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
      *
      * > **Note:** New linked services must set `driverVersion` to `V2`.
      */

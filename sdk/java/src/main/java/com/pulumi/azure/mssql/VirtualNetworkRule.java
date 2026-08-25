@@ -35,6 +35,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetServiceEndpointArgs;
  * import com.pulumi.azure.mssql.Server;
  * import com.pulumi.azure.mssql.ServerArgs;
  * import com.pulumi.azure.mssql.VirtualNetworkRule;
@@ -69,7 +70,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.7.29.0/29")
- *             .serviceEndpoints("Microsoft.Sql")
+ *             .serviceEndpoints(SubnetServiceEndpointArgs.builder()
+ *                 .service("Microsoft.Sql")
+ *                 .build())
  *             .build());
  * 
  *         var exampleServer = new Server("exampleServer", ServerArgs.builder()

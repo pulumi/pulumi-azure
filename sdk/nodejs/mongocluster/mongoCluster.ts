@@ -243,7 +243,7 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["connectionStrings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure:cosmosdb/mongoCluster:MongoCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure:cosmosdb/mongoCluster:MongoCluster" }, { type: "azure:cosmosdb/mongoCluster:MongoCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["administratorPassword", "connectionStrings"] };
         opts = pulumi.mergeOptions(opts, secretOpts);

@@ -77,25 +77,6 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         return Optional.ofNullable(this.transparentHugePageDefrag);
     }
 
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
-    @Import(name="transparentHugePageEnabled")
-    private @Nullable Output<String> transparentHugePageEnabled;
-
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
-    public Optional<Output<String>> transparentHugePageEnabled() {
-        return Optional.ofNullable(this.transparentHugePageEnabled);
-    }
-
     private KubernetesClusterDefaultNodePoolLinuxOsConfigArgs() {}
 
     private KubernetesClusterDefaultNodePoolLinuxOsConfigArgs(KubernetesClusterDefaultNodePoolLinuxOsConfigArgs $) {
@@ -103,7 +84,6 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
         this.sysctlConfig = $.sysctlConfig;
         this.transparentHugePage = $.transparentHugePage;
         this.transparentHugePageDefrag = $.transparentHugePageDefrag;
-        this.transparentHugePageEnabled = $.transparentHugePageEnabled;
     }
 
     public static Builder builder() {
@@ -206,31 +186,6 @@ public final class KubernetesClusterDefaultNodePoolLinuxOsConfigArgs extends com
          */
         public Builder transparentHugePageDefrag(String transparentHugePageDefrag) {
             return transparentHugePageDefrag(Output.of(transparentHugePageDefrag));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
-        public Builder transparentHugePageEnabled(@Nullable Output<String> transparentHugePageEnabled) {
-            $.transparentHugePageEnabled = transparentHugePageEnabled;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-         * 
-         */
-        @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
-        public Builder transparentHugePageEnabled(String transparentHugePageEnabled) {
-            return transparentHugePageEnabled(Output.of(transparentHugePageEnabled));
         }
 
         public KubernetesClusterDefaultNodePoolLinuxOsConfigArgs build() {

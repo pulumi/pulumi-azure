@@ -3,7 +3,6 @@
 
 package com.pulumi.azure.network.outputs;
 
-import com.pulumi.azure.network.outputs.GetApplicationGatewayBackendHttpSettingAuthenticationCertificate;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayBackendHttpSettingConnectionDraining;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,11 +19,6 @@ public final class GetApplicationGatewayBackendHttpSetting {
      * 
      */
     private String affinityCookieName;
-    /**
-     * @return One or more `authenticationCertificate` blocks as defined below.
-     * 
-     */
-    private List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
     /**
      * @return Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
      * 
@@ -118,13 +112,6 @@ public final class GetApplicationGatewayBackendHttpSetting {
      */
     public String affinityCookieName() {
         return this.affinityCookieName;
-    }
-    /**
-     * @return One or more `authenticationCertificate` blocks as defined below.
-     * 
-     */
-    public List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates() {
-        return this.authenticationCertificates;
     }
     /**
      * @return Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
@@ -256,7 +243,6 @@ public final class GetApplicationGatewayBackendHttpSetting {
     @CustomType.Builder
     public static final class Builder {
         private String affinityCookieName;
-        private List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates;
         private Boolean certificateChainValidationEnabled;
         private List<GetApplicationGatewayBackendHttpSettingConnectionDraining> connectionDrainings;
         private String cookieBasedAffinity;
@@ -278,7 +264,6 @@ public final class GetApplicationGatewayBackendHttpSetting {
         public Builder(GetApplicationGatewayBackendHttpSetting defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.affinityCookieName = defaults.affinityCookieName;
-    	      this.authenticationCertificates = defaults.authenticationCertificates;
     	      this.certificateChainValidationEnabled = defaults.certificateChainValidationEnabled;
     	      this.connectionDrainings = defaults.connectionDrainings;
     	      this.cookieBasedAffinity = defaults.cookieBasedAffinity;
@@ -305,17 +290,6 @@ public final class GetApplicationGatewayBackendHttpSetting {
             }
             this.affinityCookieName = affinityCookieName;
             return this;
-        }
-        @CustomType.Setter
-        public Builder authenticationCertificates(List<GetApplicationGatewayBackendHttpSettingAuthenticationCertificate> authenticationCertificates) {
-            if (authenticationCertificates == null) {
-              throw new MissingRequiredPropertyException("GetApplicationGatewayBackendHttpSetting", "authenticationCertificates");
-            }
-            this.authenticationCertificates = authenticationCertificates;
-            return this;
-        }
-        public Builder authenticationCertificates(GetApplicationGatewayBackendHttpSettingAuthenticationCertificate... authenticationCertificates) {
-            return authenticationCertificates(List.of(authenticationCertificates));
         }
         @CustomType.Setter
         public Builder certificateChainValidationEnabled(Boolean certificateChainValidationEnabled) {
@@ -462,7 +436,6 @@ public final class GetApplicationGatewayBackendHttpSetting {
         public GetApplicationGatewayBackendHttpSetting build() {
             final var _resultValue = new GetApplicationGatewayBackendHttpSetting();
             _resultValue.affinityCookieName = affinityCookieName;
-            _resultValue.authenticationCertificates = authenticationCertificates;
             _resultValue.certificateChainValidationEnabled = certificateChainValidationEnabled;
             _resultValue.connectionDrainings = connectionDrainings;
             _resultValue.cookieBasedAffinity = cookieBasedAffinity;

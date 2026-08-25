@@ -207,6 +207,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
             name="example-keyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
@@ -316,6 +317,7 @@ class ServiceCustomDomain(pulumi.CustomResource):
             name="example-keyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[

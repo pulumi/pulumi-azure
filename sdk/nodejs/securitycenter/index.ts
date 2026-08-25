@@ -20,11 +20,6 @@ export type AssessmentPolicy = import("./assessmentPolicy").AssessmentPolicy;
 export const AssessmentPolicy: typeof import("./assessmentPolicy").AssessmentPolicy = null as any;
 utilities.lazyLoad(exports, ["AssessmentPolicy"], () => require("./assessmentPolicy"));
 
-export { AutoProvisioningArgs, AutoProvisioningState } from "./autoProvisioning";
-export type AutoProvisioning = import("./autoProvisioning").AutoProvisioning;
-export const AutoProvisioning: typeof import("./autoProvisioning").AutoProvisioning = null as any;
-utilities.lazyLoad(exports, ["AutoProvisioning"], () => require("./autoProvisioning"));
-
 export { AutomationArgs, AutomationState } from "./automation";
 export type Automation = import("./automation").Automation;
 export const Automation: typeof import("./automation").Automation = null as any;
@@ -76,8 +71,6 @@ const _module = {
                 return new Assessment(name, <any>undefined, { urn })
             case "azure:securitycenter/assessmentPolicy:AssessmentPolicy":
                 return new AssessmentPolicy(name, <any>undefined, { urn })
-            case "azure:securitycenter/autoProvisioning:AutoProvisioning":
-                return new AutoProvisioning(name, <any>undefined, { urn })
             case "azure:securitycenter/automation:Automation":
                 return new Automation(name, <any>undefined, { urn })
             case "azure:securitycenter/contact:Contact":
@@ -102,7 +95,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "securitycenter/advancedThreatProtection", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/assessment", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/assessmentPolicy", _module)
-pulumi.runtime.registerResourceModule("azure", "securitycenter/autoProvisioning", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/automation", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/contact", _module)
 pulumi.runtime.registerResourceModule("azure", "securitycenter/serverVulnerabilityAssessmentVirtualMachine", _module)

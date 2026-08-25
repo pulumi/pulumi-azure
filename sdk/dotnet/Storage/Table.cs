@@ -42,7 +42,7 @@ namespace Pulumi.Azure.Storage
     ///     var exampleTable = new Azure.Storage.Table("example", new()
     ///     {
     ///         Name = "mysampletable",
-    ///         StorageAccountName = exampleAccount.Name,
+    ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
     /// });
@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Storage
     /// Table's within a Storage Account can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    /// $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
+    /// $ pulumi import azure:storage/table:Table table1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/tableServices/default/tables/table1
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/table:Table")]
@@ -81,15 +81,7 @@ namespace Pulumi.Azure.Storage
         /// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountId")]
-        public Output<string?> StorageAccountId { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Output("storageAccountName")]
-        public Output<string?> StorageAccountName { get; private set; } = null!;
+        public Output<string> StorageAccountId { get; private set; } = null!;
 
 
         /// <summary>
@@ -99,7 +91,7 @@ namespace Pulumi.Azure.Storage
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Table(string name, TableArgs? args = null, CustomResourceOptions? options = null)
+        public Table(string name, TableArgs args, CustomResourceOptions? options = null)
             : base("azure:storage/table:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -158,16 +150,8 @@ namespace Pulumi.Azure.Storage
         /// <summary>
         /// Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("storageAccountId")]
-        public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
+        [Input("storageAccountId", required: true)]
+        public Input<string> StorageAccountId { get; set; } = null!;
 
         public TableArgs()
         {
@@ -206,14 +190,6 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("storageAccountId")]
         public Input<string>? StorageAccountId { get; set; }
-
-        /// <summary>
-        /// Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** This property is deprecated in favour of `StorageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-        /// </summary>
-        [Input("storageAccountName")]
-        public Input<string>? StorageAccountName { get; set; }
 
         public TableState()
         {

@@ -50,7 +50,10 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Sql",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Sql",
+    ///             },
     ///         },
     ///     });
     /// 

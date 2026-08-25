@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
  *
+ * > **Note:** This data source can only read Rule Sets that were not provisioned in batch mode. Use the `azure.cdn.FrontdoorBatchRuleSet` data source for Rule Sets that were provisioned in batch mode.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -25,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2024-02-01
+ * * `Microsoft.Cdn` - 2025-12-01
  */
 export function getFrontdoorRuleSet(args: GetFrontdoorRuleSetArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -73,6 +75,8 @@ export interface GetFrontdoorRuleSetResult {
 /**
  * Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
  *
+ * > **Note:** This data source can only read Rule Sets that were not provisioned in batch mode. Use the `azure.cdn.FrontdoorBatchRuleSet` data source for Rule Sets that were provisioned in batch mode.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -91,7 +95,7 @@ export interface GetFrontdoorRuleSetResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2024-02-01
+ * * `Microsoft.Cdn` - 2025-12-01
  */
 export function getFrontdoorRuleSetOutput(args: GetFrontdoorRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

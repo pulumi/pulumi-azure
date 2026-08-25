@@ -22,41 +22,40 @@ __all__ = ['DiskEncryptionSetArgs', 'DiskEncryptionSet']
 class DiskEncryptionSetArgs:
     def __init__(__self__, *,
                  identity: pulumi.Input['DiskEncryptionSetIdentityArgs'],
+                 key_vault_key_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  auto_key_rotation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_type: pulumi.Input[Optional[_builtins.str]] = None,
                  federated_client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DiskEncryptionSet resource.
 
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+               
+               > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+               
+               > **Note:** A KeyVault or Managed HSM using rbac_authorization_enabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+               In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
                
-               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` must use the `versionless_id`.
                
-               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` field.
                
                > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
-               
-               > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
-               
-               > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
-               In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
         """
         pulumi.set(__self__, "identity", identity)
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_key_rotation_enabled is not None:
             pulumi.set(__self__, "auto_key_rotation_enabled", auto_key_rotation_enabled)
@@ -64,15 +63,8 @@ class DiskEncryptionSetArgs:
             pulumi.set(__self__, "encryption_type", encryption_type)
         if federated_client_id is not None:
             pulumi.set(__self__, "federated_client_id", federated_client_id)
-        if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_hsm_key_id is not None:
-            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -89,6 +81,23 @@ class DiskEncryptionSetArgs:
     @identity.setter
     def identity(self, value: pulumi.Input['DiskEncryptionSetIdentityArgs']):
         pulumi.set(self, "identity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
+
+        > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
+
+        > **Note:** A KeyVault or Managed HSM using rbac_authorization_enabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+        In this case, `keyvault.AccessPolicy` is not needed.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -108,9 +117,9 @@ class DiskEncryptionSetArgs:
         """
         Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 
-        > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+        > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` must use the `versionless_id`.
 
-        > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+        > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` field.
 
         > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         """
@@ -145,23 +154,6 @@ class DiskEncryptionSetArgs:
         pulumi.set(self, "federated_client_id", value)
 
     @_builtins.property
-    @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
-
-        > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
-
-        > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
-        In this case, `keyvault.AccessPolicy` is not needed.
-        """
-        return pulumi.get(self, "key_vault_key_id")
-
-    @key_vault_key_id.setter
-    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "key_vault_key_id", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -172,19 +164,6 @@ class DiskEncryptionSetArgs:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
-        """
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -221,7 +200,6 @@ class _DiskEncryptionSetState:
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  key_vault_key_url: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -230,23 +208,22 @@ class _DiskEncryptionSetState:
 
         :param pulumi.Input[_builtins.bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
                
-               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` must use the `versionless_id`.
                
-               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` field.
                
                > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input['DiskEncryptionSetIdentityArgs'] identity: An `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
                
                > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
                
-               > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+               > **Note:** A KeyVault or Managed HSM using rbac_authorization_enabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[_builtins.str] key_vault_key_url: The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
@@ -265,11 +242,6 @@ class _DiskEncryptionSetState:
             pulumi.set(__self__, "key_vault_key_url", key_vault_key_url)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_hsm_key_id is not None:
-            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if resource_group_name is not None:
@@ -283,9 +255,9 @@ class _DiskEncryptionSetState:
         """
         Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 
-        > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+        > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` must use the `versionless_id`.
 
-        > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+        > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` field.
 
         > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         """
@@ -335,11 +307,11 @@ class _DiskEncryptionSetState:
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
 
         > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 
-        > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+        > **Note:** A KeyVault or Managed HSM using rbac_authorization_enabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         In this case, `keyvault.AccessPolicy` is not needed.
         """
         return pulumi.get(self, "key_vault_key_id")
@@ -371,19 +343,6 @@ class _DiskEncryptionSetState:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
-        """
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -434,7 +393,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  identity: pulumi.Input[Optional[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -458,6 +416,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             name="des-example-keyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="premium",
             enabled_for_disk_encryption=True,
@@ -535,6 +494,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             name="des-example-keyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="premium",
             enabled_for_disk_encryption=True,
@@ -619,22 +579,21 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
                
-               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` must use the `versionless_id`.
                
-               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` field.
                
                > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
                
                > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
                
-               > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+               > **Note:** A KeyVault or Managed HSM using rbac_authorization_enabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
@@ -664,6 +623,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             name="des-example-keyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="premium",
             enabled_for_disk_encryption=True,
@@ -741,6 +701,7 @@ class DiskEncryptionSet(pulumi.CustomResource):
             name="des-example-keyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="premium",
             enabled_for_disk_encryption=True,
@@ -842,7 +803,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
                  identity: pulumi.Input[Optional[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -861,9 +821,10 @@ class DiskEncryptionSet(pulumi.CustomResource):
             if identity is None and not opts.urn:
                 raise TypeError("Missing required property 'identity'")
             __props__.__dict__["identity"] = identity
+            if key_vault_key_id is None and not opts.urn:
+                raise TypeError("Missing required property 'key_vault_key_id'")
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["location"] = location
-            __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -887,7 +848,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
             key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             key_vault_key_url: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DiskEncryptionSet':
@@ -900,23 +860,22 @@ class DiskEncryptionSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_key_rotation_enabled: Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
                
-               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+               > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` must use the `versionless_id`.
                
-               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+               > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` field.
                
                > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         :param pulumi.Input[_builtins.str] encryption_type: The type of key used to encrypt the data of the disk. Possible values are `EncryptionAtRestWithCustomerKey`, `EncryptionAtRestWithPlatformAndCustomerKeys` and `ConfidentialVmEncryptedWithCustomerKey`. Defaults to `EncryptionAtRestWithCustomerKey`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] federated_client_id: Multi-tenant application client id to access key vault in a different tenant.
         :param pulumi.Input[Union['DiskEncryptionSetIdentityArgs', 'DiskEncryptionSetIdentityArgsDict']] identity: An `identity` block as defined below.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        :param pulumi.Input[_builtins.str] key_vault_key_id: Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
                
                > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
                
-               > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+               > **Note:** A KeyVault or Managed HSM using rbac_authorization_enabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
                In this case, `keyvault.AccessPolicy` is not needed.
         :param pulumi.Input[_builtins.str] key_vault_key_url: The URL for the Key Vault Key or Key Vault Secret that is currently being used by the service.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the Disk Encryption Set. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group where the Disk Encryption Set should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Disk Encryption Set.
@@ -932,7 +891,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["key_vault_key_url"] = key_vault_key_url
         __props__.__dict__["location"] = location
-        __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["name"] = name
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["tags"] = tags
@@ -944,9 +902,9 @@ class DiskEncryptionSet(pulumi.CustomResource):
         """
         Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are `true` or `false`. Defaults to `false`.
 
-        > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` or `managed_hsm_key_id` must use the `versionless_id`.
+        > **Note:** When `auto_key_rotation_enabled` is set to `true` the `key_vault_key_id` must use the `versionless_id`.
 
-        > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` or `managed_hsm_key_id` field.
+        > **Note:** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the `compute.DiskEncryptionSet` data source or run a `terraform refresh` command and check the value of the exported `key_vault_key_url` field.
 
         > **Note:** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated.
         """
@@ -980,11 +938,11 @@ class DiskEncryptionSet(pulumi.CustomResource):
     @pulumi.getter(name="keyVaultKeyId")
     def key_vault_key_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
+        Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret).
 
         > **Note:** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption).
 
-        > **Note:** A KeyVault or Managed HSM using enable_rbac_authorization requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
+        > **Note:** A KeyVault or Managed HSM using rbac_authorization_enabled requires to use `authorization.Assignment` to assign the role `Key Vault Crypto Service Encryption User` to this Disk Encryption Set.
         In this case, `keyvault.AccessPolicy` is not needed.
         """
         return pulumi.get(self, "key_vault_key_id")
@@ -1004,15 +962,6 @@ class DiskEncryptionSet(pulumi.CustomResource):
         Specifies the Azure Region where the Disk Encryption Set exists. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "location")
-
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def managed_hsm_key_id(self) -> pulumi.Output[_builtins.str]:
-        """
-        Key ID of a key in a managed HSM. Exactly one of `managed_hsm_key_id`, `key_vault_key_id` must be specified.
-        """
-        return pulumi.get(self, "managed_hsm_key_id")
 
     @_builtins.property
     @pulumi.getter

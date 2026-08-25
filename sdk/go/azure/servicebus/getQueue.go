@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/servicebus"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/servicebus"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := servicebus.LookupQueue(ctx, &servicebus.LookupQueueArgs{
 //				Name:        "existing",
-//				NamespaceId: pulumi.StringRef("existing"),
+//				NamespaceId: "existing",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -62,11 +62,7 @@ type LookupQueueArgs struct {
 	// The name of this Service Bus Queue.
 	Name string `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
-	NamespaceId *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-	NamespaceName *string `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
+	NamespaceId string `pulumi:"namespaceId"`
 }
 
 // A collection of values returned by getQueue.
@@ -81,9 +77,6 @@ type LookupQueueResult struct {
 	DefaultMessageTtl string `pulumi:"defaultMessageTtl"`
 	// The ISO 8601 timespan duration during which duplicates can be detected.
 	DuplicateDetectionHistoryTimeWindow string `pulumi:"duplicateDetectionHistoryTimeWindow"`
-	EnableBatchedOperations             bool   `pulumi:"enableBatchedOperations"`
-	EnableExpress                       bool   `pulumi:"enableExpress"`
-	EnablePartitioning                  bool   `pulumi:"enablePartitioning"`
 	// Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
 	ExpressEnabled bool `pulumi:"expressEnabled"`
 	// The name of a Queue or Topic to automatically forward dead lettered messages to.
@@ -97,19 +90,15 @@ type LookupQueueResult struct {
 	// Integer value which controls when a message is automatically dead lettered.
 	MaxDeliveryCount int `pulumi:"maxDeliveryCount"`
 	// Integer value which controls the size of memory allocated for the queue. For supported values see the "Queue or topic size" section of [Service Bus Quotas](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas).
-	MaxSizeInMegabytes int     `pulumi:"maxSizeInMegabytes"`
-	Name               string  `pulumi:"name"`
-	NamespaceId        *string `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-	NamespaceName *string `pulumi:"namespaceName"`
+	MaxSizeInMegabytes int    `pulumi:"maxSizeInMegabytes"`
+	Name               string `pulumi:"name"`
+	NamespaceId        string `pulumi:"namespaceId"`
 	// Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
 	PartitioningEnabled bool `pulumi:"partitioningEnabled"`
 	// Boolean flag which controls whether the Queue requires duplicate detection.
 	RequiresDuplicateDetection bool `pulumi:"requiresDuplicateDetection"`
 	// Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
 	RequiresSession bool `pulumi:"requiresSession"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.
 	Status string `pulumi:"status"`
 }
@@ -128,11 +117,7 @@ type LookupQueueOutputArgs struct {
 	// The name of this Service Bus Queue.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the ServiceBus Namespace where the Service Bus Queue exists.
-	NamespaceId pulumi.StringPtrInput `pulumi:"namespaceId"`
-	// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-	NamespaceName pulumi.StringPtrInput `pulumi:"namespaceName"`
-	// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-	ResourceGroupName pulumi.StringPtrInput `pulumi:"resourceGroupName"`
+	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
 }
 
 func (LookupQueueOutputArgs) ElementType() reflect.Type {
@@ -179,18 +164,6 @@ func (o LookupQueueResultOutput) DuplicateDetectionHistoryTimeWindow() pulumi.St
 	return o.ApplyT(func(v LookupQueueResult) string { return v.DuplicateDetectionHistoryTimeWindow }).(pulumi.StringOutput)
 }
 
-func (o LookupQueueResultOutput) EnableBatchedOperations() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupQueueResult) bool { return v.EnableBatchedOperations }).(pulumi.BoolOutput)
-}
-
-func (o LookupQueueResultOutput) EnableExpress() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupQueueResult) bool { return v.EnableExpress }).(pulumi.BoolOutput)
-}
-
-func (o LookupQueueResultOutput) EnablePartitioning() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupQueueResult) bool { return v.EnablePartitioning }).(pulumi.BoolOutput)
-}
-
 // Boolean flag which controls whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
 func (o LookupQueueResultOutput) ExpressEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupQueueResult) bool { return v.ExpressEnabled }).(pulumi.BoolOutput)
@@ -230,13 +203,8 @@ func (o LookupQueueResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupQueueResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-func (o LookupQueueResultOutput) NamespaceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupQueueResult) *string { return v.NamespaceId }).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-func (o LookupQueueResultOutput) NamespaceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupQueueResult) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
+func (o LookupQueueResultOutput) NamespaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupQueueResult) string { return v.NamespaceId }).(pulumi.StringOutput)
 }
 
 // Boolean flag which controls whether to enable the queue to be partitioned across multiple message brokers.
@@ -252,11 +220,6 @@ func (o LookupQueueResultOutput) RequiresDuplicateDetection() pulumi.BoolOutput 
 // Boolean flag which controls whether the Queue requires sessions. This will allow ordered handling of unbounded sequences of related messages. With sessions enabled a queue can guarantee first-in-first-out delivery of messages.
 func (o LookupQueueResultOutput) RequiresSession() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupQueueResult) bool { return v.RequiresSession }).(pulumi.BoolOutput)
-}
-
-// Deprecated: `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-func (o LookupQueueResultOutput) ResourceGroupName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupQueueResult) *string { return v.ResourceGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The status of the Queue. Possible values are `Active`, `Creating`, `Deleting`, `Disabled`, `ReceiveDisabled`, `Renaming`, `SendDisabled`, `Unknown`.

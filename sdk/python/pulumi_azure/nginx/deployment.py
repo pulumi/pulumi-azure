@@ -26,14 +26,11 @@ class DeploymentArgs:
                  auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentAutoScaleProfileArgs']]]] = None,
                  automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email: pulumi.Input[Optional[_builtins.str]] = None,
                  frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
                  frontend_public: pulumi.Input[Optional['DeploymentFrontendPublicArgs']] = None,
                  identity: pulumi.Input[Optional['DeploymentIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]] = None,
-                 managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -70,11 +67,6 @@ class DeploymentArgs:
             pulumi.set(__self__, "automatic_upgrade_channel", automatic_upgrade_channel)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
-        if diagnose_support_enabled is not None:
-            warnings.warn("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""", DeprecationWarning)
-            pulumi.log.warn("""diagnose_support_enabled is deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
-        if diagnose_support_enabled is not None:
-            pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
             pulumi.set(__self__, "email", email)
         if frontend_privates is not None:
@@ -85,16 +77,6 @@ class DeploymentArgs:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if logging_storage_accounts is not None:
-            warnings.warn("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""logging_storage_accounts is deprecated: The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
-        if logging_storage_accounts is not None:
-            pulumi.set(__self__, "logging_storage_accounts", logging_storage_accounts)
-        if managed_resource_group is not None:
-            warnings.warn("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""managed_resource_group is deprecated: The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-        if managed_resource_group is not None:
-            pulumi.set(__self__, "managed_resource_group", managed_resource_group)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_interfaces is not None:
@@ -171,16 +153,6 @@ class DeploymentArgs:
         pulumi.set(self, "capacity", value)
 
     @_builtins.property
-    @pulumi.getter(name="diagnoseSupportEnabled")
-    @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
-    def diagnose_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "diagnose_support_enabled")
-
-    @diagnose_support_enabled.setter
-    def diagnose_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "diagnose_support_enabled", value)
-
-    @_builtins.property
     @pulumi.getter
     def email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -241,26 +213,6 @@ class DeploymentArgs:
         pulumi.set(self, "location", value)
 
     @_builtins.property
-    @pulumi.getter(name="loggingStorageAccounts")
-    @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
-    def logging_storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]:
-        return pulumi.get(self, "logging_storage_accounts")
-
-    @logging_storage_accounts.setter
-    def logging_storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]):
-        pulumi.set(self, "logging_storage_accounts", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedResourceGroup")
-    @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-    def managed_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_resource_group")
-
-    @managed_resource_group.setter
-    def managed_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_resource_group", value)
-
-    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -316,15 +268,12 @@ class _DeploymentState:
                  automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  dataplane_api_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email: pulumi.Input[Optional[_builtins.str]] = None,
                  frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentFrontendPrivateArgs']]]] = None,
                  frontend_public: pulumi.Input[Optional['DeploymentFrontendPublicArgs']] = None,
                  identity: pulumi.Input[Optional['DeploymentIdentityArgs']] = None,
                  ip_address: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]] = None,
-                 managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentNetworkInterfaceArgs']]]] = None,
                  nginx_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -367,11 +316,6 @@ class _DeploymentState:
             pulumi.set(__self__, "capacity", capacity)
         if dataplane_api_endpoint is not None:
             pulumi.set(__self__, "dataplane_api_endpoint", dataplane_api_endpoint)
-        if diagnose_support_enabled is not None:
-            warnings.warn("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""", DeprecationWarning)
-            pulumi.log.warn("""diagnose_support_enabled is deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
-        if diagnose_support_enabled is not None:
-            pulumi.set(__self__, "diagnose_support_enabled", diagnose_support_enabled)
         if email is not None:
             pulumi.set(__self__, "email", email)
         if frontend_privates is not None:
@@ -384,16 +328,6 @@ class _DeploymentState:
             pulumi.set(__self__, "ip_address", ip_address)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if logging_storage_accounts is not None:
-            warnings.warn("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""", DeprecationWarning)
-            pulumi.log.warn("""logging_storage_accounts is deprecated: The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
-        if logging_storage_accounts is not None:
-            pulumi.set(__self__, "logging_storage_accounts", logging_storage_accounts)
-        if managed_resource_group is not None:
-            warnings.warn("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""managed_resource_group is deprecated: The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-        if managed_resource_group is not None:
-            pulumi.set(__self__, "managed_resource_group", managed_resource_group)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if network_interfaces is not None:
@@ -458,16 +392,6 @@ class _DeploymentState:
     @dataplane_api_endpoint.setter
     def dataplane_api_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "dataplane_api_endpoint", value)
-
-    @_builtins.property
-    @pulumi.getter(name="diagnoseSupportEnabled")
-    @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
-    def diagnose_support_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "diagnose_support_enabled")
-
-    @diagnose_support_enabled.setter
-    def diagnose_support_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "diagnose_support_enabled", value)
 
     @_builtins.property
     @pulumi.getter
@@ -540,26 +464,6 @@ class _DeploymentState:
     @location.setter
     def location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "location", value)
-
-    @_builtins.property
-    @pulumi.getter(name="loggingStorageAccounts")
-    @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
-    def logging_storage_accounts(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]:
-        return pulumi.get(self, "logging_storage_accounts")
-
-    @logging_storage_accounts.setter
-    def logging_storage_accounts(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['DeploymentLoggingStorageAccountArgs']]]]):
-        pulumi.set(self, "logging_storage_accounts", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedResourceGroup")
-    @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-    def managed_resource_group(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_resource_group")
-
-    @managed_resource_group.setter
-    def managed_resource_group(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_resource_group", value)
 
     @_builtins.property
     @pulumi.getter
@@ -659,14 +563,11 @@ class Deployment(pulumi.CustomResource):
                  auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
                  automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email: pulumi.Input[Optional[_builtins.str]] = None,
                  frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
                  frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
                  identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
-                 managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -861,14 +762,11 @@ class Deployment(pulumi.CustomResource):
                  auto_scale_profiles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentAutoScaleProfileArgs', 'DeploymentAutoScaleProfileArgsDict']]]]] = None,
                  automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email: pulumi.Input[Optional[_builtins.str]] = None,
                  frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
                  frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
                  identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
-                 managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -887,14 +785,11 @@ class Deployment(pulumi.CustomResource):
             __props__.__dict__["auto_scale_profiles"] = auto_scale_profiles
             __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
             __props__.__dict__["capacity"] = capacity
-            __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
             __props__.__dict__["email"] = email
             __props__.__dict__["frontend_privates"] = frontend_privates
             __props__.__dict__["frontend_public"] = frontend_public
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
-            __props__.__dict__["logging_storage_accounts"] = logging_storage_accounts
-            __props__.__dict__["managed_resource_group"] = managed_resource_group
             __props__.__dict__["name"] = name
             __props__.__dict__["network_interfaces"] = network_interfaces
             if resource_group_name is None and not opts.urn:
@@ -922,15 +817,12 @@ class Deployment(pulumi.CustomResource):
             automatic_upgrade_channel: pulumi.Input[Optional[_builtins.str]] = None,
             capacity: pulumi.Input[Optional[_builtins.int]] = None,
             dataplane_api_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-            diagnose_support_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             email: pulumi.Input[Optional[_builtins.str]] = None,
             frontend_privates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentFrontendPrivateArgs', 'DeploymentFrontendPrivateArgsDict']]]]] = None,
             frontend_public: pulumi.Input[Optional[Union['DeploymentFrontendPublicArgs', 'DeploymentFrontendPublicArgsDict']]] = None,
             identity: pulumi.Input[Optional[Union['DeploymentIdentityArgs', 'DeploymentIdentityArgsDict']]] = None,
             ip_address: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            logging_storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentLoggingStorageAccountArgs', 'DeploymentLoggingStorageAccountArgsDict']]]]] = None,
-            managed_resource_group: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             network_interfaces: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentNetworkInterfaceArgs', 'DeploymentNetworkInterfaceArgsDict']]]]] = None,
             nginx_version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -977,15 +869,12 @@ class Deployment(pulumi.CustomResource):
         __props__.__dict__["automatic_upgrade_channel"] = automatic_upgrade_channel
         __props__.__dict__["capacity"] = capacity
         __props__.__dict__["dataplane_api_endpoint"] = dataplane_api_endpoint
-        __props__.__dict__["diagnose_support_enabled"] = diagnose_support_enabled
         __props__.__dict__["email"] = email
         __props__.__dict__["frontend_privates"] = frontend_privates
         __props__.__dict__["frontend_public"] = frontend_public
         __props__.__dict__["identity"] = identity
         __props__.__dict__["ip_address"] = ip_address
         __props__.__dict__["location"] = location
-        __props__.__dict__["logging_storage_accounts"] = logging_storage_accounts
-        __props__.__dict__["managed_resource_group"] = managed_resource_group
         __props__.__dict__["name"] = name
         __props__.__dict__["network_interfaces"] = network_interfaces
         __props__.__dict__["nginx_version"] = nginx_version
@@ -1028,12 +917,6 @@ class Deployment(pulumi.CustomResource):
         The dataplane API endpoint of the NGINX Deployment.
         """
         return pulumi.get(self, "dataplane_api_endpoint")
-
-    @_builtins.property
-    @pulumi.getter(name="diagnoseSupportEnabled")
-    @_utilities.deprecated("""this property is deprecated and will be removed in v5.0, metrics are enabled by default.""")
-    def diagnose_support_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
-        return pulumi.get(self, "diagnose_support_enabled")
 
     @_builtins.property
     @pulumi.getter
@@ -1082,18 +965,6 @@ class Deployment(pulumi.CustomResource):
         The Azure Region where the NGINX Deployment should exist. Changing this forces a new NGINX Deployment to be created.
         """
         return pulumi.get(self, "location")
-
-    @_builtins.property
-    @pulumi.getter(name="loggingStorageAccounts")
-    @_utilities.deprecated("""The `logging_storage_account` block has been deprecated and will be removed in v5.0 of the AzureRM Provider. To enable logs, use the `monitoring.DiagnosticSetting` resource instead.""")
-    def logging_storage_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.DeploymentLoggingStorageAccount']]]:
-        return pulumi.get(self, "logging_storage_accounts")
-
-    @_builtins.property
-    @pulumi.getter(name="managedResourceGroup")
-    @_utilities.deprecated("""The `managed_resource_group` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.""")
-    def managed_resource_group(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "managed_resource_group")
 
     @_builtins.property
     @pulumi.getter

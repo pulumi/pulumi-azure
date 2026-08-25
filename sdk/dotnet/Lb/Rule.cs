@@ -71,7 +71,7 @@ namespace Pulumi.Azure.Lb
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2023-09-01
+    /// * `Microsoft.Network` - 2025-01-01
     /// 
     /// ## Import
     /// 
@@ -104,17 +104,11 @@ namespace Pulumi.Azure.Lb
         [Output("disableOutboundSnat")]
         public Output<bool?> DisableOutboundSnat { get; private set; } = null!;
 
-        [Output("enableFloatingIp")]
-        public Output<bool> EnableFloatingIp { get; private set; } = null!;
-
-        [Output("enableTcpReset")]
-        public Output<bool> EnableTcpReset { get; private set; } = null!;
-
         /// <summary>
         /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `False`.
         /// </summary>
         [Output("floatingIpEnabled")]
-        public Output<bool> FloatingIpEnabled { get; private set; } = null!;
+        public Output<bool?> FloatingIpEnabled { get; private set; } = null!;
 
         [Output("frontendIpConfigurationId")]
         public Output<string> FrontendIpConfigurationId { get; private set; } = null!;
@@ -176,7 +170,7 @@ namespace Pulumi.Azure.Lb
         /// Is TCP Reset enabled for this Load Balancer Rule?
         /// </summary>
         [Output("tcpResetEnabled")]
-        public Output<bool> TcpResetEnabled { get; private set; } = null!;
+        public Output<bool?> TcpResetEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -249,12 +243,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("disableOutboundSnat")]
         public Input<bool>? DisableOutboundSnat { get; set; }
-
-        [Input("enableFloatingIp")]
-        public Input<bool>? EnableFloatingIp { get; set; }
-
-        [Input("enableTcpReset")]
-        public Input<bool>? EnableTcpReset { get; set; }
 
         /// <summary>
         /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `False`.
@@ -354,12 +342,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("disableOutboundSnat")]
         public Input<bool>? DisableOutboundSnat { get; set; }
-
-        [Input("enableFloatingIp")]
-        public Input<bool>? EnableFloatingIp { get; set; }
-
-        [Input("enableTcpReset")]
-        public Input<bool>? EnableTcpReset { get; set; }
 
         /// <summary>
         /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `False`.

@@ -68,44 +68,6 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * @deprecated
-     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
-    @Import(name="enableFloatingIp")
-    private @Nullable Output<Boolean> enableFloatingIp;
-
-    /**
-     * @deprecated
-     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
-    public Optional<Output<Boolean>> enableFloatingIp() {
-        return Optional.ofNullable(this.enableFloatingIp);
-    }
-
-    /**
-     * @deprecated
-     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-    @Import(name="enableTcpReset")
-    private @Nullable Output<Boolean> enableTcpReset;
-
-    /**
-     * @deprecated
-     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-    public Optional<Output<Boolean>> enableTcpReset() {
-        return Optional.ofNullable(this.enableTcpReset);
-    }
-
-    /**
      * Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating&#34; IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      * 
      */
@@ -278,8 +240,6 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
         this.backendAddressPoolIds = $.backendAddressPoolIds;
         this.backendPort = $.backendPort;
         this.disableOutboundSnat = $.disableOutboundSnat;
-        this.enableFloatingIp = $.enableFloatingIp;
-        this.enableTcpReset = $.enableTcpReset;
         this.floatingIpEnabled = $.floatingIpEnabled;
         this.frontendIpConfigurationId = $.frontendIpConfigurationId;
         this.frontendIpConfigurationName = $.frontendIpConfigurationName;
@@ -388,56 +348,6 @@ public final class RuleState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder disableOutboundSnat(Boolean disableOutboundSnat) {
             return disableOutboundSnat(Output.of(disableOutboundSnat));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
-        public Builder enableFloatingIp(@Nullable Output<Boolean> enableFloatingIp) {
-            $.enableFloatingIp = enableFloatingIp;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
-        public Builder enableFloatingIp(Boolean enableFloatingIp) {
-            return enableFloatingIp(Output.of(enableFloatingIp));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-        public Builder enableTcpReset(@Nullable Output<Boolean> enableTcpReset) {
-            $.enableTcpReset = enableTcpReset;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-        public Builder enableTcpReset(Boolean enableTcpReset) {
-            return enableTcpReset(Output.of(enableTcpReset));
         }
 
         /**

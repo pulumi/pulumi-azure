@@ -11,30 +11,30 @@ import java.util.Objects;
 @CustomType
 public final class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
     /**
-     * @return Should automatic rollbacks be disabled?
-     * 
-     */
-    private Boolean disableAutomaticRollback;
-    /**
      * @return Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
      * 
      */
-    private Boolean enableAutomaticOsUpgrade;
+    private Boolean automaticOsUpgradeEnabled;
+    /**
+     * @return Should automatic rollbacks be enabled?
+     * 
+     */
+    private Boolean automaticRollbackEnabled;
 
     private WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy() {}
     /**
-     * @return Should automatic rollbacks be disabled?
-     * 
-     */
-    public Boolean disableAutomaticRollback() {
-        return this.disableAutomaticRollback;
-    }
-    /**
      * @return Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
      * 
      */
-    public Boolean enableAutomaticOsUpgrade() {
-        return this.enableAutomaticOsUpgrade;
+    public Boolean automaticOsUpgradeEnabled() {
+        return this.automaticOsUpgradeEnabled;
+    }
+    /**
+     * @return Should automatic rollbacks be enabled?
+     * 
+     */
+    public Boolean automaticRollbackEnabled() {
+        return this.automaticRollbackEnabled;
     }
 
     public static Builder builder() {
@@ -46,35 +46,35 @@ public final class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean disableAutomaticRollback;
-        private Boolean enableAutomaticOsUpgrade;
+        private Boolean automaticOsUpgradeEnabled;
+        private Boolean automaticRollbackEnabled;
         public Builder() {}
         public Builder(WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.disableAutomaticRollback = defaults.disableAutomaticRollback;
-    	      this.enableAutomaticOsUpgrade = defaults.enableAutomaticOsUpgrade;
+    	      this.automaticOsUpgradeEnabled = defaults.automaticOsUpgradeEnabled;
+    	      this.automaticRollbackEnabled = defaults.automaticRollbackEnabled;
         }
 
         @CustomType.Setter
-        public Builder disableAutomaticRollback(Boolean disableAutomaticRollback) {
-            if (disableAutomaticRollback == null) {
-              throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy", "disableAutomaticRollback");
+        public Builder automaticOsUpgradeEnabled(Boolean automaticOsUpgradeEnabled) {
+            if (automaticOsUpgradeEnabled == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy", "automaticOsUpgradeEnabled");
             }
-            this.disableAutomaticRollback = disableAutomaticRollback;
+            this.automaticOsUpgradeEnabled = automaticOsUpgradeEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder enableAutomaticOsUpgrade(Boolean enableAutomaticOsUpgrade) {
-            if (enableAutomaticOsUpgrade == null) {
-              throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy", "enableAutomaticOsUpgrade");
+        public Builder automaticRollbackEnabled(Boolean automaticRollbackEnabled) {
+            if (automaticRollbackEnabled == null) {
+              throw new MissingRequiredPropertyException("WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy", "automaticRollbackEnabled");
             }
-            this.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
+            this.automaticRollbackEnabled = automaticRollbackEnabled;
             return this;
         }
         public WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy build() {
             final var _resultValue = new WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy();
-            _resultValue.disableAutomaticRollback = disableAutomaticRollback;
-            _resultValue.enableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
+            _resultValue.automaticOsUpgradeEnabled = automaticOsUpgradeEnabled;
+            _resultValue.automaticRollbackEnabled = automaticRollbackEnabled;
             return _resultValue;
         }
     }

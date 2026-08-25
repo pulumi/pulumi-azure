@@ -36,7 +36,6 @@ export function getStorageContainer(args: GetStorageContainerArgs, opts?: pulumi
         "metadata": args.metadata,
         "name": args.name,
         "storageAccountId": args.storageAccountId,
-        "storageAccountName": args.storageAccountName,
     }, opts);
 }
 
@@ -53,15 +52,9 @@ export interface GetStorageContainerArgs {
      */
     name: string;
     /**
-     * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
-     *
-     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * The ID of the Storage Account where the Container exists.
      */
-    storageAccountId?: string;
-    /**
-     * The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
-     */
-    storageAccountName?: string;
+    storageAccountId: string;
 }
 
 /**
@@ -97,12 +90,7 @@ export interface GetStorageContainerResult {
      */
     readonly metadata: {[key: string]: string};
     readonly name: string;
-    /**
-     * @deprecated this property has been deprecated in favour of `id` and will be removed in version 5.0 of the Provider.
-     */
-    readonly resourceManagerId: string;
-    readonly storageAccountId?: string;
-    readonly storageAccountName?: string;
+    readonly storageAccountId: string;
     /**
      * The data plane URL of the Storage Container in the format of `<storage blob endpoint>/<container name>`. E.g. `https://example.blob.core.windows.net/mycontainer`.
      */
@@ -140,7 +128,6 @@ export function getStorageContainerOutput(args: GetStorageContainerOutputArgs, o
         "metadata": args.metadata,
         "name": args.name,
         "storageAccountId": args.storageAccountId,
-        "storageAccountName": args.storageAccountName,
     }, opts);
 }
 
@@ -157,13 +144,7 @@ export interface GetStorageContainerOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The id of the Storage Account where the Container exists. This property will become Required in version 5.0 of the Provider.
-     *
-     * > **Note:** One of `storageAccountName` or `storageAccountId` must be specified. When specifying `storageAccountId` the resource will use the Resource Manager API, rather than the Data Plane API.
+     * The ID of the Storage Account where the Container exists.
      */
-    storageAccountId?: pulumi.Input<string | undefined>;
-    /**
-     * The name of the Storage Account where the Container exists. This property is deprecated in favour of `storageAccountId`.
-     */
-    storageAccountName?: pulumi.Input<string | undefined>;
+    storageAccountId: pulumi.Input<string>;
 }

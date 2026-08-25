@@ -179,7 +179,7 @@ def get_frontdoor_security_policy(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2024-02-01
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: The name of the Front Door Security Policy.
@@ -278,7 +278,7 @@ def get_frontdoor_security_policy_output(name: pulumi.Input[Optional[_builtins.s
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2024-02-01
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: The name of the Front Door Security Policy.

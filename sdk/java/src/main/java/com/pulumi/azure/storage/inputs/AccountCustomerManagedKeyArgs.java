@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,34 +18,15 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
      * The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
      */
-    @Import(name="keyVaultKeyId")
-    private @Nullable Output<String> keyVaultKeyId;
+    @Import(name="keyVaultKeyId", required=true)
+    private Output<String> keyVaultKeyId;
 
     /**
      * @return The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
      * 
      */
-    public Optional<Output<String>> keyVaultKeyId() {
-        return Optional.ofNullable(this.keyVaultKeyId);
-    }
-
-    /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    @Import(name="managedHsmKeyId")
-    private @Nullable Output<String> managedHsmKeyId;
-
-    /**
-     * @deprecated
-     * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-    public Optional<Output<String>> managedHsmKeyId() {
-        return Optional.ofNullable(this.managedHsmKeyId);
+    public Output<String> keyVaultKeyId() {
+        return this.keyVaultKeyId;
     }
 
     /**
@@ -73,7 +52,6 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
 
     private AccountCustomerManagedKeyArgs(AccountCustomerManagedKeyArgs $) {
         this.keyVaultKeyId = $.keyVaultKeyId;
-        this.managedHsmKeyId = $.managedHsmKeyId;
         this.userAssignedIdentityId = $.userAssignedIdentityId;
     }
 
@@ -101,7 +79,7 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder keyVaultKeyId(@Nullable Output<String> keyVaultKeyId) {
+        public Builder keyVaultKeyId(Output<String> keyVaultKeyId) {
             $.keyVaultKeyId = keyVaultKeyId;
             return this;
         }
@@ -114,31 +92,6 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
          */
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             return keyVaultKeyId(Output.of(keyVaultKeyId));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder managedHsmKeyId(@Nullable Output<String> managedHsmKeyId) {
-            $.managedHsmKeyId = managedHsmKeyId;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-         * 
-         */
-        @Deprecated /* `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider */
-        public Builder managedHsmKeyId(String managedHsmKeyId) {
-            return managedHsmKeyId(Output.of(managedHsmKeyId));
         }
 
         /**
@@ -167,6 +120,9 @@ public final class AccountCustomerManagedKeyArgs extends com.pulumi.resources.Re
         }
 
         public AccountCustomerManagedKeyArgs build() {
+            if ($.keyVaultKeyId == null) {
+                throw new MissingRequiredPropertyException("AccountCustomerManagedKeyArgs", "keyVaultKeyId");
+            }
             if ($.userAssignedIdentityId == null) {
                 throw new MissingRequiredPropertyException("AccountCustomerManagedKeyArgs", "userAssignedIdentityId");
             }

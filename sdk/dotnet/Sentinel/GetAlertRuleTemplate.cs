@@ -36,6 +36,15 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.OperationalInsights` - 2022-10-01-preview
+        /// 
+        /// * `Microsoft.SecurityInsights` - 2022-10-01-preview
         /// </summary>
         public static Task<GetAlertRuleTemplateResult> InvokeAsync(GetAlertRuleTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAlertRuleTemplateResult>("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args ?? new GetAlertRuleTemplateArgs(), options.WithDefaults());
@@ -65,6 +74,15 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.OperationalInsights` - 2022-10-01-preview
+        /// 
+        /// * `Microsoft.SecurityInsights` - 2022-10-01-preview
         /// </summary>
         public static Output<GetAlertRuleTemplateResult> Invoke(GetAlertRuleTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleTemplateResult>("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args ?? new GetAlertRuleTemplateInvokeArgs(), options.WithDefaults());
@@ -94,6 +112,15 @@ namespace Pulumi.Azure.Sentinel
         ///     };
         /// });
         /// ```
+        /// 
+        /// ## API Providers
+        /// 
+        /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+        /// This data source uses the following Azure API Providers:
+        /// 
+        /// * `Microsoft.OperationalInsights` - 2022-10-01-preview
+        /// 
+        /// * `Microsoft.SecurityInsights` - 2022-10-01-preview
         /// </summary>
         public static Output<GetAlertRuleTemplateResult> Invoke(GetAlertRuleTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlertRuleTemplateResult>("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", args ?? new GetAlertRuleTemplateInvokeArgs(), options.WithDefaults());

@@ -82,6 +82,7 @@ namespace Pulumi.Azure.MSSql
     ///         Name = "mssqltdeexample",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         EnabledForDiskEncryption = true,
     ///         TenantId = exampleUserAssignedIdentity.TenantId,
     ///         SoftDeleteRetentionDays = 7,
@@ -242,9 +243,7 @@ namespace Pulumi.Azure.MSSql
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
-        /// 
-        /// &gt; **Note:** The `MinimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `MinimumTlsVersion`, it's not possible to revert to `Disabled`.
+        /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -426,9 +425,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
-        /// 
-        /// &gt; **Note:** The `MinimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `MinimumTlsVersion`, it's not possible to revert to `Disabled`.
+        /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>
@@ -570,9 +567,7 @@ namespace Pulumi.Azure.MSSql
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`.
-        /// 
-        /// &gt; **Note:** The `MinimumTlsVersion` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `MinimumTlsVersion`, it's not possible to revert to `Disabled`.
+        /// The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. The only possible value is `1.2`. Defaults to `1.2`.
         /// 
         /// &gt; **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
         /// </summary>

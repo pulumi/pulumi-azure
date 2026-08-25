@@ -20,6 +20,7 @@ __all__ = ['ChannelsRegistrationArgs', 'ChannelsRegistration']
 class ChannelsRegistrationArgs:
     def __init__(__self__, *,
                  microsoft_app_id: pulumi.Input[_builtins.str],
+                 microsoft_app_type: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  sku: pulumi.Input[_builtins.str],
                  cmk_key_vault_url: pulumi.Input[Optional[_builtins.str]] = None,
@@ -32,7 +33,6 @@ class ChannelsRegistrationArgs:
                  icon_url: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  microsoft_app_tenant_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 microsoft_app_type: pulumi.Input[Optional[_builtins.str]] = None,
                  microsoft_app_user_assigned_identity_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  public_network_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -42,6 +42,9 @@ class ChannelsRegistrationArgs:
         The set of arguments for constructing a ChannelsRegistration resource.
 
         :param pulumi.Input[_builtins.str] microsoft_app_id: The Microsoft Application ID for the Bot Channels Registration. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] microsoft_app_type: The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+               
+               > **Note:** Creation of `bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] sku: The SKU of the Bot Channels Registration. Valid values include `F0` or `S1`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] cmk_key_vault_url: The CMK Key Vault Key URL to encrypt the Bot Channels Registration with the Customer Managed Encryption Key.
@@ -58,9 +61,6 @@ class ChannelsRegistrationArgs:
         :param pulumi.Input[_builtins.str] icon_url: The icon URL to visually identify the Bot Channels Registration. Defaults to `https://docs.botframework.com/static/devportal/client/images/bot-framework-default.png`.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] microsoft_app_tenant_id: The Microsoft Application Tenant ID for the Bot Channels Registration. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] microsoft_app_type: The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
-               
-               > **Note:** Creation of `bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
         :param pulumi.Input[_builtins.str] microsoft_app_user_assigned_identity_id: The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Bot Channels Registration. Changing this forces a new resource to be created. Must be globally unique.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Is the Bot Channels Registration in an isolated network?
@@ -68,6 +68,7 @@ class ChannelsRegistrationArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         """
         pulumi.set(__self__, "microsoft_app_id", microsoft_app_id)
+        pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "sku", sku)
         if cmk_key_vault_url is not None:
@@ -90,8 +91,6 @@ class ChannelsRegistrationArgs:
             pulumi.set(__self__, "location", location)
         if microsoft_app_tenant_id is not None:
             pulumi.set(__self__, "microsoft_app_tenant_id", microsoft_app_tenant_id)
-        if microsoft_app_type is not None:
-            pulumi.set(__self__, "microsoft_app_type", microsoft_app_type)
         if microsoft_app_user_assigned_identity_id is not None:
             pulumi.set(__self__, "microsoft_app_user_assigned_identity_id", microsoft_app_user_assigned_identity_id)
         if name is not None:
@@ -114,6 +113,20 @@ class ChannelsRegistrationArgs:
     @microsoft_app_id.setter
     def microsoft_app_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "microsoft_app_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="microsoftAppType")
+    def microsoft_app_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
+
+        > **Note:** Creation of `bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
+        """
+        return pulumi.get(self, "microsoft_app_type")
+
+    @microsoft_app_type.setter
+    def microsoft_app_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "microsoft_app_type", value)
 
     @_builtins.property
     @pulumi.getter(name="resourceGroupName")
@@ -262,20 +275,6 @@ class ChannelsRegistrationArgs:
     @microsoft_app_tenant_id.setter
     def microsoft_app_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "microsoft_app_tenant_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="microsoftAppType")
-    def microsoft_app_type(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
-
-        > **Note:** Creation of `bot.ChannelsRegistration` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
-        """
-        return pulumi.get(self, "microsoft_app_type")
-
-    @microsoft_app_type.setter
-    def microsoft_app_type(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "microsoft_app_type", value)
 
     @_builtins.property
     @pulumi.getter(name="microsoftAppUserAssignedIdentityId")
@@ -847,6 +846,8 @@ class ChannelsRegistration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'microsoft_app_id'")
             __props__.__dict__["microsoft_app_id"] = microsoft_app_id
             __props__.__dict__["microsoft_app_tenant_id"] = microsoft_app_tenant_id
+            if microsoft_app_type is None and not opts.urn:
+                raise TypeError("Missing required property 'microsoft_app_type'")
             __props__.__dict__["microsoft_app_type"] = microsoft_app_type
             __props__.__dict__["microsoft_app_user_assigned_identity_id"] = microsoft_app_user_assigned_identity_id
             __props__.__dict__["name"] = name

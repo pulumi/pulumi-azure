@@ -294,8 +294,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("example-link")
- *             .resourceGroupName(example.name())
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
@@ -360,6 +359,20 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> customNetworkInterfaceName() {
         return Codegen.optional(this.customNetworkInterfaceName);
+    }
+    /**
+     * Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="edgeZone", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> edgeZone;
+
+    /**
+     * @return Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> edgeZone() {
+        return Codegen.optional(this.edgeZone);
     }
     /**
      * One or more `ipConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.

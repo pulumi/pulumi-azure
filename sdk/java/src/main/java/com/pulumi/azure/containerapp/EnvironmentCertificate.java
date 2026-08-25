@@ -171,7 +171,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .tenantId(current.tenantId())
  *             .skuName("standard")
- *             .enableRbacAuthorization(true)
+ *             .rbacAuthorizationEnabled(true)
  *             .build());
  * 
  *         var userKeyvaultAdmin = new Assignment("userKeyvaultAdmin", AssignmentArgs.builder()

@@ -83,9 +83,6 @@ namespace Pulumi.Azure.EventGrid
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
-        [Output("metricArmResourceId")]
-        public Output<string> MetricArmResourceId { get; private set; } = null!;
-
         /// <summary>
         /// The Metric Resource ID of the Event Grid System Topic.
         /// </summary>
@@ -103,9 +100,6 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Output("resourceGroupName")]
         public Output<string> ResourceGroupName { get; private set; } = null!;
-
-        [Output("sourceArmResourceId")]
-        public Output<string> SourceArmResourceId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
@@ -199,14 +193,11 @@ namespace Pulumi.Azure.EventGrid
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        [Input("sourceArmResourceId")]
-        public Input<string>? SourceArmResourceId { get; set; }
-
         /// <summary>
         /// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.
         /// </summary>
-        [Input("sourceResourceId")]
-        public Input<string>? SourceResourceId { get; set; }
+        [Input("sourceResourceId", required: true)]
+        public Input<string> SourceResourceId { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -250,9 +241,6 @@ namespace Pulumi.Azure.EventGrid
         [Input("location")]
         public Input<string>? Location { get; set; }
 
-        [Input("metricArmResourceId")]
-        public Input<string>? MetricArmResourceId { get; set; }
-
         /// <summary>
         /// The Metric Resource ID of the Event Grid System Topic.
         /// </summary>
@@ -270,9 +258,6 @@ namespace Pulumi.Azure.EventGrid
         /// </summary>
         [Input("resourceGroupName")]
         public Input<string>? ResourceGroupName { get; set; }
-
-        [Input("sourceArmResourceId")]
-        public Input<string>? SourceArmResourceId { get; set; }
 
         /// <summary>
         /// The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.

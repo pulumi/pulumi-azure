@@ -330,6 +330,7 @@ class SynapseSpark(pulumi.CustomResource):
             name="example-kv",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
@@ -436,6 +437,7 @@ class SynapseSpark(pulumi.CustomResource):
             name="example-kv",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)

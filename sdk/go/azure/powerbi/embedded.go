@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/powerbi"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/powerbi"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,7 +75,7 @@ type Embedded struct {
 	Administrators pulumi.StringArrayOutput `pulumi:"administrators"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The name of the PowerBI Embedded. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -130,7 +130,7 @@ type embeddedState struct {
 	Administrators []string `pulumi:"administrators"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
 	Mode *string `pulumi:"mode"`
 	// The name of the PowerBI Embedded. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -147,7 +147,7 @@ type EmbeddedState struct {
 	Administrators pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
 	Mode pulumi.StringPtrInput
 	// The name of the PowerBI Embedded. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -168,7 +168,7 @@ type embeddedArgs struct {
 	Administrators []string `pulumi:"administrators"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
 	Mode *string `pulumi:"mode"`
 	// The name of the PowerBI Embedded. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -186,7 +186,7 @@ type EmbeddedArgs struct {
 	Administrators pulumi.StringArrayInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+	// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
 	Mode pulumi.StringPtrInput
 	// The name of the PowerBI Embedded. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -295,7 +295,7 @@ func (o EmbeddedOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Embedded) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
 func (o EmbeddedOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Embedded) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
 }

@@ -3,7 +3,6 @@
 
 package com.pulumi.azure;
 
-import com.pulumi.azure.inputs.ProviderEnhancedValidationArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -175,13 +174,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> disableTerraformPartnerId() {
         return Optional.ofNullable(this.disableTerraformPartnerId);
-    }
-
-    @Import(name="enhancedValidation", json=true)
-    private @Nullable Output<ProviderEnhancedValidationArgs> enhancedValidation;
-
-    public Optional<Output<ProviderEnhancedValidationArgs>> enhancedValidation() {
-        return Optional.ofNullable(this.enhancedValidation);
     }
 
     /**
@@ -357,29 +349,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
-    @Import(name="skipProviderRegistration", json=true)
-    private @Nullable Output<Boolean> skipProviderRegistration;
-
-    /**
-     * @return Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
-     * 
-     * @deprecated
-     * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
-     * 
-     */
-    @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
-    public Optional<Output<Boolean>> skipProviderRegistration() {
-        return Optional.ofNullable(this.skipProviderRegistration);
-    }
-
-    /**
      * Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
      * 
      */
@@ -498,7 +467,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.clientSecretFilePath = $.clientSecretFilePath;
         this.disableCorrelationRequestId = $.disableCorrelationRequestId;
         this.disableTerraformPartnerId = $.disableTerraformPartnerId;
-        this.enhancedValidation = $.enhancedValidation;
         this.environment = $.environment;
         this.features = $.features;
         this.metadataHost = $.metadataHost;
@@ -511,7 +479,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.partnerId = $.partnerId;
         this.resourceProviderRegistrations = $.resourceProviderRegistrations;
         this.resourceProvidersToRegisters = $.resourceProvidersToRegisters;
-        this.skipProviderRegistration = $.skipProviderRegistration;
         this.storageUseAzuread = $.storageUseAzuread;
         this.subscriptionId = $.subscriptionId;
         this.tenantId = $.tenantId;
@@ -760,15 +727,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder disableTerraformPartnerId(Boolean disableTerraformPartnerId) {
             return disableTerraformPartnerId(Output.of(disableTerraformPartnerId));
-        }
-
-        public Builder enhancedValidation(@Nullable Output<ProviderEnhancedValidationArgs> enhancedValidation) {
-            $.enhancedValidation = enhancedValidation;
-            return this;
-        }
-
-        public Builder enhancedValidation(ProviderEnhancedValidationArgs enhancedValidation) {
-            return enhancedValidation(Output.of(enhancedValidation));
         }
 
         /**
@@ -1022,35 +980,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipProviderRegistration Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
-         * 
-         */
-        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
-        public Builder skipProviderRegistration(@Nullable Output<Boolean> skipProviderRegistration) {
-            $.skipProviderRegistration = skipProviderRegistration;
-            return this;
-        }
-
-        /**
-         * @param skipProviderRegistration Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead.
-         * 
-         */
-        @Deprecated /* This property is deprecated and will be removed in v5.0 of the AzureRM provider. Please use the `resourceProviderRegistrations` property instead. */
-        public Builder skipProviderRegistration(Boolean skipProviderRegistration) {
-            return skipProviderRegistration(Output.of(skipProviderRegistration));
-        }
-
-        /**
          * @param storageUseAzuread Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?
          * 
          * @return builder
@@ -1200,7 +1129,6 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         public ProviderArgs build() {
             $.environment = Codegen.stringProp("environment").output().arg($.environment).env("AZURE_ENVIRONMENT", "ARM_ENVIRONMENT").def("public").getNullable();
             $.metadataHost = Codegen.stringProp("metadataHost").output().arg($.metadataHost).env("ARM_METADATA_HOSTNAME").getNullable();
-            $.skipProviderRegistration = Codegen.booleanProp("skipProviderRegistration").output().arg($.skipProviderRegistration).env("ARM_SKIP_PROVIDER_REGISTRATION").def(false).getNullable();
             $.storageUseAzuread = Codegen.booleanProp("storageUseAzuread").output().arg($.storageUseAzuread).env("ARM_STORAGE_USE_AZUREAD").def(false).getNullable();
             $.subscriptionId = Codegen.stringProp("subscriptionId").secret().arg($.subscriptionId).env("ARM_SUBSCRIPTION_ID").def("").getNullable();
             return $;

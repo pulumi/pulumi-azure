@@ -77,7 +77,7 @@ export class ChannelTeams extends pulumi.CustomResource {
     /**
      * Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
      */
-    declare public readonly callingEnabled: pulumi.Output<boolean>;
+    declare public readonly callingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the webhook for Microsoft Teams channel calls.
      */
@@ -86,10 +86,6 @@ export class ChannelTeams extends pulumi.CustomResource {
      * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
      */
     declare public readonly deploymentEnvironment: pulumi.Output<string | undefined>;
-    /**
-     * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
-     */
-    declare public readonly enableCalling: pulumi.Output<boolean>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -116,7 +112,6 @@ export class ChannelTeams extends pulumi.CustomResource {
             resourceInputs["callingEnabled"] = state?.callingEnabled;
             resourceInputs["callingWebHook"] = state?.callingWebHook;
             resourceInputs["deploymentEnvironment"] = state?.deploymentEnvironment;
-            resourceInputs["enableCalling"] = state?.enableCalling;
             resourceInputs["location"] = state?.location;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
         } else {
@@ -131,7 +126,6 @@ export class ChannelTeams extends pulumi.CustomResource {
             resourceInputs["callingEnabled"] = args?.callingEnabled;
             resourceInputs["callingWebHook"] = args?.callingWebHook;
             resourceInputs["deploymentEnvironment"] = args?.deploymentEnvironment;
-            resourceInputs["enableCalling"] = args?.enableCalling;
             resourceInputs["location"] = args?.location;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
         }
@@ -160,10 +154,6 @@ export interface ChannelTeamsState {
      * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
      */
     deploymentEnvironment?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
-     */
-    enableCalling?: pulumi.Input<boolean | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -194,10 +184,6 @@ export interface ChannelTeamsArgs {
      * The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
      */
     deploymentEnvironment?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated The property `enableCalling` is deprecated in favour of `callingEnabled` and will be removed in version 5.0 of the AzureRM Provider.
-     */
-    enableCalling?: pulumi.Input<boolean | undefined>;
     /**
      * The supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

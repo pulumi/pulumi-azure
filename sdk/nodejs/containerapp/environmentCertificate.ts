@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
- *     enableRbacAuthorization: true,
+ *     rbacAuthorizationEnabled: true,
  * });
  * const userKeyvaultAdmin = new azure.authorization.Assignment("user_keyvault_admin", {
  *     scope: exampleKeyVault.id,

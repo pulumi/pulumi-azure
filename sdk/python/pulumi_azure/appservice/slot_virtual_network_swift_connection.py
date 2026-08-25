@@ -145,6 +145,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -166,28 +167,28 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
             }])
-        example_plan = azure.appservice.Plan("example",
-            name="example-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=example-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=example-app-service,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
-        example_staging = azure.appservice.Slot("example-staging",
-            name="staging",
+            app_service_plan_id=example_app_service_plan.id)
+        example_staging = azurerm.AppServiceSlot("example-staging",
+            name=staging,
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_slot_virtual_network_swift_connection = azure.appservice.SlotVirtualNetworkSwiftConnection("example",
-            slot_name=example_staging.name,
-            app_service_id=example_app_service.id,
+            slot_name=example_staging["name"],
+            app_service_id=example_app_service["id"],
             subnet_id=example_subnet.id)
         ```
 
@@ -227,6 +228,7 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -248,28 +250,28 @@ class SlotVirtualNetworkSwiftConnection(pulumi.CustomResource):
                     "actions": ["Microsoft.Network/virtualNetworks/subnets/action"],
                 },
             }])
-        example_plan = azure.appservice.Plan("example",
-            name="example-service-plan",
+        example_app_service_plan = azurerm.AppServicePlan("example",
+            name=example-service-plan,
             location=example.location,
             resource_group_name=example.name,
-            sku={
-                "tier": "Standard",
-                "size": "S1",
-            })
-        example_app_service = azure.appservice.AppService("example",
-            name="example-app-service",
+            sku=[{
+                tier: Standard,
+                size: S1,
+            }])
+        example_app_service = azurerm.AppService("example",
+            name=example-app-service,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
-        example_staging = azure.appservice.Slot("example-staging",
-            name="staging",
+            app_service_plan_id=example_app_service_plan.id)
+        example_staging = azurerm.AppServiceSlot("example-staging",
+            name=staging,
             app_service_name=example_app_service.name,
             location=example.location,
             resource_group_name=example.name,
-            app_service_plan_id=example_plan.id)
+            app_service_plan_id=example_app_service_plan.id)
         example_slot_virtual_network_swift_connection = azure.appservice.SlotVirtualNetworkSwiftConnection("example",
-            slot_name=example_staging.name,
-            app_service_id=example_app_service.id,
+            slot_name=example_staging["name"],
+            app_service_id=example_app_service["id"],
             subnet_id=example_subnet.id)
         ```
 

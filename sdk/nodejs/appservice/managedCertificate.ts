@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  * import * as std from "@pulumi/std";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
@@ -24,22 +25,22 @@ import * as utilities from "../utilities";
  *     name: "mydomain.com",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleAppServicePlan = new azurerm.index.AppServicePlan("example", {
  *     name: "example-plan",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     kind: "Linux",
  *     reserved: true,
- *     sku: {
+ *     sku: [{
  *         tier: "Basic",
  *         size: "B1",
- *     },
+ *     }],
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azurerm.index.AppService("example", {
  *     name: "example-app",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  * });
  * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
  *     name: "asuid.mycustomhost.contoso.com",

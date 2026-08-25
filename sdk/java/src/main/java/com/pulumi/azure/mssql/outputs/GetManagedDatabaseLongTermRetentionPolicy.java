@@ -5,20 +5,12 @@ package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 
 @CustomType
 public final class GetManagedDatabaseLongTermRetentionPolicy {
-    /**
-     * @deprecated
-     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
-     * 
-     */
-    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source. */
-    private Boolean immutableBackupsEnabled;
     /**
      * @return The monthly retention policy for an LTR backup in an ISO 8601 format.
      * 
@@ -41,15 +33,6 @@ public final class GetManagedDatabaseLongTermRetentionPolicy {
     private String yearlyRetention;
 
     private GetManagedDatabaseLongTermRetentionPolicy() {}
-    /**
-     * @deprecated
-     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source.
-     * 
-     */
-    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the data source. */
-    public Boolean immutableBackupsEnabled() {
-        return this.immutableBackupsEnabled;
-    }
     /**
      * @return The monthly retention policy for an LTR backup in an ISO 8601 format.
      * 
@@ -88,7 +71,6 @@ public final class GetManagedDatabaseLongTermRetentionPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private Boolean immutableBackupsEnabled;
         private String monthlyRetention;
         private Integer weekOfYear;
         private String weeklyRetention;
@@ -96,21 +78,12 @@ public final class GetManagedDatabaseLongTermRetentionPolicy {
         public Builder() {}
         public Builder(GetManagedDatabaseLongTermRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.immutableBackupsEnabled = defaults.immutableBackupsEnabled;
     	      this.monthlyRetention = defaults.monthlyRetention;
     	      this.weekOfYear = defaults.weekOfYear;
     	      this.weeklyRetention = defaults.weeklyRetention;
     	      this.yearlyRetention = defaults.yearlyRetention;
         }
 
-        @CustomType.Setter
-        public Builder immutableBackupsEnabled(Boolean immutableBackupsEnabled) {
-            if (immutableBackupsEnabled == null) {
-              throw new MissingRequiredPropertyException("GetManagedDatabaseLongTermRetentionPolicy", "immutableBackupsEnabled");
-            }
-            this.immutableBackupsEnabled = immutableBackupsEnabled;
-            return this;
-        }
         @CustomType.Setter
         public Builder monthlyRetention(String monthlyRetention) {
             if (monthlyRetention == null) {
@@ -145,7 +118,6 @@ public final class GetManagedDatabaseLongTermRetentionPolicy {
         }
         public GetManagedDatabaseLongTermRetentionPolicy build() {
             final var _resultValue = new GetManagedDatabaseLongTermRetentionPolicy();
-            _resultValue.immutableBackupsEnabled = immutableBackupsEnabled;
             _resultValue.monthlyRetention = monthlyRetention;
             _resultValue.weekOfYear = weekOfYear;
             _resultValue.weeklyRetention = weeklyRetention;

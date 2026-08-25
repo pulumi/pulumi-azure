@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,11 +44,10 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewCnameRecord(ctx, "example", &privatedns.CnameRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: example.Name,
-//				Ttl:               pulumi.Int(300),
-//				Record:            pulumi.String("contoso.com"),
+//				Name:             pulumi.String("test"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				Ttl:              pulumi.Int(300),
+//				Record:           pulumi.String("contoso.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,16 +79,14 @@ type CnameRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// The target of the CNAME.
 	Record pulumi.StringOutput `pulumi:"record"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewCnameRecord registers a new resource with the given unique name, arguments, and options.
@@ -99,17 +96,14 @@ func NewCnameRecord(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.PrivateDnsZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateDnsZoneId'")
+	}
 	if args.Record == nil {
 		return nil, errors.New("invalid value for required argument 'Record'")
 	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
 	if args.Ttl == nil {
 		return nil, errors.New("invalid value for required argument 'Ttl'")
-	}
-	if args.ZoneName == nil {
-		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CnameRecord
@@ -138,16 +132,14 @@ type cnameRecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// The target of the CNAME.
 	Record *string `pulumi:"record"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
 	Ttl *int `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName *string `pulumi:"zoneName"`
 }
 
 type CnameRecordState struct {
@@ -155,16 +147,14 @@ type CnameRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringPtrInput
 	// The target of the CNAME.
 	Record pulumi.StringPtrInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
 	Ttl pulumi.IntPtrInput
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringPtrInput
 }
 
 func (CnameRecordState) ElementType() reflect.Type {
@@ -174,32 +164,28 @@ func (CnameRecordState) ElementType() reflect.Type {
 type cnameRecordArgs struct {
 	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId string `pulumi:"privateDnsZoneId"`
 	// The target of the CNAME.
 	Record string `pulumi:"record"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
 	Ttl int `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName string `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a CnameRecord resource.
 type CnameRecordArgs struct {
 	// The name of the DNS CNAME Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringInput
 	// The target of the CNAME.
 	Record pulumi.StringInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
 	Ttl pulumi.IntInput
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringInput
 }
 
 func (CnameRecordArgs) ElementType() reflect.Type {
@@ -299,14 +285,14 @@ func (o CnameRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CnameRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+func (o CnameRecordOutput) PrivateDnsZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CnameRecord) pulumi.StringOutput { return v.PrivateDnsZoneId }).(pulumi.StringOutput)
+}
+
 // The target of the CNAME.
 func (o CnameRecordOutput) Record() pulumi.StringOutput {
 	return o.ApplyT(func(v *CnameRecord) pulumi.StringOutput { return v.Record }).(pulumi.StringOutput)
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (o CnameRecordOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *CnameRecord) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.
@@ -317,11 +303,6 @@ func (o CnameRecordOutput) Tags() pulumi.StringMapOutput {
 // The Time To Live (TTL) of the DNS record in seconds. Possible values are between `0` and `2147483647`.
 func (o CnameRecordOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *CnameRecord) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
-}
-
-// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (o CnameRecordOutput) ZoneName() pulumi.StringOutput {
-	return o.ApplyT(func(v *CnameRecord) pulumi.StringOutput { return v.ZoneName }).(pulumi.StringOutput)
 }
 
 type CnameRecordArrayOutput struct{ *pulumi.OutputState }

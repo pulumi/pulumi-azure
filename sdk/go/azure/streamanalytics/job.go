@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/streamanalytics"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/streamanalytics"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -100,7 +100,7 @@ type Job struct {
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
 	//
 	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
-	JobStorageAccounts JobJobStorageAccountArrayOutput `pulumi:"jobStorageAccounts"`
+	JobStorageAccount JobJobStorageAccountPtrOutput `pulumi:"jobStorageAccount"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -182,7 +182,7 @@ type jobState struct {
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
 	//
 	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
-	JobStorageAccounts []JobJobStorageAccount `pulumi:"jobStorageAccounts"`
+	JobStorageAccount *JobJobStorageAccount `pulumi:"jobStorageAccount"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -229,7 +229,7 @@ type JobState struct {
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
 	//
 	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
-	JobStorageAccounts JobJobStorageAccountArrayInput
+	JobStorageAccount JobJobStorageAccountPtrInput
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -278,7 +278,7 @@ type jobArgs struct {
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
 	//
 	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
-	JobStorageAccounts []JobJobStorageAccount `pulumi:"jobStorageAccounts"`
+	JobStorageAccount *JobJobStorageAccount `pulumi:"jobStorageAccount"`
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -324,7 +324,7 @@ type JobArgs struct {
 	// The details of the job storage account. A `jobStorageAccount` block as defined below.
 	//
 	// > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
-	JobStorageAccounts JobJobStorageAccountArrayInput
+	JobStorageAccount JobJobStorageAccountPtrInput
 	// The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The name of the Stream Analytics Job. Changing this forces a new resource to be created.
@@ -481,8 +481,8 @@ func (o JobOutput) JobId() pulumi.StringOutput {
 // The details of the job storage account. A `jobStorageAccount` block as defined below.
 //
 // > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
-func (o JobOutput) JobStorageAccounts() JobJobStorageAccountArrayOutput {
-	return o.ApplyT(func(v *Job) JobJobStorageAccountArrayOutput { return v.JobStorageAccounts }).(JobJobStorageAccountArrayOutput)
+func (o JobOutput) JobStorageAccount() JobJobStorageAccountPtrOutput {
+	return o.ApplyT(func(v *Job) JobJobStorageAccountPtrOutput { return v.JobStorageAccount }).(JobJobStorageAccountPtrOutput)
 }
 
 // The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
