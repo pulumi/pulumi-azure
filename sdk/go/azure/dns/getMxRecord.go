@@ -88,12 +88,8 @@ type LookupMxRecordResult struct {
 }
 
 func LookupMxRecordOutput(ctx *pulumi.Context, args LookupMxRecordOutputArgs, opts ...pulumi.InvokeOption) LookupMxRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMxRecordResultOutput, error) {
-			args := v.(LookupMxRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:dns/getMxRecord:getMxRecord", args, LookupMxRecordResultOutput{}, options).(LookupMxRecordResultOutput), nil
-		}).(LookupMxRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:dns/getMxRecord:getMxRecord", args, LookupMxRecordResultOutput{}, options).(LookupMxRecordResultOutput)
 }
 
 // A collection of arguments for invoking getMxRecord.

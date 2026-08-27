@@ -80,12 +80,8 @@ type LookupWorkspaceTableResult struct {
 }
 
 func LookupWorkspaceTableOutput(ctx *pulumi.Context, args LookupWorkspaceTableOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceTableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkspaceTableResultOutput, error) {
-			args := v.(LookupWorkspaceTableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:loganalytics/getWorkspaceTable:getWorkspaceTable", args, LookupWorkspaceTableResultOutput{}, options).(LookupWorkspaceTableResultOutput), nil
-		}).(LookupWorkspaceTableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:loganalytics/getWorkspaceTable:getWorkspaceTable", args, LookupWorkspaceTableResultOutput{}, options).(LookupWorkspaceTableResultOutput)
 }
 
 // A collection of arguments for invoking getWorkspaceTable.

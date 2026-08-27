@@ -84,12 +84,8 @@ type LookupFailoverGroupResult struct {
 }
 
 func LookupFailoverGroupOutput(ctx *pulumi.Context, args LookupFailoverGroupOutputArgs, opts ...pulumi.InvokeOption) LookupFailoverGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFailoverGroupResultOutput, error) {
-			args := v.(LookupFailoverGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:mssql/getFailoverGroup:getFailoverGroup", args, LookupFailoverGroupResultOutput{}, options).(LookupFailoverGroupResultOutput), nil
-		}).(LookupFailoverGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:mssql/getFailoverGroup:getFailoverGroup", args, LookupFailoverGroupResultOutput{}, options).(LookupFailoverGroupResultOutput)
 }
 
 // A collection of arguments for invoking getFailoverGroup.

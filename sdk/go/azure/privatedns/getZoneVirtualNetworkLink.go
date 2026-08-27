@@ -86,12 +86,8 @@ type LookupZoneVirtualNetworkLinkResult struct {
 }
 
 func LookupZoneVirtualNetworkLinkOutput(ctx *pulumi.Context, args LookupZoneVirtualNetworkLinkOutputArgs, opts ...pulumi.InvokeOption) LookupZoneVirtualNetworkLinkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupZoneVirtualNetworkLinkResultOutput, error) {
-			args := v.(LookupZoneVirtualNetworkLinkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args, LookupZoneVirtualNetworkLinkResultOutput{}, options).(LookupZoneVirtualNetworkLinkResultOutput), nil
-		}).(LookupZoneVirtualNetworkLinkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:privatedns/getZoneVirtualNetworkLink:getZoneVirtualNetworkLink", args, LookupZoneVirtualNetworkLinkResultOutput{}, options).(LookupZoneVirtualNetworkLinkResultOutput)
 }
 
 // A collection of arguments for invoking getZoneVirtualNetworkLink.

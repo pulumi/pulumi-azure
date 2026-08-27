@@ -88,12 +88,8 @@ type LookupPtrRecordResult struct {
 }
 
 func LookupPtrRecordOutput(ctx *pulumi.Context, args LookupPtrRecordOutputArgs, opts ...pulumi.InvokeOption) LookupPtrRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPtrRecordResultOutput, error) {
-			args := v.(LookupPtrRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:dns/getPtrRecord:getPtrRecord", args, LookupPtrRecordResultOutput{}, options).(LookupPtrRecordResultOutput), nil
-		}).(LookupPtrRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:dns/getPtrRecord:getPtrRecord", args, LookupPtrRecordResultOutput{}, options).(LookupPtrRecordResultOutput)
 }
 
 // A collection of arguments for invoking getPtrRecord.

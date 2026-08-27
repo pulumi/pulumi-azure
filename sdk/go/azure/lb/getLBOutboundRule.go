@@ -88,12 +88,8 @@ type GetLBOutboundRuleResult struct {
 }
 
 func GetLBOutboundRuleOutput(ctx *pulumi.Context, args GetLBOutboundRuleOutputArgs, opts ...pulumi.InvokeOption) GetLBOutboundRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLBOutboundRuleResultOutput, error) {
-			args := v.(GetLBOutboundRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:lb/getLBOutboundRule:getLBOutboundRule", args, GetLBOutboundRuleResultOutput{}, options).(GetLBOutboundRuleResultOutput), nil
-		}).(GetLBOutboundRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:lb/getLBOutboundRule:getLBOutboundRule", args, GetLBOutboundRuleResultOutput{}, options).(GetLBOutboundRuleResultOutput)
 }
 
 // A collection of arguments for invoking getLBOutboundRule.

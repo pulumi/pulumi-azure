@@ -82,12 +82,8 @@ type GetTemplateSpecVersionResult struct {
 }
 
 func GetTemplateSpecVersionOutput(ctx *pulumi.Context, args GetTemplateSpecVersionOutputArgs, opts ...pulumi.InvokeOption) GetTemplateSpecVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTemplateSpecVersionResultOutput, error) {
-			args := v.(GetTemplateSpecVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args, GetTemplateSpecVersionResultOutput{}, options).(GetTemplateSpecVersionResultOutput), nil
-		}).(GetTemplateSpecVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:core/getTemplateSpecVersion:getTemplateSpecVersion", args, GetTemplateSpecVersionResultOutput{}, options).(GetTemplateSpecVersionResultOutput)
 }
 
 // A collection of arguments for invoking getTemplateSpecVersion.

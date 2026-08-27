@@ -85,12 +85,8 @@ type LookupSqlRoleDefinitionResult struct {
 }
 
 func LookupSqlRoleDefinitionOutput(ctx *pulumi.Context, args LookupSqlRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupSqlRoleDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSqlRoleDefinitionResultOutput, error) {
-			args := v.(LookupSqlRoleDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args, LookupSqlRoleDefinitionResultOutput{}, options).(LookupSqlRoleDefinitionResultOutput), nil
-		}).(LookupSqlRoleDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:cosmosdb/getSqlRoleDefinition:getSqlRoleDefinition", args, LookupSqlRoleDefinitionResultOutput{}, options).(LookupSqlRoleDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getSqlRoleDefinition.

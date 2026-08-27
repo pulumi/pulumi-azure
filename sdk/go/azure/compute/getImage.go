@@ -91,12 +91,8 @@ type LookupImageResult struct {
 }
 
 func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...pulumi.InvokeOption) LookupImageResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupImageResultOutput, error) {
-			args := v.(LookupImageArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:compute/getImage:getImage", args, LookupImageResultOutput{}, options).(LookupImageResultOutput), nil
-		}).(LookupImageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:compute/getImage:getImage", args, LookupImageResultOutput{}, options).(LookupImageResultOutput)
 }
 
 // A collection of arguments for invoking getImage.

@@ -80,12 +80,8 @@ type LookupServicesAccountResult struct {
 }
 
 func LookupServicesAccountOutput(ctx *pulumi.Context, args LookupServicesAccountOutputArgs, opts ...pulumi.InvokeOption) LookupServicesAccountResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServicesAccountResultOutput, error) {
-			args := v.(LookupServicesAccountArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:graph/getServicesAccount:getServicesAccount", args, LookupServicesAccountResultOutput{}, options).(LookupServicesAccountResultOutput), nil
-		}).(LookupServicesAccountResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:graph/getServicesAccount:getServicesAccount", args, LookupServicesAccountResultOutput{}, options).(LookupServicesAccountResultOutput)
 }
 
 // A collection of arguments for invoking getServicesAccount.

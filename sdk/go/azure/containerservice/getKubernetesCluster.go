@@ -153,12 +153,8 @@ type LookupKubernetesClusterResult struct {
 }
 
 func LookupKubernetesClusterOutput(ctx *pulumi.Context, args LookupKubernetesClusterOutputArgs, opts ...pulumi.InvokeOption) LookupKubernetesClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupKubernetesClusterResultOutput, error) {
-			args := v.(LookupKubernetesClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args, LookupKubernetesClusterResultOutput{}, options).(LookupKubernetesClusterResultOutput), nil
-		}).(LookupKubernetesClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:containerservice/getKubernetesCluster:getKubernetesCluster", args, LookupKubernetesClusterResultOutput{}, options).(LookupKubernetesClusterResultOutput)
 }
 
 // A collection of arguments for invoking getKubernetesCluster.

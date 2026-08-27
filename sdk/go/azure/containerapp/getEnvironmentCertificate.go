@@ -92,12 +92,8 @@ type LookupEnvironmentCertificateResult struct {
 }
 
 func LookupEnvironmentCertificateOutput(ctx *pulumi.Context, args LookupEnvironmentCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentCertificateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEnvironmentCertificateResultOutput, error) {
-			args := v.(LookupEnvironmentCertificateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args, LookupEnvironmentCertificateResultOutput{}, options).(LookupEnvironmentCertificateResultOutput), nil
-		}).(LookupEnvironmentCertificateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:containerapp/getEnvironmentCertificate:getEnvironmentCertificate", args, LookupEnvironmentCertificateResultOutput{}, options).(LookupEnvironmentCertificateResultOutput)
 }
 
 // A collection of arguments for invoking getEnvironmentCertificate.

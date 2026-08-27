@@ -80,12 +80,8 @@ type LookupDatasetKustoClusterResult struct {
 }
 
 func LookupDatasetKustoClusterOutput(ctx *pulumi.Context, args LookupDatasetKustoClusterOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetKustoClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDatasetKustoClusterResultOutput, error) {
-			args := v.(LookupDatasetKustoClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args, LookupDatasetKustoClusterResultOutput{}, options).(LookupDatasetKustoClusterResultOutput), nil
-		}).(LookupDatasetKustoClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster", args, LookupDatasetKustoClusterResultOutput{}, options).(LookupDatasetKustoClusterResultOutput)
 }
 
 // A collection of arguments for invoking getDatasetKustoCluster.

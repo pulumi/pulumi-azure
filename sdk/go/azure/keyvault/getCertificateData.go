@@ -95,12 +95,8 @@ type GetCertificateDataResult struct {
 }
 
 func GetCertificateDataOutput(ctx *pulumi.Context, args GetCertificateDataOutputArgs, opts ...pulumi.InvokeOption) GetCertificateDataResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCertificateDataResultOutput, error) {
-			args := v.(GetCertificateDataArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:keyvault/getCertificateData:getCertificateData", args, GetCertificateDataResultOutput{}, options).(GetCertificateDataResultOutput), nil
-		}).(GetCertificateDataResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:keyvault/getCertificateData:getCertificateData", args, GetCertificateDataResultOutput{}, options).(GetCertificateDataResultOutput)
 }
 
 // A collection of arguments for invoking getCertificateData.

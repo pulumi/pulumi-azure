@@ -102,12 +102,8 @@ type GetClusterResult struct {
 }
 
 func GetClusterOutput(ctx *pulumi.Context, args GetClusterOutputArgs, opts ...pulumi.InvokeOption) GetClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetClusterResultOutput, error) {
-			args := v.(GetClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:hdinsight/getCluster:getCluster", args, GetClusterResultOutput{}, options).(GetClusterResultOutput), nil
-		}).(GetClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:hdinsight/getCluster:getCluster", args, GetClusterResultOutput{}, options).(GetClusterResultOutput)
 }
 
 // A collection of arguments for invoking getCluster.

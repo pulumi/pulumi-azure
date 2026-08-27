@@ -81,12 +81,8 @@ type LookupResolverForwardingRuleResult struct {
 }
 
 func LookupResolverForwardingRuleOutput(ctx *pulumi.Context, args LookupResolverForwardingRuleOutputArgs, opts ...pulumi.InvokeOption) LookupResolverForwardingRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverForwardingRuleResultOutput, error) {
-			args := v.(LookupResolverForwardingRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", args, LookupResolverForwardingRuleResultOutput{}, options).(LookupResolverForwardingRuleResultOutput), nil
-		}).(LookupResolverForwardingRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:privatedns/getResolverForwardingRule:getResolverForwardingRule", args, LookupResolverForwardingRuleResultOutput{}, options).(LookupResolverForwardingRuleResultOutput)
 }
 
 // A collection of arguments for invoking getResolverForwardingRule.

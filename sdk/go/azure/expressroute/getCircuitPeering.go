@@ -96,12 +96,8 @@ type GetCircuitPeeringResult struct {
 }
 
 func GetCircuitPeeringOutput(ctx *pulumi.Context, args GetCircuitPeeringOutputArgs, opts ...pulumi.InvokeOption) GetCircuitPeeringResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCircuitPeeringResultOutput, error) {
-			args := v.(GetCircuitPeeringArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:expressroute/getCircuitPeering:getCircuitPeering", args, GetCircuitPeeringResultOutput{}, options).(GetCircuitPeeringResultOutput), nil
-		}).(GetCircuitPeeringResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:expressroute/getCircuitPeering:getCircuitPeering", args, GetCircuitPeeringResultOutput{}, options).(GetCircuitPeeringResultOutput)
 }
 
 // A collection of arguments for invoking getCircuitPeering.

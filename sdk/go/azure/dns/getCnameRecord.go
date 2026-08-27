@@ -90,12 +90,8 @@ type GetCnameRecordResult struct {
 }
 
 func GetCnameRecordOutput(ctx *pulumi.Context, args GetCnameRecordOutputArgs, opts ...pulumi.InvokeOption) GetCnameRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCnameRecordResultOutput, error) {
-			args := v.(GetCnameRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:dns/getCnameRecord:getCnameRecord", args, GetCnameRecordResultOutput{}, options).(GetCnameRecordResultOutput), nil
-		}).(GetCnameRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:dns/getCnameRecord:getCnameRecord", args, GetCnameRecordResultOutput{}, options).(GetCnameRecordResultOutput)
 }
 
 // A collection of arguments for invoking getCnameRecord.

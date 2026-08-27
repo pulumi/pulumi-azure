@@ -87,12 +87,8 @@ type LookupFrontdoorProfileResult struct {
 }
 
 func LookupFrontdoorProfileOutput(ctx *pulumi.Context, args LookupFrontdoorProfileOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFrontdoorProfileResultOutput, error) {
-			args := v.(LookupFrontdoorProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args, LookupFrontdoorProfileResultOutput{}, options).(LookupFrontdoorProfileResultOutput), nil
-		}).(LookupFrontdoorProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:cdn/getFrontdoorProfile:getFrontdoorProfile", args, LookupFrontdoorProfileResultOutput{}, options).(LookupFrontdoorProfileResultOutput)
 }
 
 // A collection of arguments for invoking getFrontdoorProfile.

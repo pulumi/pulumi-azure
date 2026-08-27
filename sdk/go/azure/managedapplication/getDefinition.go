@@ -75,12 +75,8 @@ type LookupDefinitionResult struct {
 }
 
 func LookupDefinitionOutput(ctx *pulumi.Context, args LookupDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDefinitionResultOutput, error) {
-			args := v.(LookupDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:managedapplication/getDefinition:getDefinition", args, LookupDefinitionResultOutput{}, options).(LookupDefinitionResultOutput), nil
-		}).(LookupDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:managedapplication/getDefinition:getDefinition", args, LookupDefinitionResultOutput{}, options).(LookupDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getDefinition.

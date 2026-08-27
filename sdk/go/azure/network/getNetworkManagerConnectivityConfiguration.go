@@ -92,12 +92,8 @@ type LookupNetworkManagerConnectivityConfigurationResult struct {
 }
 
 func LookupNetworkManagerConnectivityConfigurationOutput(ctx *pulumi.Context, args LookupNetworkManagerConnectivityConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkManagerConnectivityConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkManagerConnectivityConfigurationResultOutput, error) {
-			args := v.(LookupNetworkManagerConnectivityConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args, LookupNetworkManagerConnectivityConfigurationResultOutput{}, options).(LookupNetworkManagerConnectivityConfigurationResultOutput), nil
-		}).(LookupNetworkManagerConnectivityConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getNetworkManagerConnectivityConfiguration:getNetworkManagerConnectivityConfiguration", args, LookupNetworkManagerConnectivityConfigurationResultOutput{}, options).(LookupNetworkManagerConnectivityConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkManagerConnectivityConfiguration.

@@ -101,12 +101,8 @@ type LookupStaticWebAppResult struct {
 }
 
 func LookupStaticWebAppOutput(ctx *pulumi.Context, args LookupStaticWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupStaticWebAppResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStaticWebAppResultOutput, error) {
-			args := v.(LookupStaticWebAppArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getStaticWebApp:getStaticWebApp", args, LookupStaticWebAppResultOutput{}, options).(LookupStaticWebAppResultOutput), nil
-		}).(LookupStaticWebAppResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getStaticWebApp:getStaticWebApp", args, LookupStaticWebAppResultOutput{}, options).(LookupStaticWebAppResultOutput)
 }
 
 // A collection of arguments for invoking getStaticWebApp.

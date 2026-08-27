@@ -77,12 +77,8 @@ type LookupIntVariableResult struct {
 }
 
 func LookupIntVariableOutput(ctx *pulumi.Context, args LookupIntVariableOutputArgs, opts ...pulumi.InvokeOption) LookupIntVariableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIntVariableResultOutput, error) {
-			args := v.(LookupIntVariableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:automation/getIntVariable:getIntVariable", args, LookupIntVariableResultOutput{}, options).(LookupIntVariableResultOutput), nil
-		}).(LookupIntVariableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:automation/getIntVariable:getIntVariable", args, LookupIntVariableResultOutput{}, options).(LookupIntVariableResultOutput)
 }
 
 // A collection of arguments for invoking getIntVariable.

@@ -69,12 +69,8 @@ type LookupSubscriptionTemplateDeploymentResult struct {
 }
 
 func LookupSubscriptionTemplateDeploymentOutput(ctx *pulumi.Context, args LookupSubscriptionTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionTemplateDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubscriptionTemplateDeploymentResultOutput, error) {
-			args := v.(LookupSubscriptionTemplateDeploymentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args, LookupSubscriptionTemplateDeploymentResultOutput{}, options).(LookupSubscriptionTemplateDeploymentResultOutput), nil
-		}).(LookupSubscriptionTemplateDeploymentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args, LookupSubscriptionTemplateDeploymentResultOutput{}, options).(LookupSubscriptionTemplateDeploymentResultOutput)
 }
 
 // A collection of arguments for invoking getSubscriptionTemplateDeployment.

@@ -103,12 +103,8 @@ type LookupBastionHostResult struct {
 }
 
 func LookupBastionHostOutput(ctx *pulumi.Context, args LookupBastionHostOutputArgs, opts ...pulumi.InvokeOption) LookupBastionHostResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBastionHostResultOutput, error) {
-			args := v.(LookupBastionHostArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:compute/getBastionHost:getBastionHost", args, LookupBastionHostResultOutput{}, options).(LookupBastionHostResultOutput), nil
-		}).(LookupBastionHostResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:compute/getBastionHost:getBastionHost", args, LookupBastionHostResultOutput{}, options).(LookupBastionHostResultOutput)
 }
 
 // A collection of arguments for invoking getBastionHost.

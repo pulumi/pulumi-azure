@@ -70,12 +70,8 @@ type LookupPolicyVMResult struct {
 }
 
 func LookupPolicyVMOutput(ctx *pulumi.Context, args LookupPolicyVMOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyVMResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPolicyVMResultOutput, error) {
-			args := v.(LookupPolicyVMArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:backup/getPolicyVM:getPolicyVM", args, LookupPolicyVMResultOutput{}, options).(LookupPolicyVMResultOutput), nil
-		}).(LookupPolicyVMResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:backup/getPolicyVM:getPolicyVM", args, LookupPolicyVMResultOutput{}, options).(LookupPolicyVMResultOutput)
 }
 
 // A collection of arguments for invoking getPolicyVM.

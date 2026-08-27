@@ -67,12 +67,8 @@ type GetMpaAccountScopeResult struct {
 }
 
 func GetMpaAccountScopeOutput(ctx *pulumi.Context, args GetMpaAccountScopeOutputArgs, opts ...pulumi.InvokeOption) GetMpaAccountScopeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetMpaAccountScopeResultOutput, error) {
-			args := v.(GetMpaAccountScopeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:billing/getMpaAccountScope:getMpaAccountScope", args, GetMpaAccountScopeResultOutput{}, options).(GetMpaAccountScopeResultOutput), nil
-		}).(GetMpaAccountScopeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:billing/getMpaAccountScope:getMpaAccountScope", args, GetMpaAccountScopeResultOutput{}, options).(GetMpaAccountScopeResultOutput)
 }
 
 // A collection of arguments for invoking getMpaAccountScope.

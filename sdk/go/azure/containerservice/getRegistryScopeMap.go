@@ -81,12 +81,8 @@ type LookupRegistryScopeMapResult struct {
 }
 
 func LookupRegistryScopeMapOutput(ctx *pulumi.Context, args LookupRegistryScopeMapOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryScopeMapResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRegistryScopeMapResultOutput, error) {
-			args := v.(LookupRegistryScopeMapArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args, LookupRegistryScopeMapResultOutput{}, options).(LookupRegistryScopeMapResultOutput), nil
-		}).(LookupRegistryScopeMapResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:containerservice/getRegistryScopeMap:getRegistryScopeMap", args, LookupRegistryScopeMapResultOutput{}, options).(LookupRegistryScopeMapResultOutput)
 }
 
 // A collection of arguments for invoking getRegistryScopeMap.

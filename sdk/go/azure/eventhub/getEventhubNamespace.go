@@ -107,12 +107,8 @@ type GetEventhubNamespaceResult struct {
 }
 
 func GetEventhubNamespaceOutput(ctx *pulumi.Context, args GetEventhubNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetEventhubNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEventhubNamespaceResultOutput, error) {
-			args := v.(GetEventhubNamespaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args, GetEventhubNamespaceResultOutput{}, options).(GetEventhubNamespaceResultOutput), nil
-		}).(GetEventhubNamespaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:eventhub/getEventhubNamespace:getEventhubNamespace", args, GetEventhubNamespaceResultOutput{}, options).(GetEventhubNamespaceResultOutput)
 }
 
 // A collection of arguments for invoking getEventhubNamespace.

@@ -82,12 +82,8 @@ type GetSharedImageVersionsResult struct {
 }
 
 func GetSharedImageVersionsOutput(ctx *pulumi.Context, args GetSharedImageVersionsOutputArgs, opts ...pulumi.InvokeOption) GetSharedImageVersionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSharedImageVersionsResultOutput, error) {
-			args := v.(GetSharedImageVersionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:compute/getSharedImageVersions:getSharedImageVersions", args, GetSharedImageVersionsResultOutput{}, options).(GetSharedImageVersionsResultOutput), nil
-		}).(GetSharedImageVersionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:compute/getSharedImageVersions:getSharedImageVersions", args, GetSharedImageVersionsResultOutput{}, options).(GetSharedImageVersionsResultOutput)
 }
 
 // A collection of arguments for invoking getSharedImageVersions.

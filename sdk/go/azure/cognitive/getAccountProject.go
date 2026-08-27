@@ -93,12 +93,8 @@ type LookupAccountProjectResult struct {
 }
 
 func LookupAccountProjectOutput(ctx *pulumi.Context, args LookupAccountProjectOutputArgs, opts ...pulumi.InvokeOption) LookupAccountProjectResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccountProjectResultOutput, error) {
-			args := v.(LookupAccountProjectArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:cognitive/getAccountProject:getAccountProject", args, LookupAccountProjectResultOutput{}, options).(LookupAccountProjectResultOutput), nil
-		}).(LookupAccountProjectResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:cognitive/getAccountProject:getAccountProject", args, LookupAccountProjectResultOutput{}, options).(LookupAccountProjectResultOutput)
 }
 
 // A collection of arguments for invoking getAccountProject.

@@ -100,12 +100,8 @@ type GetSoaRecordResult struct {
 }
 
 func GetSoaRecordOutput(ctx *pulumi.Context, args GetSoaRecordOutputArgs, opts ...pulumi.InvokeOption) GetSoaRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSoaRecordResultOutput, error) {
-			args := v.(GetSoaRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:dns/getSoaRecord:getSoaRecord", args, GetSoaRecordResultOutput{}, options).(GetSoaRecordResultOutput), nil
-		}).(GetSoaRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:dns/getSoaRecord:getSoaRecord", args, GetSoaRecordResultOutput{}, options).(GetSoaRecordResultOutput)
 }
 
 // A collection of arguments for invoking getSoaRecord.

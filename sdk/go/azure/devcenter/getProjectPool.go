@@ -88,12 +88,8 @@ type LookupProjectPoolResult struct {
 }
 
 func LookupProjectPoolOutput(ctx *pulumi.Context, args LookupProjectPoolOutputArgs, opts ...pulumi.InvokeOption) LookupProjectPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProjectPoolResultOutput, error) {
-			args := v.(LookupProjectPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:devcenter/getProjectPool:getProjectPool", args, LookupProjectPoolResultOutput{}, options).(LookupProjectPoolResultOutput), nil
-		}).(LookupProjectPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:devcenter/getProjectPool:getProjectPool", args, LookupProjectPoolResultOutput{}, options).(LookupProjectPoolResultOutput)
 }
 
 // A collection of arguments for invoking getProjectPool.

@@ -90,12 +90,8 @@ type LookupInsightsResult struct {
 }
 
 func LookupInsightsOutput(ctx *pulumi.Context, args LookupInsightsOutputArgs, opts ...pulumi.InvokeOption) LookupInsightsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInsightsResultOutput, error) {
-			args := v.(LookupInsightsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appinsights/getInsights:getInsights", args, LookupInsightsResultOutput{}, options).(LookupInsightsResultOutput), nil
-		}).(LookupInsightsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appinsights/getInsights:getInsights", args, LookupInsightsResultOutput{}, options).(LookupInsightsResultOutput)
 }
 
 // A collection of arguments for invoking getInsights.

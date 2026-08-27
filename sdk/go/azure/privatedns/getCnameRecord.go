@@ -89,12 +89,8 @@ type LookupCnameRecordResult struct {
 }
 
 func LookupCnameRecordOutput(ctx *pulumi.Context, args LookupCnameRecordOutputArgs, opts ...pulumi.InvokeOption) LookupCnameRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCnameRecordResultOutput, error) {
-			args := v.(LookupCnameRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:privatedns/getCnameRecord:getCnameRecord", args, LookupCnameRecordResultOutput{}, options).(LookupCnameRecordResultOutput), nil
-		}).(LookupCnameRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:privatedns/getCnameRecord:getCnameRecord", args, LookupCnameRecordResultOutput{}, options).(LookupCnameRecordResultOutput)
 }
 
 // A collection of arguments for invoking getCnameRecord.

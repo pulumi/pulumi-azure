@@ -94,12 +94,8 @@ type GetVolumeSnapshotResult struct {
 }
 
 func GetVolumeSnapshotOutput(ctx *pulumi.Context, args GetVolumeSnapshotOutputArgs, opts ...pulumi.InvokeOption) GetVolumeSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetVolumeSnapshotResultOutput, error) {
-			args := v.(GetVolumeSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", args, GetVolumeSnapshotResultOutput{}, options).(GetVolumeSnapshotResultOutput), nil
-		}).(GetVolumeSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:elasticsan/getVolumeSnapshot:getVolumeSnapshot", args, GetVolumeSnapshotResultOutput{}, options).(GetVolumeSnapshotResultOutput)
 }
 
 // A collection of arguments for invoking getVolumeSnapshot.

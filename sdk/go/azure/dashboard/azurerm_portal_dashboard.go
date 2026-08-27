@@ -87,12 +87,8 @@ type Azurerm_portal_dashboardResult struct {
 }
 
 func Azurerm_portal_dashboardOutput(ctx *pulumi.Context, args Azurerm_portal_dashboardOutputArgs, opts ...pulumi.InvokeOption) Azurerm_portal_dashboardResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (Azurerm_portal_dashboardResultOutput, error) {
-			args := v.(Azurerm_portal_dashboardArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args, Azurerm_portal_dashboardResultOutput{}, options).(Azurerm_portal_dashboardResultOutput), nil
-		}).(Azurerm_portal_dashboardResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard", args, Azurerm_portal_dashboardResultOutput{}, options).(Azurerm_portal_dashboardResultOutput)
 }
 
 // A collection of arguments for invoking azurerm_portal_dashboard.

@@ -88,12 +88,8 @@ type LookupSrvRecordResult struct {
 }
 
 func LookupSrvRecordOutput(ctx *pulumi.Context, args LookupSrvRecordOutputArgs, opts ...pulumi.InvokeOption) LookupSrvRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSrvRecordResultOutput, error) {
-			args := v.(LookupSrvRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:dns/getSrvRecord:getSrvRecord", args, LookupSrvRecordResultOutput{}, options).(LookupSrvRecordResultOutput), nil
-		}).(LookupSrvRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:dns/getSrvRecord:getSrvRecord", args, LookupSrvRecordResultOutput{}, options).(LookupSrvRecordResultOutput)
 }
 
 // A collection of arguments for invoking getSrvRecord.

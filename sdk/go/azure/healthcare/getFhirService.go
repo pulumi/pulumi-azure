@@ -59,12 +59,8 @@ type LookupFhirServiceResult struct {
 }
 
 func LookupFhirServiceOutput(ctx *pulumi.Context, args LookupFhirServiceOutputArgs, opts ...pulumi.InvokeOption) LookupFhirServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFhirServiceResultOutput, error) {
-			args := v.(LookupFhirServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:healthcare/getFhirService:getFhirService", args, LookupFhirServiceResultOutput{}, options).(LookupFhirServiceResultOutput), nil
-		}).(LookupFhirServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:healthcare/getFhirService:getFhirService", args, LookupFhirServiceResultOutput{}, options).(LookupFhirServiceResultOutput)
 }
 
 // A collection of arguments for invoking getFhirService.

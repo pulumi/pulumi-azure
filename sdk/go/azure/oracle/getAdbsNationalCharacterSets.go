@@ -72,12 +72,8 @@ type GetAdbsNationalCharacterSetsResult struct {
 }
 
 func GetAdbsNationalCharacterSetsOutput(ctx *pulumi.Context, args GetAdbsNationalCharacterSetsOutputArgs, opts ...pulumi.InvokeOption) GetAdbsNationalCharacterSetsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAdbsNationalCharacterSetsResultOutput, error) {
-			args := v.(GetAdbsNationalCharacterSetsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args, GetAdbsNationalCharacterSetsResultOutput{}, options).(GetAdbsNationalCharacterSetsResultOutput), nil
-		}).(GetAdbsNationalCharacterSetsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:oracle/getAdbsNationalCharacterSets:getAdbsNationalCharacterSets", args, GetAdbsNationalCharacterSetsResultOutput{}, options).(GetAdbsNationalCharacterSetsResultOutput)
 }
 
 // A collection of arguments for invoking getAdbsNationalCharacterSets.

@@ -85,12 +85,8 @@ type LookupBudgetSubscriptionResult struct {
 }
 
 func LookupBudgetSubscriptionOutput(ctx *pulumi.Context, args LookupBudgetSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupBudgetSubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBudgetSubscriptionResultOutput, error) {
-			args := v.(LookupBudgetSubscriptionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:consumption/getBudgetSubscription:getBudgetSubscription", args, LookupBudgetSubscriptionResultOutput{}, options).(LookupBudgetSubscriptionResultOutput), nil
-		}).(LookupBudgetSubscriptionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:consumption/getBudgetSubscription:getBudgetSubscription", args, LookupBudgetSubscriptionResultOutput{}, options).(LookupBudgetSubscriptionResultOutput)
 }
 
 // A collection of arguments for invoking getBudgetSubscription.

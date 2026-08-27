@@ -85,12 +85,8 @@ type LookupBudgetResourceGroupResult struct {
 }
 
 func LookupBudgetResourceGroupOutput(ctx *pulumi.Context, args LookupBudgetResourceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupBudgetResourceGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBudgetResourceGroupResultOutput, error) {
-			args := v.(LookupBudgetResourceGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args, LookupBudgetResourceGroupResultOutput{}, options).(LookupBudgetResourceGroupResultOutput), nil
-		}).(LookupBudgetResourceGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:consumption/getBudgetResourceGroup:getBudgetResourceGroup", args, LookupBudgetResourceGroupResultOutput{}, options).(LookupBudgetResourceGroupResultOutput)
 }
 
 // A collection of arguments for invoking getBudgetResourceGroup.

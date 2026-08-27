@@ -75,12 +75,8 @@ type GetConfigurationKeysResult struct {
 }
 
 func GetConfigurationKeysOutput(ctx *pulumi.Context, args GetConfigurationKeysOutputArgs, opts ...pulumi.InvokeOption) GetConfigurationKeysResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetConfigurationKeysResultOutput, error) {
-			args := v.(GetConfigurationKeysArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args, GetConfigurationKeysResultOutput{}, options).(GetConfigurationKeysResultOutput), nil
-		}).(GetConfigurationKeysResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appconfiguration/getConfigurationKeys:getConfigurationKeys", args, GetConfigurationKeysResultOutput{}, options).(GetConfigurationKeysResultOutput)
 }
 
 // A collection of arguments for invoking getConfigurationKeys.

@@ -76,12 +76,8 @@ type GetKubernetesNodePoolSnapshotResult struct {
 }
 
 func GetKubernetesNodePoolSnapshotOutput(ctx *pulumi.Context, args GetKubernetesNodePoolSnapshotOutputArgs, opts ...pulumi.InvokeOption) GetKubernetesNodePoolSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetKubernetesNodePoolSnapshotResultOutput, error) {
-			args := v.(GetKubernetesNodePoolSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args, GetKubernetesNodePoolSnapshotResultOutput{}, options).(GetKubernetesNodePoolSnapshotResultOutput), nil
-		}).(GetKubernetesNodePoolSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:containerservice/getKubernetesNodePoolSnapshot:getKubernetesNodePoolSnapshot", args, GetKubernetesNodePoolSnapshotResultOutput{}, options).(GetKubernetesNodePoolSnapshotResultOutput)
 }
 
 // A collection of arguments for invoking getKubernetesNodePoolSnapshot.

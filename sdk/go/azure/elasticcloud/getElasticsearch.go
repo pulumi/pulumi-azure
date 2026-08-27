@@ -102,12 +102,8 @@ type LookupElasticsearchResult struct {
 }
 
 func LookupElasticsearchOutput(ctx *pulumi.Context, args LookupElasticsearchOutputArgs, opts ...pulumi.InvokeOption) LookupElasticsearchResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupElasticsearchResultOutput, error) {
-			args := v.(LookupElasticsearchArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:elasticcloud/getElasticsearch:getElasticsearch", args, LookupElasticsearchResultOutput{}, options).(LookupElasticsearchResultOutput), nil
-		}).(LookupElasticsearchResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:elasticcloud/getElasticsearch:getElasticsearch", args, LookupElasticsearchResultOutput{}, options).(LookupElasticsearchResultOutput)
 }
 
 // A collection of arguments for invoking getElasticsearch.

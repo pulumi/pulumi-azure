@@ -80,12 +80,8 @@ type LookupIntegrationAccountResult struct {
 }
 
 func LookupIntegrationAccountOutput(ctx *pulumi.Context, args LookupIntegrationAccountOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationAccountResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIntegrationAccountResultOutput, error) {
-			args := v.(LookupIntegrationAccountArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:logicapps/getIntegrationAccount:getIntegrationAccount", args, LookupIntegrationAccountResultOutput{}, options).(LookupIntegrationAccountResultOutput), nil
-		}).(LookupIntegrationAccountResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:logicapps/getIntegrationAccount:getIntegrationAccount", args, LookupIntegrationAccountResultOutput{}, options).(LookupIntegrationAccountResultOutput)
 }
 
 // A collection of arguments for invoking getIntegrationAccount.

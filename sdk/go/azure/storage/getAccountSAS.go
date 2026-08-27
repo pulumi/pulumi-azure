@@ -141,12 +141,8 @@ type GetAccountSASResult struct {
 }
 
 func GetAccountSASOutput(ctx *pulumi.Context, args GetAccountSASOutputArgs, opts ...pulumi.InvokeOption) GetAccountSASResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAccountSASResultOutput, error) {
-			args := v.(GetAccountSASArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:storage/getAccountSAS:getAccountSAS", args, GetAccountSASResultOutput{}, options).(GetAccountSASResultOutput), nil
-		}).(GetAccountSASResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:storage/getAccountSAS:getAccountSAS", args, GetAccountSASResultOutput{}, options).(GetAccountSASResultOutput)
 }
 
 // A collection of arguments for invoking getAccountSAS.

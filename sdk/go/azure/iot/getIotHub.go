@@ -74,12 +74,8 @@ type GetIotHubResult struct {
 }
 
 func GetIotHubOutput(ctx *pulumi.Context, args GetIotHubOutputArgs, opts ...pulumi.InvokeOption) GetIotHubResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIotHubResultOutput, error) {
-			args := v.(GetIotHubArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:iot/getIotHub:getIotHub", args, GetIotHubResultOutput{}, options).(GetIotHubResultOutput), nil
-		}).(GetIotHubResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:iot/getIotHub:getIotHub", args, GetIotHubResultOutput{}, options).(GetIotHubResultOutput)
 }
 
 // A collection of arguments for invoking getIotHub.

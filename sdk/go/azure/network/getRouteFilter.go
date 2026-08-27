@@ -81,12 +81,8 @@ type LookupRouteFilterResult struct {
 }
 
 func LookupRouteFilterOutput(ctx *pulumi.Context, args LookupRouteFilterOutputArgs, opts ...pulumi.InvokeOption) LookupRouteFilterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRouteFilterResultOutput, error) {
-			args := v.(LookupRouteFilterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getRouteFilter:getRouteFilter", args, LookupRouteFilterResultOutput{}, options).(LookupRouteFilterResultOutput), nil
-		}).(LookupRouteFilterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getRouteFilter:getRouteFilter", args, LookupRouteFilterResultOutput{}, options).(LookupRouteFilterResultOutput)
 }
 
 // A collection of arguments for invoking getRouteFilter.

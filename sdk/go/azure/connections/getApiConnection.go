@@ -86,12 +86,8 @@ type LookupApiConnectionResult struct {
 }
 
 func LookupApiConnectionOutput(ctx *pulumi.Context, args LookupApiConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupApiConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApiConnectionResultOutput, error) {
-			args := v.(LookupApiConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:connections/getApiConnection:getApiConnection", args, LookupApiConnectionResultOutput{}, options).(LookupApiConnectionResultOutput), nil
-		}).(LookupApiConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:connections/getApiConnection:getApiConnection", args, LookupApiConnectionResultOutput{}, options).(LookupApiConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getApiConnection.

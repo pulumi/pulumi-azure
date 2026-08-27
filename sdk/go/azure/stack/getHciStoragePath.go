@@ -82,12 +82,8 @@ type LookupHciStoragePathResult struct {
 }
 
 func LookupHciStoragePathOutput(ctx *pulumi.Context, args LookupHciStoragePathOutputArgs, opts ...pulumi.InvokeOption) LookupHciStoragePathResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHciStoragePathResultOutput, error) {
-			args := v.(LookupHciStoragePathArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:stack/getHciStoragePath:getHciStoragePath", args, LookupHciStoragePathResultOutput{}, options).(LookupHciStoragePathResultOutput), nil
-		}).(LookupHciStoragePathResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:stack/getHciStoragePath:getHciStoragePath", args, LookupHciStoragePathResultOutput{}, options).(LookupHciStoragePathResultOutput)
 }
 
 // A collection of arguments for invoking getHciStoragePath.

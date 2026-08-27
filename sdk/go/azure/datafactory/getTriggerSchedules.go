@@ -65,12 +65,8 @@ type GetTriggerSchedulesResult struct {
 }
 
 func GetTriggerSchedulesOutput(ctx *pulumi.Context, args GetTriggerSchedulesOutputArgs, opts ...pulumi.InvokeOption) GetTriggerSchedulesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTriggerSchedulesResultOutput, error) {
-			args := v.(GetTriggerSchedulesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:datafactory/getTriggerSchedules:getTriggerSchedules", args, GetTriggerSchedulesResultOutput{}, options).(GetTriggerSchedulesResultOutput), nil
-		}).(GetTriggerSchedulesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:datafactory/getTriggerSchedules:getTriggerSchedules", args, GetTriggerSchedulesResultOutput{}, options).(GetTriggerSchedulesResultOutput)
 }
 
 // A collection of arguments for invoking getTriggerSchedules.

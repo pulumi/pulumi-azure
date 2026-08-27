@@ -87,12 +87,8 @@ type GetPolicyDefintionResult struct {
 }
 
 func GetPolicyDefintionOutput(ctx *pulumi.Context, args GetPolicyDefintionOutputArgs, opts ...pulumi.InvokeOption) GetPolicyDefintionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPolicyDefintionResultOutput, error) {
-			args := v.(GetPolicyDefintionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:policy/getPolicyDefintion:getPolicyDefintion", args, GetPolicyDefintionResultOutput{}, options).(GetPolicyDefintionResultOutput), nil
-		}).(GetPolicyDefintionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:policy/getPolicyDefintion:getPolicyDefintion", args, GetPolicyDefintionResultOutput{}, options).(GetPolicyDefintionResultOutput)
 }
 
 // A collection of arguments for invoking getPolicyDefintion.

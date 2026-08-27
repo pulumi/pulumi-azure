@@ -94,12 +94,8 @@ type LookupLocalRulestackResult struct {
 }
 
 func LookupLocalRulestackOutput(ctx *pulumi.Context, args LookupLocalRulestackOutputArgs, opts ...pulumi.InvokeOption) LookupLocalRulestackResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalRulestackResultOutput, error) {
-			args := v.(LookupLocalRulestackArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:paloalto/getLocalRulestack:getLocalRulestack", args, LookupLocalRulestackResultOutput{}, options).(LookupLocalRulestackResultOutput), nil
-		}).(LookupLocalRulestackResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:paloalto/getLocalRulestack:getLocalRulestack", args, LookupLocalRulestackResultOutput{}, options).(LookupLocalRulestackResultOutput)
 }
 
 // A collection of arguments for invoking getLocalRulestack.

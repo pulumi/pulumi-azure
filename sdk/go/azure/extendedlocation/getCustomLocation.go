@@ -88,12 +88,8 @@ type LookupCustomLocationResult struct {
 }
 
 func LookupCustomLocationOutput(ctx *pulumi.Context, args LookupCustomLocationOutputArgs, opts ...pulumi.InvokeOption) LookupCustomLocationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomLocationResultOutput, error) {
-			args := v.(LookupCustomLocationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:extendedlocation/getCustomLocation:getCustomLocation", args, LookupCustomLocationResultOutput{}, options).(LookupCustomLocationResultOutput), nil
-		}).(LookupCustomLocationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:extendedlocation/getCustomLocation:getCustomLocation", args, LookupCustomLocationResultOutput{}, options).(LookupCustomLocationResultOutput)
 }
 
 // A collection of arguments for invoking getCustomLocation.

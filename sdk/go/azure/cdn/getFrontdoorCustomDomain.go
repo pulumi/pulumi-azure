@@ -89,12 +89,8 @@ type LookupFrontdoorCustomDomainResult struct {
 }
 
 func LookupFrontdoorCustomDomainOutput(ctx *pulumi.Context, args LookupFrontdoorCustomDomainOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorCustomDomainResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFrontdoorCustomDomainResultOutput, error) {
-			args := v.(LookupFrontdoorCustomDomainArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args, LookupFrontdoorCustomDomainResultOutput{}, options).(LookupFrontdoorCustomDomainResultOutput), nil
-		}).(LookupFrontdoorCustomDomainResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain", args, LookupFrontdoorCustomDomainResultOutput{}, options).(LookupFrontdoorCustomDomainResultOutput)
 }
 
 // A collection of arguments for invoking getFrontdoorCustomDomain.

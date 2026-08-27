@@ -80,12 +80,8 @@ type LookupVariableObjectResult struct {
 }
 
 func LookupVariableObjectOutput(ctx *pulumi.Context, args LookupVariableObjectOutputArgs, opts ...pulumi.InvokeOption) LookupVariableObjectResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVariableObjectResultOutput, error) {
-			args := v.(LookupVariableObjectArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:automation/getVariableObject:getVariableObject", args, LookupVariableObjectResultOutput{}, options).(LookupVariableObjectResultOutput), nil
-		}).(LookupVariableObjectResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:automation/getVariableObject:getVariableObject", args, LookupVariableObjectResultOutput{}, options).(LookupVariableObjectResultOutput)
 }
 
 // A collection of arguments for invoking getVariableObject.

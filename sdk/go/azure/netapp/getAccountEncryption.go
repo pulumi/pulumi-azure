@@ -75,12 +75,8 @@ type LookupAccountEncryptionResult struct {
 }
 
 func LookupAccountEncryptionOutput(ctx *pulumi.Context, args LookupAccountEncryptionOutputArgs, opts ...pulumi.InvokeOption) LookupAccountEncryptionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccountEncryptionResultOutput, error) {
-			args := v.(LookupAccountEncryptionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:netapp/getAccountEncryption:getAccountEncryption", args, LookupAccountEncryptionResultOutput{}, options).(LookupAccountEncryptionResultOutput), nil
-		}).(LookupAccountEncryptionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:netapp/getAccountEncryption:getAccountEncryption", args, LookupAccountEncryptionResultOutput{}, options).(LookupAccountEncryptionResultOutput)
 }
 
 // A collection of arguments for invoking getAccountEncryption.

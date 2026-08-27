@@ -75,12 +75,8 @@ type LookupSourceControlTokenResult struct {
 }
 
 func LookupSourceControlTokenOutput(ctx *pulumi.Context, args LookupSourceControlTokenOutputArgs, opts ...pulumi.InvokeOption) LookupSourceControlTokenResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSourceControlTokenResultOutput, error) {
-			args := v.(LookupSourceControlTokenArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getSourceControlToken:getSourceControlToken", args, LookupSourceControlTokenResultOutput{}, options).(LookupSourceControlTokenResultOutput), nil
-		}).(LookupSourceControlTokenResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getSourceControlToken:getSourceControlToken", args, LookupSourceControlTokenResultOutput{}, options).(LookupSourceControlTokenResultOutput)
 }
 
 // A collection of arguments for invoking getSourceControlToken.

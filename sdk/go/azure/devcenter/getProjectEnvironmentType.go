@@ -86,12 +86,8 @@ type LookupProjectEnvironmentTypeResult struct {
 }
 
 func LookupProjectEnvironmentTypeOutput(ctx *pulumi.Context, args LookupProjectEnvironmentTypeOutputArgs, opts ...pulumi.InvokeOption) LookupProjectEnvironmentTypeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProjectEnvironmentTypeResultOutput, error) {
-			args := v.(LookupProjectEnvironmentTypeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:devcenter/getProjectEnvironmentType:getProjectEnvironmentType", args, LookupProjectEnvironmentTypeResultOutput{}, options).(LookupProjectEnvironmentTypeResultOutput), nil
-		}).(LookupProjectEnvironmentTypeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:devcenter/getProjectEnvironmentType:getProjectEnvironmentType", args, LookupProjectEnvironmentTypeResultOutput{}, options).(LookupProjectEnvironmentTypeResultOutput)
 }
 
 // A collection of arguments for invoking getProjectEnvironmentType.

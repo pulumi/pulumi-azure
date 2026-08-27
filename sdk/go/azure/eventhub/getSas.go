@@ -110,12 +110,8 @@ type GetSasResult struct {
 }
 
 func GetSasOutput(ctx *pulumi.Context, args GetSasOutputArgs, opts ...pulumi.InvokeOption) GetSasResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSasResultOutput, error) {
-			args := v.(GetSasArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:eventhub/getSas:getSas", args, GetSasResultOutput{}, options).(GetSasResultOutput), nil
-		}).(GetSasResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:eventhub/getSas:getSas", args, GetSasResultOutput{}, options).(GetSasResultOutput)
 }
 
 // A collection of arguments for invoking getSas.

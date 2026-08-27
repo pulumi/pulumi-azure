@@ -80,12 +80,8 @@ type LookupAccessPolicyAssignmentResult struct {
 }
 
 func LookupAccessPolicyAssignmentOutput(ctx *pulumi.Context, args LookupAccessPolicyAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPolicyAssignmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccessPolicyAssignmentResultOutput, error) {
-			args := v.(LookupAccessPolicyAssignmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:managedredis/getAccessPolicyAssignment:getAccessPolicyAssignment", args, LookupAccessPolicyAssignmentResultOutput{}, options).(LookupAccessPolicyAssignmentResultOutput), nil
-		}).(LookupAccessPolicyAssignmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:managedredis/getAccessPolicyAssignment:getAccessPolicyAssignment", args, LookupAccessPolicyAssignmentResultOutput{}, options).(LookupAccessPolicyAssignmentResultOutput)
 }
 
 // A collection of arguments for invoking getAccessPolicyAssignment.

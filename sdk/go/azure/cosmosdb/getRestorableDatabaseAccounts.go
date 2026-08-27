@@ -77,12 +77,8 @@ type GetRestorableDatabaseAccountsResult struct {
 }
 
 func GetRestorableDatabaseAccountsOutput(ctx *pulumi.Context, args GetRestorableDatabaseAccountsOutputArgs, opts ...pulumi.InvokeOption) GetRestorableDatabaseAccountsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRestorableDatabaseAccountsResultOutput, error) {
-			args := v.(GetRestorableDatabaseAccountsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args, GetRestorableDatabaseAccountsResultOutput{}, options).(GetRestorableDatabaseAccountsResultOutput), nil
-		}).(GetRestorableDatabaseAccountsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:cosmosdb/getRestorableDatabaseAccounts:getRestorableDatabaseAccounts", args, GetRestorableDatabaseAccountsResultOutput{}, options).(GetRestorableDatabaseAccountsResultOutput)
 }
 
 // A collection of arguments for invoking getRestorableDatabaseAccounts.

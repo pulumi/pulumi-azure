@@ -140,12 +140,8 @@ type LookupWindowsWebAppResult struct {
 }
 
 func LookupWindowsWebAppOutput(ctx *pulumi.Context, args LookupWindowsWebAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsWebAppResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWindowsWebAppResultOutput, error) {
-			args := v.(LookupWindowsWebAppArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getWindowsWebApp:getWindowsWebApp", args, LookupWindowsWebAppResultOutput{}, options).(LookupWindowsWebAppResultOutput), nil
-		}).(LookupWindowsWebAppResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getWindowsWebApp:getWindowsWebApp", args, LookupWindowsWebAppResultOutput{}, options).(LookupWindowsWebAppResultOutput)
 }
 
 // A collection of arguments for invoking getWindowsWebApp.

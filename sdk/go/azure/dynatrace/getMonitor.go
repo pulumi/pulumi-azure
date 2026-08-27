@@ -88,12 +88,8 @@ type LookupMonitorResult struct {
 }
 
 func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupMonitorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMonitorResultOutput, error) {
-			args := v.(LookupMonitorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:dynatrace/getMonitor:getMonitor", args, LookupMonitorResultOutput{}, options).(LookupMonitorResultOutput), nil
-		}).(LookupMonitorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:dynatrace/getMonitor:getMonitor", args, LookupMonitorResultOutput{}, options).(LookupMonitorResultOutput)
 }
 
 // A collection of arguments for invoking getMonitor.

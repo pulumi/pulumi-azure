@@ -81,12 +81,8 @@ type LookupNetworkSecurityPerimeterProfileResult struct {
 }
 
 func LookupNetworkSecurityPerimeterProfileOutput(ctx *pulumi.Context, args LookupNetworkSecurityPerimeterProfileOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSecurityPerimeterProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkSecurityPerimeterProfileResultOutput, error) {
-			args := v.(LookupNetworkSecurityPerimeterProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getNetworkSecurityPerimeterProfile:getNetworkSecurityPerimeterProfile", args, LookupNetworkSecurityPerimeterProfileResultOutput{}, options).(LookupNetworkSecurityPerimeterProfileResultOutput), nil
-		}).(LookupNetworkSecurityPerimeterProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getNetworkSecurityPerimeterProfile:getNetworkSecurityPerimeterProfile", args, LookupNetworkSecurityPerimeterProfileResultOutput{}, options).(LookupNetworkSecurityPerimeterProfileResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkSecurityPerimeterProfile.

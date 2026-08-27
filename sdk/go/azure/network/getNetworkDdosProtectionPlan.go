@@ -80,12 +80,8 @@ type GetNetworkDdosProtectionPlanResult struct {
 }
 
 func GetNetworkDdosProtectionPlanOutput(ctx *pulumi.Context, args GetNetworkDdosProtectionPlanOutputArgs, opts ...pulumi.InvokeOption) GetNetworkDdosProtectionPlanResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetNetworkDdosProtectionPlanResultOutput, error) {
-			args := v.(GetNetworkDdosProtectionPlanArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args, GetNetworkDdosProtectionPlanResultOutput{}, options).(GetNetworkDdosProtectionPlanResultOutput), nil
-		}).(GetNetworkDdosProtectionPlanResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getNetworkDdosProtectionPlan:getNetworkDdosProtectionPlan", args, GetNetworkDdosProtectionPlanResultOutput{}, options).(GetNetworkDdosProtectionPlanResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkDdosProtectionPlan.

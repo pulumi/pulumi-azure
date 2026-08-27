@@ -84,12 +84,8 @@ type LookupDevBoxDefinitionResult struct {
 }
 
 func LookupDevBoxDefinitionOutput(ctx *pulumi.Context, args LookupDevBoxDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupDevBoxDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDevBoxDefinitionResultOutput, error) {
-			args := v.(LookupDevBoxDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:devcenter/getDevBoxDefinition:getDevBoxDefinition", args, LookupDevBoxDefinitionResultOutput{}, options).(LookupDevBoxDefinitionResultOutput), nil
-		}).(LookupDevBoxDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:devcenter/getDevBoxDefinition:getDevBoxDefinition", args, LookupDevBoxDefinitionResultOutput{}, options).(LookupDevBoxDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getDevBoxDefinition.

@@ -88,12 +88,8 @@ type LookupManagedHardwareSecurityModuleKeyResult struct {
 }
 
 func LookupManagedHardwareSecurityModuleKeyOutput(ctx *pulumi.Context, args LookupManagedHardwareSecurityModuleKeyOutputArgs, opts ...pulumi.InvokeOption) LookupManagedHardwareSecurityModuleKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupManagedHardwareSecurityModuleKeyResultOutput, error) {
-			args := v.(LookupManagedHardwareSecurityModuleKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", args, LookupManagedHardwareSecurityModuleKeyResultOutput{}, options).(LookupManagedHardwareSecurityModuleKeyResultOutput), nil
-		}).(LookupManagedHardwareSecurityModuleKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:keyvault/getManagedHardwareSecurityModuleKey:getManagedHardwareSecurityModuleKey", args, LookupManagedHardwareSecurityModuleKeyResultOutput{}, options).(LookupManagedHardwareSecurityModuleKeyResultOutput)
 }
 
 // A collection of arguments for invoking getManagedHardwareSecurityModuleKey.

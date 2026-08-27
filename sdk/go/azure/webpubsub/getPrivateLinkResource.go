@@ -86,12 +86,8 @@ type GetPrivateLinkResourceResult struct {
 }
 
 func GetPrivateLinkResourceOutput(ctx *pulumi.Context, args GetPrivateLinkResourceOutputArgs, opts ...pulumi.InvokeOption) GetPrivateLinkResourceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPrivateLinkResourceResultOutput, error) {
-			args := v.(GetPrivateLinkResourceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args, GetPrivateLinkResourceResultOutput{}, options).(GetPrivateLinkResourceResultOutput), nil
-		}).(GetPrivateLinkResourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:webpubsub/getPrivateLinkResource:getPrivateLinkResource", args, GetPrivateLinkResourceResultOutput{}, options).(GetPrivateLinkResourceResultOutput)
 }
 
 // A collection of arguments for invoking getPrivateLinkResource.

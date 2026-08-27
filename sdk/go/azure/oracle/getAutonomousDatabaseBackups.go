@@ -71,12 +71,8 @@ type GetAutonomousDatabaseBackupsResult struct {
 }
 
 func GetAutonomousDatabaseBackupsOutput(ctx *pulumi.Context, args GetAutonomousDatabaseBackupsOutputArgs, opts ...pulumi.InvokeOption) GetAutonomousDatabaseBackupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAutonomousDatabaseBackupsResultOutput, error) {
-			args := v.(GetAutonomousDatabaseBackupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:oracle/getAutonomousDatabaseBackups:getAutonomousDatabaseBackups", args, GetAutonomousDatabaseBackupsResultOutput{}, options).(GetAutonomousDatabaseBackupsResultOutput), nil
-		}).(GetAutonomousDatabaseBackupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:oracle/getAutonomousDatabaseBackups:getAutonomousDatabaseBackups", args, GetAutonomousDatabaseBackupsResultOutput{}, options).(GetAutonomousDatabaseBackupsResultOutput)
 }
 
 // A collection of arguments for invoking getAutonomousDatabaseBackups.

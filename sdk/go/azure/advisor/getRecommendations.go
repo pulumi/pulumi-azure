@@ -87,12 +87,8 @@ type GetRecommendationsResult struct {
 }
 
 func GetRecommendationsOutput(ctx *pulumi.Context, args GetRecommendationsOutputArgs, opts ...pulumi.InvokeOption) GetRecommendationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRecommendationsResultOutput, error) {
-			args := v.(GetRecommendationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:advisor/getRecommendations:getRecommendations", args, GetRecommendationsResultOutput{}, options).(GetRecommendationsResultOutput), nil
-		}).(GetRecommendationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:advisor/getRecommendations:getRecommendations", args, GetRecommendationsResultOutput{}, options).(GetRecommendationsResultOutput)
 }
 
 // A collection of arguments for invoking getRecommendations.

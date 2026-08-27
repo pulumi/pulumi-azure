@@ -73,12 +73,8 @@ type LookupGroupTemplateDeploymentResult struct {
 }
 
 func LookupGroupTemplateDeploymentOutput(ctx *pulumi.Context, args LookupGroupTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupGroupTemplateDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGroupTemplateDeploymentResultOutput, error) {
-			args := v.(LookupGroupTemplateDeploymentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args, LookupGroupTemplateDeploymentResultOutput{}, options).(LookupGroupTemplateDeploymentResultOutput), nil
-		}).(LookupGroupTemplateDeploymentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:management/getGroupTemplateDeployment:getGroupTemplateDeployment", args, LookupGroupTemplateDeploymentResultOutput{}, options).(LookupGroupTemplateDeploymentResultOutput)
 }
 
 // A collection of arguments for invoking getGroupTemplateDeployment.

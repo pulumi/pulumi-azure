@@ -88,12 +88,8 @@ type LookupNsRecordResult struct {
 }
 
 func LookupNsRecordOutput(ctx *pulumi.Context, args LookupNsRecordOutputArgs, opts ...pulumi.InvokeOption) LookupNsRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNsRecordResultOutput, error) {
-			args := v.(LookupNsRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:dns/getNsRecord:getNsRecord", args, LookupNsRecordResultOutput{}, options).(LookupNsRecordResultOutput), nil
-		}).(LookupNsRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:dns/getNsRecord:getNsRecord", args, LookupNsRecordResultOutput{}, options).(LookupNsRecordResultOutput)
 }
 
 // A collection of arguments for invoking getNsRecord.

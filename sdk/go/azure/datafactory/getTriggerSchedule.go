@@ -87,12 +87,8 @@ type LookupTriggerScheduleResult struct {
 }
 
 func LookupTriggerScheduleOutput(ctx *pulumi.Context, args LookupTriggerScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupTriggerScheduleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTriggerScheduleResultOutput, error) {
-			args := v.(LookupTriggerScheduleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args, LookupTriggerScheduleResultOutput{}, options).(LookupTriggerScheduleResultOutput), nil
-		}).(LookupTriggerScheduleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:datafactory/getTriggerSchedule:getTriggerSchedule", args, LookupTriggerScheduleResultOutput{}, options).(LookupTriggerScheduleResultOutput)
 }
 
 // A collection of arguments for invoking getTriggerSchedule.

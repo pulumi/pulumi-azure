@@ -113,12 +113,8 @@ type LookupCacheResult struct {
 }
 
 func LookupCacheOutput(ctx *pulumi.Context, args LookupCacheOutputArgs, opts ...pulumi.InvokeOption) LookupCacheResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCacheResultOutput, error) {
-			args := v.(LookupCacheArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:redis/getCache:getCache", args, LookupCacheResultOutput{}, options).(LookupCacheResultOutput), nil
-		}).(LookupCacheResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:redis/getCache:getCache", args, LookupCacheResultOutput{}, options).(LookupCacheResultOutput)
 }
 
 // A collection of arguments for invoking getCache.

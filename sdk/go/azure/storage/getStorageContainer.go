@@ -103,12 +103,8 @@ type GetStorageContainerResult struct {
 }
 
 func GetStorageContainerOutput(ctx *pulumi.Context, args GetStorageContainerOutputArgs, opts ...pulumi.InvokeOption) GetStorageContainerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetStorageContainerResultOutput, error) {
-			args := v.(GetStorageContainerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:storage/getStorageContainer:getStorageContainer", args, GetStorageContainerResultOutput{}, options).(GetStorageContainerResultOutput), nil
-		}).(GetStorageContainerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:storage/getStorageContainer:getStorageContainer", args, GetStorageContainerResultOutput{}, options).(GetStorageContainerResultOutput)
 }
 
 // A collection of arguments for invoking getStorageContainer.

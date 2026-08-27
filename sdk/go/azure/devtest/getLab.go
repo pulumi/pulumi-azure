@@ -92,12 +92,8 @@ type LookupLabResult struct {
 }
 
 func LookupLabOutput(ctx *pulumi.Context, args LookupLabOutputArgs, opts ...pulumi.InvokeOption) LookupLabResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLabResultOutput, error) {
-			args := v.(LookupLabArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:devtest/getLab:getLab", args, LookupLabResultOutput{}, options).(LookupLabResultOutput), nil
-		}).(LookupLabResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:devtest/getLab:getLab", args, LookupLabResultOutput{}, options).(LookupLabResultOutput)
 }
 
 // A collection of arguments for invoking getLab.

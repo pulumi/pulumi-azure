@@ -89,12 +89,8 @@ type LookupAnalyticsWorkspaceResult struct {
 }
 
 func LookupAnalyticsWorkspaceOutput(ctx *pulumi.Context, args LookupAnalyticsWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupAnalyticsWorkspaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAnalyticsWorkspaceResultOutput, error) {
-			args := v.(LookupAnalyticsWorkspaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, LookupAnalyticsWorkspaceResultOutput{}, options).(LookupAnalyticsWorkspaceResultOutput), nil
-		}).(LookupAnalyticsWorkspaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:operationalinsights/getAnalyticsWorkspace:getAnalyticsWorkspace", args, LookupAnalyticsWorkspaceResultOutput{}, options).(LookupAnalyticsWorkspaceResultOutput)
 }
 
 // A collection of arguments for invoking getAnalyticsWorkspace.

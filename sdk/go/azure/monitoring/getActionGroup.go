@@ -101,12 +101,8 @@ type LookupActionGroupResult struct {
 }
 
 func LookupActionGroupOutput(ctx *pulumi.Context, args LookupActionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupActionGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupActionGroupResultOutput, error) {
-			args := v.(LookupActionGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:monitoring/getActionGroup:getActionGroup", args, LookupActionGroupResultOutput{}, options).(LookupActionGroupResultOutput), nil
-		}).(LookupActionGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:monitoring/getActionGroup:getActionGroup", args, LookupActionGroupResultOutput{}, options).(LookupActionGroupResultOutput)
 }
 
 // A collection of arguments for invoking getActionGroup.

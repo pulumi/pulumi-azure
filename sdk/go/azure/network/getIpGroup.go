@@ -80,12 +80,8 @@ type GetIpGroupResult struct {
 }
 
 func GetIpGroupOutput(ctx *pulumi.Context, args GetIpGroupOutputArgs, opts ...pulumi.InvokeOption) GetIpGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIpGroupResultOutput, error) {
-			args := v.(GetIpGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getIpGroup:getIpGroup", args, GetIpGroupResultOutput{}, options).(GetIpGroupResultOutput), nil
-		}).(GetIpGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getIpGroup:getIpGroup", args, GetIpGroupResultOutput{}, options).(GetIpGroupResultOutput)
 }
 
 // A collection of arguments for invoking getIpGroup.

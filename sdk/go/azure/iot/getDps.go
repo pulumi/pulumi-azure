@@ -85,12 +85,8 @@ type GetDpsResult struct {
 }
 
 func GetDpsOutput(ctx *pulumi.Context, args GetDpsOutputArgs, opts ...pulumi.InvokeOption) GetDpsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDpsResultOutput, error) {
-			args := v.(GetDpsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:iot/getDps:getDps", args, GetDpsResultOutput{}, options).(GetDpsResultOutput), nil
-		}).(GetDpsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:iot/getDps:getDps", args, GetDpsResultOutput{}, options).(GetDpsResultOutput)
 }
 
 // A collection of arguments for invoking getDps.

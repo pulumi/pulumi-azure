@@ -80,12 +80,8 @@ type LookupDatasetKustoDatabaseResult struct {
 }
 
 func LookupDatasetKustoDatabaseOutput(ctx *pulumi.Context, args LookupDatasetKustoDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetKustoDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDatasetKustoDatabaseResultOutput, error) {
-			args := v.(LookupDatasetKustoDatabaseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args, LookupDatasetKustoDatabaseResultOutput{}, options).(LookupDatasetKustoDatabaseResultOutput), nil
-		}).(LookupDatasetKustoDatabaseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase", args, LookupDatasetKustoDatabaseResultOutput{}, options).(LookupDatasetKustoDatabaseResultOutput)
 }
 
 // A collection of arguments for invoking getDatasetKustoDatabase.

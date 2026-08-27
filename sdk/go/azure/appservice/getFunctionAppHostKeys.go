@@ -88,12 +88,8 @@ type GetFunctionAppHostKeysResult struct {
 }
 
 func GetFunctionAppHostKeysOutput(ctx *pulumi.Context, args GetFunctionAppHostKeysOutputArgs, opts ...pulumi.InvokeOption) GetFunctionAppHostKeysResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFunctionAppHostKeysResultOutput, error) {
-			args := v.(GetFunctionAppHostKeysArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args, GetFunctionAppHostKeysResultOutput{}, options).(GetFunctionAppHostKeysResultOutput), nil
-		}).(GetFunctionAppHostKeysResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getFunctionAppHostKeys:getFunctionAppHostKeys", args, GetFunctionAppHostKeysResultOutput{}, options).(GetFunctionAppHostKeysResultOutput)
 }
 
 // A collection of arguments for invoking getFunctionAppHostKeys.

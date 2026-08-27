@@ -94,12 +94,8 @@ type LookupManagedDevOpsPoolResult struct {
 }
 
 func LookupManagedDevOpsPoolOutput(ctx *pulumi.Context, args LookupManagedDevOpsPoolOutputArgs, opts ...pulumi.InvokeOption) LookupManagedDevOpsPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupManagedDevOpsPoolResultOutput, error) {
-			args := v.(LookupManagedDevOpsPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:devcenter/getManagedDevOpsPool:getManagedDevOpsPool", args, LookupManagedDevOpsPoolResultOutput{}, options).(LookupManagedDevOpsPoolResultOutput), nil
-		}).(LookupManagedDevOpsPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:devcenter/getManagedDevOpsPool:getManagedDevOpsPool", args, LookupManagedDevOpsPoolResultOutput{}, options).(LookupManagedDevOpsPoolResultOutput)
 }
 
 // A collection of arguments for invoking getManagedDevOpsPool.

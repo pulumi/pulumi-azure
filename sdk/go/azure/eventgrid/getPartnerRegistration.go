@@ -78,12 +78,8 @@ type LookupPartnerRegistrationResult struct {
 }
 
 func LookupPartnerRegistrationOutput(ctx *pulumi.Context, args LookupPartnerRegistrationOutputArgs, opts ...pulumi.InvokeOption) LookupPartnerRegistrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPartnerRegistrationResultOutput, error) {
-			args := v.(LookupPartnerRegistrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:eventgrid/getPartnerRegistration:getPartnerRegistration", args, LookupPartnerRegistrationResultOutput{}, options).(LookupPartnerRegistrationResultOutput), nil
-		}).(LookupPartnerRegistrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:eventgrid/getPartnerRegistration:getPartnerRegistration", args, LookupPartnerRegistrationResultOutput{}, options).(LookupPartnerRegistrationResultOutput)
 }
 
 // A collection of arguments for invoking getPartnerRegistration.

@@ -82,12 +82,8 @@ type LookupCertificateIssuerResult struct {
 }
 
 func LookupCertificateIssuerOutput(ctx *pulumi.Context, args LookupCertificateIssuerOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateIssuerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCertificateIssuerResultOutput, error) {
-			args := v.(LookupCertificateIssuerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:keyvault/getCertificateIssuer:getCertificateIssuer", args, LookupCertificateIssuerResultOutput{}, options).(LookupCertificateIssuerResultOutput), nil
-		}).(LookupCertificateIssuerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:keyvault/getCertificateIssuer:getCertificateIssuer", args, LookupCertificateIssuerResultOutput{}, options).(LookupCertificateIssuerResultOutput)
 }
 
 // A collection of arguments for invoking getCertificateIssuer.

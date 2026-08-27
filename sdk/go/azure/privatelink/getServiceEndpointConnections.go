@@ -78,12 +78,8 @@ type GetServiceEndpointConnectionsResult struct {
 }
 
 func GetServiceEndpointConnectionsOutput(ctx *pulumi.Context, args GetServiceEndpointConnectionsOutputArgs, opts ...pulumi.InvokeOption) GetServiceEndpointConnectionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceEndpointConnectionsResultOutput, error) {
-			args := v.(GetServiceEndpointConnectionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args, GetServiceEndpointConnectionsResultOutput{}, options).(GetServiceEndpointConnectionsResultOutput), nil
-		}).(GetServiceEndpointConnectionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:privatelink/getServiceEndpointConnections:getServiceEndpointConnections", args, GetServiceEndpointConnectionsResultOutput{}, options).(GetServiceEndpointConnectionsResultOutput)
 }
 
 // A collection of arguments for invoking getServiceEndpointConnections.

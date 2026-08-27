@@ -72,12 +72,8 @@ type GetAdbsCharacterSetsResult struct {
 }
 
 func GetAdbsCharacterSetsOutput(ctx *pulumi.Context, args GetAdbsCharacterSetsOutputArgs, opts ...pulumi.InvokeOption) GetAdbsCharacterSetsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAdbsCharacterSetsResultOutput, error) {
-			args := v.(GetAdbsCharacterSetsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", args, GetAdbsCharacterSetsResultOutput{}, options).(GetAdbsCharacterSetsResultOutput), nil
-		}).(GetAdbsCharacterSetsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:oracle/getAdbsCharacterSets:getAdbsCharacterSets", args, GetAdbsCharacterSetsResultOutput{}, options).(GetAdbsCharacterSetsResultOutput)
 }
 
 // A collection of arguments for invoking getAdbsCharacterSets.

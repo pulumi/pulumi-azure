@@ -75,12 +75,8 @@ type GetManagedApiResult struct {
 }
 
 func GetManagedApiOutput(ctx *pulumi.Context, args GetManagedApiOutputArgs, opts ...pulumi.InvokeOption) GetManagedApiResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetManagedApiResultOutput, error) {
-			args := v.(GetManagedApiArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:connections/getManagedApi:getManagedApi", args, GetManagedApiResultOutput{}, options).(GetManagedApiResultOutput), nil
-		}).(GetManagedApiResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:connections/getManagedApi:getManagedApi", args, GetManagedApiResultOutput{}, options).(GetManagedApiResultOutput)
 }
 
 // A collection of arguments for invoking getManagedApi.

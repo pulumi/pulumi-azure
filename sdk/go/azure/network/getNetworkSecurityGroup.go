@@ -81,12 +81,8 @@ type LookupNetworkSecurityGroupResult struct {
 }
 
 func LookupNetworkSecurityGroupOutput(ctx *pulumi.Context, args LookupNetworkSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkSecurityGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkSecurityGroupResultOutput, error) {
-			args := v.(LookupNetworkSecurityGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args, LookupNetworkSecurityGroupResultOutput{}, options).(LookupNetworkSecurityGroupResultOutput), nil
-		}).(LookupNetworkSecurityGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getNetworkSecurityGroup:getNetworkSecurityGroup", args, LookupNetworkSecurityGroupResultOutput{}, options).(LookupNetworkSecurityGroupResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkSecurityGroup.

@@ -100,12 +100,8 @@ type LookupFlexibleServerResult struct {
 }
 
 func LookupFlexibleServerOutput(ctx *pulumi.Context, args LookupFlexibleServerOutputArgs, opts ...pulumi.InvokeOption) LookupFlexibleServerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFlexibleServerResultOutput, error) {
-			args := v.(LookupFlexibleServerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:postgresql/getFlexibleServer:getFlexibleServer", args, LookupFlexibleServerResultOutput{}, options).(LookupFlexibleServerResultOutput), nil
-		}).(LookupFlexibleServerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:postgresql/getFlexibleServer:getFlexibleServer", args, LookupFlexibleServerResultOutput{}, options).(LookupFlexibleServerResultOutput)
 }
 
 // A collection of arguments for invoking getFlexibleServer.

@@ -80,12 +80,8 @@ type LookupResourceAnchorResult struct {
 }
 
 func LookupResourceAnchorOutput(ctx *pulumi.Context, args LookupResourceAnchorOutputArgs, opts ...pulumi.InvokeOption) LookupResourceAnchorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceAnchorResultOutput, error) {
-			args := v.(LookupResourceAnchorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:oracle/getResourceAnchor:getResourceAnchor", args, LookupResourceAnchorResultOutput{}, options).(LookupResourceAnchorResultOutput), nil
-		}).(LookupResourceAnchorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:oracle/getResourceAnchor:getResourceAnchor", args, LookupResourceAnchorResultOutput{}, options).(LookupResourceAnchorResultOutput)
 }
 
 // A collection of arguments for invoking getResourceAnchor.

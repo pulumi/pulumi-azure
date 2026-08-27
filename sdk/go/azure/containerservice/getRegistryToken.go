@@ -82,12 +82,8 @@ type LookupRegistryTokenResult struct {
 }
 
 func LookupRegistryTokenOutput(ctx *pulumi.Context, args LookupRegistryTokenOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryTokenResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRegistryTokenResultOutput, error) {
-			args := v.(LookupRegistryTokenArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:containerservice/getRegistryToken:getRegistryToken", args, LookupRegistryTokenResultOutput{}, options).(LookupRegistryTokenResultOutput), nil
-		}).(LookupRegistryTokenResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:containerservice/getRegistryToken:getRegistryToken", args, LookupRegistryTokenResultOutput{}, options).(LookupRegistryTokenResultOutput)
 }
 
 // A collection of arguments for invoking getRegistryToken.

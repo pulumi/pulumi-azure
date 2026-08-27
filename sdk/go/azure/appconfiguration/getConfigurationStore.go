@@ -110,12 +110,8 @@ type LookupConfigurationStoreResult struct {
 }
 
 func LookupConfigurationStoreOutput(ctx *pulumi.Context, args LookupConfigurationStoreOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationStoreResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationStoreResultOutput, error) {
-			args := v.(LookupConfigurationStoreArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args, LookupConfigurationStoreResultOutput{}, options).(LookupConfigurationStoreResultOutput), nil
-		}).(LookupConfigurationStoreResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appconfiguration/getConfigurationStore:getConfigurationStore", args, LookupConfigurationStoreResultOutput{}, options).(LookupConfigurationStoreResultOutput)
 }
 
 // A collection of arguments for invoking getConfigurationStore.

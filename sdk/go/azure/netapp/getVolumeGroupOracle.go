@@ -87,12 +87,8 @@ type LookupVolumeGroupOracleResult struct {
 }
 
 func LookupVolumeGroupOracleOutput(ctx *pulumi.Context, args LookupVolumeGroupOracleOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeGroupOracleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVolumeGroupOracleResultOutput, error) {
-			args := v.(LookupVolumeGroupOracleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:netapp/getVolumeGroupOracle:getVolumeGroupOracle", args, LookupVolumeGroupOracleResultOutput{}, options).(LookupVolumeGroupOracleResultOutput), nil
-		}).(LookupVolumeGroupOracleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:netapp/getVolumeGroupOracle:getVolumeGroupOracle", args, LookupVolumeGroupOracleResultOutput{}, options).(LookupVolumeGroupOracleResultOutput)
 }
 
 // A collection of arguments for invoking getVolumeGroupOracle.
