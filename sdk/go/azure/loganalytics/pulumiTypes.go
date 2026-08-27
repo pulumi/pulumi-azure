@@ -477,6 +477,299 @@ func (o WorkspaceTableCustomLogStandardColumnArrayOutput) Index(i pulumi.IntInpu
 	}).(WorkspaceTableCustomLogStandardColumnOutput)
 }
 
+type WorkspaceTableMicrosoftColumn struct {
+	// The description of the column.
+	Description *string `pulumi:"description"`
+	// Whether the column defaults to being displayed. Defaults to `true`.
+	DisplayByDefault *bool `pulumi:"displayByDefault"`
+	// The display name of the column.
+	DisplayName *string `pulumi:"displayName"`
+	// Whether the column is hidden. Defaults to `false`.
+	Hidden *bool `pulumi:"hidden"`
+	// The name which should be used for this column.
+	Name string `pulumi:"name"`
+	// The column data type. Possible values are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, `dynamic`.
+	Type string `pulumi:"type"`
+}
+
+// WorkspaceTableMicrosoftColumnInput is an input type that accepts WorkspaceTableMicrosoftColumnArgs and WorkspaceTableMicrosoftColumnOutput values.
+// You can construct a concrete instance of `WorkspaceTableMicrosoftColumnInput` via:
+//
+//	WorkspaceTableMicrosoftColumnArgs{...}
+type WorkspaceTableMicrosoftColumnInput interface {
+	pulumi.Input
+
+	ToWorkspaceTableMicrosoftColumnOutput() WorkspaceTableMicrosoftColumnOutput
+	ToWorkspaceTableMicrosoftColumnOutputWithContext(context.Context) WorkspaceTableMicrosoftColumnOutput
+}
+
+type WorkspaceTableMicrosoftColumnArgs struct {
+	// The description of the column.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether the column defaults to being displayed. Defaults to `true`.
+	DisplayByDefault pulumi.BoolPtrInput `pulumi:"displayByDefault"`
+	// The display name of the column.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Whether the column is hidden. Defaults to `false`.
+	Hidden pulumi.BoolPtrInput `pulumi:"hidden"`
+	// The name which should be used for this column.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The column data type. Possible values are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, `dynamic`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (WorkspaceTableMicrosoftColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTableMicrosoftColumn)(nil)).Elem()
+}
+
+func (i WorkspaceTableMicrosoftColumnArgs) ToWorkspaceTableMicrosoftColumnOutput() WorkspaceTableMicrosoftColumnOutput {
+	return i.ToWorkspaceTableMicrosoftColumnOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTableMicrosoftColumnArgs) ToWorkspaceTableMicrosoftColumnOutputWithContext(ctx context.Context) WorkspaceTableMicrosoftColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTableMicrosoftColumnOutput)
+}
+
+// WorkspaceTableMicrosoftColumnArrayInput is an input type that accepts WorkspaceTableMicrosoftColumnArray and WorkspaceTableMicrosoftColumnArrayOutput values.
+// You can construct a concrete instance of `WorkspaceTableMicrosoftColumnArrayInput` via:
+//
+//	WorkspaceTableMicrosoftColumnArray{ WorkspaceTableMicrosoftColumnArgs{...} }
+type WorkspaceTableMicrosoftColumnArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceTableMicrosoftColumnArrayOutput() WorkspaceTableMicrosoftColumnArrayOutput
+	ToWorkspaceTableMicrosoftColumnArrayOutputWithContext(context.Context) WorkspaceTableMicrosoftColumnArrayOutput
+}
+
+type WorkspaceTableMicrosoftColumnArray []WorkspaceTableMicrosoftColumnInput
+
+func (WorkspaceTableMicrosoftColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTableMicrosoftColumn)(nil)).Elem()
+}
+
+func (i WorkspaceTableMicrosoftColumnArray) ToWorkspaceTableMicrosoftColumnArrayOutput() WorkspaceTableMicrosoftColumnArrayOutput {
+	return i.ToWorkspaceTableMicrosoftColumnArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTableMicrosoftColumnArray) ToWorkspaceTableMicrosoftColumnArrayOutputWithContext(ctx context.Context) WorkspaceTableMicrosoftColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTableMicrosoftColumnArrayOutput)
+}
+
+type WorkspaceTableMicrosoftColumnOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTableMicrosoftColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTableMicrosoftColumn)(nil)).Elem()
+}
+
+func (o WorkspaceTableMicrosoftColumnOutput) ToWorkspaceTableMicrosoftColumnOutput() WorkspaceTableMicrosoftColumnOutput {
+	return o
+}
+
+func (o WorkspaceTableMicrosoftColumnOutput) ToWorkspaceTableMicrosoftColumnOutputWithContext(ctx context.Context) WorkspaceTableMicrosoftColumnOutput {
+	return o
+}
+
+// The description of the column.
+func (o WorkspaceTableMicrosoftColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the column defaults to being displayed. Defaults to `true`.
+func (o WorkspaceTableMicrosoftColumnOutput) DisplayByDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftColumn) *bool { return v.DisplayByDefault }).(pulumi.BoolPtrOutput)
+}
+
+// The display name of the column.
+func (o WorkspaceTableMicrosoftColumnOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftColumn) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Whether the column is hidden. Defaults to `false`.
+func (o WorkspaceTableMicrosoftColumnOutput) Hidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftColumn) *bool { return v.Hidden }).(pulumi.BoolPtrOutput)
+}
+
+// The name which should be used for this column.
+func (o WorkspaceTableMicrosoftColumnOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftColumn) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The column data type. Possible values are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, `dynamic`.
+func (o WorkspaceTableMicrosoftColumnOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftColumn) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type WorkspaceTableMicrosoftColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTableMicrosoftColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTableMicrosoftColumn)(nil)).Elem()
+}
+
+func (o WorkspaceTableMicrosoftColumnArrayOutput) ToWorkspaceTableMicrosoftColumnArrayOutput() WorkspaceTableMicrosoftColumnArrayOutput {
+	return o
+}
+
+func (o WorkspaceTableMicrosoftColumnArrayOutput) ToWorkspaceTableMicrosoftColumnArrayOutputWithContext(ctx context.Context) WorkspaceTableMicrosoftColumnArrayOutput {
+	return o
+}
+
+func (o WorkspaceTableMicrosoftColumnArrayOutput) Index(i pulumi.IntInput) WorkspaceTableMicrosoftColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceTableMicrosoftColumn {
+		return vs[0].([]WorkspaceTableMicrosoftColumn)[vs[1].(int)]
+	}).(WorkspaceTableMicrosoftColumnOutput)
+}
+
+type WorkspaceTableMicrosoftStandardColumn struct {
+	// A description of the table.
+	Description *string `pulumi:"description"`
+	// Whether the column defaults to being displayed. Defaults to `true`.
+	DisplayByDefault *bool `pulumi:"displayByDefault"`
+	// The display name of the table.
+	DisplayName *string `pulumi:"displayName"`
+	// Is the column hidden? Defaults to `false`.
+	Hidden *bool `pulumi:"hidden"`
+	// The name which should be used for this Log Analytics Workspace Table Microsoft. Possible values are `Alert`, `AppCenterError`, `ComputerGroup`, `InsightsMetrics`, `Operation` and `Usage`. Changing this forces a new Log Analytics Workspace Table Microsoft to be created.
+	Name *string `pulumi:"name"`
+	// The type of the column.
+	Type *string `pulumi:"type"`
+	// The type hint of the column.
+	TypeHint *string `pulumi:"typeHint"`
+}
+
+// WorkspaceTableMicrosoftStandardColumnInput is an input type that accepts WorkspaceTableMicrosoftStandardColumnArgs and WorkspaceTableMicrosoftStandardColumnOutput values.
+// You can construct a concrete instance of `WorkspaceTableMicrosoftStandardColumnInput` via:
+//
+//	WorkspaceTableMicrosoftStandardColumnArgs{...}
+type WorkspaceTableMicrosoftStandardColumnInput interface {
+	pulumi.Input
+
+	ToWorkspaceTableMicrosoftStandardColumnOutput() WorkspaceTableMicrosoftStandardColumnOutput
+	ToWorkspaceTableMicrosoftStandardColumnOutputWithContext(context.Context) WorkspaceTableMicrosoftStandardColumnOutput
+}
+
+type WorkspaceTableMicrosoftStandardColumnArgs struct {
+	// A description of the table.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Whether the column defaults to being displayed. Defaults to `true`.
+	DisplayByDefault pulumi.BoolPtrInput `pulumi:"displayByDefault"`
+	// The display name of the table.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// Is the column hidden? Defaults to `false`.
+	Hidden pulumi.BoolPtrInput `pulumi:"hidden"`
+	// The name which should be used for this Log Analytics Workspace Table Microsoft. Possible values are `Alert`, `AppCenterError`, `ComputerGroup`, `InsightsMetrics`, `Operation` and `Usage`. Changing this forces a new Log Analytics Workspace Table Microsoft to be created.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The type of the column.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// The type hint of the column.
+	TypeHint pulumi.StringPtrInput `pulumi:"typeHint"`
+}
+
+func (WorkspaceTableMicrosoftStandardColumnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTableMicrosoftStandardColumn)(nil)).Elem()
+}
+
+func (i WorkspaceTableMicrosoftStandardColumnArgs) ToWorkspaceTableMicrosoftStandardColumnOutput() WorkspaceTableMicrosoftStandardColumnOutput {
+	return i.ToWorkspaceTableMicrosoftStandardColumnOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTableMicrosoftStandardColumnArgs) ToWorkspaceTableMicrosoftStandardColumnOutputWithContext(ctx context.Context) WorkspaceTableMicrosoftStandardColumnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTableMicrosoftStandardColumnOutput)
+}
+
+// WorkspaceTableMicrosoftStandardColumnArrayInput is an input type that accepts WorkspaceTableMicrosoftStandardColumnArray and WorkspaceTableMicrosoftStandardColumnArrayOutput values.
+// You can construct a concrete instance of `WorkspaceTableMicrosoftStandardColumnArrayInput` via:
+//
+//	WorkspaceTableMicrosoftStandardColumnArray{ WorkspaceTableMicrosoftStandardColumnArgs{...} }
+type WorkspaceTableMicrosoftStandardColumnArrayInput interface {
+	pulumi.Input
+
+	ToWorkspaceTableMicrosoftStandardColumnArrayOutput() WorkspaceTableMicrosoftStandardColumnArrayOutput
+	ToWorkspaceTableMicrosoftStandardColumnArrayOutputWithContext(context.Context) WorkspaceTableMicrosoftStandardColumnArrayOutput
+}
+
+type WorkspaceTableMicrosoftStandardColumnArray []WorkspaceTableMicrosoftStandardColumnInput
+
+func (WorkspaceTableMicrosoftStandardColumnArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTableMicrosoftStandardColumn)(nil)).Elem()
+}
+
+func (i WorkspaceTableMicrosoftStandardColumnArray) ToWorkspaceTableMicrosoftStandardColumnArrayOutput() WorkspaceTableMicrosoftStandardColumnArrayOutput {
+	return i.ToWorkspaceTableMicrosoftStandardColumnArrayOutputWithContext(context.Background())
+}
+
+func (i WorkspaceTableMicrosoftStandardColumnArray) ToWorkspaceTableMicrosoftStandardColumnArrayOutputWithContext(ctx context.Context) WorkspaceTableMicrosoftStandardColumnArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceTableMicrosoftStandardColumnArrayOutput)
+}
+
+type WorkspaceTableMicrosoftStandardColumnOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTableMicrosoftStandardColumnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceTableMicrosoftStandardColumn)(nil)).Elem()
+}
+
+func (o WorkspaceTableMicrosoftStandardColumnOutput) ToWorkspaceTableMicrosoftStandardColumnOutput() WorkspaceTableMicrosoftStandardColumnOutput {
+	return o
+}
+
+func (o WorkspaceTableMicrosoftStandardColumnOutput) ToWorkspaceTableMicrosoftStandardColumnOutputWithContext(ctx context.Context) WorkspaceTableMicrosoftStandardColumnOutput {
+	return o
+}
+
+// A description of the table.
+func (o WorkspaceTableMicrosoftStandardColumnOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftStandardColumn) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the column defaults to being displayed. Defaults to `true`.
+func (o WorkspaceTableMicrosoftStandardColumnOutput) DisplayByDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftStandardColumn) *bool { return v.DisplayByDefault }).(pulumi.BoolPtrOutput)
+}
+
+// The display name of the table.
+func (o WorkspaceTableMicrosoftStandardColumnOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftStandardColumn) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// Is the column hidden? Defaults to `false`.
+func (o WorkspaceTableMicrosoftStandardColumnOutput) Hidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftStandardColumn) *bool { return v.Hidden }).(pulumi.BoolPtrOutput)
+}
+
+// The name which should be used for this Log Analytics Workspace Table Microsoft. Possible values are `Alert`, `AppCenterError`, `ComputerGroup`, `InsightsMetrics`, `Operation` and `Usage`. Changing this forces a new Log Analytics Workspace Table Microsoft to be created.
+func (o WorkspaceTableMicrosoftStandardColumnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftStandardColumn) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The type of the column.
+func (o WorkspaceTableMicrosoftStandardColumnOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftStandardColumn) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// The type hint of the column.
+func (o WorkspaceTableMicrosoftStandardColumnOutput) TypeHint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceTableMicrosoftStandardColumn) *string { return v.TypeHint }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceTableMicrosoftStandardColumnArrayOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceTableMicrosoftStandardColumnArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WorkspaceTableMicrosoftStandardColumn)(nil)).Elem()
+}
+
+func (o WorkspaceTableMicrosoftStandardColumnArrayOutput) ToWorkspaceTableMicrosoftStandardColumnArrayOutput() WorkspaceTableMicrosoftStandardColumnArrayOutput {
+	return o
+}
+
+func (o WorkspaceTableMicrosoftStandardColumnArrayOutput) ToWorkspaceTableMicrosoftStandardColumnArrayOutputWithContext(ctx context.Context) WorkspaceTableMicrosoftStandardColumnArrayOutput {
+	return o
+}
+
+func (o WorkspaceTableMicrosoftStandardColumnArrayOutput) Index(i pulumi.IntInput) WorkspaceTableMicrosoftStandardColumnOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkspaceTableMicrosoftStandardColumn {
+		return vs[0].([]WorkspaceTableMicrosoftStandardColumn)[vs[1].(int)]
+	}).(WorkspaceTableMicrosoftStandardColumnOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityPtrInput)(nil)).Elem(), ClusterIdentityArgs{})
@@ -484,10 +777,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableCustomLogColumnArrayInput)(nil)).Elem(), WorkspaceTableCustomLogColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableCustomLogStandardColumnInput)(nil)).Elem(), WorkspaceTableCustomLogStandardColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableCustomLogStandardColumnArrayInput)(nil)).Elem(), WorkspaceTableCustomLogStandardColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableMicrosoftColumnInput)(nil)).Elem(), WorkspaceTableMicrosoftColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableMicrosoftColumnArrayInput)(nil)).Elem(), WorkspaceTableMicrosoftColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableMicrosoftStandardColumnInput)(nil)).Elem(), WorkspaceTableMicrosoftStandardColumnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceTableMicrosoftStandardColumnArrayInput)(nil)).Elem(), WorkspaceTableMicrosoftStandardColumnArray{})
 	pulumi.RegisterOutputType(ClusterIdentityOutput{})
 	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceTableCustomLogColumnOutput{})
 	pulumi.RegisterOutputType(WorkspaceTableCustomLogColumnArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceTableCustomLogStandardColumnOutput{})
 	pulumi.RegisterOutputType(WorkspaceTableCustomLogStandardColumnArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceTableMicrosoftColumnOutput{})
+	pulumi.RegisterOutputType(WorkspaceTableMicrosoftColumnArrayOutput{})
+	pulumi.RegisterOutputType(WorkspaceTableMicrosoftStandardColumnOutput{})
+	pulumi.RegisterOutputType(WorkspaceTableMicrosoftStandardColumnArrayOutput{})
 }

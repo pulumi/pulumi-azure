@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** The Rules resource **must** include a `dependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
  * 
- * &gt; **Note:** Azure Front Door Rule operations are currently affected by a service-side regression where unattached rules or rule sets can fail with `400 Bad Request` until they are associated with a Front Door Route. As a result, unattached and attached scenarios can currently behave differently while the service-side fix is pending.
+ * &gt; **Note:** This resource cannot be used to manage individual rules for a rule set provisioned in batch mode, to manage rules for a batch mode rule set, use `azure.cdn.FrontdoorBatchRuleSet`.
  * 
  * ## Example Usage
  * 
@@ -334,7 +334,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Cdn` - 2024-09-01
+ * * `Microsoft.Cdn` - 2025-12-01
  * 
  * ## Import
  * 
@@ -378,12 +378,16 @@ public class FrontdoorRule extends com.pulumi.resources.CustomResource {
     /**
      * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      * 
+     * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
+     * 
      */
     @Export(name="cdnFrontdoorRuleSetId", refs={String.class}, tree="[0]")
     private Output<String> cdnFrontdoorRuleSetId;
 
     /**
      * @return The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+     * 
+     * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
      * 
      */
     public Output<String> cdnFrontdoorRuleSetId() {

@@ -86,6 +86,18 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("primary")]
         public Input<bool>? Primary { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         public OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs()
         {
         }

@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  *             .name("example-keyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .accessPolicies(            

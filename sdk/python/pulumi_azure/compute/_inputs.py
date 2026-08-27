@@ -2205,18 +2205,20 @@ class LinuxVirtualMachineScaleSetDataDiskArgsDict(TypedDict):
 
     > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
     """
+    disk_iops_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+    """
+    disk_mbps_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+    """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Data Disk.
     """
     ultra_ssd_disk_iops_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-    """
     ultra_ssd_disk_mbps_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-    """
     write_accelerator_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -2233,6 +2235,8 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
                  storage_account_type: pulumi.Input[_builtins.str],
                  create_option: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  ultra_ssd_disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  ultra_ssd_disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
@@ -2250,9 +2254,9 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
                > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
                
                > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        :param pulumi.Input[_builtins.int] disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        :param pulumi.Input[_builtins.int] disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[_builtins.str] name: The name of the Data Disk.
-        :param pulumi.Input[_builtins.int] ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        :param pulumi.Input[_builtins.int] ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
                
                > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -2265,10 +2269,20 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_write is not None:
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if ultra_ssd_disk_iops_read_write is not None:
+            warnings.warn("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""", DeprecationWarning)
+            pulumi.log.warn("""ultra_ssd_disk_iops_read_write is deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
+        if ultra_ssd_disk_iops_read_write is not None:
             pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
+        if ultra_ssd_disk_mbps_read_write is not None:
+            warnings.warn("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""", DeprecationWarning)
+            pulumi.log.warn("""ultra_ssd_disk_mbps_read_write is deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
         if ultra_ssd_disk_mbps_read_write is not None:
             pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
@@ -2353,6 +2367,30 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @disk_iops_read_write.setter
+    def disk_iops_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "disk_iops_read_write", value)
+
+    @_builtins.property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @disk_mbps_read_write.setter
+    def disk_mbps_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "disk_mbps_read_write", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -2366,10 +2404,8 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
     def ultra_ssd_disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
         return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
 
     @ultra_ssd_disk_iops_read_write.setter
@@ -2378,10 +2414,8 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
     def ultra_ssd_disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
         return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @ultra_ssd_disk_mbps_read_write.setter
@@ -5352,6 +5386,10 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict(TypedDict):
 
     > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
     """
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+    """
 
 @pulumi.input_type
 class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
@@ -5364,7 +5402,8 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
                  enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_ip_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 primary: pulumi.Input[Optional[_builtins.bool]] = None):
+                 primary: pulumi.Input[Optional[_builtins.bool]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
@@ -5383,6 +5422,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
         :param pulumi.Input[_builtins.bool] primary: Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
                
                > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
@@ -5400,6 +5440,8 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
             pulumi.set(__self__, "network_security_group_id", network_security_group_id)
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
@@ -5516,6 +5558,18 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @primary.setter
     def primary(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "primary", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgsDict(TypedDict):
@@ -13289,18 +13343,20 @@ class WindowsVirtualMachineScaleSetDataDiskArgsDict(TypedDict):
 
     > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
     """
+    disk_iops_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+    """
+    disk_mbps_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+    """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the Data Disk.
     """
     ultra_ssd_disk_iops_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-    """
     ultra_ssd_disk_mbps_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-    """
     write_accelerator_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -13317,6 +13373,8 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
                  storage_account_type: pulumi.Input[_builtins.str],
                  create_option: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  ultra_ssd_disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  ultra_ssd_disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
@@ -13334,9 +13392,9 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
                > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
                
                > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        :param pulumi.Input[_builtins.int] disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        :param pulumi.Input[_builtins.int] disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[_builtins.str] name: The name of the Data Disk.
-        :param pulumi.Input[_builtins.int] ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        :param pulumi.Input[_builtins.int] ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
                
                > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -13349,10 +13407,20 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_write is not None:
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if ultra_ssd_disk_iops_read_write is not None:
+            warnings.warn("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""", DeprecationWarning)
+            pulumi.log.warn("""ultra_ssd_disk_iops_read_write is deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
+        if ultra_ssd_disk_iops_read_write is not None:
             pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
+        if ultra_ssd_disk_mbps_read_write is not None:
+            warnings.warn("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""", DeprecationWarning)
+            pulumi.log.warn("""ultra_ssd_disk_mbps_read_write is deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
         if ultra_ssd_disk_mbps_read_write is not None:
             pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
@@ -13437,6 +13505,30 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @disk_iops_read_write.setter
+    def disk_iops_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "disk_iops_read_write", value)
+
+    @_builtins.property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @disk_mbps_read_write.setter
+    def disk_mbps_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "disk_mbps_read_write", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -13450,10 +13542,8 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
     def ultra_ssd_disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
         return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
 
     @ultra_ssd_disk_iops_read_write.setter
@@ -13462,10 +13552,8 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
     def ultra_ssd_disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
         return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @ultra_ssd_disk_mbps_read_write.setter

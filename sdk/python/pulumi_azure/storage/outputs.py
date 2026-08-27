@@ -42,6 +42,10 @@ __all__ = [
     'AccountSharePropertiesRetentionPolicy',
     'AccountSharePropertiesSmb',
     'AccountStaticWebsite',
+    'AccountTablePropertiesCorsRule',
+    'AccountTablePropertiesHourMetrics',
+    'AccountTablePropertiesLogging',
+    'AccountTablePropertiesMinuteMetrics',
     'BlobInventoryPolicyRule',
     'BlobInventoryPolicyRuleFilter',
     'DataLakeGen2FilesystemAce',
@@ -1841,6 +1845,295 @@ class AccountStaticWebsite(dict):
         The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
         """
         return pulumi.get(self, "index_document")
+
+
+@pulumi.output_type
+class AccountTablePropertiesCorsRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedHeaders":
+            suggest = "allowed_headers"
+        elif key == "allowedMethods":
+            suggest = "allowed_methods"
+        elif key == "allowedOrigins":
+            suggest = "allowed_origins"
+        elif key == "exposedHeaders":
+            suggest = "exposed_headers"
+        elif key == "maxAgeInSeconds":
+            suggest = "max_age_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountTablePropertiesCorsRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountTablePropertiesCorsRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountTablePropertiesCorsRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_headers: Sequence[_builtins.str],
+                 allowed_methods: Sequence[_builtins.str],
+                 allowed_origins: Sequence[_builtins.str],
+                 exposed_headers: Sequence[_builtins.str],
+                 max_age_in_seconds: _builtins.int):
+        """
+        :param Sequence[_builtins.str] allowed_headers: A list of headers that are allowed to be a part of the cross-origin request.
+        :param Sequence[_builtins.str] allowed_methods: A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        :param Sequence[_builtins.str] allowed_origins: A list of origin domains that will be allowed by CORS.
+        :param Sequence[_builtins.str] exposed_headers: A list of response headers that are exposed to CORS clients.
+        :param _builtins.int max_age_in_seconds: The number of seconds the client should cache a preflight response.
+        """
+        pulumi.set(__self__, "allowed_headers", allowed_headers)
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
+        pulumi.set(__self__, "allowed_origins", allowed_origins)
+        pulumi.set(__self__, "exposed_headers", exposed_headers)
+        pulumi.set(__self__, "max_age_in_seconds", max_age_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedHeaders")
+    def allowed_headers(self) -> Sequence[_builtins.str]:
+        """
+        A list of headers that are allowed to be a part of the cross-origin request.
+        """
+        return pulumi.get(self, "allowed_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> Sequence[_builtins.str]:
+        """
+        A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedOrigins")
+    def allowed_origins(self) -> Sequence[_builtins.str]:
+        """
+        A list of origin domains that will be allowed by CORS.
+        """
+        return pulumi.get(self, "allowed_origins")
+
+    @_builtins.property
+    @pulumi.getter(name="exposedHeaders")
+    def exposed_headers(self) -> Sequence[_builtins.str]:
+        """
+        A list of response headers that are exposed to CORS clients.
+        """
+        return pulumi.get(self, "exposed_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="maxAgeInSeconds")
+    def max_age_in_seconds(self) -> _builtins.int:
+        """
+        The number of seconds the client should cache a preflight response.
+        """
+        return pulumi.get(self, "max_age_in_seconds")
+
+
+@pulumi.output_type
+class AccountTablePropertiesHourMetrics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeApis":
+            suggest = "include_apis"
+        elif key == "retentionPolicyDays":
+            suggest = "retention_policy_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountTablePropertiesHourMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountTablePropertiesHourMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountTablePropertiesHourMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 version: _builtins.str,
+                 include_apis: Optional[_builtins.bool] = None,
+                 retention_policy_days: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str version: The version of storage analytics to configure.
+        :param _builtins.bool include_apis: Indicates whether metrics should generate summary statistics for called API operations.
+        :param _builtins.int retention_policy_days: Specifies the number of days that logs will be retained.
+        """
+        pulumi.set(__self__, "version", version)
+        if include_apis is not None:
+            pulumi.set(__self__, "include_apis", include_apis)
+        if retention_policy_days is not None:
+            pulumi.set(__self__, "retention_policy_days", retention_policy_days)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        The version of storage analytics to configure.
+        """
+        return pulumi.get(self, "version")
+
+    @_builtins.property
+    @pulumi.getter(name="includeApis")
+    def include_apis(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether metrics should generate summary statistics for called API operations.
+        """
+        return pulumi.get(self, "include_apis")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPolicyDays")
+    def retention_policy_days(self) -> Optional[_builtins.int]:
+        """
+        Specifies the number of days that logs will be retained.
+        """
+        return pulumi.get(self, "retention_policy_days")
+
+
+@pulumi.output_type
+class AccountTablePropertiesLogging(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPolicyDays":
+            suggest = "retention_policy_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountTablePropertiesLogging. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountTablePropertiesLogging.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountTablePropertiesLogging.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 delete: _builtins.bool,
+                 read: _builtins.bool,
+                 version: _builtins.str,
+                 write: _builtins.bool,
+                 retention_policy_days: Optional[_builtins.int] = None):
+        """
+        :param _builtins.bool delete: Indicates whether all delete requests should be logged.
+        :param _builtins.bool read: Indicates whether all read requests should be logged.
+        :param _builtins.str version: The version of storage analytics to configure.
+        :param _builtins.bool write: Indicates whether all write requests should be logged.
+        :param _builtins.int retention_policy_days: Specifies the number of days that logs will be retained.
+        """
+        pulumi.set(__self__, "delete", delete)
+        pulumi.set(__self__, "read", read)
+        pulumi.set(__self__, "version", version)
+        pulumi.set(__self__, "write", write)
+        if retention_policy_days is not None:
+            pulumi.set(__self__, "retention_policy_days", retention_policy_days)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> _builtins.bool:
+        """
+        Indicates whether all delete requests should be logged.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def read(self) -> _builtins.bool:
+        """
+        Indicates whether all read requests should be logged.
+        """
+        return pulumi.get(self, "read")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        The version of storage analytics to configure.
+        """
+        return pulumi.get(self, "version")
+
+    @_builtins.property
+    @pulumi.getter
+    def write(self) -> _builtins.bool:
+        """
+        Indicates whether all write requests should be logged.
+        """
+        return pulumi.get(self, "write")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPolicyDays")
+    def retention_policy_days(self) -> Optional[_builtins.int]:
+        """
+        Specifies the number of days that logs will be retained.
+        """
+        return pulumi.get(self, "retention_policy_days")
+
+
+@pulumi.output_type
+class AccountTablePropertiesMinuteMetrics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "includeApis":
+            suggest = "include_apis"
+        elif key == "retentionPolicyDays":
+            suggest = "retention_policy_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountTablePropertiesMinuteMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountTablePropertiesMinuteMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountTablePropertiesMinuteMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 version: _builtins.str,
+                 include_apis: Optional[_builtins.bool] = None,
+                 retention_policy_days: Optional[_builtins.int] = None):
+        """
+        :param _builtins.str version: The version of storage analytics to configure.
+        :param _builtins.bool include_apis: Indicates whether metrics should generate summary statistics for called API operations.
+        :param _builtins.int retention_policy_days: Specifies the number of days that logs will be retained.
+        """
+        pulumi.set(__self__, "version", version)
+        if include_apis is not None:
+            pulumi.set(__self__, "include_apis", include_apis)
+        if retention_policy_days is not None:
+            pulumi.set(__self__, "retention_policy_days", retention_policy_days)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> _builtins.str:
+        """
+        The version of storage analytics to configure.
+        """
+        return pulumi.get(self, "version")
+
+    @_builtins.property
+    @pulumi.getter(name="includeApis")
+    def include_apis(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether metrics should generate summary statistics for called API operations.
+        """
+        return pulumi.get(self, "include_apis")
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPolicyDays")
+    def retention_policy_days(self) -> Optional[_builtins.int]:
+        """
+        Specifies the number of days that logs will be retained.
+        """
+        return pulumi.get(self, "retention_policy_days")
 
 
 @pulumi.output_type

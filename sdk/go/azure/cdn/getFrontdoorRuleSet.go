@@ -13,6 +13,8 @@ import (
 
 // Use this data source to access information about an existing Front Door (standard/premium) Rule Set.
 //
+// > **Note:** This data source can only read Rule Sets that were not provisioned in batch mode. Use the `cdn.FrontdoorBatchRuleSet` data source for Rule Sets that were provisioned in batch mode.
+//
 // ## Example Usage
 //
 // ```go
@@ -46,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Cdn` - 2024-02-01
+// * `Microsoft.Cdn` - 2025-12-01
 func LookupFrontdoorRuleSet(ctx *pulumi.Context, args *LookupFrontdoorRuleSetArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorRuleSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorRuleSetResult

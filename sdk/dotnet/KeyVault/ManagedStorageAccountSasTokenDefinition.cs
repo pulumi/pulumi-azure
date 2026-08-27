@@ -78,6 +78,7 @@ namespace Pulumi.Azure.KeyVault
     ///         Name = "example-keyvault",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         TenantId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         AccessPolicies = new[]

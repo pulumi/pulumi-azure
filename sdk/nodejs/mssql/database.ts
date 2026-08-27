@@ -77,6 +77,7 @@ import * as utilities from "../utilities";
  *     name: "mssqltdeexample",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     enabledForDiskEncryption: true,
  *     tenantId: exampleUserAssignedIdentity.tenantId,
  *     softDeleteRetentionDays: 7,

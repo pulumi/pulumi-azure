@@ -35,6 +35,18 @@ namespace Pulumi.Azure.Compute.Inputs
         public Input<string>? DiskEncryptionSetId { get; set; }
 
         /// <summary>
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// </summary>
+        [Input("diskIopsReadWrite")]
+        public Input<int>? DiskIopsReadWrite { get; set; }
+
+        /// <summary>
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// </summary>
+        [Input("diskMbpsReadWrite")]
+        public Input<int>? DiskMbpsReadWrite { get; set; }
+
+        /// <summary>
         /// The size of the Data Disk which should be created.
         /// </summary>
         [Input("diskSizeGb", required: true)]
@@ -60,15 +72,9 @@ namespace Pulumi.Azure.Compute.Inputs
         [Input("storageAccountType", required: true)]
         public Input<string> StorageAccountType { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        /// </summary>
         [Input("ultraSsdDiskIopsReadWrite")]
         public Input<int>? UltraSsdDiskIopsReadWrite { get; set; }
 
-        /// <summary>
-        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        /// </summary>
         [Input("ultraSsdDiskMbpsReadWrite")]
         public Input<int>? UltraSsdDiskMbpsReadWrite { get; set; }
 

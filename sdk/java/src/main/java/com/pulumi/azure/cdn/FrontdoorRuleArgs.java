@@ -52,12 +52,16 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
      * 
+     * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
+     * 
      */
     @Import(name="cdnFrontdoorRuleSetId", required=true)
     private Output<String> cdnFrontdoorRuleSetId;
 
     /**
      * @return The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+     * 
+     * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
      * 
      */
     public Output<String> cdnFrontdoorRuleSetId() {
@@ -187,6 +191,8 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param cdnFrontdoorRuleSetId The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
          * 
+         * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
+         * 
          * @return builder
          * 
          */
@@ -197,6 +203,8 @@ public final class FrontdoorRuleArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param cdnFrontdoorRuleSetId The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+         * 
+         * &gt; **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
          * 
          * @return builder
          * 

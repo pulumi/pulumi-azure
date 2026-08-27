@@ -144,6 +144,11 @@ public final class GetStandardResult {
      */
     private String storageAccountShareName;
     /**
+     * @return The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+     * 
+     */
+    private String storageKeyVaultSecretId;
+    /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
@@ -344,6 +349,13 @@ public final class GetStandardResult {
         return this.storageAccountShareName;
     }
     /**
+     * @return The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+     * 
+     */
+    public String storageKeyVaultSecretId() {
+        return this.storageKeyVaultSecretId;
+    }
+    /**
      * @return A mapping of tags assigned to the resource.
      * 
      */
@@ -407,6 +419,7 @@ public final class GetStandardResult {
         private String storageAccountAccessKey;
         private String storageAccountName;
         private String storageAccountShareName;
+        private String storageKeyVaultSecretId;
         private Map<String,String> tags;
         private Boolean useExtensionBundle;
         private String version;
@@ -440,6 +453,7 @@ public final class GetStandardResult {
     	      this.storageAccountAccessKey = defaults.storageAccountAccessKey;
     	      this.storageAccountName = defaults.storageAccountName;
     	      this.storageAccountShareName = defaults.storageAccountShareName;
+    	      this.storageKeyVaultSecretId = defaults.storageKeyVaultSecretId;
     	      this.tags = defaults.tags;
     	      this.useExtensionBundle = defaults.useExtensionBundle;
     	      this.version = defaults.version;
@@ -664,6 +678,14 @@ public final class GetStandardResult {
             return this;
         }
         @CustomType.Setter
+        public Builder storageKeyVaultSecretId(String storageKeyVaultSecretId) {
+            if (storageKeyVaultSecretId == null) {
+              throw new MissingRequiredPropertyException("GetStandardResult", "storageKeyVaultSecretId");
+            }
+            this.storageKeyVaultSecretId = storageKeyVaultSecretId;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetStandardResult", "tags");
@@ -723,6 +745,7 @@ public final class GetStandardResult {
             _resultValue.storageAccountAccessKey = storageAccountAccessKey;
             _resultValue.storageAccountName = storageAccountName;
             _resultValue.storageAccountShareName = storageAccountShareName;
+            _resultValue.storageKeyVaultSecretId = storageKeyVaultSecretId;
             _resultValue.tags = tags;
             _resultValue.useExtensionBundle = useExtensionBundle;
             _resultValue.version = version;

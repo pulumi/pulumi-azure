@@ -25,7 +25,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         /// 
         /// &gt; **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
         /// 
-        /// &gt; **Note:** When `CertificateType` is `ManagedCertificate`, `HostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+        /// &gt; **Note:** When `CertificateType` is `ManagedCertificate`, `HostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
         /// </summary>
         [Input("certificateType")]
         public Input<string>? CertificateType { get; set; }

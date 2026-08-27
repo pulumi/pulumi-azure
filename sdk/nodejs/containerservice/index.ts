@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AutomaticClusterArgs, AutomaticClusterState } from "./automaticCluster";
+export type AutomaticCluster = import("./automaticCluster").AutomaticCluster;
+export const AutomaticCluster: typeof import("./automaticCluster").AutomaticCluster = null as any;
+utilities.lazyLoad(exports, ["AutomaticCluster"], () => require("./automaticCluster"));
+
 export { ClusterDeploymentSafeguardArgs, ClusterDeploymentSafeguardState } from "./clusterDeploymentSafeguard";
 export type ClusterDeploymentSafeguard = import("./clusterDeploymentSafeguard").ClusterDeploymentSafeguard;
 export const ClusterDeploymentSafeguard: typeof import("./clusterDeploymentSafeguard").ClusterDeploymentSafeguard = null as any;
@@ -175,6 +180,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:containerservice/automaticCluster:AutomaticCluster":
+                return new AutomaticCluster(name, <any>undefined, { urn })
             case "azure:containerservice/clusterDeploymentSafeguard:ClusterDeploymentSafeguard":
                 return new ClusterDeploymentSafeguard(name, <any>undefined, { urn })
             case "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding":
@@ -226,6 +233,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "containerservice/automaticCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/clusterDeploymentSafeguard", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/clusterTrustedAccessRoleBinding", _module)
 pulumi.runtime.registerResourceModule("azure", "containerservice/connectedRegistry", _module)

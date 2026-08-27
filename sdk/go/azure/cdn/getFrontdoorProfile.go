@@ -47,7 +47,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.Cdn` - 2024-02-01
+// * `Microsoft.Cdn` - 2025-12-01
 func LookupFrontdoorProfile(ctx *pulumi.Context, args *LookupFrontdoorProfileArgs, opts ...pulumi.InvokeOption) (*LookupFrontdoorProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupFrontdoorProfileResult

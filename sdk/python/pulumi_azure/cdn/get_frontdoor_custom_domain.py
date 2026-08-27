@@ -172,7 +172,7 @@ def get_frontdoor_custom_domain(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-04-15
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: The name of the Front Door Custom Domain.
@@ -220,7 +220,7 @@ def get_frontdoor_custom_domain_output(name: pulumi.Input[Optional[_builtins.str
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2025-04-15
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: The name of the Front Door Custom Domain.

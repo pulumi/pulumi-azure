@@ -289,6 +289,7 @@ class CertificateIssuer(pulumi.CustomResource):
             name="examplekeyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             sku_name="standard",
             tenant_id=current.tenant_id)
         example_certificate_issuer = azure.keyvault.CertificateIssuer("example",
@@ -342,6 +343,7 @@ class CertificateIssuer(pulumi.CustomResource):
             name="examplekeyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             sku_name="standard",
             tenant_id=current.tenant_id)
         example_certificate_issuer = azure.keyvault.CertificateIssuer("example",

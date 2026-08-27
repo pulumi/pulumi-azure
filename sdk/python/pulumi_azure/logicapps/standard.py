@@ -23,8 +23,6 @@ class StandardArgs:
     def __init__(__self__, *,
                  app_service_plan_id: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
-                 storage_account_access_key: pulumi.Input[_builtins.str],
-                 storage_account_name: pulumi.Input[_builtins.str],
                  app_settings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  bundle_version: pulumi.Input[Optional[_builtins.str]] = None,
                  client_affinity_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -40,7 +38,10 @@ class StandardArgs:
                  public_network_access: pulumi.Input[Optional[_builtins.str]] = None,
                  scm_publish_basic_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  site_config: pulumi.Input[Optional['StandardSiteConfigArgs']] = None,
+                 storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -51,11 +52,9 @@ class StandardArgs:
 
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
-        :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
-               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
@@ -74,11 +73,18 @@ class StandardArgs:
                > **Note:** Setting this property will also set it in the Site Config.
         :param pulumi.Input[_builtins.bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
+        :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App. Required when `storage_account_name` is specified. Conflicts with `storage_key_vault_secret_id`.
+        :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
         :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
                
                > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
                
                > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        :param pulumi.Input[_builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
+               
+               > **Note:** When using `storage_key_vault_secret_id`, a `key_vault_reference_identity_id` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+               
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] version: The runtime version associated with the Logic App. Defaults to `~4`.
@@ -91,8 +97,6 @@ class StandardArgs:
         """
         pulumi.set(__self__, "app_service_plan_id", app_service_plan_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
         if app_settings is not None:
             pulumi.set(__self__, "app_settings", app_settings)
         if bundle_version is not None:
@@ -123,8 +127,14 @@ class StandardArgs:
             pulumi.set(__self__, "scm_publish_basic_authentication_enabled", scm_publish_basic_authentication_enabled)
         if site_config is not None:
             pulumi.set(__self__, "site_config", site_config)
+        if storage_account_access_key is not None:
+            pulumi.set(__self__, "storage_account_access_key", storage_account_access_key)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
         if storage_account_share_name is not None:
             pulumi.set(__self__, "storage_account_share_name", storage_account_share_name)
+        if storage_key_vault_secret_id is not None:
+            pulumi.set(__self__, "storage_key_vault_secret_id", storage_key_vault_secret_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if use_extension_bundle is not None:
@@ -161,36 +171,12 @@ class StandardArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        The access key which will be used to access the backend storage account for the Logic App.
-        """
-        return pulumi.get(self, "storage_account_access_key")
-
-    @storage_account_access_key.setter
-    def storage_account_access_key(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_account_access_key", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_account_name")
-
-    @storage_account_name.setter
-    def storage_account_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_account_name", value)
-
-    @_builtins.property
     @pulumi.getter(name="appSettings")
     def app_settings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
-        > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
 
@@ -371,6 +357,30 @@ class StandardArgs:
         pulumi.set(self, "site_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="storageAccountAccessKey")
+    def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The access key which will be used to access the backend storage account for the Logic App. Required when `storage_account_name` is specified. Conflicts with `storage_key_vault_secret_id`.
+        """
+        return pulumi.get(self, "storage_account_access_key")
+
+    @storage_account_access_key.setter
+    def storage_account_access_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_account_access_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
+        """
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_account_name", value)
+
+    @_builtins.property
     @pulumi.getter(name="storageAccountShareName")
     def storage_account_share_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -385,6 +395,22 @@ class StandardArgs:
     @storage_account_share_name.setter
     def storage_account_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_share_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageKeyVaultSecretId")
+    def storage_key_vault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
+
+        > **Note:** When using `storage_key_vault_secret_id`, a `key_vault_reference_identity_id` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        """
+        return pulumi.get(self, "storage_key_vault_secret_id")
+
+    @storage_key_vault_secret_id.setter
+    def storage_key_vault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_key_vault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -480,6 +506,7 @@ class _StandardState:
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -491,7 +518,7 @@ class _StandardState:
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
-               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
@@ -517,13 +544,18 @@ class _StandardState:
         :param pulumi.Input[_builtins.bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input['StandardSiteConfigArgs'] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['StandardSiteCredentialArgs']]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
-        :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App. Required when `storage_account_name` is specified. Conflicts with `storage_key_vault_secret_id`.
+        :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
         :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
                
                > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
                
                > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        :param pulumi.Input[_builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
+               
+               > **Note:** When using `storage_key_vault_secret_id`, a `key_vault_reference_identity_id` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+               
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] version: The runtime version associated with the Logic App. Defaults to `~4`.
@@ -586,6 +618,8 @@ class _StandardState:
             pulumi.set(__self__, "storage_account_name", storage_account_name)
         if storage_account_share_name is not None:
             pulumi.set(__self__, "storage_account_share_name", storage_account_share_name)
+        if storage_key_vault_secret_id is not None:
+            pulumi.set(__self__, "storage_key_vault_secret_id", storage_key_vault_secret_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if use_extension_bundle is not None:
@@ -615,7 +649,7 @@ class _StandardState:
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
-        > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
 
@@ -883,7 +917,7 @@ class _StandardState:
     @pulumi.getter(name="storageAccountAccessKey")
     def storage_account_access_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The access key which will be used to access the backend storage account for the Logic App.
+        The access key which will be used to access the backend storage account for the Logic App. Required when `storage_account_name` is specified. Conflicts with `storage_key_vault_secret_id`.
         """
         return pulumi.get(self, "storage_account_access_key")
 
@@ -895,7 +929,7 @@ class _StandardState:
     @pulumi.getter(name="storageAccountName")
     def storage_account_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -918,6 +952,22 @@ class _StandardState:
     @storage_account_share_name.setter
     def storage_account_share_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "storage_account_share_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageKeyVaultSecretId")
+    def storage_key_vault_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
+
+        > **Note:** When using `storage_key_vault_secret_id`, a `key_vault_reference_identity_id` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        """
+        return pulumi.get(self, "storage_key_vault_secret_id")
+
+    @storage_key_vault_secret_id.setter
+    def storage_key_vault_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_key_vault_secret_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1010,6 +1060,7 @@ class Standard(pulumi.CustomResource):
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1114,7 +1165,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
-               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
@@ -1134,13 +1185,18 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
-        :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
-        :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App. Required when `storage_account_name` is specified. Conflicts with `storage_key_vault_secret_id`.
+        :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
         :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
                
                > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
                
                > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        :param pulumi.Input[_builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
+               
+               > **Note:** When using `storage_key_vault_secret_id`, a `key_vault_reference_identity_id` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+               
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] version: The runtime version associated with the Logic App. Defaults to `~4`.
@@ -1285,6 +1341,7 @@ class Standard(pulumi.CustomResource):
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1320,13 +1377,10 @@ class Standard(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scm_publish_basic_authentication_enabled"] = scm_publish_basic_authentication_enabled
             __props__.__dict__["site_config"] = site_config
-            if storage_account_access_key is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_access_key'")
             __props__.__dict__["storage_account_access_key"] = None if storage_account_access_key is None else pulumi.Output.secret(storage_account_access_key)
-            if storage_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_account_name'")
             __props__.__dict__["storage_account_name"] = storage_account_name
             __props__.__dict__["storage_account_share_name"] = storage_account_share_name
+            __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["use_extension_bundle"] = use_extension_bundle
             __props__.__dict__["version"] = version
@@ -1376,6 +1430,7 @@ class Standard(pulumi.CustomResource):
             storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_name: pulumi.Input[Optional[_builtins.str]] = None,
             storage_account_share_name: pulumi.Input[Optional[_builtins.str]] = None,
+            storage_key_vault_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             use_extension_bundle: pulumi.Input[Optional[_builtins.bool]] = None,
             version: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1391,7 +1446,7 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_service_plan_id: The ID of the App Service Plan within which to create this Logic App.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] app_settings: A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
                
-               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+               > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
         :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
@@ -1417,13 +1472,18 @@ class Standard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] scm_publish_basic_authentication_enabled: Whether the default SCM basic authentication publishing profile is enabled. Defaults to `true`.
         :param pulumi.Input[Union['StandardSiteConfigArgs', 'StandardSiteConfigArgsDict']] site_config: A `site_config` object as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardSiteCredentialArgs', 'StandardSiteCredentialArgsDict']]]] site_credentials: A `site_credential` block as defined below, which contains the site-level credentials used to publish to this App Service.
-        :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App.
-        :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] storage_account_access_key: The access key which will be used to access the backend storage account for the Logic App. Required when `storage_account_name` is specified. Conflicts with `storage_key_vault_secret_id`.
+        :param pulumi.Input[_builtins.str] storage_account_name: The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
         :param pulumi.Input[_builtins.str] storage_account_share_name: The name of the share used by the logic app, if you want to use a custom name. This corresponds to the WEBSITE_CONTENTSHARE appsetting, which this resource will create for you. If you don't specify a name, then this resource will generate a dynamic name. This setting is useful if you want to provision a storage account and create a share using `storage.Share`.
                
                > **Note:** When integrating a `CI/CD pipeline` and expecting to run from a deployed package in `Azure` you must seed your `app settings` as part of terraform code for Logic App to be successfully deployed. `Important Default key pairs`: (`"WEBSITE_RUN_FROM_PACKAGE" = ""`, `"FUNCTIONS_WORKER_RUNTIME" = "node"` (or Python, etc.), `"WEBSITE_NODE_DEFAULT_VERSION" = "10.14.1"`, `"APPINSIGHTS_INSTRUMENTATIONKEY" = ""`).
                
                > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
+        :param pulumi.Input[_builtins.str] storage_key_vault_secret_id: The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
+               
+               > **Note:** When using `storage_key_vault_secret_id`, a `key_vault_reference_identity_id` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+               
+               > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[_builtins.bool] use_extension_bundle: Should the logic app use the bundled extension package? If true, then application settings for `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` will be created. Defaults to `true`.
         :param pulumi.Input[_builtins.str] version: The runtime version associated with the Logic App. Defaults to `~4`.
@@ -1464,6 +1524,7 @@ class Standard(pulumi.CustomResource):
         __props__.__dict__["storage_account_access_key"] = storage_account_access_key
         __props__.__dict__["storage_account_name"] = storage_account_name
         __props__.__dict__["storage_account_share_name"] = storage_account_share_name
+        __props__.__dict__["storage_key_vault_secret_id"] = storage_key_vault_secret_id
         __props__.__dict__["tags"] = tags
         __props__.__dict__["use_extension_bundle"] = use_extension_bundle
         __props__.__dict__["version"] = version
@@ -1485,7 +1546,7 @@ class Standard(pulumi.CustomResource):
         """
         A map of key-value pairs for [App Settings](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) and custom values.
 
-        > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
+        > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         """
         return pulumi.get(self, "app_settings")
 
@@ -1663,17 +1724,17 @@ class Standard(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="storageAccountAccessKey")
-    def storage_account_access_key(self) -> pulumi.Output[_builtins.str]:
+    def storage_account_access_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The access key which will be used to access the backend storage account for the Logic App.
+        The access key which will be used to access the backend storage account for the Logic App. Required when `storage_account_name` is specified. Conflicts with `storage_key_vault_secret_id`.
         """
         return pulumi.get(self, "storage_account_access_key")
 
     @_builtins.property
     @pulumi.getter(name="storageAccountName")
-    def storage_account_name(self) -> pulumi.Output[_builtins.str]:
+    def storage_account_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Changing this forces a new resource to be created.
+        The backend storage account name which will be used by this Logic App (e.g. for Stateful workflows data). Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -1688,6 +1749,18 @@ class Standard(pulumi.CustomResource):
         > **Note:** When using an App Service Plan in the `Free` or `Shared` Tiers `use_32_bit_worker_process` must be set to `true`.
         """
         return pulumi.get(self, "storage_account_share_name")
+
+    @_builtins.property
+    @pulumi.getter(name="storageKeyVaultSecretId")
+    def storage_key_vault_secret_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App. Exactly one of `storage_account_name` or `storage_key_vault_secret_id` must be specified.
+
+        > **Note:** When using `storage_key_vault_secret_id`, a `key_vault_reference_identity_id` must be set and the corresponding identity must have `Get` and `List` secret permissions on the Key Vault.
+
+        > **Note:** `storage_key_vault_secret_id` used without a version will use the latest version of the secret, however, the service can take up to 24h to pick up a rotation of the latest version. See the [official docs](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references#rotation) for more information.
+        """
+        return pulumi.get(self, "storage_key_vault_secret_id")
 
     @_builtins.property
     @pulumi.getter

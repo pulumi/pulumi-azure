@@ -7,7 +7,7 @@ import * as outputs from "../types/output";
 
 export interface ProviderEnhancedValidation {
     /**
-     * Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+     * Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
      */
     locations?: pulumi.Input<boolean | undefined>;
     /**
@@ -22,6 +22,7 @@ export interface ProviderFeatures {
     applicationInsights?: pulumi.Input<inputs.ProviderFeaturesApplicationInsights | undefined>;
     cognitiveAccount?: pulumi.Input<inputs.ProviderFeaturesCognitiveAccount | undefined>;
     databricksWorkspace?: pulumi.Input<inputs.ProviderFeaturesDatabricksWorkspace | undefined>;
+    enhancedValidation?: pulumi.Input<inputs.ProviderFeaturesEnhancedValidation | undefined>;
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault | undefined>;
     logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace | undefined>;
     machineLearning?: pulumi.Input<inputs.ProviderFeaturesMachineLearning | undefined>;
@@ -35,6 +36,7 @@ export interface ProviderFeatures {
     recoveryService?: pulumi.Input<inputs.ProviderFeaturesRecoveryService | undefined>;
     recoveryServicesVaults?: pulumi.Input<inputs.ProviderFeaturesRecoveryServicesVaults | undefined>;
     resourceGroup?: pulumi.Input<inputs.ProviderFeaturesResourceGroup | undefined>;
+    servicebus?: pulumi.Input<inputs.ProviderFeaturesServicebus | undefined>;
     /**
      * Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
      */
@@ -69,6 +71,25 @@ export interface ProviderFeaturesDatabricksWorkspace {
      * When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
      */
     forceDelete?: pulumi.Input<boolean | undefined>;
+}
+
+export interface ProviderFeaturesEnhancedValidation {
+    /**
+     * Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+     */
+    locations?: pulumi.Input<boolean | undefined>;
+    /**
+     * Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+     */
+    preflightEnabled?: pulumi.Input<boolean | undefined>;
+    /**
+     * The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
+     */
+    preflightLocationFallback?: pulumi.Input<string | undefined>;
+    /**
+     * Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+     */
+    resourceProviders?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ProviderFeaturesKeyVault {
@@ -157,6 +178,13 @@ export interface ProviderFeaturesRecoveryServicesVaults {
 
 export interface ProviderFeaturesResourceGroup {
     preventDeletionIfContainsResources?: pulumi.Input<boolean | undefined>;
+}
+
+export interface ProviderFeaturesServicebus {
+    /**
+     * When enabled, the $Default rule is automatically deleted after creating a Service Bus subscription, preventing unfiltered message delivery.
+     */
+    autoDeleteSubscriptionDefaultRule?: pulumi.Input<boolean | undefined>;
 }
 
 export interface ProviderFeaturesStorage {
@@ -1637,9 +1665,15 @@ export namespace apimanagement {
          */
         connectionString?: pulumi.Input<string | undefined>;
         /**
-         * The instrumentation key used to push data to Application Insights.
+         * The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the "Monitoring Metrics Publisher" role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
          *
          * > **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+         *
+         * > **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+         */
+        identityClientId?: pulumi.Input<string | undefined>;
+        /**
+         * The instrumentation key used to push data to Application Insights.
          */
         instrumentationKey?: pulumi.Input<string | undefined>;
     }
@@ -18281,6 +18315,561 @@ export namespace cdn {
         name: pulumi.Input<string>;
     }
 
+    export interface FrontdoorBatchRuleSetRule {
+        /**
+         * An `actions` block as defined below.
+         */
+        actions: pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleActions>;
+        /**
+         * The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+         */
+        behaviourOnMatch?: pulumi.Input<string | undefined>;
+        /**
+         * A `conditions` block as defined below.
+         */
+        conditions?: pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditions | undefined>;
+        /**
+         * The name which should be used for this Front Door Batch Rule.
+         *
+         * > **Note:** `name` must be between `1` and `260` characters in length, begin with a letter, and may contain only letters and numbers.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The order in which this rule will be applied for the Front Door Endpoint. Rules with a lesser `order` value are applied before rules with a greater `order` value. Possible values are `0` or greater.
+         */
+        order: pulumi.Input<number>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleActions {
+        /**
+         * One or more `modifyRequestHeader` blocks as defined below.
+         */
+        modifyRequestHeaders?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleActionsModifyRequestHeader>[] | undefined>;
+        /**
+         * One or more `modifyResponseHeader` blocks as defined below.
+         */
+        modifyResponseHeaders?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleActionsModifyResponseHeader>[] | undefined>;
+        /**
+         * A `routeConfigurationOverride` block as defined below.
+         *
+         * > **Note:** `routeConfigurationOverride` conflicts with `urlRedirect`.
+         */
+        routeConfigurationOverride?: pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverride | undefined>;
+        /**
+         * A `urlRedirect` block as defined below.
+         */
+        urlRedirect?: pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleActionsUrlRedirect | undefined>;
+        /**
+         * A `urlRewrite` block as defined below.
+         *
+         * > **Note:** `urlRewrite` conflicts with `urlRedirect` and vice-versa.
+         */
+        urlRewrite?: pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleActionsUrlRewrite | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleActionsModifyRequestHeader {
+        /**
+         * The name of the header to modify.
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * The value to append or overwrite.
+         *
+         * > **Note:** `headerValue` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
+         */
+        headerValue?: pulumi.Input<string | undefined>;
+        /**
+         * The action to take on `headerName`. Possible values are `Append`, `Overwrite`, and `Delete`.
+         */
+        operator: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleActionsModifyResponseHeader {
+        /**
+         * The name of the header to modify.
+         */
+        headerName: pulumi.Input<string>;
+        /**
+         * The value to append or overwrite.
+         *
+         * > **Note:** `headerValue` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
+         */
+        headerValue?: pulumi.Input<string | undefined>;
+        /**
+         * The action to take on `headerName`. Possible values are `Append`, `Overwrite`, and `Delete`.
+         */
+        operator: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverride {
+        /**
+         * A `caching` block as defined below.
+         */
+        caching: pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCaching>;
+        /**
+         * An `originGroup` block as defined below.
+         */
+        originGroup?: pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroup | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCaching {
+        /**
+         * Controls how Front Door handles cache behaviour for the response. Possible values are `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing`, and `Disabled`.
+         *
+         * > **Note:** If `behaviour` is set to `Disabled`, you cannot set `compressionEnabled`, `duration`, `queryStringBehaviour`, or `queryStringParameters`.
+         *
+         * > **Note:** Enabling caching in a `routeConfigurationOverride` block affects the service-side quota used for rule operations. Each rule that enables caching consumes two of the `100` available rule slots during an update.
+         */
+        behaviour: pulumi.Input<string>;
+        /**
+         * Whether compression is enabled. Defaults to `false`.
+         */
+        compressionEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * When `behaviour` is set to `OverrideAlways` or `OverrideIfOriginMissing`, this field specifies the cache duration to use and is required. The maximum allowed value is `365.23:59:59`. If the desired maximum cache duration is less than `1` day, specify it in the `HH:MM:SS` format, for example `23:59:59`.
+         *
+         * > **Note:** `duration` must not be set when `behaviour` is set to `HonorOrigin`.
+         */
+        duration?: pulumi.Input<string | undefined>;
+        /**
+         * Controls how query strings contribute to the cache key. Possible values are `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings`, and `IncludeSpecifiedQueryStrings`.
+         *
+         * > **Note:** `queryStringBehaviour` is required when `behaviour` is not set to `Disabled`.
+         */
+        queryStringBehaviour?: pulumi.Input<string | undefined>;
+        /**
+         * A list of query string parameter names. A maximum of `100` parameters may be defined.
+         *
+         * > **Note:** `queryStringParameters` is required when `queryStringBehaviour` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`, and must not be set when `queryStringBehaviour` is set to `UseQueryString` or `IgnoreQueryString`.
+         */
+        queryStringParameters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroup {
+        /**
+         * The Front Door Origin Group resource ID that the request should be routed to.
+         *
+         * > **Note:** If you remove the `originGroup` block from a rule that currently points at the only enabled origin in an Origin Group, apply the Batch Rule Set update first and then remove or disable the last origin in a separate apply. The service rejects deleting or disabling the last origin while the Origin Group is still associated with a route or a rule.
+         */
+        cdnFrontdoorOriginGroupId: pulumi.Input<string>;
+        /**
+         * The forwarding protocol the request is redirected as. Possible values are `MatchRequest`, `HttpOnly`, and `HttpsOnly`.
+         */
+        forwardingProtocol: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleActionsUrlRedirect {
+        /**
+         * The fragment to use in the redirect. The value must be a string between `1` and `1024` characters in length and must not start with `#`. Leave this unset to preserve the incoming fragment.
+         */
+        destinationFragment?: pulumi.Input<string | undefined>;
+        /**
+         * The host name you want the request to be redirected to. The value must be a string between `1` and `2048` characters in length. Leave this unset to preserve the incoming host.
+         */
+        destinationHostName?: pulumi.Input<string | undefined>;
+        /**
+         * The path to use in the redirect. The value must be a string and include the leading `/`. Leave this unset to preserve the incoming path.
+         */
+        destinationPath?: pulumi.Input<string | undefined>;
+        /**
+         * The query string used in the redirect URL. The value must be in the `<key>=<value>` or `<key>={<action_server_variable>}` format and must not include the leading `?`. Leave this unset to preserve the incoming query string. The maximum allowed length for this field is `2048` characters.
+         */
+        queryString?: pulumi.Input<string | undefined>;
+        /**
+         * The protocol the request is redirected as. Possible values are `MatchRequest`, `Http`, and `Https`. Defaults to `MatchRequest`.
+         */
+        redirectProtocol?: pulumi.Input<string | undefined>;
+        /**
+         * The response type to return to the requestor. Possible values are `Moved`, `Found`, `TemporaryRedirect`, and `PermanentRedirect`.
+         */
+        redirectType: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleActionsUrlRewrite {
+        /**
+         * The destination path to use in the rewrite.
+         */
+        destinationPath: pulumi.Input<string>;
+        /**
+         * Whether to append the remaining path after the source pattern to the new destination path. Defaults to `false`.
+         */
+        preserveUnmatchedPathEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * The source pattern in the URL path to replace.
+         */
+        sourcePattern: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditions {
+        /**
+         * One or more `clientPort` blocks as defined below.
+         */
+        clientPorts?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsClientPort>[] | undefined>;
+        /**
+         * One or more `deviceType` blocks as defined below.
+         */
+        deviceTypes?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsDeviceType>[] | undefined>;
+        /**
+         * One or more `hostName` blocks as defined below.
+         */
+        hostNames?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsHostName>[] | undefined>;
+        /**
+         * One or more `httpVersion` blocks as defined below.
+         */
+        httpVersions?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsHttpVersion>[] | undefined>;
+        /**
+         * One or more `postArgument` blocks as defined below.
+         */
+        postArguments?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsPostArgument>[] | undefined>;
+        /**
+         * One or more `queryString` blocks as defined below.
+         */
+        queryStrings?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsQueryString>[] | undefined>;
+        /**
+         * One or more `remoteAddress` blocks as defined below.
+         */
+        remoteAddresses?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRemoteAddress>[] | undefined>;
+        /**
+         * One or more `requestBody` blocks as defined below.
+         */
+        requestBodies?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRequestBody>[] | undefined>;
+        /**
+         * One or more `requestCookies` blocks as defined below.
+         */
+        requestCookies?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRequestCooky>[] | undefined>;
+        /**
+         * One or more `requestFileExtension` blocks as defined below.
+         */
+        requestFileExtensions?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRequestFileExtension>[] | undefined>;
+        /**
+         * One or more `requestFilename` blocks as defined below.
+         */
+        requestFilenames?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRequestFilename>[] | undefined>;
+        /**
+         * One or more `requestHeader` blocks as defined below.
+         */
+        requestHeaders?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRequestHeader>[] | undefined>;
+        /**
+         * One or more `requestMethod` blocks as defined below.
+         */
+        requestMethods?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRequestMethod>[] | undefined>;
+        /**
+         * One or more `requestPath` blocks as defined below.
+         */
+        requestPaths?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRequestPath>[] | undefined>;
+        /**
+         * One or more `requestScheme` blocks as defined below.
+         */
+        requestSchemes?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRequestScheme>[] | undefined>;
+        /**
+         * One or more `requestUrl` blocks as defined below.
+         */
+        requestUrls?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsRequestUrl>[] | undefined>;
+        /**
+         * One or more `serverPort` blocks as defined below.
+         */
+        serverPorts?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsServerPort>[] | undefined>;
+        /**
+         * One or more `socketAddress` blocks as defined below.
+         */
+        socketAddresses?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsSocketAddress>[] | undefined>;
+        /**
+         * One or more `sslProtocol` blocks as defined below.
+         */
+        sslProtocols?: pulumi.Input<pulumi.Input<inputs.cdn.FrontdoorBatchRuleSetRuleConditionsSslProtocol>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsClientPort {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * One or more values representing the client port to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsDeviceType {
+        /**
+         * A condition operator. Possible values are `Equal` and `NotEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * The device type to match. Possible values are `Mobile` and `Desktop`.
+         *
+         * > **Note:** Currently, only a single value may be specified.
+         */
+        values: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsHostName {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * A list of one or more values representing the request hostname to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsHttpVersion {
+        /**
+         * A condition operator. Possible values are `Equal` and `NotEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of one or more HTTP versions to match. Possible values are `2.0`, `1.1`, `1.0`, and `0.9`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsPostArgument {
+        /**
+         * A string value representing the name of the `POST` argument.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more values representing the `POST` argument value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsQueryString {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more values representing the query string value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRemoteAddress {
+        /**
+         * The type of remote address to match. Possible values are `GeoMatch`, `IPMatch`, `NotGeoMatch`, and `NotIPMatch`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of CIDR ranges or country codes. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** When `operator` is set to `GeoMatch` or `NotGeoMatch`, each value in `values` must be a two-letter uppercase country code.
+         *
+         * > **Note:** When `operator` is set to `IPMatch` or `NotIPMatch`, each value in `values` must be a valid CIDR range.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRequestBody {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more values representing the request body text to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRequestCooky {
+        /**
+         * The name of the cookie.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more values representing the cookie value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRequestFileExtension {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more values representing the request file extension to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRequestFilename {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more values representing the request file name to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRequestHeader {
+        /**
+         * The name of the request header.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more values representing the request header value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRequestMethod {
+        /**
+         * A condition operator. Possible values are `Equal` and `NotEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of one or more HTTP methods. Possible values are `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, and `TRACE`. A maximum of `7` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRequestPath {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `Wildcard`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, `NotRegEx`, and `NotWildcard`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRequestScheme {
+        /**
+         * A condition operator. Possible values are `Equal` and `NotEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * The request protocol to match. Possible values are `HTTP` and `HTTPS`.
+         *
+         * > **Note:** Currently, only a single value may be specified
+         */
+        values: pulumi.Input<string>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsRequestUrl {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+         */
+        transforms?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * One or more values representing the request URL to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+         *
+         * > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsServerPort {
+        /**
+         * A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of one or more values representing the server port to match. Possible values are `80` and `443`. If multiple values are specified, they are evaluated using `OR` logic.
+         */
+        values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsSocketAddress {
+        /**
+         * The type of match. Possible values are `IPMatch` and `NotIPMatch`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * One or more IP address ranges. A maximum of `25` values may be defined. If multiple IP address ranges are specified, they are evaluated using `OR` logic.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface FrontdoorBatchRuleSetRuleConditionsSslProtocol {
+        /**
+         * A condition operator. Possible values are `Equal` and `NotEqual`.
+         */
+        operator: pulumi.Input<string>;
+        /**
+         * A list of one or more SSL protocol values. Possible values are `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface FrontdoorCustomDomainTls {
         /**
          * Resource ID of the Front Door Secret.
@@ -18293,7 +18882,7 @@ export namespace cdn {
          *
          * > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
          *
-         * > **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+         * > **Note:** When `certificateType` is `ManagedCertificate`, `hostName` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
          */
         certificateType?: pulumi.Input<string | undefined>;
         /**
@@ -20183,6 +20772,14 @@ export namespace compute {
          */
         diskEncryptionSetId?: pulumi.Input<string | undefined>;
         /**
+         * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         */
+        diskIopsReadWrite?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         */
+        diskMbpsReadWrite?: pulumi.Input<number | undefined>;
+        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: pulumi.Input<number>;
@@ -20201,11 +20798,11 @@ export namespace compute {
          */
         storageAccountType: pulumi.Input<string>;
         /**
-         * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @deprecated `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
          */
         ultraSsdDiskIopsReadWrite?: pulumi.Input<number | undefined>;
         /**
-         * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @deprecated `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
          */
         ultraSsdDiskMbpsReadWrite?: pulumi.Input<number | undefined>;
         /**
@@ -20917,6 +21514,10 @@ export namespace compute {
          * > **Note:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
          */
         primary?: pulumi.Input<boolean | undefined>;
+        /**
+         * A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration {
@@ -22673,6 +23274,14 @@ export namespace compute {
          */
         diskEncryptionSetId?: pulumi.Input<string | undefined>;
         /**
+         * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         */
+        diskIopsReadWrite?: pulumi.Input<number | undefined>;
+        /**
+         * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         */
+        diskMbpsReadWrite?: pulumi.Input<number | undefined>;
+        /**
          * The size of the Data Disk which should be created.
          */
         diskSizeGb: pulumi.Input<number>;
@@ -22691,11 +23300,11 @@ export namespace compute {
          */
         storageAccountType: pulumi.Input<string>;
         /**
-         * Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @deprecated `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
          */
         ultraSsdDiskIopsReadWrite?: pulumi.Input<number | undefined>;
         /**
-         * Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+         * @deprecated `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
          */
         ultraSsdDiskMbpsReadWrite?: pulumi.Input<number | undefined>;
         /**
@@ -24824,6 +25433,170 @@ export namespace containerapp {
 }
 
 export namespace containerservice {
+    export interface AutomaticClusterApiServerAccess {
+        /**
+         * Set of authorized IP ranges to allow access to API server, e.g. ["198.51.100.0/24"].
+         */
+        authorizedIpRanges?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The ID of the Subnet where the API server endpoint is delegated to. Is required for bring your own networking.
+         */
+        subnetId?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AutomaticClusterHostedSystem {
+        /**
+         * The ID of the Subnet where the user nodes are hosted. Is required for bring your own networking
+         */
+        nodeSubnetId: pulumi.Input<string>;
+        /**
+         * The ID of the Subnet where the system nodes are hosted. Changing this forces a new resource to be created. Is required for bring your own networking
+         */
+        systemNodeSubnetId: pulumi.Input<string>;
+    }
+
+    export interface AutomaticClusterIdentity {
+        /**
+         * Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+         *
+         * > **Note:** This is required when `type` is set to `UserAssigned`.
+         */
+        identityIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId?: pulumi.Input<string | undefined>;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId?: pulumi.Input<string | undefined>;
+        /**
+         * Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are `SystemAssigned` or `UserAssigned`.  `UserAssigned` is required for bring your own networking
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface AutomaticClusterKubeConfig {
+        /**
+         * Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+         */
+        clientCertificate?: pulumi.Input<string | undefined>;
+        /**
+         * Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+         */
+        clientKey?: pulumi.Input<string | undefined>;
+        /**
+         * Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+         */
+        clusterCaCertificate?: pulumi.Input<string | undefined>;
+        /**
+         * The Kubernetes cluster server host.
+         */
+        host?: pulumi.Input<string | undefined>;
+        /**
+         * A password or token used to authenticate to the Kubernetes cluster.
+         */
+        password?: pulumi.Input<string | undefined>;
+        /**
+         * A username used to authenticate to the Kubernetes cluster.
+         */
+        username?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AutomaticClusterPrivateCluster {
+        /**
+         * The ID of the Private DNS Zone which should be used for this Kubernetes Cluster. Possible values are `System`, `None` or the ID of a Private DNS Zone. Defaults to `System`. Changing this forces a new resource to be created.
+         */
+        privateDnsZoneId?: pulumi.Input<string | undefined>;
+        /**
+         * Provisions a Public FQDN for the private cluster. Defaults to `false`.
+         */
+        publicFullyQualifiedDomainNameEnabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface AutomaticClusterServiceMesh {
+        /**
+         * A `certificateAuthority` block as defined below. This configuration allows you to bring your own root certificate and keys for Istio CA in the Istio-based service mesh add-on for Azure Kubernetes Service.
+         */
+        certificateAuthority?: pulumi.Input<inputs.containerservice.AutomaticClusterServiceMeshCertificateAuthority | undefined>;
+        /**
+         * Enables Istio External Ingress Gateway. Defaults to `false`.
+         *
+         * > **Note:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+         */
+        externalIngressGatewayEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Enables Istio Internal Ingress Gateway. Defaults to `false`.
+         */
+        internalIngressGatewayEnabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * The mechanism used to redirect application traffic to the Istio sidecar proxy. Possible values are `CNIChaining` and `InitContainers`. Defaults to `InitContainers`.
+         */
+        proxyRedirectMechanism?: pulumi.Input<string | undefined>;
+        /**
+         * Specify `1` or `2` Istio control plane revisions for managing minor upgrades using the canary upgrade process. For example, create the resource with `revisions` set to `["asm-1-27"]`. To start the canary upgrade, change `revisions` to `["asm-1-27", "asm-1-28"]`. To roll back the canary upgrade, revert to `["asm-1-27"]`. To confirm the upgrade, change to `["asm-1-28"]`.
+         *
+         * > **Note:** Upgrading to a new (canary) revision does not affect existing sidecar proxies. You need to apply the canary revision label to selected namespaces and restart pods with kubectl to inject the new sidecar proxy. [Learn more](https://istio.io/latest/docs/setup/upgrade/canary/#data-plane).
+         */
+        revisions: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface AutomaticClusterServiceMeshCertificateAuthority {
+        /**
+         * The certificate chain object name in Azure Key Vault.
+         */
+        certificateChainObjectName: pulumi.Input<string>;
+        /**
+         * The intermediate certificate object name in Azure Key Vault.
+         */
+        certificateObjectName: pulumi.Input<string>;
+        /**
+         * The intermediate certificate private key object name in Azure Key Vault.
+         *
+         * > **Note:** For more information on [Istio-based service mesh add-on with plug-in CA certificates and how to generate these certificates](https://learn.microsoft.com/en-us/azure/aks/istio-plugin-ca),
+         */
+        keyObjectName: pulumi.Input<string>;
+        /**
+         * The resource ID of the Key Vault.
+         */
+        keyVaultId: pulumi.Input<string>;
+        /**
+         * The root certificate object name in Azure Key Vault.
+         */
+        rootCertificateObjectName: pulumi.Input<string>;
+    }
+
+    export interface AutomaticClusterWebAppRoutingIngress {
+        /**
+         * Specifies the ingress type for the default `NginxIngressController` custom resource. The allowed values are `Internal`, `External` and `AnnotationControlled`. At least one of `defaultNginxController` or `istioEnabled` must be specified.
+         */
+        defaultNginxController?: pulumi.Input<string | undefined>;
+        /**
+         * Resource IDs of the DNS zones to be associated with the Application Routing add-on. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
+         */
+        dnsZoneIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Enables Istio as a Gateway API implementation. Defaults to `false`. At least one of `defaultNginxController` or `istioEnabled` must be specified.
+         */
+        istioEnabled?: pulumi.Input<boolean | undefined>;
+        webAppRoutingIdentities?: pulumi.Input<pulumi.Input<inputs.containerservice.AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity>[] | undefined>;
+    }
+
+    export interface AutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity {
+        /**
+         * The Client ID of the user-defined Managed Identity used for Web App Routing.
+         */
+        clientId?: pulumi.Input<string | undefined>;
+        /**
+         * The Object ID of the user-defined Managed Identity used for Web App Routing
+         */
+        objectId?: pulumi.Input<string | undefined>;
+        /**
+         * The ID of the User Assigned Identity used for Web App Routing.
+         */
+        userAssignedIdentityId?: pulumi.Input<string | undefined>;
+    }
+
     export interface ConnectedRegistryNotification {
         /**
          * The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are `push`, `delete` and `*` (i.e. any).
@@ -39687,6 +40460,64 @@ export namespace loganalytics {
          */
         type?: pulumi.Input<string | undefined>;
     }
+
+    export interface WorkspaceTableMicrosoftColumn {
+        /**
+         * The description of the column.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * Whether the column defaults to being displayed. Defaults to `true`.
+         */
+        displayByDefault?: pulumi.Input<boolean | undefined>;
+        /**
+         * The display name of the column.
+         */
+        displayName?: pulumi.Input<string | undefined>;
+        /**
+         * Whether the column is hidden. Defaults to `false`.
+         */
+        hidden?: pulumi.Input<boolean | undefined>;
+        /**
+         * The name which should be used for this column.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The column data type. Possible values are `string`, `int`, `long`, `real`, `boolean`, `dateTime`, `guid`, `dynamic`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WorkspaceTableMicrosoftStandardColumn {
+        /**
+         * A description of the table.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * Whether the column defaults to being displayed. Defaults to `true`.
+         */
+        displayByDefault?: pulumi.Input<boolean | undefined>;
+        /**
+         * The display name of the table.
+         */
+        displayName?: pulumi.Input<string | undefined>;
+        /**
+         * Is the column hidden? Defaults to `false`.
+         */
+        hidden?: pulumi.Input<boolean | undefined>;
+        /**
+         * The name which should be used for this Log Analytics Workspace Table Microsoft. Possible values are `Alert`, `AppCenterError`, `ComputerGroup`, `InsightsMetrics`, `Operation` and `Usage`. Changing this forces a new Log Analytics Workspace Table Microsoft to be created.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * The type of the column.
+         */
+        type?: pulumi.Input<string | undefined>;
+        /**
+         * The type hint of the column.
+         */
+        typeHint?: pulumi.Input<string | undefined>;
+    }
 }
 
 export namespace logicapps {
@@ -53652,6 +54483,82 @@ export namespace storage {
          * The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
          */
         indexDocument?: pulumi.Input<string | undefined>;
+    }
+
+    export interface AccountTablePropertiesCorsRule {
+        /**
+         * A list of headers that are allowed to be a part of the cross-origin request.
+         */
+        allowedHeaders: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of HTTP methods that are allowed to be executed by the origin. Valid options are `DELETE`, `GET`, `HEAD`, `MERGE`, `POST`, `OPTIONS` or `PUT`.
+         */
+        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of origin domains that will be allowed by CORS.
+         */
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of response headers that are exposed to CORS clients.
+         */
+        exposedHeaders: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The number of seconds the client should cache a preflight response.
+         */
+        maxAgeInSeconds: pulumi.Input<number>;
+    }
+
+    export interface AccountTablePropertiesHourMetrics {
+        /**
+         * Indicates whether metrics should generate summary statistics for called API operations.
+         */
+        includeApis?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the number of days that logs will be retained.
+         */
+        retentionPolicyDays?: pulumi.Input<number | undefined>;
+        /**
+         * The version of storage analytics to configure.
+         */
+        version: pulumi.Input<string>;
+    }
+
+    export interface AccountTablePropertiesLogging {
+        /**
+         * Indicates whether all delete requests should be logged.
+         */
+        delete: pulumi.Input<boolean>;
+        /**
+         * Indicates whether all read requests should be logged.
+         */
+        read: pulumi.Input<boolean>;
+        /**
+         * Specifies the number of days that logs will be retained.
+         */
+        retentionPolicyDays?: pulumi.Input<number | undefined>;
+        /**
+         * The version of storage analytics to configure.
+         */
+        version: pulumi.Input<string>;
+        /**
+         * Indicates whether all write requests should be logged.
+         */
+        write: pulumi.Input<boolean>;
+    }
+
+    export interface AccountTablePropertiesMinuteMetrics {
+        /**
+         * Indicates whether metrics should generate summary statistics for called API operations.
+         */
+        includeApis?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the number of days that logs will be retained.
+         */
+        retentionPolicyDays?: pulumi.Input<number | undefined>;
+        /**
+         * The version of storage analytics to configure.
+         */
+        version: pulumi.Input<string>;
     }
 
     export interface BlobInventoryPolicyRule {

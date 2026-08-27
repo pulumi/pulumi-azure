@@ -190,6 +190,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            rbac_authorization_enabled=False,
             tenant_id=example_azurerm_client_config["tenantId"],
             sku_name="example-value",
             soft_delete_retention_days=int("example-value"))
@@ -291,6 +292,7 @@ class ClusterTrustedAccessRoleBinding(pulumi.CustomResource):
             name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
+            rbac_authorization_enabled=False,
             tenant_id=example_azurerm_client_config["tenantId"],
             sku_name="example-value",
             soft_delete_retention_days=int("example-value"))

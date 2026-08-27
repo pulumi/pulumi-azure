@@ -14,7 +14,7 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// &gt; **Note:** The Rules resource **must** include a `DependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
     /// 
-    /// &gt; **Note:** Azure Front Door Rule operations are currently affected by a service-side regression where unattached rules or rule sets can fail with `400 Bad Request` until they are associated with a Front Door Route. As a result, unattached and attached scenarios can currently behave differently while the service-side fix is pending.
+    /// &gt; **Note:** This resource cannot be used to manage individual rules for a rule set provisioned in batch mode, to manage rules for a batch mode rule set, use `azure.cdn.FrontdoorBatchRuleSet`.
     /// 
     /// ## Example Usage
     /// 
@@ -344,7 +344,7 @@ namespace Pulumi.Azure.Cdn
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Cdn` - 2024-09-01
+    /// * `Microsoft.Cdn` - 2025-12-01
     /// 
     /// ## Import
     /// 
@@ -371,6 +371,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        /// 
+        /// &gt; **Note:** The `CdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         /// </summary>
         [Output("cdnFrontdoorRuleSetId")]
         public Output<string> CdnFrontdoorRuleSetId { get; private set; } = null!;
@@ -461,6 +463,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        /// 
+        /// &gt; **Note:** The `CdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         /// </summary>
         [Input("cdnFrontdoorRuleSetId", required: true)]
         public Input<string> CdnFrontdoorRuleSetId { get; set; } = null!;
@@ -507,6 +511,8 @@ namespace Pulumi.Azure.Cdn
 
         /// <summary>
         /// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+        /// 
+        /// &gt; **Note:** The `CdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         /// </summary>
         [Input("cdnFrontdoorRuleSetId")]
         public Input<string>? CdnFrontdoorRuleSetId { get; set; }

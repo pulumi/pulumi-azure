@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     name: "examplekeyvault",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     skuName: "standard",
  *     tenantId: current.then(current => current.tenantId),
  * });

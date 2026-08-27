@@ -41,6 +41,7 @@ namespace Pulumi.Azure.ContainerService
     ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         TenantId = exampleAzurermClientConfig.TenantId,
     ///         SkuName = "example-value",
     ///         SoftDeleteRetentionDays = "example-value",

@@ -16,14 +16,14 @@ public final class ProviderEnhancedValidationArgs extends com.pulumi.resources.R
     public static final ProviderEnhancedValidationArgs Empty = new ProviderEnhancedValidationArgs();
 
     /**
-     * Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+     * Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
      * 
      */
     @Import(name="locations")
     private @Nullable Output<Boolean> locations;
 
     /**
-     * @return Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+     * @return Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
      * 
      */
     public Optional<Output<Boolean>> locations() {
@@ -71,7 +71,7 @@ public final class ProviderEnhancedValidationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param locations Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+         * @param locations Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ProviderEnhancedValidationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param locations Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+         * @param locations Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
          * 
          * @return builder
          * 

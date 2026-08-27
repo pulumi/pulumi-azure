@@ -13,7 +13,7 @@ namespace Pulumi.Azure.Inputs
     public sealed class ProviderEnhancedValidationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+        /// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
         /// </summary>
         [Input("locations")]
         public Input<bool>? Locations { get; set; }

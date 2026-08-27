@@ -25,6 +25,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AIServices{}
 	case "azure:cognitive/account:Account":
 		r = &Account{}
+	case "azure:cognitive/accountConnectionAccountKey:AccountConnectionAccountKey":
+		r = &AccountConnectionAccountKey{}
+	case "azure:cognitive/accountConnectionAccountManagedIdentity:AccountConnectionAccountManagedIdentity":
+		r = &AccountConnectionAccountManagedIdentity{}
+	case "azure:cognitive/accountConnectionApiKey:AccountConnectionApiKey":
+		r = &AccountConnectionApiKey{}
+	case "azure:cognitive/accountConnectionCustomKeys:AccountConnectionCustomKeys":
+		r = &AccountConnectionCustomKeys{}
+	case "azure:cognitive/accountConnectionEntraId:AccountConnectionEntraId":
+		r = &AccountConnectionEntraId{}
 	case "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey":
 		r = &AccountCustomerManagedKey{}
 	case "azure:cognitive/accountProject:AccountProject":
@@ -56,6 +66,31 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cognitive/account",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountConnectionAccountKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountConnectionAccountManagedIdentity",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountConnectionApiKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountConnectionCustomKeys",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"cognitive/accountConnectionEntraId",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

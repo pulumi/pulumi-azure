@@ -3264,6 +3264,285 @@
                     }
                 }
             },
+            "azurerm_cdn_frontdoor_batch_rule_set": {
+                "current": "azure:cdn/frontdoorBatchRuleSet:FrontdoorBatchRuleSet",
+                "majorVersion": 6,
+                "fields": {
+                    "rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "modify_request_header": {
+                                                "maxItemsOne": false
+                                            },
+                                            "modify_response_header": {
+                                                "maxItemsOne": false
+                                            },
+                                            "route_configuration_override": {
+                                                "maxItemsOne": true,
+                                                "elem": {
+                                                    "fields": {
+                                                        "caching": {
+                                                            "maxItemsOne": true,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "query_string_parameters": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "origin_group": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "url_redirect": {
+                                                "maxItemsOne": true
+                                            },
+                                            "url_rewrite": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
+                                },
+                                "conditions": {
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "client_port": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "device_type": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "host_name": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "http_version": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "post_argument": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "query_string": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "remote_address": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_body": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_cookies": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_file_extension": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_filename": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_header": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_method": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_path": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_scheme": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": true
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_url": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "server_port": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "socket_address": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "ssl_protocol": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_cdn_frontdoor_custom_domain": {
                 "current": "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain",
                 "majorVersion": 6,
@@ -3870,6 +4149,26 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "azurerm_cognitive_account_connection_account_key": {
+                "current": "azure:cognitive/accountConnectionAccountKey:AccountConnectionAccountKey",
+                "majorVersion": 6
+            },
+            "azurerm_cognitive_account_connection_account_managed_identity": {
+                "current": "azure:cognitive/accountConnectionAccountManagedIdentity:AccountConnectionAccountManagedIdentity",
+                "majorVersion": 6
+            },
+            "azurerm_cognitive_account_connection_api_key": {
+                "current": "azure:cognitive/accountConnectionApiKey:AccountConnectionApiKey",
+                "majorVersion": 6
+            },
+            "azurerm_cognitive_account_connection_custom_keys": {
+                "current": "azure:cognitive/accountConnectionCustomKeys:AccountConnectionCustomKeys",
+                "majorVersion": 6
+            },
+            "azurerm_cognitive_account_connection_entra_id": {
+                "current": "azure:cognitive/accountConnectionEntraId:AccountConnectionEntraId",
+                "majorVersion": 6
             },
             "azurerm_cognitive_account_customer_managed_key": {
                 "current": "azure:cognitive/accountCustomerManagedKey:AccountCustomerManagedKey",
@@ -10934,6 +11233,67 @@
                 "current": "azure:keyvault/secret:Secret",
                 "majorVersion": 6
             },
+            "azurerm_kubernetes_automatic_cluster": {
+                "current": "azure:containerservice/automaticCluster:AutomaticCluster",
+                "majorVersion": 6,
+                "fields": {
+                    "api_server_access": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "authorized_ip_ranges": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "hosted_system": {
+                        "maxItemsOne": true
+                    },
+                    "identity": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "kube_config": {
+                        "maxItemsOne": false
+                    },
+                    "private_cluster": {
+                        "maxItemsOne": true
+                    },
+                    "service_mesh": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "certificate_authority": {
+                                    "maxItemsOne": true
+                                },
+                                "revisions": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "web_app_routing_ingress": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "dns_zone_ids": {
+                                    "maxItemsOne": false
+                                },
+                                "web_app_routing_identity": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "azurerm_kubernetes_cluster": {
                 "current": "azure:containerservice/kubernetesCluster:KubernetesCluster",
                 "majorVersion": 6,
@@ -13406,6 +13766,24 @@
                 "majorVersion": 6,
                 "fields": {
                     "column": {
+                        "maxItemsOne": false
+                    },
+                    "solutions": {
+                        "maxItemsOne": false
+                    },
+                    "standard_column": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "azurerm_log_analytics_workspace_table_microsoft": {
+                "current": "azure:loganalytics/workspaceTableMicrosoft:WorkspaceTableMicrosoft",
+                "majorVersion": 6,
+                "fields": {
+                    "column": {
+                        "maxItemsOne": false
+                    },
+                    "labels": {
                         "maxItemsOne": false
                     },
                     "solutions": {
@@ -20873,6 +21251,40 @@
                 "current": "azure:storage/accountStaticWebsite:AccountStaticWebsite",
                 "majorVersion": 6
             },
+            "azurerm_storage_account_table_properties": {
+                "current": "azure:storage/accountTableProperties:AccountTableProperties",
+                "majorVersion": 6,
+                "fields": {
+                    "cors_rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "allowed_headers": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_methods": {
+                                    "maxItemsOne": false
+                                },
+                                "allowed_origins": {
+                                    "maxItemsOne": false
+                                },
+                                "exposed_headers": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
+                    "hour_metrics": {
+                        "maxItemsOne": true
+                    },
+                    "logging": {
+                        "maxItemsOne": true
+                    },
+                    "minute_metrics": {
+                        "maxItemsOne": true
+                    }
+                }
+            },
             "azurerm_storage_blob": {
                 "current": "azure:storage/blob:Blob",
                 "majorVersion": 6
@@ -25925,6 +26337,285 @@
             "azurerm_blueprint_published_version": {
                 "current": "azure:blueprint/getPublishedVersion:getPublishedVersion",
                 "majorVersion": 6
+            },
+            "azurerm_cdn_frontdoor_batch_rule_set": {
+                "current": "azure:cdn/getFrontdoorBatchRuleSet:getFrontdoorBatchRuleSet",
+                "majorVersion": 6,
+                "fields": {
+                    "rules": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "actions": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "modify_request_header": {
+                                                "maxItemsOne": false
+                                            },
+                                            "modify_response_header": {
+                                                "maxItemsOne": false
+                                            },
+                                            "route_configuration_override": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "caching": {
+                                                            "maxItemsOne": false,
+                                                            "elem": {
+                                                                "fields": {
+                                                                    "query_string_parameters": {
+                                                                        "maxItemsOne": false
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        "origin_group": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "url_redirect": {
+                                                "maxItemsOne": false
+                                            },
+                                            "url_rewrite": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "conditions": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "client_port": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "device_type": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "host_name": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "http_version": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "post_argument": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "query_string": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "remote_address": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_body": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_cookies": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_file_extension": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_filename": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_header": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_method": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_path": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_scheme": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "request_url": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "transforms": {
+                                                            "maxItemsOne": false
+                                                        },
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "server_port": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "socket_address": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "ssl_protocol": {
+                                                "maxItemsOne": false,
+                                                "elem": {
+                                                    "fields": {
+                                                        "values": {
+                                                            "maxItemsOne": false
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "azurerm_cdn_frontdoor_custom_domain": {
                 "current": "azure:cdn/getFrontdoorCustomDomain:getFrontdoorCustomDomain",

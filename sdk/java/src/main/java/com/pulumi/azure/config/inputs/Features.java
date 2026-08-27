@@ -8,6 +8,7 @@ import com.pulumi.azure.config.outputs.FeaturesAppConfiguration;
 import com.pulumi.azure.config.outputs.FeaturesApplicationInsights;
 import com.pulumi.azure.config.outputs.FeaturesCognitiveAccount;
 import com.pulumi.azure.config.outputs.FeaturesDatabricksWorkspace;
+import com.pulumi.azure.config.outputs.FeaturesEnhancedValidation;
 import com.pulumi.azure.config.outputs.FeaturesKeyVault;
 import com.pulumi.azure.config.outputs.FeaturesLogAnalyticsWorkspace;
 import com.pulumi.azure.config.outputs.FeaturesMachineLearning;
@@ -17,6 +18,7 @@ import com.pulumi.azure.config.outputs.FeaturesPostgresqlFlexibleServer;
 import com.pulumi.azure.config.outputs.FeaturesRecoveryService;
 import com.pulumi.azure.config.outputs.FeaturesRecoveryServicesVaults;
 import com.pulumi.azure.config.outputs.FeaturesResourceGroup;
+import com.pulumi.azure.config.outputs.FeaturesServicebus;
 import com.pulumi.azure.config.outputs.FeaturesStorage;
 import com.pulumi.azure.config.outputs.FeaturesSubscription;
 import com.pulumi.azure.config.outputs.FeaturesTemplateDeployment;
@@ -35,6 +37,7 @@ public final class Features {
     private @Nullable FeaturesApplicationInsights applicationInsights;
     private @Nullable FeaturesCognitiveAccount cognitiveAccount;
     private @Nullable FeaturesDatabricksWorkspace databricksWorkspace;
+    private @Nullable FeaturesEnhancedValidation enhancedValidation;
     private @Nullable FeaturesKeyVault keyVault;
     private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
     private @Nullable FeaturesMachineLearning machineLearning;
@@ -49,6 +52,7 @@ public final class Features {
     private @Nullable FeaturesRecoveryService recoveryService;
     private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
     private @Nullable FeaturesResourceGroup resourceGroup;
+    private @Nullable FeaturesServicebus servicebus;
     /**
      * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
      * 
@@ -75,6 +79,9 @@ public final class Features {
     }
     public Optional<FeaturesDatabricksWorkspace> databricksWorkspace() {
         return Optional.ofNullable(this.databricksWorkspace);
+    }
+    public Optional<FeaturesEnhancedValidation> enhancedValidation() {
+        return Optional.ofNullable(this.enhancedValidation);
     }
     public Optional<FeaturesKeyVault> keyVault() {
         return Optional.ofNullable(this.keyVault);
@@ -109,6 +116,9 @@ public final class Features {
     }
     public Optional<FeaturesResourceGroup> resourceGroup() {
         return Optional.ofNullable(this.resourceGroup);
+    }
+    public Optional<FeaturesServicebus> servicebus() {
+        return Optional.ofNullable(this.servicebus);
     }
     /**
      * @return Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
@@ -147,6 +157,7 @@ public final class Features {
         private @Nullable FeaturesApplicationInsights applicationInsights;
         private @Nullable FeaturesCognitiveAccount cognitiveAccount;
         private @Nullable FeaturesDatabricksWorkspace databricksWorkspace;
+        private @Nullable FeaturesEnhancedValidation enhancedValidation;
         private @Nullable FeaturesKeyVault keyVault;
         private @Nullable FeaturesLogAnalyticsWorkspace logAnalyticsWorkspace;
         private @Nullable FeaturesMachineLearning machineLearning;
@@ -157,6 +168,7 @@ public final class Features {
         private @Nullable FeaturesRecoveryService recoveryService;
         private @Nullable FeaturesRecoveryServicesVaults recoveryServicesVaults;
         private @Nullable FeaturesResourceGroup resourceGroup;
+        private @Nullable FeaturesServicebus servicebus;
         private @Nullable Boolean skipImportCheckOnCreateAndAllowOverwritingExistingResources;
         private @Nullable FeaturesStorage storage;
         private @Nullable FeaturesSubscription subscription;
@@ -171,6 +183,7 @@ public final class Features {
     	      this.applicationInsights = defaults.applicationInsights;
     	      this.cognitiveAccount = defaults.cognitiveAccount;
     	      this.databricksWorkspace = defaults.databricksWorkspace;
+    	      this.enhancedValidation = defaults.enhancedValidation;
     	      this.keyVault = defaults.keyVault;
     	      this.logAnalyticsWorkspace = defaults.logAnalyticsWorkspace;
     	      this.machineLearning = defaults.machineLearning;
@@ -181,6 +194,7 @@ public final class Features {
     	      this.recoveryService = defaults.recoveryService;
     	      this.recoveryServicesVaults = defaults.recoveryServicesVaults;
     	      this.resourceGroup = defaults.resourceGroup;
+    	      this.servicebus = defaults.servicebus;
     	      this.skipImportCheckOnCreateAndAllowOverwritingExistingResources = defaults.skipImportCheckOnCreateAndAllowOverwritingExistingResources;
     	      this.storage = defaults.storage;
     	      this.subscription = defaults.subscription;
@@ -217,6 +231,12 @@ public final class Features {
         public Builder databricksWorkspace(@Nullable FeaturesDatabricksWorkspace databricksWorkspace) {
 
             this.databricksWorkspace = databricksWorkspace;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder enhancedValidation(@Nullable FeaturesEnhancedValidation enhancedValidation) {
+
+            this.enhancedValidation = enhancedValidation;
             return this;
         }
         @CustomType.Setter
@@ -280,6 +300,12 @@ public final class Features {
             return this;
         }
         @CustomType.Setter
+        public Builder servicebus(@Nullable FeaturesServicebus servicebus) {
+
+            this.servicebus = servicebus;
+            return this;
+        }
+        @CustomType.Setter
         public Builder skipImportCheckOnCreateAndAllowOverwritingExistingResources(@Nullable Boolean skipImportCheckOnCreateAndAllowOverwritingExistingResources) {
 
             this.skipImportCheckOnCreateAndAllowOverwritingExistingResources = skipImportCheckOnCreateAndAllowOverwritingExistingResources;
@@ -322,6 +348,7 @@ public final class Features {
             _resultValue.applicationInsights = applicationInsights;
             _resultValue.cognitiveAccount = cognitiveAccount;
             _resultValue.databricksWorkspace = databricksWorkspace;
+            _resultValue.enhancedValidation = enhancedValidation;
             _resultValue.keyVault = keyVault;
             _resultValue.logAnalyticsWorkspace = logAnalyticsWorkspace;
             _resultValue.machineLearning = machineLearning;
@@ -332,6 +359,7 @@ public final class Features {
             _resultValue.recoveryService = recoveryService;
             _resultValue.recoveryServicesVaults = recoveryServicesVaults;
             _resultValue.resourceGroup = resourceGroup;
+            _resultValue.servicebus = servicebus;
             _resultValue.skipImportCheckOnCreateAndAllowOverwritingExistingResources = skipImportCheckOnCreateAndAllowOverwritingExistingResources;
             _resultValue.storage = storage;
             _resultValue.subscription = subscription;

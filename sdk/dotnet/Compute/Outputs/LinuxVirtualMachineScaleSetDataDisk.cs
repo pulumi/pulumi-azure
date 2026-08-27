@@ -30,6 +30,14 @@ namespace Pulumi.Azure.Compute.Outputs
         /// </summary>
         public readonly string? DiskEncryptionSetId;
         /// <summary>
+        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// </summary>
+        public readonly int? DiskIopsReadWrite;
+        /// <summary>
+        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        /// </summary>
+        public readonly int? DiskMbpsReadWrite;
+        /// <summary>
         /// The size of the Data Disk which should be created.
         /// </summary>
         public readonly int DiskSizeGb;
@@ -47,13 +55,7 @@ namespace Pulumi.Azure.Compute.Outputs
         /// &gt; **Note:** `UltraSSD_LRS` is only supported when `UltraSsdEnabled` within the `AdditionalCapabilities` block is enabled.
         /// </summary>
         public readonly string StorageAccountType;
-        /// <summary>
-        /// Specifies the Read-Write IOPS for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        /// </summary>
         public readonly int? UltraSsdDiskIopsReadWrite;
-        /// <summary>
-        /// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `StorageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        /// </summary>
         public readonly int? UltraSsdDiskMbpsReadWrite;
         /// <summary>
         /// Should Write Accelerator be enabled for this Data Disk? Defaults to `False`.
@@ -69,6 +71,10 @@ namespace Pulumi.Azure.Compute.Outputs
             string? createOption,
 
             string? diskEncryptionSetId,
+
+            int? diskIopsReadWrite,
+
+            int? diskMbpsReadWrite,
 
             int diskSizeGb,
 
@@ -87,6 +93,8 @@ namespace Pulumi.Azure.Compute.Outputs
             Caching = caching;
             CreateOption = createOption;
             DiskEncryptionSetId = diskEncryptionSetId;
+            DiskIopsReadWrite = diskIopsReadWrite;
+            DiskMbpsReadWrite = diskMbpsReadWrite;
             DiskSizeGb = diskSizeGb;
             Lun = lun;
             Name = name;

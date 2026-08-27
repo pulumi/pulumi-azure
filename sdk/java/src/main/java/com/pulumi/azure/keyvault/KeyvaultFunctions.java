@@ -1314,6 +1314,13 @@ public final class KeyvaultFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault` - 2026-02-01
+     * 
      */
     public static Output<GetKeyVaultResult> getKeyVault(GetKeyVaultArgs args) {
         return getKeyVault(args, InvokeOptions.Empty);
@@ -1355,6 +1362,13 @@ public final class KeyvaultFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault` - 2026-02-01
      * 
      */
     public static CompletableFuture<GetKeyVaultResult> getKeyVaultPlain(GetKeyVaultPlainArgs args) {
@@ -1398,6 +1412,13 @@ public final class KeyvaultFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault` - 2026-02-01
+     * 
      */
     public static Output<GetKeyVaultResult> getKeyVault(GetKeyVaultArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getKeyVault:getKeyVault", TypeShape.of(GetKeyVaultResult.class), args, Utilities.withVersion(options));
@@ -1440,6 +1461,13 @@ public final class KeyvaultFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault` - 2026-02-01
+     * 
      */
     public static Output<GetKeyVaultResult> getKeyVault(GetKeyVaultArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getKeyVault:getKeyVault", TypeShape.of(GetKeyVaultResult.class), args, Utilities.withVersion(options));
@@ -1481,6 +1509,13 @@ public final class KeyvaultFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.KeyVault` - 2026-02-01
      * 
      */
     public static CompletableFuture<GetKeyVaultResult> getKeyVaultPlain(GetKeyVaultPlainArgs args, InvokeOptions options) {

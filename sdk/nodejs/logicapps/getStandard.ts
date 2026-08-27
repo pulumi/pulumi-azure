@@ -157,6 +157,10 @@ export interface GetStandardResult {
      */
     readonly storageAccountShareName: string;
     /**
+     * The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+     */
+    readonly storageKeyVaultSecretId: string;
+    /**
      * A mapping of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};

@@ -130,6 +130,13 @@ def get_frontdoor_endpoint(name: Optional[_builtins.str] = None,
         resource_group_name="existing-resources")
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cdn` - 2025-12-01
+
 
     :param _builtins.str name: Specifies the name of the Front Door Endpoint.
     :param _builtins.str profile_name: The name of the Front Door Profile within which Front Door Endpoint exists.
@@ -167,6 +174,13 @@ def get_frontdoor_endpoint_output(name: pulumi.Input[Optional[_builtins.str]] = 
         profile_name="existing-cdn-profile",
         resource_group_name="existing-resources")
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Endpoint.

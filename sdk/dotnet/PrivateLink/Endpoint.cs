@@ -305,6 +305,12 @@ namespace Pulumi.Azure.PrivateLink
         public Output<string?> CustomNetworkInterfaceName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("edgeZone")]
+        public Output<string?> EdgeZone { get; private set; } = null!;
+
+        /// <summary>
         /// One or more `IpConfiguration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         /// </summary>
         [Output("ipConfigurations")]
@@ -416,6 +422,12 @@ namespace Pulumi.Azure.PrivateLink
         [Input("customNetworkInterfaceName")]
         public Input<string>? CustomNetworkInterfaceName { get; set; }
 
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
+
         [Input("ipConfigurations")]
         private InputList<Inputs.EndpointIpConfigurationArgs>? _ipConfigurations;
 
@@ -501,6 +513,12 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         [Input("customNetworkInterfaceName")]
         public Input<string>? CustomNetworkInterfaceName { get; set; }
+
+        /// <summary>
+        /// Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("edgeZone")]
+        public Input<string>? EdgeZone { get; set; }
 
         [Input("ipConfigurations")]
         private InputList<Inputs.EndpointIpConfigurationGetArgs>? _ipConfigurations;

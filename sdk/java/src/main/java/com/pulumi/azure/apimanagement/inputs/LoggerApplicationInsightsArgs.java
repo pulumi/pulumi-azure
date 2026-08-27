@@ -31,9 +31,30 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The instrumentation key used to push data to Application Insights.
+     * The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the &#34;Monitoring Metrics Publisher&#34; role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
      * 
      * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+     * 
+     * &gt; **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+     * 
+     */
+    @Import(name="identityClientId")
+    private @Nullable Output<String> identityClientId;
+
+    /**
+     * @return The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the &#34;Monitoring Metrics Publisher&#34; role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
+     * 
+     * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+     * 
+     * &gt; **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+     * 
+     */
+    public Optional<Output<String>> identityClientId() {
+        return Optional.ofNullable(this.identityClientId);
+    }
+
+    /**
+     * The instrumentation key used to push data to Application Insights.
      * 
      */
     @Import(name="instrumentationKey")
@@ -41,8 +62,6 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
 
     /**
      * @return The instrumentation key used to push data to Application Insights.
-     * 
-     * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
      * 
      */
     public Optional<Output<String>> instrumentationKey() {
@@ -53,6 +72,7 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
 
     private LoggerApplicationInsightsArgs(LoggerApplicationInsightsArgs $) {
         this.connectionString = $.connectionString;
+        this.identityClientId = $.identityClientId;
         this.instrumentationKey = $.instrumentationKey;
     }
 
@@ -96,9 +116,36 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param instrumentationKey The instrumentation key used to push data to Application Insights.
+         * @param identityClientId The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the &#34;Monitoring Metrics Publisher&#34; role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
          * 
          * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+         * 
+         * &gt; **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityClientId(@Nullable Output<String> identityClientId) {
+            $.identityClientId = identityClientId;
+            return this;
+        }
+
+        /**
+         * @param identityClientId The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the &#34;Monitoring Metrics Publisher&#34; role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
+         * 
+         * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+         * 
+         * &gt; **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identityClientId(String identityClientId) {
+            return identityClientId(Output.of(identityClientId));
+        }
+
+        /**
+         * @param instrumentationKey The instrumentation key used to push data to Application Insights.
          * 
          * @return builder
          * 
@@ -110,8 +157,6 @@ public final class LoggerApplicationInsightsArgs extends com.pulumi.resources.Re
 
         /**
          * @param instrumentationKey The instrumentation key used to push data to Application Insights.
-         * 
-         * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
          * 
          * @return builder
          * 

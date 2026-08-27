@@ -66,6 +66,7 @@ import javax.annotation.Nullable;
  *             .name("examplekv")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("premium")
  *             .purgeProtectionEnabled(true)

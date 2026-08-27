@@ -207,6 +207,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .enabledForDiskEncryption(true)
  *             .tenantId(current.tenantId())
  *             .softDeleteRetentionDays(7)

@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  *             .name("example-key-vault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .enabledForDiskEncryption(true)
  *             .tenantId(current.tenantId())
  *             .softDeleteRetentionDays(7)

@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .endpoint import *
 from .endpoint_custom_domain import *
+from .frontdoor_batch_rule_set import *
 from .frontdoor_custom_domain import *
 from .frontdoor_custom_domain_association import *
 from .frontdoor_endpoint import *
@@ -20,6 +21,7 @@ from .frontdoor_rule import *
 from .frontdoor_rule_set import *
 from .frontdoor_secret import *
 from .frontdoor_security_policy import *
+from .get_frontdoor_batch_rule_set import *
 from .get_frontdoor_custom_domain import *
 from .get_frontdoor_endpoint import *
 from .get_frontdoor_firewall_policy import *

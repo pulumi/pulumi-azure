@@ -118,6 +118,8 @@ type LookupStandardResult struct {
 	StorageAccountName string `pulumi:"storageAccountName"`
 	// The name of the share used by the logic app.
 	StorageAccountShareName string `pulumi:"storageAccountShareName"`
+	// The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+	StorageKeyVaultSecretId string `pulumi:"storageKeyVaultSecretId"`
 	// A mapping of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether the logic app should use the bundled extension package.
@@ -291,6 +293,11 @@ func (o LookupStandardResultOutput) StorageAccountName() pulumi.StringOutput {
 // The name of the share used by the logic app.
 func (o LookupStandardResultOutput) StorageAccountShareName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStandardResult) string { return v.StorageAccountShareName }).(pulumi.StringOutput)
+}
+
+// The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+func (o LookupStandardResultOutput) StorageKeyVaultSecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStandardResult) string { return v.StorageKeyVaultSecretId }).(pulumi.StringOutput)
 }
 
 // A mapping of tags assigned to the resource.

@@ -132,6 +132,7 @@ import javax.annotation.Nullable;
  *             .name("exampleKVt123")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .softDeleteRetentionDays(7)

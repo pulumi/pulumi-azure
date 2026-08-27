@@ -159,6 +159,7 @@ import javax.annotation.Nullable;
  *             .name("mssqltdeexample")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .enabledForDiskEncryption(true)
  *             .tenantId(exampleUserAssignedIdentity.tenantId())
  *             .softDeleteRetentionDays(7)

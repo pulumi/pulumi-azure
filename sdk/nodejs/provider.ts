@@ -213,6 +213,9 @@ export interface ProviderArgs {
      * This will disable the Terraform Partner ID which is used if a custom `partnerId` isn't specified.
      */
     disableTerraformPartnerId?: pulumi.Input<boolean | undefined>;
+    /**
+     * @deprecated This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
+     */
     enhancedValidation?: pulumi.Input<inputs.ProviderEnhancedValidation | undefined>;
     /**
      * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.

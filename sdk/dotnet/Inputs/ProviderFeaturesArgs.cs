@@ -27,6 +27,9 @@ namespace Pulumi.Azure.Inputs
         [Input("databricksWorkspace")]
         public Input<Inputs.ProviderFeaturesDatabricksWorkspaceArgs>? DatabricksWorkspace { get; set; }
 
+        [Input("enhancedValidation")]
+        public Input<Inputs.ProviderFeaturesEnhancedValidationArgs>? EnhancedValidation { get; set; }
+
         [Input("keyVault")]
         public Input<Inputs.ProviderFeaturesKeyVaultArgs>? KeyVault { get; set; }
 
@@ -59,6 +62,9 @@ namespace Pulumi.Azure.Inputs
 
         [Input("resourceGroup")]
         public Input<Inputs.ProviderFeaturesResourceGroupArgs>? ResourceGroup { get; set; }
+
+        [Input("servicebus")]
+        public Input<Inputs.ProviderFeaturesServicebusArgs>? Servicebus { get; set; }
 
         /// <summary>
         /// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `False`.

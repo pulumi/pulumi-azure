@@ -6617,26 +6617,38 @@ class LoggerApplicationInsightsArgsDict(TypedDict):
     """
     The connection string of Application Insights.
     """
+    identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the "Monitoring Metrics Publisher" role on the target Application Insights resource. Requires `connection_string` to be set. Cannot be used with `instrumentation_key`.
+
+    > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+
+    > **Note:** `identity_client_id` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+    """
     instrumentation_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The instrumentation key used to push data to Application Insights.
-
-    > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
     """
 
 @pulumi.input_type
 class LoggerApplicationInsightsArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  instrumentation_key: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] connection_string: The connection string of Application Insights.
-        :param pulumi.Input[_builtins.str] instrumentation_key: The instrumentation key used to push data to Application Insights.
+        :param pulumi.Input[_builtins.str] identity_client_id: The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the "Monitoring Metrics Publisher" role on the target Application Insights resource. Requires `connection_string` to be set. Cannot be used with `instrumentation_key`.
                
                > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+               
+               > **Note:** `identity_client_id` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+        :param pulumi.Input[_builtins.str] instrumentation_key: The instrumentation key used to push data to Application Insights.
         """
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if identity_client_id is not None:
+            pulumi.set(__self__, "identity_client_id", identity_client_id)
         if instrumentation_key is not None:
             pulumi.set(__self__, "instrumentation_key", instrumentation_key)
 
@@ -6653,12 +6665,26 @@ class LoggerApplicationInsightsArgs:
         pulumi.set(self, "connection_string", value)
 
     @_builtins.property
+    @pulumi.getter(name="identityClientId")
+    def identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the "Monitoring Metrics Publisher" role on the target Application Insights resource. Requires `connection_string` to be set. Cannot be used with `instrumentation_key`.
+
+        > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
+
+        > **Note:** `identity_client_id` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+        """
+        return pulumi.get(self, "identity_client_id")
+
+    @identity_client_id.setter
+    def identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "identity_client_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="instrumentationKey")
     def instrumentation_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The instrumentation key used to push data to Application Insights.
-
-        > **Note:** Either `connection_string` or `instrumentation_key` have to be specified.
         """
         return pulumi.get(self, "instrumentation_key")
 

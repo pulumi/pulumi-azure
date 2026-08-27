@@ -11053,9 +11053,13 @@ func (o GatewayLocationDataPtrOutput) Region() pulumi.StringPtrOutput {
 type LoggerApplicationInsights struct {
 	// The connection string of Application Insights.
 	ConnectionString *string `pulumi:"connectionString"`
-	// The instrumentation key used to push data to Application Insights.
+	// The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the "Monitoring Metrics Publisher" role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
 	//
 	// > **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+	//
+	// > **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+	IdentityClientId *string `pulumi:"identityClientId"`
+	// The instrumentation key used to push data to Application Insights.
 	InstrumentationKey *string `pulumi:"instrumentationKey"`
 }
 
@@ -11073,9 +11077,13 @@ type LoggerApplicationInsightsInput interface {
 type LoggerApplicationInsightsArgs struct {
 	// The connection string of Application Insights.
 	ConnectionString pulumi.StringPtrInput `pulumi:"connectionString"`
-	// The instrumentation key used to push data to Application Insights.
+	// The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the "Monitoring Metrics Publisher" role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
 	//
 	// > **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+	//
+	// > **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+	IdentityClientId pulumi.StringPtrInput `pulumi:"identityClientId"`
+	// The instrumentation key used to push data to Application Insights.
 	InstrumentationKey pulumi.StringPtrInput `pulumi:"instrumentationKey"`
 }
 
@@ -11161,9 +11169,16 @@ func (o LoggerApplicationInsightsOutput) ConnectionString() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LoggerApplicationInsights) *string { return v.ConnectionString }).(pulumi.StringPtrOutput)
 }
 
-// The instrumentation key used to push data to Application Insights.
+// The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the "Monitoring Metrics Publisher" role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
 //
 // > **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+//
+// > **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+func (o LoggerApplicationInsightsOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LoggerApplicationInsights) *string { return v.IdentityClientId }).(pulumi.StringPtrOutput)
+}
+
+// The instrumentation key used to push data to Application Insights.
 func (o LoggerApplicationInsightsOutput) InstrumentationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoggerApplicationInsights) *string { return v.InstrumentationKey }).(pulumi.StringPtrOutput)
 }
@@ -11202,9 +11217,21 @@ func (o LoggerApplicationInsightsPtrOutput) ConnectionString() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The instrumentation key used to push data to Application Insights.
+// The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the "Monitoring Metrics Publisher" role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
 //
 // > **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+//
+// > **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+func (o LoggerApplicationInsightsPtrOutput) IdentityClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LoggerApplicationInsights) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The instrumentation key used to push data to Application Insights.
 func (o LoggerApplicationInsightsPtrOutput) InstrumentationKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LoggerApplicationInsights) *string {
 		if v == nil {
