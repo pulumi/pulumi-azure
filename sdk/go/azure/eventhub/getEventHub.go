@@ -82,12 +82,8 @@ type LookupEventHubResult struct {
 }
 
 func LookupEventHubOutput(ctx *pulumi.Context, args LookupEventHubOutputArgs, opts ...pulumi.InvokeOption) LookupEventHubResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventHubResultOutput, error) {
-			args := v.(LookupEventHubArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:eventhub/getEventHub:getEventHub", args, LookupEventHubResultOutput{}, options).(LookupEventHubResultOutput), nil
-		}).(LookupEventHubResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:eventhub/getEventHub:getEventHub", args, LookupEventHubResultOutput{}, options).(LookupEventHubResultOutput)
 }
 
 // A collection of arguments for invoking getEventHub.

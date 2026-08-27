@@ -105,12 +105,8 @@ type LookupGatewayHostNameConfigurationResult struct {
 }
 
 func LookupGatewayHostNameConfigurationOutput(ctx *pulumi.Context, args LookupGatewayHostNameConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayHostNameConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGatewayHostNameConfigurationResultOutput, error) {
-			args := v.(LookupGatewayHostNameConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", args, LookupGatewayHostNameConfigurationResultOutput{}, options).(LookupGatewayHostNameConfigurationResultOutput), nil
-		}).(LookupGatewayHostNameConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:apimanagement/getGatewayHostNameConfiguration:getGatewayHostNameConfiguration", args, LookupGatewayHostNameConfigurationResultOutput{}, options).(LookupGatewayHostNameConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getGatewayHostNameConfiguration.

@@ -86,12 +86,8 @@ type LookupHubResult struct {
 }
 
 func LookupHubOutput(ctx *pulumi.Context, args LookupHubOutputArgs, opts ...pulumi.InvokeOption) LookupHubResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHubResultOutput, error) {
-			args := v.(LookupHubArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:notificationhub/getHub:getHub", args, LookupHubResultOutput{}, options).(LookupHubResultOutput), nil
-		}).(LookupHubResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:notificationhub/getHub:getHub", args, LookupHubResultOutput{}, options).(LookupHubResultOutput)
 }
 
 // A collection of arguments for invoking getHub.

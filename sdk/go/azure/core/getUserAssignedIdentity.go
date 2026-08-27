@@ -92,12 +92,8 @@ type GetUserAssignedIdentityResult struct {
 }
 
 func GetUserAssignedIdentityOutput(ctx *pulumi.Context, args GetUserAssignedIdentityOutputArgs, opts ...pulumi.InvokeOption) GetUserAssignedIdentityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserAssignedIdentityResultOutput, error) {
-			args := v.(GetUserAssignedIdentityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args, GetUserAssignedIdentityResultOutput{}, options).(GetUserAssignedIdentityResultOutput), nil
-		}).(GetUserAssignedIdentityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:core/getUserAssignedIdentity:getUserAssignedIdentity", args, GetUserAssignedIdentityResultOutput{}, options).(GetUserAssignedIdentityResultOutput)
 }
 
 // A collection of arguments for invoking getUserAssignedIdentity.

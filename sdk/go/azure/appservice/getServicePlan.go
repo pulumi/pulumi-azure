@@ -96,12 +96,8 @@ type LookupServicePlanResult struct {
 }
 
 func LookupServicePlanOutput(ctx *pulumi.Context, args LookupServicePlanOutputArgs, opts ...pulumi.InvokeOption) LookupServicePlanResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServicePlanResultOutput, error) {
-			args := v.(LookupServicePlanArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getServicePlan:getServicePlan", args, LookupServicePlanResultOutput{}, options).(LookupServicePlanResultOutput), nil
-		}).(LookupServicePlanResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getServicePlan:getServicePlan", args, LookupServicePlanResultOutput{}, options).(LookupServicePlanResultOutput)
 }
 
 // A collection of arguments for invoking getServicePlan.

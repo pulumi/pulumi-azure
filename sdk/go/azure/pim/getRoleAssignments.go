@@ -39,7 +39,7 @@ import (
 //				Scope: exampleResourceGroup.ID().ToIDOutput().ToStringOutput(),
 //			}, nil)
 //			ctx.Export("id", example.ApplyT(func(example pim.GetRoleAssignmentsResult) ([]pim.GetRoleAssignmentsRoleAssignment, error) {
-//				return []pim.GetRoleAssignmentsRoleAssignment(example.RoleAssignments), nil
+//				return example.RoleAssignments.([]pim.GetRoleAssignmentsRoleAssignment), nil
 //			}).(pulumi.ArrayOutput))
 //			return nil
 //		})
@@ -89,12 +89,8 @@ type GetRoleAssignmentsResult struct {
 }
 
 func GetRoleAssignmentsOutput(ctx *pulumi.Context, args GetRoleAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetRoleAssignmentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRoleAssignmentsResultOutput, error) {
-			args := v.(GetRoleAssignmentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:pim/getRoleAssignments:getRoleAssignments", args, GetRoleAssignmentsResultOutput{}, options).(GetRoleAssignmentsResultOutput), nil
-		}).(GetRoleAssignmentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:pim/getRoleAssignments:getRoleAssignments", args, GetRoleAssignmentsResultOutput{}, options).(GetRoleAssignmentsResultOutput)
 }
 
 // A collection of arguments for invoking getRoleAssignments.

@@ -155,12 +155,8 @@ type LookupLinuxFunctionAppResult struct {
 }
 
 func LookupLinuxFunctionAppOutput(ctx *pulumi.Context, args LookupLinuxFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupLinuxFunctionAppResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLinuxFunctionAppResultOutput, error) {
-			args := v.(LookupLinuxFunctionAppArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args, LookupLinuxFunctionAppResultOutput{}, options).(LookupLinuxFunctionAppResultOutput), nil
-		}).(LookupLinuxFunctionAppResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getLinuxFunctionApp:getLinuxFunctionApp", args, LookupLinuxFunctionAppResultOutput{}, options).(LookupLinuxFunctionAppResultOutput)
 }
 
 // A collection of arguments for invoking getLinuxFunctionApp.

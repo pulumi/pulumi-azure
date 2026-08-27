@@ -95,12 +95,8 @@ type LookupKeyVaultResult struct {
 }
 
 func LookupKeyVaultOutput(ctx *pulumi.Context, args LookupKeyVaultOutputArgs, opts ...pulumi.InvokeOption) LookupKeyVaultResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupKeyVaultResultOutput, error) {
-			args := v.(LookupKeyVaultArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:keyvault/getKeyVault:getKeyVault", args, LookupKeyVaultResultOutput{}, options).(LookupKeyVaultResultOutput), nil
-		}).(LookupKeyVaultResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:keyvault/getKeyVault:getKeyVault", args, LookupKeyVaultResultOutput{}, options).(LookupKeyVaultResultOutput)
 }
 
 // A collection of arguments for invoking getKeyVault.

@@ -76,12 +76,8 @@ type LookupAttachedNetworkResult struct {
 }
 
 func LookupAttachedNetworkOutput(ctx *pulumi.Context, args LookupAttachedNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupAttachedNetworkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAttachedNetworkResultOutput, error) {
-			args := v.(LookupAttachedNetworkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:devcenter/getAttachedNetwork:getAttachedNetwork", args, LookupAttachedNetworkResultOutput{}, options).(LookupAttachedNetworkResultOutput), nil
-		}).(LookupAttachedNetworkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:devcenter/getAttachedNetwork:getAttachedNetwork", args, LookupAttachedNetworkResultOutput{}, options).(LookupAttachedNetworkResultOutput)
 }
 
 // A collection of arguments for invoking getAttachedNetwork.

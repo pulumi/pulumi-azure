@@ -88,12 +88,8 @@ type LookupEnvironmentStorageResult struct {
 }
 
 func LookupEnvironmentStorageOutput(ctx *pulumi.Context, args LookupEnvironmentStorageOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentStorageResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEnvironmentStorageResultOutput, error) {
-			args := v.(LookupEnvironmentStorageArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:containerapp/getEnvironmentStorage:getEnvironmentStorage", args, LookupEnvironmentStorageResultOutput{}, options).(LookupEnvironmentStorageResultOutput), nil
-		}).(LookupEnvironmentStorageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:containerapp/getEnvironmentStorage:getEnvironmentStorage", args, LookupEnvironmentStorageResultOutput{}, options).(LookupEnvironmentStorageResultOutput)
 }
 
 // A collection of arguments for invoking getEnvironmentStorage.

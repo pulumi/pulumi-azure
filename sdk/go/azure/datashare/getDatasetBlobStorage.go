@@ -85,12 +85,8 @@ type LookupDatasetBlobStorageResult struct {
 }
 
 func LookupDatasetBlobStorageOutput(ctx *pulumi.Context, args LookupDatasetBlobStorageOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetBlobStorageResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDatasetBlobStorageResultOutput, error) {
-			args := v.(LookupDatasetBlobStorageArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args, LookupDatasetBlobStorageResultOutput{}, options).(LookupDatasetBlobStorageResultOutput), nil
-		}).(LookupDatasetBlobStorageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:datashare/getDatasetBlobStorage:getDatasetBlobStorage", args, LookupDatasetBlobStorageResultOutput{}, options).(LookupDatasetBlobStorageResultOutput)
 }
 
 // A collection of arguments for invoking getDatasetBlobStorage.

@@ -87,12 +87,8 @@ type GetPolicyDefintionBuiltInResult struct {
 }
 
 func GetPolicyDefintionBuiltInOutput(ctx *pulumi.Context, args GetPolicyDefintionBuiltInOutputArgs, opts ...pulumi.InvokeOption) GetPolicyDefintionBuiltInResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPolicyDefintionBuiltInResultOutput, error) {
-			args := v.(GetPolicyDefintionBuiltInArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args, GetPolicyDefintionBuiltInResultOutput{}, options).(GetPolicyDefintionBuiltInResultOutput), nil
-		}).(GetPolicyDefintionBuiltInResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:policy/getPolicyDefintionBuiltIn:getPolicyDefintionBuiltIn", args, GetPolicyDefintionBuiltInResultOutput{}, options).(GetPolicyDefintionBuiltInResultOutput)
 }
 
 // A collection of arguments for invoking getPolicyDefintionBuiltIn.

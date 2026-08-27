@@ -99,12 +99,8 @@ type LookupHostPoolResult struct {
 }
 
 func LookupHostPoolOutput(ctx *pulumi.Context, args LookupHostPoolOutputArgs, opts ...pulumi.InvokeOption) LookupHostPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHostPoolResultOutput, error) {
-			args := v.(LookupHostPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:desktopvirtualization/getHostPool:getHostPool", args, LookupHostPoolResultOutput{}, options).(LookupHostPoolResultOutput), nil
-		}).(LookupHostPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:desktopvirtualization/getHostPool:getHostPool", args, LookupHostPoolResultOutput{}, options).(LookupHostPoolResultOutput)
 }
 
 // A collection of arguments for invoking getHostPool.

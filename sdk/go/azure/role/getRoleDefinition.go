@@ -112,12 +112,8 @@ type GetRoleDefinitionResult struct {
 }
 
 func GetRoleDefinitionOutput(ctx *pulumi.Context, args GetRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetRoleDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRoleDefinitionResultOutput, error) {
-			args := v.(GetRoleDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:role/getRoleDefinition:getRoleDefinition", args, GetRoleDefinitionResultOutput{}, options).(GetRoleDefinitionResultOutput), nil
-		}).(GetRoleDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:role/getRoleDefinition:getRoleDefinition", args, GetRoleDefinitionResultOutput{}, options).(GetRoleDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getRoleDefinition.

@@ -82,12 +82,8 @@ type GetPublicConfigurationsResult struct {
 }
 
 func GetPublicConfigurationsOutput(ctx *pulumi.Context, args GetPublicConfigurationsOutputArgs, opts ...pulumi.InvokeOption) GetPublicConfigurationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPublicConfigurationsResultOutput, error) {
-			args := v.(GetPublicConfigurationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args, GetPublicConfigurationsResultOutput{}, options).(GetPublicConfigurationsResultOutput), nil
-		}).(GetPublicConfigurationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:maintenance/getPublicConfigurations:getPublicConfigurations", args, GetPublicConfigurationsResultOutput{}, options).(GetPublicConfigurationsResultOutput)
 }
 
 // A collection of arguments for invoking getPublicConfigurations.

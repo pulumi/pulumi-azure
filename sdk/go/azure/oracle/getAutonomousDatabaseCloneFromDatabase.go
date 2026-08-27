@@ -203,12 +203,8 @@ type LookupAutonomousDatabaseCloneFromDatabaseResult struct {
 }
 
 func LookupAutonomousDatabaseCloneFromDatabaseOutput(ctx *pulumi.Context, args LookupAutonomousDatabaseCloneFromDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupAutonomousDatabaseCloneFromDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAutonomousDatabaseCloneFromDatabaseResultOutput, error) {
-			args := v.(LookupAutonomousDatabaseCloneFromDatabaseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:oracle/getAutonomousDatabaseCloneFromDatabase:getAutonomousDatabaseCloneFromDatabase", args, LookupAutonomousDatabaseCloneFromDatabaseResultOutput{}, options).(LookupAutonomousDatabaseCloneFromDatabaseResultOutput), nil
-		}).(LookupAutonomousDatabaseCloneFromDatabaseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:oracle/getAutonomousDatabaseCloneFromDatabase:getAutonomousDatabaseCloneFromDatabase", args, LookupAutonomousDatabaseCloneFromDatabaseResultOutput{}, options).(LookupAutonomousDatabaseCloneFromDatabaseResultOutput)
 }
 
 // A collection of arguments for invoking getAutonomousDatabaseCloneFromDatabase.

@@ -78,12 +78,8 @@ type GetWorkspacePrivateEndpointConnectionResult struct {
 }
 
 func GetWorkspacePrivateEndpointConnectionOutput(ctx *pulumi.Context, args GetWorkspacePrivateEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) GetWorkspacePrivateEndpointConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetWorkspacePrivateEndpointConnectionResultOutput, error) {
-			args := v.(GetWorkspacePrivateEndpointConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", args, GetWorkspacePrivateEndpointConnectionResultOutput{}, options).(GetWorkspacePrivateEndpointConnectionResultOutput), nil
-		}).(GetWorkspacePrivateEndpointConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:databricks/getWorkspacePrivateEndpointConnection:getWorkspacePrivateEndpointConnection", args, GetWorkspacePrivateEndpointConnectionResultOutput{}, options).(GetWorkspacePrivateEndpointConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getWorkspacePrivateEndpointConnection.

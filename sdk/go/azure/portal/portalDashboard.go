@@ -203,7 +203,7 @@ import (
 //
 // )
 //
-//	func notImplemented(message string) pulumi.AnyOutput {
+//	func notImplemented(message string) any {
 //		panic(message)
 //	}
 //

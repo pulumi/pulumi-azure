@@ -95,12 +95,8 @@ type LookupNamespaceDisasterRecoveryConfigResult struct {
 }
 
 func LookupNamespaceDisasterRecoveryConfigOutput(ctx *pulumi.Context, args LookupNamespaceDisasterRecoveryConfigOutputArgs, opts ...pulumi.InvokeOption) LookupNamespaceDisasterRecoveryConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNamespaceDisasterRecoveryConfigResultOutput, error) {
-			args := v.(LookupNamespaceDisasterRecoveryConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args, LookupNamespaceDisasterRecoveryConfigResultOutput{}, options).(LookupNamespaceDisasterRecoveryConfigResultOutput), nil
-		}).(LookupNamespaceDisasterRecoveryConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig", args, LookupNamespaceDisasterRecoveryConfigResultOutput{}, options).(LookupNamespaceDisasterRecoveryConfigResultOutput)
 }
 
 // A collection of arguments for invoking getNamespaceDisasterRecoveryConfig.

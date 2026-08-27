@@ -79,12 +79,8 @@ type GetEndpointConnectionResult struct {
 }
 
 func GetEndpointConnectionOutput(ctx *pulumi.Context, args GetEndpointConnectionOutputArgs, opts ...pulumi.InvokeOption) GetEndpointConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEndpointConnectionResultOutput, error) {
-			args := v.(GetEndpointConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:privatelink/getEndpointConnection:getEndpointConnection", args, GetEndpointConnectionResultOutput{}, options).(GetEndpointConnectionResultOutput), nil
-		}).(GetEndpointConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:privatelink/getEndpointConnection:getEndpointConnection", args, GetEndpointConnectionResultOutput{}, options).(GetEndpointConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getEndpointConnection.

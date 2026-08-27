@@ -71,12 +71,8 @@ type GetMcaAccountScopeResult struct {
 }
 
 func GetMcaAccountScopeOutput(ctx *pulumi.Context, args GetMcaAccountScopeOutputArgs, opts ...pulumi.InvokeOption) GetMcaAccountScopeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetMcaAccountScopeResultOutput, error) {
-			args := v.(GetMcaAccountScopeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:billing/getMcaAccountScope:getMcaAccountScope", args, GetMcaAccountScopeResultOutput{}, options).(GetMcaAccountScopeResultOutput), nil
-		}).(GetMcaAccountScopeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:billing/getMcaAccountScope:getMcaAccountScope", args, GetMcaAccountScopeResultOutput{}, options).(GetMcaAccountScopeResultOutput)
 }
 
 // A collection of arguments for invoking getMcaAccountScope.

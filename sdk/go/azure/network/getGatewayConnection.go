@@ -131,12 +131,8 @@ type GetGatewayConnectionResult struct {
 }
 
 func GetGatewayConnectionOutput(ctx *pulumi.Context, args GetGatewayConnectionOutputArgs, opts ...pulumi.InvokeOption) GetGatewayConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetGatewayConnectionResultOutput, error) {
-			args := v.(GetGatewayConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getGatewayConnection:getGatewayConnection", args, GetGatewayConnectionResultOutput{}, options).(GetGatewayConnectionResultOutput), nil
-		}).(GetGatewayConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getGatewayConnection:getGatewayConnection", args, GetGatewayConnectionResultOutput{}, options).(GetGatewayConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getGatewayConnection.

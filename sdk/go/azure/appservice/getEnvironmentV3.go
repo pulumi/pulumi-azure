@@ -107,12 +107,8 @@ type LookupEnvironmentV3Result struct {
 }
 
 func LookupEnvironmentV3Output(ctx *pulumi.Context, args LookupEnvironmentV3OutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentV3ResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEnvironmentV3ResultOutput, error) {
-			args := v.(LookupEnvironmentV3Args)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getEnvironmentV3:getEnvironmentV3", args, LookupEnvironmentV3ResultOutput{}, options).(LookupEnvironmentV3ResultOutput), nil
-		}).(LookupEnvironmentV3ResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getEnvironmentV3:getEnvironmentV3", args, LookupEnvironmentV3ResultOutput{}, options).(LookupEnvironmentV3ResultOutput)
 }
 
 // A collection of arguments for invoking getEnvironmentV3.

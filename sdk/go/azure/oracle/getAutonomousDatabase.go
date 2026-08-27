@@ -187,12 +187,8 @@ type LookupAutonomousDatabaseResult struct {
 }
 
 func LookupAutonomousDatabaseOutput(ctx *pulumi.Context, args LookupAutonomousDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupAutonomousDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAutonomousDatabaseResultOutput, error) {
-			args := v.(LookupAutonomousDatabaseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", args, LookupAutonomousDatabaseResultOutput{}, options).(LookupAutonomousDatabaseResultOutput), nil
-		}).(LookupAutonomousDatabaseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:oracle/getAutonomousDatabase:getAutonomousDatabase", args, LookupAutonomousDatabaseResultOutput{}, options).(LookupAutonomousDatabaseResultOutput)
 }
 
 // A collection of arguments for invoking getAutonomousDatabase.

@@ -96,12 +96,8 @@ type LookupDataCollectionRuleResult struct {
 }
 
 func LookupDataCollectionRuleOutput(ctx *pulumi.Context, args LookupDataCollectionRuleOutputArgs, opts ...pulumi.InvokeOption) LookupDataCollectionRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataCollectionRuleResultOutput, error) {
-			args := v.(LookupDataCollectionRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args, LookupDataCollectionRuleResultOutput{}, options).(LookupDataCollectionRuleResultOutput), nil
-		}).(LookupDataCollectionRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:monitoring/getDataCollectionRule:getDataCollectionRule", args, LookupDataCollectionRuleResultOutput{}, options).(LookupDataCollectionRuleResultOutput)
 }
 
 // A collection of arguments for invoking getDataCollectionRule.

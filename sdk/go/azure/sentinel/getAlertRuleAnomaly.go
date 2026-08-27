@@ -122,12 +122,8 @@ type GetAlertRuleAnomalyResult struct {
 }
 
 func GetAlertRuleAnomalyOutput(ctx *pulumi.Context, args GetAlertRuleAnomalyOutputArgs, opts ...pulumi.InvokeOption) GetAlertRuleAnomalyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAlertRuleAnomalyResultOutput, error) {
-			args := v.(GetAlertRuleAnomalyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args, GetAlertRuleAnomalyResultOutput{}, options).(GetAlertRuleAnomalyResultOutput), nil
-		}).(GetAlertRuleAnomalyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", args, GetAlertRuleAnomalyResultOutput{}, options).(GetAlertRuleAnomalyResultOutput)
 }
 
 // A collection of arguments for invoking getAlertRuleAnomaly.

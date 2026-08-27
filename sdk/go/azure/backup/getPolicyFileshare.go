@@ -70,12 +70,8 @@ type GetPolicyFileshareResult struct {
 }
 
 func GetPolicyFileshareOutput(ctx *pulumi.Context, args GetPolicyFileshareOutputArgs, opts ...pulumi.InvokeOption) GetPolicyFileshareResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPolicyFileshareResultOutput, error) {
-			args := v.(GetPolicyFileshareArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:backup/getPolicyFileshare:getPolicyFileshare", args, GetPolicyFileshareResultOutput{}, options).(GetPolicyFileshareResultOutput), nil
-		}).(GetPolicyFileshareResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:backup/getPolicyFileshare:getPolicyFileshare", args, GetPolicyFileshareResultOutput{}, options).(GetPolicyFileshareResultOutput)
 }
 
 // A collection of arguments for invoking getPolicyFileshare.

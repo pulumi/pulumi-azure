@@ -78,12 +78,8 @@ type GetFleetManagerResult struct {
 }
 
 func GetFleetManagerOutput(ctx *pulumi.Context, args GetFleetManagerOutputArgs, opts ...pulumi.InvokeOption) GetFleetManagerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFleetManagerResultOutput, error) {
-			args := v.(GetFleetManagerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:containerservice/getFleetManager:getFleetManager", args, GetFleetManagerResultOutput{}, options).(GetFleetManagerResultOutput), nil
-		}).(GetFleetManagerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:containerservice/getFleetManager:getFleetManager", args, GetFleetManagerResultOutput{}, options).(GetFleetManagerResultOutput)
 }
 
 // A collection of arguments for invoking getFleetManager.

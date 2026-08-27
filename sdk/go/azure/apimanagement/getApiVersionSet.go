@@ -87,12 +87,8 @@ type LookupApiVersionSetResult struct {
 }
 
 func LookupApiVersionSetOutput(ctx *pulumi.Context, args LookupApiVersionSetOutputArgs, opts ...pulumi.InvokeOption) LookupApiVersionSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApiVersionSetResultOutput, error) {
-			args := v.(LookupApiVersionSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:apimanagement/getApiVersionSet:getApiVersionSet", args, LookupApiVersionSetResultOutput{}, options).(LookupApiVersionSetResultOutput), nil
-		}).(LookupApiVersionSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:apimanagement/getApiVersionSet:getApiVersionSet", args, LookupApiVersionSetResultOutput{}, options).(LookupApiVersionSetResultOutput)
 }
 
 // A collection of arguments for invoking getApiVersionSet.

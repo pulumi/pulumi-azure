@@ -87,12 +87,8 @@ type GetDatabaseSystemVersionsResult struct {
 }
 
 func GetDatabaseSystemVersionsOutput(ctx *pulumi.Context, args GetDatabaseSystemVersionsOutputArgs, opts ...pulumi.InvokeOption) GetDatabaseSystemVersionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDatabaseSystemVersionsResultOutput, error) {
-			args := v.(GetDatabaseSystemVersionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:oracle/getDatabaseSystemVersions:getDatabaseSystemVersions", args, GetDatabaseSystemVersionsResultOutput{}, options).(GetDatabaseSystemVersionsResultOutput), nil
-		}).(GetDatabaseSystemVersionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:oracle/getDatabaseSystemVersions:getDatabaseSystemVersions", args, GetDatabaseSystemVersionsResultOutput{}, options).(GetDatabaseSystemVersionsResultOutput)
 }
 
 // A collection of arguments for invoking getDatabaseSystemVersions.

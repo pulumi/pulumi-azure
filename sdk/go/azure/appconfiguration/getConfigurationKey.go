@@ -87,12 +87,8 @@ type LookupConfigurationKeyResult struct {
 }
 
 func LookupConfigurationKeyOutput(ctx *pulumi.Context, args LookupConfigurationKeyOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationKeyResultOutput, error) {
-			args := v.(LookupConfigurationKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args, LookupConfigurationKeyResultOutput{}, options).(LookupConfigurationKeyResultOutput), nil
-		}).(LookupConfigurationKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appconfiguration/getConfigurationKey:getConfigurationKey", args, LookupConfigurationKeyResultOutput{}, options).(LookupConfigurationKeyResultOutput)
 }
 
 // A collection of arguments for invoking getConfigurationKey.

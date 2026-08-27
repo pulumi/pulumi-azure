@@ -88,12 +88,8 @@ type LookupAAAARecordResult struct {
 }
 
 func LookupAAAARecordOutput(ctx *pulumi.Context, args LookupAAAARecordOutputArgs, opts ...pulumi.InvokeOption) LookupAAAARecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAAAARecordResultOutput, error) {
-			args := v.(LookupAAAARecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:privatedns/getAAAARecord:getAAAARecord", args, LookupAAAARecordResultOutput{}, options).(LookupAAAARecordResultOutput), nil
-		}).(LookupAAAARecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:privatedns/getAAAARecord:getAAAARecord", args, LookupAAAARecordResultOutput{}, options).(LookupAAAARecordResultOutput)
 }
 
 // A collection of arguments for invoking getAAAARecord.

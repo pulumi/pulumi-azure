@@ -72,12 +72,8 @@ type LookupTableEntityResult struct {
 }
 
 func LookupTableEntityOutput(ctx *pulumi.Context, args LookupTableEntityOutputArgs, opts ...pulumi.InvokeOption) LookupTableEntityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTableEntityResultOutput, error) {
-			args := v.(LookupTableEntityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:storage/getTableEntity:getTableEntity", args, LookupTableEntityResultOutput{}, options).(LookupTableEntityResultOutput), nil
-		}).(LookupTableEntityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:storage/getTableEntity:getTableEntity", args, LookupTableEntityResultOutput{}, options).(LookupTableEntityResultOutput)
 }
 
 // A collection of arguments for invoking getTableEntity.

@@ -72,12 +72,8 @@ type GetManagedDisksResult struct {
 }
 
 func GetManagedDisksOutput(ctx *pulumi.Context, args GetManagedDisksOutputArgs, opts ...pulumi.InvokeOption) GetManagedDisksResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetManagedDisksResultOutput, error) {
-			args := v.(GetManagedDisksArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:compute/getManagedDisks:getManagedDisks", args, GetManagedDisksResultOutput{}, options).(GetManagedDisksResultOutput), nil
-		}).(GetManagedDisksResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:compute/getManagedDisks:getManagedDisks", args, GetManagedDisksResultOutput{}, options).(GetManagedDisksResultOutput)
 }
 
 // A collection of arguments for invoking getManagedDisks.

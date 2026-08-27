@@ -93,12 +93,8 @@ type LookupVolumeBucketResult struct {
 }
 
 func LookupVolumeBucketOutput(ctx *pulumi.Context, args LookupVolumeBucketOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeBucketResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVolumeBucketResultOutput, error) {
-			args := v.(LookupVolumeBucketArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:netapp/getVolumeBucket:getVolumeBucket", args, LookupVolumeBucketResultOutput{}, options).(LookupVolumeBucketResultOutput), nil
-		}).(LookupVolumeBucketResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:netapp/getVolumeBucket:getVolumeBucket", args, LookupVolumeBucketResultOutput{}, options).(LookupVolumeBucketResultOutput)
 }
 
 // A collection of arguments for invoking getVolumeBucket.

@@ -69,12 +69,8 @@ type LookupTenantTemplateDeploymentResult struct {
 }
 
 func LookupTenantTemplateDeploymentOutput(ctx *pulumi.Context, args LookupTenantTemplateDeploymentOutputArgs, opts ...pulumi.InvokeOption) LookupTenantTemplateDeploymentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTenantTemplateDeploymentResultOutput, error) {
-			args := v.(LookupTenantTemplateDeploymentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args, LookupTenantTemplateDeploymentResultOutput{}, options).(LookupTenantTemplateDeploymentResultOutput), nil
-		}).(LookupTenantTemplateDeploymentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:core/getTenantTemplateDeployment:getTenantTemplateDeployment", args, LookupTenantTemplateDeploymentResultOutput{}, options).(LookupTenantTemplateDeploymentResultOutput)
 }
 
 // A collection of arguments for invoking getTenantTemplateDeployment.

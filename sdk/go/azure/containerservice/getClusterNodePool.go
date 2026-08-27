@@ -127,12 +127,8 @@ type GetClusterNodePoolResult struct {
 }
 
 func GetClusterNodePoolOutput(ctx *pulumi.Context, args GetClusterNodePoolOutputArgs, opts ...pulumi.InvokeOption) GetClusterNodePoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetClusterNodePoolResultOutput, error) {
-			args := v.(GetClusterNodePoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:containerservice/getClusterNodePool:getClusterNodePool", args, GetClusterNodePoolResultOutput{}, options).(GetClusterNodePoolResultOutput), nil
-		}).(GetClusterNodePoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:containerservice/getClusterNodePool:getClusterNodePool", args, GetClusterNodePoolResultOutput{}, options).(GetClusterNodePoolResultOutput)
 }
 
 // A collection of arguments for invoking getClusterNodePool.

@@ -120,12 +120,8 @@ type LookupNetworkManagerIpamPoolResult struct {
 }
 
 func LookupNetworkManagerIpamPoolOutput(ctx *pulumi.Context, args LookupNetworkManagerIpamPoolOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkManagerIpamPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkManagerIpamPoolResultOutput, error) {
-			args := v.(LookupNetworkManagerIpamPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getNetworkManagerIpamPool:getNetworkManagerIpamPool", args, LookupNetworkManagerIpamPoolResultOutput{}, options).(LookupNetworkManagerIpamPoolResultOutput), nil
-		}).(LookupNetworkManagerIpamPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getNetworkManagerIpamPool:getNetworkManagerIpamPool", args, LookupNetworkManagerIpamPoolResultOutput{}, options).(LookupNetworkManagerIpamPoolResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkManagerIpamPool.

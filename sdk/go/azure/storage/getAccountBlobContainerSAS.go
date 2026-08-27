@@ -143,12 +143,8 @@ type GetAccountBlobContainerSASResult struct {
 }
 
 func GetAccountBlobContainerSASOutput(ctx *pulumi.Context, args GetAccountBlobContainerSASOutputArgs, opts ...pulumi.InvokeOption) GetAccountBlobContainerSASResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAccountBlobContainerSASResultOutput, error) {
-			args := v.(GetAccountBlobContainerSASArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, GetAccountBlobContainerSASResultOutput{}, options).(GetAccountBlobContainerSASResultOutput), nil
-		}).(GetAccountBlobContainerSASResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:storage/getAccountBlobContainerSAS:getAccountBlobContainerSAS", args, GetAccountBlobContainerSASResultOutput{}, options).(GetAccountBlobContainerSASResultOutput)
 }
 
 // A collection of arguments for invoking getAccountBlobContainerSAS.

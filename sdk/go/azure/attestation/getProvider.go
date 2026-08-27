@@ -82,12 +82,8 @@ type LookupProviderResult struct {
 }
 
 func LookupProviderOutput(ctx *pulumi.Context, args LookupProviderOutputArgs, opts ...pulumi.InvokeOption) LookupProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProviderResultOutput, error) {
-			args := v.(LookupProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:attestation/getProvider:getProvider", args, LookupProviderResultOutput{}, options).(LookupProviderResultOutput), nil
-		}).(LookupProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:attestation/getProvider:getProvider", args, LookupProviderResultOutput{}, options).(LookupProviderResultOutput)
 }
 
 // A collection of arguments for invoking getProvider.

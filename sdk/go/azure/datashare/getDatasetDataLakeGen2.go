@@ -84,12 +84,8 @@ type LookupDatasetDataLakeGen2Result struct {
 }
 
 func LookupDatasetDataLakeGen2Output(ctx *pulumi.Context, args LookupDatasetDataLakeGen2OutputArgs, opts ...pulumi.InvokeOption) LookupDatasetDataLakeGen2ResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDatasetDataLakeGen2ResultOutput, error) {
-			args := v.(LookupDatasetDataLakeGen2Args)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args, LookupDatasetDataLakeGen2ResultOutput{}, options).(LookupDatasetDataLakeGen2ResultOutput), nil
-		}).(LookupDatasetDataLakeGen2ResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:datashare/getDatasetDataLakeGen2:getDatasetDataLakeGen2", args, LookupDatasetDataLakeGen2ResultOutput{}, options).(LookupDatasetDataLakeGen2ResultOutput)
 }
 
 // A collection of arguments for invoking getDatasetDataLakeGen2.

@@ -82,12 +82,8 @@ type LookupVolumeQuotaRuleResult struct {
 }
 
 func LookupVolumeQuotaRuleOutput(ctx *pulumi.Context, args LookupVolumeQuotaRuleOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeQuotaRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVolumeQuotaRuleResultOutput, error) {
-			args := v.(LookupVolumeQuotaRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", args, LookupVolumeQuotaRuleResultOutput{}, options).(LookupVolumeQuotaRuleResultOutput), nil
-		}).(LookupVolumeQuotaRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:netapp/getVolumeQuotaRule:getVolumeQuotaRule", args, LookupVolumeQuotaRuleResultOutput{}, options).(LookupVolumeQuotaRuleResultOutput)
 }
 
 // A collection of arguments for invoking getVolumeQuotaRule.

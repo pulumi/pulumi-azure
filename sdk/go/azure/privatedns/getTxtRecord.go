@@ -88,12 +88,8 @@ type LookupTxtRecordResult struct {
 }
 
 func LookupTxtRecordOutput(ctx *pulumi.Context, args LookupTxtRecordOutputArgs, opts ...pulumi.InvokeOption) LookupTxtRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTxtRecordResultOutput, error) {
-			args := v.(LookupTxtRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:privatedns/getTxtRecord:getTxtRecord", args, LookupTxtRecordResultOutput{}, options).(LookupTxtRecordResultOutput), nil
-		}).(LookupTxtRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:privatedns/getTxtRecord:getTxtRecord", args, LookupTxtRecordResultOutput{}, options).(LookupTxtRecordResultOutput)
 }
 
 // A collection of arguments for invoking getTxtRecord.

@@ -74,12 +74,8 @@ type GetGeographicalLocationResult struct {
 }
 
 func GetGeographicalLocationOutput(ctx *pulumi.Context, args GetGeographicalLocationOutputArgs, opts ...pulumi.InvokeOption) GetGeographicalLocationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetGeographicalLocationResultOutput, error) {
-			args := v.(GetGeographicalLocationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args, GetGeographicalLocationResultOutput{}, options).(GetGeographicalLocationResultOutput), nil
-		}).(GetGeographicalLocationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:trafficmanager/getGeographicalLocation:getGeographicalLocation", args, GetGeographicalLocationResultOutput{}, options).(GetGeographicalLocationResultOutput)
 }
 
 // A collection of arguments for invoking getGeographicalLocation.

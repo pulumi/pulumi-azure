@@ -67,12 +67,8 @@ type GetEnrollmentAccountScopeResult struct {
 }
 
 func GetEnrollmentAccountScopeOutput(ctx *pulumi.Context, args GetEnrollmentAccountScopeOutputArgs, opts ...pulumi.InvokeOption) GetEnrollmentAccountScopeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEnrollmentAccountScopeResultOutput, error) {
-			args := v.(GetEnrollmentAccountScopeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args, GetEnrollmentAccountScopeResultOutput{}, options).(GetEnrollmentAccountScopeResultOutput), nil
-		}).(GetEnrollmentAccountScopeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:billing/getEnrollmentAccountScope:getEnrollmentAccountScope", args, GetEnrollmentAccountScopeResultOutput{}, options).(GetEnrollmentAccountScopeResultOutput)
 }
 
 // A collection of arguments for invoking getEnrollmentAccountScope.

@@ -49,12 +49,8 @@ type GetEncryptedValueResult struct {
 }
 
 func GetEncryptedValueOutput(ctx *pulumi.Context, args GetEncryptedValueOutputArgs, opts ...pulumi.InvokeOption) GetEncryptedValueResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEncryptedValueResultOutput, error) {
-			args := v.(GetEncryptedValueArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:keyvault/getEncryptedValue:getEncryptedValue", args, GetEncryptedValueResultOutput{}, options).(GetEncryptedValueResultOutput), nil
-		}).(GetEncryptedValueResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:keyvault/getEncryptedValue:getEncryptedValue", args, GetEncryptedValueResultOutput{}, options).(GetEncryptedValueResultOutput)
 }
 
 // A collection of arguments for invoking getEncryptedValue.

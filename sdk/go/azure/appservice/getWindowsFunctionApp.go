@@ -151,12 +151,8 @@ type LookupWindowsFunctionAppResult struct {
 }
 
 func LookupWindowsFunctionAppOutput(ctx *pulumi.Context, args LookupWindowsFunctionAppOutputArgs, opts ...pulumi.InvokeOption) LookupWindowsFunctionAppResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWindowsFunctionAppResultOutput, error) {
-			args := v.(LookupWindowsFunctionAppArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", args, LookupWindowsFunctionAppResultOutput{}, options).(LookupWindowsFunctionAppResultOutput), nil
-		}).(LookupWindowsFunctionAppResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getWindowsFunctionApp:getWindowsFunctionApp", args, LookupWindowsFunctionAppResultOutput{}, options).(LookupWindowsFunctionAppResultOutput)
 }
 
 // A collection of arguments for invoking getWindowsFunctionApp.

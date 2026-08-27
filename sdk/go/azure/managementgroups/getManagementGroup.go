@@ -89,12 +89,8 @@ type LookupManagementGroupResult struct {
 }
 
 func LookupManagementGroupOutput(ctx *pulumi.Context, args LookupManagementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupManagementGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupManagementGroupResultOutput, error) {
-			args := v.(LookupManagementGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:managementgroups/getManagementGroup:getManagementGroup", args, LookupManagementGroupResultOutput{}, options).(LookupManagementGroupResultOutput), nil
-		}).(LookupManagementGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:managementgroups/getManagementGroup:getManagementGroup", args, LookupManagementGroupResultOutput{}, options).(LookupManagementGroupResultOutput)
 }
 
 // A collection of arguments for invoking getManagementGroup.

@@ -92,12 +92,8 @@ type LookupDataCollectionEndpointResult struct {
 }
 
 func LookupDataCollectionEndpointOutput(ctx *pulumi.Context, args LookupDataCollectionEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupDataCollectionEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataCollectionEndpointResultOutput, error) {
-			args := v.(LookupDataCollectionEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args, LookupDataCollectionEndpointResultOutput{}, options).(LookupDataCollectionEndpointResultOutput), nil
-		}).(LookupDataCollectionEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:monitoring/getDataCollectionEndpoint:getDataCollectionEndpoint", args, LookupDataCollectionEndpointResultOutput{}, options).(LookupDataCollectionEndpointResultOutput)
 }
 
 // A collection of arguments for invoking getDataCollectionEndpoint.

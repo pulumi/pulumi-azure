@@ -81,12 +81,8 @@ type GetPublicIPsResult struct {
 }
 
 func GetPublicIPsOutput(ctx *pulumi.Context, args GetPublicIPsOutputArgs, opts ...pulumi.InvokeOption) GetPublicIPsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPublicIPsResultOutput, error) {
-			args := v.(GetPublicIPsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getPublicIPs:getPublicIPs", args, GetPublicIPsResultOutput{}, options).(GetPublicIPsResultOutput), nil
-		}).(GetPublicIPsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getPublicIPs:getPublicIPs", args, GetPublicIPsResultOutput{}, options).(GetPublicIPsResultOutput)
 }
 
 // A collection of arguments for invoking getPublicIPs.

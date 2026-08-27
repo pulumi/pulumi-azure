@@ -93,12 +93,8 @@ type LookupTrafficManagerProfileResult struct {
 }
 
 func LookupTrafficManagerProfileOutput(ctx *pulumi.Context, args LookupTrafficManagerProfileOutputArgs, opts ...pulumi.InvokeOption) LookupTrafficManagerProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTrafficManagerProfileResultOutput, error) {
-			args := v.(LookupTrafficManagerProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args, LookupTrafficManagerProfileResultOutput{}, options).(LookupTrafficManagerProfileResultOutput), nil
-		}).(LookupTrafficManagerProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getTrafficManagerProfile:getTrafficManagerProfile", args, LookupTrafficManagerProfileResultOutput{}, options).(LookupTrafficManagerProfileResultOutput)
 }
 
 // A collection of arguments for invoking getTrafficManagerProfile.

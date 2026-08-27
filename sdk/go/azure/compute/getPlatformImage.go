@@ -85,12 +85,8 @@ type GetPlatformImageResult struct {
 }
 
 func GetPlatformImageOutput(ctx *pulumi.Context, args GetPlatformImageOutputArgs, opts ...pulumi.InvokeOption) GetPlatformImageResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPlatformImageResultOutput, error) {
-			args := v.(GetPlatformImageArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:compute/getPlatformImage:getPlatformImage", args, GetPlatformImageResultOutput{}, options).(GetPlatformImageResultOutput), nil
-		}).(GetPlatformImageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:compute/getPlatformImage:getPlatformImage", args, GetPlatformImageResultOutput{}, options).(GetPlatformImageResultOutput)
 }
 
 // A collection of arguments for invoking getPlatformImage.

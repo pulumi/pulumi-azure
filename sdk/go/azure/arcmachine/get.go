@@ -129,12 +129,8 @@ type GetResult struct {
 }
 
 func GetOutput(ctx *pulumi.Context, args GetOutputArgs, opts ...pulumi.InvokeOption) GetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetResultOutput, error) {
-			args := v.(GetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:arcmachine/get:get", args, GetResultOutput{}, options).(GetResultOutput), nil
-		}).(GetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:arcmachine/get:get", args, GetResultOutput{}, options).(GetResultOutput)
 }
 
 // A collection of arguments for invoking get.

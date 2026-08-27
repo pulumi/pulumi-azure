@@ -98,12 +98,8 @@ type GetServiceBusNamespaceResult struct {
 }
 
 func GetServiceBusNamespaceOutput(ctx *pulumi.Context, args GetServiceBusNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetServiceBusNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceBusNamespaceResultOutput, error) {
-			args := v.(GetServiceBusNamespaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, GetServiceBusNamespaceResultOutput{}, options).(GetServiceBusNamespaceResultOutput), nil
-		}).(GetServiceBusNamespaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:eventhub/getServiceBusNamespace:getServiceBusNamespace", args, GetServiceBusNamespaceResultOutput{}, options).(GetServiceBusNamespaceResultOutput)
 }
 
 // A collection of arguments for invoking getServiceBusNamespace.

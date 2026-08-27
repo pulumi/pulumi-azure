@@ -85,12 +85,8 @@ type LookupGatewayResult struct {
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGatewayResultOutput, error) {
-			args := v.(LookupGatewayArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:apimanagement/getGateway:getGateway", args, LookupGatewayResultOutput{}, options).(LookupGatewayResultOutput), nil
-		}).(LookupGatewayResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:apimanagement/getGateway:getGateway", args, LookupGatewayResultOutput{}, options).(LookupGatewayResultOutput)
 }
 
 // A collection of arguments for invoking getGateway.

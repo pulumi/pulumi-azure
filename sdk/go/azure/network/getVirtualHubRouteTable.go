@@ -85,12 +85,8 @@ type LookupVirtualHubRouteTableResult struct {
 }
 
 func LookupVirtualHubRouteTableOutput(ctx *pulumi.Context, args LookupVirtualHubRouteTableOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHubRouteTableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualHubRouteTableResultOutput, error) {
-			args := v.(LookupVirtualHubRouteTableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args, LookupVirtualHubRouteTableResultOutput{}, options).(LookupVirtualHubRouteTableResultOutput), nil
-		}).(LookupVirtualHubRouteTableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getVirtualHubRouteTable:getVirtualHubRouteTable", args, LookupVirtualHubRouteTableResultOutput{}, options).(LookupVirtualHubRouteTableResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualHubRouteTable.

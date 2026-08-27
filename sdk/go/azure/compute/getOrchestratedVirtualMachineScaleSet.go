@@ -83,12 +83,8 @@ type LookupOrchestratedVirtualMachineScaleSetResult struct {
 }
 
 func LookupOrchestratedVirtualMachineScaleSetOutput(ctx *pulumi.Context, args LookupOrchestratedVirtualMachineScaleSetOutputArgs, opts ...pulumi.InvokeOption) LookupOrchestratedVirtualMachineScaleSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOrchestratedVirtualMachineScaleSetResultOutput, error) {
-			args := v.(LookupOrchestratedVirtualMachineScaleSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args, LookupOrchestratedVirtualMachineScaleSetResultOutput{}, options).(LookupOrchestratedVirtualMachineScaleSetResultOutput), nil
-		}).(LookupOrchestratedVirtualMachineScaleSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:compute/getOrchestratedVirtualMachineScaleSet:getOrchestratedVirtualMachineScaleSet", args, LookupOrchestratedVirtualMachineScaleSetResultOutput{}, options).(LookupOrchestratedVirtualMachineScaleSetResultOutput)
 }
 
 // A collection of arguments for invoking getOrchestratedVirtualMachineScaleSet.

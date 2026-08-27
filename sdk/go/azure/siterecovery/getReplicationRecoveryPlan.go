@@ -90,12 +90,8 @@ type LookupReplicationRecoveryPlanResult struct {
 }
 
 func LookupReplicationRecoveryPlanOutput(ctx *pulumi.Context, args LookupReplicationRecoveryPlanOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationRecoveryPlanResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReplicationRecoveryPlanResultOutput, error) {
-			args := v.(LookupReplicationRecoveryPlanArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", args, LookupReplicationRecoveryPlanResultOutput{}, options).(LookupReplicationRecoveryPlanResultOutput), nil
-		}).(LookupReplicationRecoveryPlanResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:siterecovery/getReplicationRecoveryPlan:getReplicationRecoveryPlan", args, LookupReplicationRecoveryPlanResultOutput{}, options).(LookupReplicationRecoveryPlanResultOutput)
 }
 
 // A collection of arguments for invoking getReplicationRecoveryPlan.

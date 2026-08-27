@@ -77,12 +77,8 @@ type LookupDateTimeVariableResult struct {
 }
 
 func LookupDateTimeVariableOutput(ctx *pulumi.Context, args LookupDateTimeVariableOutputArgs, opts ...pulumi.InvokeOption) LookupDateTimeVariableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDateTimeVariableResultOutput, error) {
-			args := v.(LookupDateTimeVariableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:automation/getDateTimeVariable:getDateTimeVariable", args, LookupDateTimeVariableResultOutput{}, options).(LookupDateTimeVariableResultOutput), nil
-		}).(LookupDateTimeVariableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:automation/getDateTimeVariable:getDateTimeVariable", args, LookupDateTimeVariableResultOutput{}, options).(LookupDateTimeVariableResultOutput)
 }
 
 // A collection of arguments for invoking getDateTimeVariable.

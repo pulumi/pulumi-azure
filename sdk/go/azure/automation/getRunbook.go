@@ -94,12 +94,8 @@ type GetRunbookResult struct {
 }
 
 func GetRunbookOutput(ctx *pulumi.Context, args GetRunbookOutputArgs, opts ...pulumi.InvokeOption) GetRunbookResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRunbookResultOutput, error) {
-			args := v.(GetRunbookArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:automation/getRunbook:getRunbook", args, GetRunbookResultOutput{}, options).(GetRunbookResultOutput), nil
-		}).(GetRunbookResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:automation/getRunbook:getRunbook", args, GetRunbookResultOutput{}, options).(GetRunbookResultOutput)
 }
 
 // A collection of arguments for invoking getRunbook.

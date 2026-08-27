@@ -90,12 +90,8 @@ type LookupUserAssignedIdentityResult struct {
 }
 
 func LookupUserAssignedIdentityOutput(ctx *pulumi.Context, args LookupUserAssignedIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupUserAssignedIdentityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserAssignedIdentityResultOutput, error) {
-			args := v.(LookupUserAssignedIdentityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", args, LookupUserAssignedIdentityResultOutput{}, options).(LookupUserAssignedIdentityResultOutput), nil
-		}).(LookupUserAssignedIdentityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:authorization/getUserAssignedIdentity:getUserAssignedIdentity", args, LookupUserAssignedIdentityResultOutput{}, options).(LookupUserAssignedIdentityResultOutput)
 }
 
 // A collection of arguments for invoking getUserAssignedIdentity.

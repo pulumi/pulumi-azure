@@ -81,12 +81,8 @@ type LookupProtectionContainerResult struct {
 }
 
 func LookupProtectionContainerOutput(ctx *pulumi.Context, args LookupProtectionContainerOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionContainerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProtectionContainerResultOutput, error) {
-			args := v.(LookupProtectionContainerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:siterecovery/getProtectionContainer:getProtectionContainer", args, LookupProtectionContainerResultOutput{}, options).(LookupProtectionContainerResultOutput), nil
-		}).(LookupProtectionContainerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:siterecovery/getProtectionContainer:getProtectionContainer", args, LookupProtectionContainerResultOutput{}, options).(LookupProtectionContainerResultOutput)
 }
 
 // A collection of arguments for invoking getProtectionContainer.

@@ -76,12 +76,8 @@ type LookupEnvironmentTypeResult struct {
 }
 
 func LookupEnvironmentTypeOutput(ctx *pulumi.Context, args LookupEnvironmentTypeOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentTypeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEnvironmentTypeResultOutput, error) {
-			args := v.(LookupEnvironmentTypeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:devcenter/getEnvironmentType:getEnvironmentType", args, LookupEnvironmentTypeResultOutput{}, options).(LookupEnvironmentTypeResultOutput), nil
-		}).(LookupEnvironmentTypeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:devcenter/getEnvironmentType:getEnvironmentType", args, LookupEnvironmentTypeResultOutput{}, options).(LookupEnvironmentTypeResultOutput)
 }
 
 // A collection of arguments for invoking getEnvironmentType.

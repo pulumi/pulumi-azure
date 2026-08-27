@@ -108,12 +108,8 @@ type LookupCertificateOrderResult struct {
 }
 
 func LookupCertificateOrderOutput(ctx *pulumi.Context, args LookupCertificateOrderOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateOrderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCertificateOrderResultOutput, error) {
-			args := v.(LookupCertificateOrderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getCertificateOrder:getCertificateOrder", args, LookupCertificateOrderResultOutput{}, options).(LookupCertificateOrderResultOutput), nil
-		}).(LookupCertificateOrderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getCertificateOrder:getCertificateOrder", args, LookupCertificateOrderResultOutput{}, options).(LookupCertificateOrderResultOutput)
 }
 
 // A collection of arguments for invoking getCertificateOrder.

@@ -94,12 +94,8 @@ type LookupHciClusterResult struct {
 }
 
 func LookupHciClusterOutput(ctx *pulumi.Context, args LookupHciClusterOutputArgs, opts ...pulumi.InvokeOption) LookupHciClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHciClusterResultOutput, error) {
-			args := v.(LookupHciClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:stack/getHciCluster:getHciCluster", args, LookupHciClusterResultOutput{}, options).(LookupHciClusterResultOutput), nil
-		}).(LookupHciClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:stack/getHciCluster:getHciCluster", args, LookupHciClusterResultOutput{}, options).(LookupHciClusterResultOutput)
 }
 
 // A collection of arguments for invoking getHciCluster.

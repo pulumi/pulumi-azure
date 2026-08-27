@@ -62,10 +62,8 @@ type GetClientConfigResult struct {
 }
 
 func GetClientConfigOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetClientConfigResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetClientConfigResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("azure:core/getClientConfig:getClientConfig", nil, GetClientConfigResultOutput{}, options).(GetClientConfigResultOutput), nil
-	}).(GetClientConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:core/getClientConfig:getClientConfig", nil, GetClientConfigResultOutput{}, options).(GetClientConfigResultOutput)
 }
 
 // A collection of values returned by getClientConfig.

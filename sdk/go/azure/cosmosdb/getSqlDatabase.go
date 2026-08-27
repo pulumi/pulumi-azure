@@ -81,12 +81,8 @@ type LookupSqlDatabaseResult struct {
 }
 
 func LookupSqlDatabaseOutput(ctx *pulumi.Context, args LookupSqlDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupSqlDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSqlDatabaseResultOutput, error) {
-			args := v.(LookupSqlDatabaseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args, LookupSqlDatabaseResultOutput{}, options).(LookupSqlDatabaseResultOutput), nil
-		}).(LookupSqlDatabaseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:cosmosdb/getSqlDatabase:getSqlDatabase", args, LookupSqlDatabaseResultOutput{}, options).(LookupSqlDatabaseResultOutput)
 }
 
 // A collection of arguments for invoking getSqlDatabase.

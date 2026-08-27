@@ -80,12 +80,8 @@ type LookupMongoDatabaseResult struct {
 }
 
 func LookupMongoDatabaseOutput(ctx *pulumi.Context, args LookupMongoDatabaseOutputArgs, opts ...pulumi.InvokeOption) LookupMongoDatabaseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMongoDatabaseResultOutput, error) {
-			args := v.(LookupMongoDatabaseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args, LookupMongoDatabaseResultOutput{}, options).(LookupMongoDatabaseResultOutput), nil
-		}).(LookupMongoDatabaseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:cosmosdb/getMongoDatabase:getMongoDatabase", args, LookupMongoDatabaseResultOutput{}, options).(LookupMongoDatabaseResultOutput)
 }
 
 // A collection of arguments for invoking getMongoDatabase.

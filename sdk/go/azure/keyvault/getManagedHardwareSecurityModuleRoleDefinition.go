@@ -79,12 +79,8 @@ type LookupManagedHardwareSecurityModuleRoleDefinitionResult struct {
 }
 
 func LookupManagedHardwareSecurityModuleRoleDefinitionOutput(ctx *pulumi.Context, args LookupManagedHardwareSecurityModuleRoleDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput, error) {
-			args := v.(LookupManagedHardwareSecurityModuleRoleDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args, LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput{}, options).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput), nil
-		}).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:keyvault/getManagedHardwareSecurityModuleRoleDefinition:getManagedHardwareSecurityModuleRoleDefinition", args, LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput{}, options).(LookupManagedHardwareSecurityModuleRoleDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getManagedHardwareSecurityModuleRoleDefinition.

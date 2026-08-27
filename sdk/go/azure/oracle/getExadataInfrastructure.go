@@ -148,12 +148,8 @@ type LookupExadataInfrastructureResult struct {
 }
 
 func LookupExadataInfrastructureOutput(ctx *pulumi.Context, args LookupExadataInfrastructureOutputArgs, opts ...pulumi.InvokeOption) LookupExadataInfrastructureResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupExadataInfrastructureResultOutput, error) {
-			args := v.(LookupExadataInfrastructureArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args, LookupExadataInfrastructureResultOutput{}, options).(LookupExadataInfrastructureResultOutput), nil
-		}).(LookupExadataInfrastructureResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:oracle/getExadataInfrastructure:getExadataInfrastructure", args, LookupExadataInfrastructureResultOutput{}, options).(LookupExadataInfrastructureResultOutput)
 }
 
 // A collection of arguments for invoking getExadataInfrastructure.

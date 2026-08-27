@@ -82,12 +82,8 @@ type LookupSharedImageGalleryResult struct {
 }
 
 func LookupSharedImageGalleryOutput(ctx *pulumi.Context, args LookupSharedImageGalleryOutputArgs, opts ...pulumi.InvokeOption) LookupSharedImageGalleryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSharedImageGalleryResultOutput, error) {
-			args := v.(LookupSharedImageGalleryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:compute/getSharedImageGallery:getSharedImageGallery", args, LookupSharedImageGalleryResultOutput{}, options).(LookupSharedImageGalleryResultOutput), nil
-		}).(LookupSharedImageGalleryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:compute/getSharedImageGallery:getSharedImageGallery", args, LookupSharedImageGalleryResultOutput{}, options).(LookupSharedImageGalleryResultOutput)
 }
 
 // A collection of arguments for invoking getSharedImageGallery.

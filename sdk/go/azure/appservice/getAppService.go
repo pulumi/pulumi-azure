@@ -105,12 +105,8 @@ type LookupAppServiceResult struct {
 }
 
 func LookupAppServiceOutput(ctx *pulumi.Context, args LookupAppServiceOutputArgs, opts ...pulumi.InvokeOption) LookupAppServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAppServiceResultOutput, error) {
-			args := v.(LookupAppServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:appservice/getAppService:getAppService", args, LookupAppServiceResultOutput{}, options).(LookupAppServiceResultOutput), nil
-		}).(LookupAppServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:appservice/getAppService:getAppService", args, LookupAppServiceResultOutput{}, options).(LookupAppServiceResultOutput)
 }
 
 // A collection of arguments for invoking getAppService.

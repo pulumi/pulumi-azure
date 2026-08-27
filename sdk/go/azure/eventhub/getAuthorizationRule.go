@@ -99,12 +99,8 @@ type LookupAuthorizationRuleResult struct {
 }
 
 func LookupAuthorizationRuleOutput(ctx *pulumi.Context, args LookupAuthorizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizationRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAuthorizationRuleResultOutput, error) {
-			args := v.(LookupAuthorizationRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args, LookupAuthorizationRuleResultOutput{}, options).(LookupAuthorizationRuleResultOutput), nil
-		}).(LookupAuthorizationRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:eventhub/getAuthorizationRule:getAuthorizationRule", args, LookupAuthorizationRuleResultOutput{}, options).(LookupAuthorizationRuleResultOutput)
 }
 
 // A collection of arguments for invoking getAuthorizationRule.

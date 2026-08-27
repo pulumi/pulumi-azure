@@ -111,12 +111,8 @@ type LookupNetworkManagerNetworkGroupResult struct {
 }
 
 func LookupNetworkManagerNetworkGroupOutput(ctx *pulumi.Context, args LookupNetworkManagerNetworkGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkManagerNetworkGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkManagerNetworkGroupResultOutput, error) {
-			args := v.(LookupNetworkManagerNetworkGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args, LookupNetworkManagerNetworkGroupResultOutput{}, options).(LookupNetworkManagerNetworkGroupResultOutput), nil
-		}).(LookupNetworkManagerNetworkGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", args, LookupNetworkManagerNetworkGroupResultOutput{}, options).(LookupNetworkManagerNetworkGroupResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkManagerNetworkGroup.

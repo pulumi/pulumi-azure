@@ -84,12 +84,8 @@ type LookupFactoryResult struct {
 }
 
 func LookupFactoryOutput(ctx *pulumi.Context, args LookupFactoryOutputArgs, opts ...pulumi.InvokeOption) LookupFactoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFactoryResultOutput, error) {
-			args := v.(LookupFactoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:datafactory/getFactory:getFactory", args, LookupFactoryResultOutput{}, options).(LookupFactoryResultOutput), nil
-		}).(LookupFactoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:datafactory/getFactory:getFactory", args, LookupFactoryResultOutput{}, options).(LookupFactoryResultOutput)
 }
 
 // A collection of arguments for invoking getFactory.

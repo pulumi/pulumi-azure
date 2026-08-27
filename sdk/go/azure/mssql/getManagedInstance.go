@@ -112,12 +112,8 @@ type LookupManagedInstanceResult struct {
 }
 
 func LookupManagedInstanceOutput(ctx *pulumi.Context, args LookupManagedInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupManagedInstanceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupManagedInstanceResultOutput, error) {
-			args := v.(LookupManagedInstanceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:mssql/getManagedInstance:getManagedInstance", args, LookupManagedInstanceResultOutput{}, options).(LookupManagedInstanceResultOutput), nil
-		}).(LookupManagedInstanceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:mssql/getManagedInstance:getManagedInstance", args, LookupManagedInstanceResultOutput{}, options).(LookupManagedInstanceResultOutput)
 }
 
 // A collection of arguments for invoking getManagedInstance.

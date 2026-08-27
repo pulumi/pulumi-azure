@@ -88,12 +88,8 @@ type LookupScheduledQueryRulesLogResult struct {
 }
 
 func LookupScheduledQueryRulesLogOutput(ctx *pulumi.Context, args LookupScheduledQueryRulesLogOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledQueryRulesLogResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupScheduledQueryRulesLogResultOutput, error) {
-			args := v.(LookupScheduledQueryRulesLogArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args, LookupScheduledQueryRulesLogResultOutput{}, options).(LookupScheduledQueryRulesLogResultOutput), nil
-		}).(LookupScheduledQueryRulesLogResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:monitoring/getScheduledQueryRulesLog:getScheduledQueryRulesLog", args, LookupScheduledQueryRulesLogResultOutput{}, options).(LookupScheduledQueryRulesLogResultOutput)
 }
 
 // A collection of arguments for invoking getScheduledQueryRulesLog.

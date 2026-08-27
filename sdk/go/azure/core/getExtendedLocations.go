@@ -64,12 +64,8 @@ type GetExtendedLocationsResult struct {
 }
 
 func GetExtendedLocationsOutput(ctx *pulumi.Context, args GetExtendedLocationsOutputArgs, opts ...pulumi.InvokeOption) GetExtendedLocationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetExtendedLocationsResultOutput, error) {
-			args := v.(GetExtendedLocationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:core/getExtendedLocations:getExtendedLocations", args, GetExtendedLocationsResultOutput{}, options).(GetExtendedLocationsResultOutput), nil
-		}).(GetExtendedLocationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:core/getExtendedLocations:getExtendedLocations", args, GetExtendedLocationsResultOutput{}, options).(GetExtendedLocationsResultOutput)
 }
 
 // A collection of arguments for invoking getExtendedLocations.

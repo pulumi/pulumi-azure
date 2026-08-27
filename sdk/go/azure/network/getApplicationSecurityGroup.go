@@ -78,12 +78,8 @@ type LookupApplicationSecurityGroupResult struct {
 }
 
 func LookupApplicationSecurityGroupOutput(ctx *pulumi.Context, args LookupApplicationSecurityGroupOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationSecurityGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApplicationSecurityGroupResultOutput, error) {
-			args := v.(LookupApplicationSecurityGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args, LookupApplicationSecurityGroupResultOutput{}, options).(LookupApplicationSecurityGroupResultOutput), nil
-		}).(LookupApplicationSecurityGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getApplicationSecurityGroup:getApplicationSecurityGroup", args, LookupApplicationSecurityGroupResultOutput{}, options).(LookupApplicationSecurityGroupResultOutput)
 }
 
 // A collection of arguments for invoking getApplicationSecurityGroup.

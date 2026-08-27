@@ -79,12 +79,8 @@ type LookupFabricResult struct {
 }
 
 func LookupFabricOutput(ctx *pulumi.Context, args LookupFabricOutputArgs, opts ...pulumi.InvokeOption) LookupFabricResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFabricResultOutput, error) {
-			args := v.(LookupFabricArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:siterecovery/getFabric:getFabric", args, LookupFabricResultOutput{}, options).(LookupFabricResultOutput), nil
-		}).(LookupFabricResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:siterecovery/getFabric:getFabric", args, LookupFabricResultOutput{}, options).(LookupFabricResultOutput)
 }
 
 // A collection of arguments for invoking getFabric.

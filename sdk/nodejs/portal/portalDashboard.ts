@@ -159,7 +159,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azurerm from "@pulumi/azurerm";
  *
- * function notImplemented(message: string) {
+ * function notImplemented(message: string): any {
  *     throw new Error(message);
  * }
  *

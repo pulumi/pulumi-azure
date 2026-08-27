@@ -94,12 +94,8 @@ type GetPolicyAssignmentResult struct {
 }
 
 func GetPolicyAssignmentOutput(ctx *pulumi.Context, args GetPolicyAssignmentOutputArgs, opts ...pulumi.InvokeOption) GetPolicyAssignmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPolicyAssignmentResultOutput, error) {
-			args := v.(GetPolicyAssignmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:policy/getPolicyAssignment:getPolicyAssignment", args, GetPolicyAssignmentResultOutput{}, options).(GetPolicyAssignmentResultOutput), nil
-		}).(GetPolicyAssignmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:policy/getPolicyAssignment:getPolicyAssignment", args, GetPolicyAssignmentResultOutput{}, options).(GetPolicyAssignmentResultOutput)
 }
 
 // A collection of arguments for invoking getPolicyAssignment.

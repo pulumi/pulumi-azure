@@ -80,12 +80,8 @@ type LookupSyncResult struct {
 }
 
 func LookupSyncOutput(ctx *pulumi.Context, args LookupSyncOutputArgs, opts ...pulumi.InvokeOption) LookupSyncResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSyncResultOutput, error) {
-			args := v.(LookupSyncArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:storage/getSync:getSync", args, LookupSyncResultOutput{}, options).(LookupSyncResultOutput), nil
-		}).(LookupSyncResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:storage/getSync:getSync", args, LookupSyncResultOutput{}, options).(LookupSyncResultOutput)
 }
 
 // A collection of arguments for invoking getSync.

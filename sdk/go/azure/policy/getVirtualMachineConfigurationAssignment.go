@@ -90,12 +90,8 @@ type LookupVirtualMachineConfigurationAssignmentResult struct {
 }
 
 func LookupVirtualMachineConfigurationAssignmentOutput(ctx *pulumi.Context, args LookupVirtualMachineConfigurationAssignmentOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMachineConfigurationAssignmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualMachineConfigurationAssignmentResultOutput, error) {
-			args := v.(LookupVirtualMachineConfigurationAssignmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args, LookupVirtualMachineConfigurationAssignmentResultOutput{}, options).(LookupVirtualMachineConfigurationAssignmentResultOutput), nil
-		}).(LookupVirtualMachineConfigurationAssignmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:policy/getVirtualMachineConfigurationAssignment:getVirtualMachineConfigurationAssignment", args, LookupVirtualMachineConfigurationAssignmentResultOutput{}, options).(LookupVirtualMachineConfigurationAssignmentResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualMachineConfigurationAssignment.

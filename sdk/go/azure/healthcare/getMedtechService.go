@@ -84,12 +84,8 @@ type LookupMedtechServiceResult struct {
 }
 
 func LookupMedtechServiceOutput(ctx *pulumi.Context, args LookupMedtechServiceOutputArgs, opts ...pulumi.InvokeOption) LookupMedtechServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMedtechServiceResultOutput, error) {
-			args := v.(LookupMedtechServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:healthcare/getMedtechService:getMedtechService", args, LookupMedtechServiceResultOutput{}, options).(LookupMedtechServiceResultOutput), nil
-		}).(LookupMedtechServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:healthcare/getMedtechService:getMedtechService", args, LookupMedtechServiceResultOutput{}, options).(LookupMedtechServiceResultOutput)
 }
 
 // A collection of arguments for invoking getMedtechService.

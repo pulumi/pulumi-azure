@@ -84,12 +84,8 @@ type LookupFirewallPolicyResult struct {
 }
 
 func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFirewallPolicyResultOutput, error) {
-			args := v.(LookupFirewallPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getFirewallPolicy:getFirewallPolicy", args, LookupFirewallPolicyResultOutput{}, options).(LookupFirewallPolicyResultOutput), nil
-		}).(LookupFirewallPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getFirewallPolicy:getFirewallPolicy", args, LookupFirewallPolicyResultOutput{}, options).(LookupFirewallPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getFirewallPolicy.

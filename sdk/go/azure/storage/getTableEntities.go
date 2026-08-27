@@ -71,12 +71,8 @@ type GetTableEntitiesResult struct {
 }
 
 func GetTableEntitiesOutput(ctx *pulumi.Context, args GetTableEntitiesOutputArgs, opts ...pulumi.InvokeOption) GetTableEntitiesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTableEntitiesResultOutput, error) {
-			args := v.(GetTableEntitiesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:storage/getTableEntities:getTableEntities", args, GetTableEntitiesResultOutput{}, options).(GetTableEntitiesResultOutput), nil
-		}).(GetTableEntitiesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:storage/getTableEntities:getTableEntities", args, GetTableEntitiesResultOutput{}, options).(GetTableEntitiesResultOutput)
 }
 
 // A collection of arguments for invoking getTableEntities.

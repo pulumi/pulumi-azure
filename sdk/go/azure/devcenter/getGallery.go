@@ -76,12 +76,8 @@ type LookupGalleryResult struct {
 }
 
 func LookupGalleryOutput(ctx *pulumi.Context, args LookupGalleryOutputArgs, opts ...pulumi.InvokeOption) LookupGalleryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGalleryResultOutput, error) {
-			args := v.(LookupGalleryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:devcenter/getGallery:getGallery", args, LookupGalleryResultOutput{}, options).(LookupGalleryResultOutput), nil
-		}).(LookupGalleryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:devcenter/getGallery:getGallery", args, LookupGalleryResultOutput{}, options).(LookupGalleryResultOutput)
 }
 
 // A collection of arguments for invoking getGallery.

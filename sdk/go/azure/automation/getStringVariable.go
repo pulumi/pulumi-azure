@@ -77,12 +77,8 @@ type LookupStringVariableResult struct {
 }
 
 func LookupStringVariableOutput(ctx *pulumi.Context, args LookupStringVariableOutputArgs, opts ...pulumi.InvokeOption) LookupStringVariableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStringVariableResultOutput, error) {
-			args := v.(LookupStringVariableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:automation/getStringVariable:getStringVariable", args, LookupStringVariableResultOutput{}, options).(LookupStringVariableResultOutput), nil
-		}).(LookupStringVariableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:automation/getStringVariable:getStringVariable", args, LookupStringVariableResultOutput{}, options).(LookupStringVariableResultOutput)
 }
 
 // A collection of arguments for invoking getStringVariable.

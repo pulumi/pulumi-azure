@@ -90,12 +90,8 @@ type LookupSubscriptionResult struct {
 }
 
 func LookupSubscriptionOutput(ctx *pulumi.Context, args LookupSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubscriptionResultOutput, error) {
-			args := v.(LookupSubscriptionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:apimanagement/getSubscription:getSubscription", args, LookupSubscriptionResultOutput{}, options).(LookupSubscriptionResultOutput), nil
-		}).(LookupSubscriptionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:apimanagement/getSubscription:getSubscription", args, LookupSubscriptionResultOutput{}, options).(LookupSubscriptionResultOutput)
 }
 
 // A collection of arguments for invoking getSubscription.

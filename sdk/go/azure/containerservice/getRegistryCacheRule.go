@@ -54,12 +54,8 @@ type LookupRegistryCacheRuleResult struct {
 }
 
 func LookupRegistryCacheRuleOutput(ctx *pulumi.Context, args LookupRegistryCacheRuleOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryCacheRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRegistryCacheRuleResultOutput, error) {
-			args := v.(LookupRegistryCacheRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", args, LookupRegistryCacheRuleResultOutput{}, options).(LookupRegistryCacheRuleResultOutput), nil
-		}).(LookupRegistryCacheRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:containerservice/getRegistryCacheRule:getRegistryCacheRule", args, LookupRegistryCacheRuleResultOutput{}, options).(LookupRegistryCacheRuleResultOutput)
 }
 
 // A collection of arguments for invoking getRegistryCacheRule.

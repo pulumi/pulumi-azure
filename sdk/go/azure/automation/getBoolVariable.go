@@ -77,12 +77,8 @@ type LookupBoolVariableResult struct {
 }
 
 func LookupBoolVariableOutput(ctx *pulumi.Context, args LookupBoolVariableOutputArgs, opts ...pulumi.InvokeOption) LookupBoolVariableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBoolVariableResultOutput, error) {
-			args := v.(LookupBoolVariableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:automation/getBoolVariable:getBoolVariable", args, LookupBoolVariableResultOutput{}, options).(LookupBoolVariableResultOutput), nil
-		}).(LookupBoolVariableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:automation/getBoolVariable:getBoolVariable", args, LookupBoolVariableResultOutput{}, options).(LookupBoolVariableResultOutput)
 }
 
 // A collection of arguments for invoking getBoolVariable.

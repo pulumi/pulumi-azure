@@ -87,12 +87,8 @@ type LookupVirtualHubConnectionResult struct {
 }
 
 func LookupVirtualHubConnectionOutput(ctx *pulumi.Context, args LookupVirtualHubConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualHubConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualHubConnectionResultOutput, error) {
-			args := v.(LookupVirtualHubConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:network/getVirtualHubConnection:getVirtualHubConnection", args, LookupVirtualHubConnectionResultOutput{}, options).(LookupVirtualHubConnectionResultOutput), nil
-		}).(LookupVirtualHubConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:network/getVirtualHubConnection:getVirtualHubConnection", args, LookupVirtualHubConnectionResultOutput{}, options).(LookupVirtualHubConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualHubConnection.

@@ -76,12 +76,8 @@ type LookupFrontdoorEndpointResult struct {
 }
 
 func LookupFrontdoorEndpointOutput(ctx *pulumi.Context, args LookupFrontdoorEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFrontdoorEndpointResultOutput, error) {
-			args := v.(LookupFrontdoorEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args, LookupFrontdoorEndpointResultOutput{}, options).(LookupFrontdoorEndpointResultOutput), nil
-		}).(LookupFrontdoorEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:cdn/getFrontdoorEndpoint:getFrontdoorEndpoint", args, LookupFrontdoorEndpointResultOutput{}, options).(LookupFrontdoorEndpointResultOutput)
 }
 
 // A collection of arguments for invoking getFrontdoorEndpoint.

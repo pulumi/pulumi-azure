@@ -91,12 +91,8 @@ type LookupBackendAddressPoolResult struct {
 }
 
 func LookupBackendAddressPoolOutput(ctx *pulumi.Context, args LookupBackendAddressPoolOutputArgs, opts ...pulumi.InvokeOption) LookupBackendAddressPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBackendAddressPoolResultOutput, error) {
-			args := v.(LookupBackendAddressPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:lb/getBackendAddressPool:getBackendAddressPool", args, LookupBackendAddressPoolResultOutput{}, options).(LookupBackendAddressPoolResultOutput), nil
-		}).(LookupBackendAddressPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:lb/getBackendAddressPool:getBackendAddressPool", args, LookupBackendAddressPoolResultOutput{}, options).(LookupBackendAddressPoolResultOutput)
 }
 
 // A collection of arguments for invoking getBackendAddressPool.

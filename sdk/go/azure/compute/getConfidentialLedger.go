@@ -86,12 +86,8 @@ type GetConfidentialLedgerResult struct {
 }
 
 func GetConfidentialLedgerOutput(ctx *pulumi.Context, args GetConfidentialLedgerOutputArgs, opts ...pulumi.InvokeOption) GetConfidentialLedgerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetConfidentialLedgerResultOutput, error) {
-			args := v.(GetConfidentialLedgerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:compute/getConfidentialLedger:getConfidentialLedger", args, GetConfidentialLedgerResultOutput{}, options).(GetConfidentialLedgerResultOutput), nil
-		}).(GetConfidentialLedgerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:compute/getConfidentialLedger:getConfidentialLedger", args, GetConfidentialLedgerResultOutput{}, options).(GetConfidentialLedgerResultOutput)
 }
 
 // A collection of arguments for invoking getConfidentialLedger.
