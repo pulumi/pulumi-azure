@@ -141,7 +141,7 @@ def get_orchestrated_virtual_machine_scale_set(name: Optional[_builtins.str] = N
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute` - 2024-11-01
+    * `Microsoft.Compute` - 2025-04-01
 
 
     :param _builtins.str name: The name of this Orchestrated Virtual Machine Scale Set.
@@ -183,7 +183,7 @@ def get_orchestrated_virtual_machine_scale_set_output(name: pulumi.Input[Optiona
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Compute` - 2024-11-01
+    * `Microsoft.Compute` - 2025-04-01
 
 
     :param _builtins.str name: The name of this Orchestrated Virtual Machine Scale Set.

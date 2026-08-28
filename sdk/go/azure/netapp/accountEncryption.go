@@ -56,6 +56,7 @@ import (
 //				Name:                         pulumi.String("anfcmkakv"),
 //				Location:                     example.Location,
 //				ResourceGroupName:            example.Name,
+//				RbacAuthorizationEnabled:     pulumi.Bool(false),
 //				EnabledForDiskEncryption:     pulumi.Bool(true),
 //				EnabledForDeployment:         pulumi.Bool(true),
 //				EnabledForTemplateDeployment: pulumi.Bool(true),

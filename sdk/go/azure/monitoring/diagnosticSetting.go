@@ -53,13 +53,14 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                    pulumi.String("examplekeyvault"),
-//				Location:                example.Location,
-//				ResourceGroupName:       example.Name,
-//				TenantId:                pulumi.String(current.TenantId),
-//				SoftDeleteRetentionDays: pulumi.Int(7),
-//				PurgeProtectionEnabled:  pulumi.Bool(false),
-//				SkuName:                 pulumi.String("standard"),
+//				Name:                     pulumi.String("examplekeyvault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SoftDeleteRetentionDays:  pulumi.Int(7),
+//				PurgeProtectionEnabled:   pulumi.Bool(false),
+//				SkuName:                  pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err

@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * > **Note:** The Rules resource **must** include a `dependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
  *
- * > **Note:** Azure Front Door Rule operations are currently affected by a service-side regression where unattached rules or rule sets can fail with `400 Bad Request` until they are associated with a Front Door Route. As a result, unattached and attached scenarios can currently behave differently while the service-side fix is pending.
+ * > **Note:** This resource cannot be used to manage individual rules for a rule set provisioned in batch mode, to manage rules for a batch mode rule set, use `azure.cdn.FrontdoorBatchRuleSet`.
  *
  * ## Example Usage
  *
@@ -279,7 +279,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Cdn` - 2024-09-01
+ * * `Microsoft.Cdn` - 2025-12-01
  *
  * ## Import
  *
@@ -327,6 +327,8 @@ export class FrontdoorRule extends pulumi.CustomResource {
     declare public readonly behaviorOnMatch: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+     *
+     * > **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
      */
     declare public readonly cdnFrontdoorRuleSetId: pulumi.Output<string>;
     /**
@@ -406,6 +408,8 @@ export interface FrontdoorRuleState {
     behaviorOnMatch?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+     *
+     * > **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
      */
     cdnFrontdoorRuleSetId?: pulumi.Input<string | undefined>;
     /**
@@ -442,6 +446,8 @@ export interface FrontdoorRuleArgs {
     behaviorOnMatch?: pulumi.Input<string | undefined>;
     /**
      * The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+     *
+     * > **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
      */
     cdnFrontdoorRuleSetId: pulumi.Input<string>;
     /**

@@ -84,6 +84,25 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+     * 
+     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * 
+     */
+    @Import(name="azureadAuthenticationAsArmPolicyEnabled")
+    private @Nullable Output<Boolean> azureadAuthenticationAsArmPolicyEnabled;
+
+    /**
+     * @return Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+     * 
+     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * 
+     */
+    public Optional<Output<Boolean>> azureadAuthenticationAsArmPolicyEnabled() {
+        return Optional.ofNullable(this.azureadAuthenticationAsArmPolicyEnabled);
+    }
+
+    /**
      * Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
      * 
      */
@@ -131,16 +150,12 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      * 
-     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
-     * 
      */
     @Import(name="exportPolicyEnabled")
     private @Nullable Output<Boolean> exportPolicyEnabled;
 
     /**
      * @return Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
-     * 
-     * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      * 
      */
     public Optional<Output<Boolean>> exportPolicyEnabled() {
@@ -235,6 +250,21 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
+     * 
+     */
+    @Import(name="networkRuleBypassForTasksEnabled")
+    private @Nullable Output<Boolean> networkRuleBypassForTasksEnabled;
+
+    /**
+     * @return Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> networkRuleBypassForTasksEnabled() {
+        return Optional.ofNullable(this.networkRuleBypassForTasksEnabled);
+    }
+
+    /**
      * Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
      * 
      */
@@ -325,6 +355,21 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+     * 
+     */
+    @Import(name="roleAssignmentMode")
+    private @Nullable Output<String> roleAssignmentMode;
+
+    /**
+     * @return The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+     * 
+     */
+    public Optional<Output<String>> roleAssignmentMode() {
+        return Optional.ofNullable(this.roleAssignmentMode);
+    }
+
+    /**
      * The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
      * 
      */
@@ -391,6 +436,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         this.adminPassword = $.adminPassword;
         this.adminUsername = $.adminUsername;
         this.anonymousPullEnabled = $.anonymousPullEnabled;
+        this.azureadAuthenticationAsArmPolicyEnabled = $.azureadAuthenticationAsArmPolicyEnabled;
         this.dataEndpointEnabled = $.dataEndpointEnabled;
         this.dataEndpointHostNames = $.dataEndpointHostNames;
         this.encryption = $.encryption;
@@ -400,12 +446,14 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         this.location = $.location;
         this.loginServer = $.loginServer;
         this.name = $.name;
+        this.networkRuleBypassForTasksEnabled = $.networkRuleBypassForTasksEnabled;
         this.networkRuleBypassOption = $.networkRuleBypassOption;
         this.networkRuleSet = $.networkRuleSet;
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.quarantinePolicyEnabled = $.quarantinePolicyEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.retentionPolicyInDays = $.retentionPolicyInDays;
+        this.roleAssignmentMode = $.roleAssignmentMode;
         this.sku = $.sku;
         this.tags = $.tags;
         this.trustPolicyEnabled = $.trustPolicyEnabled;
@@ -515,6 +563,31 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param azureadAuthenticationAsArmPolicyEnabled Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+         * 
+         * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureadAuthenticationAsArmPolicyEnabled(@Nullable Output<Boolean> azureadAuthenticationAsArmPolicyEnabled) {
+            $.azureadAuthenticationAsArmPolicyEnabled = azureadAuthenticationAsArmPolicyEnabled;
+            return this;
+        }
+
+        /**
+         * @param azureadAuthenticationAsArmPolicyEnabled Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
+         * 
+         * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder azureadAuthenticationAsArmPolicyEnabled(Boolean azureadAuthenticationAsArmPolicyEnabled) {
+            return azureadAuthenticationAsArmPolicyEnabled(Output.of(azureadAuthenticationAsArmPolicyEnabled));
+        }
+
+        /**
          * @param dataEndpointEnabled Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
          * 
          * @return builder
@@ -590,8 +663,6 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param exportPolicyEnabled Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
          * 
-         * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
-         * 
          * @return builder
          * 
          */
@@ -602,8 +673,6 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param exportPolicyEnabled Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
-         * 
-         * &gt; **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
          * 
          * @return builder
          * 
@@ -746,6 +815,27 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param networkRuleBypassForTasksEnabled Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkRuleBypassForTasksEnabled(@Nullable Output<Boolean> networkRuleBypassForTasksEnabled) {
+            $.networkRuleBypassForTasksEnabled = networkRuleBypassForTasksEnabled;
+            return this;
+        }
+
+        /**
+         * @param networkRuleBypassForTasksEnabled Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkRuleBypassForTasksEnabled(Boolean networkRuleBypassForTasksEnabled) {
+            return networkRuleBypassForTasksEnabled(Output.of(networkRuleBypassForTasksEnabled));
+        }
+
+        /**
          * @param networkRuleBypassOption Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
          * 
          * @return builder
@@ -869,6 +959,27 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder retentionPolicyInDays(Integer retentionPolicyInDays) {
             return retentionPolicyInDays(Output.of(retentionPolicyInDays));
+        }
+
+        /**
+         * @param roleAssignmentMode The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleAssignmentMode(@Nullable Output<String> roleAssignmentMode) {
+            $.roleAssignmentMode = roleAssignmentMode;
+            return this;
+        }
+
+        /**
+         * @param roleAssignmentMode The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder roleAssignmentMode(String roleAssignmentMode) {
+            return roleAssignmentMode(Output.of(roleAssignmentMode));
         }
 
         /**

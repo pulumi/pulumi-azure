@@ -79,6 +79,64 @@ __all__ = [
     'EndpointGlobalDeliveryRuleUrlRewriteActionArgsDict',
     'EndpointOriginArgs',
     'EndpointOriginArgsDict',
+    'FrontdoorBatchRuleSetRuleArgs',
+    'FrontdoorBatchRuleSetRuleArgsDict',
+    'FrontdoorBatchRuleSetRuleActionsArgs',
+    'FrontdoorBatchRuleSetRuleActionsArgsDict',
+    'FrontdoorBatchRuleSetRuleActionsModifyRequestHeaderArgs',
+    'FrontdoorBatchRuleSetRuleActionsModifyRequestHeaderArgsDict',
+    'FrontdoorBatchRuleSetRuleActionsModifyResponseHeaderArgs',
+    'FrontdoorBatchRuleSetRuleActionsModifyResponseHeaderArgsDict',
+    'FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgs',
+    'FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgsDict',
+    'FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgs',
+    'FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgsDict',
+    'FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgs',
+    'FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgsDict',
+    'FrontdoorBatchRuleSetRuleActionsUrlRedirectArgs',
+    'FrontdoorBatchRuleSetRuleActionsUrlRedirectArgsDict',
+    'FrontdoorBatchRuleSetRuleActionsUrlRewriteArgs',
+    'FrontdoorBatchRuleSetRuleActionsUrlRewriteArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsArgs',
+    'FrontdoorBatchRuleSetRuleConditionsArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsClientPortArgs',
+    'FrontdoorBatchRuleSetRuleConditionsClientPortArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs',
+    'FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsHostNameArgs',
+    'FrontdoorBatchRuleSetRuleConditionsHostNameArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsHttpVersionArgs',
+    'FrontdoorBatchRuleSetRuleConditionsHttpVersionArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs',
+    'FrontdoorBatchRuleSetRuleConditionsPostArgumentArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsQueryStringArgs',
+    'FrontdoorBatchRuleSetRuleConditionsQueryStringArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRemoteAddressArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRemoteAddressArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRequestBodyArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRequestBodyArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRequestCookyArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRequestCookyArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRequestFileExtensionArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRequestFileExtensionArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRequestHeaderArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRequestHeaderArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRequestMethodArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRequestPathArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRequestPathArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRequestSchemeArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRequestSchemeArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsRequestUrlArgs',
+    'FrontdoorBatchRuleSetRuleConditionsRequestUrlArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsServerPortArgs',
+    'FrontdoorBatchRuleSetRuleConditionsServerPortArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsSocketAddressArgs',
+    'FrontdoorBatchRuleSetRuleConditionsSocketAddressArgsDict',
+    'FrontdoorBatchRuleSetRuleConditionsSslProtocolArgs',
+    'FrontdoorBatchRuleSetRuleConditionsSslProtocolArgsDict',
     'FrontdoorCustomDomainTlsArgs',
     'FrontdoorCustomDomainTlsArgsDict',
     'FrontdoorCustomDomainTlsCipherSuiteArgs',
@@ -3078,6 +3136,2460 @@ class EndpointOriginArgs:
         pulumi.set(self, "https_port", value)
 
 
+class FrontdoorBatchRuleSetRuleArgsDict(TypedDict):
+    actions: pulumi.Input['FrontdoorBatchRuleSetRuleActionsArgsDict']
+    """
+    An `actions` block as defined below.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name which should be used for this Front Door Batch Rule.
+
+    > **Note:** `name` must be between `1` and `260` characters in length, begin with a letter, and may contain only letters and numbers.
+    """
+    order: pulumi.Input[_builtins.int]
+    """
+    The order in which this rule will be applied for the Front Door Endpoint. Rules with a lesser `order` value are applied before rules with a greater `order` value. Possible values are `0` or greater.
+    """
+    behaviour_on_match: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+    """
+    conditions: NotRequired[pulumi.Input[Optional['FrontdoorBatchRuleSetRuleConditionsArgsDict']]]
+    """
+    A `conditions` block as defined below.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input['FrontdoorBatchRuleSetRuleActionsArgs'],
+                 name: pulumi.Input[_builtins.str],
+                 order: pulumi.Input[_builtins.int],
+                 behaviour_on_match: pulumi.Input[Optional[_builtins.str]] = None,
+                 conditions: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleConditionsArgs']] = None):
+        """
+        :param pulumi.Input['FrontdoorBatchRuleSetRuleActionsArgs'] actions: An `actions` block as defined below.
+        :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Batch Rule.
+               
+               > **Note:** `name` must be between `1` and `260` characters in length, begin with a letter, and may contain only letters and numbers.
+        :param pulumi.Input[_builtins.int] order: The order in which this rule will be applied for the Front Door Endpoint. Rules with a lesser `order` value are applied before rules with a greater `order` value. Possible values are `0` or greater.
+        :param pulumi.Input[_builtins.str] behaviour_on_match: The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        :param pulumi.Input['FrontdoorBatchRuleSetRuleConditionsArgs'] conditions: A `conditions` block as defined below.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "order", order)
+        if behaviour_on_match is not None:
+            pulumi.set(__self__, "behaviour_on_match", behaviour_on_match)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input['FrontdoorBatchRuleSetRuleActionsArgs']:
+        """
+        An `actions` block as defined below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input['FrontdoorBatchRuleSetRuleActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name which should be used for this Front Door Batch Rule.
+
+        > **Note:** `name` must be between `1` and `260` characters in length, begin with a letter, and may contain only letters and numbers.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[_builtins.int]:
+        """
+        The order in which this rule will be applied for the Front Door Endpoint. Rules with a lesser `order` value are applied before rules with a greater `order` value. Possible values are `0` or greater.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "order", value)
+
+    @_builtins.property
+    @pulumi.getter(name="behaviourOnMatch")
+    def behaviour_on_match(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The behaviour on a condition match. Possible values are `Continue` and `Stop`. Defaults to `Continue`.
+        """
+        return pulumi.get(self, "behaviour_on_match")
+
+    @behaviour_on_match.setter
+    def behaviour_on_match(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "behaviour_on_match", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Optional['FrontdoorBatchRuleSetRuleConditionsArgs']]:
+        """
+        A `conditions` block as defined below.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleConditionsArgs']]):
+        pulumi.set(self, "conditions", value)
+
+
+class FrontdoorBatchRuleSetRuleActionsArgsDict(TypedDict):
+    modify_request_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyRequestHeaderArgsDict']]]]]
+    """
+    One or more `modify_request_header` blocks as defined below.
+    """
+    modify_response_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyResponseHeaderArgsDict']]]]]
+    """
+    One or more `modify_response_header` blocks as defined below.
+    """
+    route_configuration_override: NotRequired[pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgsDict']]]
+    """
+    A `route_configuration_override` block as defined below.
+
+    > **Note:** `route_configuration_override` conflicts with `url_redirect`.
+    """
+    url_redirect: NotRequired[pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsUrlRedirectArgsDict']]]
+    """
+    A `url_redirect` block as defined below.
+    """
+    url_rewrite: NotRequired[pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsUrlRewriteArgsDict']]]
+    """
+    A `url_rewrite` block as defined below.
+
+    > **Note:** `url_rewrite` conflicts with `url_redirect` and vice-versa.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleActionsArgs:
+    def __init__(__self__, *,
+                 modify_request_headers: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyRequestHeaderArgs']]]] = None,
+                 modify_response_headers: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyResponseHeaderArgs']]]] = None,
+                 route_configuration_override: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgs']] = None,
+                 url_redirect: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsUrlRedirectArgs']] = None,
+                 url_rewrite: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsUrlRewriteArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyRequestHeaderArgs']]] modify_request_headers: One or more `modify_request_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyResponseHeaderArgs']]] modify_response_headers: One or more `modify_response_header` blocks as defined below.
+        :param pulumi.Input['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgs'] route_configuration_override: A `route_configuration_override` block as defined below.
+               
+               > **Note:** `route_configuration_override` conflicts with `url_redirect`.
+        :param pulumi.Input['FrontdoorBatchRuleSetRuleActionsUrlRedirectArgs'] url_redirect: A `url_redirect` block as defined below.
+        :param pulumi.Input['FrontdoorBatchRuleSetRuleActionsUrlRewriteArgs'] url_rewrite: A `url_rewrite` block as defined below.
+               
+               > **Note:** `url_rewrite` conflicts with `url_redirect` and vice-versa.
+        """
+        if modify_request_headers is not None:
+            pulumi.set(__self__, "modify_request_headers", modify_request_headers)
+        if modify_response_headers is not None:
+            pulumi.set(__self__, "modify_response_headers", modify_response_headers)
+        if route_configuration_override is not None:
+            pulumi.set(__self__, "route_configuration_override", route_configuration_override)
+        if url_redirect is not None:
+            pulumi.set(__self__, "url_redirect", url_redirect)
+        if url_rewrite is not None:
+            pulumi.set(__self__, "url_rewrite", url_rewrite)
+
+    @_builtins.property
+    @pulumi.getter(name="modifyRequestHeaders")
+    def modify_request_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyRequestHeaderArgs']]]]:
+        """
+        One or more `modify_request_header` blocks as defined below.
+        """
+        return pulumi.get(self, "modify_request_headers")
+
+    @modify_request_headers.setter
+    def modify_request_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyRequestHeaderArgs']]]]):
+        pulumi.set(self, "modify_request_headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modifyResponseHeaders")
+    def modify_response_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyResponseHeaderArgs']]]]:
+        """
+        One or more `modify_response_header` blocks as defined below.
+        """
+        return pulumi.get(self, "modify_response_headers")
+
+    @modify_response_headers.setter
+    def modify_response_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleActionsModifyResponseHeaderArgs']]]]):
+        pulumi.set(self, "modify_response_headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeConfigurationOverride")
+    def route_configuration_override(self) -> pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgs']]:
+        """
+        A `route_configuration_override` block as defined below.
+
+        > **Note:** `route_configuration_override` conflicts with `url_redirect`.
+        """
+        return pulumi.get(self, "route_configuration_override")
+
+    @route_configuration_override.setter
+    def route_configuration_override(self, value: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgs']]):
+        pulumi.set(self, "route_configuration_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="urlRedirect")
+    def url_redirect(self) -> pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsUrlRedirectArgs']]:
+        """
+        A `url_redirect` block as defined below.
+        """
+        return pulumi.get(self, "url_redirect")
+
+    @url_redirect.setter
+    def url_redirect(self, value: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsUrlRedirectArgs']]):
+        pulumi.set(self, "url_redirect", value)
+
+    @_builtins.property
+    @pulumi.getter(name="urlRewrite")
+    def url_rewrite(self) -> pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsUrlRewriteArgs']]:
+        """
+        A `url_rewrite` block as defined below.
+
+        > **Note:** `url_rewrite` conflicts with `url_redirect` and vice-versa.
+        """
+        return pulumi.get(self, "url_rewrite")
+
+    @url_rewrite.setter
+    def url_rewrite(self, value: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsUrlRewriteArgs']]):
+        pulumi.set(self, "url_rewrite", value)
+
+
+class FrontdoorBatchRuleSetRuleActionsModifyRequestHeaderArgsDict(TypedDict):
+    header_name: pulumi.Input[_builtins.str]
+    """
+    The name of the header to modify.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    The action to take on `header_name`. Possible values are `Append`, `Overwrite`, and `Delete`.
+    """
+    header_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The value to append or overwrite.
+
+    > **Note:** `header_value` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleActionsModifyRequestHeaderArgs:
+    def __init__(__self__, *,
+                 header_name: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[_builtins.str],
+                 header_value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] header_name: The name of the header to modify.
+        :param pulumi.Input[_builtins.str] operator: The action to take on `header_name`. Possible values are `Append`, `Overwrite`, and `Delete`.
+        :param pulumi.Input[_builtins.str] header_value: The value to append or overwrite.
+               
+               > **Note:** `header_value` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "operator", operator)
+        if header_value is not None:
+            pulumi.set(__self__, "header_value", header_value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the header to modify.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "header_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        The action to take on `header_name`. Possible values are `Append`, `Overwrite`, and `Delete`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The value to append or overwrite.
+
+        > **Note:** `header_value` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
+        """
+        return pulumi.get(self, "header_value")
+
+    @header_value.setter
+    def header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "header_value", value)
+
+
+class FrontdoorBatchRuleSetRuleActionsModifyResponseHeaderArgsDict(TypedDict):
+    header_name: pulumi.Input[_builtins.str]
+    """
+    The name of the header to modify.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    The action to take on `header_name`. Possible values are `Append`, `Overwrite`, and `Delete`.
+    """
+    header_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The value to append or overwrite.
+
+    > **Note:** `header_value` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleActionsModifyResponseHeaderArgs:
+    def __init__(__self__, *,
+                 header_name: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[_builtins.str],
+                 header_value: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] header_name: The name of the header to modify.
+        :param pulumi.Input[_builtins.str] operator: The action to take on `header_name`. Possible values are `Append`, `Overwrite`, and `Delete`.
+        :param pulumi.Input[_builtins.str] header_value: The value to append or overwrite.
+               
+               > **Note:** `header_value` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
+        """
+        pulumi.set(__self__, "header_name", header_name)
+        pulumi.set(__self__, "operator", operator)
+        if header_value is not None:
+            pulumi.set(__self__, "header_value", header_value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerName")
+    def header_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the header to modify.
+        """
+        return pulumi.get(self, "header_name")
+
+    @header_name.setter
+    def header_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "header_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        The action to take on `header_name`. Possible values are `Append`, `Overwrite`, and `Delete`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerValue")
+    def header_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The value to append or overwrite.
+
+        > **Note:** `header_value` is required when `operator` is set to `Append` or `Overwrite`, and must not be set when `operator` is set to `Delete`.
+        """
+        return pulumi.get(self, "header_value")
+
+    @header_value.setter
+    def header_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "header_value", value)
+
+
+class FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgsDict(TypedDict):
+    caching: pulumi.Input['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgsDict']
+    """
+    A `caching` block as defined below.
+    """
+    origin_group: NotRequired[pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgsDict']]]
+    """
+    An `origin_group` block as defined below.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideArgs:
+    def __init__(__self__, *,
+                 caching: pulumi.Input['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgs'],
+                 origin_group: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgs']] = None):
+        """
+        :param pulumi.Input['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgs'] caching: A `caching` block as defined below.
+        :param pulumi.Input['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgs'] origin_group: An `origin_group` block as defined below.
+        """
+        pulumi.set(__self__, "caching", caching)
+        if origin_group is not None:
+            pulumi.set(__self__, "origin_group", origin_group)
+
+    @_builtins.property
+    @pulumi.getter
+    def caching(self) -> pulumi.Input['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgs']:
+        """
+        A `caching` block as defined below.
+        """
+        return pulumi.get(self, "caching")
+
+    @caching.setter
+    def caching(self, value: pulumi.Input['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgs']):
+        pulumi.set(self, "caching", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originGroup")
+    def origin_group(self) -> pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgs']]:
+        """
+        An `origin_group` block as defined below.
+        """
+        return pulumi.get(self, "origin_group")
+
+    @origin_group.setter
+    def origin_group(self, value: pulumi.Input[Optional['FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgs']]):
+        pulumi.set(self, "origin_group", value)
+
+
+class FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgsDict(TypedDict):
+    behaviour: pulumi.Input[_builtins.str]
+    """
+    Controls how Front Door handles cache behaviour for the response. Possible values are `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing`, and `Disabled`.
+
+    > **Note:** If `behaviour` is set to `Disabled`, you cannot set `compression_enabled`, `duration`, `query_string_behaviour`, or `query_string_parameters`.
+
+    > **Note:** Enabling caching in a `route_configuration_override` block affects the service-side quota used for rule operations. Each rule that enables caching consumes two of the `100` available rule slots during an update.
+    """
+    compression_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether compression is enabled. Defaults to `false`.
+    """
+    duration: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    When `behaviour` is set to `OverrideAlways` or `OverrideIfOriginMissing`, this field specifies the cache duration to use and is required. The maximum allowed value is `365.23:59:59`. If the desired maximum cache duration is less than `1` day, specify it in the `HH:MM:SS` format, for example `23:59:59`.
+
+    > **Note:** `duration` must not be set when `behaviour` is set to `HonorOrigin`.
+    """
+    query_string_behaviour: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Controls how query strings contribute to the cache key. Possible values are `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings`, and `IncludeSpecifiedQueryStrings`.
+
+    > **Note:** `query_string_behaviour` is required when `behaviour` is not set to `Disabled`.
+    """
+    query_string_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of query string parameter names. A maximum of `100` parameters may be defined.
+
+    > **Note:** `query_string_parameters` is required when `query_string_behaviour` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`, and must not be set when `query_string_behaviour` is set to `UseQueryString` or `IgnoreQueryString`.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideCachingArgs:
+    def __init__(__self__, *,
+                 behaviour: pulumi.Input[_builtins.str],
+                 compression_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string_behaviour: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] behaviour: Controls how Front Door handles cache behaviour for the response. Possible values are `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing`, and `Disabled`.
+               
+               > **Note:** If `behaviour` is set to `Disabled`, you cannot set `compression_enabled`, `duration`, `query_string_behaviour`, or `query_string_parameters`.
+               
+               > **Note:** Enabling caching in a `route_configuration_override` block affects the service-side quota used for rule operations. Each rule that enables caching consumes two of the `100` available rule slots during an update.
+        :param pulumi.Input[_builtins.bool] compression_enabled: Whether compression is enabled. Defaults to `false`.
+        :param pulumi.Input[_builtins.str] duration: When `behaviour` is set to `OverrideAlways` or `OverrideIfOriginMissing`, this field specifies the cache duration to use and is required. The maximum allowed value is `365.23:59:59`. If the desired maximum cache duration is less than `1` day, specify it in the `HH:MM:SS` format, for example `23:59:59`.
+               
+               > **Note:** `duration` must not be set when `behaviour` is set to `HonorOrigin`.
+        :param pulumi.Input[_builtins.str] query_string_behaviour: Controls how query strings contribute to the cache key. Possible values are `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings`, and `IncludeSpecifiedQueryStrings`.
+               
+               > **Note:** `query_string_behaviour` is required when `behaviour` is not set to `Disabled`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] query_string_parameters: A list of query string parameter names. A maximum of `100` parameters may be defined.
+               
+               > **Note:** `query_string_parameters` is required when `query_string_behaviour` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`, and must not be set when `query_string_behaviour` is set to `UseQueryString` or `IgnoreQueryString`.
+        """
+        pulumi.set(__self__, "behaviour", behaviour)
+        if compression_enabled is not None:
+            pulumi.set(__self__, "compression_enabled", compression_enabled)
+        if duration is not None:
+            pulumi.set(__self__, "duration", duration)
+        if query_string_behaviour is not None:
+            pulumi.set(__self__, "query_string_behaviour", query_string_behaviour)
+        if query_string_parameters is not None:
+            pulumi.set(__self__, "query_string_parameters", query_string_parameters)
+
+    @_builtins.property
+    @pulumi.getter
+    def behaviour(self) -> pulumi.Input[_builtins.str]:
+        """
+        Controls how Front Door handles cache behaviour for the response. Possible values are `HonorOrigin`, `OverrideAlways`, `OverrideIfOriginMissing`, and `Disabled`.
+
+        > **Note:** If `behaviour` is set to `Disabled`, you cannot set `compression_enabled`, `duration`, `query_string_behaviour`, or `query_string_parameters`.
+
+        > **Note:** Enabling caching in a `route_configuration_override` block affects the service-side quota used for rule operations. Each rule that enables caching consumes two of the `100` available rule slots during an update.
+        """
+        return pulumi.get(self, "behaviour")
+
+    @behaviour.setter
+    def behaviour(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "behaviour", value)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionEnabled")
+    def compression_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether compression is enabled. Defaults to `false`.
+        """
+        return pulumi.get(self, "compression_enabled")
+
+    @compression_enabled.setter
+    def compression_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "compression_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        When `behaviour` is set to `OverrideAlways` or `OverrideIfOriginMissing`, this field specifies the cache duration to use and is required. The maximum allowed value is `365.23:59:59`. If the desired maximum cache duration is less than `1` day, specify it in the `HH:MM:SS` format, for example `23:59:59`.
+
+        > **Note:** `duration` must not be set when `behaviour` is set to `HonorOrigin`.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "duration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryStringBehaviour")
+    def query_string_behaviour(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Controls how query strings contribute to the cache key. Possible values are `IgnoreQueryString`, `UseQueryString`, `IgnoreSpecifiedQueryStrings`, and `IncludeSpecifiedQueryStrings`.
+
+        > **Note:** `query_string_behaviour` is required when `behaviour` is not set to `Disabled`.
+        """
+        return pulumi.get(self, "query_string_behaviour")
+
+    @query_string_behaviour.setter
+    def query_string_behaviour(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "query_string_behaviour", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryStringParameters")
+    def query_string_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of query string parameter names. A maximum of `100` parameters may be defined.
+
+        > **Note:** `query_string_parameters` is required when `query_string_behaviour` is set to `IncludeSpecifiedQueryStrings` or `IgnoreSpecifiedQueryStrings`, and must not be set when `query_string_behaviour` is set to `UseQueryString` or `IgnoreQueryString`.
+        """
+        return pulumi.get(self, "query_string_parameters")
+
+    @query_string_parameters.setter
+    def query_string_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "query_string_parameters", value)
+
+
+class FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgsDict(TypedDict):
+    cdn_frontdoor_origin_group_id: pulumi.Input[_builtins.str]
+    """
+    The Front Door Origin Group resource ID that the request should be routed to.
+
+    > **Note:** If you remove the `origin_group` block from a rule that currently points at the only enabled origin in an Origin Group, apply the Batch Rule Set update first and then remove or disable the last origin in a separate apply. The service rejects deleting or disabling the last origin while the Origin Group is still associated with a route or a rule.
+    """
+    forwarding_protocol: pulumi.Input[_builtins.str]
+    """
+    The forwarding protocol the request is redirected as. Possible values are `MatchRequest`, `HttpOnly`, and `HttpsOnly`.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleActionsRouteConfigurationOverrideOriginGroupArgs:
+    def __init__(__self__, *,
+                 cdn_frontdoor_origin_group_id: pulumi.Input[_builtins.str],
+                 forwarding_protocol: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] cdn_frontdoor_origin_group_id: The Front Door Origin Group resource ID that the request should be routed to.
+               
+               > **Note:** If you remove the `origin_group` block from a rule that currently points at the only enabled origin in an Origin Group, apply the Batch Rule Set update first and then remove or disable the last origin in a separate apply. The service rejects deleting or disabling the last origin while the Origin Group is still associated with a route or a rule.
+        :param pulumi.Input[_builtins.str] forwarding_protocol: The forwarding protocol the request is redirected as. Possible values are `MatchRequest`, `HttpOnly`, and `HttpsOnly`.
+        """
+        pulumi.set(__self__, "cdn_frontdoor_origin_group_id", cdn_frontdoor_origin_group_id)
+        pulumi.set(__self__, "forwarding_protocol", forwarding_protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="cdnFrontdoorOriginGroupId")
+    def cdn_frontdoor_origin_group_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Front Door Origin Group resource ID that the request should be routed to.
+
+        > **Note:** If you remove the `origin_group` block from a rule that currently points at the only enabled origin in an Origin Group, apply the Batch Rule Set update first and then remove or disable the last origin in a separate apply. The service rejects deleting or disabling the last origin while the Origin Group is still associated with a route or a rule.
+        """
+        return pulumi.get(self, "cdn_frontdoor_origin_group_id")
+
+    @cdn_frontdoor_origin_group_id.setter
+    def cdn_frontdoor_origin_group_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "cdn_frontdoor_origin_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="forwardingProtocol")
+    def forwarding_protocol(self) -> pulumi.Input[_builtins.str]:
+        """
+        The forwarding protocol the request is redirected as. Possible values are `MatchRequest`, `HttpOnly`, and `HttpsOnly`.
+        """
+        return pulumi.get(self, "forwarding_protocol")
+
+    @forwarding_protocol.setter
+    def forwarding_protocol(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "forwarding_protocol", value)
+
+
+class FrontdoorBatchRuleSetRuleActionsUrlRedirectArgsDict(TypedDict):
+    redirect_type: pulumi.Input[_builtins.str]
+    """
+    The response type to return to the requestor. Possible values are `Moved`, `Found`, `TemporaryRedirect`, and `PermanentRedirect`.
+    """
+    destination_fragment: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The fragment to use in the redirect. The value must be a string between `1` and `1024` characters in length and must not start with `#`. Leave this unset to preserve the incoming fragment.
+    """
+    destination_host_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The host name you want the request to be redirected to. The value must be a string between `1` and `2048` characters in length. Leave this unset to preserve the incoming host.
+    """
+    destination_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The path to use in the redirect. The value must be a string and include the leading `/`. Leave this unset to preserve the incoming path.
+    """
+    query_string: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The query string used in the redirect URL. The value must be in the `<key>=<value>` or `<key>={<action_server_variable>}` format and must not include the leading `?`. Leave this unset to preserve the incoming query string. The maximum allowed length for this field is `2048` characters.
+    """
+    redirect_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The protocol the request is redirected as. Possible values are `MatchRequest`, `Http`, and `Https`. Defaults to `MatchRequest`.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleActionsUrlRedirectArgs:
+    def __init__(__self__, *,
+                 redirect_type: pulumi.Input[_builtins.str],
+                 destination_fragment: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_host_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 destination_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 query_string: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_protocol: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] redirect_type: The response type to return to the requestor. Possible values are `Moved`, `Found`, `TemporaryRedirect`, and `PermanentRedirect`.
+        :param pulumi.Input[_builtins.str] destination_fragment: The fragment to use in the redirect. The value must be a string between `1` and `1024` characters in length and must not start with `#`. Leave this unset to preserve the incoming fragment.
+        :param pulumi.Input[_builtins.str] destination_host_name: The host name you want the request to be redirected to. The value must be a string between `1` and `2048` characters in length. Leave this unset to preserve the incoming host.
+        :param pulumi.Input[_builtins.str] destination_path: The path to use in the redirect. The value must be a string and include the leading `/`. Leave this unset to preserve the incoming path.
+        :param pulumi.Input[_builtins.str] query_string: The query string used in the redirect URL. The value must be in the `<key>=<value>` or `<key>={<action_server_variable>}` format and must not include the leading `?`. Leave this unset to preserve the incoming query string. The maximum allowed length for this field is `2048` characters.
+        :param pulumi.Input[_builtins.str] redirect_protocol: The protocol the request is redirected as. Possible values are `MatchRequest`, `Http`, and `Https`. Defaults to `MatchRequest`.
+        """
+        pulumi.set(__self__, "redirect_type", redirect_type)
+        if destination_fragment is not None:
+            pulumi.set(__self__, "destination_fragment", destination_fragment)
+        if destination_host_name is not None:
+            pulumi.set(__self__, "destination_host_name", destination_host_name)
+        if destination_path is not None:
+            pulumi.set(__self__, "destination_path", destination_path)
+        if query_string is not None:
+            pulumi.set(__self__, "query_string", query_string)
+        if redirect_protocol is not None:
+            pulumi.set(__self__, "redirect_protocol", redirect_protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="redirectType")
+    def redirect_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The response type to return to the requestor. Possible values are `Moved`, `Found`, `TemporaryRedirect`, and `PermanentRedirect`.
+        """
+        return pulumi.get(self, "redirect_type")
+
+    @redirect_type.setter
+    def redirect_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "redirect_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationFragment")
+    def destination_fragment(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The fragment to use in the redirect. The value must be a string between `1` and `1024` characters in length and must not start with `#`. Leave this unset to preserve the incoming fragment.
+        """
+        return pulumi.get(self, "destination_fragment")
+
+    @destination_fragment.setter
+    def destination_fragment(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_fragment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationHostName")
+    def destination_host_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The host name you want the request to be redirected to. The value must be a string between `1` and `2048` characters in length. Leave this unset to preserve the incoming host.
+        """
+        return pulumi.get(self, "destination_host_name")
+
+    @destination_host_name.setter
+    def destination_host_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_host_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPath")
+    def destination_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The path to use in the redirect. The value must be a string and include the leading `/`. Leave this unset to preserve the incoming path.
+        """
+        return pulumi.get(self, "destination_path")
+
+    @destination_path.setter
+    def destination_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The query string used in the redirect URL. The value must be in the `<key>=<value>` or `<key>={<action_server_variable>}` format and must not include the leading `?`. Leave this unset to preserve the incoming query string. The maximum allowed length for this field is `2048` characters.
+        """
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "query_string", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redirectProtocol")
+    def redirect_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The protocol the request is redirected as. Possible values are `MatchRequest`, `Http`, and `Https`. Defaults to `MatchRequest`.
+        """
+        return pulumi.get(self, "redirect_protocol")
+
+    @redirect_protocol.setter
+    def redirect_protocol(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "redirect_protocol", value)
+
+
+class FrontdoorBatchRuleSetRuleActionsUrlRewriteArgsDict(TypedDict):
+    destination_path: pulumi.Input[_builtins.str]
+    """
+    The destination path to use in the rewrite.
+    """
+    source_pattern: pulumi.Input[_builtins.str]
+    """
+    The source pattern in the URL path to replace.
+    """
+    preserve_unmatched_path_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to append the remaining path after the source pattern to the new destination path. Defaults to `false`.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleActionsUrlRewriteArgs:
+    def __init__(__self__, *,
+                 destination_path: pulumi.Input[_builtins.str],
+                 source_pattern: pulumi.Input[_builtins.str],
+                 preserve_unmatched_path_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.str] destination_path: The destination path to use in the rewrite.
+        :param pulumi.Input[_builtins.str] source_pattern: The source pattern in the URL path to replace.
+        :param pulumi.Input[_builtins.bool] preserve_unmatched_path_enabled: Whether to append the remaining path after the source pattern to the new destination path. Defaults to `false`.
+        """
+        pulumi.set(__self__, "destination_path", destination_path)
+        pulumi.set(__self__, "source_pattern", source_pattern)
+        if preserve_unmatched_path_enabled is not None:
+            pulumi.set(__self__, "preserve_unmatched_path_enabled", preserve_unmatched_path_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPath")
+    def destination_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        The destination path to use in the rewrite.
+        """
+        return pulumi.get(self, "destination_path")
+
+    @destination_path.setter
+    def destination_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "destination_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePattern")
+    def source_pattern(self) -> pulumi.Input[_builtins.str]:
+        """
+        The source pattern in the URL path to replace.
+        """
+        return pulumi.get(self, "source_pattern")
+
+    @source_pattern.setter
+    def source_pattern(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source_pattern", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preserveUnmatchedPathEnabled")
+    def preserve_unmatched_path_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to append the remaining path after the source pattern to the new destination path. Defaults to `false`.
+        """
+        return pulumi.get(self, "preserve_unmatched_path_enabled")
+
+    @preserve_unmatched_path_enabled.setter
+    def preserve_unmatched_path_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "preserve_unmatched_path_enabled", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsArgsDict(TypedDict):
+    client_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsClientPortArgsDict']]]]]
+    """
+    One or more `client_port` blocks as defined below.
+    """
+    device_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgsDict']]]]]
+    """
+    One or more `device_type` blocks as defined below.
+    """
+    host_names: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHostNameArgsDict']]]]]
+    """
+    One or more `host_name` blocks as defined below.
+    """
+    http_versions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHttpVersionArgsDict']]]]]
+    """
+    One or more `http_version` blocks as defined below.
+    """
+    post_arguments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsPostArgumentArgsDict']]]]]
+    """
+    One or more `post_argument` blocks as defined below.
+    """
+    query_strings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsQueryStringArgsDict']]]]]
+    """
+    One or more `query_string` blocks as defined below.
+    """
+    remote_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRemoteAddressArgsDict']]]]]
+    """
+    One or more `remote_address` blocks as defined below.
+    """
+    request_bodies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestBodyArgsDict']]]]]
+    """
+    One or more `request_body` blocks as defined below.
+    """
+    request_cookies: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestCookyArgsDict']]]]]
+    """
+    One or more `request_cookies` blocks as defined below.
+    """
+    request_file_extensions: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFileExtensionArgsDict']]]]]
+    """
+    One or more `request_file_extension` blocks as defined below.
+    """
+    request_filenames: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgsDict']]]]]
+    """
+    One or more `request_filename` blocks as defined below.
+    """
+    request_headers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestHeaderArgsDict']]]]]
+    """
+    One or more `request_header` blocks as defined below.
+    """
+    request_methods: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestMethodArgsDict']]]]]
+    """
+    One or more `request_method` blocks as defined below.
+    """
+    request_paths: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestPathArgsDict']]]]]
+    """
+    One or more `request_path` blocks as defined below.
+    """
+    request_schemes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestSchemeArgsDict']]]]]
+    """
+    One or more `request_scheme` blocks as defined below.
+    """
+    request_urls: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestUrlArgsDict']]]]]
+    """
+    One or more `request_url` blocks as defined below.
+    """
+    server_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsServerPortArgsDict']]]]]
+    """
+    One or more `server_port` blocks as defined below.
+    """
+    socket_addresses: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSocketAddressArgsDict']]]]]
+    """
+    One or more `socket_address` blocks as defined below.
+    """
+    ssl_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSslProtocolArgsDict']]]]]
+    """
+    One or more `ssl_protocol` blocks as defined below.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsArgs:
+    def __init__(__self__, *,
+                 client_ports: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsClientPortArgs']]]] = None,
+                 device_types: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs']]]] = None,
+                 host_names: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHostNameArgs']]]] = None,
+                 http_versions: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHttpVersionArgs']]]] = None,
+                 post_arguments: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs']]]] = None,
+                 query_strings: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsQueryStringArgs']]]] = None,
+                 remote_addresses: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRemoteAddressArgs']]]] = None,
+                 request_bodies: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestBodyArgs']]]] = None,
+                 request_cookies: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestCookyArgs']]]] = None,
+                 request_file_extensions: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFileExtensionArgs']]]] = None,
+                 request_filenames: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgs']]]] = None,
+                 request_headers: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestHeaderArgs']]]] = None,
+                 request_methods: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs']]]] = None,
+                 request_paths: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestPathArgs']]]] = None,
+                 request_schemes: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestSchemeArgs']]]] = None,
+                 request_urls: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestUrlArgs']]]] = None,
+                 server_ports: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsServerPortArgs']]]] = None,
+                 socket_addresses: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSocketAddressArgs']]]] = None,
+                 ssl_protocols: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSslProtocolArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsClientPortArgs']]] client_ports: One or more `client_port` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs']]] device_types: One or more `device_type` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHostNameArgs']]] host_names: One or more `host_name` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHttpVersionArgs']]] http_versions: One or more `http_version` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs']]] post_arguments: One or more `post_argument` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsQueryStringArgs']]] query_strings: One or more `query_string` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRemoteAddressArgs']]] remote_addresses: One or more `remote_address` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestBodyArgs']]] request_bodies: One or more `request_body` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestCookyArgs']]] request_cookies: One or more `request_cookies` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFileExtensionArgs']]] request_file_extensions: One or more `request_file_extension` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgs']]] request_filenames: One or more `request_filename` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestHeaderArgs']]] request_headers: One or more `request_header` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs']]] request_methods: One or more `request_method` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestPathArgs']]] request_paths: One or more `request_path` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestSchemeArgs']]] request_schemes: One or more `request_scheme` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestUrlArgs']]] request_urls: One or more `request_url` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsServerPortArgs']]] server_ports: One or more `server_port` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSocketAddressArgs']]] socket_addresses: One or more `socket_address` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSslProtocolArgs']]] ssl_protocols: One or more `ssl_protocol` blocks as defined below.
+        """
+        if client_ports is not None:
+            pulumi.set(__self__, "client_ports", client_ports)
+        if device_types is not None:
+            pulumi.set(__self__, "device_types", device_types)
+        if host_names is not None:
+            pulumi.set(__self__, "host_names", host_names)
+        if http_versions is not None:
+            pulumi.set(__self__, "http_versions", http_versions)
+        if post_arguments is not None:
+            pulumi.set(__self__, "post_arguments", post_arguments)
+        if query_strings is not None:
+            pulumi.set(__self__, "query_strings", query_strings)
+        if remote_addresses is not None:
+            pulumi.set(__self__, "remote_addresses", remote_addresses)
+        if request_bodies is not None:
+            pulumi.set(__self__, "request_bodies", request_bodies)
+        if request_cookies is not None:
+            pulumi.set(__self__, "request_cookies", request_cookies)
+        if request_file_extensions is not None:
+            pulumi.set(__self__, "request_file_extensions", request_file_extensions)
+        if request_filenames is not None:
+            pulumi.set(__self__, "request_filenames", request_filenames)
+        if request_headers is not None:
+            pulumi.set(__self__, "request_headers", request_headers)
+        if request_methods is not None:
+            pulumi.set(__self__, "request_methods", request_methods)
+        if request_paths is not None:
+            pulumi.set(__self__, "request_paths", request_paths)
+        if request_schemes is not None:
+            pulumi.set(__self__, "request_schemes", request_schemes)
+        if request_urls is not None:
+            pulumi.set(__self__, "request_urls", request_urls)
+        if server_ports is not None:
+            pulumi.set(__self__, "server_ports", server_ports)
+        if socket_addresses is not None:
+            pulumi.set(__self__, "socket_addresses", socket_addresses)
+        if ssl_protocols is not None:
+            pulumi.set(__self__, "ssl_protocols", ssl_protocols)
+
+    @_builtins.property
+    @pulumi.getter(name="clientPorts")
+    def client_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsClientPortArgs']]]]:
+        """
+        One or more `client_port` blocks as defined below.
+        """
+        return pulumi.get(self, "client_ports")
+
+    @client_ports.setter
+    def client_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsClientPortArgs']]]]):
+        pulumi.set(self, "client_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deviceTypes")
+    def device_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs']]]]:
+        """
+        One or more `device_type` blocks as defined below.
+        """
+        return pulumi.get(self, "device_types")
+
+    @device_types.setter
+    def device_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs']]]]):
+        pulumi.set(self, "device_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHostNameArgs']]]]:
+        """
+        One or more `host_name` blocks as defined below.
+        """
+        return pulumi.get(self, "host_names")
+
+    @host_names.setter
+    def host_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHostNameArgs']]]]):
+        pulumi.set(self, "host_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="httpVersions")
+    def http_versions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHttpVersionArgs']]]]:
+        """
+        One or more `http_version` blocks as defined below.
+        """
+        return pulumi.get(self, "http_versions")
+
+    @http_versions.setter
+    def http_versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsHttpVersionArgs']]]]):
+        pulumi.set(self, "http_versions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postArguments")
+    def post_arguments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs']]]]:
+        """
+        One or more `post_argument` blocks as defined below.
+        """
+        return pulumi.get(self, "post_arguments")
+
+    @post_arguments.setter
+    def post_arguments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs']]]]):
+        pulumi.set(self, "post_arguments", value)
+
+    @_builtins.property
+    @pulumi.getter(name="queryStrings")
+    def query_strings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsQueryStringArgs']]]]:
+        """
+        One or more `query_string` blocks as defined below.
+        """
+        return pulumi.get(self, "query_strings")
+
+    @query_strings.setter
+    def query_strings(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsQueryStringArgs']]]]):
+        pulumi.set(self, "query_strings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="remoteAddresses")
+    def remote_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRemoteAddressArgs']]]]:
+        """
+        One or more `remote_address` blocks as defined below.
+        """
+        return pulumi.get(self, "remote_addresses")
+
+    @remote_addresses.setter
+    def remote_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRemoteAddressArgs']]]]):
+        pulumi.set(self, "remote_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestBodies")
+    def request_bodies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestBodyArgs']]]]:
+        """
+        One or more `request_body` blocks as defined below.
+        """
+        return pulumi.get(self, "request_bodies")
+
+    @request_bodies.setter
+    def request_bodies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestBodyArgs']]]]):
+        pulumi.set(self, "request_bodies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestCookies")
+    def request_cookies(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestCookyArgs']]]]:
+        """
+        One or more `request_cookies` blocks as defined below.
+        """
+        return pulumi.get(self, "request_cookies")
+
+    @request_cookies.setter
+    def request_cookies(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestCookyArgs']]]]):
+        pulumi.set(self, "request_cookies", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestFileExtensions")
+    def request_file_extensions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFileExtensionArgs']]]]:
+        """
+        One or more `request_file_extension` blocks as defined below.
+        """
+        return pulumi.get(self, "request_file_extensions")
+
+    @request_file_extensions.setter
+    def request_file_extensions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFileExtensionArgs']]]]):
+        pulumi.set(self, "request_file_extensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestFilenames")
+    def request_filenames(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgs']]]]:
+        """
+        One or more `request_filename` blocks as defined below.
+        """
+        return pulumi.get(self, "request_filenames")
+
+    @request_filenames.setter
+    def request_filenames(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgs']]]]):
+        pulumi.set(self, "request_filenames", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestHeaders")
+    def request_headers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestHeaderArgs']]]]:
+        """
+        One or more `request_header` blocks as defined below.
+        """
+        return pulumi.get(self, "request_headers")
+
+    @request_headers.setter
+    def request_headers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestHeaderArgs']]]]):
+        pulumi.set(self, "request_headers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethods")
+    def request_methods(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs']]]]:
+        """
+        One or more `request_method` blocks as defined below.
+        """
+        return pulumi.get(self, "request_methods")
+
+    @request_methods.setter
+    def request_methods(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs']]]]):
+        pulumi.set(self, "request_methods", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestPaths")
+    def request_paths(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestPathArgs']]]]:
+        """
+        One or more `request_path` blocks as defined below.
+        """
+        return pulumi.get(self, "request_paths")
+
+    @request_paths.setter
+    def request_paths(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestPathArgs']]]]):
+        pulumi.set(self, "request_paths", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestSchemes")
+    def request_schemes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestSchemeArgs']]]]:
+        """
+        One or more `request_scheme` blocks as defined below.
+        """
+        return pulumi.get(self, "request_schemes")
+
+    @request_schemes.setter
+    def request_schemes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestSchemeArgs']]]]):
+        pulumi.set(self, "request_schemes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestUrls")
+    def request_urls(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestUrlArgs']]]]:
+        """
+        One or more `request_url` blocks as defined below.
+        """
+        return pulumi.get(self, "request_urls")
+
+    @request_urls.setter
+    def request_urls(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsRequestUrlArgs']]]]):
+        pulumi.set(self, "request_urls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverPorts")
+    def server_ports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsServerPortArgs']]]]:
+        """
+        One or more `server_port` blocks as defined below.
+        """
+        return pulumi.get(self, "server_ports")
+
+    @server_ports.setter
+    def server_ports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsServerPortArgs']]]]):
+        pulumi.set(self, "server_ports", value)
+
+    @_builtins.property
+    @pulumi.getter(name="socketAddresses")
+    def socket_addresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSocketAddressArgs']]]]:
+        """
+        One or more `socket_address` blocks as defined below.
+        """
+        return pulumi.get(self, "socket_addresses")
+
+    @socket_addresses.setter
+    def socket_addresses(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSocketAddressArgs']]]]):
+        pulumi.set(self, "socket_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslProtocols")
+    def ssl_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSslProtocolArgs']]]]:
+        """
+        One or more `ssl_protocol` blocks as defined below.
+        """
+        return pulumi.get(self, "ssl_protocols")
+
+    @ssl_protocols.setter
+    def ssl_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FrontdoorBatchRuleSetRuleConditionsSslProtocolArgs']]]]):
+        pulumi.set(self, "ssl_protocols", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsClientPortArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the client port to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsClientPortArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the client port to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the client port to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Equal` and `NotEqual`.
+    """
+    values: pulumi.Input[_builtins.str]
+    """
+    The device type to match. Possible values are `Mobile` and `Desktop`.
+
+    > **Note:** Currently, only a single value may be specified.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsDeviceTypeArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Equal` and `NotEqual`.
+        :param pulumi.Input[_builtins.str] values: The device type to match. Possible values are `Mobile` and `Desktop`.
+               
+               > **Note:** Currently, only a single value may be specified.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Equal` and `NotEqual`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[_builtins.str]:
+        """
+        The device type to match. Possible values are `Mobile` and `Desktop`.
+
+        > **Note:** Currently, only a single value may be specified.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsHostNameArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of one or more values representing the request hostname to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsHostNameArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of one or more values representing the request hostname to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of one or more values representing the request hostname to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsHttpVersionArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Equal` and `NotEqual`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of one or more HTTP versions to match. Possible values are `2.0`, `1.1`, `1.0`, and `0.9`.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsHttpVersionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Equal` and `NotEqual`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of one or more HTTP versions to match. Possible values are `2.0`, `1.1`, `1.0`, and `0.9`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Equal` and `NotEqual`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of one or more HTTP versions to match. Possible values are `2.0`, `1.1`, `1.0`, and `0.9`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsPostArgumentArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A string value representing the name of the `POST` argument.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the `POST` argument value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsPostArgumentArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: A string value representing the name of the `POST` argument.
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the `POST` argument value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        A string value representing the name of the `POST` argument.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the `POST` argument value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsQueryStringArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the query string value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsQueryStringArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the query string value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the query string value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRemoteAddressArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The type of remote address to match. Possible values are `GeoMatch`, `IPMatch`, `NotGeoMatch`, and `NotIPMatch`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of CIDR ranges or country codes. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** When `operator` is set to `GeoMatch` or `NotGeoMatch`, each value in `values` must be a two-letter uppercase country code.
+
+    > **Note:** When `operator` is set to `IPMatch` or `NotIPMatch`, each value in `values` must be a valid CIDR range.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRemoteAddressArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] operator: The type of remote address to match. Possible values are `GeoMatch`, `IPMatch`, `NotGeoMatch`, and `NotIPMatch`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of CIDR ranges or country codes. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** When `operator` is set to `GeoMatch` or `NotGeoMatch`, each value in `values` must be a two-letter uppercase country code.
+               
+               > **Note:** When `operator` is set to `IPMatch` or `NotIPMatch`, each value in `values` must be a valid CIDR range.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of remote address to match. Possible values are `GeoMatch`, `IPMatch`, `NotGeoMatch`, and `NotIPMatch`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of CIDR ranges or country codes. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** When `operator` is set to `GeoMatch` or `NotGeoMatch`, each value in `values` must be a two-letter uppercase country code.
+
+        > **Note:** When `operator` is set to `IPMatch` or `NotIPMatch`, each value in `values` must be a valid CIDR range.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRequestBodyArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the request body text to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRequestBodyArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the request body text to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the request body text to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRequestCookyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the cookie.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the cookie value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRequestCookyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The name of the cookie.
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the cookie value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the cookie.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the cookie value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRequestFileExtensionArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the request file extension to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRequestFileExtensionArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the request file extension to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the request file extension to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the request file name to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRequestFilenameArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the request file name to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the request file name to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRequestHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the request header.
+    """
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the request header value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRequestHeaderArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: The name of the request header.
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the request header value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the request header.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the request header value to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRequestMethodArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Equal` and `NotEqual`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of one or more HTTP methods. Possible values are `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, and `TRACE`. A maximum of `7` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRequestMethodArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Equal` and `NotEqual`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of one or more HTTP methods. Possible values are `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, and `TRACE`. A maximum of `7` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Equal` and `NotEqual`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of one or more HTTP methods. Possible values are `GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, and `TRACE`. A maximum of `7` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRequestPathArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `Wildcard`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, `NotRegEx`, and `NotWildcard`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRequestPathArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `Wildcard`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, `NotRegEx`, and `NotWildcard`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `Wildcard`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, `NotRegEx`, and `NotWildcard`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the request path to match. Do not include the leading slash (`/`). A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRequestSchemeArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Equal` and `NotEqual`.
+    """
+    values: pulumi.Input[_builtins.str]
+    """
+    The request protocol to match. Possible values are `HTTP` and `HTTPS`.
+
+    > **Note:** Currently, only a single value may be specified
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRequestSchemeArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Equal` and `NotEqual`.
+        :param pulumi.Input[_builtins.str] values: The request protocol to match. Possible values are `HTTP` and `HTTPS`.
+               
+               > **Note:** Currently, only a single value may be specified
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Equal` and `NotEqual`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[_builtins.str]:
+        """
+        The request protocol to match. Possible values are `HTTP` and `HTTPS`.
+
+        > **Note:** Currently, only a single value may be specified
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsRequestUrlArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    transforms: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    One or more values representing the request URL to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+    > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsRequestUrlArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] transforms: A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more values representing the request URL to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+               
+               > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if transforms is not None:
+            pulumi.set(__self__, "transforms", transforms)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def transforms(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of condition transforms. Possible values are `Lowercase`, `RemoveNulls`, `Trim`, `Uppercase`, `UrlDecode`, and `UrlEncode`. A maximum of `4` transforms may be defined.
+        """
+        return pulumi.get(self, "transforms")
+
+    @transforms.setter
+    def transforms(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "transforms", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        One or more values representing the request URL to match. A maximum of `25` values may be defined. If multiple values are specified, they are evaluated using `OR` logic.
+
+        > **Note:** `values` must not be set when `operator` is set to `Any` or `NotAny`, and is required for all other operators.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsServerPortArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of one or more values representing the server port to match. Possible values are `80` and `443`. If multiple values are specified, they are evaluated using `OR` logic.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsServerPortArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of one or more values representing the server port to match. Possible values are `80` and `443`. If multiple values are specified, they are evaluated using `OR` logic.
+        """
+        pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Any`, `Equal`, `Contains`, `BeginsWith`, `EndsWith`, `LessThan`, `LessThanOrEqual`, `GreaterThan`, `GreaterThanOrEqual`, `RegEx`, `NotAny`, `NotEqual`, `NotContains`, `NotBeginsWith`, `NotEndsWith`, `NotLessThan`, `NotLessThanOrEqual`, `NotGreaterThan`, `NotGreaterThanOrEqual`, and `NotRegEx`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of one or more values representing the server port to match. Possible values are `80` and `443`. If multiple values are specified, they are evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsSocketAddressArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    The type of match. Possible values are `IPMatch` and `NotIPMatch`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    One or more IP address ranges. A maximum of `25` values may be defined. If multiple IP address ranges are specified, they are evaluated using `OR` logic.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsSocketAddressArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] operator: The type of match. Possible values are `IPMatch` and `NotIPMatch`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: One or more IP address ranges. A maximum of `25` values may be defined. If multiple IP address ranges are specified, they are evaluated using `OR` logic.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of match. Possible values are `IPMatch` and `NotIPMatch`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        One or more IP address ranges. A maximum of `25` values may be defined. If multiple IP address ranges are specified, they are evaluated using `OR` logic.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+class FrontdoorBatchRuleSetRuleConditionsSslProtocolArgsDict(TypedDict):
+    operator: pulumi.Input[_builtins.str]
+    """
+    A condition operator. Possible values are `Equal` and `NotEqual`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of one or more SSL protocol values. Possible values are `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+    """
+
+@pulumi.input_type
+class FrontdoorBatchRuleSetRuleConditionsSslProtocolArgs:
+    def __init__(__self__, *,
+                 operator: pulumi.Input[_builtins.str],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] operator: A condition operator. Possible values are `Equal` and `NotEqual`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: A list of one or more SSL protocol values. Possible values are `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[_builtins.str]:
+        """
+        A condition operator. Possible values are `Equal` and `NotEqual`.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        A list of one or more SSL protocol values. Possible values are `TLSv1`, `TLSv1.1`, and `TLSv1.2`.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
 class FrontdoorCustomDomainTlsArgsDict(TypedDict):
     cdn_frontdoor_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -3091,7 +5603,7 @@ class FrontdoorCustomDomainTlsArgsDict(TypedDict):
 
     > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
 
-    > **Note:** When `certificate_type` is `ManagedCertificate`, `host_name` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+    > **Note:** When `certificate_type` is `ManagedCertificate`, `host_name` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
     """
     cipher_suite: NotRequired[pulumi.Input[Optional['FrontdoorCustomDomainTlsCipherSuiteArgsDict']]]
     """
@@ -3119,7 +5631,7 @@ class FrontdoorCustomDomainTlsArgs:
                
                > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
                
-               > **Note:** When `certificate_type` is `ManagedCertificate`, `host_name` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+               > **Note:** When `certificate_type` is `ManagedCertificate`, `host_name` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
         :param pulumi.Input['FrontdoorCustomDomainTlsCipherSuiteArgs'] cipher_suite: A `cipher_suite` block as defined below.
         :param pulumi.Input[_builtins.str] minimum_version: TLS protocol version that will be used for HTTPS. The only possible value is `TLS12`. Defaults to `TLS12`.
         """
@@ -3159,7 +5671,7 @@ class FrontdoorCustomDomainTlsArgs:
 
         > **Note:** It may take up to 15 minutes for the Front Door Service to validate the state and domain ownership of the Custom Domain.
 
-        > **Note:** When `certificate_type` is `ManagedCertificate`, `host_name` must not exceed 64 characters. Azure Front Door supports managed certificates for apex domains, but apex-domain certificate rotation can require revalidation of domain ownership. Wildcard domains require `CustomerCertificate`. Use `CustomerCertificate` for wildcard domains or host names longer than 64 characters.
+        > **Note:** When `certificate_type` is `ManagedCertificate`, `host_name` must not exceed 64 characters. Azure Front Door supports managed certificates for apex and wildcard domains, but apex-domain certificate rotation can require revalidation of domain ownership and wildcard-domain managed certificates are not rotated automatically.
         """
         return pulumi.get(self, "certificate_type")
 

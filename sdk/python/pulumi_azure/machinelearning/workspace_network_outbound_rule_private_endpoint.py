@@ -261,6 +261,7 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
             name="workspaceexamplekeyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="premium")
         example_account = azure.storage.Account("example",
@@ -356,6 +357,7 @@ class WorkspaceNetworkOutboundRulePrivateEndpoint(pulumi.CustomResource):
             name="workspaceexamplekeyvault",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="premium")
         example_account = azure.storage.Account("example",

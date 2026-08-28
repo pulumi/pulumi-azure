@@ -356,7 +356,7 @@ namespace Pulumi.Azure
              public class EnhancedValidation
              {
             /// <summary>
-            /// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+            /// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
             /// </summary>
                 public bool? Locations { get; set; }
             /// <summary>
@@ -372,6 +372,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesApplicationInsights? ApplicationInsights { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesCognitiveAccount? CognitiveAccount { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesDatabricksWorkspace? DatabricksWorkspace { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesEnhancedValidation? EnhancedValidation { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesMachineLearning? MachineLearning { get; set; } = null!;
@@ -385,6 +386,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryService? RecoveryService { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesRecoveryServicesVaults? RecoveryServicesVaults { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesResourceGroup? ResourceGroup { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesServicebus? Servicebus { get; set; } = null!;
             /// <summary>
             /// Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `False`.
             /// </summary>
@@ -424,6 +426,26 @@ namespace Pulumi.Azure
             /// When enabled, the managed resource group that contains the Unity Catalog data will be forcibly deleted when the workspace is destroyed, regardless of contents.
             /// </summary>
                 public bool? ForceDelete { get; set; }
+            }
+
+             public class FeaturesEnhancedValidation
+             {
+            /// <summary>
+            /// Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+            /// </summary>
+                public bool? Locations { get; set; }
+            /// <summary>
+            /// Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+            /// </summary>
+                public bool? PreflightEnabled { get; set; }
+            /// <summary>
+            /// The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
+            /// </summary>
+                public string? PreflightLocationFallback { get; set; } = null!;
+            /// <summary>
+            /// Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+            /// </summary>
+                public bool? ResourceProviders { get; set; }
             }
 
              public class FeaturesKeyVault
@@ -521,6 +543,14 @@ namespace Pulumi.Azure
              public class FeaturesResourceGroup
              {
                 public bool? PreventDeletionIfContainsResources { get; set; }
+            }
+
+             public class FeaturesServicebus
+             {
+            /// <summary>
+            /// When enabled, the $Default rule is automatically deleted after creating a Service Bus subscription, preventing unfiltered message delivery.
+            /// </summary>
+                public bool? AutoDeleteSubscriptionDefaultRule { get; set; }
             }
 
              public class FeaturesStorage

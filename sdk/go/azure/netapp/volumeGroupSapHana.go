@@ -372,6 +372,7 @@ import (
 //				Name:                         pulumi.Sprintf("%vkv", prefix),
 //				Location:                     example.Location,
 //				ResourceGroupName:            example.Name,
+//				RbacAuthorizationEnabled:     pulumi.Bool(false),
 //				TenantId:                     pulumi.String(current.TenantId),
 //				SkuName:                      pulumi.String("standard"),
 //				PurgeProtectionEnabled:       pulumi.Bool(true),

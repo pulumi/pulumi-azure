@@ -177,9 +177,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.disableTerraformPartnerId);
     }
 
+    /**
+     * @deprecated
+     * This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
+     * 
+     */
+    @Deprecated /* This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead. */
     @Import(name="enhancedValidation", json=true)
     private @Nullable Output<ProviderEnhancedValidationArgs> enhancedValidation;
 
+    /**
+     * @deprecated
+     * This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
+     * 
+     */
+    @Deprecated /* This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead. */
     public Optional<Output<ProviderEnhancedValidationArgs>> enhancedValidation() {
         return Optional.ofNullable(this.enhancedValidation);
     }
@@ -762,11 +774,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return disableTerraformPartnerId(Output.of(disableTerraformPartnerId));
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
+         * 
+         */
+        @Deprecated /* This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead. */
         public Builder enhancedValidation(@Nullable Output<ProviderEnhancedValidationArgs> enhancedValidation) {
             $.enhancedValidation = enhancedValidation;
             return this;
         }
 
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
+         * 
+         */
+        @Deprecated /* This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead. */
         public Builder enhancedValidation(ProviderEnhancedValidationArgs enhancedValidation) {
             return enhancedValidation(Output.of(enhancedValidation));
         }

@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
+ *     rbacAuthorizationEnabled: false,
  *     tenantId: exampleAzurermClientConfig.tenantId,
  *     skuName: "example-value",
  *     softDeleteRetentionDays: Number("example-value"),

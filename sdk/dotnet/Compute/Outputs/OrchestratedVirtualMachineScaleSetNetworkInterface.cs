@@ -57,6 +57,10 @@ namespace Pulumi.Azure.Compute.Outputs
         /// &gt; **Note:** If multiple `NetworkInterface` blocks are specified, one must be set to `Primary`.
         /// </summary>
         public readonly bool? Primary;
+        /// <summary>
+        /// A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? Tags;
 
         [OutputConstructor]
         private OrchestratedVirtualMachineScaleSetNetworkInterface(
@@ -76,7 +80,9 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string? networkSecurityGroupId,
 
-            bool? primary)
+            bool? primary,
+
+            ImmutableDictionary<string, string>? tags)
         {
             AuxiliaryMode = auxiliaryMode;
             AuxiliarySku = auxiliarySku;
@@ -87,6 +93,7 @@ namespace Pulumi.Azure.Compute.Outputs
             Name = name;
             NetworkSecurityGroupId = networkSecurityGroupId;
             Primary = primary;
+            Tags = tags;
         }
     }
 }

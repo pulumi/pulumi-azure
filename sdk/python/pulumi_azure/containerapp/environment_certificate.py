@@ -413,7 +413,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
             resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            enable_rbac_authorization=True)
+            rbac_authorization_enabled=True)
         user_keyvault_admin = azure.authorization.Assignment("user_keyvault_admin",
             scope=example_key_vault.id,
             role_definition_name="Key Vault Administrator",
@@ -549,7 +549,7 @@ class EnvironmentCertificate(pulumi.CustomResource):
             resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
-            enable_rbac_authorization=True)
+            rbac_authorization_enabled=True)
         user_keyvault_admin = azure.authorization.Assignment("user_keyvault_admin",
             scope=example_key_vault.id,
             role_definition_name="Key Vault Administrator",

@@ -29,6 +29,8 @@ __all__ = [
     'ProviderFeaturesCognitiveAccountArgsDict',
     'ProviderFeaturesDatabricksWorkspaceArgs',
     'ProviderFeaturesDatabricksWorkspaceArgsDict',
+    'ProviderFeaturesEnhancedValidationArgs',
+    'ProviderFeaturesEnhancedValidationArgsDict',
     'ProviderFeaturesKeyVaultArgs',
     'ProviderFeaturesKeyVaultArgsDict',
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
@@ -47,6 +49,8 @@ __all__ = [
     'ProviderFeaturesRecoveryServicesVaultsArgsDict',
     'ProviderFeaturesResourceGroupArgs',
     'ProviderFeaturesResourceGroupArgsDict',
+    'ProviderFeaturesServicebusArgs',
+    'ProviderFeaturesServicebusArgsDict',
     'ProviderFeaturesStorageArgs',
     'ProviderFeaturesStorageArgsDict',
     'ProviderFeaturesSubscriptionArgs',
@@ -62,7 +66,7 @@ __all__ = [
 class ProviderEnhancedValidationArgsDict(TypedDict):
     locations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+    Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
     """
     resource_providers: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -75,7 +79,7 @@ class ProviderEnhancedValidationArgs:
                  locations: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_providers: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] locations: Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+        :param pulumi.Input[_builtins.bool] locations: Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
         :param pulumi.Input[_builtins.bool] resource_providers: Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
         """
         if locations is not None:
@@ -87,7 +91,7 @@ class ProviderEnhancedValidationArgs:
     @pulumi.getter
     def locations(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+        Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
         """
         return pulumi.get(self, "locations")
 
@@ -114,6 +118,7 @@ class ProviderFeaturesArgsDict(TypedDict):
     application_insights: NotRequired[pulumi.Input[Optional['ProviderFeaturesApplicationInsightsArgsDict']]]
     cognitive_account: NotRequired[pulumi.Input[Optional['ProviderFeaturesCognitiveAccountArgsDict']]]
     databricks_workspace: NotRequired[pulumi.Input[Optional['ProviderFeaturesDatabricksWorkspaceArgsDict']]]
+    enhanced_validation: NotRequired[pulumi.Input[Optional['ProviderFeaturesEnhancedValidationArgsDict']]]
     key_vault: NotRequired[pulumi.Input[Optional['ProviderFeaturesKeyVaultArgsDict']]]
     log_analytics_workspace: NotRequired[pulumi.Input[Optional['ProviderFeaturesLogAnalyticsWorkspaceArgsDict']]]
     machine_learning: NotRequired[pulumi.Input[Optional['ProviderFeaturesMachineLearningArgsDict']]]
@@ -127,6 +132,7 @@ class ProviderFeaturesArgsDict(TypedDict):
     recovery_service: NotRequired[pulumi.Input[Optional['ProviderFeaturesRecoveryServiceArgsDict']]]
     recovery_services_vaults: NotRequired[pulumi.Input[Optional['ProviderFeaturesRecoveryServicesVaultsArgsDict']]]
     resource_group: NotRequired[pulumi.Input[Optional['ProviderFeaturesResourceGroupArgsDict']]]
+    servicebus: NotRequired[pulumi.Input[Optional['ProviderFeaturesServicebusArgsDict']]]
     skip_import_check_on_create_and_allow_overwriting_existing_resources: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
@@ -145,6 +151,7 @@ class ProviderFeaturesArgs:
                  application_insights: pulumi.Input[Optional['ProviderFeaturesApplicationInsightsArgs']] = None,
                  cognitive_account: pulumi.Input[Optional['ProviderFeaturesCognitiveAccountArgs']] = None,
                  databricks_workspace: pulumi.Input[Optional['ProviderFeaturesDatabricksWorkspaceArgs']] = None,
+                 enhanced_validation: pulumi.Input[Optional['ProviderFeaturesEnhancedValidationArgs']] = None,
                  key_vault: pulumi.Input[Optional['ProviderFeaturesKeyVaultArgs']] = None,
                  log_analytics_workspace: pulumi.Input[Optional['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
                  machine_learning: pulumi.Input[Optional['ProviderFeaturesMachineLearningArgs']] = None,
@@ -155,6 +162,7 @@ class ProviderFeaturesArgs:
                  recovery_service: pulumi.Input[Optional['ProviderFeaturesRecoveryServiceArgs']] = None,
                  recovery_services_vaults: pulumi.Input[Optional['ProviderFeaturesRecoveryServicesVaultsArgs']] = None,
                  resource_group: pulumi.Input[Optional['ProviderFeaturesResourceGroupArgs']] = None,
+                 servicebus: pulumi.Input[Optional['ProviderFeaturesServicebusArgs']] = None,
                  skip_import_check_on_create_and_allow_overwriting_existing_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage: pulumi.Input[Optional['ProviderFeaturesStorageArgs']] = None,
                  subscription: pulumi.Input[Optional['ProviderFeaturesSubscriptionArgs']] = None,
@@ -175,6 +183,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "cognitive_account", cognitive_account)
         if databricks_workspace is not None:
             pulumi.set(__self__, "databricks_workspace", databricks_workspace)
+        if enhanced_validation is not None:
+            pulumi.set(__self__, "enhanced_validation", enhanced_validation)
         if key_vault is not None:
             pulumi.set(__self__, "key_vault", key_vault)
         if log_analytics_workspace is not None:
@@ -195,6 +205,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "recovery_services_vaults", recovery_services_vaults)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if servicebus is not None:
+            pulumi.set(__self__, "servicebus", servicebus)
         if skip_import_check_on_create_and_allow_overwriting_existing_resources is not None:
             pulumi.set(__self__, "skip_import_check_on_create_and_allow_overwriting_existing_resources", skip_import_check_on_create_and_allow_overwriting_existing_resources)
         if storage is not None:
@@ -252,6 +264,15 @@ class ProviderFeaturesArgs:
     @databricks_workspace.setter
     def databricks_workspace(self, value: pulumi.Input[Optional['ProviderFeaturesDatabricksWorkspaceArgs']]):
         pulumi.set(self, "databricks_workspace", value)
+
+    @_builtins.property
+    @pulumi.getter(name="enhancedValidation")
+    def enhanced_validation(self) -> pulumi.Input[Optional['ProviderFeaturesEnhancedValidationArgs']]:
+        return pulumi.get(self, "enhanced_validation")
+
+    @enhanced_validation.setter
+    def enhanced_validation(self, value: pulumi.Input[Optional['ProviderFeaturesEnhancedValidationArgs']]):
+        pulumi.set(self, "enhanced_validation", value)
 
     @_builtins.property
     @pulumi.getter(name="keyVault")
@@ -345,6 +366,15 @@ class ProviderFeaturesArgs:
     @resource_group.setter
     def resource_group(self, value: pulumi.Input[Optional['ProviderFeaturesResourceGroupArgs']]):
         pulumi.set(self, "resource_group", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def servicebus(self) -> pulumi.Input[Optional['ProviderFeaturesServicebusArgs']]:
+        return pulumi.get(self, "servicebus")
+
+    @servicebus.setter
+    def servicebus(self, value: pulumi.Input[Optional['ProviderFeaturesServicebusArgs']]):
+        pulumi.set(self, "servicebus", value)
 
     @_builtins.property
     @pulumi.getter(name="skipImportCheckOnCreateAndAllowOverwritingExistingResources")
@@ -537,6 +567,95 @@ class ProviderFeaturesDatabricksWorkspaceArgs:
     @force_delete.setter
     def force_delete(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "force_delete", value)
+
+
+class ProviderFeaturesEnhancedValidationArgsDict(TypedDict):
+    locations: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+    """
+    preflight_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+    """
+    preflight_location_fallback: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
+    """
+    resource_providers: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+    """
+
+@pulumi.input_type
+class ProviderFeaturesEnhancedValidationArgs:
+    def __init__(__self__, *,
+                 locations: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preflight_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preflight_location_fallback: pulumi.Input[Optional[_builtins.str]] = None,
+                 resource_providers: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] locations: Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+        :param pulumi.Input[_builtins.bool] preflight_enabled: Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+        :param pulumi.Input[_builtins.str] preflight_location_fallback: The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
+        :param pulumi.Input[_builtins.bool] resource_providers: Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+        """
+        if locations is not None:
+            pulumi.set(__self__, "locations", locations)
+        if preflight_enabled is not None:
+            pulumi.set(__self__, "preflight_enabled", preflight_enabled)
+        if preflight_location_fallback is not None:
+            pulumi.set(__self__, "preflight_location_fallback", preflight_location_fallback)
+        if resource_providers is not None:
+            pulumi.set(__self__, "resource_providers", resource_providers)
+
+    @_builtins.property
+    @pulumi.getter
+    def locations(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+        """
+        return pulumi.get(self, "locations")
+
+    @locations.setter
+    def locations(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "locations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preflightEnabled")
+    def preflight_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Should the AzureRM Provider call the Azure Preflight Validation API at plan time to check the request payload for each Preflight-supported resource is valid. Note: requires valid credentials and external Azure API access at plan-time.
+        """
+        return pulumi.get(self, "preflight_enabled")
+
+    @preflight_enabled.setter
+    def preflight_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "preflight_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preflightLocationFallback")
+    def preflight_location_fallback(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Azure location to use as a fallback when Preflight Validation is enabled and a resource does not specify a location. This is typically used for resources that derive their location from a dependency that has not yet been created.
+        """
+        return pulumi.get(self, "preflight_location_fallback")
+
+    @preflight_location_fallback.setter
+    def preflight_location_fallback(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "preflight_location_fallback", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceProviders")
+    def resource_providers(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Should the AzureRM Provider validate Resource Provider arguments against the list of supported Resource Providers? When enabled, invalid resource providers are caught at plan time; when disabled, they are caught at apply time.
+        """
+        return pulumi.get(self, "resource_providers")
+
+    @resource_providers.setter
+    def resource_providers(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "resource_providers", value)
 
 
 class ProviderFeaturesKeyVaultArgsDict(TypedDict):
@@ -981,6 +1100,35 @@ class ProviderFeaturesResourceGroupArgs:
     @prevent_deletion_if_contains_resources.setter
     def prevent_deletion_if_contains_resources(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "prevent_deletion_if_contains_resources", value)
+
+
+class ProviderFeaturesServicebusArgsDict(TypedDict):
+    auto_delete_subscription_default_rule: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    When enabled, the $Default rule is automatically deleted after creating a Service Bus subscription, preventing unfiltered message delivery.
+    """
+
+@pulumi.input_type
+class ProviderFeaturesServicebusArgs:
+    def __init__(__self__, *,
+                 auto_delete_subscription_default_rule: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] auto_delete_subscription_default_rule: When enabled, the $Default rule is automatically deleted after creating a Service Bus subscription, preventing unfiltered message delivery.
+        """
+        if auto_delete_subscription_default_rule is not None:
+            pulumi.set(__self__, "auto_delete_subscription_default_rule", auto_delete_subscription_default_rule)
+
+    @_builtins.property
+    @pulumi.getter(name="autoDeleteSubscriptionDefaultRule")
+    def auto_delete_subscription_default_rule(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When enabled, the $Default rule is automatically deleted after creating a Service Bus subscription, preventing unfiltered message delivery.
+        """
+        return pulumi.get(self, "auto_delete_subscription_default_rule")
+
+    @auto_delete_subscription_default_rule.setter
+    def auto_delete_subscription_default_rule(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "auto_delete_subscription_default_rule", value)
 
 
 class ProviderFeaturesStorageArgsDict(TypedDict):

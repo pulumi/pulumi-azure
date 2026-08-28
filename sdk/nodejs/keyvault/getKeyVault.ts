@@ -21,6 +21,13 @@ import * as utilities from "../utilities";
  * });
  * export const vaultUri = example.then(example => example.vaultUri);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.KeyVault` - 2026-02-01
  */
 export function getKeyVault(args: GetKeyVaultArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -122,6 +129,13 @@ export interface GetKeyVaultResult {
  * });
  * export const vaultUri = example.then(example => example.vaultUri);
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.KeyVault` - 2026-02-01
  */
 export function getKeyVaultOutput(args: GetKeyVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -15,6 +15,11 @@ export type EndpointCustomDomain = import("./endpointCustomDomain").EndpointCust
 export const EndpointCustomDomain: typeof import("./endpointCustomDomain").EndpointCustomDomain = null as any;
 utilities.lazyLoad(exports, ["EndpointCustomDomain"], () => require("./endpointCustomDomain"));
 
+export { FrontdoorBatchRuleSetArgs, FrontdoorBatchRuleSetState } from "./frontdoorBatchRuleSet";
+export type FrontdoorBatchRuleSet = import("./frontdoorBatchRuleSet").FrontdoorBatchRuleSet;
+export const FrontdoorBatchRuleSet: typeof import("./frontdoorBatchRuleSet").FrontdoorBatchRuleSet = null as any;
+utilities.lazyLoad(exports, ["FrontdoorBatchRuleSet"], () => require("./frontdoorBatchRuleSet"));
+
 export { FrontdoorCustomDomainArgs, FrontdoorCustomDomainState } from "./frontdoorCustomDomain";
 export type FrontdoorCustomDomain = import("./frontdoorCustomDomain").FrontdoorCustomDomain;
 export const FrontdoorCustomDomain: typeof import("./frontdoorCustomDomain").FrontdoorCustomDomain = null as any;
@@ -75,6 +80,11 @@ export type FrontdoorSecurityPolicy = import("./frontdoorSecurityPolicy").Frontd
 export const FrontdoorSecurityPolicy: typeof import("./frontdoorSecurityPolicy").FrontdoorSecurityPolicy = null as any;
 utilities.lazyLoad(exports, ["FrontdoorSecurityPolicy"], () => require("./frontdoorSecurityPolicy"));
 
+export { GetFrontdoorBatchRuleSetArgs, GetFrontdoorBatchRuleSetResult, GetFrontdoorBatchRuleSetOutputArgs } from "./getFrontdoorBatchRuleSet";
+export const getFrontdoorBatchRuleSet: typeof import("./getFrontdoorBatchRuleSet").getFrontdoorBatchRuleSet = null as any;
+export const getFrontdoorBatchRuleSetOutput: typeof import("./getFrontdoorBatchRuleSet").getFrontdoorBatchRuleSetOutput = null as any;
+utilities.lazyLoad(exports, ["getFrontdoorBatchRuleSet","getFrontdoorBatchRuleSetOutput"], () => require("./getFrontdoorBatchRuleSet"));
+
 export { GetFrontdoorCustomDomainArgs, GetFrontdoorCustomDomainResult, GetFrontdoorCustomDomainOutputArgs } from "./getFrontdoorCustomDomain";
 export const getFrontdoorCustomDomain: typeof import("./getFrontdoorCustomDomain").getFrontdoorCustomDomain = null as any;
 export const getFrontdoorCustomDomainOutput: typeof import("./getFrontdoorCustomDomain").getFrontdoorCustomDomainOutput = null as any;
@@ -134,6 +144,8 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "azure:cdn/endpointCustomDomain:EndpointCustomDomain":
                 return new EndpointCustomDomain(name, <any>undefined, { urn })
+            case "azure:cdn/frontdoorBatchRuleSet:FrontdoorBatchRuleSet":
+                return new FrontdoorBatchRuleSet(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorCustomDomain:FrontdoorCustomDomain":
                 return new FrontdoorCustomDomain(name, <any>undefined, { urn })
             case "azure:cdn/frontdoorCustomDomainAssociation:FrontdoorCustomDomainAssociation":
@@ -167,6 +179,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "cdn/endpoint", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/endpointCustomDomain", _module)
+pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorBatchRuleSet", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorCustomDomainAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "cdn/frontdoorEndpoint", _module)

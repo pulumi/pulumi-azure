@@ -16,6 +16,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Front Door (standard/premium) Rule Set.
  * 
+ * &gt; **Note:** This resource creates the Front Door Rule Set in non-batch mode and individual rules are managed using `azure.cdn.FrontdoorRule`.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -70,7 +72,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Cdn` - 2024-02-01
+ * * `Microsoft.Cdn` - 2025-12-01
  * 
  * ## Import
  * 

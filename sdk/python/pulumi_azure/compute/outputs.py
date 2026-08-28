@@ -1728,6 +1728,10 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
             suggest = "create_option"
         elif key == "diskEncryptionSetId":
             suggest = "disk_encryption_set_id"
+        elif key == "diskIopsReadWrite":
+            suggest = "disk_iops_read_write"
+        elif key == "diskMbpsReadWrite":
+            suggest = "disk_mbps_read_write"
         elif key == "ultraSsdDiskIopsReadWrite":
             suggest = "ultra_ssd_disk_iops_read_write"
         elif key == "ultraSsdDiskMbpsReadWrite":
@@ -1753,6 +1757,8 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
                  storage_account_type: _builtins.str,
                  create_option: Optional[_builtins.str] = None,
                  disk_encryption_set_id: Optional[_builtins.str] = None,
+                 disk_iops_read_write: Optional[_builtins.int] = None,
+                 disk_mbps_read_write: Optional[_builtins.int] = None,
                  name: Optional[_builtins.str] = None,
                  ultra_ssd_disk_iops_read_write: Optional[_builtins.int] = None,
                  ultra_ssd_disk_mbps_read_write: Optional[_builtins.int] = None,
@@ -1770,9 +1776,9 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
                > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
                
                > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        :param _builtins.int disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        :param _builtins.int disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param _builtins.str name: The name of the Data Disk.
-        :param _builtins.int ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        :param _builtins.int ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param _builtins.bool write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
                
                > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -1785,6 +1791,10 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_write is not None:
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if ultra_ssd_disk_iops_read_write is not None:
@@ -1849,6 +1859,22 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
         return pulumi.get(self, "disk_encryption_set_id")
 
     @_builtins.property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> Optional[_builtins.int]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @_builtins.property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> Optional[_builtins.int]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
@@ -1858,18 +1884,14 @@ class LinuxVirtualMachineScaleSetDataDisk(dict):
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
     def ultra_ssd_disk_iops_read_write(self) -> Optional[_builtins.int]:
-        """
-        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
         return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
     def ultra_ssd_disk_mbps_read_write(self) -> Optional[_builtins.int]:
-        """
-        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
         return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @_builtins.property
@@ -4185,7 +4207,8 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
                  enable_accelerated_networking: Optional[_builtins.bool] = None,
                  enable_ip_forwarding: Optional[_builtins.bool] = None,
                  network_security_group_id: Optional[_builtins.str] = None,
-                 primary: Optional[_builtins.bool] = None):
+                 primary: Optional[_builtins.bool] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
         """
         :param Sequence['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs'] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param _builtins.str name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
@@ -4204,6 +4227,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
         :param _builtins.bool primary: Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
                
                > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
+        :param Mapping[str, _builtins.str] tags: A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
@@ -4221,6 +4245,8 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
             pulumi.set(__self__, "network_security_group_id", network_security_group_id)
         if primary is not None:
             pulumi.set(__self__, "primary", primary)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
@@ -4301,6 +4327,14 @@ class OrchestratedVirtualMachineScaleSetNetworkInterface(dict):
         > **Note:** If multiple `network_interface` blocks are specified, one must be set to `primary`.
         """
         return pulumi.get(self, "primary")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -10572,6 +10606,10 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
             suggest = "create_option"
         elif key == "diskEncryptionSetId":
             suggest = "disk_encryption_set_id"
+        elif key == "diskIopsReadWrite":
+            suggest = "disk_iops_read_write"
+        elif key == "diskMbpsReadWrite":
+            suggest = "disk_mbps_read_write"
         elif key == "ultraSsdDiskIopsReadWrite":
             suggest = "ultra_ssd_disk_iops_read_write"
         elif key == "ultraSsdDiskMbpsReadWrite":
@@ -10597,6 +10635,8 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
                  storage_account_type: _builtins.str,
                  create_option: Optional[_builtins.str] = None,
                  disk_encryption_set_id: Optional[_builtins.str] = None,
+                 disk_iops_read_write: Optional[_builtins.int] = None,
+                 disk_mbps_read_write: Optional[_builtins.int] = None,
                  name: Optional[_builtins.str] = None,
                  ultra_ssd_disk_iops_read_write: Optional[_builtins.int] = None,
                  ultra_ssd_disk_mbps_read_write: Optional[_builtins.int] = None,
@@ -10614,9 +10654,9 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
                > **Note:** The Disk Encryption Set must have the `Reader` Role Assignment scoped on the Key Vault - in addition to an Access Policy to the Key Vault
                
                > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
+        :param _builtins.int disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        :param _builtins.int disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param _builtins.str name: The name of the Data Disk.
-        :param _builtins.int ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        :param _builtins.int ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param _builtins.bool write_accelerator_enabled: Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
                
                > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -10629,6 +10669,10 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_write is not None:
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if ultra_ssd_disk_iops_read_write is not None:
@@ -10693,6 +10737,22 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
         return pulumi.get(self, "disk_encryption_set_id")
 
     @_builtins.property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> Optional[_builtins.int]:
+        """
+        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @_builtins.property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> Optional[_builtins.int]:
+        """
+        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+        """
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> Optional[_builtins.str]:
         """
@@ -10702,18 +10762,14 @@ class WindowsVirtualMachineScaleSetDataDisk(dict):
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
+    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
     def ultra_ssd_disk_iops_read_write(self) -> Optional[_builtins.int]:
-        """
-        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
         return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
 
     @_builtins.property
     @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
+    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
     def ultra_ssd_disk_mbps_read_write(self) -> Optional[_builtins.int]:
-        """
-        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
         return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
 
     @_builtins.property

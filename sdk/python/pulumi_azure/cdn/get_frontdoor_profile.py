@@ -163,7 +163,7 @@ def get_frontdoor_profile(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2024-02-01
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Profile.
@@ -208,7 +208,7 @@ def get_frontdoor_profile_output(name: pulumi.Input[Optional[_builtins.str]] = N
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.Cdn` - 2024-02-01
+    * `Microsoft.Cdn` - 2025-12-01
 
 
     :param _builtins.str name: Specifies the name of the Front Door Profile.

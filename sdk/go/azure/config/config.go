@@ -63,6 +63,8 @@ func GetDisableCorrelationRequestId(ctx *pulumi.Context) bool {
 func GetDisableTerraformPartnerId(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "azure:disableTerraformPartnerId")
 }
+
+// Deprecated: This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhancedValidation` block inside the `features` block instead.
 func GetEnhancedValidation(ctx *pulumi.Context) string {
 	return config.Get(ctx, "azure:enhancedValidation")
 }

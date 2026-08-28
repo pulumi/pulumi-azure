@@ -108,6 +108,9 @@ class ProviderArgs:
         if disable_terraform_partner_id is not None:
             pulumi.set(__self__, "disable_terraform_partner_id", disable_terraform_partner_id)
         if enhanced_validation is not None:
+            warnings.warn("""This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhanced_validation` block inside the `features` block instead.""", DeprecationWarning)
+            pulumi.log.warn("""enhanced_validation is deprecated: This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhanced_validation` block inside the `features` block instead.""")
+        if enhanced_validation is not None:
             pulumi.set(__self__, "enhanced_validation", enhanced_validation)
         if environment is None:
             environment = (_utilities.get_env('AZURE_ENVIRONMENT', 'ARM_ENVIRONMENT') or 'public')
@@ -294,6 +297,7 @@ class ProviderArgs:
 
     @_builtins.property
     @pulumi.getter(name="enhancedValidation")
+    @_utilities.deprecated("""This block has been deprecated and will be removed in version 5.0 of the AzureRM provider. Please use the `enhanced_validation` block inside the `features` block instead.""")
     def enhanced_validation(self) -> pulumi.Input[Optional['ProviderEnhancedValidationArgs']]:
         return pulumi.get(self, "enhanced_validation")
 

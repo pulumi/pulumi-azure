@@ -55,11 +55,12 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:              pulumi.String("workspaceexamplekeyvault"),
-//				Location:          example.Location,
-//				ResourceGroupName: example.Name,
-//				TenantId:          pulumi.String(current.TenantId),
-//				SkuName:           pulumi.String("premium"),
+//				Name:                     pulumi.String("workspaceexamplekeyvault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
 //			})
 //			if err != nil {
 //				return err
@@ -135,12 +136,13 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                   pulumi.String("workspaceexamplekeyvault"),
-//				Location:               example.Location,
-//				ResourceGroupName:      example.Name,
-//				TenantId:               pulumi.String(current.TenantId),
-//				SkuName:                pulumi.String("premium"),
-//				PurgeProtectionEnabled: pulumi.Bool(true),
+//				Name:                     pulumi.String("workspaceexamplekeyvault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.String(current.TenantId),
+//				SkuName:                  pulumi.String("premium"),
+//				PurgeProtectionEnabled:   pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

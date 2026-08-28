@@ -50,6 +50,7 @@ namespace Pulumi.Azure.DataProtection
     ///         Name = "example-key-vault",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         EnabledForDiskEncryption = true,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SoftDeleteRetentionDays = 7,

@@ -40,6 +40,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This data source uses the following Azure API Providers:
+//
+// * `Microsoft.KeyVault` - 2026-02-01
 func LookupKeyVault(ctx *pulumi.Context, args *LookupKeyVaultArgs, opts ...pulumi.InvokeOption) (*LookupKeyVaultResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeyVaultResult

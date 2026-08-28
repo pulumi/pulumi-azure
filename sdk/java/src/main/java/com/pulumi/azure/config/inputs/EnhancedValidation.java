@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EnhancedValidation {
     /**
-     * @return Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+     * @return Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
      * 
      */
     private @Nullable Boolean locations;
@@ -24,7 +24,7 @@ public final class EnhancedValidation {
 
     private EnhancedValidation() {}
     /**
-     * @return Should the AzureRM Provider validate location arguments against the list of supported Azure Locations? When enabled, invalid locations are caught at plan time; when disabled, they are caught at apply time.
+     * @return Should the AzureRM Provider validate location arguments against the list of supported Azure Locations?
      * 
      */
     public Optional<Boolean> locations() {

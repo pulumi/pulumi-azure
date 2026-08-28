@@ -163,6 +163,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .purgeProtectionEnabled(true)

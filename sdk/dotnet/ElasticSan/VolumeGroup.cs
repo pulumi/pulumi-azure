@@ -80,6 +80,7 @@ namespace Pulumi.Azure.ElasticSan
     ///         Name = "examplekv",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         EnabledForDiskEncryption = true,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SoftDeleteRetentionDays = 7,

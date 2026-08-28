@@ -19,6 +19,13 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "existing-resources",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cdn` - 2025-12-01
  */
 export function getFrontdoorEndpoint(args: GetFrontdoorEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetFrontdoorEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -86,6 +93,13 @@ export interface GetFrontdoorEndpointResult {
  *     resourceGroupName: "existing-resources",
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cdn` - 2025-12-01
  */
 export function getFrontdoorEndpointOutput(args: GetFrontdoorEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFrontdoorEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

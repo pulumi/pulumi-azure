@@ -3969,6 +3969,10 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	//
 	// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -3979,9 +3983,9 @@ type LinuxVirtualMachineScaleSetDataDisk struct {
 	//
 	// > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 	StorageAccountType string `pulumi:"storageAccountType"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
 	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
 	UltraSsdDiskMbpsReadWrite *int `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	//
@@ -4011,6 +4015,10 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	//
 	// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	DiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -4021,9 +4029,9 @@ type LinuxVirtualMachineScaleSetDataDiskArgs struct {
 	//
 	// > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
 	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	//
@@ -4101,6 +4109,16 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulumi.
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
+}
+
 // The size of the Data Disk which should be created.
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
@@ -4123,12 +4141,12 @@ func (o LinuxVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi.S
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
-// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
 func (o LinuxVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LinuxVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }
@@ -9561,6 +9579,8 @@ type OrchestratedVirtualMachineScaleSetNetworkInterface struct {
 	//
 	// > **Note:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
 	Primary *bool `pulumi:"primary"`
+	// A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // OrchestratedVirtualMachineScaleSetNetworkInterfaceInput is an input type that accepts OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs and OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput values.
@@ -9601,6 +9621,8 @@ type OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs struct {
 	//
 	// > **Note:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
 	Primary pulumi.BoolPtrInput `pulumi:"primary"`
+	// A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs) ElementType() reflect.Type {
@@ -9707,6 +9729,11 @@ func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) NetworkSecurit
 // > **Note:** If multiple `networkInterface` blocks are specified, one must be set to `primary`.
 func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) Primary() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) *bool { return v.Primary }).(pulumi.BoolPtrOutput)
+}
+
+// A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+func (o OrchestratedVirtualMachineScaleSetNetworkInterfaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetNetworkInterface) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type OrchestratedVirtualMachineScaleSetNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
@@ -25520,6 +25547,10 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	//
 	// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
 	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	DiskIopsReadWrite *int `pulumi:"diskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	DiskMbpsReadWrite *int `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb int `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -25530,9 +25561,9 @@ type WindowsVirtualMachineScaleSetDataDisk struct {
 	//
 	// > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 	StorageAccountType string `pulumi:"storageAccountType"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
 	UltraSsdDiskIopsReadWrite *int `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
 	UltraSsdDiskMbpsReadWrite *int `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	//
@@ -25562,6 +25593,10 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	//
 	// > **Note:** Disk Encryption Sets are in Public Preview in a limited set of regions
 	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	DiskIopsReadWrite pulumi.IntPtrInput `pulumi:"diskIopsReadWrite"`
+	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	DiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"diskMbpsReadWrite"`
 	// The size of the Data Disk which should be created.
 	DiskSizeGb pulumi.IntInput `pulumi:"diskSizeGb"`
 	// The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine.
@@ -25572,9 +25607,9 @@ type WindowsVirtualMachineScaleSetDataDiskArgs struct {
 	//
 	// > **Note:** `UltraSSD_LRS` is only supported when `ultraSsdEnabled` within the `additionalCapabilities` block is enabled.
 	StorageAccountType pulumi.StringInput `pulumi:"storageAccountType"`
-	// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
 	UltraSsdDiskIopsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskIopsReadWrite"`
-	// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+	// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
 	UltraSsdDiskMbpsReadWrite pulumi.IntPtrInput `pulumi:"ultraSsdDiskMbpsReadWrite"`
 	// Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
 	//
@@ -25652,6 +25687,16 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskEncryptionSetId() pulum
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskIopsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.DiskIopsReadWrite }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskMbpsReadWrite() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.DiskMbpsReadWrite }).(pulumi.IntPtrOutput)
+}
+
 // The size of the Data Disk which should be created.
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) DiskSizeGb() pulumi.IntOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) int { return v.DiskSizeGb }).(pulumi.IntOutput)
@@ -25674,12 +25719,12 @@ func (o WindowsVirtualMachineScaleSetDataDiskOutput) StorageAccountType() pulumi
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) string { return v.StorageAccountType }).(pulumi.StringOutput)
 }
 
-// Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+// Deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskIopsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskIopsReadWrite }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+// Deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
 func (o WindowsVirtualMachineScaleSetDataDiskOutput) UltraSsdDiskMbpsReadWrite() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WindowsVirtualMachineScaleSetDataDisk) *int { return v.UltraSsdDiskMbpsReadWrite }).(pulumi.IntPtrOutput)
 }

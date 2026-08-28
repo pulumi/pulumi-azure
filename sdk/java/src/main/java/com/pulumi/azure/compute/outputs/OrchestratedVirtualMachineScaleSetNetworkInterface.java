@@ -9,6 +9,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -68,6 +69,11 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
      * 
      */
     private @Nullable Boolean primary;
+    /**
+     * @return A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+     * 
+     */
+    private @Nullable Map<String,String> tags;
 
     private OrchestratedVirtualMachineScaleSetNetworkInterface() {}
     /**
@@ -141,6 +147,13 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     public Optional<Boolean> primary() {
         return Optional.ofNullable(this.primary);
     }
+    /**
+     * @return A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags == null ? Map.of() : this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -160,6 +173,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         private String name;
         private @Nullable String networkSecurityGroupId;
         private @Nullable Boolean primary;
+        private @Nullable Map<String,String> tags;
         public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
@@ -172,6 +186,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     	      this.name = defaults.name;
     	      this.networkSecurityGroupId = defaults.networkSecurityGroupId;
     	      this.primary = defaults.primary;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -238,6 +253,12 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
             this.primary = primary;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(@Nullable Map<String,String> tags) {
+
+            this.tags = tags;
+            return this;
+        }
         public OrchestratedVirtualMachineScaleSetNetworkInterface build() {
             final var _resultValue = new OrchestratedVirtualMachineScaleSetNetworkInterface();
             _resultValue.auxiliaryMode = auxiliaryMode;
@@ -249,6 +270,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
             _resultValue.name = name;
             _resultValue.networkSecurityGroupId = networkSecurityGroupId;
             _resultValue.primary = primary;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

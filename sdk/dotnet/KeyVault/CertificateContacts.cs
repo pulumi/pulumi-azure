@@ -35,6 +35,7 @@ namespace Pulumi.Azure.KeyVault
     ///         Name = "examplekeyvault",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///     });

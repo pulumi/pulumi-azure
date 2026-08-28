@@ -32,6 +32,8 @@ class FrontdoorRuleArgs:
 
         :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+               
+               > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         :param pulumi.Input[_builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
                
                > **Note:** If the Front Door Rule has an order value of `0` they do not require any conditions and the actions will always be applied.
@@ -66,6 +68,8 @@ class FrontdoorRuleArgs:
     def cdn_frontdoor_rule_set_id(self) -> pulumi.Input[_builtins.str]:
         """
         The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+
+        > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_id")
 
@@ -140,6 +144,8 @@ class _FrontdoorRuleState:
         :param pulumi.Input['FrontdoorRuleActionsArgs'] actions: An `actions` block as defined below.
         :param pulumi.Input[_builtins.str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+               
+               > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_name: The name of the Front Door Rule Set containing this Front Door Rule.
         :param pulumi.Input['FrontdoorRuleConditionsArgs'] conditions: A `conditions` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
@@ -191,6 +197,8 @@ class _FrontdoorRuleState:
     def cdn_frontdoor_rule_set_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+
+        > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_id")
 
@@ -267,7 +275,7 @@ class FrontdoorRule(pulumi.CustomResource):
 
         > **Note:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 
-        > **Note:** Azure Front Door Rule operations are currently affected by a service-side regression where unattached rules or rule sets can fail with `400 Bad Request` until they are associated with a Front Door Route. As a result, unattached and attached scenarios can currently behave differently while the service-side fix is pending.
+        > **Note:** This resource cannot be used to manage individual rules for a rule set provisioned in batch mode, to manage rules for a batch mode rule set, use `cdn.FrontdoorBatchRuleSet`.
 
         ## Example Usage
 
@@ -527,7 +535,7 @@ class FrontdoorRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Cdn` - 2024-09-01
+        * `Microsoft.Cdn` - 2025-12-01
 
         ## Import
 
@@ -543,6 +551,8 @@ class FrontdoorRule(pulumi.CustomResource):
         :param pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']] actions: An `actions` block as defined below.
         :param pulumi.Input[_builtins.str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+               
+               > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         :param pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']] conditions: A `conditions` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
         :param pulumi.Input[_builtins.int] order: The order in which the rules will be applied for the Front Door Endpoint. The order value should be sequential and begin at `1`(e.g. `1`, `2`, `3`...). A Front Door Rule with a lesser order value will be applied before a rule with a greater order value.
@@ -560,7 +570,7 @@ class FrontdoorRule(pulumi.CustomResource):
 
         > **Note:** The Rules resource **must** include a `depends_on` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 
-        > **Note:** Azure Front Door Rule operations are currently affected by a service-side regression where unattached rules or rule sets can fail with `400 Bad Request` until they are associated with a Front Door Route. As a result, unattached and attached scenarios can currently behave differently while the service-side fix is pending.
+        > **Note:** This resource cannot be used to manage individual rules for a rule set provisioned in batch mode, to manage rules for a batch mode rule set, use `cdn.FrontdoorBatchRuleSet`.
 
         ## Example Usage
 
@@ -820,7 +830,7 @@ class FrontdoorRule(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Cdn` - 2024-09-01
+        * `Microsoft.Cdn` - 2025-12-01
 
         ## Import
 
@@ -901,6 +911,8 @@ class FrontdoorRule(pulumi.CustomResource):
         :param pulumi.Input[Union['FrontdoorRuleActionsArgs', 'FrontdoorRuleActionsArgsDict']] actions: An `actions` block as defined below.
         :param pulumi.Input[_builtins.str] behavior_on_match: If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_id: The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+               
+               > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         :param pulumi.Input[_builtins.str] cdn_frontdoor_rule_set_name: The name of the Front Door Rule Set containing this Front Door Rule.
         :param pulumi.Input[Union['FrontdoorRuleConditionsArgs', 'FrontdoorRuleConditionsArgsDict']] conditions: A `conditions` block as defined below.
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Front Door Rule. Possible values must be between 1 and 260 characters in length, begin with a letter and may contain only letters and numbers. Changing this forces a new Front Door Rule to be created.
@@ -942,6 +954,8 @@ class FrontdoorRule(pulumi.CustomResource):
     def cdn_frontdoor_rule_set_id(self) -> pulumi.Output[_builtins.str]:
         """
         The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+
+        > **Note:** The `cdn_frontdoor_rule_set_id` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
         """
         return pulumi.get(self, "cdn_frontdoor_rule_set_id")
 

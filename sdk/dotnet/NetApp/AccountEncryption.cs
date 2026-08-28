@@ -44,6 +44,7 @@ namespace Pulumi.Azure.NetApp
     ///         Name = "anfcmkakv",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         EnabledForDiskEncryption = true,
     ///         EnabledForDeployment = true,
     ///         EnabledForTemplateDeployment = true,

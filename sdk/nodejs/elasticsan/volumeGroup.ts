@@ -51,6 +51,7 @@ import * as utilities from "../utilities";
  *     name: "examplekv",
  *     location: example.location,
  *     resourceGroupName: example.name,
+ *     rbacAuthorizationEnabled: false,
  *     enabledForDiskEncryption: true,
  *     tenantId: current.then(current => current.tenantId),
  *     softDeleteRetentionDays: 7,

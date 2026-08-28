@@ -17,9 +17,16 @@ public final class LoggerApplicationInsights {
      */
     private @Nullable String connectionString;
     /**
-     * @return The instrumentation key used to push data to Application Insights.
+     * @return The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the &#34;Monitoring Metrics Publisher&#34; role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
      * 
      * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+     * 
+     * &gt; **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+     * 
+     */
+    private @Nullable String identityClientId;
+    /**
+     * @return The instrumentation key used to push data to Application Insights.
      * 
      */
     private @Nullable String instrumentationKey;
@@ -33,9 +40,18 @@ public final class LoggerApplicationInsights {
         return Optional.ofNullable(this.connectionString);
     }
     /**
-     * @return The instrumentation key used to push data to Application Insights.
+     * @return The Client Id of the User Assigned Identity, or `SystemAssigned` to use the System Assigned Identity, that has the &#34;Monitoring Metrics Publisher&#34; role on the target Application Insights resource. Requires `connectionString` to be set. Cannot be used with `instrumentationKey`.
      * 
      * &gt; **Note:** Either `connectionString` or `instrumentationKey` have to be specified.
+     * 
+     * &gt; **Note:** `identityClientId` enables AAD-based ingestion to Application Insights using a Managed Identity on the API Management Service and is required when local authentication is disabled on the Application Insights resource. Set it to the Client Id of a User Assigned Identity, or to `SystemAssigned` to use the System Assigned Identity.
+     * 
+     */
+    public Optional<String> identityClientId() {
+        return Optional.ofNullable(this.identityClientId);
+    }
+    /**
+     * @return The instrumentation key used to push data to Application Insights.
      * 
      */
     public Optional<String> instrumentationKey() {
@@ -52,11 +68,13 @@ public final class LoggerApplicationInsights {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String connectionString;
+        private @Nullable String identityClientId;
         private @Nullable String instrumentationKey;
         public Builder() {}
         public Builder(LoggerApplicationInsights defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.connectionString = defaults.connectionString;
+    	      this.identityClientId = defaults.identityClientId;
     	      this.instrumentationKey = defaults.instrumentationKey;
         }
 
@@ -64,6 +82,12 @@ public final class LoggerApplicationInsights {
         public Builder connectionString(@Nullable String connectionString) {
 
             this.connectionString = connectionString;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder identityClientId(@Nullable String identityClientId) {
+
+            this.identityClientId = identityClientId;
             return this;
         }
         @CustomType.Setter
@@ -75,6 +99,7 @@ public final class LoggerApplicationInsights {
         public LoggerApplicationInsights build() {
             final var _resultValue = new LoggerApplicationInsights();
             _resultValue.connectionString = connectionString;
+            _resultValue.identityClientId = identityClientId;
             _resultValue.instrumentationKey = instrumentationKey;
             return _resultValue;
         }

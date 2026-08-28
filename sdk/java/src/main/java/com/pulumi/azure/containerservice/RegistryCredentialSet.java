@@ -133,6 +133,7 @@ import javax.annotation.Nullable;
  *             .name("examplekeyvault")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(current.tenantId())
  *             .skuName("standard")
  *             .softDeleteRetentionDays(7)

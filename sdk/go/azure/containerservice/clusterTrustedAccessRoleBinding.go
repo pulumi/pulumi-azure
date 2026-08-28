@@ -52,12 +52,13 @@ import (
 //				return err
 //			}
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
-//				Name:                    pulumi.String("example"),
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
-//				TenantId:                pulumi.Any(exampleAzurermClientConfig.TenantId),
-//				SkuName:                 pulumi.String("example-value"),
-//				SoftDeleteRetentionDays: pulumi.Int("example-value"),
+//				Name:                     pulumi.String("example"),
+//				Location:                 exampleResourceGroup.Location,
+//				ResourceGroupName:        exampleResourceGroup.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
+//				TenantId:                 pulumi.Any(exampleAzurermClientConfig.TenantId),
+//				SkuName:                  pulumi.String("example-value"),
+//				SoftDeleteRetentionDays:  pulumi.Int("example-value"),
 //			})
 //			if err != nil {
 //				return err

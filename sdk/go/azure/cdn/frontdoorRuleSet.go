@@ -14,6 +14,8 @@ import (
 
 // Manages a Front Door (standard/premium) Rule Set.
 //
+// > **Note:** This resource creates the Front Door Rule Set in non-batch mode and individual rules are managed using `cdn.FrontdoorRule`.
+//
 // ## Example Usage
 //
 // ```go
@@ -62,7 +64,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Cdn` - 2024-02-01
+// * `Microsoft.Cdn` - 2025-12-01
 //
 // ## Import
 //

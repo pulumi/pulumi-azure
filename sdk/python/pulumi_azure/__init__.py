@@ -2220,6 +2220,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "cdn/frontdoorBatchRuleSet",
+  "fqn": "pulumi_azure.cdn",
+  "classes": {
+   "azure:cdn/frontdoorBatchRuleSet:FrontdoorBatchRuleSet": "FrontdoorBatchRuleSet"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "cdn/frontdoorCustomDomain",
   "fqn": "pulumi_azure.cdn",
   "classes": {
@@ -2360,6 +2368,46 @@ _utilities.register(
   "fqn": "pulumi_azure.cognitive",
   "classes": {
    "azure:cognitive/account:Account": "Account"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionAccountKey",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionAccountKey:AccountConnectionAccountKey": "AccountConnectionAccountKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionAccountManagedIdentity",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionAccountManagedIdentity:AccountConnectionAccountManagedIdentity": "AccountConnectionAccountManagedIdentity"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionApiKey",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionApiKey:AccountConnectionApiKey": "AccountConnectionApiKey"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionCustomKeys",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionCustomKeys:AccountConnectionCustomKeys": "AccountConnectionCustomKeys"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "cognitive/accountConnectionEntraId",
+  "fqn": "pulumi_azure.cognitive",
+  "classes": {
+   "azure:cognitive/accountConnectionEntraId:AccountConnectionEntraId": "AccountConnectionEntraId"
   }
  },
  {
@@ -2848,6 +2896,14 @@ _utilities.register(
   "fqn": "pulumi_azure.containerapp",
   "classes": {
    "azure:containerapp/job:Job": "Job"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerservice/automaticCluster",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/automaticCluster:AutomaticCluster": "AutomaticCluster"
   }
  },
  {
@@ -5600,6 +5656,14 @@ _utilities.register(
   "fqn": "pulumi_azure.loganalytics",
   "classes": {
    "azure:loganalytics/workspaceTableCustomLog:WorkspaceTableCustomLog": "WorkspaceTableCustomLog"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "loganalytics/workspaceTableMicrosoft",
+  "fqn": "pulumi_azure.loganalytics",
+  "classes": {
+   "azure:loganalytics/workspaceTableMicrosoft:WorkspaceTableMicrosoft": "WorkspaceTableMicrosoft"
   }
  },
  {
@@ -8888,6 +8952,14 @@ _utilities.register(
   "fqn": "pulumi_azure.storage",
   "classes": {
    "azure:storage/accountStaticWebsite:AccountStaticWebsite": "AccountStaticWebsite"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "storage/accountTableProperties",
+  "fqn": "pulumi_azure.storage",
+  "classes": {
+   "azure:storage/accountTableProperties:AccountTableProperties": "AccountTableProperties"
   }
  },
  {

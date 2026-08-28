@@ -267,6 +267,10 @@ namespace Pulumi.Azure.LogicApps
         /// </summary>
         public readonly string StorageAccountShareName;
         /// <summary>
+        /// The Key Vault Secret ID, optionally including version, that contains the connection string to the backend storage account for the Logic App.
+        /// </summary>
+        public readonly string StorageKeyVaultSecretId;
+        /// <summary>
         /// A mapping of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -337,6 +341,8 @@ namespace Pulumi.Azure.LogicApps
 
             string storageAccountShareName,
 
+            string storageKeyVaultSecretId,
+
             ImmutableDictionary<string, string> tags,
 
             bool useExtensionBundle,
@@ -371,6 +377,7 @@ namespace Pulumi.Azure.LogicApps
             StorageAccountAccessKey = storageAccountAccessKey;
             StorageAccountName = storageAccountName;
             StorageAccountShareName = storageAccountShareName;
+            StorageKeyVaultSecretId = storageKeyVaultSecretId;
             Tags = tags;
             UseExtensionBundle = useExtensionBundle;
             Version = version;

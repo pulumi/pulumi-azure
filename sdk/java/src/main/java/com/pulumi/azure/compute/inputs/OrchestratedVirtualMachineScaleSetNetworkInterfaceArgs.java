@@ -10,6 +10,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -170,6 +171,21 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
         return Optional.ofNullable(this.primary);
     }
 
+    /**
+     * A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Output<Map<String,String>> tags;
+
+    /**
+     * @return A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+     * 
+     */
+    public Optional<Output<Map<String,String>>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs() {}
 
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs(OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs $) {
@@ -182,6 +198,7 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
         this.name = $.name;
         this.networkSecurityGroupId = $.networkSecurityGroupId;
         this.primary = $.primary;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -425,6 +442,27 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
          */
         public Builder primary(Boolean primary) {
             return primary(Output.of(primary));
+        }
+
+        /**
+         * @param tags A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Output<Map<String,String>> tags) {
+            $.tags = tags;
+            return this;
+        }
+
+        /**
+         * @param tags A mapping of tags to assign to the Network Interface created by this Network Interface Configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(Map<String,String> tags) {
+            return tags(Output.of(tags));
         }
 
         public OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs build() {

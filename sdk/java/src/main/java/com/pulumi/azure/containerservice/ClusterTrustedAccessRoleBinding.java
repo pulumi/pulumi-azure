@@ -76,6 +76,7 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
+ *             .rbacAuthorizationEnabled(false)
  *             .tenantId(exampleAzurermClientConfig.tenantId())
  *             .skuName("example-value")
  *             .softDeleteRetentionDays("example-value")

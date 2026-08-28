@@ -208,6 +208,14 @@ namespace Pulumi.Azure.ContainerService
         public Output<bool?> AnonymousPullEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `True`.
+        /// 
+        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+        /// </summary>
+        [Output("azureadAuthenticationAsArmPolicyEnabled")]
+        public Output<bool?> AzureadAuthenticationAsArmPolicyEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         /// </summary>
         [Output("dataEndpointEnabled")]
@@ -227,8 +235,6 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// Boolean value that indicates whether export policy is enabled. Defaults to `True`. In order to set it to `False`, make sure the `PublicNetworkAccessEnabled` is also set to `False`.
-        /// 
-        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Output("exportPolicyEnabled")]
         public Output<bool?> ExportPolicyEnabled { get; private set; } = null!;
@@ -270,6 +276,12 @@ namespace Pulumi.Azure.ContainerService
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `False`.
+        /// </summary>
+        [Output("networkRuleBypassForTasksEnabled")]
+        public Output<bool?> NetworkRuleBypassForTasksEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         /// </summary>
         [Output("networkRuleBypassOption")]
@@ -304,6 +316,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Output("retentionPolicyInDays")]
         public Output<int?> RetentionPolicyInDays { get; private set; } = null!;
+
+        /// <summary>
+        /// The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+        /// </summary>
+        [Output("roleAssignmentMode")]
+        public Output<string?> RoleAssignmentMode { get; private set; } = null!;
 
         /// <summary>
         /// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
@@ -392,6 +410,14 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AnonymousPullEnabled { get; set; }
 
         /// <summary>
+        /// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `True`.
+        /// 
+        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+        /// </summary>
+        [Input("azureadAuthenticationAsArmPolicyEnabled")]
+        public Input<bool>? AzureadAuthenticationAsArmPolicyEnabled { get; set; }
+
+        /// <summary>
         /// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("dataEndpointEnabled")]
@@ -405,8 +431,6 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// Boolean value that indicates whether export policy is enabled. Defaults to `True`. In order to set it to `False`, make sure the `PublicNetworkAccessEnabled` is also set to `False`.
-        /// 
-        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("exportPolicyEnabled")]
         public Input<bool>? ExportPolicyEnabled { get; set; }
@@ -448,6 +472,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `False`.
+        /// </summary>
+        [Input("networkRuleBypassForTasksEnabled")]
+        public Input<bool>? NetworkRuleBypassForTasksEnabled { get; set; }
+
+        /// <summary>
         /// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         /// </summary>
         [Input("networkRuleBypassOption")]
@@ -482,6 +512,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("retentionPolicyInDays")]
         public Input<int>? RetentionPolicyInDays { get; set; }
+
+        /// <summary>
+        /// The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+        /// </summary>
+        [Input("roleAssignmentMode")]
+        public Input<string>? RoleAssignmentMode { get; set; }
 
         /// <summary>
         /// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.
@@ -556,6 +592,14 @@ namespace Pulumi.Azure.ContainerService
         public Input<bool>? AnonymousPullEnabled { get; set; }
 
         /// <summary>
+        /// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `True`.
+        /// 
+        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+        /// </summary>
+        [Input("azureadAuthenticationAsArmPolicyEnabled")]
+        public Input<bool>? AzureadAuthenticationAsArmPolicyEnabled { get; set; }
+
+        /// <summary>
         /// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("dataEndpointEnabled")]
@@ -581,8 +625,6 @@ namespace Pulumi.Azure.ContainerService
 
         /// <summary>
         /// Boolean value that indicates whether export policy is enabled. Defaults to `True`. In order to set it to `False`, make sure the `PublicNetworkAccessEnabled` is also set to `False`.
-        /// 
-        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("exportPolicyEnabled")]
         public Input<bool>? ExportPolicyEnabled { get; set; }
@@ -630,6 +672,12 @@ namespace Pulumi.Azure.ContainerService
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Whether to allow Container Registry Tasks to access a network-restricted Container Registry? Defaults to `False`.
+        /// </summary>
+        [Input("networkRuleBypassForTasksEnabled")]
+        public Input<bool>? NetworkRuleBypassForTasksEnabled { get; set; }
+
+        /// <summary>
         /// Whether to allow trusted Azure services to access a network-restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
         /// </summary>
         [Input("networkRuleBypassOption")]
@@ -664,6 +712,12 @@ namespace Pulumi.Azure.ContainerService
         /// </summary>
         [Input("retentionPolicyInDays")]
         public Input<int>? RetentionPolicyInDays { get; set; }
+
+        /// <summary>
+        /// The role assignment mode of this Container Registry. Possible values are `AbacRepositoryPermissions` and `LegacyRegistryPermissions`. Defaults to `LegacyRegistryPermissions`.
+        /// </summary>
+        [Input("roleAssignmentMode")]
+        public Input<string>? RoleAssignmentMode { get; set; }
 
         /// <summary>
         /// The SKU name of the container registry. Possible values are `Basic`, `Standard` and `Premium`.

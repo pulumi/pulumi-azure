@@ -208,6 +208,7 @@ class WorkspaceKey(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
@@ -320,6 +321,7 @@ class WorkspaceKey(pulumi.CustomResource):
             name="example",
             location=example.location,
             resource_group_name=example.name,
+            rbac_authorization_enabled=False,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)

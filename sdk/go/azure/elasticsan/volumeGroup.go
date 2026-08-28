@@ -92,6 +92,7 @@ import (
 //				Name:                     pulumi.String("examplekv"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
 //				EnabledForDiskEncryption: pulumi.Bool(true),
 //				TenantId:                 pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays:  pulumi.Int(7),

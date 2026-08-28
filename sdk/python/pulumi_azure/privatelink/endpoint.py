@@ -25,6 +25,7 @@ class EndpointArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  subnet_id: pulumi.Input[_builtins.str],
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class EndpointArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the Name of the Resource Group within which the Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the Subnet from which Private IP Addresses will be allocated for this Private Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -48,6 +50,8 @@ class EndpointArgs:
         pulumi.set(__self__, "subnet_id", subnet_id)
         if custom_network_interface_name is not None:
             pulumi.set(__self__, "custom_network_interface_name", custom_network_interface_name)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
@@ -106,6 +110,18 @@ class EndpointArgs:
     @custom_network_interface_name.setter
     def custom_network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_network_interface_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
@@ -173,6 +189,7 @@ class _EndpointState:
     def __init__(__self__, *,
                  custom_dns_configs: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]]] = None,
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -188,6 +205,7 @@ class _EndpointState:
 
         :param pulumi.Input[Sequence[pulumi.Input['EndpointCustomDnsConfigArgs']]] custom_dns_configs: A `custom_dns_configs` block as defined below.
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -203,6 +221,8 @@ class _EndpointState:
             pulumi.set(__self__, "custom_dns_configs", custom_dns_configs)
         if custom_network_interface_name is not None:
             pulumi.set(__self__, "custom_network_interface_name", custom_network_interface_name)
+        if edge_zone is not None:
+            pulumi.set(__self__, "edge_zone", edge_zone)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
         if location is not None:
@@ -247,6 +267,18 @@ class _EndpointState:
     @custom_network_interface_name.setter
     def custom_network_interface_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_network_interface_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "edge_zone")
+
+    @edge_zone.setter
+    def edge_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "edge_zone", value)
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")
@@ -376,6 +408,7 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -558,6 +591,7 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -759,6 +793,7 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -777,6 +812,7 @@ class Endpoint(pulumi.CustomResource):
             __props__ = EndpointArgs.__new__(EndpointArgs)
 
             __props__.__dict__["custom_network_interface_name"] = custom_network_interface_name
+            __props__.__dict__["edge_zone"] = edge_zone
             __props__.__dict__["ip_configurations"] = ip_configurations
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -806,6 +842,7 @@ class Endpoint(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             custom_dns_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict']]]]] = None,
             custom_network_interface_name: pulumi.Input[Optional[_builtins.str]] = None,
+            edge_zone: pulumi.Input[Optional[_builtins.str]] = None,
             ip_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -825,6 +862,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointCustomDnsConfigArgs', 'EndpointCustomDnsConfigArgsDict']]]] custom_dns_configs: A `custom_dns_configs` block as defined below.
         :param pulumi.Input[_builtins.str] custom_network_interface_name: The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] edge_zone: Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointIpConfigurationArgs', 'EndpointIpConfigurationArgsDict']]]] ip_configurations: One or more `ip_configuration` blocks as defined below. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet.
         :param pulumi.Input[_builtins.str] location: The supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the Name of the Private Endpoint. Changing this forces a new resource to be created.
@@ -842,6 +880,7 @@ class Endpoint(pulumi.CustomResource):
 
         __props__.__dict__["custom_dns_configs"] = custom_dns_configs
         __props__.__dict__["custom_network_interface_name"] = custom_network_interface_name
+        __props__.__dict__["edge_zone"] = edge_zone
         __props__.__dict__["ip_configurations"] = ip_configurations
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
@@ -869,6 +908,14 @@ class Endpoint(pulumi.CustomResource):
         The custom name of the network interface attached to the private endpoint. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "custom_network_interface_name")
+
+    @_builtins.property
+    @pulumi.getter(name="edgeZone")
+    def edge_zone(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the Edge Zone within the Azure Region where this Private Endpoint should exist. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "edge_zone")
 
     @_builtins.property
     @pulumi.getter(name="ipConfigurations")

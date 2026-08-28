@@ -105,6 +105,7 @@ namespace Pulumi.Azure.MSSql
     ///         Name = "mssqltdeexample",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         EnabledForDiskEncryption = true,
     ///         TenantId = exampleUserAssignedIdentity.TenantId,
     ///         SoftDeleteRetentionDays = 7,

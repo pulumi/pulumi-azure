@@ -16,7 +16,7 @@ import (
 //
 // > **Note:** The Rules resource **must** include a `dependsOn` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 //
-// > **Note:** Azure Front Door Rule operations are currently affected by a service-side regression where unattached rules or rule sets can fail with `400 Bad Request` until they are associated with a Front Door Route. As a result, unattached and attached scenarios can currently behave differently while the service-side fix is pending.
+// > **Note:** This resource cannot be used to manage individual rules for a rule set provisioned in batch mode, to manage rules for a batch mode rule set, use `cdn.FrontdoorBatchRuleSet`.
 //
 // ## Example Usage
 //
@@ -332,7 +332,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Cdn` - 2024-09-01
+// * `Microsoft.Cdn` - 2025-12-01
 //
 // ## Import
 //
@@ -349,6 +349,8 @@ type FrontdoorRule struct {
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch pulumi.StringPtrOutput `pulumi:"behaviorOnMatch"`
 	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+	//
+	// > **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
 	CdnFrontdoorRuleSetId pulumi.StringOutput `pulumi:"cdnFrontdoorRuleSetId"`
 	// The name of the Front Door Rule Set containing this Front Door Rule.
 	CdnFrontdoorRuleSetName pulumi.StringOutput `pulumi:"cdnFrontdoorRuleSetName"`
@@ -406,6 +408,8 @@ type frontdoorRuleState struct {
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch *string `pulumi:"behaviorOnMatch"`
 	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+	//
+	// > **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
 	CdnFrontdoorRuleSetId *string `pulumi:"cdnFrontdoorRuleSetId"`
 	// The name of the Front Door Rule Set containing this Front Door Rule.
 	CdnFrontdoorRuleSetName *string `pulumi:"cdnFrontdoorRuleSetName"`
@@ -425,6 +429,8 @@ type FrontdoorRuleState struct {
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch pulumi.StringPtrInput
 	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+	//
+	// > **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
 	CdnFrontdoorRuleSetId pulumi.StringPtrInput
 	// The name of the Front Door Rule Set containing this Front Door Rule.
 	CdnFrontdoorRuleSetName pulumi.StringPtrInput
@@ -448,6 +454,8 @@ type frontdoorRuleArgs struct {
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch *string `pulumi:"behaviorOnMatch"`
 	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+	//
+	// > **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
 	CdnFrontdoorRuleSetId string `pulumi:"cdnFrontdoorRuleSetId"`
 	// A `conditions` block as defined below.
 	Conditions *FrontdoorRuleConditions `pulumi:"conditions"`
@@ -466,6 +474,8 @@ type FrontdoorRuleArgs struct {
 	// If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`.
 	BehaviorOnMatch pulumi.StringPtrInput
 	// The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+	//
+	// > **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
 	CdnFrontdoorRuleSetId pulumi.StringInput
 	// A `conditions` block as defined below.
 	Conditions FrontdoorRuleConditionsPtrInput
@@ -575,6 +585,8 @@ func (o FrontdoorRuleOutput) BehaviorOnMatch() pulumi.StringPtrOutput {
 }
 
 // The resource ID of the Front Door Rule Set for this Front Door Rule. Changing this forces a new Front Door Rule to be created.
+//
+// > **Note:** The `cdnFrontdoorRuleSetId` must reference a non-batch mode rule set, individual rules for batch mode rule sets cannot be managed by this resource.
 func (o FrontdoorRuleOutput) CdnFrontdoorRuleSetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FrontdoorRule) pulumi.StringOutput { return v.CdnFrontdoorRuleSetId }).(pulumi.StringOutput)
 }

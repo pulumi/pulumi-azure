@@ -102,6 +102,7 @@ import (
 //				Name:                     pulumi.String("mssqltdeexample"),
 //				Location:                 example.Location,
 //				ResourceGroupName:        example.Name,
+//				RbacAuthorizationEnabled: pulumi.Bool(false),
 //				EnabledForDiskEncryption: pulumi.Bool(true),
 //				TenantId:                 exampleUserAssignedIdentity.TenantId,
 //				SoftDeleteRetentionDays:  pulumi.Int(7),

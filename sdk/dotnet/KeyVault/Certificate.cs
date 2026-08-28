@@ -40,6 +40,7 @@ namespace Pulumi.Azure.KeyVault
     ///         Name = "examplekeyvault",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         AccessPolicies = new[]
@@ -137,6 +138,7 @@ namespace Pulumi.Azure.KeyVault
     ///         Name = "examplekeyvault",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
+    ///         RbacAuthorizationEnabled = false,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         SoftDeleteRetentionDays = 7,

@@ -34,6 +34,16 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
      */
     private @Nullable String diskEncryptionSetId;
     /**
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * 
+     */
+    private @Nullable Integer diskIopsReadWrite;
+    /**
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * 
+     */
+    private @Nullable Integer diskMbpsReadWrite;
+    /**
      * @return The size of the Data Disk which should be created.
      * 
      */
@@ -56,14 +66,18 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
      */
     private String storageAccountType;
     /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @deprecated
+     * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
      * 
      */
+    @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
     private @Nullable Integer ultraSsdDiskIopsReadWrite;
     /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @deprecated
+     * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
      * 
      */
+    @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
     private @Nullable Integer ultraSsdDiskMbpsReadWrite;
     /**
      * @return Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -100,6 +114,20 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
         return Optional.ofNullable(this.diskEncryptionSetId);
     }
     /**
+     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * 
+     */
+    public Optional<Integer> diskIopsReadWrite() {
+        return Optional.ofNullable(this.diskIopsReadWrite);
+    }
+    /**
+     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * 
+     */
+    public Optional<Integer> diskMbpsReadWrite() {
+        return Optional.ofNullable(this.diskMbpsReadWrite);
+    }
+    /**
      * @return The size of the Data Disk which should be created.
      * 
      */
@@ -130,16 +158,20 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
         return this.storageAccountType;
     }
     /**
-     * @return Specifies the Read-Write IOPS for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @deprecated
+     * `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider
      * 
      */
+    @Deprecated /* `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider */
     public Optional<Integer> ultraSsdDiskIopsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskIopsReadWrite);
     }
     /**
-     * @return Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storageAccountType` is `PremiumV2_LRS` or `UltraSSD_LRS`.
+     * @deprecated
+     * `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider
      * 
      */
+    @Deprecated /* `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider */
     public Optional<Integer> ultraSsdDiskMbpsReadWrite() {
         return Optional.ofNullable(this.ultraSsdDiskMbpsReadWrite);
     }
@@ -165,6 +197,8 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
         private String caching;
         private @Nullable String createOption;
         private @Nullable String diskEncryptionSetId;
+        private @Nullable Integer diskIopsReadWrite;
+        private @Nullable Integer diskMbpsReadWrite;
         private Integer diskSizeGb;
         private Integer lun;
         private @Nullable String name;
@@ -178,6 +212,8 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
     	      this.caching = defaults.caching;
     	      this.createOption = defaults.createOption;
     	      this.diskEncryptionSetId = defaults.diskEncryptionSetId;
+    	      this.diskIopsReadWrite = defaults.diskIopsReadWrite;
+    	      this.diskMbpsReadWrite = defaults.diskMbpsReadWrite;
     	      this.diskSizeGb = defaults.diskSizeGb;
     	      this.lun = defaults.lun;
     	      this.name = defaults.name;
@@ -205,6 +241,18 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
         public Builder diskEncryptionSetId(@Nullable String diskEncryptionSetId) {
 
             this.diskEncryptionSetId = diskEncryptionSetId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder diskIopsReadWrite(@Nullable Integer diskIopsReadWrite) {
+
+            this.diskIopsReadWrite = diskIopsReadWrite;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder diskMbpsReadWrite(@Nullable Integer diskMbpsReadWrite) {
+
+            this.diskMbpsReadWrite = diskMbpsReadWrite;
             return this;
         }
         @CustomType.Setter
@@ -260,6 +308,8 @@ public final class LinuxVirtualMachineScaleSetDataDisk {
             _resultValue.caching = caching;
             _resultValue.createOption = createOption;
             _resultValue.diskEncryptionSetId = diskEncryptionSetId;
+            _resultValue.diskIopsReadWrite = diskIopsReadWrite;
+            _resultValue.diskMbpsReadWrite = diskMbpsReadWrite;
             _resultValue.diskSizeGb = diskSizeGb;
             _resultValue.lun = lun;
             _resultValue.name = name;

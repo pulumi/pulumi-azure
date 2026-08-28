@@ -8,6 +8,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesAppConfigurationArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesApplicationInsightsArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesCognitiveAccountArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesDatabricksWorkspaceArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesEnhancedValidationArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesKeyVaultArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesLogAnalyticsWorkspaceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesMachineLearningArgs;
@@ -17,6 +18,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesPostgresqlFlexibleServerArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesRecoveryServiceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesRecoveryServicesVaultsArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesResourceGroupArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesServicebusArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesStorageArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesSubscriptionArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesTemplateDeploymentArgs;
@@ -67,6 +69,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
     public Optional<Output<ProviderFeaturesDatabricksWorkspaceArgs>> databricksWorkspace() {
         return Optional.ofNullable(this.databricksWorkspace);
+    }
+
+    @Import(name="enhancedValidation")
+    private @Nullable Output<ProviderFeaturesEnhancedValidationArgs> enhancedValidation;
+
+    public Optional<Output<ProviderFeaturesEnhancedValidationArgs>> enhancedValidation() {
+        return Optional.ofNullable(this.enhancedValidation);
     }
 
     @Import(name="keyVault")
@@ -147,6 +156,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.resourceGroup);
     }
 
+    @Import(name="servicebus")
+    private @Nullable Output<ProviderFeaturesServicebusArgs> servicebus;
+
+    public Optional<Output<ProviderFeaturesServicebusArgs>> servicebus() {
+        return Optional.ofNullable(this.servicebus);
+    }
+
     /**
      * Whether to skip the import check and allow the provider to overwrite existing remote resources if present. Defaults to `false`.
      * 
@@ -205,6 +221,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.applicationInsights = $.applicationInsights;
         this.cognitiveAccount = $.cognitiveAccount;
         this.databricksWorkspace = $.databricksWorkspace;
+        this.enhancedValidation = $.enhancedValidation;
         this.keyVault = $.keyVault;
         this.logAnalyticsWorkspace = $.logAnalyticsWorkspace;
         this.machineLearning = $.machineLearning;
@@ -215,6 +232,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.recoveryService = $.recoveryService;
         this.recoveryServicesVaults = $.recoveryServicesVaults;
         this.resourceGroup = $.resourceGroup;
+        this.servicebus = $.servicebus;
         this.skipImportCheckOnCreateAndAllowOverwritingExistingResources = $.skipImportCheckOnCreateAndAllowOverwritingExistingResources;
         this.storage = $.storage;
         this.subscription = $.subscription;
@@ -284,6 +302,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder databricksWorkspace(ProviderFeaturesDatabricksWorkspaceArgs databricksWorkspace) {
             return databricksWorkspace(Output.of(databricksWorkspace));
+        }
+
+        public Builder enhancedValidation(@Nullable Output<ProviderFeaturesEnhancedValidationArgs> enhancedValidation) {
+            $.enhancedValidation = enhancedValidation;
+            return this;
+        }
+
+        public Builder enhancedValidation(ProviderFeaturesEnhancedValidationArgs enhancedValidation) {
+            return enhancedValidation(Output.of(enhancedValidation));
         }
 
         public Builder keyVault(@Nullable Output<ProviderFeaturesKeyVaultArgs> keyVault) {
@@ -386,6 +413,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder resourceGroup(ProviderFeaturesResourceGroupArgs resourceGroup) {
             return resourceGroup(Output.of(resourceGroup));
+        }
+
+        public Builder servicebus(@Nullable Output<ProviderFeaturesServicebusArgs> servicebus) {
+            $.servicebus = servicebus;
+            return this;
+        }
+
+        public Builder servicebus(ProviderFeaturesServicebusArgs servicebus) {
+            return servicebus(Output.of(servicebus));
         }
 
         /**
