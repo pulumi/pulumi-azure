@@ -3,31 +3,36 @@
 version: "2"
 linters:
   enable:
-  - errcheck
-  - goconst
-  - gosec
-  - govet
-  - ineffassign
-  - lll
-  - staticcheck
-  - misspell
-  - nakedret
-  - revive
-  - unconvert
-  - unused
+    - goconst
+    - gosec
+    - lll
+    - misspell
+    - nakedret
+    - revive
+    - unconvert
   exclusions:
     generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
     paths:
-    - schema.go
-    - pulumiManifest.go
-    - pkg/vendored
-    - third_party$
-    - builtin$
-    - examples$
+      - schema.go
+      - pulumiManifest.go
+      - pkg/vendored
+      - third_party$
+      - builtin$
+      - examples$
+    rules:
+      - linters:
+          - revive
+        path: pkg/
+        text: "var-naming" # https://github.com/pulumi/ci-mgmt/issues/2100
 formatters:
   enable:
-  - gci
-  - gofmt
+    - gci
+    - gofmt
   settings:
     gci:
       sections:
@@ -40,11 +45,9 @@ formatters:
   exclusions:
     generated: lax
     paths:
-    - schema.go
-    - pulumiManifest.go
-    - pkg/vendored
-    - third_party$
-    - builtin$
-    - examples$
-run:
-  timeout: 20m
+      - schema.go
+      - pulumiManifest.go
+      - pkg/vendored
+      - third_party$
+      - builtin$
+      - examples$
