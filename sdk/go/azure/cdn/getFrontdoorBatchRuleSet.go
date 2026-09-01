@@ -84,12 +84,8 @@ type LookupFrontdoorBatchRuleSetResult struct {
 }
 
 func LookupFrontdoorBatchRuleSetOutput(ctx *pulumi.Context, args LookupFrontdoorBatchRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupFrontdoorBatchRuleSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFrontdoorBatchRuleSetResultOutput, error) {
-			args := v.(LookupFrontdoorBatchRuleSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("azure:cdn/getFrontdoorBatchRuleSet:getFrontdoorBatchRuleSet", args, LookupFrontdoorBatchRuleSetResultOutput{}, options).(LookupFrontdoorBatchRuleSetResultOutput), nil
-		}).(LookupFrontdoorBatchRuleSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("azure:cdn/getFrontdoorBatchRuleSet:getFrontdoorBatchRuleSet", args, LookupFrontdoorBatchRuleSetResultOutput{}, options).(LookupFrontdoorBatchRuleSetResultOutput)
 }
 
 // A collection of arguments for invoking getFrontdoorBatchRuleSet.
