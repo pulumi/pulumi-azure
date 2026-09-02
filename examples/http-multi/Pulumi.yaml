@@ -1,3 +1,0 @@
-name: azure-http-multi
-runtime: nodejs
-description: An http Azure Function App with multiple functions

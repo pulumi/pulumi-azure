@@ -1,3 +1,0 @@
-name: webserver-py-old
-runtime: python
-description: Basic example of an Azure web server accessible over HTTP, specifying inputs with dicts.
