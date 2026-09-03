@@ -83,15 +83,6 @@ public final class LinuxWebAppSiteConfigApplicationStack {
      * 
      */
     private @Nullable String pythonVersion;
-    /**
-     * @return The version of Ruby to run. Possible values include `2.6` and `2.7`.
-     * 
-     * @deprecated
-     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
-    private @Nullable String rubyVersion;
 
     private LinuxWebAppSiteConfigApplicationStack() {}
     /**
@@ -190,17 +181,6 @@ public final class LinuxWebAppSiteConfigApplicationStack {
     public Optional<String> pythonVersion() {
         return Optional.ofNullable(this.pythonVersion);
     }
-    /**
-     * @return The version of Ruby to run. Possible values include `2.6` and `2.7`.
-     * 
-     * @deprecated
-     * `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider
-     * 
-     */
-    @Deprecated /* `site_config.application_stack.ruby_version` has been deprecated and will be removed in v5.0 of the AzureRM provider */
-    public Optional<String> rubyVersion() {
-        return Optional.ofNullable(this.rubyVersion);
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -223,7 +203,6 @@ public final class LinuxWebAppSiteConfigApplicationStack {
         private @Nullable String nodeVersion;
         private @Nullable String phpVersion;
         private @Nullable String pythonVersion;
-        private @Nullable String rubyVersion;
         public Builder() {}
         public Builder(LinuxWebAppSiteConfigApplicationStack defaults) {
     	      Objects.requireNonNull(defaults);
@@ -239,7 +218,6 @@ public final class LinuxWebAppSiteConfigApplicationStack {
     	      this.nodeVersion = defaults.nodeVersion;
     	      this.phpVersion = defaults.phpVersion;
     	      this.pythonVersion = defaults.pythonVersion;
-    	      this.rubyVersion = defaults.rubyVersion;
         }
 
         @CustomType.Setter
@@ -314,12 +292,6 @@ public final class LinuxWebAppSiteConfigApplicationStack {
             this.pythonVersion = pythonVersion;
             return this;
         }
-        @CustomType.Setter
-        public Builder rubyVersion(@Nullable String rubyVersion) {
-
-            this.rubyVersion = rubyVersion;
-            return this;
-        }
         public LinuxWebAppSiteConfigApplicationStack build() {
             final var _resultValue = new LinuxWebAppSiteConfigApplicationStack();
             _resultValue.dockerImageName = dockerImageName;
@@ -334,7 +306,6 @@ public final class LinuxWebAppSiteConfigApplicationStack {
             _resultValue.nodeVersion = nodeVersion;
             _resultValue.phpVersion = phpVersion;
             _resultValue.pythonVersion = pythonVersion;
-            _resultValue.rubyVersion = rubyVersion;
             return _resultValue;
         }
     }

@@ -227,7 +227,6 @@ export class ManagedInstanceTransparentDataEncryption extends pulumi.CustomResou
      * > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      */
     declare public readonly keyVaultKeyId: pulumi.Output<string | undefined>;
-    declare public readonly managedHsmKeyId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
@@ -248,7 +247,6 @@ export class ManagedInstanceTransparentDataEncryption extends pulumi.CustomResou
             const state = argsOrState as ManagedInstanceTransparentDataEncryptionState | undefined;
             resourceInputs["autoRotationEnabled"] = state?.autoRotationEnabled;
             resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
-            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
             resourceInputs["managedInstanceId"] = state?.managedInstanceId;
         } else {
             const args = argsOrState as ManagedInstanceTransparentDataEncryptionArgs | undefined;
@@ -257,7 +255,6 @@ export class ManagedInstanceTransparentDataEncryption extends pulumi.CustomResou
             }
             resourceInputs["autoRotationEnabled"] = args?.autoRotationEnabled;
             resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
-            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
             resourceInputs["managedInstanceId"] = args?.managedInstanceId;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -283,7 +280,6 @@ export interface ManagedInstanceTransparentDataEncryptionState {
      * > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      */
     keyVaultKeyId?: pulumi.Input<string | undefined>;
-    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */
@@ -308,7 +304,6 @@ export interface ManagedInstanceTransparentDataEncryptionArgs {
      * > **Note:** If `managedInstanceId` denotes a secondary instance deployed for disaster recovery purposes, then the `keyVaultKeyId` should be the same key used for the primary instance's transparent data encryption. Both primary and secondary instances should be encrypted with same key material.
      */
     keyVaultKeyId?: pulumi.Input<string | undefined>;
-    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * Specifies the name of the MS SQL Managed Instance. Changing this forces a new resource to be created.
      */

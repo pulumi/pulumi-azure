@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *     dbServers: example.apply(example => .map(obj => (obj.ocid))),
  *     sshPublicKeys: [std.file({
  *         input: "~/.ssh/id_rsa.pub",
- *     }).then(invoke => invoke.result)],
+ *     }).result],
  *     displayName: "example-cloud-vm-cluster",
  *     cloudExadataInfrastructureId: exampleExadataInfrastructure.id,
  *     cpuCoreCount: 2,

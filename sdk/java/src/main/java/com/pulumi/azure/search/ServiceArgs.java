@@ -258,7 +258,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
      * 
-     * &gt; **Note:** SKU upgrades between Basic and Standard (S1, S2, S3) tiers from a lower tier to a higher tier (e.g., Basic → S1, S1 → S2, S2 → S3) are supported without recreating the resource. And your region must support the higher tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
+     * &gt; **Note:** SKU upgrades and downgrades between Basic and Standard (S1, S2, S3) tiers are supported without recreating the resource. Your region must support the new tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
      * 
      */
     @Import(name="sku", required=true)
@@ -271,7 +271,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      * 
      * &gt; **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
      * 
-     * &gt; **Note:** SKU upgrades between Basic and Standard (S1, S2, S3) tiers from a lower tier to a higher tier (e.g., Basic → S1, S1 → S2, S2 → S3) are supported without recreating the resource. And your region must support the higher tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
+     * &gt; **Note:** SKU upgrades and downgrades between Basic and Standard (S1, S2, S3) tiers are supported without recreating the resource. Your region must support the new tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
      * 
      */
     public Output<String> sku() {
@@ -665,7 +665,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
          * 
-         * &gt; **Note:** SKU upgrades between Basic and Standard (S1, S2, S3) tiers from a lower tier to a higher tier (e.g., Basic → S1, S1 → S2, S2 → S3) are supported without recreating the resource. And your region must support the higher tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
+         * &gt; **Note:** SKU upgrades and downgrades between Basic and Standard (S1, S2, S3) tiers are supported without recreating the resource. Your region must support the new tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
          * 
          * @return builder
          * 
@@ -682,7 +682,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * &gt; **Note:** The SKUs `standard2`, `standard3`, `storageOptimizedL1` and `storageOptimizedL2` are only available by submitting a quota increase request to Microsoft. Please see the [product documentation](https://learn.microsoft.com/azure/azure-resource-manager/troubleshooting/error-resource-quota?tabs=azure-cli) on how to submit a quota increase request.
          * 
-         * &gt; **Note:** SKU upgrades between Basic and Standard (S1, S2, S3) tiers from a lower tier to a higher tier (e.g., Basic → S1, S1 → S2, S2 → S3) are supported without recreating the resource. And your region must support the higher tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
+         * &gt; **Note:** SKU upgrades and downgrades between Basic and Standard (S1, S2, S3) tiers are supported without recreating the resource. Your region must support the new tier. All other SKU changes (downgrades, changes from/to Free tier, or changes to/from Storage Optimized tiers) will force creation of a new Search Service.
          * 
          * @return builder
          * 

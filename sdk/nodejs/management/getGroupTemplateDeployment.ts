@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  *     managementGroupId: "00000000-0000-0000-000000000000",
  * });
  * export const id = example.then(example => example.id);
- * export const exampleOutput = example.then(example => std.jsondecode({
- *     input: example.outputContent,
- * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * export const exampleOutput = std.jsondecode({
+ *     input: example.then(example => example.outputContent),
+ * }).result.exampleOutput.value;
  * ```
  */
 export function getGroupTemplateDeployment(args: GetGroupTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupTemplateDeploymentResult> {
@@ -76,9 +76,9 @@ export interface GetGroupTemplateDeploymentResult {
  *     managementGroupId: "00000000-0000-0000-000000000000",
  * });
  * export const id = example.then(example => example.id);
- * export const exampleOutput = example.then(example => std.jsondecode({
- *     input: example.outputContent,
- * })).then(invoke => invoke.result?.exampleOutput?.value);
+ * export const exampleOutput = std.jsondecode({
+ *     input: example.then(example => example.outputContent),
+ * }).result.exampleOutput.value;
  * ```
  */
 export function getGroupTemplateDeploymentOutput(args: GetGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGroupTemplateDeploymentResult> {

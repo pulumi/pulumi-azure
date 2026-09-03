@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.Certificate;
  * import com.pulumi.azure.automation.CertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -66,9 +65,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .description("This is an example certificate")
- *             .base64(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("certificate.pfx")
- *                 .build()).result())
+ *             .base64(StdFunctions.filebase64(Map.of("input", "certificate.pfx")).result())
  *             .exportable(true)
  *             .build());
  * 

@@ -36,6 +36,47 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Cross-Region Incremental Snapshot Copy)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const source = new azure.core.ResourceGroup("source", {
+ *     name: "snapshot-source-rg",
+ *     location: "West Europe",
+ * });
+ * const sourceManagedDisk = new azure.compute.ManagedDisk("source", {
+ *     name: "source-managed-disk",
+ *     location: source.location,
+ *     resourceGroupName: source.name,
+ *     storageAccountType: "Standard_LRS",
+ *     createOption: "Empty",
+ *     diskSizeGb: 10,
+ * });
+ * const sourceSnapshot = new azure.compute.Snapshot("source", {
+ *     name: "source-snapshot",
+ *     location: source.location,
+ *     resourceGroupName: source.name,
+ *     createOption: "Copy",
+ *     sourceUri: sourceManagedDisk.id,
+ *     incrementalEnabled: true,
+ * });
+ * const target = new azure.core.ResourceGroup("target", {
+ *     name: "snapshot-target-rg",
+ *     location: "North Europe",
+ * });
+ * const targetSnapshot = new azure.compute.Snapshot("target", {
+ *     name: "target-snapshot",
+ *     location: target.location,
+ *     resourceGroupName: target.name,
+ *     createOption: "CopyStart",
+ *     sourceResourceId: sourceSnapshot.id,
+ *     incrementalEnabled: true,
+ *     publicNetworkAccessEnabled: false,
+ * });
+ * ```
+ *
  * ## API Providers
  *
  * <!-- This section is generated, changes will be overwritten -->
@@ -80,9 +121,11 @@ export class Snapshot extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
      *
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+     *
+     * > **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
      */
     declare public readonly createOption: pulumi.Output<string>;
     /**
@@ -124,7 +167,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
-     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
      */
     declare public readonly sourceResourceId: pulumi.Output<string | undefined>;
     /**
@@ -206,9 +249,11 @@ export class Snapshot extends pulumi.CustomResource {
  */
 export interface SnapshotState {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
      *
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+     *
+     * > **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
      */
     createOption?: pulumi.Input<string | undefined>;
     /**
@@ -250,7 +295,7 @@ export interface SnapshotState {
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
      */
     sourceResourceId?: pulumi.Input<string | undefined>;
     /**
@@ -276,9 +321,11 @@ export interface SnapshotState {
  */
 export interface SnapshotArgs {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
      *
      * > **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+     *
+     * > **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
      */
     createOption: pulumi.Input<string>;
     /**
@@ -320,7 +367,7 @@ export interface SnapshotArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
      */
     sourceResourceId?: pulumi.Input<string | undefined>;
     /**

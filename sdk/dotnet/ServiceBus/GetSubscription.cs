@@ -129,20 +129,11 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
-        [Input("namespaceName")]
-        public string? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public string? ResourceGroupName { get; set; }
-
         /// <summary>
         /// The ID of the ServiceBus Topic where the Service Bus Subscription exists.
         /// </summary>
-        [Input("topicId")]
-        public string? TopicId { get; set; }
-
-        [Input("topicName")]
-        public string? TopicName { get; set; }
+        [Input("topicId", required: true)]
+        public string TopicId { get; set; } = null!;
 
         public GetSubscriptionArgs()
         {
@@ -158,20 +149,11 @@ namespace Pulumi.Azure.ServiceBus
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
-
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         /// <summary>
         /// The ID of the ServiceBus Topic where the Service Bus Subscription exists.
         /// </summary>
-        [Input("topicId")]
-        public Input<string>? TopicId { get; set; }
-
-        [Input("topicName")]
-        public Input<string>? TopicName { get; set; }
+        [Input("topicId", required: true)]
+        public Input<string> TopicId { get; set; } = null!;
 
         public GetSubscriptionInvokeArgs()
         {
@@ -203,7 +185,6 @@ namespace Pulumi.Azure.ServiceBus
         /// The Default message timespan to live. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
         /// </summary>
         public readonly string DefaultMessageTtl;
-        public readonly bool EnableBatchedOperations;
         /// <summary>
         /// The name of a Queue or Topic to automatically forward Dead Letter messages to.
         /// </summary>
@@ -225,14 +206,11 @@ namespace Pulumi.Azure.ServiceBus
         /// </summary>
         public readonly int MaxDeliveryCount;
         public readonly string Name;
-        public readonly string? NamespaceName;
         /// <summary>
         /// Whether this ServiceBus Subscription supports session.
         /// </summary>
         public readonly bool RequiresSession;
-        public readonly string? ResourceGroupName;
-        public readonly string? TopicId;
-        public readonly string? TopicName;
+        public readonly string TopicId;
 
         [OutputConstructor]
         private GetSubscriptionResult(
@@ -246,8 +224,6 @@ namespace Pulumi.Azure.ServiceBus
 
             string defaultMessageTtl,
 
-            bool enableBatchedOperations,
-
             string forwardDeadLetteredMessagesTo,
 
             string forwardTo,
@@ -260,33 +236,23 @@ namespace Pulumi.Azure.ServiceBus
 
             string name,
 
-            string? namespaceName,
-
             bool requiresSession,
 
-            string? resourceGroupName,
-
-            string? topicId,
-
-            string? topicName)
+            string topicId)
         {
             AutoDeleteOnIdle = autoDeleteOnIdle;
             BatchedOperationsEnabled = batchedOperationsEnabled;
             DeadLetteringOnFilterEvaluationError = deadLetteringOnFilterEvaluationError;
             DeadLetteringOnMessageExpiration = deadLetteringOnMessageExpiration;
             DefaultMessageTtl = defaultMessageTtl;
-            EnableBatchedOperations = enableBatchedOperations;
             ForwardDeadLetteredMessagesTo = forwardDeadLetteredMessagesTo;
             ForwardTo = forwardTo;
             Id = id;
             LockDuration = lockDuration;
             MaxDeliveryCount = maxDeliveryCount;
             Name = name;
-            NamespaceName = namespaceName;
             RequiresSession = requiresSession;
-            ResourceGroupName = resourceGroupName;
             TopicId = topicId;
-            TopicName = topicName;
         }
     }
 }

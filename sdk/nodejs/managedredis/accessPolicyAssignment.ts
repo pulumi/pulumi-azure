@@ -7,6 +7,40 @@ import * as utilities from "../utilities";
 /**
  * Manages a Managed Redis Access Policy Assignment.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azuread from "@pulumi/azuread";
+ *
+ * const current = azuread.ClientConfig({});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleManagedRedis = new azure.managedredis.ManagedRedis("example", {
+ *     name: "example-managedredis",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     skuName: "Balanced_B0",
+ *     defaultDatabase: {
+ *         accessKeysAuthenticationEnabled: true,
+ *     },
+ * });
+ * const exampleAccessPolicyAssignment = new azure.managedredis.AccessPolicyAssignment("example", {
+ *     managedRedisId: exampleManagedRedis.id,
+ *     objectId: current.objectId,
+ * });
+ * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cache` - 2025-07-01
+ *
  * ## Import
  *
  * Managed Redis Access Policy Assignments can be imported using the `resource id`, e.g.

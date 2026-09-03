@@ -35,6 +35,13 @@ import * as utilities from "../utilities";
  * });
  * export const id = example.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.SecurityInsights` - 2022-10-01-preview
  */
 export function getAlertRuleAnomaly(args: GetAlertRuleAnomalyArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleAnomalyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -162,6 +169,13 @@ export interface GetAlertRuleAnomalyResult {
  * });
  * export const id = example.id;
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This data source uses the following Azure API Providers:
+ *
+ * * `Microsoft.SecurityInsights` - 2022-10-01-preview
  */
 export function getAlertRuleAnomalyOutput(args: GetAlertRuleAnomalyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertRuleAnomalyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

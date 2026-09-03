@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *     location: test.location,
  *     resourceGroupName: test.name,
  *     parentCustomIpPrefixId: global.id,
- *     cidr: std.cidrsubnetOutput({
+ *     cidr: std.cidrsubnet({
  *         input: global.cidr,
  *         newbits: 16,
  *         netnum: 1,

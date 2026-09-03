@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/cdn"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/dns"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -96,22 +96,36 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"input": []interface{}{
+//					"contoso",
+//					exampleZone.Name,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			contoso, err := cdn.NewFrontdoorCustomDomain(ctx, "contoso", &cdn.FrontdoorCustomDomainArgs{
 //				Name:                  pulumi.String("contoso-custom-domain"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
-//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
-//					Separator: pulumi.String("."),
-//					Input: pulumi.StringArray{
-//						pulumi.String("contoso"),
-//						exampleZone.Name,
-//					},
-//				}, nil).Result(),
+//				HostName:              invokeJoin.Result,
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
-//					MinimumTlsVersion: pulumi.String("TLS12"),
+//					MinimumTlsVersion: "TLS12",
 //				},
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeJoin1, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"input": []interface{}{
+//					"fabrikam",
+//					exampleZone.Name,
+//				},
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -119,16 +133,10 @@ import (
 //				Name:                  pulumi.String("fabrikam-custom-domain"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID().ToIDOutput().ToStringOutput(),
 //				DnsZoneId:             exampleZone.ID().ToIDOutput().ToStringOutput(),
-//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
-//					Separator: pulumi.String("."),
-//					Input: pulumi.StringArray{
-//						pulumi.String("fabrikam"),
-//						exampleZone.Name,
-//					},
-//				}, nil).Result(),
+//				HostName:              invokeJoin1.Result,
 //				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
 //					CertificateType:   pulumi.String("ManagedCertificate"),
-//					MinimumTlsVersion: pulumi.String("TLS12"),
+//					MinimumTlsVersion: "TLS12",
 //				},
 //			})
 //			if err != nil {
@@ -199,6 +207,13 @@ import (
 //	}
 //
 // ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.Cdn` - 2025-12-01
 //
 // ## Import
 //

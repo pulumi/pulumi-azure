@@ -38,9 +38,11 @@ class SnapshotArgs:
         """
         The set of arguments for constructing a Snapshot resource.
 
-        :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+               
+               > **Note:** When `create_option` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[_builtins.int] disk_size_gb: The size of the Snapshotted Disk in GB.
@@ -52,7 +54,7 @@ class SnapshotArgs:
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Snapshot resource. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
-        :param pulumi.Input[_builtins.str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -88,9 +90,11 @@ class SnapshotArgs:
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Input[_builtins.str]:
         """
-        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
 
         > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+
+        > **Note:** When `create_option` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         """
         return pulumi.get(self, "create_option")
 
@@ -212,7 +216,7 @@ class SnapshotArgs:
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        Specifies a reference to an existing snapshot, when `create_option` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
@@ -278,9 +282,11 @@ class _SnapshotState:
         """
         Input properties used for looking up and filtering Snapshot resources.
 
-        :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+               
+               > **Note:** When `create_option` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         :param pulumi.Input[_builtins.str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[_builtins.int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input['SnapshotEncryptionSettingsArgs'] encryption_settings: A `encryption_settings` block as defined below.
@@ -292,7 +298,7 @@ class _SnapshotState:
         :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -333,9 +339,11 @@ class _SnapshotState:
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
 
         > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+
+        > **Note:** When `create_option` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         """
         return pulumi.get(self, "create_option")
 
@@ -457,7 +465,7 @@ class _SnapshotState:
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        Specifies a reference to an existing snapshot, when `create_option` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_resource_id")
 
@@ -562,6 +570,42 @@ class Snapshot(pulumi.CustomResource):
             source_uri=example_managed_disk.id)
         ```
 
+        ### Cross-Region Incremental Snapshot Copy)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        source = azure.core.ResourceGroup("source",
+            name="snapshot-source-rg",
+            location="West Europe")
+        source_managed_disk = azure.compute.ManagedDisk("source",
+            name="source-managed-disk",
+            location=source.location,
+            resource_group_name=source.name,
+            storage_account_type="Standard_LRS",
+            create_option="Empty",
+            disk_size_gb=10)
+        source_snapshot = azure.compute.Snapshot("source",
+            name="source-snapshot",
+            location=source.location,
+            resource_group_name=source.name,
+            create_option="Copy",
+            source_uri=source_managed_disk.id,
+            incremental_enabled=True)
+        target = azure.core.ResourceGroup("target",
+            name="snapshot-target-rg",
+            location="North Europe")
+        target_snapshot = azure.compute.Snapshot("target",
+            name="target-snapshot",
+            location=target.location,
+            resource_group_name=target.name,
+            create_option="CopyStart",
+            source_resource_id=source_snapshot.id,
+            incremental_enabled=True,
+            public_network_access_enabled=False)
+        ```
+
         ## API Providers
 
         <!-- This section is generated, changes will be overwritten -->
@@ -580,9 +624,11 @@ class Snapshot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+               
+               > **Note:** When `create_option` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         :param pulumi.Input[_builtins.str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[_builtins.int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']] encryption_settings: A `encryption_settings` block as defined below.
@@ -594,7 +640,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -630,6 +676,42 @@ class Snapshot(pulumi.CustomResource):
             resource_group_name=example.name,
             create_option="Copy",
             source_uri=example_managed_disk.id)
+        ```
+
+        ### Cross-Region Incremental Snapshot Copy)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        source = azure.core.ResourceGroup("source",
+            name="snapshot-source-rg",
+            location="West Europe")
+        source_managed_disk = azure.compute.ManagedDisk("source",
+            name="source-managed-disk",
+            location=source.location,
+            resource_group_name=source.name,
+            storage_account_type="Standard_LRS",
+            create_option="Empty",
+            disk_size_gb=10)
+        source_snapshot = azure.compute.Snapshot("source",
+            name="source-snapshot",
+            location=source.location,
+            resource_group_name=source.name,
+            create_option="Copy",
+            source_uri=source_managed_disk.id,
+            incremental_enabled=True)
+        target = azure.core.ResourceGroup("target",
+            name="snapshot-target-rg",
+            location="North Europe")
+        target_snapshot = azure.compute.Snapshot("target",
+            name="target-snapshot",
+            location=target.location,
+            resource_group_name=target.name,
+            create_option="CopyStart",
+            source_resource_id=source_snapshot.id,
+            incremental_enabled=True,
+            public_network_access_enabled=False)
         ```
 
         ## API Providers
@@ -737,9 +819,11 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        :param pulumi.Input[_builtins.str] create_option: Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
                
                > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+               
+               > **Note:** When `create_option` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         :param pulumi.Input[_builtins.str] disk_access_id: Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting `network_access_policy` to `AllowPrivate`.
         :param pulumi.Input[_builtins.int] disk_size_gb: The size of the Snapshotted Disk in GB.
         :param pulumi.Input[Union['SnapshotEncryptionSettingsArgs', 'SnapshotEncryptionSettingsArgsDict']] encryption_settings: A `encryption_settings` block as defined below.
@@ -751,7 +835,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] network_access_policy: Policy for accessing the disk via network. Possible values are `AllowAll`, `AllowPrivate`, or `DenyAll`. Defaults to `AllowAll`.
         :param pulumi.Input[_builtins.bool] public_network_access_enabled: Policy for controlling export on the disk. Possible values are `true` or `false`. Defaults to `true`.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the Snapshot. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_resource_id: Specifies a reference to an existing snapshot, when `create_option` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] source_uri: Specifies the URI to a Managed or Unmanaged Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] storage_account_id: Specifies the ID of an storage account. Used with `source_uri` to allow authorization during import of unmanaged blobs from a different subscription. Changing this forces a new resource to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource.
@@ -782,9 +866,11 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="createOption")
     def create_option(self) -> pulumi.Output[_builtins.str]:
         """
-        Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+        Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
 
         > **Note:** One of `source_uri`, `source_resource_id` or `storage_account_id` must be specified.
+
+        > **Note:** When `create_option` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
         """
         return pulumi.get(self, "create_option")
 
@@ -866,7 +952,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="sourceResourceId")
     def source_resource_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies a reference to an existing snapshot, when `create_option` is `Copy`. Changing this forces a new resource to be created.
+        Specifies a reference to an existing snapshot, when `create_option` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "source_resource_id")
 

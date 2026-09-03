@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
@@ -36,27 +37,27 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const examplePlan = new azure.appservice.Plan("example", {
+ * const exampleAppServicePlan = new azurerm.index.AppServicePlan("example", {
  *     name: "example-service-plan",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     sku: {
+ *     sku: [{
  *         tier: "Standard",
  *         size: "S1",
- *     },
+ *     }],
  * });
- * const exampleAppService = new azure.appservice.AppService("example", {
+ * const exampleAppService = new azurerm.index.AppService("example", {
  *     name: "example-app-service",
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  * });
- * const example_staging = new azure.appservice.Slot("example-staging", {
+ * const example_staging = new azurerm.index.AppServiceSlot("example-staging", {
  *     name: "staging",
  *     appServiceName: exampleAppService.name,
  *     location: example.location,
  *     resourceGroupName: example.name,
- *     appServicePlanId: examplePlan.id,
+ *     appServicePlanId: exampleAppServicePlan.id,
  * });
  * const exampleSlotVirtualNetworkSwiftConnection = new azure.appservice.SlotVirtualNetworkSwiftConnection("example", {
  *     slotName: example_staging.name,

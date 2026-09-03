@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *     name: "contoso-custom-domain",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     dnsZoneId: exampleZone.id,
- *     hostName: std.joinOutput({
+ *     hostName: std.join({
  *         separator: ".",
  *         input: [
  *             "contoso",
@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *     name: "fabrikam-custom-domain",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     dnsZoneId: exampleZone.id,
- *     hostName: std.joinOutput({
+ *     hostName: std.join({
  *         separator: ".",
  *         input: [
  *             "fabrikam",
@@ -134,6 +134,13 @@ import * as utilities from "../utilities";
  *     cdnFrontdoorRouteIds: [exampleFrontdoorRoute.id],
  * });
  * ```
+ *
+ * ## API Providers
+ *
+ * <!-- This section is generated, changes will be overwritten -->
+ * This resource uses the following Azure API Providers:
+ *
+ * * `Microsoft.Cdn` - 2025-12-01
  *
  * ## Import
  *

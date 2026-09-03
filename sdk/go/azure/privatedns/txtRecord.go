@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,10 +44,9 @@ import (
 //				return err
 //			}
 //			_, err = privatedns.NewTxtRecord(ctx, "example", &privatedns.TxtRecordArgs{
-//				Name:              pulumi.String("test"),
-//				ResourceGroupName: example.Name,
-//				ZoneName:          exampleZone.Name,
-//				Ttl:               pulumi.Int(300),
+//				Name:             pulumi.String("test"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				Ttl:              pulumi.Int(300),
 //				Records: privatedns.TxtRecordRecordArray{
 //					&privatedns.TxtRecordRecordArgs{
 //						Value: pulumi.String("v=spf1 mx ~all"),
@@ -84,16 +83,14 @@ type TxtRecord struct {
 	Fqdn pulumi.StringOutput `pulumi:"fqdn"`
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringOutput `pulumi:"privateDnsZoneId"`
 	// One or more `record` blocks as defined below.
 	Records TxtRecordRecordArrayOutput `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntOutput `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringOutput `pulumi:"zoneName"`
 }
 
 // NewTxtRecord registers a new resource with the given unique name, arguments, and options.
@@ -103,17 +100,14 @@ func NewTxtRecord(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.PrivateDnsZoneId == nil {
+		return nil, errors.New("invalid value for required argument 'PrivateDnsZoneId'")
+	}
 	if args.Records == nil {
 		return nil, errors.New("invalid value for required argument 'Records'")
 	}
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
 	if args.Ttl == nil {
 		return nil, errors.New("invalid value for required argument 'Ttl'")
-	}
-	if args.ZoneName == nil {
-		return nil, errors.New("invalid value for required argument 'ZoneName'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TxtRecord
@@ -142,16 +136,14 @@ type txtRecordState struct {
 	Fqdn *string `pulumi:"fqdn"`
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId *string `pulumi:"privateDnsZoneId"`
 	// One or more `record` blocks as defined below.
 	Records []TxtRecordRecord `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl *int `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName *string `pulumi:"zoneName"`
 }
 
 type TxtRecordState struct {
@@ -159,16 +151,14 @@ type TxtRecordState struct {
 	Fqdn pulumi.StringPtrInput
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringPtrInput
 	// One or more `record` blocks as defined below.
 	Records TxtRecordRecordArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntPtrInput
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringPtrInput
 }
 
 func (TxtRecordState) ElementType() reflect.Type {
@@ -178,32 +168,28 @@ func (TxtRecordState) ElementType() reflect.Type {
 type txtRecordArgs struct {
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId string `pulumi:"privateDnsZoneId"`
 	// One or more `record` blocks as defined below.
 	Records []TxtRecordRecord `pulumi:"records"`
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl int `pulumi:"ttl"`
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName string `pulumi:"zoneName"`
 }
 
 // The set of arguments for constructing a TxtRecord resource.
 type TxtRecordArgs struct {
 	// The name of the DNS TXT Record. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
+	// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+	PrivateDnsZoneId pulumi.StringInput
 	// One or more `record` blocks as defined below.
 	Records TxtRecordRecordArrayInput
-	// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-	ResourceGroupName pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// The Time To Live (TTL) of the DNS record in seconds.
 	Ttl pulumi.IntInput
-	// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-	ZoneName pulumi.StringInput
 }
 
 func (TxtRecordArgs) ElementType() reflect.Type {
@@ -303,14 +289,14 @@ func (o TxtRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TxtRecord) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+func (o TxtRecordOutput) PrivateDnsZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v *TxtRecord) pulumi.StringOutput { return v.PrivateDnsZoneId }).(pulumi.StringOutput)
+}
+
 // One or more `record` blocks as defined below.
 func (o TxtRecordOutput) Records() TxtRecordRecordArrayOutput {
 	return o.ApplyT(func(v *TxtRecord) TxtRecordRecordArrayOutput { return v.Records }).(TxtRecordRecordArrayOutput)
-}
-
-// Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-func (o TxtRecordOutput) ResourceGroupName() pulumi.StringOutput {
-	return o.ApplyT(func(v *TxtRecord) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
 // A mapping of tags to assign to the resource.
@@ -321,11 +307,6 @@ func (o TxtRecordOutput) Tags() pulumi.StringMapOutput {
 // The Time To Live (TTL) of the DNS record in seconds.
 func (o TxtRecordOutput) Ttl() pulumi.IntOutput {
 	return o.ApplyT(func(v *TxtRecord) pulumi.IntOutput { return v.Ttl }).(pulumi.IntOutput)
-}
-
-// Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-func (o TxtRecordOutput) ZoneName() pulumi.StringOutput {
-	return o.ApplyT(func(v *TxtRecord) pulumi.StringOutput { return v.ZoneName }).(pulumi.StringOutput)
 }
 
 type TxtRecordArrayOutput struct{ *pulumi.OutputState }

@@ -50,7 +50,10 @@ namespace Pulumi.Azure.PostgreSql
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Storage",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
     ///         },
     ///         Delegations = new[]
     ///         {
@@ -78,9 +81,8 @@ namespace Pulumi.Azure.PostgreSql
     ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("example", new()
     ///     {
     ///         Name = "exampleVnetZone.com",
-    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         PrivateDnsZoneId = exampleZone.Id,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
-    ///         ResourceGroupName = example.Name,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -157,7 +159,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// The Administrator login for the PostgreSQL Flexible Server. Required when `CreateMode` is `Default` and `authentication.password_auth_enabled` is `True`.
         /// 
-        /// &gt; **Note:** Once `AdministratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+        /// &gt; **Note:** Once `AdministratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `Null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
         /// 
         /// &gt; **Note:** To create with `AdministratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `True`.
         /// </summary>
@@ -411,7 +413,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// The Administrator login for the PostgreSQL Flexible Server. Required when `CreateMode` is `Default` and `authentication.password_auth_enabled` is `True`.
         /// 
-        /// &gt; **Note:** Once `AdministratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+        /// &gt; **Note:** Once `AdministratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `Null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
         /// 
         /// &gt; **Note:** To create with `AdministratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `True`.
         /// </summary>
@@ -633,7 +635,7 @@ namespace Pulumi.Azure.PostgreSql
         /// <summary>
         /// The Administrator login for the PostgreSQL Flexible Server. Required when `CreateMode` is `Default` and `authentication.password_auth_enabled` is `True`.
         /// 
-        /// &gt; **Note:** Once `AdministratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+        /// &gt; **Note:** Once `AdministratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `Null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
         /// 
         /// &gt; **Note:** To create with `AdministratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `True`.
         /// </summary>

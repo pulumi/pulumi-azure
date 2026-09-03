@@ -21,15 +21,15 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
      * The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
      * 
      */
-    @Import(name="dataLocation")
-    private @Nullable Output<String> dataLocation;
+    @Import(name="dataLocation", required=true)
+    private Output<String> dataLocation;
 
     /**
      * @return The location where the Communication service stores its data at rest. Possible values are `Africa`, `Asia Pacific`, `Australia`, `Brazil`, `Canada`, `Europe`, `France`, `Germany`, `India`, `Japan`, `Korea`, `Norway`, `Switzerland`, `UAE`, `UK`, `usgov` and `United States`. Changing this forces a new Communication Service to be created.
      * 
      */
-    public Optional<Output<String>> dataLocation() {
-        return Optional.ofNullable(this.dataLocation);
+    public Output<String> dataLocation() {
+        return this.dataLocation;
     }
 
     /**
@@ -110,7 +110,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder dataLocation(@Nullable Output<String> dataLocation) {
+        public Builder dataLocation(Output<String> dataLocation) {
             $.dataLocation = dataLocation;
             return this;
         }
@@ -189,6 +189,9 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ServiceArgs build() {
+            if ($.dataLocation == null) {
+                throw new MissingRequiredPropertyException("ServiceArgs", "dataLocation");
+            }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("ServiceArgs", "resourceGroupName");
             }

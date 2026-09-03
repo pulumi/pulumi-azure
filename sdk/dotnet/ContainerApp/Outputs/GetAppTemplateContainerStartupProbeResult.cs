@@ -42,10 +42,6 @@ namespace Pulumi.Azure.ContainerApp.Outputs
         /// </summary>
         public readonly int Port;
         /// <summary>
-        /// The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-        /// </summary>
-        public readonly int TerminationGracePeriodSeconds;
-        /// <summary>
         /// Time in seconds after which the probe times out.
         /// </summary>
         public readonly int Timeout;
@@ -70,8 +66,6 @@ namespace Pulumi.Azure.ContainerApp.Outputs
 
             int port,
 
-            int terminationGracePeriodSeconds,
-
             int timeout,
 
             string transport)
@@ -83,7 +77,6 @@ namespace Pulumi.Azure.ContainerApp.Outputs
             IntervalSeconds = intervalSeconds;
             Path = path;
             Port = port;
-            TerminationGracePeriodSeconds = terminationGracePeriodSeconds;
             Timeout = timeout;
             Transport = transport;
         }

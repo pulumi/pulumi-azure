@@ -16,8 +16,7 @@ namespace Pulumi.Azure.Storage.Outputs
         /// <summary>
         /// The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         /// </summary>
-        public readonly string? KeyVaultKeyId;
-        public readonly string? ManagedHsmKeyId;
+        public readonly string KeyVaultKeyId;
         /// <summary>
         /// The ID of a user assigned identity.
         /// 
@@ -27,14 +26,11 @@ namespace Pulumi.Azure.Storage.Outputs
 
         [OutputConstructor]
         private AccountCustomerManagedKey(
-            string? keyVaultKeyId,
-
-            string? managedHsmKeyId,
+            string keyVaultKeyId,
 
             string userAssignedIdentityId)
         {
             KeyVaultKeyId = keyVaultKeyId;
-            ManagedHsmKeyId = managedHsmKeyId;
             UserAssignedIdentityId = userAssignedIdentityId;
         }
     }

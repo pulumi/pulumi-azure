@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,10 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/avs"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/avs"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -151,7 +151,9 @@ import (
 //						AllowedClients: pulumi.StringArray{
 //							pulumi.String("0.0.0.0/0"),
 //						},
-//						ProtocolsEnabled:  pulumi.String("NFSv3"),
+//						ProtocolsEnabled: []string{
+//							"NFSv3",
+//						},
 //						UnixReadOnly:      pulumi.Bool(false),
 //						UnixReadWrite:     pulumi.Bool(true),
 //						RootAccessEnabled: pulumi.Bool(true),

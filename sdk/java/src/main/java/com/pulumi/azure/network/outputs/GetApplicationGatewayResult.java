@@ -3,7 +3,6 @@
 
 package com.pulumi.azure.network.outputs;
 
-import com.pulumi.azure.network.outputs.GetApplicationGatewayAuthenticationCertificate;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayAutoscaleConfiguration;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayBackend;
 import com.pulumi.azure.network.outputs.GetApplicationGatewayBackendAddressPool;
@@ -41,11 +40,6 @@ import java.util.Objects;
 
 @CustomType
 public final class GetApplicationGatewayResult {
-    /**
-     * @return One or more `authenticationCertificate` blocks as defined below.
-     * 
-     */
-    private List<GetApplicationGatewayAuthenticationCertificate> authenticationCertificates;
     /**
      * @return An `autoscaleConfiguration` block as defined below.
      * 
@@ -225,13 +219,6 @@ public final class GetApplicationGatewayResult {
     private List<String> zones;
 
     private GetApplicationGatewayResult() {}
-    /**
-     * @return One or more `authenticationCertificate` blocks as defined below.
-     * 
-     */
-    public List<GetApplicationGatewayAuthenticationCertificate> authenticationCertificates() {
-        return this.authenticationCertificates;
-    }
     /**
      * @return An `autoscaleConfiguration` block as defined below.
      * 
@@ -493,7 +480,6 @@ public final class GetApplicationGatewayResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<GetApplicationGatewayAuthenticationCertificate> authenticationCertificates;
         private List<GetApplicationGatewayAutoscaleConfiguration> autoscaleConfigurations;
         private List<GetApplicationGatewayBackendAddressPool> backendAddressPools;
         private List<GetApplicationGatewayBackendHttpSetting> backendHttpSettings;
@@ -534,7 +520,6 @@ public final class GetApplicationGatewayResult {
         public Builder() {}
         public Builder(GetApplicationGatewayResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.authenticationCertificates = defaults.authenticationCertificates;
     	      this.autoscaleConfigurations = defaults.autoscaleConfigurations;
     	      this.backendAddressPools = defaults.backendAddressPools;
     	      this.backendHttpSettings = defaults.backendHttpSettings;
@@ -574,17 +559,6 @@ public final class GetApplicationGatewayResult {
     	      this.zones = defaults.zones;
         }
 
-        @CustomType.Setter
-        public Builder authenticationCertificates(List<GetApplicationGatewayAuthenticationCertificate> authenticationCertificates) {
-            if (authenticationCertificates == null) {
-              throw new MissingRequiredPropertyException("GetApplicationGatewayResult", "authenticationCertificates");
-            }
-            this.authenticationCertificates = authenticationCertificates;
-            return this;
-        }
-        public Builder authenticationCertificates(GetApplicationGatewayAuthenticationCertificate... authenticationCertificates) {
-            return authenticationCertificates(List.of(authenticationCertificates));
-        }
         @CustomType.Setter
         public Builder autoscaleConfigurations(List<GetApplicationGatewayAutoscaleConfiguration> autoscaleConfigurations) {
             if (autoscaleConfigurations == null) {
@@ -967,7 +941,6 @@ public final class GetApplicationGatewayResult {
         }
         public GetApplicationGatewayResult build() {
             final var _resultValue = new GetApplicationGatewayResult();
-            _resultValue.authenticationCertificates = authenticationCertificates;
             _resultValue.autoscaleConfigurations = autoscaleConfigurations;
             _resultValue.backendAddressPools = backendAddressPools;
             _resultValue.backendHttpSettings = backendHttpSettings;

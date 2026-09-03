@@ -25,7 +25,7 @@ class PipelineArgs:
                  concurrency: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional[_builtins.str]] = None,
-                 moniter_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -38,7 +38,7 @@ class PipelineArgs:
         :param pulumi.Input[_builtins.int] concurrency: The max number of concurrent runs for the Data Factory Pipeline. Must be between `1` and `50`.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[_builtins.str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
-        :param pulumi.Input[_builtins.str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
+        :param pulumi.Input[_builtins.str] monitor_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: A map of variables to associate with the Data Factory Pipeline.
@@ -54,8 +54,8 @@ class PipelineArgs:
             pulumi.set(__self__, "description", description)
         if folder is not None:
             pulumi.set(__self__, "folder", folder)
-        if moniter_metrics_after_duration is not None:
-            pulumi.set(__self__, "moniter_metrics_after_duration", moniter_metrics_after_duration)
+        if monitor_metrics_after_duration is not None:
+            pulumi.set(__self__, "monitor_metrics_after_duration", monitor_metrics_after_duration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -136,16 +136,16 @@ class PipelineArgs:
         pulumi.set(self, "folder", value)
 
     @_builtins.property
-    @pulumi.getter(name="moniterMetricsAfterDuration")
-    def moniter_metrics_after_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="monitorMetricsAfterDuration")
+    def monitor_metrics_after_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The TimeSpan value after which an Azure Monitoring Metric is fired.
         """
-        return pulumi.get(self, "moniter_metrics_after_duration")
+        return pulumi.get(self, "monitor_metrics_after_duration")
 
-    @moniter_metrics_after_duration.setter
-    def moniter_metrics_after_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "moniter_metrics_after_duration", value)
+    @monitor_metrics_after_duration.setter
+    def monitor_metrics_after_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "monitor_metrics_after_duration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -193,7 +193,7 @@ class _PipelineState:
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional[_builtins.str]] = None,
-                 moniter_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -206,7 +206,7 @@ class _PipelineState:
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[_builtins.str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
-        :param pulumi.Input[_builtins.str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
+        :param pulumi.Input[_builtins.str] monitor_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: A map of variables to associate with the Data Factory Pipeline.
@@ -223,8 +223,8 @@ class _PipelineState:
             pulumi.set(__self__, "description", description)
         if folder is not None:
             pulumi.set(__self__, "folder", folder)
-        if moniter_metrics_after_duration is not None:
-            pulumi.set(__self__, "moniter_metrics_after_duration", moniter_metrics_after_duration)
+        if monitor_metrics_after_duration is not None:
+            pulumi.set(__self__, "monitor_metrics_after_duration", monitor_metrics_after_duration)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if parameters is not None:
@@ -305,16 +305,16 @@ class _PipelineState:
         pulumi.set(self, "folder", value)
 
     @_builtins.property
-    @pulumi.getter(name="moniterMetricsAfterDuration")
-    def moniter_metrics_after_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="monitorMetricsAfterDuration")
+    def monitor_metrics_after_duration(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The TimeSpan value after which an Azure Monitoring Metric is fired.
         """
-        return pulumi.get(self, "moniter_metrics_after_duration")
+        return pulumi.get(self, "monitor_metrics_after_duration")
 
-    @moniter_metrics_after_duration.setter
-    def moniter_metrics_after_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "moniter_metrics_after_duration", value)
+    @monitor_metrics_after_duration.setter
+    def monitor_metrics_after_duration(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "monitor_metrics_after_duration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -365,7 +365,7 @@ class Pipeline(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional[_builtins.str]] = None,
-                 moniter_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -442,7 +442,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[_builtins.str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
-        :param pulumi.Input[_builtins.str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
+        :param pulumi.Input[_builtins.str] monitor_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: A map of variables to associate with the Data Factory Pipeline.
@@ -538,7 +538,7 @@ class Pipeline(pulumi.CustomResource):
                  data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  folder: pulumi.Input[Optional[_builtins.str]] = None,
-                 moniter_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
+                 monitor_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -559,7 +559,7 @@ class Pipeline(pulumi.CustomResource):
             __props__.__dict__["data_factory_id"] = data_factory_id
             __props__.__dict__["description"] = description
             __props__.__dict__["folder"] = folder
-            __props__.__dict__["moniter_metrics_after_duration"] = moniter_metrics_after_duration
+            __props__.__dict__["monitor_metrics_after_duration"] = monitor_metrics_after_duration
             __props__.__dict__["name"] = name
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["variables"] = variables
@@ -579,7 +579,7 @@ class Pipeline(pulumi.CustomResource):
             data_factory_id: pulumi.Input[Optional[_builtins.str]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             folder: pulumi.Input[Optional[_builtins.str]] = None,
-            moniter_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
+            monitor_metrics_after_duration: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'Pipeline':
@@ -596,7 +596,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] data_factory_id: The Data Factory ID in which to associate the Linked Service with. Changing this forces a new resource.
         :param pulumi.Input[_builtins.str] description: The description for the Data Factory Pipeline.
         :param pulumi.Input[_builtins.str] folder: The folder that this Pipeline is in. If not specified, the Pipeline will appear at the root level.
-        :param pulumi.Input[_builtins.str] moniter_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
+        :param pulumi.Input[_builtins.str] monitor_metrics_after_duration: The TimeSpan value after which an Azure Monitoring Metric is fired.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Data Factory Pipeline. Changing this forces a new resource to be created. Must be globally unique. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] parameters: A map of parameters to associate with the Data Factory Pipeline.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: A map of variables to associate with the Data Factory Pipeline.
@@ -611,7 +611,7 @@ class Pipeline(pulumi.CustomResource):
         __props__.__dict__["data_factory_id"] = data_factory_id
         __props__.__dict__["description"] = description
         __props__.__dict__["folder"] = folder
-        __props__.__dict__["moniter_metrics_after_duration"] = moniter_metrics_after_duration
+        __props__.__dict__["monitor_metrics_after_duration"] = monitor_metrics_after_duration
         __props__.__dict__["name"] = name
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["variables"] = variables
@@ -666,12 +666,12 @@ class Pipeline(pulumi.CustomResource):
         return pulumi.get(self, "folder")
 
     @_builtins.property
-    @pulumi.getter(name="moniterMetricsAfterDuration")
-    def moniter_metrics_after_duration(self) -> pulumi.Output[Optional[_builtins.str]]:
+    @pulumi.getter(name="monitorMetricsAfterDuration")
+    def monitor_metrics_after_duration(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The TimeSpan value after which an Azure Monitoring Metric is fired.
         """
-        return pulumi.get(self, "moniter_metrics_after_duration")
+        return pulumi.get(self, "monitor_metrics_after_duration")
 
     @_builtins.property
     @pulumi.getter

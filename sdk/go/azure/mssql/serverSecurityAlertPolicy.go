@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -87,7 +87,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Sql` - 2023-08-01-preview
+// * `Microsoft.Sql` - 2025-01-01
 //
 // ## Import
 //
@@ -101,8 +101,8 @@ type ServerSecurityAlertPolicy struct {
 
 	// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
 	DisabledAlerts pulumi.StringArrayOutput `pulumi:"disabledAlerts"`
-	// Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
-	EmailAccountAdmins pulumi.BoolPtrOutput `pulumi:"emailAccountAdmins"`
+	// Are the alerts sent to the account administrators? Defaults to `false`.
+	EmailAccountAdminsEnabled pulumi.BoolPtrOutput `pulumi:"emailAccountAdminsEnabled"`
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayOutput `pulumi:"emailAddresses"`
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
@@ -173,8 +173,8 @@ func GetServerSecurityAlertPolicy(ctx *pulumi.Context,
 type serverSecurityAlertPolicyState struct {
 	// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
-	// Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
-	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
+	// Are the alerts sent to the account administrators? Defaults to `false`.
+	EmailAccountAdminsEnabled *bool `pulumi:"emailAccountAdminsEnabled"`
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
@@ -200,8 +200,8 @@ type serverSecurityAlertPolicyState struct {
 type ServerSecurityAlertPolicyState struct {
 	// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
 	DisabledAlerts pulumi.StringArrayInput
-	// Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
-	EmailAccountAdmins pulumi.BoolPtrInput
+	// Are the alerts sent to the account administrators? Defaults to `false`.
+	EmailAccountAdminsEnabled pulumi.BoolPtrInput
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
@@ -231,8 +231,8 @@ func (ServerSecurityAlertPolicyState) ElementType() reflect.Type {
 type serverSecurityAlertPolicyArgs struct {
 	// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
 	DisabledAlerts []string `pulumi:"disabledAlerts"`
-	// Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
-	EmailAccountAdmins *bool `pulumi:"emailAccountAdmins"`
+	// Are the alerts sent to the account administrators? Defaults to `false`.
+	EmailAccountAdminsEnabled *bool `pulumi:"emailAccountAdminsEnabled"`
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses []string `pulumi:"emailAddresses"`
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
@@ -259,8 +259,8 @@ type serverSecurityAlertPolicyArgs struct {
 type ServerSecurityAlertPolicyArgs struct {
 	// Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
 	DisabledAlerts pulumi.StringArrayInput
-	// Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
-	EmailAccountAdmins pulumi.BoolPtrInput
+	// Are the alerts sent to the account administrators? Defaults to `false`.
+	EmailAccountAdminsEnabled pulumi.BoolPtrInput
 	// Specifies an array of email addresses to which the alert is sent.
 	EmailAddresses pulumi.StringArrayInput
 	// The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
@@ -375,9 +375,9 @@ func (o ServerSecurityAlertPolicyOutput) DisabledAlerts() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.StringArrayOutput { return v.DisabledAlerts }).(pulumi.StringArrayOutput)
 }
 
-// Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
-func (o ServerSecurityAlertPolicyOutput) EmailAccountAdmins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.BoolPtrOutput { return v.EmailAccountAdmins }).(pulumi.BoolPtrOutput)
+// Are the alerts sent to the account administrators? Defaults to `false`.
+func (o ServerSecurityAlertPolicyOutput) EmailAccountAdminsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServerSecurityAlertPolicy) pulumi.BoolPtrOutput { return v.EmailAccountAdminsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies an array of email addresses to which the alert is sent.

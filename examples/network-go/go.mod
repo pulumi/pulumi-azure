@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-azure/examples/network-go
 go 1.21
 
 require (
-	github.com/pulumi/pulumi-azure/sdk/v6 v6.0.0
+	github.com/pulumi/pulumi-azure/sdk/v7 v6.0.0
 	github.com/pulumi/pulumi/sdk/v3 v3.130.0
 )
 

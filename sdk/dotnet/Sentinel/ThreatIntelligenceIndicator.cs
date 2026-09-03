@@ -46,7 +46,7 @@ namespace Pulumi.Azure.Sentinel
     ///     {
     ///         WorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
     ///         PatternType = "domain-name",
-    ///         Pattern = "http://example.com",
+    ///         Pattern = "example.com",
     ///         Source = "Microsoft Sentinel",
     ///         ValidateFromUtc = "2022-12-14T16:00:00Z",
     ///         DisplayName = "example-indicator",
@@ -54,6 +54,15 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.OperationalInsights` - 2022-10-01-preview
+    /// 
+    /// * `Microsoft.SecurityInsights` - 2022-10-01-preview
     /// 
     /// ## Import
     /// 
@@ -91,13 +100,13 @@ namespace Pulumi.Azure.Sentinel
         public Output<bool> Defanged { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the Threat Intelligence Indicator.
+        /// The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The display name of the Threat Intelligence Indicator.
+        /// The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
@@ -217,7 +226,7 @@ namespace Pulumi.Azure.Sentinel
         public Output<ImmutableArray<string>> ThreatTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The start of validate date in RFC3339.
+        /// The start of validate date in RFC3339. Changing this forces a new resource to be created.
         /// </summary>
         [Output("validateFromUtc")]
         public Output<string> ValidateFromUtc { get; private set; } = null!;
@@ -226,7 +235,7 @@ namespace Pulumi.Azure.Sentinel
         /// The end of validate date of the Threat Intelligence Indicator in RFC3339 format.
         /// </summary>
         [Output("validateUntilUtc")]
-        public Output<string?> ValidateUntilUtc { get; private set; } = null!;
+        public Output<string> ValidateUntilUtc { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Log Analytics Workspace. Changing this forces a new Sentinel Threat Intelligence Indicator to be created.
@@ -293,13 +302,13 @@ namespace Pulumi.Azure.Sentinel
         public Input<string>? CreatedBy { get; set; }
 
         /// <summary>
-        /// The description of the Threat Intelligence Indicator.
+        /// The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The display name of the Threat Intelligence Indicator.
+        /// The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
@@ -419,7 +428,7 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// The start of validate date in RFC3339.
+        /// The start of validate date in RFC3339. Changing this forces a new resource to be created.
         /// </summary>
         [Input("validateFromUtc", required: true)]
         public Input<string> ValidateFromUtc { get; set; } = null!;
@@ -469,13 +478,13 @@ namespace Pulumi.Azure.Sentinel
         public Input<bool>? Defanged { get; set; }
 
         /// <summary>
-        /// The description of the Threat Intelligence Indicator.
+        /// The description of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The display name of the Threat Intelligence Indicator.
+        /// The display name of the Threat Intelligence Indicator. Changing this forces a new resource to be created.
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
@@ -643,7 +652,7 @@ namespace Pulumi.Azure.Sentinel
         }
 
         /// <summary>
-        /// The start of validate date in RFC3339.
+        /// The start of validate date in RFC3339. Changing this forces a new resource to be created.
         /// </summary>
         [Input("validateFromUtc")]
         public Input<string>? ValidateFromUtc { get; set; }

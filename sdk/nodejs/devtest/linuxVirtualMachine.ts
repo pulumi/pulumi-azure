@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *     username: "exampleuser99",
  *     sshKey: std.file({
  *         input: "~/.ssh/id_rsa.pub",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     labVirtualNetworkId: exampleVirtualNetwork.id,
  *     labSubnetName: exampleVirtualNetwork.subnet.name,
  *     storageType: "Premium",

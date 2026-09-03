@@ -21,7 +21,6 @@ public final class GetServiceHostnameConfigurationDeveloperPortal {
      * 
      */
     private String keyVaultCertificateId;
-    private String keyVaultId;
     /**
      * @return Is Client Certificate Negotiation enabled?
      * 
@@ -43,9 +42,6 @@ public final class GetServiceHostnameConfigurationDeveloperPortal {
     public String keyVaultCertificateId() {
         return this.keyVaultCertificateId;
     }
-    public String keyVaultId() {
-        return this.keyVaultId;
-    }
     /**
      * @return Is Client Certificate Negotiation enabled?
      * 
@@ -65,14 +61,12 @@ public final class GetServiceHostnameConfigurationDeveloperPortal {
     public static final class Builder {
         private String hostName;
         private String keyVaultCertificateId;
-        private String keyVaultId;
         private Boolean negotiateClientCertificate;
         public Builder() {}
         public Builder(GetServiceHostnameConfigurationDeveloperPortal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hostName = defaults.hostName;
     	      this.keyVaultCertificateId = defaults.keyVaultCertificateId;
-    	      this.keyVaultId = defaults.keyVaultId;
     	      this.negotiateClientCertificate = defaults.negotiateClientCertificate;
         }
 
@@ -93,14 +87,6 @@ public final class GetServiceHostnameConfigurationDeveloperPortal {
             return this;
         }
         @CustomType.Setter
-        public Builder keyVaultId(String keyVaultId) {
-            if (keyVaultId == null) {
-              throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationDeveloperPortal", "keyVaultId");
-            }
-            this.keyVaultId = keyVaultId;
-            return this;
-        }
-        @CustomType.Setter
         public Builder negotiateClientCertificate(Boolean negotiateClientCertificate) {
             if (negotiateClientCertificate == null) {
               throw new MissingRequiredPropertyException("GetServiceHostnameConfigurationDeveloperPortal", "negotiateClientCertificate");
@@ -112,7 +98,6 @@ public final class GetServiceHostnameConfigurationDeveloperPortal {
             final var _resultValue = new GetServiceHostnameConfigurationDeveloperPortal();
             _resultValue.hostName = hostName;
             _resultValue.keyVaultCertificateId = keyVaultCertificateId;
-            _resultValue.keyVaultId = keyVaultId;
             _resultValue.negotiateClientCertificate = negotiateClientCertificate;
             return _resultValue;
         }

@@ -259,7 +259,7 @@ class GlobalSchema(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example.name,
             type="xml",
-            value=std.file(input="api_management_api_schema.xml").result)
+            value=std.file(input="api_management_api_schema.xml")["result"])
         ```
 
         ## API Providers
@@ -318,7 +318,7 @@ class GlobalSchema(pulumi.CustomResource):
             api_management_name=example_service.name,
             resource_group_name=example.name,
             type="xml",
-            value=std.file(input="api_management_api_schema.xml").result)
+            value=std.file(input="api_management_api_schema.xml")["result"])
         ```
 
         ## API Providers

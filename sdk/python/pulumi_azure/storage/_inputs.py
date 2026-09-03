@@ -43,8 +43,6 @@ __all__ = [
     'AccountNetworkRulesPrivateLinkAccessArgsDict',
     'AccountNetworkRulesPrivateLinkAccessRuleArgs',
     'AccountNetworkRulesPrivateLinkAccessRuleArgsDict',
-    'AccountQueuePropertiesArgs',
-    'AccountQueuePropertiesArgsDict',
     'AccountQueuePropertiesCorsRuleArgs',
     'AccountQueuePropertiesCorsRuleArgsDict',
     'AccountQueuePropertiesHourMetricsArgs',
@@ -65,8 +63,6 @@ __all__ = [
     'AccountSharePropertiesRetentionPolicyArgsDict',
     'AccountSharePropertiesSmbArgs',
     'AccountSharePropertiesSmbArgsDict',
-    'AccountStaticWebsiteArgs',
-    'AccountStaticWebsiteArgsDict',
     'AccountTablePropertiesCorsRuleArgs',
     'AccountTablePropertiesCorsRuleArgsDict',
     'AccountTablePropertiesHourMetricsArgs',
@@ -821,38 +817,42 @@ class AccountCustomDomainArgs:
 
 
 class AccountCustomerManagedKeyArgsDict(TypedDict):
+    key_vault_key_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+    """
     user_assigned_identity_id: pulumi.Input[_builtins.str]
     """
     The ID of a user assigned identity.
 
     > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
     """
-    key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
-    """
-    managed_hsm_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class AccountCustomerManagedKeyArgs:
     def __init__(__self__, *,
-                 user_assigned_identity_id: pulumi.Input[_builtins.str],
-                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None):
+                 key_vault_key_id: pulumi.Input[_builtins.str],
+                 user_assigned_identity_id: pulumi.Input[_builtins.str]):
         """
+        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         :param pulumi.Input[_builtins.str] user_assigned_identity_id: The ID of a user assigned identity.
                
                > **Note:** `customer_managed_key` can only be set when the `account_kind` is set to `StorageV2` or `account_tier` set to `Premium`, and the identity type is `UserAssigned`.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
         """
+        pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         pulumi.set(__self__, "user_assigned_identity_id", user_assigned_identity_id)
-        if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        if managed_hsm_key_id is not None:
-            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="keyVaultKeyId")
+    def key_vault_key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+        """
+        return pulumi.get(self, "key_vault_key_id")
+
+    @key_vault_key_id.setter
+    def key_vault_key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_vault_key_id", value)
 
     @_builtins.property
     @pulumi.getter(name="userAssignedIdentityId")
@@ -867,28 +867,6 @@ class AccountCustomerManagedKeyArgs:
     @user_assigned_identity_id.setter
     def user_assigned_identity_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "user_assigned_identity_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
-        """
-        return pulumi.get(self, "key_vault_key_id")
-
-    @key_vault_key_id.setter
-    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "key_vault_key_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
 
 
 class AccountIdentityArgsDict(TypedDict):
@@ -1277,95 +1255,6 @@ class AccountNetworkRulesPrivateLinkAccessRuleArgs:
     @endpoint_tenant_id.setter
     def endpoint_tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "endpoint_tenant_id", value)
-
-
-class AccountQueuePropertiesArgsDict(TypedDict):
-    cors_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgsDict']]]]]
-    """
-    A `cors_rule` block as defined above.
-    """
-    hour_metrics: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgsDict']]]
-    """
-    A `hour_metrics` block as defined below.
-    """
-    logging: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesLoggingArgsDict']]]
-    """
-    A `logging` block as defined below.
-    """
-    minute_metrics: NotRequired[pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgsDict']]]
-    """
-    A `minute_metrics` block as defined below.
-    """
-
-@pulumi.input_type
-class AccountQueuePropertiesArgs:
-    def __init__(__self__, *,
-                 cors_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]] = None,
-                 hour_metrics: pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']] = None,
-                 logging: pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']] = None,
-                 minute_metrics: pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]] cors_rules: A `cors_rule` block as defined above.
-        :param pulumi.Input['AccountQueuePropertiesHourMetricsArgs'] hour_metrics: A `hour_metrics` block as defined below.
-        :param pulumi.Input['AccountQueuePropertiesLoggingArgs'] logging: A `logging` block as defined below.
-        :param pulumi.Input['AccountQueuePropertiesMinuteMetricsArgs'] minute_metrics: A `minute_metrics` block as defined below.
-        """
-        if cors_rules is not None:
-            pulumi.set(__self__, "cors_rules", cors_rules)
-        if hour_metrics is not None:
-            pulumi.set(__self__, "hour_metrics", hour_metrics)
-        if logging is not None:
-            pulumi.set(__self__, "logging", logging)
-        if minute_metrics is not None:
-            pulumi.set(__self__, "minute_metrics", minute_metrics)
-
-    @_builtins.property
-    @pulumi.getter(name="corsRules")
-    def cors_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]:
-        """
-        A `cors_rule` block as defined above.
-        """
-        return pulumi.get(self, "cors_rules")
-
-    @cors_rules.setter
-    def cors_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AccountQueuePropertiesCorsRuleArgs']]]]):
-        pulumi.set(self, "cors_rules", value)
-
-    @_builtins.property
-    @pulumi.getter(name="hourMetrics")
-    def hour_metrics(self) -> pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]:
-        """
-        A `hour_metrics` block as defined below.
-        """
-        return pulumi.get(self, "hour_metrics")
-
-    @hour_metrics.setter
-    def hour_metrics(self, value: pulumi.Input[Optional['AccountQueuePropertiesHourMetricsArgs']]):
-        pulumi.set(self, "hour_metrics", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def logging(self) -> pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]:
-        """
-        A `logging` block as defined below.
-        """
-        return pulumi.get(self, "logging")
-
-    @logging.setter
-    def logging(self, value: pulumi.Input[Optional['AccountQueuePropertiesLoggingArgs']]):
-        pulumi.set(self, "logging", value)
-
-    @_builtins.property
-    @pulumi.getter(name="minuteMetrics")
-    def minute_metrics(self) -> pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]:
-        """
-        A `minute_metrics` block as defined below.
-        """
-        return pulumi.get(self, "minute_metrics")
-
-    @minute_metrics.setter
-    def minute_metrics(self, value: pulumi.Input[Optional['AccountQueuePropertiesMinuteMetricsArgs']]):
-        pulumi.set(self, "minute_metrics", value)
 
 
 class AccountQueuePropertiesCorsRuleArgsDict(TypedDict):
@@ -2142,55 +2031,6 @@ class AccountSharePropertiesSmbArgs:
     @versions.setter
     def versions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "versions", value)
-
-
-class AccountStaticWebsiteArgsDict(TypedDict):
-    error404_document: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-    """
-    index_document: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
-    """
-
-@pulumi.input_type
-class AccountStaticWebsiteArgs:
-    def __init__(__self__, *,
-                 error404_document: pulumi.Input[Optional[_builtins.str]] = None,
-                 index_document: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] error404_document: The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-        :param pulumi.Input[_builtins.str] index_document: The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
-        """
-        if error404_document is not None:
-            pulumi.set(__self__, "error404_document", error404_document)
-        if index_document is not None:
-            pulumi.set(__self__, "index_document", index_document)
-
-    @_builtins.property
-    @pulumi.getter(name="error404Document")
-    def error404_document(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
-        """
-        return pulumi.get(self, "error404_document")
-
-    @error404_document.setter
-    def error404_document(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "error404_document", value)
-
-    @_builtins.property
-    @pulumi.getter(name="indexDocument")
-    def index_document(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive.
-        """
-        return pulumi.get(self, "index_document")
-
-    @index_document.setter
-    def index_document(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "index_document", value)
 
 
 class AccountTablePropertiesCorsRuleArgsDict(TypedDict):
@@ -4249,11 +4089,11 @@ class ShareAclAccessPolicyArgsDict(TypedDict):
     """
     expiry: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    The time at which this Access Policy should be valid until, in RFC3339 format.
     """
     start: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+    The time at which this Access Policy should be valid from, in RFC3339 format.
     """
 
 @pulumi.input_type
@@ -4266,8 +4106,8 @@ class ShareAclAccessPolicyArgs:
         :param pulumi.Input[_builtins.str] permissions: The permissions which should be associated with this Shared Identifier. Possible value is combination of `r` (read), `w` (write), `d` (delete), and `l` (list).
                
                > **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above.
-        :param pulumi.Input[_builtins.str] expiry: The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
-        :param pulumi.Input[_builtins.str] start: The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        :param pulumi.Input[_builtins.str] expiry: The time at which this Access Policy should be valid until, in RFC3339 format.
+        :param pulumi.Input[_builtins.str] start: The time at which this Access Policy should be valid from, in RFC3339 format.
         """
         pulumi.set(__self__, "permissions", permissions)
         if expiry is not None:
@@ -4293,7 +4133,7 @@ class ShareAclAccessPolicyArgs:
     @pulumi.getter
     def expiry(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time at which this Access Policy should be valid untilWhen using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy should be valid until, in RFC3339 format.
         """
         return pulumi.get(self, "expiry")
 
@@ -4305,7 +4145,7 @@ class ShareAclAccessPolicyArgs:
     @pulumi.getter
     def start(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time at which this Access Policy should be valid from. When using `storage_account_id` this should be in RFC3339 format. If using the deprecated `storage_account_name` property, this uses the [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format.
+        The time at which this Access Policy should be valid from, in RFC3339 format.
         """
         return pulumi.get(self, "start")
 

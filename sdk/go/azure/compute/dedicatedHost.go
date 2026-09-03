@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -82,7 +82,7 @@ type DedicatedHost struct {
 	AutoReplaceOnFailure pulumi.BoolPtrOutput `pulumi:"autoReplaceOnFailure"`
 	// Specifies the ID of the Dedicated Host Group where the Dedicated Host should exist. Changing this forces a new resource to be created.
 	DedicatedHostGroupId pulumi.StringOutput `pulumi:"dedicatedHostGroupId"`
-	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
 	LicenseType pulumi.StringPtrOutput `pulumi:"licenseType"`
 	// Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
@@ -139,7 +139,7 @@ type dedicatedHostState struct {
 	AutoReplaceOnFailure *bool `pulumi:"autoReplaceOnFailure"`
 	// Specifies the ID of the Dedicated Host Group where the Dedicated Host should exist. Changing this forces a new resource to be created.
 	DedicatedHostGroupId *string `pulumi:"dedicatedHostGroupId"`
-	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -158,7 +158,7 @@ type DedicatedHostState struct {
 	AutoReplaceOnFailure pulumi.BoolPtrInput
 	// Specifies the ID of the Dedicated Host Group where the Dedicated Host should exist. Changing this forces a new resource to be created.
 	DedicatedHostGroupId pulumi.StringPtrInput
-	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
 	LicenseType pulumi.StringPtrInput
 	// Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -181,7 +181,7 @@ type dedicatedHostArgs struct {
 	AutoReplaceOnFailure *bool `pulumi:"autoReplaceOnFailure"`
 	// Specifies the ID of the Dedicated Host Group where the Dedicated Host should exist. Changing this forces a new resource to be created.
 	DedicatedHostGroupId string `pulumi:"dedicatedHostGroupId"`
-	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
 	LicenseType *string `pulumi:"licenseType"`
 	// Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
@@ -201,7 +201,7 @@ type DedicatedHostArgs struct {
 	AutoReplaceOnFailure pulumi.BoolPtrInput
 	// Specifies the ID of the Dedicated Host Group where the Dedicated Host should exist. Changing this forces a new resource to be created.
 	DedicatedHostGroupId pulumi.StringInput
-	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+	// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
 	LicenseType pulumi.StringPtrInput
 	// Specify the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
@@ -312,7 +312,7 @@ func (o DedicatedHostOutput) DedicatedHostGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringOutput { return v.DedicatedHostGroupId }).(pulumi.StringOutput)
 }
 
-// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `None`, `Windows_Server_Hybrid` and `Windows_Server_Perpetual`. Defaults to `None`.
+// Specifies the software license type that will be applied to the VMs deployed on the Dedicated Host. Possible values are `Windows_Server_Hybrid` and `Windows_Server_Perpetual`.
 func (o DedicatedHostOutput) LicenseType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.LicenseType }).(pulumi.StringPtrOutput)
 }

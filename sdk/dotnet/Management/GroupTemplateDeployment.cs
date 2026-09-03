@@ -104,11 +104,11 @@ namespace Pulumi.Azure.Management
     ///         TemplateContent = Std.File.Invoke(new()
     ///         {
     ///             Input = "templates/example-deploy-template.json",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         ParametersContent = Std.File.Invoke(new()
     ///         {
     ///             Input = "templates/example-deploy-params.json",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });

@@ -14,6 +14,10 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
     public sealed class ClusterNetworkProfile
     {
         /// <summary>
+        /// A `LoadBalancerProfile` block as defined above. Only applicable when `OutboundType` is set to `Loadbalancer`.
+        /// </summary>
+        public readonly Outputs.ClusterNetworkProfileLoadBalancerProfile? LoadBalancerProfile;
+        /// <summary>
         /// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string? OutboundType;
@@ -32,6 +36,8 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
 
         [OutputConstructor]
         private ClusterNetworkProfile(
+            Outputs.ClusterNetworkProfileLoadBalancerProfile? loadBalancerProfile,
+
             string? outboundType,
 
             string podCidr,
@@ -40,6 +46,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
 
             string serviceCidr)
         {
+            LoadBalancerProfile = loadBalancerProfile;
             OutboundType = outboundType;
             PodCidr = podCidr;
             PreconfiguredNetworkSecurityGroupEnabled = preconfiguredNetworkSecurityGroupEnabled;

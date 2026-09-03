@@ -82,10 +82,10 @@ import * as utilities from "../utilities";
  *     managementGroupId: example.then(example => example.id),
  *     templateContent: std.file({
  *         input: "templates/example-deploy-template.json",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     parametersContent: std.file({
  *         input: "templates/example-deploy-params.json",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

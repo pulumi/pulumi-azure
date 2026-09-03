@@ -6,6 +6,7 @@ package com.pulumi.azure.managedapplication;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.managedapplication.ApplicationArgs;
 import com.pulumi.azure.managedapplication.inputs.ApplicationState;
+import com.pulumi.azure.managedapplication.outputs.ApplicationIdentity;
 import com.pulumi.azure.managedapplication.outputs.ApplicationPlan;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -37,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.managedapplication.DefinitionArgs;
  * import com.pulumi.azure.managedapplication.inputs.DefinitionAuthorizationArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.SplitArgs;
  * import com.pulumi.azure.managedapplication.Application;
  * import com.pulumi.azure.managedapplication.ApplicationArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
@@ -75,13 +75,13 @@ import javax.annotation.Nullable;
  *             .description("Test Managed App Definition")
  *             .authorizations(DefinitionAuthorizationArgs.builder()
  *                 .servicePrincipalId(current.objectId())
- *                 .roleDefinitionId(StdFunctions.split(SplitArgs.builder()
- *                     .separator("/")
- *                     .text(builtin.id())
- *                     .build()).result().size().applyValue(_length -> StdFunctions.split(SplitArgs.builder()
- *                     .separator("/")
- *                     .text(builtin.id())
- *                     .build()).result()[_length - 1]))
+ *                 .roleDefinitionId(StdFunctions.split(Map.ofEntries(
+ *                     Map.entry("separator", "/"),
+ *                     Map.entry("text", builtin.id())
+ *                 )).result()[StdFunctions.split(Map.ofEntries(
+ *                     Map.entry("separator", "/"),
+ *                     Map.entry("text", builtin.id())
+ *                 )).result().size() - 1])
  *                 .build())
  *             .build());
  * 
@@ -142,6 +142,20 @@ public class Application extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> applicationDefinitionId() {
         return Codegen.optional(this.applicationDefinitionId);
+    }
+    /**
+     * An `identity` block as defined below. Removing this block forces a new resource to be created.
+     * 
+     */
+    @Export(name="identity", refs={ApplicationIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ ApplicationIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below. Removing this block forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<ApplicationIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.

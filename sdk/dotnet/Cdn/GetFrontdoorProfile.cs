@@ -175,7 +175,7 @@ namespace Pulumi.Azure.Cdn
         /// <summary>
         /// An `Identity` block as defined below.
         /// </summary>
-        public readonly Outputs.GetFrontdoorProfileIdentityResult Identity;
+        public readonly ImmutableArray<Outputs.GetFrontdoorProfileIdentityResult> Identities;
         /// <summary>
         /// One or more `LogScrubbingRule` blocks as defined below.
         /// </summary>
@@ -203,7 +203,7 @@ namespace Pulumi.Azure.Cdn
         private GetFrontdoorProfileResult(
             string id,
 
-            Outputs.GetFrontdoorProfileIdentityResult identity,
+            ImmutableArray<Outputs.GetFrontdoorProfileIdentityResult> identities,
 
             ImmutableArray<Outputs.GetFrontdoorProfileLogScrubbingRuleResult> logScrubbingRules,
 
@@ -220,7 +220,7 @@ namespace Pulumi.Azure.Cdn
             ImmutableDictionary<string, string> tags)
         {
             Id = id;
-            Identity = identity;
+            Identities = identities;
             LogScrubbingRules = logScrubbingRules;
             Name = name;
             ResourceGroupName = resourceGroupName;

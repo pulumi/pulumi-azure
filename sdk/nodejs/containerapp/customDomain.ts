@@ -73,17 +73,17 @@ import * as utilities from "../utilities";
  *     containerAppEnvironmentId: exampleEnvironment.id,
  *     certificateBlob: std.filebase64({
  *         input: "path/to/certificate_file.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     certificatePassword: "$3cretSqu1rreL",
  * });
  * const exampleCustomDomain = new azure.containerapp.CustomDomain("example", {
- *     name: std.trimprefix({
- *         input: api.fqdn,
- *         prefix: "asuid.",
- *     }).then(invoke => std.trimsuffix({
- *         input: invoke.result,
+ *     name: std.trimsuffix({
+ *         input: std.trimprefix({
+ *             input: api.fqdn,
+ *             prefix: "asuid.",
+ *         }).result,
  *         suffix: ".",
- *     })).then(invoke => invoke.result),
+ *     }).result,
  *     containerAppId: exampleApp.id,
  *     containerAppEnvironmentCertificateId: exampleEnvironmentCertificate.id,
  *     certificateBindingType: "SniEnabled",
@@ -98,13 +98,13 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new azure.containerapp.CustomDomain("example", {
- *     name: std.trimprefix({
- *         input: api.fqdn,
- *         prefix: "asuid.",
- *     }).then(invoke => std.trimsuffix({
- *         input: invoke.result,
+ *     name: std.trimsuffix({
+ *         input: std.trimprefix({
+ *             input: api.fqdn,
+ *             prefix: "asuid.",
+ *         }).result,
  *         suffix: ".",
- *     })).then(invoke => invoke.result),
+ *     }).result,
  *     containerAppId: exampleAzurermContainerApp.id,
  * });
  * ```

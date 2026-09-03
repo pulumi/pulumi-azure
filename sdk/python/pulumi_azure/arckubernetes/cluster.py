@@ -369,7 +369,7 @@ class Cluster(pulumi.CustomResource):
             name="example-akcc",
             resource_group_name=example.name,
             location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
+            agent_public_key_certificate=std.filebase64(input="testdata/public.cer")["result"],
             identity={
                 "type": "SystemAssigned",
             },
@@ -430,7 +430,7 @@ class Cluster(pulumi.CustomResource):
             name="example-akcc",
             resource_group_name=example.name,
             location="West Europe",
-            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
+            agent_public_key_certificate=std.filebase64(input="testdata/public.cer")["result"],
             identity={
                 "type": "SystemAssigned",
             },

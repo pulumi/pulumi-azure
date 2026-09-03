@@ -146,29 +146,9 @@ export class CustomerManagedKey extends pulumi.CustomResource {
      */
     declare public readonly federatedIdentityClientId: pulumi.Output<string | undefined>;
     /**
-     * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly keyName: pulumi.Output<string>;
-    /**
-     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly keyVaultId: pulumi.Output<string>;
-    /**
      * The ID of the Key Vault Key.
      */
     declare public readonly keyVaultKeyId: pulumi.Output<string>;
-    /**
-     * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly keyVaultUri: pulumi.Output<string>;
-    /**
-     * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly keyVersion: pulumi.Output<string>;
-    /**
-     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    declare public readonly managedHsmKeyId: pulumi.Output<string>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
@@ -192,26 +172,19 @@ export class CustomerManagedKey extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CustomerManagedKeyState | undefined;
             resourceInputs["federatedIdentityClientId"] = state?.federatedIdentityClientId;
-            resourceInputs["keyName"] = state?.keyName;
-            resourceInputs["keyVaultId"] = state?.keyVaultId;
             resourceInputs["keyVaultKeyId"] = state?.keyVaultKeyId;
-            resourceInputs["keyVaultUri"] = state?.keyVaultUri;
-            resourceInputs["keyVersion"] = state?.keyVersion;
-            resourceInputs["managedHsmKeyId"] = state?.managedHsmKeyId;
             resourceInputs["storageAccountId"] = state?.storageAccountId;
             resourceInputs["userAssignedIdentityId"] = state?.userAssignedIdentityId;
         } else {
             const args = argsOrState as CustomerManagedKeyArgs | undefined;
+            if (args?.keyVaultKeyId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'keyVaultKeyId'");
+            }
             if (args?.storageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountId'");
             }
             resourceInputs["federatedIdentityClientId"] = args?.federatedIdentityClientId;
-            resourceInputs["keyName"] = args?.keyName;
-            resourceInputs["keyVaultId"] = args?.keyVaultId;
             resourceInputs["keyVaultKeyId"] = args?.keyVaultKeyId;
-            resourceInputs["keyVaultUri"] = args?.keyVaultUri;
-            resourceInputs["keyVersion"] = args?.keyVersion;
-            resourceInputs["managedHsmKeyId"] = args?.managedHsmKeyId;
             resourceInputs["storageAccountId"] = args?.storageAccountId;
             resourceInputs["userAssignedIdentityId"] = args?.userAssignedIdentityId;
         }
@@ -229,29 +202,9 @@ export interface CustomerManagedKeyState {
      */
     federatedIdentityClientId?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    keyName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    keyVaultId?: pulumi.Input<string | undefined>;
-    /**
      * The ID of the Key Vault Key.
      */
     keyVaultKeyId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    keyVaultUri?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    keyVersion?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    managedHsmKeyId?: pulumi.Input<string | undefined>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */
@@ -271,29 +224,9 @@ export interface CustomerManagedKeyArgs {
      */
     federatedIdentityClientId?: pulumi.Input<string | undefined>;
     /**
-     * @deprecated `keyName` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    keyName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `keyVaultId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    keyVaultId?: pulumi.Input<string | undefined>;
-    /**
      * The ID of the Key Vault Key.
      */
-    keyVaultKeyId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `keyVaultUri` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    keyVaultUri?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `keyVersion` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    keyVersion?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `managedHsmKeyId` has been deprecated in favour of `keyVaultKeyId` and will be removed in v5.0 of the AzureRM provider
-     */
-    managedHsmKeyId?: pulumi.Input<string | undefined>;
+    keyVaultKeyId: pulumi.Input<string>;
     /**
      * The ID of the Storage Account. Changing this forces a new resource to be created.
      */

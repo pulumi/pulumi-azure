@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -35,9 +35,9 @@ import (
 //				return err
 //			}
 //			ctx.Export("id", example.Id)
-//			ctx.Export("exampleOutput", pulumi.Any(std.Jsondecode(ctx, &std.JsondecodeArgs{
-//				Input: example.OutputContent,
-//			}, nil).Result.ExampleOutput.Value))
+//			ctx.Export("exampleOutput", std.Jsondecode(ctx, map[string]interface{}{
+//				"input": example.OutputContent,
+//			}, nil).Result.ExampleOutput.Value.(pulumi.AnyOutput))
 //			return nil
 //		})
 //	}

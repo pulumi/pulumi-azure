@@ -92,34 +92,35 @@ import javax.annotation.Nullable;
  *             .name("example-hdicluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .clusterVersion("3.6")
+ *             .clusterVersion("5.1")
  *             .tier("Standard")
+ *             .tlsMinVersion("1.2")
  *             .componentVersion(HadoopClusterComponentVersionArgs.builder()
- *                 .hadoop("2.7")
+ *                 .hadoop("3.3")
  *                 .build())
  *             .gateway(HadoopClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
  *                 .password("PAssword123!")
  *                 .build())
  *             .storageAccounts(HadoopClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
+ *                 .storageContainerUrl(exampleContainer.url())
  *                 .storageAccountKey(exampleAccount.primaryAccessKey())
  *                 .isDefault(true)
  *                 .build())
  *             .roles(HadoopClusterRolesArgs.builder()
  *                 .headNode(HadoopClusterRolesHeadNodeArgs.builder()
- *                     .vmSize("Standard_D3_V2")
+ *                     .vmSize("Standard_A4_V2")
  *                     .username("acctestusrvm")
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
  *                 .workerNode(HadoopClusterRolesWorkerNodeArgs.builder()
- *                     .vmSize("Standard_D4_V2")
+ *                     .vmSize("Standard_A4_V2")
  *                     .username("acctestusrvm")
  *                     .password("AccTestvdSC4daf986!")
  *                     .targetInstanceCount(3)
  *                     .build())
  *                 .zookeeperNode(HadoopClusterRolesZookeeperNodeArgs.builder()
- *                     .vmSize("Standard_D3_V2")
+ *                     .vmSize("Standard_A4_V2")
  *                     .username("acctestusrvm")
  *                     .password("AccTestvdSC4daf986!")
  *                     .build())
@@ -446,20 +447,16 @@ public class HadoopCluster extends com.pulumi.resources.CustomResource {
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-     * 
      */
     @Export(name="tlsMinVersion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tlsMinVersion;
+    private Output<String> tlsMinVersion;
 
     /**
      * @return The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-     * 
      */
-    public Output<Optional<String>> tlsMinVersion() {
-        return Codegen.optional(this.tlsMinVersion);
+    public Output<String> tlsMinVersion() {
+        return this.tlsMinVersion;
     }
 
     /**

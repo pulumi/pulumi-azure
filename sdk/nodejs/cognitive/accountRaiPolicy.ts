@@ -92,7 +92,7 @@ export class AccountRaiPolicy extends pulumi.CustomResource {
      */
     declare public readonly cognitiveAccountId: pulumi.Output<string>;
     /**
-     * A `contentFilter` block as defined below.
+     * One or more `contentFilter` blocks as defined below.
      */
     declare public readonly contentFilters: pulumi.Output<outputs.cognitive.AccountRaiPolicyContentFilter[]>;
     /**
@@ -163,7 +163,7 @@ export interface AccountRaiPolicyState {
      */
     cognitiveAccountId?: pulumi.Input<string | undefined>;
     /**
-     * A `contentFilter` block as defined below.
+     * One or more `contentFilter` blocks as defined below.
      */
     contentFilters?: pulumi.Input<pulumi.Input<inputs.cognitive.AccountRaiPolicyContentFilter>[] | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface AccountRaiPolicyArgs {
      */
     cognitiveAccountId: pulumi.Input<string>;
     /**
-     * A `contentFilter` block as defined below.
+     * One or more `contentFilter` blocks as defined below.
      */
     contentFilters: pulumi.Input<pulumi.Input<inputs.cognitive.AccountRaiPolicyContentFilter>[]>;
     /**

@@ -92,17 +92,18 @@ import javax.annotation.Nullable;
  *             .name("example-hdicluster")
  *             .resourceGroupName(example.name())
  *             .location(example.location())
- *             .clusterVersion("3.6")
+ *             .clusterVersion("5.1")
  *             .tier("Standard")
+ *             .tlsMinVersion("1.2")
  *             .componentVersion(HBaseClusterComponentVersionArgs.builder()
- *                 .hbase("1.1")
+ *                 .hbase("2.4")
  *                 .build())
  *             .gateway(HBaseClusterGatewayArgs.builder()
  *                 .username("acctestusrgw")
  *                 .password("Password123!")
  *                 .build())
  *             .storageAccounts(HBaseClusterStorageAccountArgs.builder()
- *                 .storageContainerId(exampleContainer.id())
+ *                 .storageContainerUrl(exampleContainer.url())
  *                 .storageAccountKey(exampleAccount.primaryAccessKey())
  *                 .isDefault(true)
  *                 .build())
@@ -446,20 +447,16 @@ public class HBaseCluster extends com.pulumi.resources.CustomResource {
     /**
      * The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-     * 
      */
     @Export(name="tlsMinVersion", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> tlsMinVersion;
+    private Output<String> tlsMinVersion;
 
     /**
      * @return The minimal supported TLS version. Possible values are 1.0, 1.1 or 1.2. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
-     * 
      */
-    public Output<Optional<String>> tlsMinVersion() {
-        return Codegen.optional(this.tlsMinVersion);
+    public Output<String> tlsMinVersion() {
+        return this.tlsMinVersion;
     }
 
     /**

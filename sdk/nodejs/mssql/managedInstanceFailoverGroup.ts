@@ -39,8 +39,7 @@ import * as utilities from "../utilities";
  * });
  * const primaryZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("primary", {
  *     name: "primary-link",
- *     resourceGroupName: primary.name,
- *     privateDnsZoneName: exampleZone.name,
+ *     privateDnsZoneId: exampleZone.id,
  *     virtualNetworkId: primaryVirtualNetwork.id,
  * });
  * const primarySubnet = new azure.network.Subnet("primary", {
@@ -108,8 +107,7 @@ import * as utilities from "../utilities";
  * });
  * const failoverZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("failover", {
  *     name: "failover-link",
- *     resourceGroupName: exampleZone.resourceGroupName,
- *     privateDnsZoneName: exampleZone.name,
+ *     privateDnsZoneId: exampleZone.id,
  *     virtualNetworkId: failoverVirtualNetwork.id,
  * });
  * const failoverSubnet = new azure.network.Subnet("failover", {

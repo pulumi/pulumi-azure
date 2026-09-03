@@ -4,7 +4,7 @@
 package com.pulumi.azure.siterecovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,17 +22,8 @@ public final class ProtectionContainerMappingAutomaticUpdate {
     /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
-     * 
      */
-    private @Nullable String automationAccountId;
-    /**
-     * @return Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-     * 
-     * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-     * 
-     */
-    private @Nullable Boolean enabled;
+    private String automationAccountId;
 
     private ProtectionContainerMappingAutomaticUpdate() {}
     /**
@@ -47,20 +38,9 @@ public final class ProtectionContainerMappingAutomaticUpdate {
     /**
      * @return The automation account ID which holds the automatic update runbook and authenticates to Azure resources.
      * 
-     * &gt; **Note:** `automationAccountId` is required when `enabled` is specified.
-     * 
      */
-    public Optional<String> automationAccountId() {
-        return Optional.ofNullable(this.automationAccountId);
-    }
-    /**
-     * @return Should the Mobility service installed on Azure virtual machines be automatically updated. Defaults to `false`.
-     * 
-     * &gt; **Note:** The setting applies to all Azure VMs protected in the same container. For more details see [this document](https://learn.microsoft.com/en-us/azure/site-recovery/azure-to-azure-autoupdate#enable-automatic-updates)
-     * 
-     */
-    public Optional<Boolean> enabled() {
-        return Optional.ofNullable(this.enabled);
+    public String automationAccountId() {
+        return this.automationAccountId;
     }
 
     public static Builder builder() {
@@ -73,14 +53,12 @@ public final class ProtectionContainerMappingAutomaticUpdate {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String authenticationType;
-        private @Nullable String automationAccountId;
-        private @Nullable Boolean enabled;
+        private String automationAccountId;
         public Builder() {}
         public Builder(ProtectionContainerMappingAutomaticUpdate defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.authenticationType = defaults.authenticationType;
     	      this.automationAccountId = defaults.automationAccountId;
-    	      this.enabled = defaults.enabled;
         }
 
         @CustomType.Setter
@@ -90,22 +68,17 @@ public final class ProtectionContainerMappingAutomaticUpdate {
             return this;
         }
         @CustomType.Setter
-        public Builder automationAccountId(@Nullable String automationAccountId) {
-
+        public Builder automationAccountId(String automationAccountId) {
+            if (automationAccountId == null) {
+              throw new MissingRequiredPropertyException("ProtectionContainerMappingAutomaticUpdate", "automationAccountId");
+            }
             this.automationAccountId = automationAccountId;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enabled(@Nullable Boolean enabled) {
-
-            this.enabled = enabled;
             return this;
         }
         public ProtectionContainerMappingAutomaticUpdate build() {
             final var _resultValue = new ProtectionContainerMappingAutomaticUpdate();
             _resultValue.authenticationType = authenticationType;
             _resultValue.automationAccountId = automationAccountId;
-            _resultValue.enabled = enabled;
             return _resultValue;
         }
     }

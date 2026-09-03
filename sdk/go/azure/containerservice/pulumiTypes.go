@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -7431,7 +7431,7 @@ type KubernetesClusterAciConnectorLinux struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -7484,7 +7484,7 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// package main
 	//
 	// import (
-	// 	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+	// 	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	// )
 	//
@@ -7608,7 +7608,7 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -7685,7 +7685,7 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -9902,8 +9902,6 @@ type KubernetesClusterDefaultNodePoolKubeletConfig struct {
 	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
 	// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
 	ContainerLogMaxFiles *int `pulumi:"containerLogMaxFiles"`
-	// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-	ContainerLogMaxLine *int `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb *int `pulumi:"containerLogMaxSizeMb"`
 	// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
@@ -9938,8 +9936,6 @@ type KubernetesClusterDefaultNodePoolKubeletConfigArgs struct {
 	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
 	// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
 	ContainerLogMaxFiles pulumi.IntPtrInput `pulumi:"containerLogMaxFiles"`
-	// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-	ContainerLogMaxLine pulumi.IntPtrInput `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMb"`
 	// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
@@ -10045,11 +10041,6 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxFile
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxFiles }).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxLine }).(pulumi.IntPtrOutput)
-}
-
 // Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 func (o KubernetesClusterDefaultNodePoolKubeletConfigOutput) ContainerLogMaxSizeMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolKubeletConfig) *int { return v.ContainerLogMaxSizeMb }).(pulumi.IntPtrOutput)
@@ -10131,16 +10122,6 @@ func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxF
 			return nil
 		}
 		return v.ContainerLogMaxFiles
-	}).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-func (o KubernetesClusterDefaultNodePoolKubeletConfigPtrOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolKubeletConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerLogMaxLine
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -10233,8 +10214,6 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfig struct {
 	TransparentHugePage *string `pulumi:"transparentHugePage"`
 	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
-	// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
 }
 
 // KubernetesClusterDefaultNodePoolLinuxOsConfigInput is an input type that accepts KubernetesClusterDefaultNodePoolLinuxOsConfigArgs and KubernetesClusterDefaultNodePoolLinuxOsConfigOutput values.
@@ -10257,8 +10236,6 @@ type KubernetesClusterDefaultNodePoolLinuxOsConfigArgs struct {
 	TransparentHugePage pulumi.StringPtrInput `pulumi:"transparentHugePage"`
 	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
-	// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
 }
 
 func (KubernetesClusterDefaultNodePoolLinuxOsConfigArgs) ElementType() reflect.Type {
@@ -10360,11 +10337,6 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) TransparentHugePage
 	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-func (o KubernetesClusterDefaultNodePoolLinuxOsConfigOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolLinuxOsConfig) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
-}
-
 type KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) ElementType() reflect.Type {
@@ -10426,16 +10398,6 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugeP
 			return nil
 		}
 		return v.TransparentHugePageDefrag
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-func (o KubernetesClusterDefaultNodePoolLinuxOsConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolLinuxOsConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TransparentHugePageEnabled
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16674,8 +16636,6 @@ type KubernetesClusterNodePoolKubeletConfig struct {
 	AllowedUnsafeSysctls []string `pulumi:"allowedUnsafeSysctls"`
 	// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
 	ContainerLogMaxFiles *int `pulumi:"containerLogMaxFiles"`
-	// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-	ContainerLogMaxLine *int `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb *int `pulumi:"containerLogMaxSizeMb"`
 	// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
@@ -16710,8 +16670,6 @@ type KubernetesClusterNodePoolKubeletConfigArgs struct {
 	AllowedUnsafeSysctls pulumi.StringArrayInput `pulumi:"allowedUnsafeSysctls"`
 	// Specifies the maximum number of container log files that can be present for a container. Must be at least 2.
 	ContainerLogMaxFiles pulumi.IntPtrInput `pulumi:"containerLogMaxFiles"`
-	// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-	ContainerLogMaxLine pulumi.IntPtrInput `pulumi:"containerLogMaxLine"`
 	// Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 	ContainerLogMaxSizeMb pulumi.IntPtrInput `pulumi:"containerLogMaxSizeMb"`
 	// Is CPU CFS quota enforcement for containers enabled? Defaults to `true`.
@@ -16817,11 +16775,6 @@ func (o KubernetesClusterNodePoolKubeletConfigOutput) ContainerLogMaxFiles() pul
 	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ContainerLogMaxFiles }).(pulumi.IntPtrOutput)
 }
 
-// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-func (o KubernetesClusterNodePoolKubeletConfigOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ContainerLogMaxLine }).(pulumi.IntPtrOutput)
-}
-
 // Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
 func (o KubernetesClusterNodePoolKubeletConfigOutput) ContainerLogMaxSizeMb() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterNodePoolKubeletConfig) *int { return v.ContainerLogMaxSizeMb }).(pulumi.IntPtrOutput)
@@ -16903,16 +16856,6 @@ func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ContainerLogMaxFiles() 
 			return nil
 		}
 		return v.ContainerLogMaxFiles
-	}).(pulumi.IntPtrOutput)
-}
-
-// Deprecated: `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-func (o KubernetesClusterNodePoolKubeletConfigPtrOutput) ContainerLogMaxLine() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePoolKubeletConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ContainerLogMaxLine
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -17005,8 +16948,6 @@ type KubernetesClusterNodePoolLinuxOsConfig struct {
 	TransparentHugePage *string `pulumi:"transparentHugePage"`
 	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag *string `pulumi:"transparentHugePageDefrag"`
-	// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-	TransparentHugePageEnabled *string `pulumi:"transparentHugePageEnabled"`
 }
 
 // KubernetesClusterNodePoolLinuxOsConfigInput is an input type that accepts KubernetesClusterNodePoolLinuxOsConfigArgs and KubernetesClusterNodePoolLinuxOsConfigOutput values.
@@ -17029,8 +16970,6 @@ type KubernetesClusterNodePoolLinuxOsConfigArgs struct {
 	TransparentHugePage pulumi.StringPtrInput `pulumi:"transparentHugePage"`
 	// specifies the defrag configuration for Transparent Huge Page. Possible values are `always`, `defer`, `defer+madvise`, `madvise` and `never`.
 	TransparentHugePageDefrag pulumi.StringPtrInput `pulumi:"transparentHugePageDefrag"`
-	// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-	TransparentHugePageEnabled pulumi.StringPtrInput `pulumi:"transparentHugePageEnabled"`
 }
 
 func (KubernetesClusterNodePoolLinuxOsConfigArgs) ElementType() reflect.Type {
@@ -17132,11 +17071,6 @@ func (o KubernetesClusterNodePoolLinuxOsConfigOutput) TransparentHugePageDefrag(
 	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *string { return v.TransparentHugePageDefrag }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-func (o KubernetesClusterNodePoolLinuxOsConfigOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesClusterNodePoolLinuxOsConfig) *string { return v.TransparentHugePageEnabled }).(pulumi.StringPtrOutput)
-}
-
 type KubernetesClusterNodePoolLinuxOsConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterNodePoolLinuxOsConfigPtrOutput) ElementType() reflect.Type {
@@ -17198,16 +17132,6 @@ func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) TransparentHugePageDefr
 			return nil
 		}
 		return v.TransparentHugePageDefrag
-	}).(pulumi.StringPtrOutput)
-}
-
-// Deprecated: this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-func (o KubernetesClusterNodePoolLinuxOsConfigPtrOutput) TransparentHugePageEnabled() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesClusterNodePoolLinuxOsConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TransparentHugePageEnabled
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -18707,6 +18631,8 @@ type KubernetesClusterOmsAgent struct {
 	MsiAuthForMonitoringEnabled *bool `pulumi:"msiAuthForMonitoringEnabled"`
 	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 	OmsAgentIdentities []KubernetesClusterOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
+	// Is Retina Flow Logs collection enabled?
+	RetinaFlowLogsEnabled *bool `pulumi:"retinaFlowLogsEnabled"`
 }
 
 // KubernetesClusterOmsAgentInput is an input type that accepts KubernetesClusterOmsAgentArgs and KubernetesClusterOmsAgentOutput values.
@@ -18727,6 +18653,8 @@ type KubernetesClusterOmsAgentArgs struct {
 	MsiAuthForMonitoringEnabled pulumi.BoolPtrInput `pulumi:"msiAuthForMonitoringEnabled"`
 	// An `omsAgentIdentity` block is exported. The exported attributes are defined below.
 	OmsAgentIdentities KubernetesClusterOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
+	// Is Retina Flow Logs collection enabled?
+	RetinaFlowLogsEnabled pulumi.BoolPtrInput `pulumi:"retinaFlowLogsEnabled"`
 }
 
 func (KubernetesClusterOmsAgentArgs) ElementType() reflect.Type {
@@ -18823,6 +18751,11 @@ func (o KubernetesClusterOmsAgentOutput) OmsAgentIdentities() KubernetesClusterO
 	}).(KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput)
 }
 
+// Is Retina Flow Logs collection enabled?
+func (o KubernetesClusterOmsAgentOutput) RetinaFlowLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterOmsAgent) *bool { return v.RetinaFlowLogsEnabled }).(pulumi.BoolPtrOutput)
+}
+
 type KubernetesClusterOmsAgentPtrOutput struct{ *pulumi.OutputState }
 
 func (KubernetesClusterOmsAgentPtrOutput) ElementType() reflect.Type {
@@ -18875,6 +18808,16 @@ func (o KubernetesClusterOmsAgentPtrOutput) OmsAgentIdentities() KubernetesClust
 		}
 		return v.OmsAgentIdentities
 	}).(KubernetesClusterOmsAgentOmsAgentIdentityArrayOutput)
+}
+
+// Is Retina Flow Logs collection enabled?
+func (o KubernetesClusterOmsAgentPtrOutput) RetinaFlowLogsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesClusterOmsAgent) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RetinaFlowLogsEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type KubernetesClusterOmsAgentOmsAgentIdentity struct {
@@ -21431,10 +21374,10 @@ func (o RegistryEncryptionPtrOutput) KeyVaultKeyId() pulumi.StringPtrOutput {
 }
 
 type RegistryGeoreplication struct {
+	// Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+	GlobalEndpointRoutingEnabled bool `pulumi:"globalEndpointRoutingEnabled"`
 	// A location where the container registry should be geo-replicated.
 	Location string `pulumi:"location"`
-	// Whether regional endpoint is enabled for this Container Registry?
-	RegionalEndpointEnabled *bool `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
@@ -21455,10 +21398,10 @@ type RegistryGeoreplicationInput interface {
 }
 
 type RegistryGeoreplicationArgs struct {
+	// Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+	GlobalEndpointRoutingEnabled pulumi.BoolInput `pulumi:"globalEndpointRoutingEnabled"`
 	// A location where the container registry should be geo-replicated.
 	Location pulumi.StringInput `pulumi:"location"`
-	// Whether regional endpoint is enabled for this Container Registry?
-	RegionalEndpointEnabled pulumi.BoolPtrInput `pulumi:"regionalEndpointEnabled"`
 	// A mapping of tags to assign to this replication location.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Whether zone redundancy is enabled for this replication location? Defaults to `false`.
@@ -21518,14 +21461,14 @@ func (o RegistryGeoreplicationOutput) ToRegistryGeoreplicationOutputWithContext(
 	return o
 }
 
+// Whether this geo-replicated location participates in global endpoint routing for the Container Registry's geo-replicated login server.
+func (o RegistryGeoreplicationOutput) GlobalEndpointRoutingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v RegistryGeoreplication) bool { return v.GlobalEndpointRoutingEnabled }).(pulumi.BoolOutput)
+}
+
 // A location where the container registry should be geo-replicated.
 func (o RegistryGeoreplicationOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v RegistryGeoreplication) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Whether regional endpoint is enabled for this Container Registry?
-func (o RegistryGeoreplicationOutput) RegionalEndpointEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v RegistryGeoreplication) *bool { return v.RegionalEndpointEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // A mapping of tags to assign to this replication location.
@@ -24728,6 +24671,1216 @@ func (o TokenPasswordPassword2PtrOutput) Value() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetAutomaticClusterApiServerAccess struct {
+	// A list of IP ranges authorised to access the API server.
+	AuthorizedIpRanges []string `pulumi:"authorizedIpRanges"`
+	// The ID of the subnet that the API server is accessible from.
+	SubnetId string `pulumi:"subnetId"`
+}
+
+// GetAutomaticClusterApiServerAccessInput is an input type that accepts GetAutomaticClusterApiServerAccessArgs and GetAutomaticClusterApiServerAccessOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterApiServerAccessInput` via:
+//
+//	GetAutomaticClusterApiServerAccessArgs{...}
+type GetAutomaticClusterApiServerAccessInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterApiServerAccessOutput() GetAutomaticClusterApiServerAccessOutput
+	ToGetAutomaticClusterApiServerAccessOutputWithContext(context.Context) GetAutomaticClusterApiServerAccessOutput
+}
+
+type GetAutomaticClusterApiServerAccessArgs struct {
+	// A list of IP ranges authorised to access the API server.
+	AuthorizedIpRanges pulumi.StringArrayInput `pulumi:"authorizedIpRanges"`
+	// The ID of the subnet that the API server is accessible from.
+	SubnetId pulumi.StringInput `pulumi:"subnetId"`
+}
+
+func (GetAutomaticClusterApiServerAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterApiServerAccess)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterApiServerAccessArgs) ToGetAutomaticClusterApiServerAccessOutput() GetAutomaticClusterApiServerAccessOutput {
+	return i.ToGetAutomaticClusterApiServerAccessOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterApiServerAccessArgs) ToGetAutomaticClusterApiServerAccessOutputWithContext(ctx context.Context) GetAutomaticClusterApiServerAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterApiServerAccessOutput)
+}
+
+// GetAutomaticClusterApiServerAccessArrayInput is an input type that accepts GetAutomaticClusterApiServerAccessArray and GetAutomaticClusterApiServerAccessArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterApiServerAccessArrayInput` via:
+//
+//	GetAutomaticClusterApiServerAccessArray{ GetAutomaticClusterApiServerAccessArgs{...} }
+type GetAutomaticClusterApiServerAccessArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterApiServerAccessArrayOutput() GetAutomaticClusterApiServerAccessArrayOutput
+	ToGetAutomaticClusterApiServerAccessArrayOutputWithContext(context.Context) GetAutomaticClusterApiServerAccessArrayOutput
+}
+
+type GetAutomaticClusterApiServerAccessArray []GetAutomaticClusterApiServerAccessInput
+
+func (GetAutomaticClusterApiServerAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterApiServerAccess)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterApiServerAccessArray) ToGetAutomaticClusterApiServerAccessArrayOutput() GetAutomaticClusterApiServerAccessArrayOutput {
+	return i.ToGetAutomaticClusterApiServerAccessArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterApiServerAccessArray) ToGetAutomaticClusterApiServerAccessArrayOutputWithContext(ctx context.Context) GetAutomaticClusterApiServerAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterApiServerAccessArrayOutput)
+}
+
+type GetAutomaticClusterApiServerAccessOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterApiServerAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterApiServerAccess)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterApiServerAccessOutput) ToGetAutomaticClusterApiServerAccessOutput() GetAutomaticClusterApiServerAccessOutput {
+	return o
+}
+
+func (o GetAutomaticClusterApiServerAccessOutput) ToGetAutomaticClusterApiServerAccessOutputWithContext(ctx context.Context) GetAutomaticClusterApiServerAccessOutput {
+	return o
+}
+
+// A list of IP ranges authorised to access the API server.
+func (o GetAutomaticClusterApiServerAccessOutput) AuthorizedIpRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAutomaticClusterApiServerAccess) []string { return v.AuthorizedIpRanges }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnet that the API server is accessible from.
+func (o GetAutomaticClusterApiServerAccessOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterApiServerAccess) string { return v.SubnetId }).(pulumi.StringOutput)
+}
+
+type GetAutomaticClusterApiServerAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterApiServerAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterApiServerAccess)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterApiServerAccessArrayOutput) ToGetAutomaticClusterApiServerAccessArrayOutput() GetAutomaticClusterApiServerAccessArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterApiServerAccessArrayOutput) ToGetAutomaticClusterApiServerAccessArrayOutputWithContext(ctx context.Context) GetAutomaticClusterApiServerAccessArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterApiServerAccessArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterApiServerAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterApiServerAccess {
+		return vs[0].([]GetAutomaticClusterApiServerAccess)[vs[1].(int)]
+	}).(GetAutomaticClusterApiServerAccessOutput)
+}
+
+type GetAutomaticClusterHostedSystem struct {
+	// The ID of the subnet used for the hosted system nodes.
+	NodeSubnetId string `pulumi:"nodeSubnetId"`
+	// The ID of the subnet used for the system nodes.
+	SystemNodeSubnetId string `pulumi:"systemNodeSubnetId"`
+}
+
+// GetAutomaticClusterHostedSystemInput is an input type that accepts GetAutomaticClusterHostedSystemArgs and GetAutomaticClusterHostedSystemOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterHostedSystemInput` via:
+//
+//	GetAutomaticClusterHostedSystemArgs{...}
+type GetAutomaticClusterHostedSystemInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterHostedSystemOutput() GetAutomaticClusterHostedSystemOutput
+	ToGetAutomaticClusterHostedSystemOutputWithContext(context.Context) GetAutomaticClusterHostedSystemOutput
+}
+
+type GetAutomaticClusterHostedSystemArgs struct {
+	// The ID of the subnet used for the hosted system nodes.
+	NodeSubnetId pulumi.StringInput `pulumi:"nodeSubnetId"`
+	// The ID of the subnet used for the system nodes.
+	SystemNodeSubnetId pulumi.StringInput `pulumi:"systemNodeSubnetId"`
+}
+
+func (GetAutomaticClusterHostedSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterHostedSystem)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterHostedSystemArgs) ToGetAutomaticClusterHostedSystemOutput() GetAutomaticClusterHostedSystemOutput {
+	return i.ToGetAutomaticClusterHostedSystemOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterHostedSystemArgs) ToGetAutomaticClusterHostedSystemOutputWithContext(ctx context.Context) GetAutomaticClusterHostedSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterHostedSystemOutput)
+}
+
+// GetAutomaticClusterHostedSystemArrayInput is an input type that accepts GetAutomaticClusterHostedSystemArray and GetAutomaticClusterHostedSystemArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterHostedSystemArrayInput` via:
+//
+//	GetAutomaticClusterHostedSystemArray{ GetAutomaticClusterHostedSystemArgs{...} }
+type GetAutomaticClusterHostedSystemArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterHostedSystemArrayOutput() GetAutomaticClusterHostedSystemArrayOutput
+	ToGetAutomaticClusterHostedSystemArrayOutputWithContext(context.Context) GetAutomaticClusterHostedSystemArrayOutput
+}
+
+type GetAutomaticClusterHostedSystemArray []GetAutomaticClusterHostedSystemInput
+
+func (GetAutomaticClusterHostedSystemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterHostedSystem)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterHostedSystemArray) ToGetAutomaticClusterHostedSystemArrayOutput() GetAutomaticClusterHostedSystemArrayOutput {
+	return i.ToGetAutomaticClusterHostedSystemArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterHostedSystemArray) ToGetAutomaticClusterHostedSystemArrayOutputWithContext(ctx context.Context) GetAutomaticClusterHostedSystemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterHostedSystemArrayOutput)
+}
+
+type GetAutomaticClusterHostedSystemOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterHostedSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterHostedSystem)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterHostedSystemOutput) ToGetAutomaticClusterHostedSystemOutput() GetAutomaticClusterHostedSystemOutput {
+	return o
+}
+
+func (o GetAutomaticClusterHostedSystemOutput) ToGetAutomaticClusterHostedSystemOutputWithContext(ctx context.Context) GetAutomaticClusterHostedSystemOutput {
+	return o
+}
+
+// The ID of the subnet used for the hosted system nodes.
+func (o GetAutomaticClusterHostedSystemOutput) NodeSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterHostedSystem) string { return v.NodeSubnetId }).(pulumi.StringOutput)
+}
+
+// The ID of the subnet used for the system nodes.
+func (o GetAutomaticClusterHostedSystemOutput) SystemNodeSubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterHostedSystem) string { return v.SystemNodeSubnetId }).(pulumi.StringOutput)
+}
+
+type GetAutomaticClusterHostedSystemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterHostedSystemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterHostedSystem)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterHostedSystemArrayOutput) ToGetAutomaticClusterHostedSystemArrayOutput() GetAutomaticClusterHostedSystemArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterHostedSystemArrayOutput) ToGetAutomaticClusterHostedSystemArrayOutputWithContext(ctx context.Context) GetAutomaticClusterHostedSystemArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterHostedSystemArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterHostedSystemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterHostedSystem {
+		return vs[0].([]GetAutomaticClusterHostedSystem)[vs[1].(int)]
+	}).(GetAutomaticClusterHostedSystemOutput)
+}
+
+type GetAutomaticClusterIdentity struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Managed Kubernetes Automatic Cluster.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+	TenantId string `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+	Type string `pulumi:"type"`
+}
+
+// GetAutomaticClusterIdentityInput is an input type that accepts GetAutomaticClusterIdentityArgs and GetAutomaticClusterIdentityOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterIdentityInput` via:
+//
+//	GetAutomaticClusterIdentityArgs{...}
+type GetAutomaticClusterIdentityInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterIdentityOutput() GetAutomaticClusterIdentityOutput
+	ToGetAutomaticClusterIdentityOutputWithContext(context.Context) GetAutomaticClusterIdentityOutput
+}
+
+type GetAutomaticClusterIdentityArgs struct {
+	// The list of User Assigned Managed Identity IDs assigned to this Managed Kubernetes Automatic Cluster.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// The type of Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetAutomaticClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterIdentity)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterIdentityArgs) ToGetAutomaticClusterIdentityOutput() GetAutomaticClusterIdentityOutput {
+	return i.ToGetAutomaticClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterIdentityArgs) ToGetAutomaticClusterIdentityOutputWithContext(ctx context.Context) GetAutomaticClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterIdentityOutput)
+}
+
+// GetAutomaticClusterIdentityArrayInput is an input type that accepts GetAutomaticClusterIdentityArray and GetAutomaticClusterIdentityArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterIdentityArrayInput` via:
+//
+//	GetAutomaticClusterIdentityArray{ GetAutomaticClusterIdentityArgs{...} }
+type GetAutomaticClusterIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterIdentityArrayOutput() GetAutomaticClusterIdentityArrayOutput
+	ToGetAutomaticClusterIdentityArrayOutputWithContext(context.Context) GetAutomaticClusterIdentityArrayOutput
+}
+
+type GetAutomaticClusterIdentityArray []GetAutomaticClusterIdentityInput
+
+func (GetAutomaticClusterIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterIdentity)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterIdentityArray) ToGetAutomaticClusterIdentityArrayOutput() GetAutomaticClusterIdentityArrayOutput {
+	return i.ToGetAutomaticClusterIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterIdentityArray) ToGetAutomaticClusterIdentityArrayOutputWithContext(ctx context.Context) GetAutomaticClusterIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterIdentityArrayOutput)
+}
+
+type GetAutomaticClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterIdentity)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterIdentityOutput) ToGetAutomaticClusterIdentityOutput() GetAutomaticClusterIdentityOutput {
+	return o
+}
+
+func (o GetAutomaticClusterIdentityOutput) ToGetAutomaticClusterIdentityOutputWithContext(ctx context.Context) GetAutomaticClusterIdentityOutput {
+	return o
+}
+
+// The list of User Assigned Managed Identity IDs assigned to this Managed Kubernetes Automatic Cluster.
+func (o GetAutomaticClusterIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAutomaticClusterIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+func (o GetAutomaticClusterIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+func (o GetAutomaticClusterIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity that is configured on this Managed Kubernetes Automatic Cluster.
+func (o GetAutomaticClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetAutomaticClusterIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterIdentity)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterIdentityArrayOutput) ToGetAutomaticClusterIdentityArrayOutput() GetAutomaticClusterIdentityArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterIdentityArrayOutput) ToGetAutomaticClusterIdentityArrayOutputWithContext(ctx context.Context) GetAutomaticClusterIdentityArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterIdentityArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterIdentity {
+		return vs[0].([]GetAutomaticClusterIdentity)[vs[1].(int)]
+	}).(GetAutomaticClusterIdentityOutput)
+}
+
+type GetAutomaticClusterKubeConfig struct {
+	// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+	ClientCertificate string `pulumi:"clientCertificate"`
+	// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+	ClientKey string `pulumi:"clientKey"`
+	// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+	ClusterCaCertificate string `pulumi:"clusterCaCertificate"`
+	// The Kubernetes cluster server host.
+	Host string `pulumi:"host"`
+	// A password or token used to authenticate to the Kubernetes cluster.
+	Password string `pulumi:"password"`
+	// A username used to authenticate to the Kubernetes cluster.
+	Username string `pulumi:"username"`
+}
+
+// GetAutomaticClusterKubeConfigInput is an input type that accepts GetAutomaticClusterKubeConfigArgs and GetAutomaticClusterKubeConfigOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterKubeConfigInput` via:
+//
+//	GetAutomaticClusterKubeConfigArgs{...}
+type GetAutomaticClusterKubeConfigInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterKubeConfigOutput() GetAutomaticClusterKubeConfigOutput
+	ToGetAutomaticClusterKubeConfigOutputWithContext(context.Context) GetAutomaticClusterKubeConfigOutput
+}
+
+type GetAutomaticClusterKubeConfigArgs struct {
+	// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+	ClientCertificate pulumi.StringInput `pulumi:"clientCertificate"`
+	// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+	ClientKey pulumi.StringInput `pulumi:"clientKey"`
+	// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+	ClusterCaCertificate pulumi.StringInput `pulumi:"clusterCaCertificate"`
+	// The Kubernetes cluster server host.
+	Host pulumi.StringInput `pulumi:"host"`
+	// A password or token used to authenticate to the Kubernetes cluster.
+	Password pulumi.StringInput `pulumi:"password"`
+	// A username used to authenticate to the Kubernetes cluster.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetAutomaticClusterKubeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterKubeConfig)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterKubeConfigArgs) ToGetAutomaticClusterKubeConfigOutput() GetAutomaticClusterKubeConfigOutput {
+	return i.ToGetAutomaticClusterKubeConfigOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterKubeConfigArgs) ToGetAutomaticClusterKubeConfigOutputWithContext(ctx context.Context) GetAutomaticClusterKubeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterKubeConfigOutput)
+}
+
+// GetAutomaticClusterKubeConfigArrayInput is an input type that accepts GetAutomaticClusterKubeConfigArray and GetAutomaticClusterKubeConfigArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterKubeConfigArrayInput` via:
+//
+//	GetAutomaticClusterKubeConfigArray{ GetAutomaticClusterKubeConfigArgs{...} }
+type GetAutomaticClusterKubeConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterKubeConfigArrayOutput() GetAutomaticClusterKubeConfigArrayOutput
+	ToGetAutomaticClusterKubeConfigArrayOutputWithContext(context.Context) GetAutomaticClusterKubeConfigArrayOutput
+}
+
+type GetAutomaticClusterKubeConfigArray []GetAutomaticClusterKubeConfigInput
+
+func (GetAutomaticClusterKubeConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterKubeConfig)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterKubeConfigArray) ToGetAutomaticClusterKubeConfigArrayOutput() GetAutomaticClusterKubeConfigArrayOutput {
+	return i.ToGetAutomaticClusterKubeConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterKubeConfigArray) ToGetAutomaticClusterKubeConfigArrayOutputWithContext(ctx context.Context) GetAutomaticClusterKubeConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterKubeConfigArrayOutput)
+}
+
+type GetAutomaticClusterKubeConfigOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterKubeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterKubeConfig)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterKubeConfigOutput) ToGetAutomaticClusterKubeConfigOutput() GetAutomaticClusterKubeConfigOutput {
+	return o
+}
+
+func (o GetAutomaticClusterKubeConfigOutput) ToGetAutomaticClusterKubeConfigOutputWithContext(ctx context.Context) GetAutomaticClusterKubeConfigOutput {
+	return o
+}
+
+// Base64 encoded public certificate used by clients to authenticate to the Kubernetes cluster.
+func (o GetAutomaticClusterKubeConfigOutput) ClientCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterKubeConfig) string { return v.ClientCertificate }).(pulumi.StringOutput)
+}
+
+// Base64 encoded private key used by clients to authenticate to the Kubernetes cluster.
+func (o GetAutomaticClusterKubeConfigOutput) ClientKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterKubeConfig) string { return v.ClientKey }).(pulumi.StringOutput)
+}
+
+// Base64 encoded public CA certificate used as the root of trust for the Kubernetes cluster.
+func (o GetAutomaticClusterKubeConfigOutput) ClusterCaCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterKubeConfig) string { return v.ClusterCaCertificate }).(pulumi.StringOutput)
+}
+
+// The Kubernetes cluster server host.
+func (o GetAutomaticClusterKubeConfigOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterKubeConfig) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// A password or token used to authenticate to the Kubernetes cluster.
+func (o GetAutomaticClusterKubeConfigOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterKubeConfig) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// A username used to authenticate to the Kubernetes cluster.
+func (o GetAutomaticClusterKubeConfigOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterKubeConfig) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetAutomaticClusterKubeConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterKubeConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterKubeConfig)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterKubeConfigArrayOutput) ToGetAutomaticClusterKubeConfigArrayOutput() GetAutomaticClusterKubeConfigArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterKubeConfigArrayOutput) ToGetAutomaticClusterKubeConfigArrayOutputWithContext(ctx context.Context) GetAutomaticClusterKubeConfigArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterKubeConfigArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterKubeConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterKubeConfig {
+		return vs[0].([]GetAutomaticClusterKubeConfig)[vs[1].(int)]
+	}).(GetAutomaticClusterKubeConfigOutput)
+}
+
+type GetAutomaticClusterKubeletIdentity struct {
+	// The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+	ClientId string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+	ObjectId string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// GetAutomaticClusterKubeletIdentityInput is an input type that accepts GetAutomaticClusterKubeletIdentityArgs and GetAutomaticClusterKubeletIdentityOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterKubeletIdentityInput` via:
+//
+//	GetAutomaticClusterKubeletIdentityArgs{...}
+type GetAutomaticClusterKubeletIdentityInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterKubeletIdentityOutput() GetAutomaticClusterKubeletIdentityOutput
+	ToGetAutomaticClusterKubeletIdentityOutputWithContext(context.Context) GetAutomaticClusterKubeletIdentityOutput
+}
+
+type GetAutomaticClusterKubeletIdentityArgs struct {
+	// The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (GetAutomaticClusterKubeletIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterKubeletIdentityArgs) ToGetAutomaticClusterKubeletIdentityOutput() GetAutomaticClusterKubeletIdentityOutput {
+	return i.ToGetAutomaticClusterKubeletIdentityOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterKubeletIdentityArgs) ToGetAutomaticClusterKubeletIdentityOutputWithContext(ctx context.Context) GetAutomaticClusterKubeletIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterKubeletIdentityOutput)
+}
+
+// GetAutomaticClusterKubeletIdentityArrayInput is an input type that accepts GetAutomaticClusterKubeletIdentityArray and GetAutomaticClusterKubeletIdentityArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterKubeletIdentityArrayInput` via:
+//
+//	GetAutomaticClusterKubeletIdentityArray{ GetAutomaticClusterKubeletIdentityArgs{...} }
+type GetAutomaticClusterKubeletIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterKubeletIdentityArrayOutput() GetAutomaticClusterKubeletIdentityArrayOutput
+	ToGetAutomaticClusterKubeletIdentityArrayOutputWithContext(context.Context) GetAutomaticClusterKubeletIdentityArrayOutput
+}
+
+type GetAutomaticClusterKubeletIdentityArray []GetAutomaticClusterKubeletIdentityInput
+
+func (GetAutomaticClusterKubeletIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterKubeletIdentityArray) ToGetAutomaticClusterKubeletIdentityArrayOutput() GetAutomaticClusterKubeletIdentityArrayOutput {
+	return i.ToGetAutomaticClusterKubeletIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterKubeletIdentityArray) ToGetAutomaticClusterKubeletIdentityArrayOutputWithContext(ctx context.Context) GetAutomaticClusterKubeletIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterKubeletIdentityArrayOutput)
+}
+
+type GetAutomaticClusterKubeletIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterKubeletIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterKubeletIdentityOutput) ToGetAutomaticClusterKubeletIdentityOutput() GetAutomaticClusterKubeletIdentityOutput {
+	return o
+}
+
+func (o GetAutomaticClusterKubeletIdentityOutput) ToGetAutomaticClusterKubeletIdentityOutputWithContext(ctx context.Context) GetAutomaticClusterKubeletIdentityOutput {
+	return o
+}
+
+// The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+func (o GetAutomaticClusterKubeletIdentityOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterKubeletIdentity) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+func (o GetAutomaticClusterKubeletIdentityOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterKubeletIdentity) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+func (o GetAutomaticClusterKubeletIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterKubeletIdentity) string { return v.UserAssignedIdentityId }).(pulumi.StringOutput)
+}
+
+type GetAutomaticClusterKubeletIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterKubeletIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterKubeletIdentity)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterKubeletIdentityArrayOutput) ToGetAutomaticClusterKubeletIdentityArrayOutput() GetAutomaticClusterKubeletIdentityArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterKubeletIdentityArrayOutput) ToGetAutomaticClusterKubeletIdentityArrayOutputWithContext(ctx context.Context) GetAutomaticClusterKubeletIdentityArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterKubeletIdentityArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterKubeletIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterKubeletIdentity {
+		return vs[0].([]GetAutomaticClusterKubeletIdentity)[vs[1].(int)]
+	}).(GetAutomaticClusterKubeletIdentityOutput)
+}
+
+type GetAutomaticClusterPrivateCluster struct {
+	// The ID of the Private DNS Zone used by this Managed Kubernetes Automatic Cluster.
+	PrivateDnsZoneId string `pulumi:"privateDnsZoneId"`
+	// If the public FQDN for this Managed Kubernetes Automatic Cluster is enabled.
+	PublicFullyQualifiedDomainNameEnabled bool `pulumi:"publicFullyQualifiedDomainNameEnabled"`
+}
+
+// GetAutomaticClusterPrivateClusterInput is an input type that accepts GetAutomaticClusterPrivateClusterArgs and GetAutomaticClusterPrivateClusterOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterPrivateClusterInput` via:
+//
+//	GetAutomaticClusterPrivateClusterArgs{...}
+type GetAutomaticClusterPrivateClusterInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterPrivateClusterOutput() GetAutomaticClusterPrivateClusterOutput
+	ToGetAutomaticClusterPrivateClusterOutputWithContext(context.Context) GetAutomaticClusterPrivateClusterOutput
+}
+
+type GetAutomaticClusterPrivateClusterArgs struct {
+	// The ID of the Private DNS Zone used by this Managed Kubernetes Automatic Cluster.
+	PrivateDnsZoneId pulumi.StringInput `pulumi:"privateDnsZoneId"`
+	// If the public FQDN for this Managed Kubernetes Automatic Cluster is enabled.
+	PublicFullyQualifiedDomainNameEnabled pulumi.BoolInput `pulumi:"publicFullyQualifiedDomainNameEnabled"`
+}
+
+func (GetAutomaticClusterPrivateClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterPrivateCluster)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterPrivateClusterArgs) ToGetAutomaticClusterPrivateClusterOutput() GetAutomaticClusterPrivateClusterOutput {
+	return i.ToGetAutomaticClusterPrivateClusterOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterPrivateClusterArgs) ToGetAutomaticClusterPrivateClusterOutputWithContext(ctx context.Context) GetAutomaticClusterPrivateClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterPrivateClusterOutput)
+}
+
+// GetAutomaticClusterPrivateClusterArrayInput is an input type that accepts GetAutomaticClusterPrivateClusterArray and GetAutomaticClusterPrivateClusterArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterPrivateClusterArrayInput` via:
+//
+//	GetAutomaticClusterPrivateClusterArray{ GetAutomaticClusterPrivateClusterArgs{...} }
+type GetAutomaticClusterPrivateClusterArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterPrivateClusterArrayOutput() GetAutomaticClusterPrivateClusterArrayOutput
+	ToGetAutomaticClusterPrivateClusterArrayOutputWithContext(context.Context) GetAutomaticClusterPrivateClusterArrayOutput
+}
+
+type GetAutomaticClusterPrivateClusterArray []GetAutomaticClusterPrivateClusterInput
+
+func (GetAutomaticClusterPrivateClusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterPrivateCluster)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterPrivateClusterArray) ToGetAutomaticClusterPrivateClusterArrayOutput() GetAutomaticClusterPrivateClusterArrayOutput {
+	return i.ToGetAutomaticClusterPrivateClusterArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterPrivateClusterArray) ToGetAutomaticClusterPrivateClusterArrayOutputWithContext(ctx context.Context) GetAutomaticClusterPrivateClusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterPrivateClusterArrayOutput)
+}
+
+type GetAutomaticClusterPrivateClusterOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterPrivateClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterPrivateCluster)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterPrivateClusterOutput) ToGetAutomaticClusterPrivateClusterOutput() GetAutomaticClusterPrivateClusterOutput {
+	return o
+}
+
+func (o GetAutomaticClusterPrivateClusterOutput) ToGetAutomaticClusterPrivateClusterOutputWithContext(ctx context.Context) GetAutomaticClusterPrivateClusterOutput {
+	return o
+}
+
+// The ID of the Private DNS Zone used by this Managed Kubernetes Automatic Cluster.
+func (o GetAutomaticClusterPrivateClusterOutput) PrivateDnsZoneId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterPrivateCluster) string { return v.PrivateDnsZoneId }).(pulumi.StringOutput)
+}
+
+// If the public FQDN for this Managed Kubernetes Automatic Cluster is enabled.
+func (o GetAutomaticClusterPrivateClusterOutput) PublicFullyQualifiedDomainNameEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutomaticClusterPrivateCluster) bool { return v.PublicFullyQualifiedDomainNameEnabled }).(pulumi.BoolOutput)
+}
+
+type GetAutomaticClusterPrivateClusterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterPrivateClusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterPrivateCluster)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterPrivateClusterArrayOutput) ToGetAutomaticClusterPrivateClusterArrayOutput() GetAutomaticClusterPrivateClusterArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterPrivateClusterArrayOutput) ToGetAutomaticClusterPrivateClusterArrayOutputWithContext(ctx context.Context) GetAutomaticClusterPrivateClusterArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterPrivateClusterArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterPrivateClusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterPrivateCluster {
+		return vs[0].([]GetAutomaticClusterPrivateCluster)[vs[1].(int)]
+	}).(GetAutomaticClusterPrivateClusterOutput)
+}
+
+type GetAutomaticClusterServiceMesh struct {
+	// A `certificateAuthority` block as documented below.
+	CertificateAuthorities []GetAutomaticClusterServiceMeshCertificateAuthority `pulumi:"certificateAuthorities"`
+	// If the Istio External Ingress Gateway is enabled.
+	ExternalIngressGatewayEnabled bool `pulumi:"externalIngressGatewayEnabled"`
+	// If the Istio Internal Ingress Gateway is enabled.
+	InternalIngressGatewayEnabled bool `pulumi:"internalIngressGatewayEnabled"`
+	// The proxy redirect mechanism configured for the Istio service mesh.
+	ProxyRedirectMechanism string `pulumi:"proxyRedirectMechanism"`
+	// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+	Revisions []string `pulumi:"revisions"`
+}
+
+// GetAutomaticClusterServiceMeshInput is an input type that accepts GetAutomaticClusterServiceMeshArgs and GetAutomaticClusterServiceMeshOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterServiceMeshInput` via:
+//
+//	GetAutomaticClusterServiceMeshArgs{...}
+type GetAutomaticClusterServiceMeshInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterServiceMeshOutput() GetAutomaticClusterServiceMeshOutput
+	ToGetAutomaticClusterServiceMeshOutputWithContext(context.Context) GetAutomaticClusterServiceMeshOutput
+}
+
+type GetAutomaticClusterServiceMeshArgs struct {
+	// A `certificateAuthority` block as documented below.
+	CertificateAuthorities GetAutomaticClusterServiceMeshCertificateAuthorityArrayInput `pulumi:"certificateAuthorities"`
+	// If the Istio External Ingress Gateway is enabled.
+	ExternalIngressGatewayEnabled pulumi.BoolInput `pulumi:"externalIngressGatewayEnabled"`
+	// If the Istio Internal Ingress Gateway is enabled.
+	InternalIngressGatewayEnabled pulumi.BoolInput `pulumi:"internalIngressGatewayEnabled"`
+	// The proxy redirect mechanism configured for the Istio service mesh.
+	ProxyRedirectMechanism pulumi.StringInput `pulumi:"proxyRedirectMechanism"`
+	// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+	Revisions pulumi.StringArrayInput `pulumi:"revisions"`
+}
+
+func (GetAutomaticClusterServiceMeshArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterServiceMesh)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterServiceMeshArgs) ToGetAutomaticClusterServiceMeshOutput() GetAutomaticClusterServiceMeshOutput {
+	return i.ToGetAutomaticClusterServiceMeshOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterServiceMeshArgs) ToGetAutomaticClusterServiceMeshOutputWithContext(ctx context.Context) GetAutomaticClusterServiceMeshOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterServiceMeshOutput)
+}
+
+// GetAutomaticClusterServiceMeshArrayInput is an input type that accepts GetAutomaticClusterServiceMeshArray and GetAutomaticClusterServiceMeshArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterServiceMeshArrayInput` via:
+//
+//	GetAutomaticClusterServiceMeshArray{ GetAutomaticClusterServiceMeshArgs{...} }
+type GetAutomaticClusterServiceMeshArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterServiceMeshArrayOutput() GetAutomaticClusterServiceMeshArrayOutput
+	ToGetAutomaticClusterServiceMeshArrayOutputWithContext(context.Context) GetAutomaticClusterServiceMeshArrayOutput
+}
+
+type GetAutomaticClusterServiceMeshArray []GetAutomaticClusterServiceMeshInput
+
+func (GetAutomaticClusterServiceMeshArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterServiceMesh)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterServiceMeshArray) ToGetAutomaticClusterServiceMeshArrayOutput() GetAutomaticClusterServiceMeshArrayOutput {
+	return i.ToGetAutomaticClusterServiceMeshArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterServiceMeshArray) ToGetAutomaticClusterServiceMeshArrayOutputWithContext(ctx context.Context) GetAutomaticClusterServiceMeshArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterServiceMeshArrayOutput)
+}
+
+type GetAutomaticClusterServiceMeshOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterServiceMeshOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterServiceMesh)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterServiceMeshOutput) ToGetAutomaticClusterServiceMeshOutput() GetAutomaticClusterServiceMeshOutput {
+	return o
+}
+
+func (o GetAutomaticClusterServiceMeshOutput) ToGetAutomaticClusterServiceMeshOutputWithContext(ctx context.Context) GetAutomaticClusterServiceMeshOutput {
+	return o
+}
+
+// A `certificateAuthority` block as documented below.
+func (o GetAutomaticClusterServiceMeshOutput) CertificateAuthorities() GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMesh) []GetAutomaticClusterServiceMeshCertificateAuthority {
+		return v.CertificateAuthorities
+	}).(GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput)
+}
+
+// If the Istio External Ingress Gateway is enabled.
+func (o GetAutomaticClusterServiceMeshOutput) ExternalIngressGatewayEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMesh) bool { return v.ExternalIngressGatewayEnabled }).(pulumi.BoolOutput)
+}
+
+// If the Istio Internal Ingress Gateway is enabled.
+func (o GetAutomaticClusterServiceMeshOutput) InternalIngressGatewayEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMesh) bool { return v.InternalIngressGatewayEnabled }).(pulumi.BoolOutput)
+}
+
+// The proxy redirect mechanism configured for the Istio service mesh.
+func (o GetAutomaticClusterServiceMeshOutput) ProxyRedirectMechanism() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMesh) string { return v.ProxyRedirectMechanism }).(pulumi.StringOutput)
+}
+
+// List of revisions of the Istio control plane. When an upgrade is not in progress, this holds one value. When a canary upgrade is in progress, this can hold two consecutive values. [Learn More](https://learn.microsoft.com/en-us/azure/aks/istio-upgrade).
+func (o GetAutomaticClusterServiceMeshOutput) Revisions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMesh) []string { return v.Revisions }).(pulumi.StringArrayOutput)
+}
+
+type GetAutomaticClusterServiceMeshArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterServiceMeshArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterServiceMesh)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterServiceMeshArrayOutput) ToGetAutomaticClusterServiceMeshArrayOutput() GetAutomaticClusterServiceMeshArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterServiceMeshArrayOutput) ToGetAutomaticClusterServiceMeshArrayOutputWithContext(ctx context.Context) GetAutomaticClusterServiceMeshArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterServiceMeshArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterServiceMeshOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterServiceMesh {
+		return vs[0].([]GetAutomaticClusterServiceMesh)[vs[1].(int)]
+	}).(GetAutomaticClusterServiceMeshOutput)
+}
+
+type GetAutomaticClusterServiceMeshCertificateAuthority struct {
+	// The certificate chain object name in Azure Key Vault.
+	CertificateChainObjectName string `pulumi:"certificateChainObjectName"`
+	// The intermediate certificate object name in Azure Key Vault.
+	CertificateObjectName string `pulumi:"certificateObjectName"`
+	// The intermediate certificate private key object name in Azure Key Vault.
+	KeyObjectName string `pulumi:"keyObjectName"`
+	// The resource ID of the Key Vault.
+	KeyVaultId string `pulumi:"keyVaultId"`
+	// The root certificate object name in Azure Key Vault.
+	RootCertificateObjectName string `pulumi:"rootCertificateObjectName"`
+}
+
+// GetAutomaticClusterServiceMeshCertificateAuthorityInput is an input type that accepts GetAutomaticClusterServiceMeshCertificateAuthorityArgs and GetAutomaticClusterServiceMeshCertificateAuthorityOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterServiceMeshCertificateAuthorityInput` via:
+//
+//	GetAutomaticClusterServiceMeshCertificateAuthorityArgs{...}
+type GetAutomaticClusterServiceMeshCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterServiceMeshCertificateAuthorityOutput() GetAutomaticClusterServiceMeshCertificateAuthorityOutput
+	ToGetAutomaticClusterServiceMeshCertificateAuthorityOutputWithContext(context.Context) GetAutomaticClusterServiceMeshCertificateAuthorityOutput
+}
+
+type GetAutomaticClusterServiceMeshCertificateAuthorityArgs struct {
+	// The certificate chain object name in Azure Key Vault.
+	CertificateChainObjectName pulumi.StringInput `pulumi:"certificateChainObjectName"`
+	// The intermediate certificate object name in Azure Key Vault.
+	CertificateObjectName pulumi.StringInput `pulumi:"certificateObjectName"`
+	// The intermediate certificate private key object name in Azure Key Vault.
+	KeyObjectName pulumi.StringInput `pulumi:"keyObjectName"`
+	// The resource ID of the Key Vault.
+	KeyVaultId pulumi.StringInput `pulumi:"keyVaultId"`
+	// The root certificate object name in Azure Key Vault.
+	RootCertificateObjectName pulumi.StringInput `pulumi:"rootCertificateObjectName"`
+}
+
+func (GetAutomaticClusterServiceMeshCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterServiceMeshCertificateAuthority)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterServiceMeshCertificateAuthorityArgs) ToGetAutomaticClusterServiceMeshCertificateAuthorityOutput() GetAutomaticClusterServiceMeshCertificateAuthorityOutput {
+	return i.ToGetAutomaticClusterServiceMeshCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterServiceMeshCertificateAuthorityArgs) ToGetAutomaticClusterServiceMeshCertificateAuthorityOutputWithContext(ctx context.Context) GetAutomaticClusterServiceMeshCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterServiceMeshCertificateAuthorityOutput)
+}
+
+// GetAutomaticClusterServiceMeshCertificateAuthorityArrayInput is an input type that accepts GetAutomaticClusterServiceMeshCertificateAuthorityArray and GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterServiceMeshCertificateAuthorityArrayInput` via:
+//
+//	GetAutomaticClusterServiceMeshCertificateAuthorityArray{ GetAutomaticClusterServiceMeshCertificateAuthorityArgs{...} }
+type GetAutomaticClusterServiceMeshCertificateAuthorityArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput() GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput
+	ToGetAutomaticClusterServiceMeshCertificateAuthorityArrayOutputWithContext(context.Context) GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput
+}
+
+type GetAutomaticClusterServiceMeshCertificateAuthorityArray []GetAutomaticClusterServiceMeshCertificateAuthorityInput
+
+func (GetAutomaticClusterServiceMeshCertificateAuthorityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterServiceMeshCertificateAuthority)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterServiceMeshCertificateAuthorityArray) ToGetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput() GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput {
+	return i.ToGetAutomaticClusterServiceMeshCertificateAuthorityArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterServiceMeshCertificateAuthorityArray) ToGetAutomaticClusterServiceMeshCertificateAuthorityArrayOutputWithContext(ctx context.Context) GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput)
+}
+
+type GetAutomaticClusterServiceMeshCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterServiceMeshCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterServiceMeshCertificateAuthority)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityOutput) ToGetAutomaticClusterServiceMeshCertificateAuthorityOutput() GetAutomaticClusterServiceMeshCertificateAuthorityOutput {
+	return o
+}
+
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityOutput) ToGetAutomaticClusterServiceMeshCertificateAuthorityOutputWithContext(ctx context.Context) GetAutomaticClusterServiceMeshCertificateAuthorityOutput {
+	return o
+}
+
+// The certificate chain object name in Azure Key Vault.
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityOutput) CertificateChainObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMeshCertificateAuthority) string { return v.CertificateChainObjectName }).(pulumi.StringOutput)
+}
+
+// The intermediate certificate object name in Azure Key Vault.
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityOutput) CertificateObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMeshCertificateAuthority) string { return v.CertificateObjectName }).(pulumi.StringOutput)
+}
+
+// The intermediate certificate private key object name in Azure Key Vault.
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityOutput) KeyObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMeshCertificateAuthority) string { return v.KeyObjectName }).(pulumi.StringOutput)
+}
+
+// The resource ID of the Key Vault.
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityOutput) KeyVaultId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMeshCertificateAuthority) string { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// The root certificate object name in Azure Key Vault.
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityOutput) RootCertificateObjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterServiceMeshCertificateAuthority) string { return v.RootCertificateObjectName }).(pulumi.StringOutput)
+}
+
+type GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterServiceMeshCertificateAuthority)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput) ToGetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput() GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput) ToGetAutomaticClusterServiceMeshCertificateAuthorityArrayOutputWithContext(ctx context.Context) GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterServiceMeshCertificateAuthorityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterServiceMeshCertificateAuthority {
+		return vs[0].([]GetAutomaticClusterServiceMeshCertificateAuthority)[vs[1].(int)]
+	}).(GetAutomaticClusterServiceMeshCertificateAuthorityOutput)
+}
+
+type GetAutomaticClusterWebAppRoutingIngress struct {
+	// The default Nginx controller for the web app routing ingress.
+	DefaultNginxController string `pulumi:"defaultNginxController"`
+	// A list of DNS Zone IDs associated with the web app routing ingress.
+	DnsZoneIds []string `pulumi:"dnsZoneIds"`
+	// If Istio is enabled for the web app routing ingress.
+	IstioEnabled bool `pulumi:"istioEnabled"`
+	// A `webAppRoutingIdentity` block as documented below.
+	WebAppRoutingIdentities []GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity `pulumi:"webAppRoutingIdentities"`
+}
+
+// GetAutomaticClusterWebAppRoutingIngressInput is an input type that accepts GetAutomaticClusterWebAppRoutingIngressArgs and GetAutomaticClusterWebAppRoutingIngressOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterWebAppRoutingIngressInput` via:
+//
+//	GetAutomaticClusterWebAppRoutingIngressArgs{...}
+type GetAutomaticClusterWebAppRoutingIngressInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterWebAppRoutingIngressOutput() GetAutomaticClusterWebAppRoutingIngressOutput
+	ToGetAutomaticClusterWebAppRoutingIngressOutputWithContext(context.Context) GetAutomaticClusterWebAppRoutingIngressOutput
+}
+
+type GetAutomaticClusterWebAppRoutingIngressArgs struct {
+	// The default Nginx controller for the web app routing ingress.
+	DefaultNginxController pulumi.StringInput `pulumi:"defaultNginxController"`
+	// A list of DNS Zone IDs associated with the web app routing ingress.
+	DnsZoneIds pulumi.StringArrayInput `pulumi:"dnsZoneIds"`
+	// If Istio is enabled for the web app routing ingress.
+	IstioEnabled pulumi.BoolInput `pulumi:"istioEnabled"`
+	// A `webAppRoutingIdentity` block as documented below.
+	WebAppRoutingIdentities GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayInput `pulumi:"webAppRoutingIdentities"`
+}
+
+func (GetAutomaticClusterWebAppRoutingIngressArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterWebAppRoutingIngress)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterWebAppRoutingIngressArgs) ToGetAutomaticClusterWebAppRoutingIngressOutput() GetAutomaticClusterWebAppRoutingIngressOutput {
+	return i.ToGetAutomaticClusterWebAppRoutingIngressOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterWebAppRoutingIngressArgs) ToGetAutomaticClusterWebAppRoutingIngressOutputWithContext(ctx context.Context) GetAutomaticClusterWebAppRoutingIngressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterWebAppRoutingIngressOutput)
+}
+
+// GetAutomaticClusterWebAppRoutingIngressArrayInput is an input type that accepts GetAutomaticClusterWebAppRoutingIngressArray and GetAutomaticClusterWebAppRoutingIngressArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterWebAppRoutingIngressArrayInput` via:
+//
+//	GetAutomaticClusterWebAppRoutingIngressArray{ GetAutomaticClusterWebAppRoutingIngressArgs{...} }
+type GetAutomaticClusterWebAppRoutingIngressArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterWebAppRoutingIngressArrayOutput() GetAutomaticClusterWebAppRoutingIngressArrayOutput
+	ToGetAutomaticClusterWebAppRoutingIngressArrayOutputWithContext(context.Context) GetAutomaticClusterWebAppRoutingIngressArrayOutput
+}
+
+type GetAutomaticClusterWebAppRoutingIngressArray []GetAutomaticClusterWebAppRoutingIngressInput
+
+func (GetAutomaticClusterWebAppRoutingIngressArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterWebAppRoutingIngress)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterWebAppRoutingIngressArray) ToGetAutomaticClusterWebAppRoutingIngressArrayOutput() GetAutomaticClusterWebAppRoutingIngressArrayOutput {
+	return i.ToGetAutomaticClusterWebAppRoutingIngressArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterWebAppRoutingIngressArray) ToGetAutomaticClusterWebAppRoutingIngressArrayOutputWithContext(ctx context.Context) GetAutomaticClusterWebAppRoutingIngressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterWebAppRoutingIngressArrayOutput)
+}
+
+type GetAutomaticClusterWebAppRoutingIngressOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterWebAppRoutingIngressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterWebAppRoutingIngress)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressOutput) ToGetAutomaticClusterWebAppRoutingIngressOutput() GetAutomaticClusterWebAppRoutingIngressOutput {
+	return o
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressOutput) ToGetAutomaticClusterWebAppRoutingIngressOutputWithContext(ctx context.Context) GetAutomaticClusterWebAppRoutingIngressOutput {
+	return o
+}
+
+// The default Nginx controller for the web app routing ingress.
+func (o GetAutomaticClusterWebAppRoutingIngressOutput) DefaultNginxController() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterWebAppRoutingIngress) string { return v.DefaultNginxController }).(pulumi.StringOutput)
+}
+
+// A list of DNS Zone IDs associated with the web app routing ingress.
+func (o GetAutomaticClusterWebAppRoutingIngressOutput) DnsZoneIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAutomaticClusterWebAppRoutingIngress) []string { return v.DnsZoneIds }).(pulumi.StringArrayOutput)
+}
+
+// If Istio is enabled for the web app routing ingress.
+func (o GetAutomaticClusterWebAppRoutingIngressOutput) IstioEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAutomaticClusterWebAppRoutingIngress) bool { return v.IstioEnabled }).(pulumi.BoolOutput)
+}
+
+// A `webAppRoutingIdentity` block as documented below.
+func (o GetAutomaticClusterWebAppRoutingIngressOutput) WebAppRoutingIdentities() GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput {
+	return o.ApplyT(func(v GetAutomaticClusterWebAppRoutingIngress) []GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity {
+		return v.WebAppRoutingIdentities
+	}).(GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput)
+}
+
+type GetAutomaticClusterWebAppRoutingIngressArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterWebAppRoutingIngressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterWebAppRoutingIngress)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressArrayOutput) ToGetAutomaticClusterWebAppRoutingIngressArrayOutput() GetAutomaticClusterWebAppRoutingIngressArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressArrayOutput) ToGetAutomaticClusterWebAppRoutingIngressArrayOutputWithContext(ctx context.Context) GetAutomaticClusterWebAppRoutingIngressArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterWebAppRoutingIngressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterWebAppRoutingIngress {
+		return vs[0].([]GetAutomaticClusterWebAppRoutingIngress)[vs[1].(int)]
+	}).(GetAutomaticClusterWebAppRoutingIngressOutput)
+}
+
+type GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity struct {
+	// The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+	ClientId string `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+	ObjectId string `pulumi:"objectId"`
+	// The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+	UserAssignedIdentityId string `pulumi:"userAssignedIdentityId"`
+}
+
+// GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityInput is an input type that accepts GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs and GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityInput` via:
+//
+//	GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs{...}
+type GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput() GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput
+	ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutputWithContext(context.Context) GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput
+}
+
+type GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs struct {
+	// The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+	ObjectId pulumi.StringInput `pulumi:"objectId"`
+	// The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+	UserAssignedIdentityId pulumi.StringInput `pulumi:"userAssignedIdentityId"`
+}
+
+func (GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs) ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput() GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput {
+	return i.ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs) ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutputWithContext(ctx context.Context) GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput)
+}
+
+// GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayInput is an input type that accepts GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArray and GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput values.
+// You can construct a concrete instance of `GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayInput` via:
+//
+//	GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArray{ GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs{...} }
+type GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput() GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput
+	ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutputWithContext(context.Context) GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput
+}
+
+type GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArray []GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityInput
+
+func (GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity)(nil)).Elem()
+}
+
+func (i GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArray) ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput() GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput {
+	return i.ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArray) ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutputWithContext(ctx context.Context) GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput)
+}
+
+type GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput) ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput() GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput {
+	return o
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput) ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutputWithContext(ctx context.Context) GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput {
+	return o
+}
+
+// The Client ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+func (o GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The Object ID of the user-defined Managed Identity used by the Web App Routing ingress controller.
+func (o GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput) ObjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity) string { return v.ObjectId }).(pulumi.StringOutput)
+}
+
+// The ID of the User Assigned Identity used by the Web App Routing ingress controller.
+func (o GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput) UserAssignedIdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity) string {
+		return v.UserAssignedIdentityId
+	}).(pulumi.StringOutput)
+}
+
+type GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity)(nil)).Elem()
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput) ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput() GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput) ToGetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutputWithContext(ctx context.Context) GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput {
+	return o
+}
+
+func (o GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput) Index(i pulumi.IntInput) GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity {
+		return vs[0].([]GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentity)[vs[1].(int)]
+	}).(GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput)
+}
+
 type GetClusterNodePoolUpgradeSetting struct {
 	// The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails.
 	DrainTimeoutInMinutes int `pulumi:"drainTimeoutInMinutes"`
@@ -27279,6 +28432,8 @@ type GetKubernetesClusterOmsAgent struct {
 	MsiAuthForMonitoringEnabled bool `pulumi:"msiAuthForMonitoringEnabled"`
 	// An `omsAgentIdentity` block as defined below.
 	OmsAgentIdentities []GetKubernetesClusterOmsAgentOmsAgentIdentity `pulumi:"omsAgentIdentities"`
+	// Is Retina Flow Logs collection enabled? Defaults to `false`.
+	RetinaFlowLogsEnabled bool `pulumi:"retinaFlowLogsEnabled"`
 }
 
 // GetKubernetesClusterOmsAgentInput is an input type that accepts GetKubernetesClusterOmsAgentArgs and GetKubernetesClusterOmsAgentOutput values.
@@ -27299,6 +28454,8 @@ type GetKubernetesClusterOmsAgentArgs struct {
 	MsiAuthForMonitoringEnabled pulumi.BoolInput `pulumi:"msiAuthForMonitoringEnabled"`
 	// An `omsAgentIdentity` block as defined below.
 	OmsAgentIdentities GetKubernetesClusterOmsAgentOmsAgentIdentityArrayInput `pulumi:"omsAgentIdentities"`
+	// Is Retina Flow Logs collection enabled? Defaults to `false`.
+	RetinaFlowLogsEnabled pulumi.BoolInput `pulumi:"retinaFlowLogsEnabled"`
 }
 
 func (GetKubernetesClusterOmsAgentArgs) ElementType() reflect.Type {
@@ -27367,6 +28524,11 @@ func (o GetKubernetesClusterOmsAgentOutput) OmsAgentIdentities() GetKubernetesCl
 	return o.ApplyT(func(v GetKubernetesClusterOmsAgent) []GetKubernetesClusterOmsAgentOmsAgentIdentity {
 		return v.OmsAgentIdentities
 	}).(GetKubernetesClusterOmsAgentOmsAgentIdentityArrayOutput)
+}
+
+// Is Retina Flow Logs collection enabled? Defaults to `false`.
+func (o GetKubernetesClusterOmsAgentOutput) RetinaFlowLogsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetKubernetesClusterOmsAgent) bool { return v.RetinaFlowLogsEnabled }).(pulumi.BoolOutput)
 }
 
 type GetKubernetesClusterOmsAgentArrayOutput struct{ *pulumi.OutputState }
@@ -28349,6 +29511,26 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword1PtrInput)(nil)).Elem(), TokenPasswordPassword1Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword2Input)(nil)).Elem(), TokenPasswordPassword2Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TokenPasswordPassword2PtrInput)(nil)).Elem(), TokenPasswordPassword2Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterApiServerAccessInput)(nil)).Elem(), GetAutomaticClusterApiServerAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterApiServerAccessArrayInput)(nil)).Elem(), GetAutomaticClusterApiServerAccessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterHostedSystemInput)(nil)).Elem(), GetAutomaticClusterHostedSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterHostedSystemArrayInput)(nil)).Elem(), GetAutomaticClusterHostedSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterIdentityInput)(nil)).Elem(), GetAutomaticClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterIdentityArrayInput)(nil)).Elem(), GetAutomaticClusterIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterKubeConfigInput)(nil)).Elem(), GetAutomaticClusterKubeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterKubeConfigArrayInput)(nil)).Elem(), GetAutomaticClusterKubeConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterKubeletIdentityInput)(nil)).Elem(), GetAutomaticClusterKubeletIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterKubeletIdentityArrayInput)(nil)).Elem(), GetAutomaticClusterKubeletIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterPrivateClusterInput)(nil)).Elem(), GetAutomaticClusterPrivateClusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterPrivateClusterArrayInput)(nil)).Elem(), GetAutomaticClusterPrivateClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterServiceMeshInput)(nil)).Elem(), GetAutomaticClusterServiceMeshArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterServiceMeshArrayInput)(nil)).Elem(), GetAutomaticClusterServiceMeshArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterServiceMeshCertificateAuthorityInput)(nil)).Elem(), GetAutomaticClusterServiceMeshCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterServiceMeshCertificateAuthorityArrayInput)(nil)).Elem(), GetAutomaticClusterServiceMeshCertificateAuthorityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterWebAppRoutingIngressInput)(nil)).Elem(), GetAutomaticClusterWebAppRoutingIngressArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterWebAppRoutingIngressArrayInput)(nil)).Elem(), GetAutomaticClusterWebAppRoutingIngressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityInput)(nil)).Elem(), GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayInput)(nil)).Elem(), GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterNodePoolUpgradeSettingInput)(nil)).Elem(), GetClusterNodePoolUpgradeSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterNodePoolUpgradeSettingArrayInput)(nil)).Elem(), GetClusterNodePoolUpgradeSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupIdentityInput)(nil)).Elem(), GetGroupIdentityArgs{})
@@ -28659,6 +29841,26 @@ func init() {
 	pulumi.RegisterOutputType(TokenPasswordPassword1PtrOutput{})
 	pulumi.RegisterOutputType(TokenPasswordPassword2Output{})
 	pulumi.RegisterOutputType(TokenPasswordPassword2PtrOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterApiServerAccessOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterApiServerAccessArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterHostedSystemOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterHostedSystemArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterIdentityOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterKubeConfigOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterKubeConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterKubeletIdentityOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterKubeletIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterPrivateClusterOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterPrivateClusterArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterServiceMeshOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterServiceMeshArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterServiceMeshCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterServiceMeshCertificateAuthorityArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterWebAppRoutingIngressOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterWebAppRoutingIngressArrayOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityOutput{})
+	pulumi.RegisterOutputType(GetAutomaticClusterWebAppRoutingIngressWebAppRoutingIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterNodePoolUpgradeSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupIdentityOutput{})

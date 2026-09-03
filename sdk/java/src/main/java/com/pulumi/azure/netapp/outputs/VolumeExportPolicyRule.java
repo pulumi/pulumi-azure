@@ -56,13 +56,6 @@ public final class VolumeExportPolicyRule {
      */
     private @Nullable String protocol;
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
-    private @Nullable String protocolsEnabled;
-    /**
      * @return Is root access permitted to this volume?
      * 
      */
@@ -141,15 +134,6 @@ public final class VolumeExportPolicyRule {
         return Optional.ofNullable(this.protocol);
     }
     /**
-     * @deprecated
-     * this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `export_policy_rule.protocol` and will be removed in version 5.0 of the Provider. */
-    public Optional<String> protocolsEnabled() {
-        return Optional.ofNullable(this.protocolsEnabled);
-    }
-    /**
      * @return Is root access permitted to this volume?
      * 
      */
@@ -195,7 +179,6 @@ public final class VolumeExportPolicyRule {
         private @Nullable Boolean kerberos5pReadOnlyEnabled;
         private @Nullable Boolean kerberos5pReadWriteEnabled;
         private @Nullable String protocol;
-        private @Nullable String protocolsEnabled;
         private @Nullable Boolean rootAccessEnabled;
         private Integer ruleIndex;
         private @Nullable Boolean unixReadOnly;
@@ -211,7 +194,6 @@ public final class VolumeExportPolicyRule {
     	      this.kerberos5pReadOnlyEnabled = defaults.kerberos5pReadOnlyEnabled;
     	      this.kerberos5pReadWriteEnabled = defaults.kerberos5pReadWriteEnabled;
     	      this.protocol = defaults.protocol;
-    	      this.protocolsEnabled = defaults.protocolsEnabled;
     	      this.rootAccessEnabled = defaults.rootAccessEnabled;
     	      this.ruleIndex = defaults.ruleIndex;
     	      this.unixReadOnly = defaults.unixReadOnly;
@@ -272,12 +254,6 @@ public final class VolumeExportPolicyRule {
             return this;
         }
         @CustomType.Setter
-        public Builder protocolsEnabled(@Nullable String protocolsEnabled) {
-
-            this.protocolsEnabled = protocolsEnabled;
-            return this;
-        }
-        @CustomType.Setter
         public Builder rootAccessEnabled(@Nullable Boolean rootAccessEnabled) {
 
             this.rootAccessEnabled = rootAccessEnabled;
@@ -313,7 +289,6 @@ public final class VolumeExportPolicyRule {
             _resultValue.kerberos5pReadOnlyEnabled = kerberos5pReadOnlyEnabled;
             _resultValue.kerberos5pReadWriteEnabled = kerberos5pReadWriteEnabled;
             _resultValue.protocol = protocol;
-            _resultValue.protocolsEnabled = protocolsEnabled;
             _resultValue.rootAccessEnabled = rootAccessEnabled;
             _resultValue.ruleIndex = ruleIndex;
             _resultValue.unixReadOnly = unixReadOnly;

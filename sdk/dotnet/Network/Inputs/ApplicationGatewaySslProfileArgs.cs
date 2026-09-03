@@ -42,9 +42,6 @@ namespace Pulumi.Azure.Network.Inputs
             set => _trustedClientCertificateNames = value;
         }
 
-        [Input("verifyClientCertIssuerDn")]
-        public Input<bool>? VerifyClientCertIssuerDn { get; set; }
-
         /// <summary>
         /// Should client certificate issuer DN be verified? Defaults to `False`.
         /// </summary>

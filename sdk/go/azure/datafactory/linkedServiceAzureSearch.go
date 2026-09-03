@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,9 +21,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/datafactory"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/search"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/search"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -55,17 +55,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": "",
+//				"input": []interface{}{
+//					"https://",
+//					exampleService.Name,
+//					".search.windows.net",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = datafactory.NewLinkedServiceAzureSearch(ctx, "test", &datafactory.LinkedServiceAzureSearchArgs{
-//				Name:          pulumi.String("example"),
-//				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				Url: std.JoinOutput(ctx, std.JoinOutputArgs{
-//					Separator: pulumi.String(""),
-//					Input: pulumi.StringArray{
-//						pulumi.String("https://"),
-//						exampleService.Name,
-//						pulumi.String(".search.windows.net"),
-//					},
-//				}, nil).Result(),
+//				Name:             pulumi.String("example"),
+//				DataFactoryId:    exampleFactory.ID().ToIDOutput().ToStringOutput(),
+//				Url:              invokeJoin.Result,
 //				SearchServiceKey: exampleService.PrimaryKey,
 //			})
 //			if err != nil {

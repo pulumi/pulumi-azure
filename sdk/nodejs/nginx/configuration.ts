@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  *     }
  * }
  * `,
- *             }).then(invoke => invoke.result),
+ *             }).result,
  *             virtualPath: "/etc/nginx/nginx.conf",
  *         },
  *         {
@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  *  </body></html>';
  * }
  * `,
- *             }).then(invoke => invoke.result),
+ *             }).result,
  *             virtualPath: "/etc/nginx/site/b.conf",
  *         },
  *     ],

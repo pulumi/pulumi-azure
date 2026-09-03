@@ -1081,7 +1081,7 @@ class ScaleSet(pulumi.CustomResource):
                 "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub")["result"],
                 }],
             },
             network_profiles=[{
@@ -1151,7 +1151,7 @@ class ScaleSet(pulumi.CustomResource):
                 "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub")["result"],
                 }],
             },
             network_profiles=[{
@@ -1356,7 +1356,7 @@ class ScaleSet(pulumi.CustomResource):
                 "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub")["result"],
                 }],
             },
             network_profiles=[{
@@ -1426,7 +1426,7 @@ class ScaleSet(pulumi.CustomResource):
                 "disable_password_authentication": True,
                 "ssh_keys": [{
                     "path": "/home/myadmin/.ssh/authorized_keys",
-                    "key_data": std.file(input="~/.ssh/demo_key.pub").result,
+                    "key_data": std.file(input="~/.ssh/demo_key.pub")["result"],
                 }],
             },
             network_profiles=[{

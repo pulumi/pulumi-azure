@@ -556,8 +556,7 @@ class Endpoint(pulumi.CustomResource):
             })
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="example-link",
-            resource_group_name=example.name,
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=example_virtual_network.id)
         ```
 
@@ -745,8 +744,7 @@ class Endpoint(pulumi.CustomResource):
             })
         example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
             name="example-link",
-            resource_group_name=example.name,
-            private_dns_zone_name=example_zone.name,
+            private_dns_zone_id=example_zone.id,
             virtual_network_id=example_virtual_network.id)
         ```
 

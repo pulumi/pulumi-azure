@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetServiceEndpointArgs;
  * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
  * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.privatedns.Zone;
@@ -80,7 +81,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
- *             .serviceEndpoints("Microsoft.Storage")
+ *             .serviceEndpoints(SubnetServiceEndpointArgs.builder()
+ *                 .service("Microsoft.Storage")
+ *                 .build())
  *             .delegations(SubnetDelegationArgs.builder()
  *                 .name("fs")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
@@ -97,9 +100,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("exampleVnetZone.com")
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
- *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer("exampleFlexibleServer", FlexibleServerArgs.builder()
@@ -404,12 +406,6 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
      */
     public Output<String> publicNetworkAccess() {
         return this.publicNetworkAccess;
-    }
-    @Export(name="publicNetworkAccessEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> publicNetworkAccessEnabled;
-
-    public Output<Boolean> publicNetworkAccessEnabled() {
-        return this.publicNetworkAccessEnabled;
     }
     /**
      * The maximum number of replicas that a primary MySQL Flexible Server can have.

@@ -50,7 +50,7 @@ namespace Pulumi.Azure.Automation
     ///         CertificateThumbprint = Std.File.Invoke(new()
     ///         {
     ///             Input = "automation_certificate_test.thumb",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });

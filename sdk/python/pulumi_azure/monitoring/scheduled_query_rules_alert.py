@@ -673,7 +673,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
           | where toint(resultCode) >= 500 | extend fail=1; a
           | join b on fail
         \"\"\",
-                args=[example2.id]).result,
+                args=[example2.id])["result"],
             severity=1,
             frequency=5,
             time_window=30,
@@ -801,7 +801,7 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
           | where toint(resultCode) >= 500 | extend fail=1; a
           | join b on fail
         \"\"\",
-                args=[example2.id]).result,
+                args=[example2.id])["result"],
             severity=1,
             frequency=5,
             time_window=30,

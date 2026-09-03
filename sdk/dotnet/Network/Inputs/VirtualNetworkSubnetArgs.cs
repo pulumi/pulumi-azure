@@ -95,14 +95,14 @@ namespace Pulumi.Azure.Network.Inputs
         }
 
         [Input("serviceEndpoints")]
-        private InputList<string>? _serviceEndpoints;
+        private InputList<Inputs.VirtualNetworkSubnetServiceEndpointArgs>? _serviceEndpoints;
 
         /// <summary>
-        /// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        /// A `ServiceEndpoint` block as defined below.
         /// </summary>
-        public InputList<string> ServiceEndpoints
+        public InputList<Inputs.VirtualNetworkSubnetServiceEndpointArgs> ServiceEndpoints
         {
-            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<string>());
+            get => _serviceEndpoints ?? (_serviceEndpoints = new InputList<Inputs.VirtualNetworkSubnetServiceEndpointArgs>());
             set => _serviceEndpoints = value;
         }
 

@@ -25,6 +25,7 @@ class ApplicationArgs:
                  managed_resource_group_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  application_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ApplicationIdentityArgs']] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  parameter_values: pulumi.Input[Optional[_builtins.str]] = None,
@@ -37,6 +38,7 @@ class ApplicationArgs:
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Managed Application should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] application_definition_id: The application definition ID to deploy.
+        :param pulumi.Input['ApplicationIdentityArgs'] identity: An `identity` block as defined below. Removing this block forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the Managed Application. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] parameter_values: The parameter values to pass to the Managed Application. This field is a JSON object that allows you to assign parameters to this Managed Application.
@@ -48,6 +50,8 @@ class ApplicationArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if application_definition_id is not None:
             pulumi.set(__self__, "application_definition_id", application_definition_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -106,6 +110,18 @@ class ApplicationArgs:
     @application_definition_id.setter
     def application_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_definition_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[Optional['ApplicationIdentityArgs']]:
+        """
+        An `identity` block as defined below. Removing this block forces a new resource to be created.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[Optional['ApplicationIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
@@ -172,6 +188,7 @@ class ApplicationArgs:
 class _ApplicationState:
     def __init__(__self__, *,
                  application_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional['ApplicationIdentityArgs']] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -185,6 +202,7 @@ class _ApplicationState:
         Input properties used for looking up and filtering Application resources.
 
         :param pulumi.Input[_builtins.str] application_definition_id: The application definition ID to deploy.
+        :param pulumi.Input['ApplicationIdentityArgs'] identity: An `identity` block as defined below. Removing this block forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kind: The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
@@ -197,6 +215,8 @@ class _ApplicationState:
         """
         if application_definition_id is not None:
             pulumi.set(__self__, "application_definition_id", application_definition_id)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
         if location is not None:
@@ -227,6 +247,18 @@ class _ApplicationState:
     @application_definition_id.setter
     def application_definition_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "application_definition_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Input[Optional['ApplicationIdentityArgs']]:
+        """
+        An `identity` block as defined below. Removing this block forces a new resource to be created.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: pulumi.Input[Optional['ApplicationIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @_builtins.property
     @pulumi.getter
@@ -344,6 +376,7 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ApplicationIdentityArgs', 'ApplicationIdentityArgsDict']]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -379,9 +412,9 @@ class Application(pulumi.CustomResource):
             description="Test Managed App Definition",
             authorizations=[{
                 "service_principal_id": current.object_id,
-                "role_definition_id": len(std.split(separator="/",
-                    text=builtin.id).result).apply(lambda length: std.split(separator="/",
-                    text=builtin.id).result[int(length - 1)]),
+                "role_definition_id": std.split(separator="/",
+                    text=builtin.id)["result"][len(std.split(separator="/",
+                    text=builtin.id)["result"]) - 1],
             }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",
@@ -422,6 +455,7 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_definition_id: The application definition ID to deploy.
+        :param pulumi.Input[Union['ApplicationIdentityArgs', 'ApplicationIdentityArgsDict']] identity: An `identity` block as defined below. Removing this block forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kind: The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
@@ -463,9 +497,9 @@ class Application(pulumi.CustomResource):
             description="Test Managed App Definition",
             authorizations=[{
                 "service_principal_id": current.object_id,
-                "role_definition_id": len(std.split(separator="/",
-                    text=builtin.id).result).apply(lambda length: std.split(separator="/",
-                    text=builtin.id).result[int(length - 1)]),
+                "role_definition_id": std.split(separator="/",
+                    text=builtin.id)["result"][len(std.split(separator="/",
+                    text=builtin.id)["result"]) - 1],
             }])
         example_application = azure.managedapplication.Application("example",
             name="example-managedapplication",
@@ -519,6 +553,7 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 identity: pulumi.Input[Optional[Union['ApplicationIdentityArgs', 'ApplicationIdentityArgsDict']]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -537,6 +572,7 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["application_definition_id"] = application_definition_id
+            __props__.__dict__["identity"] = identity
             if kind is None and not opts.urn:
                 raise TypeError("Missing required property 'kind'")
             __props__.__dict__["kind"] = kind
@@ -563,6 +599,7 @@ class Application(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             application_definition_id: pulumi.Input[Optional[_builtins.str]] = None,
+            identity: pulumi.Input[Optional[Union['ApplicationIdentityArgs', 'ApplicationIdentityArgsDict']]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             managed_resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -580,6 +617,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_definition_id: The application definition ID to deploy.
+        :param pulumi.Input[Union['ApplicationIdentityArgs', 'ApplicationIdentityArgsDict']] identity: An `identity` block as defined below. Removing this block forces a new resource to be created.
         :param pulumi.Input[_builtins.str] kind: The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] managed_resource_group_name: The name of the target resource group where all the resources deployed by the managed application will reside. Changing this forces a new resource to be created.
@@ -595,6 +633,7 @@ class Application(pulumi.CustomResource):
         __props__ = _ApplicationState.__new__(_ApplicationState)
 
         __props__.__dict__["application_definition_id"] = application_definition_id
+        __props__.__dict__["identity"] = identity
         __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
         __props__.__dict__["managed_resource_group_name"] = managed_resource_group_name
@@ -613,6 +652,14 @@ class Application(pulumi.CustomResource):
         The application definition ID to deploy.
         """
         return pulumi.get(self, "application_definition_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.ApplicationIdentity']]:
+        """
+        An `identity` block as defined below. Removing this block forces a new resource to be created.
+        """
+        return pulumi.get(self, "identity")
 
     @_builtins.property
     @pulumi.getter

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,9 +25,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -108,7 +108,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Network` - 2023-09-01
+// * `Microsoft.Network` - 2025-01-01
 //
 // ## Import
 //
@@ -125,10 +125,6 @@ type NatRule struct {
 	BackendIpConfigurationId pulumi.StringOutput    `pulumi:"backendIpConfigurationId"`
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort pulumi.IntOutput `pulumi:"backendPort"`
-	// Deprecated: This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-	EnableFloatingIp pulumi.BoolOutput `pulumi:"enableFloatingIp"`
-	// Deprecated: This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-	EnableTcpReset pulumi.BoolOutput `pulumi:"enableTcpReset"`
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	FloatingIpEnabled         pulumi.BoolOutput   `pulumi:"floatingIpEnabled"`
 	FrontendIpConfigurationId pulumi.StringOutput `pulumi:"frontendIpConfigurationId"`
@@ -151,7 +147,7 @@ type NatRule struct {
 	// The name of the resource group in which to create the resource. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Is TCP Reset enabled for this Load Balancer Rule?
-	TcpResetEnabled pulumi.BoolOutput `pulumi:"tcpResetEnabled"`
+	TcpResetEnabled pulumi.BoolPtrOutput `pulumi:"tcpResetEnabled"`
 }
 
 // NewNatRule registers a new resource with the given unique name, arguments, and options.
@@ -204,10 +200,6 @@ type natRuleState struct {
 	BackendIpConfigurationId *string `pulumi:"backendIpConfigurationId"`
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort *int `pulumi:"backendPort"`
-	// Deprecated: This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
-	// Deprecated: This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-	EnableTcpReset *bool `pulumi:"enableTcpReset"`
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	FloatingIpEnabled         *bool   `pulumi:"floatingIpEnabled"`
 	FrontendIpConfigurationId *string `pulumi:"frontendIpConfigurationId"`
@@ -239,10 +231,6 @@ type NatRuleState struct {
 	BackendIpConfigurationId pulumi.StringPtrInput
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort pulumi.IntPtrInput
-	// Deprecated: This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-	EnableFloatingIp pulumi.BoolPtrInput
-	// Deprecated: This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-	EnableTcpReset pulumi.BoolPtrInput
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	FloatingIpEnabled         pulumi.BoolPtrInput
 	FrontendIpConfigurationId pulumi.StringPtrInput
@@ -277,10 +265,6 @@ type natRuleArgs struct {
 	BackendAddressPoolId *string `pulumi:"backendAddressPoolId"`
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort int `pulumi:"backendPort"`
-	// Deprecated: This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-	EnableFloatingIp *bool `pulumi:"enableFloatingIp"`
-	// Deprecated: This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-	EnableTcpReset *bool `pulumi:"enableTcpReset"`
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	FloatingIpEnabled *bool `pulumi:"floatingIpEnabled"`
 	// The name of the frontend IP configuration exposing this rule.
@@ -311,10 +295,6 @@ type NatRuleArgs struct {
 	BackendAddressPoolId pulumi.StringPtrInput
 	// The port used for internal connections on the endpoint. Possible values range between 1 and 65535, inclusive.
 	BackendPort pulumi.IntInput
-	// Deprecated: This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-	EnableFloatingIp pulumi.BoolPtrInput
-	// Deprecated: This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-	EnableTcpReset pulumi.BoolPtrInput
 	// Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 	FloatingIpEnabled pulumi.BoolPtrInput
 	// The name of the frontend IP configuration exposing this rule.
@@ -440,16 +420,6 @@ func (o NatRuleOutput) BackendPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *NatRule) pulumi.IntOutput { return v.BackendPort }).(pulumi.IntOutput)
 }
 
-// Deprecated: This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-func (o NatRuleOutput) EnableFloatingIp() pulumi.BoolOutput {
-	return o.ApplyT(func(v *NatRule) pulumi.BoolOutput { return v.EnableFloatingIp }).(pulumi.BoolOutput)
-}
-
-// Deprecated: This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-func (o NatRuleOutput) EnableTcpReset() pulumi.BoolOutput {
-	return o.ApplyT(func(v *NatRule) pulumi.BoolOutput { return v.EnableTcpReset }).(pulumi.BoolOutput)
-}
-
 // Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
 func (o NatRuleOutput) FloatingIpEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *NatRule) pulumi.BoolOutput { return v.FloatingIpEnabled }).(pulumi.BoolOutput)
@@ -505,8 +475,8 @@ func (o NatRuleOutput) ResourceGroupName() pulumi.StringOutput {
 }
 
 // Is TCP Reset enabled for this Load Balancer Rule?
-func (o NatRuleOutput) TcpResetEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *NatRule) pulumi.BoolOutput { return v.TcpResetEnabled }).(pulumi.BoolOutput)
+func (o NatRuleOutput) TcpResetEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *NatRule) pulumi.BoolPtrOutput { return v.TcpResetEnabled }).(pulumi.BoolPtrOutput)
 }
 
 type NatRuleArrayOutput struct{ *pulumi.OutputState }

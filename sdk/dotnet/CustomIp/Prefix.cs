@@ -90,7 +90,7 @@ namespace Pulumi.Azure.CustomIp
     ///             Input = @global.Cidr,
     ///             Newbits = 16,
     ///             Netnum = 1,
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         Zones = new[]
     ///         {
     ///             "1",

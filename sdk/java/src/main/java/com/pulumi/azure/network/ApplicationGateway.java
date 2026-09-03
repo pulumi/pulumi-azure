@@ -6,7 +6,6 @@ package com.pulumi.azure.network;
 import com.pulumi.azure.Utilities;
 import com.pulumi.azure.network.ApplicationGatewayArgs;
 import com.pulumi.azure.network.inputs.ApplicationGatewayState;
-import com.pulumi.azure.network.outputs.ApplicationGatewayAuthenticationCertificate;
 import com.pulumi.azure.network.outputs.ApplicationGatewayAutoscaleConfiguration;
 import com.pulumi.azure.network.outputs.ApplicationGatewayBackend;
 import com.pulumi.azure.network.outputs.ApplicationGatewayBackendAddressPool;
@@ -205,20 +204,6 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:network/applicationGateway:ApplicationGateway")
 public class ApplicationGateway extends com.pulumi.resources.CustomResource {
     /**
-     * One or more `authenticationCertificate` blocks as defined below.
-     * 
-     */
-    @Export(name="authenticationCertificates", refs={List.class,ApplicationGatewayAuthenticationCertificate.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ApplicationGatewayAuthenticationCertificate>> authenticationCertificates;
-
-    /**
-     * @return One or more `authenticationCertificate` blocks as defined below.
-     * 
-     */
-    public Output<Optional<List<ApplicationGatewayAuthenticationCertificate>>> authenticationCertificates() {
-        return Codegen.optional(this.authenticationCertificates);
-    }
-    /**
      * An `autoscaleConfiguration` block as defined below.
      * 
      */
@@ -295,18 +280,6 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<ApplicationGatewayCustomErrorConfiguration>>> customErrorConfigurations() {
         return Codegen.optional(this.customErrorConfigurations);
-    }
-    /**
-     * @deprecated
-     * the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider */
-    @Export(name="enableHttp2", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableHttp2;
-
-    public Output<Boolean> enableHttp2() {
-        return this.enableHttp2;
     }
     /**
      * Is FIPS enabled on the Application Gateway?
@@ -411,14 +384,14 @@ public class ApplicationGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="http2Enabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> http2Enabled;
+    private Output</* @Nullable */ Boolean> http2Enabled;
 
     /**
      * @return Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
      * 
      */
-    public Output<Boolean> http2Enabled() {
-        return this.http2Enabled;
+    public Output<Optional<Boolean>> http2Enabled() {
+        return Codegen.optional(this.http2Enabled);
     }
     /**
      * One or more `httpListener` blocks as defined below.

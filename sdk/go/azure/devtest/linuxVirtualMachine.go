@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/devtest"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/devtest"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -60,8 +60,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -73,7 +73,7 @@ import (
 //				Location:            example.Location,
 //				Size:                pulumi.String("Standard_DS2"),
 //				Username:            pulumi.String("exampleuser99"),
-//				SshKey:              pulumi.String(invokeFile.Result),
+//				SshKey:              invokeFile.Result,
 //				LabVirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //				LabSubnetName:       exampleVirtualNetwork.Subnet.Name(),
 //				StorageType:         pulumi.String("Premium"),

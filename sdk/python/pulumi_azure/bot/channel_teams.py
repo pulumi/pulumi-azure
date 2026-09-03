@@ -24,7 +24,6 @@ class ChannelTeamsArgs:
                  calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ChannelTeams resource.
@@ -44,11 +43,6 @@ class ChannelTeamsArgs:
             pulumi.set(__self__, "calling_web_hook", calling_web_hook)
         if deployment_environment is not None:
             pulumi.set(__self__, "deployment_environment", deployment_environment)
-        if enable_calling is not None:
-            warnings.warn("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_calling is deprecated: The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
-        if enable_calling is not None:
-            pulumi.set(__self__, "enable_calling", enable_calling)
         if location is not None:
             pulumi.set(__self__, "location", location)
 
@@ -113,16 +107,6 @@ class ChannelTeamsArgs:
         pulumi.set(self, "deployment_environment", value)
 
     @_builtins.property
-    @pulumi.getter(name="enableCalling")
-    @_utilities.deprecated("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
-    def enable_calling(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_calling")
-
-    @enable_calling.setter
-    def enable_calling(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_calling", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -142,7 +126,6 @@ class _ChannelTeamsState:
                  calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -163,11 +146,6 @@ class _ChannelTeamsState:
             pulumi.set(__self__, "calling_web_hook", calling_web_hook)
         if deployment_environment is not None:
             pulumi.set(__self__, "deployment_environment", deployment_environment)
-        if enable_calling is not None:
-            warnings.warn("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""enable_calling is deprecated: The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
-        if enable_calling is not None:
-            pulumi.set(__self__, "enable_calling", enable_calling)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if resource_group_name is not None:
@@ -222,16 +200,6 @@ class _ChannelTeamsState:
         pulumi.set(self, "deployment_environment", value)
 
     @_builtins.property
-    @pulumi.getter(name="enableCalling")
-    @_utilities.deprecated("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
-    def enable_calling(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "enable_calling")
-
-    @enable_calling.setter
-    def enable_calling(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_calling", value)
-
-    @_builtins.property
     @pulumi.getter
     def location(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -266,7 +234,6 @@ class ChannelTeams(pulumi.CustomResource):
                  calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -376,7 +343,6 @@ class ChannelTeams(pulumi.CustomResource):
                  calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -394,7 +360,6 @@ class ChannelTeams(pulumi.CustomResource):
             __props__.__dict__["calling_enabled"] = calling_enabled
             __props__.__dict__["calling_web_hook"] = calling_web_hook
             __props__.__dict__["deployment_environment"] = deployment_environment
-            __props__.__dict__["enable_calling"] = enable_calling
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -413,7 +378,6 @@ class ChannelTeams(pulumi.CustomResource):
             calling_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             calling_web_hook: pulumi.Input[Optional[_builtins.str]] = None,
             deployment_environment: pulumi.Input[Optional[_builtins.str]] = None,
-            enable_calling: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'ChannelTeams':
         """
@@ -438,7 +402,6 @@ class ChannelTeams(pulumi.CustomResource):
         __props__.__dict__["calling_enabled"] = calling_enabled
         __props__.__dict__["calling_web_hook"] = calling_web_hook
         __props__.__dict__["deployment_environment"] = deployment_environment
-        __props__.__dict__["enable_calling"] = enable_calling
         __props__.__dict__["location"] = location
         __props__.__dict__["resource_group_name"] = resource_group_name
         return ChannelTeams(resource_name, opts=opts, __props__=__props__)
@@ -453,7 +416,7 @@ class ChannelTeams(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="callingEnabled")
-    def calling_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def calling_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Specifies whether to enable Microsoft Teams channel calls. This defaults to `false`.
         """
@@ -474,12 +437,6 @@ class ChannelTeams(pulumi.CustomResource):
         The deployment environment for Microsoft Teams channel calls. Possible values are `CommercialDeployment` and `GCCModerateDeployment`. Defaults to `CommercialDeployment`.
         """
         return pulumi.get(self, "deployment_environment")
-
-    @_builtins.property
-    @pulumi.getter(name="enableCalling")
-    @_utilities.deprecated("""The property `enable_calling` is deprecated in favour of `calling_enabled` and will be removed in version 5.0 of the AzureRM Provider.""")
-    def enable_calling(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "enable_calling")
 
     @_builtins.property
     @pulumi.getter

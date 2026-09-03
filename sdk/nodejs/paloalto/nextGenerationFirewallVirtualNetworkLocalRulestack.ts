@@ -171,9 +171,7 @@ export class NextGenerationFirewallVirtualNetworkLocalRulestack extends pulumi.C
      */
     declare public readonly networkProfile: pulumi.Output<outputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile>;
     /**
-     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-     *
-     * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
      */
     declare public readonly planId: pulumi.Output<string | undefined>;
     /**
@@ -262,9 +260,7 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackState {
      */
     networkProfile?: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile | undefined>;
     /**
-     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-     *
-     * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
      */
     planId?: pulumi.Input<string | undefined>;
     /**
@@ -306,9 +302,7 @@ export interface NextGenerationFirewallVirtualNetworkLocalRulestackArgs {
      */
     networkProfile: pulumi.Input<inputs.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfile>;
     /**
-     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cloud-ngfw-payg`.
-     *
-     * > **Note:** The former `planId` `panw-cloud-ngfw-payg` is defined as stop sell, but has been set as the default to not break any existing resources that were originally provisioned with it. Users need to explicitly set `planId` to `panw-cngfw-payg` when creating new resources.
+     * The billing plan ID as published by Liftr.PAN. Defaults to `panw-cngfw-payg`.
      */
     planId?: pulumi.Input<string | undefined>;
     /**

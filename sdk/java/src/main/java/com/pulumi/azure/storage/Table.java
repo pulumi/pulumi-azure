@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTable = new Table("exampleTable", TableArgs.builder()
  *             .name("mysampletable")
- *             .storageAccountName(exampleAccount.name())
+ *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *     }
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * Table&#39;s within a Storage Account can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:storage/table:Table table1 &#34;https://example.table.core.windows.net/Tables(&#39;replace-with-table-name&#39;)&#34;
+ * $ pulumi import azure:storage/table:Table table1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount/tableServices/default/tables/table1
  * ```
  * 
  */
@@ -130,36 +130,14 @@ public class Table extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="storageAccountId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageAccountId;
+    private Output<String> storageAccountId;
 
     /**
      * @return Specifies the ID of the storage account in which to create the storage table. Changing this forces a new resource to be created.
      * 
      */
-    public Output<Optional<String>> storageAccountId() {
-        return Codegen.optional(this.storageAccountId);
-    }
-    /**
-     * Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     * @deprecated
-     * the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `storageAccountName` property has been deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the Provider. */
-    @Export(name="storageAccountName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageAccountName;
-
-    /**
-     * @return Specifies the storage account in which to create the storage table. Changing this forces a new resource to be created.
-     * 
-     * &gt; **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    public Output<Optional<String>> storageAccountName() {
-        return Codegen.optional(this.storageAccountName);
+    public Output<String> storageAccountId() {
+        return this.storageAccountId;
     }
 
     /**
@@ -174,7 +152,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Table(java.lang.String name, @Nullable TableArgs args) {
+    public Table(java.lang.String name, TableArgs args) {
         this(name, args, null);
     }
     /**
@@ -183,7 +161,7 @@ public class Table extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Table(java.lang.String name, @Nullable TableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Table(java.lang.String name, TableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/table:Table", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -191,7 +169,7 @@ public class Table extends com.pulumi.resources.CustomResource {
         super("azure:storage/table:Table", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static TableArgs makeArgs(@Nullable TableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static TableArgs makeArgs(TableArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

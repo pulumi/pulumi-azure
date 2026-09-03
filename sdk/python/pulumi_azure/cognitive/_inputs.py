@@ -15,16 +15,6 @@ else:
 from .. import _utilities
 
 __all__ = [
-    'AIServicesCustomerManagedKeyArgs',
-    'AIServicesCustomerManagedKeyArgsDict',
-    'AIServicesIdentityArgs',
-    'AIServicesIdentityArgsDict',
-    'AIServicesNetworkAclsArgs',
-    'AIServicesNetworkAclsArgsDict',
-    'AIServicesNetworkAclsVirtualNetworkRuleArgs',
-    'AIServicesNetworkAclsVirtualNetworkRuleArgsDict',
-    'AIServicesStorageArgs',
-    'AIServicesStorageArgsDict',
     'AccountCustomerManagedKeyArgs',
     'AccountCustomerManagedKeyArgsDict',
     'AccountIdentityArgs',
@@ -46,357 +36,6 @@ __all__ = [
     'DeploymentSkuArgs',
     'DeploymentSkuArgsDict',
 ]
-
-class AIServicesCustomerManagedKeyArgsDict(TypedDict):
-    identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
-    """
-    key_vault_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
-    """
-    managed_hsm_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
-    """
-
-@pulumi.input_type
-class AIServicesCustomerManagedKeyArgs:
-    def __init__(__self__, *,
-                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] identity_client_id: The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
-        :param pulumi.Input[_builtins.str] key_vault_key_id: The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
-        :param pulumi.Input[_builtins.str] managed_hsm_key_id: The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
-        """
-        if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
-        if key_vault_key_id is not None:
-            pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
-        if managed_hsm_key_id is not None:
-            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
-
-    @_builtins.property
-    @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Client ID of the User Assigned Identity that has access to the key. This property only needs to be specified when there are multiple identities attached to the Azure AI Service.
-        """
-        return pulumi.get(self, "identity_client_id")
-
-    @identity_client_id.setter
-    def identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "identity_client_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="keyVaultKeyId")
-    def key_vault_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the Key Vault Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
-        """
-        return pulumi.get(self, "key_vault_key_id")
-
-    @key_vault_key_id.setter
-    def key_vault_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "key_vault_key_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the managed HSM Key which should be used to encrypt the data in this AI Services Account. Exactly one of `key_vault_key_id`, `managed_hsm_key_id` must be specified.
-        """
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
-
-
-class AIServicesIdentityArgsDict(TypedDict):
-    type: pulumi.Input[_builtins.str]
-    """
-    Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
-    """
-    identity_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    """
-    Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
-
-    > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-    """
-    principal_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The Principal ID associated with this Managed Service Identity.
-    """
-    tenant_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The Tenant ID associated with this Managed Service Identity.
-    """
-
-@pulumi.input_type
-class AIServicesIdentityArgs:
-    def __init__(__self__, *,
-                 type: pulumi.Input[_builtins.str],
-                 identity_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 principal_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tenant_id: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] type: Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] identity_ids: Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
-               
-               > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        :param pulumi.Input[_builtins.str] principal_id: The Principal ID associated with this Managed Service Identity.
-        :param pulumi.Input[_builtins.str] tenant_id: The Tenant ID associated with this Managed Service Identity.
-        """
-        pulumi.set(__self__, "type", type)
-        if identity_ids is not None:
-            pulumi.set(__self__, "identity_ids", identity_ids)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
-
-    @_builtins.property
-    @pulumi.getter
-    def type(self) -> pulumi.Input[_builtins.str]:
-        """
-        Specifies the type of Managed Service Identity that should be configured on this AI Services Account. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned, UserAssigned`
-        """
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="identityIds")
-    def identity_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        Specifies a list of User Assigned Managed Identity IDs to be assigned to this AI Services Account.
-
-        > **Note:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
-        """
-        return pulumi.get(self, "identity_ids")
-
-    @identity_ids.setter
-    def identity_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "identity_ids", value)
-
-    @_builtins.property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Principal ID associated with this Managed Service Identity.
-        """
-        return pulumi.get(self, "principal_id")
-
-    @principal_id.setter
-    def principal_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "principal_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The Tenant ID associated with this Managed Service Identity.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "tenant_id", value)
-
-
-class AIServicesNetworkAclsArgsDict(TypedDict):
-    default_action: pulumi.Input[_builtins.str]
-    """
-    The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
-    """
-    bypass: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-    """
-    ip_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
-    """
-    One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
-    """
-    virtual_network_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgsDict']]]]]
-    """
-    A `virtual_network_rules` block as defined below.
-    """
-
-@pulumi.input_type
-class AIServicesNetworkAclsArgs:
-    def __init__(__self__, *,
-                 default_action: pulumi.Input[_builtins.str],
-                 bypass: pulumi.Input[Optional[_builtins.str]] = None,
-                 ip_rules: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 virtual_network_rules: pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgs']]]] = None):
-        """
-        :param pulumi.Input[_builtins.str] default_action: The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
-        :param pulumi.Input[_builtins.str] bypass: Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ip_rules: One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
-        :param pulumi.Input[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgs']]] virtual_network_rules: A `virtual_network_rules` block as defined below.
-        """
-        pulumi.set(__self__, "default_action", default_action)
-        if bypass is not None:
-            pulumi.set(__self__, "bypass", bypass)
-        if ip_rules is not None:
-            pulumi.set(__self__, "ip_rules", ip_rules)
-        if virtual_network_rules is not None:
-            pulumi.set(__self__, "virtual_network_rules", virtual_network_rules)
-
-    @_builtins.property
-    @pulumi.getter(name="defaultAction")
-    def default_action(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Default Action to use when no rules match from `ip_rules` / `virtual_network_rules`. Possible values are `Allow` and `Deny`.
-        """
-        return pulumi.get(self, "default_action")
-
-    @default_action.setter
-    def default_action(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "default_action", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def bypass(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        Whether to allow trusted Azure Services to access the service. Possible values are `None` and `AzureServices`. Defaults to `AzureServices`.
-        """
-        return pulumi.get(self, "bypass")
-
-    @bypass.setter
-    def bypass(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "bypass", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ipRules")
-    def ip_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        """
-        One or more IP Addresses, or CIDR Blocks which should be able to access the AI Services Account.
-        """
-        return pulumi.get(self, "ip_rules")
-
-    @ip_rules.setter
-    def ip_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "ip_rules", value)
-
-    @_builtins.property
-    @pulumi.getter(name="virtualNetworkRules")
-    def virtual_network_rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgs']]]]:
-        """
-        A `virtual_network_rules` block as defined below.
-        """
-        return pulumi.get(self, "virtual_network_rules")
-
-    @virtual_network_rules.setter
-    def virtual_network_rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AIServicesNetworkAclsVirtualNetworkRuleArgs']]]]):
-        pulumi.set(self, "virtual_network_rules", value)
-
-
-class AIServicesNetworkAclsVirtualNetworkRuleArgsDict(TypedDict):
-    subnet_id: pulumi.Input[_builtins.str]
-    """
-    The ID of the subnet which should be able to access this AI Services Account.
-    """
-    ignore_missing_vnet_service_endpoint: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
-    """
-
-@pulumi.input_type
-class AIServicesNetworkAclsVirtualNetworkRuleArgs:
-    def __init__(__self__, *,
-                 subnet_id: pulumi.Input[_builtins.str],
-                 ignore_missing_vnet_service_endpoint: pulumi.Input[Optional[_builtins.bool]] = None):
-        """
-        :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet which should be able to access this AI Services Account.
-        :param pulumi.Input[_builtins.bool] ignore_missing_vnet_service_endpoint: Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
-        """
-        pulumi.set(__self__, "subnet_id", subnet_id)
-        if ignore_missing_vnet_service_endpoint is not None:
-            pulumi.set(__self__, "ignore_missing_vnet_service_endpoint", ignore_missing_vnet_service_endpoint)
-
-    @_builtins.property
-    @pulumi.getter(name="subnetId")
-    def subnet_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the subnet which should be able to access this AI Services Account.
-        """
-        return pulumi.get(self, "subnet_id")
-
-    @subnet_id.setter
-    def subnet_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "subnet_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ignoreMissingVnetServiceEndpoint")
-    def ignore_missing_vnet_service_endpoint(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Whether to ignore a missing Virtual Network Service Endpoint or not. Default to `false`.
-        """
-        return pulumi.get(self, "ignore_missing_vnet_service_endpoint")
-
-    @ignore_missing_vnet_service_endpoint.setter
-    def ignore_missing_vnet_service_endpoint(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "ignore_missing_vnet_service_endpoint", value)
-
-
-class AIServicesStorageArgsDict(TypedDict):
-    storage_account_id: pulumi.Input[_builtins.str]
-    """
-    The ID of the Storage Account.
-    """
-    identity_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The client ID of the Managed Identity associated with the Storage Account.
-    """
-
-@pulumi.input_type
-class AIServicesStorageArgs:
-    def __init__(__self__, *,
-                 storage_account_id: pulumi.Input[_builtins.str],
-                 identity_client_id: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] storage_account_id: The ID of the Storage Account.
-        :param pulumi.Input[_builtins.str] identity_client_id: The client ID of the Managed Identity associated with the Storage Account.
-        """
-        pulumi.set(__self__, "storage_account_id", storage_account_id)
-        if identity_client_id is not None:
-            pulumi.set(__self__, "identity_client_id", identity_client_id)
-
-    @_builtins.property
-    @pulumi.getter(name="storageAccountId")
-    def storage_account_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The ID of the Storage Account.
-        """
-        return pulumi.get(self, "storage_account_id")
-
-    @storage_account_id.setter
-    def storage_account_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "storage_account_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="identityClientId")
-    def identity_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The client ID of the Managed Identity associated with the Storage Account.
-        """
-        return pulumi.get(self, "identity_client_id")
-
-    @identity_client_id.setter
-    def identity_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "identity_client_id", value)
-
 
 class AccountCustomerManagedKeyArgsDict(TypedDict):
     key_vault_key_id: pulumi.Input[_builtins.str]
@@ -842,13 +481,15 @@ class AccountRaiPolicyContentFilterArgsDict(TypedDict):
     """
     The name of the content filter.
     """
-    severity_threshold: pulumi.Input[_builtins.str]
-    """
-    The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
-    """
     source: pulumi.Input[_builtins.str]
     """
     Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+    """
+    severity_threshold: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+
+    > **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
     """
 
 @pulumi.input_type
@@ -857,20 +498,23 @@ class AccountRaiPolicyContentFilterArgs:
                  block_enabled: pulumi.Input[_builtins.bool],
                  filter_enabled: pulumi.Input[_builtins.bool],
                  name: pulumi.Input[_builtins.str],
-                 severity_threshold: pulumi.Input[_builtins.str],
-                 source: pulumi.Input[_builtins.str]):
+                 source: pulumi.Input[_builtins.str],
+                 severity_threshold: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] block_enabled: Whether the filter should block content. Possible values are `true` or `false`.
         :param pulumi.Input[_builtins.bool] filter_enabled: Whether the filter is enabled. Possible values are `true` or `false`.
         :param pulumi.Input[_builtins.str] name: The name of the content filter.
-        :param pulumi.Input[_builtins.str] severity_threshold: The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
         :param pulumi.Input[_builtins.str] source: Content source to apply the content filter. Possible values are `Prompt` or `Completion`.
+        :param pulumi.Input[_builtins.str] severity_threshold: The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+               
+               > **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
         """
         pulumi.set(__self__, "block_enabled", block_enabled)
         pulumi.set(__self__, "filter_enabled", filter_enabled)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "severity_threshold", severity_threshold)
         pulumi.set(__self__, "source", source)
+        if severity_threshold is not None:
+            pulumi.set(__self__, "severity_threshold", severity_threshold)
 
     @_builtins.property
     @pulumi.getter(name="blockEnabled")
@@ -909,18 +553,6 @@ class AccountRaiPolicyContentFilterArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
-    @pulumi.getter(name="severityThreshold")
-    def severity_threshold(self) -> pulumi.Input[_builtins.str]:
-        """
-        The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
-        """
-        return pulumi.get(self, "severity_threshold")
-
-    @severity_threshold.setter
-    def severity_threshold(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "severity_threshold", value)
-
-    @_builtins.property
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
         """
@@ -931,6 +563,20 @@ class AccountRaiPolicyContentFilterArgs:
     @source.setter
     def source(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="severityThreshold")
+    def severity_threshold(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The severity threshold for the filter. Possible values are `Low`, `Medium` or `High`.
+
+        > **Note:** This is not applicable for filter types such as `Jailbreak`, `Indirect Attack`, `Protected Material Text`, and `Protected Material Code`.
+        """
+        return pulumi.get(self, "severity_threshold")
+
+    @severity_threshold.setter
+    def severity_threshold(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "severity_threshold", value)
 
 
 class AccountStorageArgsDict(TypedDict):

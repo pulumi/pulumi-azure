@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     apiManagementId: exampleService.id,
  *     xmlContent: std.file({
  *         input: "example.xml",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

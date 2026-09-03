@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/logicapps"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/logicapps"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -74,8 +74,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "testdata/integration_account_agreement_content_as2.json",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "testdata/integration_account_agreement_content_as2.json",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -87,7 +87,7 @@ import (
 //				AgreementType:          pulumi.String("AS2"),
 //				HostPartnerName:        host.Name,
 //				GuestPartnerName:       guest.Name,
-//				Content:                pulumi.String(invokeFile.Result),
+//				Content:                invokeFile.Result,
 //				HostIdentity: &logicapps.IntegrationAccountAgreementHostIdentityArgs{
 //					Qualifier: pulumi.String("AS2Identity"),
 //					Value:     pulumi.String("FabrikamNY"),

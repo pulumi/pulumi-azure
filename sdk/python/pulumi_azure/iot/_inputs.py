@@ -55,8 +55,8 @@ __all__ = [
     'SecurityDeviceGroupRangeRuleArgsDict',
     'SecuritySolutionAdditionalWorkspaceArgs',
     'SecuritySolutionAdditionalWorkspaceArgsDict',
-    'SecuritySolutionRecommendationsEnabledArgs',
-    'SecuritySolutionRecommendationsEnabledArgsDict',
+    'SecuritySolutionRecommendationsArgs',
+    'SecuritySolutionRecommendationsArgsDict',
 ]
 
 class IoTHubCloudToDeviceArgsDict(TypedDict):
@@ -1941,7 +1941,7 @@ class SecuritySolutionAdditionalWorkspaceArgs:
         pulumi.set(self, "workspace_id", value)
 
 
-class SecuritySolutionRecommendationsEnabledArgsDict(TypedDict):
+class SecuritySolutionRecommendationsArgsDict(TypedDict):
     acr_authentication: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
@@ -2008,7 +2008,7 @@ class SecuritySolutionRecommendationsEnabledArgsDict(TypedDict):
     """
 
 @pulumi.input_type
-class SecuritySolutionRecommendationsEnabledArgs:
+class SecuritySolutionRecommendationsArgs:
     def __init__(__self__, *,
                  acr_authentication: pulumi.Input[Optional[_builtins.bool]] = None,
                  agent_send_unutilized_msg: pulumi.Input[Optional[_builtins.bool]] = None,

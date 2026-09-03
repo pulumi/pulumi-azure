@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -121,8 +121,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -225,6 +225,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ",",
+//				"input":     exampleNetworkManagerAdminRule.SourcePortRanges,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = network.NewNetworkManagerDeployment(ctx, "example", &network.NetworkManagerDeploymentArgs{
 //				NetworkManagerId: exampleNetworkManager.ID().ToIDOutput().ToStringOutput(),
 //				Location:         pulumi.String("eastus"),
@@ -233,10 +240,7 @@ import (
 //					exampleNetworkManagerSecurityAdminConfiguration.ID().ToIDOutput().ToStringOutput(),
 //				},
 //				Triggers: pulumi.StringMap{
-//					"source_port_ranges": std.JoinOutput(ctx, std.JoinOutputArgs{
-//						Separator: pulumi.String(","),
-//						Input:     exampleNetworkManagerAdminRule.SourcePortRanges,
-//					}, nil).Result(),
+//					"source_port_ranges": invokeJoin.Result,
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleNetworkManagerAdminRule,

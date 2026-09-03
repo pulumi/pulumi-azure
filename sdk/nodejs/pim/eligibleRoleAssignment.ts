@@ -16,14 +16,14 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as time from "@pulumiverse/time";
+ * import * as time from "@pulumi/time";
  *
  * const primary = azure.core.getSubscription({});
  * const example = azure.core.getClientConfig({});
  * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
  *     name: "Reader",
  * });
- * const exampleStatic = new time.Static("example", {});
+ * const exampleStatic = new time.index.Static("example", {});
  * const exampleEligibleRoleAssignment = new azure.pim.EligibleRoleAssignment("example", {
  *     scope: primary.then(primary => primary.id),
  *     roleDefinitionId: Promise.all([primary, exampleGetRoleDefinition]).then(([primary, exampleGetRoleDefinition]) => `${primary.id}${exampleGetRoleDefinition.id}`),
@@ -47,14 +47,14 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as time from "@pulumiverse/time";
+ * import * as time from "@pulumi/time";
  *
  * const example = azure.core.getClientConfig({});
  * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
  *     name: "Reader",
  * });
  * const exampleGroup = new azure.management.Group("example", {name: "Example-Management-Group"});
- * const exampleStatic = new time.Static("example", {});
+ * const exampleStatic = new time.index.Static("example", {});
  * const exampleEligibleRoleAssignment = new azure.pim.EligibleRoleAssignment("example", {
  *     scope: exampleGroup.id,
  *     roleDefinitionId: exampleGetRoleDefinition.then(exampleGetRoleDefinition => exampleGetRoleDefinition.id),

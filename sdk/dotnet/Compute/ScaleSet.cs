@@ -169,7 +169,7 @@ namespace Pulumi.Azure.Compute
     ///                     KeyData = Std.File.Invoke(new()
     ///                     {
     ///                         Input = "~/.ssh/demo_key.pub",
-    ///                     }).Apply(invoke =&gt; invoke.Result),
+    ///                     }).Result,
     ///                 },
     ///             },
     ///         },
@@ -294,7 +294,7 @@ namespace Pulumi.Azure.Compute
     ///                     KeyData = Std.File.Invoke(new()
     ///                     {
     ///                         Input = "~/.ssh/demo_key.pub",
-    ///                     }).Apply(invoke =&gt; invoke.Result),
+    ///                     }).Result,
     ///                 },
     ///             },
     ///         },

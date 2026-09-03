@@ -5,7 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing Trusted Signing Account.
+ * Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+ *
+ * > **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
  *
  * ## Example Usage
  *
@@ -25,7 +27,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.CodeSigning` - 2024-09-30-preview
+ * * `Microsoft.CodeSigning` - 2025-10-13
  */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,11 +42,11 @@ export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetAccountArgs {
     /**
-     * The name of the Trusted Signing Account.
+     * The name of the Artifact Signing Account.
      */
     name: string;
     /**
-     * The name of the Resource Group where the Trusted Signing Account exists.
+     * The name of the Resource Group where the Artifact Signing Account exists.
      */
     resourceGroupName: string;
 }
@@ -54,7 +56,7 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * The URI of the Trusted Signing Account.
+     * The URI of the Artifact Signing Account.
      */
     readonly accountUri: string;
     /**
@@ -62,22 +64,24 @@ export interface GetAccountResult {
      */
     readonly id: string;
     /**
-     * The Azure Region where the Trusted Signing Account exists.
+     * The Azure Region where the Artifact Signing Account exists.
      */
     readonly location: string;
     readonly name: string;
     readonly resourceGroupName: string;
     /**
-     * The sku name of the Trusted Signing Account.
+     * The sku name of the Artifact Signing Account.
      */
     readonly skuName: string;
     /**
-     * A mapping of tags assigned to the Trusted Signing Account.
+     * A mapping of tags assigned to the Artifact Signing Account.
      */
     readonly tags: {[key: string]: string};
 }
 /**
- * Use this data source to access information about an existing Trusted Signing Account.
+ * Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+ *
+ * > **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
  *
  * ## Example Usage
  *
@@ -97,7 +101,7 @@ export interface GetAccountResult {
  * <!-- This section is generated, changes will be overwritten -->
  * This data source uses the following Azure API Providers:
  *
- * * `Microsoft.CodeSigning` - 2024-09-30-preview
+ * * `Microsoft.CodeSigning` - 2025-10-13
  */
 export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -112,11 +116,11 @@ export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.Invok
  */
 export interface GetAccountOutputArgs {
     /**
-     * The name of the Trusted Signing Account.
+     * The name of the Artifact Signing Account.
      */
     name: pulumi.Input<string>;
     /**
-     * The name of the Resource Group where the Trusted Signing Account exists.
+     * The name of the Resource Group where the Artifact Signing Account exists.
      */
     resourceGroupName: pulumi.Input<string>;
 }

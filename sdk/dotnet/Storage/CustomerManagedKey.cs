@@ -159,26 +159,11 @@ namespace Pulumi.Azure.Storage
         [Output("federatedIdentityClientId")]
         public Output<string?> FederatedIdentityClientId { get; private set; } = null!;
 
-        [Output("keyName")]
-        public Output<string> KeyName { get; private set; } = null!;
-
-        [Output("keyVaultId")]
-        public Output<string> KeyVaultId { get; private set; } = null!;
-
         /// <summary>
         /// The ID of the Key Vault Key.
         /// </summary>
         [Output("keyVaultKeyId")]
         public Output<string> KeyVaultKeyId { get; private set; } = null!;
-
-        [Output("keyVaultUri")]
-        public Output<string> KeyVaultUri { get; private set; } = null!;
-
-        [Output("keyVersion")]
-        public Output<string> KeyVersion { get; private set; } = null!;
-
-        [Output("managedHsmKeyId")]
-        public Output<string> ManagedHsmKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -244,26 +229,11 @@ namespace Pulumi.Azure.Storage
         [Input("federatedIdentityClientId")]
         public Input<string>? FederatedIdentityClientId { get; set; }
 
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
-
-        [Input("keyVaultId")]
-        public Input<string>? KeyVaultId { get; set; }
-
         /// <summary>
         /// The ID of the Key Vault Key.
         /// </summary>
-        [Input("keyVaultKeyId")]
-        public Input<string>? KeyVaultKeyId { get; set; }
-
-        [Input("keyVaultUri")]
-        public Input<string>? KeyVaultUri { get; set; }
-
-        [Input("keyVersion")]
-        public Input<string>? KeyVersion { get; set; }
-
-        [Input("managedHsmKeyId")]
-        public Input<string>? ManagedHsmKeyId { get; set; }
+        [Input("keyVaultKeyId", required: true)]
+        public Input<string> KeyVaultKeyId { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.
@@ -291,26 +261,11 @@ namespace Pulumi.Azure.Storage
         [Input("federatedIdentityClientId")]
         public Input<string>? FederatedIdentityClientId { get; set; }
 
-        [Input("keyName")]
-        public Input<string>? KeyName { get; set; }
-
-        [Input("keyVaultId")]
-        public Input<string>? KeyVaultId { get; set; }
-
         /// <summary>
         /// The ID of the Key Vault Key.
         /// </summary>
         [Input("keyVaultKeyId")]
         public Input<string>? KeyVaultKeyId { get; set; }
-
-        [Input("keyVaultUri")]
-        public Input<string>? KeyVaultUri { get; set; }
-
-        [Input("keyVersion")]
-        public Input<string>? KeyVersion { get; set; }
-
-        [Input("managedHsmKeyId")]
-        public Input<string>? ManagedHsmKeyId { get; set; }
 
         /// <summary>
         /// The ID of the Storage Account. Changing this forces a new resource to be created.

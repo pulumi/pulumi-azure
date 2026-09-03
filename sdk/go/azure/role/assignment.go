@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -60,8 +60,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -117,8 +117,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -174,9 +174,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/management"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -238,8 +238,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -261,14 +261,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBasename, err := std.Basename(ctx, &std.BasenameArgs{
-//				Input: builtin.RoleDefinitionId,
+//			invokeBasename, err := std.Basename(ctx, map[string]interface{}{
+//				"input": builtin.RoleDefinitionId,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			invokeBasename1, err := std.Basename(ctx, &std.BasenameArgs{
-//				Input: builtin.RoleDefinitionId,
+//			invokeBasename1, err := std.Basename(ctx, map[string]interface{}{
+//				"input": builtin.RoleDefinitionId,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -342,9 +342,9 @@ import (
 type Assignment struct {
 	pulumi.CustomResourceState
 
-	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to.
 	Condition pulumi.StringPtrOutput `pulumi:"condition"`
-	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	// The version of the condition. Possible values are `1.0` or `2.0`.
 	//
 	// > **Note:** `condition` is required when `conditionVersion` is set.
 	ConditionVersion pulumi.StringOutput `pulumi:"conditionVersion"`
@@ -352,7 +352,7 @@ type Assignment struct {
 	//
 	// > **Note:** This field is only used in cross tenant scenarios.
 	DelegatedManagedIdentityResourceId pulumi.StringPtrOutput `pulumi:"delegatedManagedIdentityResourceId"`
-	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	// The description for this Role Assignment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -412,9 +412,9 @@ func GetAssignment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assignment resources.
 type assignmentState struct {
-	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to.
 	Condition *string `pulumi:"condition"`
-	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	// The version of the condition. Possible values are `1.0` or `2.0`.
 	//
 	// > **Note:** `condition` is required when `conditionVersion` is set.
 	ConditionVersion *string `pulumi:"conditionVersion"`
@@ -422,7 +422,7 @@ type assignmentState struct {
 	//
 	// > **Note:** This field is only used in cross tenant scenarios.
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
-	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	// The description for this Role Assignment.
 	Description *string `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -447,9 +447,9 @@ type assignmentState struct {
 }
 
 type AssignmentState struct {
-	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to.
 	Condition pulumi.StringPtrInput
-	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	// The version of the condition. Possible values are `1.0` or `2.0`.
 	//
 	// > **Note:** `condition` is required when `conditionVersion` is set.
 	ConditionVersion pulumi.StringPtrInput
@@ -457,7 +457,7 @@ type AssignmentState struct {
 	//
 	// > **Note:** This field is only used in cross tenant scenarios.
 	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
-	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	// The description for this Role Assignment.
 	Description pulumi.StringPtrInput
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -486,9 +486,9 @@ func (AssignmentState) ElementType() reflect.Type {
 }
 
 type assignmentArgs struct {
-	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to.
 	Condition *string `pulumi:"condition"`
-	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	// The version of the condition. Possible values are `1.0` or `2.0`.
 	//
 	// > **Note:** `condition` is required when `conditionVersion` is set.
 	ConditionVersion *string `pulumi:"conditionVersion"`
@@ -496,7 +496,7 @@ type assignmentArgs struct {
 	//
 	// > **Note:** This field is only used in cross tenant scenarios.
 	DelegatedManagedIdentityResourceId *string `pulumi:"delegatedManagedIdentityResourceId"`
-	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	// The description for this Role Assignment.
 	Description *string `pulumi:"description"`
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
@@ -522,9 +522,9 @@ type assignmentArgs struct {
 
 // The set of arguments for constructing a Assignment resource.
 type AssignmentArgs struct {
-	// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+	// The condition that limits the resources that the role can be assigned to.
 	Condition pulumi.StringPtrInput
-	// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+	// The version of the condition. Possible values are `1.0` or `2.0`.
 	//
 	// > **Note:** `condition` is required when `conditionVersion` is set.
 	ConditionVersion pulumi.StringPtrInput
@@ -532,7 +532,7 @@ type AssignmentArgs struct {
 	//
 	// > **Note:** This field is only used in cross tenant scenarios.
 	DelegatedManagedIdentityResourceId pulumi.StringPtrInput
-	// The description for this Role Assignment. Changing this forces a new resource to be created.
+	// The description for this Role Assignment.
 	Description pulumi.StringPtrInput
 	// A unique UUID/GUID for this Role Assignment - one will be generated if not specified. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
@@ -643,12 +643,12 @@ func (o AssignmentOutput) ToAssignmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
-// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+// The condition that limits the resources that the role can be assigned to.
 func (o AssignmentOutput) Condition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.Condition }).(pulumi.StringPtrOutput)
 }
 
-// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+// The version of the condition. Possible values are `1.0` or `2.0`.
 //
 // > **Note:** `condition` is required when `conditionVersion` is set.
 func (o AssignmentOutput) ConditionVersion() pulumi.StringOutput {
@@ -662,7 +662,7 @@ func (o AssignmentOutput) DelegatedManagedIdentityResourceId() pulumi.StringPtrO
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.DelegatedManagedIdentityResourceId }).(pulumi.StringPtrOutput)
 }
 
-// The description for this Role Assignment. Changing this forces a new resource to be created.
+// The description for this Role Assignment.
 func (o AssignmentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Assignment) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }

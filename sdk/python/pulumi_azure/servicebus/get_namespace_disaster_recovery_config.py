@@ -26,7 +26,7 @@ class GetNamespaceDisasterRecoveryConfigResult:
     """
     A collection of values returned by getNamespaceDisasterRecoveryConfig.
     """
-    def __init__(__self__, alias_authorization_rule_id=None, default_primary_key=None, default_secondary_key=None, id=None, name=None, namespace_id=None, namespace_name=None, partner_namespace_id=None, primary_connection_string_alias=None, resource_group_name=None, secondary_connection_string_alias=None):
+    def __init__(__self__, alias_authorization_rule_id=None, default_primary_key=None, default_secondary_key=None, id=None, name=None, namespace_id=None, partner_namespace_id=None, primary_connection_string_alias=None, secondary_connection_string_alias=None):
         if alias_authorization_rule_id and not isinstance(alias_authorization_rule_id, str):
             raise TypeError("Expected argument 'alias_authorization_rule_id' to be a str")
         pulumi.set(__self__, "alias_authorization_rule_id", alias_authorization_rule_id)
@@ -45,18 +45,12 @@ class GetNamespaceDisasterRecoveryConfigResult:
         if namespace_id and not isinstance(namespace_id, str):
             raise TypeError("Expected argument 'namespace_id' to be a str")
         pulumi.set(__self__, "namespace_id", namespace_id)
-        if namespace_name and not isinstance(namespace_name, str):
-            raise TypeError("Expected argument 'namespace_name' to be a str")
-        pulumi.set(__self__, "namespace_name", namespace_name)
         if partner_namespace_id and not isinstance(partner_namespace_id, str):
             raise TypeError("Expected argument 'partner_namespace_id' to be a str")
         pulumi.set(__self__, "partner_namespace_id", partner_namespace_id)
         if primary_connection_string_alias and not isinstance(primary_connection_string_alias, str):
             raise TypeError("Expected argument 'primary_connection_string_alias' to be a str")
         pulumi.set(__self__, "primary_connection_string_alias", primary_connection_string_alias)
-        if resource_group_name and not isinstance(resource_group_name, str):
-            raise TypeError("Expected argument 'resource_group_name' to be a str")
-        pulumi.set(__self__, "resource_group_name", resource_group_name)
         if secondary_connection_string_alias and not isinstance(secondary_connection_string_alias, str):
             raise TypeError("Expected argument 'secondary_connection_string_alias' to be a str")
         pulumi.set(__self__, "secondary_connection_string_alias", secondary_connection_string_alias)
@@ -101,12 +95,6 @@ class GetNamespaceDisasterRecoveryConfigResult:
         return pulumi.get(self, "namespace_id")
 
     @_builtins.property
-    @pulumi.getter(name="namespaceName")
-    @_utilities.deprecated("""`namespace_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.""")
-    def namespace_name(self) -> _builtins.str:
-        return pulumi.get(self, "namespace_name")
-
-    @_builtins.property
     @pulumi.getter(name="partnerNamespaceId")
     def partner_namespace_id(self) -> _builtins.str:
         """
@@ -121,12 +109,6 @@ class GetNamespaceDisasterRecoveryConfigResult:
         The alias Primary Connection String for the ServiceBus Namespace.
         """
         return pulumi.get(self, "primary_connection_string_alias")
-
-    @_builtins.property
-    @pulumi.getter(name="resourceGroupName")
-    @_utilities.deprecated("""`resource_group_name` will be removed in favour of the property `namespace_id` in version 5.0 of the AzureRM Provider.""")
-    def resource_group_name(self) -> _builtins.str:
-        return pulumi.get(self, "resource_group_name")
 
     @_builtins.property
     @pulumi.getter(name="secondaryConnectionStringAlias")
@@ -149,18 +131,14 @@ class AwaitableGetNamespaceDisasterRecoveryConfigResult(GetNamespaceDisasterReco
             id=self.id,
             name=self.name,
             namespace_id=self.namespace_id,
-            namespace_name=self.namespace_name,
             partner_namespace_id=self.partner_namespace_id,
             primary_connection_string_alias=self.primary_connection_string_alias,
-            resource_group_name=self.resource_group_name,
             secondary_connection_string_alias=self.secondary_connection_string_alias)
 
 
 def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional[_builtins.str] = None,
                                            name: Optional[_builtins.str] = None,
                                            namespace_id: Optional[_builtins.str] = None,
-                                           namespace_name: Optional[_builtins.str] = None,
-                                           resource_group_name: Optional[_builtins.str] = None,
                                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNamespaceDisasterRecoveryConfigResult:
     """
     Use this data source to access information about an existing Service Bus Disaster Recovery Config.
@@ -192,8 +170,6 @@ def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional
     __args__['aliasAuthorizationRuleId'] = alias_authorization_rule_id
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig', __args__, opts=opts, typ=GetNamespaceDisasterRecoveryConfigResult).value
 
@@ -204,16 +180,12 @@ def get_namespace_disaster_recovery_config(alias_authorization_rule_id: Optional
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         namespace_id=pulumi.get(__ret__, 'namespace_id'),
-        namespace_name=pulumi.get(__ret__, 'namespace_name'),
         partner_namespace_id=pulumi.get(__ret__, 'partner_namespace_id'),
         primary_connection_string_alias=pulumi.get(__ret__, 'primary_connection_string_alias'),
-        resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         secondary_connection_string_alias=pulumi.get(__ret__, 'secondary_connection_string_alias'))
 def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
                                                   name: pulumi.Input[Optional[_builtins.str]] = None,
-                                                  namespace_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                  namespace_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                                                  resource_group_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                                                  namespace_id: pulumi.Input[Optional[_builtins.str]] = None,
                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceDisasterRecoveryConfigResult]:
     """
     Use this data source to access information about an existing Service Bus Disaster Recovery Config.
@@ -245,8 +217,6 @@ def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: p
     __args__['aliasAuthorizationRuleId'] = alias_authorization_rule_id
     __args__['name'] = name
     __args__['namespaceId'] = namespace_id
-    __args__['namespaceName'] = namespace_name
-    __args__['resourceGroupName'] = resource_group_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:servicebus/getNamespaceDisasterRecoveryConfig:getNamespaceDisasterRecoveryConfig', __args__, opts=opts, typ=GetNamespaceDisasterRecoveryConfigResult)
     return __ret__.apply(lambda __response__: GetNamespaceDisasterRecoveryConfigResult(
@@ -256,8 +226,6 @@ def get_namespace_disaster_recovery_config_output(alias_authorization_rule_id: p
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         namespace_id=pulumi.get(__response__, 'namespace_id'),
-        namespace_name=pulumi.get(__response__, 'namespace_name'),
         partner_namespace_id=pulumi.get(__response__, 'partner_namespace_id'),
         primary_connection_string_alias=pulumi.get(__response__, 'primary_connection_string_alias'),
-        resource_group_name=pulumi.get(__response__, 'resource_group_name'),
         secondary_connection_string_alias=pulumi.get(__response__, 'secondary_connection_string_alias')))

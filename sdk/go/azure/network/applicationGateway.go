@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -28,8 +28,8 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -182,8 +182,6 @@ import (
 type ApplicationGateway struct {
 	pulumi.CustomResourceState
 
-	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates ApplicationGatewayAuthenticationCertificateArrayOutput `pulumi:"authenticationCertificates"`
 	// An `autoscaleConfiguration` block as defined below.
 	AutoscaleConfiguration ApplicationGatewayAutoscaleConfigurationPtrOutput `pulumi:"autoscaleConfiguration"`
 	// One or more `backendAddressPool` blocks as defined below.
@@ -198,8 +196,6 @@ type ApplicationGateway struct {
 	Backends ApplicationGatewayBackendArrayOutput `pulumi:"backends"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayOutput `pulumi:"customErrorConfigurations"`
-	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableHttp2 pulumi.BoolOutput `pulumi:"enableHttp2"`
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled pulumi.BoolPtrOutput `pulumi:"fipsEnabled"`
 	// The ID of the Web Application Firewall Policy.
@@ -215,7 +211,7 @@ type ApplicationGateway struct {
 	// A `global` block as defined below.
 	Global ApplicationGatewayGlobalPtrOutput `pulumi:"global"`
 	// Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-	Http2Enabled pulumi.BoolOutput `pulumi:"http2Enabled"`
+	Http2Enabled pulumi.BoolPtrOutput `pulumi:"http2Enabled"`
 	// One or more `httpListener` blocks as defined below.
 	//
 	// > **Note:** At least one of `httpListener` or `listener` must be specified.
@@ -322,8 +318,6 @@ func GetApplicationGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ApplicationGateway resources.
 type applicationGatewayState struct {
-	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificate `pulumi:"authenticationCertificates"`
 	// An `autoscaleConfiguration` block as defined below.
 	AutoscaleConfiguration *ApplicationGatewayAutoscaleConfiguration `pulumi:"autoscaleConfiguration"`
 	// One or more `backendAddressPool` blocks as defined below.
@@ -338,8 +332,6 @@ type applicationGatewayState struct {
 	Backends []ApplicationGatewayBackend `pulumi:"backends"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
-	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableHttp2 *bool `pulumi:"enableHttp2"`
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// The ID of the Web Application Firewall Policy.
@@ -415,8 +407,6 @@ type applicationGatewayState struct {
 }
 
 type ApplicationGatewayState struct {
-	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates ApplicationGatewayAuthenticationCertificateArrayInput
 	// An `autoscaleConfiguration` block as defined below.
 	AutoscaleConfiguration ApplicationGatewayAutoscaleConfigurationPtrInput
 	// One or more `backendAddressPool` blocks as defined below.
@@ -431,8 +421,6 @@ type ApplicationGatewayState struct {
 	Backends ApplicationGatewayBackendArrayInput
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
-	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableHttp2 pulumi.BoolPtrInput
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled pulumi.BoolPtrInput
 	// The ID of the Web Application Firewall Policy.
@@ -512,8 +500,6 @@ func (ApplicationGatewayState) ElementType() reflect.Type {
 }
 
 type applicationGatewayArgs struct {
-	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates []ApplicationGatewayAuthenticationCertificate `pulumi:"authenticationCertificates"`
 	// An `autoscaleConfiguration` block as defined below.
 	AutoscaleConfiguration *ApplicationGatewayAutoscaleConfiguration `pulumi:"autoscaleConfiguration"`
 	// One or more `backendAddressPool` blocks as defined below.
@@ -528,8 +514,6 @@ type applicationGatewayArgs struct {
 	Backends []ApplicationGatewayBackend `pulumi:"backends"`
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations []ApplicationGatewayCustomErrorConfiguration `pulumi:"customErrorConfigurations"`
-	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableHttp2 *bool `pulumi:"enableHttp2"`
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled *bool `pulumi:"fipsEnabled"`
 	// The ID of the Web Application Firewall Policy.
@@ -604,8 +588,6 @@ type applicationGatewayArgs struct {
 
 // The set of arguments for constructing a ApplicationGateway resource.
 type ApplicationGatewayArgs struct {
-	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates ApplicationGatewayAuthenticationCertificateArrayInput
 	// An `autoscaleConfiguration` block as defined below.
 	AutoscaleConfiguration ApplicationGatewayAutoscaleConfigurationPtrInput
 	// One or more `backendAddressPool` blocks as defined below.
@@ -620,8 +602,6 @@ type ApplicationGatewayArgs struct {
 	Backends ApplicationGatewayBackendArrayInput
 	// One or more `customErrorConfiguration` blocks as defined below.
 	CustomErrorConfigurations ApplicationGatewayCustomErrorConfigurationArrayInput
-	// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableHttp2 pulumi.BoolPtrInput
 	// Is FIPS enabled on the Application Gateway?
 	FipsEnabled pulumi.BoolPtrInput
 	// The ID of the Web Application Firewall Policy.
@@ -781,13 +761,6 @@ func (o ApplicationGatewayOutput) ToApplicationGatewayOutputWithContext(ctx cont
 	return o
 }
 
-// One or more `authenticationCertificate` blocks as defined below.
-func (o ApplicationGatewayOutput) AuthenticationCertificates() ApplicationGatewayAuthenticationCertificateArrayOutput {
-	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayAuthenticationCertificateArrayOutput {
-		return v.AuthenticationCertificates
-	}).(ApplicationGatewayAuthenticationCertificateArrayOutput)
-}
-
 // An `autoscaleConfiguration` block as defined below.
 func (o ApplicationGatewayOutput) AutoscaleConfiguration() ApplicationGatewayAutoscaleConfigurationPtrOutput {
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayAutoscaleConfigurationPtrOutput {
@@ -823,11 +796,6 @@ func (o ApplicationGatewayOutput) CustomErrorConfigurations() ApplicationGateway
 	return o.ApplyT(func(v *ApplicationGateway) ApplicationGatewayCustomErrorConfigurationArrayOutput {
 		return v.CustomErrorConfigurations
 	}).(ApplicationGatewayCustomErrorConfigurationArrayOutput)
-}
-
-// Deprecated: the `enableHttp2` property has been deprecated in favour of the `http2Enabled` property and will be removed in v5.0 of the AzureRM Provider
-func (o ApplicationGatewayOutput) EnableHttp2() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ApplicationGateway) pulumi.BoolOutput { return v.EnableHttp2 }).(pulumi.BoolOutput)
 }
 
 // Is FIPS enabled on the Application Gateway?
@@ -870,8 +838,8 @@ func (o ApplicationGatewayOutput) Global() ApplicationGatewayGlobalPtrOutput {
 }
 
 // Is HTTP2 enabled on the application gateway resource? Defaults to `false`.
-func (o ApplicationGatewayOutput) Http2Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *ApplicationGateway) pulumi.BoolOutput { return v.Http2Enabled }).(pulumi.BoolOutput)
+func (o ApplicationGatewayOutput) Http2Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationGateway) pulumi.BoolPtrOutput { return v.Http2Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // One or more `httpListener` blocks as defined below.

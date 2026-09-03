@@ -29,25 +29,6 @@ public final class ProviderFeaturesVirtualMachineArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.detachImplicitDataDiskOnDeletion);
     }
 
-    /**
-     * @deprecated
-     * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
-    @Import(name="gracefulShutdown")
-    private @Nullable Output<Boolean> gracefulShutdown;
-
-    /**
-     * @deprecated
-     * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
-     * 
-     */
-    @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
-    public Optional<Output<Boolean>> gracefulShutdown() {
-        return Optional.ofNullable(this.gracefulShutdown);
-    }
-
     @Import(name="skipShutdownAndForceDelete")
     private @Nullable Output<Boolean> skipShutdownAndForceDelete;
 
@@ -60,7 +41,6 @@ public final class ProviderFeaturesVirtualMachineArgs extends com.pulumi.resourc
     private ProviderFeaturesVirtualMachineArgs(ProviderFeaturesVirtualMachineArgs $) {
         this.deleteOsDiskOnDeletion = $.deleteOsDiskOnDeletion;
         this.detachImplicitDataDiskOnDeletion = $.detachImplicitDataDiskOnDeletion;
-        this.gracefulShutdown = $.gracefulShutdown;
         this.skipShutdownAndForceDelete = $.skipShutdownAndForceDelete;
     }
 
@@ -98,31 +78,6 @@ public final class ProviderFeaturesVirtualMachineArgs extends com.pulumi.resourc
 
         public Builder detachImplicitDataDiskOnDeletion(Boolean detachImplicitDataDiskOnDeletion) {
             return detachImplicitDataDiskOnDeletion(Output.of(detachImplicitDataDiskOnDeletion));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
-        public Builder gracefulShutdown(@Nullable Output<Boolean> gracefulShutdown) {
-            $.gracefulShutdown = gracefulShutdown;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * &#39;graceful_shutdown&#39; has been deprecated and will be removed from v5.0 of the AzureRM provider.
-         * 
-         */
-        @Deprecated /* 'graceful_shutdown' has been deprecated and will be removed from v5.0 of the AzureRM provider. */
-        public Builder gracefulShutdown(Boolean gracefulShutdown) {
-            return gracefulShutdown(Output.of(gracefulShutdown));
         }
 
         public Builder skipShutdownAndForceDelete(@Nullable Output<Boolean> skipShutdownAndForceDelete) {

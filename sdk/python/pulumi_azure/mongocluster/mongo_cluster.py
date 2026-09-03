@@ -49,6 +49,8 @@ class MongoClusterArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the MongoDB Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+               
+               > **Note:** `administrator_username` is required when `authentication_methods` contains `NativeAuth` or is not configured.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
@@ -150,6 +152,8 @@ class MongoClusterArgs:
     def administrator_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+
+        > **Note:** `administrator_username` is required when `authentication_methods` contains `NativeAuth` or is not configured.
         """
         return pulumi.get(self, "administrator_username")
 
@@ -425,6 +429,8 @@ class _MongoClusterState:
 
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+               
+               > **Note:** `administrator_username` is required when `authentication_methods` contains `NativeAuth` or is not configured.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         :param pulumi.Input[Sequence[pulumi.Input['MongoClusterConnectionStringArgs']]] connection_strings: One or more `connection_strings` blocks as defined below.
@@ -519,6 +525,8 @@ class _MongoClusterState:
     def administrator_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+
+        > **Note:** `administrator_username` is required when `authentication_methods` contains `NativeAuth` or is not configured.
         """
         return pulumi.get(self, "administrator_username")
 
@@ -861,6 +869,8 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+               
+               > **Note:** `administrator_username` is required when `authentication_methods` contains `NativeAuth` or is not configured.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         :param pulumi.Input[_builtins.str] create_mode: The creation mode for the MongoDB Cluster. Possible values are `Default`, `GeoReplica` and `PointInTimeRestore`. Defaults to `Default`. Changing this forces a new resource to be created.
@@ -1008,7 +1018,7 @@ class MongoCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
             __props__.__dict__["connection_strings"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:cosmosdb/mongoCluster:MongoCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure:cosmosdb/mongoCluster:MongoCluster"), pulumi.Alias(type_="azure:cosmosdb/mongoCluster:MongoCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["administratorPassword", "connectionStrings"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -1054,6 +1064,8 @@ class MongoCluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_password: The Password associated with the `administrator_username` for the MongoDB Cluster.
         :param pulumi.Input[_builtins.str] administrator_username: The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+               
+               > **Note:** `administrator_username` is required when `authentication_methods` contains `NativeAuth` or is not configured.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_methods: A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
         :param pulumi.Input[_builtins.str] compute_tier: The compute tier to assign to the MongoDB Cluster. Possible values are `Free`, `M10`, `M20`, `M25`, `M30`, `M40`, `M50`, `M60`, `M80`, and `M200`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MongoClusterConnectionStringArgs', 'MongoClusterConnectionStringArgsDict']]]] connection_strings: One or more `connection_strings` blocks as defined below.
@@ -1126,6 +1138,8 @@ class MongoCluster(pulumi.CustomResource):
     def administrator_username(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+
+        > **Note:** `administrator_username` is required when `authentication_methods` contains `NativeAuth` or is not configured.
         """
         return pulumi.get(self, "administrator_username")
 

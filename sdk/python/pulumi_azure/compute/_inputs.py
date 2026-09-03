@@ -2093,50 +2093,50 @@ class LinuxVirtualMachineScaleSetAutomaticInstanceRepairArgs:
 
 
 class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict(TypedDict):
-    disable_automatic_rollback: pulumi.Input[_builtins.bool]
+    automatic_os_upgrade_enabled: pulumi.Input[_builtins.bool]
     """
-    Should automatic rollbacks be disabled?
+    Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
     """
-    enable_automatic_os_upgrade: pulumi.Input[_builtins.bool]
+    automatic_rollback_enabled: pulumi.Input[_builtins.bool]
     """
-    Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+    Whether automatic rollbacks are enabled.
     """
 
 @pulumi.input_type
 class LinuxVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs:
     def __init__(__self__, *,
-                 disable_automatic_rollback: pulumi.Input[_builtins.bool],
-                 enable_automatic_os_upgrade: pulumi.Input[_builtins.bool]):
+                 automatic_os_upgrade_enabled: pulumi.Input[_builtins.bool],
+                 automatic_rollback_enabled: pulumi.Input[_builtins.bool]):
         """
-        :param pulumi.Input[_builtins.bool] disable_automatic_rollback: Should automatic rollbacks be disabled?
-        :param pulumi.Input[_builtins.bool] enable_automatic_os_upgrade: Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+        :param pulumi.Input[_builtins.bool] automatic_os_upgrade_enabled: Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
+        :param pulumi.Input[_builtins.bool] automatic_rollback_enabled: Whether automatic rollbacks are enabled.
         """
-        pulumi.set(__self__, "disable_automatic_rollback", disable_automatic_rollback)
-        pulumi.set(__self__, "enable_automatic_os_upgrade", enable_automatic_os_upgrade)
+        pulumi.set(__self__, "automatic_os_upgrade_enabled", automatic_os_upgrade_enabled)
+        pulumi.set(__self__, "automatic_rollback_enabled", automatic_rollback_enabled)
 
     @_builtins.property
-    @pulumi.getter(name="disableAutomaticRollback")
-    def disable_automatic_rollback(self) -> pulumi.Input[_builtins.bool]:
+    @pulumi.getter(name="automaticOsUpgradeEnabled")
+    def automatic_os_upgrade_enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        Should automatic rollbacks be disabled?
+        Whether to apply OS Upgrades automatically to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available.
         """
-        return pulumi.get(self, "disable_automatic_rollback")
+        return pulumi.get(self, "automatic_os_upgrade_enabled")
 
-    @disable_automatic_rollback.setter
-    def disable_automatic_rollback(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "disable_automatic_rollback", value)
+    @automatic_os_upgrade_enabled.setter
+    def automatic_os_upgrade_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "automatic_os_upgrade_enabled", value)
 
     @_builtins.property
-    @pulumi.getter(name="enableAutomaticOsUpgrade")
-    def enable_automatic_os_upgrade(self) -> pulumi.Input[_builtins.bool]:
+    @pulumi.getter(name="automaticRollbackEnabled")
+    def automatic_rollback_enabled(self) -> pulumi.Input[_builtins.bool]:
         """
-        Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+        Whether automatic rollbacks are enabled.
         """
-        return pulumi.get(self, "enable_automatic_os_upgrade")
+        return pulumi.get(self, "automatic_rollback_enabled")
 
-    @enable_automatic_os_upgrade.setter
-    def enable_automatic_os_upgrade(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enable_automatic_os_upgrade", value)
+    @automatic_rollback_enabled.setter
+    def automatic_rollback_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "automatic_rollback_enabled", value)
 
 
 class LinuxVirtualMachineScaleSetBootDiagnosticsArgsDict(TypedDict):
@@ -2217,8 +2217,6 @@ class LinuxVirtualMachineScaleSetDataDiskArgsDict(TypedDict):
     """
     The name of the Data Disk.
     """
-    ultra_ssd_disk_iops_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    ultra_ssd_disk_mbps_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     write_accelerator_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -2238,8 +2236,6 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
                  disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ultra_ssd_disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
-                 ultra_ssd_disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -2275,16 +2271,6 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if ultra_ssd_disk_iops_read_write is not None:
-            warnings.warn("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""", DeprecationWarning)
-            pulumi.log.warn("""ultra_ssd_disk_iops_read_write is deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
-        if ultra_ssd_disk_iops_read_write is not None:
-            pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
-        if ultra_ssd_disk_mbps_read_write is not None:
-            warnings.warn("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""", DeprecationWarning)
-            pulumi.log.warn("""ultra_ssd_disk_mbps_read_write is deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
-        if ultra_ssd_disk_mbps_read_write is not None:
-            pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -2401,26 +2387,6 @@ class LinuxVirtualMachineScaleSetDataDiskArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
-    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
-    def ultra_ssd_disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
-
-    @ultra_ssd_disk_iops_read_write.setter
-    def ultra_ssd_disk_iops_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "ultra_ssd_disk_iops_read_write", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
-    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
-    def ultra_ssd_disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
-
-    @ultra_ssd_disk_mbps_read_write.setter
-    def ultra_ssd_disk_mbps_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "ultra_ssd_disk_mbps_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -2918,6 +2884,10 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgsDict(TypedDict):
     """
     The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
     """
+    accelerated_networking_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Does this Network Interface support Accelerated Networking? Defaults to `false`.
+    """
     auxiliary_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
@@ -2934,11 +2904,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgsDict(TypedDict):
     """
     A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
     """
-    enable_accelerated_networking: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Does this Network Interface support Accelerated Networking? Defaults to `false`.
-    """
-    enable_ip_forwarding: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ip_forwarding_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Does this Network Interface support IP Forwarding? Defaults to `false`.
     """
@@ -2958,16 +2924,17 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]],
                  name: pulumi.Input[_builtins.str],
+                 accelerated_networking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auxiliary_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  auxiliary_sku: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_ip_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  primary: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Does this Network Interface support Accelerated Networking? Defaults to `false`.
         :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
                
                > **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -2975,8 +2942,7 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
                
                > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
-        :param pulumi.Input[_builtins.bool] enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_ip_forwarding: Does this Network Interface support IP Forwarding? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Does this Network Interface support IP Forwarding? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_security_group_id: The ID of a Network Security Group which should be assigned to this Network Interface.
         :param pulumi.Input[_builtins.bool] primary: Is this the Primary IP Configuration?
                
@@ -2984,16 +2950,16 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
+        if accelerated_networking_enabled is not None:
+            pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
         if auxiliary_mode is not None:
             pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
         if auxiliary_sku is not None:
             pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
-        if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
-        if enable_ip_forwarding is not None:
-            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+        if ip_forwarding_enabled is not None:
+            pulumi.set(__self__, "ip_forwarding_enabled", ip_forwarding_enabled)
         if network_security_group_id is not None:
             pulumi.set(__self__, "network_security_group_id", network_security_group_id)
         if primary is not None:
@@ -3022,6 +2988,18 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="acceleratedNetworkingEnabled")
+    def accelerated_networking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Does this Network Interface support Accelerated Networking? Defaults to `false`.
+        """
+        return pulumi.get(self, "accelerated_networking_enabled")
+
+    @accelerated_networking_enabled.setter
+    def accelerated_networking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "accelerated_networking_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="auxiliaryMode")
@@ -3064,28 +3042,16 @@ class LinuxVirtualMachineScaleSetNetworkInterfaceArgs:
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
-    @pulumi.getter(name="enableAcceleratedNetworking")
-    def enable_accelerated_networking(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Does this Network Interface support Accelerated Networking? Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_accelerated_networking")
-
-    @enable_accelerated_networking.setter
-    def enable_accelerated_networking(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_accelerated_networking", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableIpForwarding")
-    def enable_ip_forwarding(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    @pulumi.getter(name="ipForwardingEnabled")
+    def ip_forwarding_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Does this Network Interface support IP Forwarding? Defaults to `false`.
         """
-        return pulumi.get(self, "enable_ip_forwarding")
+        return pulumi.get(self, "ip_forwarding_enabled")
 
-    @enable_ip_forwarding.setter
-    def enable_ip_forwarding(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_ip_forwarding", value)
+    @ip_forwarding_enabled.setter
+    def ip_forwarding_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ip_forwarding_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroupId")
@@ -3551,8 +3517,6 @@ class LinuxVirtualMachineScaleSetOsDiskArgsDict(TypedDict):
     Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 
     > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
-
-    > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
     """
     write_accelerator_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -3590,8 +3554,6 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
         :param pulumi.Input[_builtins.str] security_encryption_type: Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
                
                > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
-               
-               > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
                
                > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -3698,8 +3660,6 @@ class LinuxVirtualMachineScaleSetOsDiskArgs:
         Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 
         > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
-
-        > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         """
         return pulumi.get(self, "security_encryption_type")
 
@@ -4834,6 +4794,8 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgsDict(TypedDict):
     """
     The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
     """
+    disk_iops_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    disk_mbps_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     disk_size_gb: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
@@ -4841,14 +4803,6 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgsDict(TypedDict):
     lun: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
-    """
-    ultra_ssd_disk_iops_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-    """
-    ultra_ssd_disk_mbps_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    """
-    Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
     """
     write_accelerator_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -4862,10 +4816,10 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
                  storage_account_type: pulumi.Input[_builtins.str],
                  create_option: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_encryption_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
+                 disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  disk_size_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  lun: pulumi.Input[Optional[_builtins.int]] = None,
-                 ultra_ssd_disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
-                 ultra_ssd_disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly`, and `ReadWrite`.
@@ -4874,8 +4828,6 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
         :param pulumi.Input[_builtins.str] disk_encryption_set_id: The ID of the Disk Encryption Set which should be used to encrypt the Data Disk. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] disk_size_gb: The size of the Data Disk which should be created. Required if `create_option` is specified as `Empty`.
         :param pulumi.Input[_builtins.int] lun: The Logical Unit Number of the Data Disk, which must be unique within the Virtual Machine. Required if `create_option` is specified as `Empty`.
-        :param pulumi.Input[_builtins.int] ultra_ssd_disk_iops_read_write: Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        :param pulumi.Input[_builtins.int] ultra_ssd_disk_mbps_read_write: Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
         :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Specifies if Write Accelerator is enabled on the Data Disk. Defaults to `false`.
         """
         pulumi.set(__self__, "caching", caching)
@@ -4884,14 +4836,14 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "create_option", create_option)
         if disk_encryption_set_id is not None:
             pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if disk_iops_read_write is not None:
+            pulumi.set(__self__, "disk_iops_read_write", disk_iops_read_write)
+        if disk_mbps_read_write is not None:
+            pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
         if lun is not None:
             pulumi.set(__self__, "lun", lun)
-        if ultra_ssd_disk_iops_read_write is not None:
-            pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
-        if ultra_ssd_disk_mbps_read_write is not None:
-            pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -4944,6 +4896,24 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
         pulumi.set(self, "disk_encryption_set_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="diskIopsReadWrite")
+    def disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "disk_iops_read_write")
+
+    @disk_iops_read_write.setter
+    def disk_iops_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "disk_iops_read_write", value)
+
+    @_builtins.property
+    @pulumi.getter(name="diskMbpsReadWrite")
+    def disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "disk_mbps_read_write")
+
+    @disk_mbps_read_write.setter
+    def disk_mbps_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "disk_mbps_read_write", value)
+
+    @_builtins.property
     @pulumi.getter(name="diskSizeGb")
     def disk_size_gb(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
@@ -4966,30 +4936,6 @@ class OrchestratedVirtualMachineScaleSetDataDiskArgs:
     @lun.setter
     def lun(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "lun", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
-    def ultra_ssd_disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Specifies the Read-Write IOPS for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
-        return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
-
-    @ultra_ssd_disk_iops_read_write.setter
-    def ultra_ssd_disk_iops_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "ultra_ssd_disk_iops_read_write", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
-    def ultra_ssd_disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        """
-        Specifies the bandwidth in MB per second for this Data Disk. Only settable when `storage_account_type` is `PremiumV2_LRS` or `UltraSSD_LRS`.
-        """
-        return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
-
-    @ultra_ssd_disk_mbps_read_write.setter
-    def ultra_ssd_disk_mbps_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "ultra_ssd_disk_mbps_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -5350,6 +5296,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict(TypedDict):
     """
     The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
     """
+    accelerated_networking_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     auxiliary_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
@@ -5368,14 +5315,7 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgsDict(TypedDict):
     """
     A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
     """
-    enable_accelerated_networking: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-    """
-    enable_ip_forwarding: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-    """
+    ip_forwarding_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     network_security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of a Network Security Group which should be assigned to this Network Interface.
@@ -5396,11 +5336,11 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]],
                  name: pulumi.Input[_builtins.str],
+                 accelerated_networking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auxiliary_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  auxiliary_sku: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_ip_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  primary: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -5416,8 +5356,6 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
                
                > **Note:** `auxiliary_mode` and `auxiliary_sku` must be specified together, and both fields require `network_api_version` later than `2020-11-01`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
-        :param pulumi.Input[_builtins.bool] enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_ip_forwarding: Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_security_group_id: The ID of a Network Security Group which should be assigned to this Network Interface.
         :param pulumi.Input[_builtins.bool] primary: Is this the Primary IP Configuration? Possible values are `true` and `false`. Defaults to `false`.
                
@@ -5426,16 +5364,16 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
+        if accelerated_networking_enabled is not None:
+            pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
         if auxiliary_mode is not None:
             pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
         if auxiliary_sku is not None:
             pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
-        if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
-        if enable_ip_forwarding is not None:
-            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+        if ip_forwarding_enabled is not None:
+            pulumi.set(__self__, "ip_forwarding_enabled", ip_forwarding_enabled)
         if network_security_group_id is not None:
             pulumi.set(__self__, "network_security_group_id", network_security_group_id)
         if primary is not None:
@@ -5466,6 +5404,15 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="acceleratedNetworkingEnabled")
+    def accelerated_networking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "accelerated_networking_enabled")
+
+    @accelerated_networking_enabled.setter
+    def accelerated_networking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "accelerated_networking_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="auxiliaryMode")
@@ -5510,28 +5457,13 @@ class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs:
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
-    @pulumi.getter(name="enableAcceleratedNetworking")
-    def enable_accelerated_networking(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_accelerated_networking")
+    @pulumi.getter(name="ipForwardingEnabled")
+    def ip_forwarding_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "ip_forwarding_enabled")
 
-    @enable_accelerated_networking.setter
-    def enable_accelerated_networking(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_accelerated_networking", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableIpForwarding")
-    def enable_ip_forwarding(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_ip_forwarding")
-
-    @enable_ip_forwarding.setter
-    def enable_ip_forwarding(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_ip_forwarding", value)
+    @ip_forwarding_enabled.setter
+    def ip_forwarding_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ip_forwarding_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroupId")
@@ -6568,13 +6500,10 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgsDict(Ty
     """
     One or more `additional_unattend_content` blocks as defined above. Changing this forces a new resource to be created.
     """
+    automatic_updates_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     computer_name_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
-    """
-    enable_automatic_updates: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
     """
     hotpatching_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -6617,8 +6546,8 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
                  admin_password: pulumi.Input[_builtins.str],
                  admin_username: pulumi.Input[_builtins.str],
                  additional_unattend_contents: pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]]] = None,
+                 automatic_updates_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  computer_name_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-                 enable_automatic_updates: pulumi.Input[Optional[_builtins.bool]] = None,
                  hotpatching_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  patch_assessment_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  patch_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -6631,7 +6560,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
         :param pulumi.Input[_builtins.str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined above. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
                
                > **Note:** Hotpatching can only be enabled if `patch_mode` is set to `AutomaticByPlatform`, `provision_vm_agent` is set to `true`, `source_image_reference` references a hotpatching enabled image, `sku_name` is set to an [Azure generation 2](https://docs.microsoft.com/azure/virtual-machines/generation-2#generation-2-vm-sizes) VM SKU, and the `extension` block contains an application health extension. An example of how to correctly configure a Virtual Machine Scale Set to provision a Windows Virtual Machine with hotpatching enabled can be found in the `./examples/orchestrated-vm-scale-set/hotpatching-enabled` directory within the GitHub Repository.
@@ -6650,10 +6578,10 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
         pulumi.set(__self__, "admin_username", admin_username)
         if additional_unattend_contents is not None:
             pulumi.set(__self__, "additional_unattend_contents", additional_unattend_contents)
+        if automatic_updates_enabled is not None:
+            pulumi.set(__self__, "automatic_updates_enabled", automatic_updates_enabled)
         if computer_name_prefix is not None:
             pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
-        if enable_automatic_updates is not None:
-            pulumi.set(__self__, "enable_automatic_updates", enable_automatic_updates)
         if hotpatching_enabled is not None:
             pulumi.set(__self__, "hotpatching_enabled", hotpatching_enabled)
         if patch_assessment_mode is not None:
@@ -6706,6 +6634,15 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
         pulumi.set(self, "additional_unattend_contents", value)
 
     @_builtins.property
+    @pulumi.getter(name="automaticUpdatesEnabled")
+    def automatic_updates_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "automatic_updates_enabled")
+
+    @automatic_updates_enabled.setter
+    def automatic_updates_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "automatic_updates_enabled", value)
+
+    @_builtins.property
     @pulumi.getter(name="computerNamePrefix")
     def computer_name_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -6716,18 +6653,6 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @computer_name_prefix.setter
     def computer_name_prefix(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "computer_name_prefix", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableAutomaticUpdates")
-    def enable_automatic_updates(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-        """
-        return pulumi.get(self, "enable_automatic_updates")
-
-    @enable_automatic_updates.setter
-    def enable_automatic_updates(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_automatic_updates", value)
 
     @_builtins.property
     @pulumi.getter(name="hotpatchingEnabled")
@@ -7286,20 +7211,18 @@ class OrchestratedVirtualMachineScaleSetSkuProfileArgsDict(TypedDict):
     """
     Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
     """
-    virtual_machine_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgsDict']]]]]
+    virtual_machine_sizes: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgsDict']]]
     """
     One or more `virtual_machine_size` blocks as defined below.
 
     > **Note:** When `allocation_strategy` is set to `Prioritized`, you must use the `virtual_machine_size` block to specify rank values.
     """
-    vm_sizes: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class OrchestratedVirtualMachineScaleSetSkuProfileArgs:
     def __init__(__self__, *,
                  allocation_strategy: pulumi.Input[_builtins.str],
-                 virtual_machine_sizes: pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]]] = None,
-                 vm_sizes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 virtual_machine_sizes: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]]):
         """
         :param pulumi.Input[_builtins.str] allocation_strategy: Specifies the allocation strategy for the virtual machine scale set based on which the VMs will be allocated. Possible values are `LowestPrice`, `Prioritized`, and `CapacityOptimized`.
         :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]] virtual_machine_sizes: One or more `virtual_machine_size` blocks as defined below.
@@ -7307,13 +7230,7 @@ class OrchestratedVirtualMachineScaleSetSkuProfileArgs:
                > **Note:** When `allocation_strategy` is set to `Prioritized`, you must use the `virtual_machine_size` block to specify rank values.
         """
         pulumi.set(__self__, "allocation_strategy", allocation_strategy)
-        if virtual_machine_sizes is not None:
-            pulumi.set(__self__, "virtual_machine_sizes", virtual_machine_sizes)
-        if vm_sizes is not None:
-            warnings.warn("""The `vm_sizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtual_machine_size` block instead.""", DeprecationWarning)
-            pulumi.log.warn("""vm_sizes is deprecated: The `vm_sizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtual_machine_size` block instead.""")
-        if vm_sizes is not None:
-            pulumi.set(__self__, "vm_sizes", vm_sizes)
+        pulumi.set(__self__, "virtual_machine_sizes", virtual_machine_sizes)
 
     @_builtins.property
     @pulumi.getter(name="allocationStrategy")
@@ -7329,7 +7246,7 @@ class OrchestratedVirtualMachineScaleSetSkuProfileArgs:
 
     @_builtins.property
     @pulumi.getter(name="virtualMachineSizes")
-    def virtual_machine_sizes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]]]:
+    def virtual_machine_sizes(self) -> pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]]:
         """
         One or more `virtual_machine_size` blocks as defined below.
 
@@ -7338,18 +7255,8 @@ class OrchestratedVirtualMachineScaleSetSkuProfileArgs:
         return pulumi.get(self, "virtual_machine_sizes")
 
     @virtual_machine_sizes.setter
-    def virtual_machine_sizes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]]]):
+    def virtual_machine_sizes(self, value: pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgs']]]):
         pulumi.set(self, "virtual_machine_sizes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vmSizes")
-    @_utilities.deprecated("""The `vm_sizes` field has been deprecated and will be removed in v5.0 of the AzureRM Provider. Please use the `virtual_machine_size` block instead.""")
-    def vm_sizes(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
-        return pulumi.get(self, "vm_sizes")
-
-    @vm_sizes.setter
-    def vm_sizes(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
-        pulumi.set(self, "vm_sizes", value)
 
 
 class OrchestratedVirtualMachineScaleSetSkuProfileVirtualMachineSizeArgsDict(TypedDict):
@@ -13231,50 +13138,50 @@ class WindowsVirtualMachineScaleSetAutomaticInstanceRepairArgs:
 
 
 class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgsDict(TypedDict):
-    disable_automatic_rollback: pulumi.Input[_builtins.bool]
-    """
-    Should automatic rollbacks be disabled?
-    """
-    enable_automatic_os_upgrade: pulumi.Input[_builtins.bool]
+    automatic_os_upgrade_enabled: pulumi.Input[_builtins.bool]
     """
     Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+    """
+    automatic_rollback_enabled: pulumi.Input[_builtins.bool]
+    """
+    Should automatic rollbacks be enabled?
     """
 
 @pulumi.input_type
 class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicyArgs:
     def __init__(__self__, *,
-                 disable_automatic_rollback: pulumi.Input[_builtins.bool],
-                 enable_automatic_os_upgrade: pulumi.Input[_builtins.bool]):
+                 automatic_os_upgrade_enabled: pulumi.Input[_builtins.bool],
+                 automatic_rollback_enabled: pulumi.Input[_builtins.bool]):
         """
-        :param pulumi.Input[_builtins.bool] disable_automatic_rollback: Should automatic rollbacks be disabled?
-        :param pulumi.Input[_builtins.bool] enable_automatic_os_upgrade: Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+        :param pulumi.Input[_builtins.bool] automatic_os_upgrade_enabled: Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
+        :param pulumi.Input[_builtins.bool] automatic_rollback_enabled: Should automatic rollbacks be enabled?
         """
-        pulumi.set(__self__, "disable_automatic_rollback", disable_automatic_rollback)
-        pulumi.set(__self__, "enable_automatic_os_upgrade", enable_automatic_os_upgrade)
+        pulumi.set(__self__, "automatic_os_upgrade_enabled", automatic_os_upgrade_enabled)
+        pulumi.set(__self__, "automatic_rollback_enabled", automatic_rollback_enabled)
 
     @_builtins.property
-    @pulumi.getter(name="disableAutomaticRollback")
-    def disable_automatic_rollback(self) -> pulumi.Input[_builtins.bool]:
-        """
-        Should automatic rollbacks be disabled?
-        """
-        return pulumi.get(self, "disable_automatic_rollback")
-
-    @disable_automatic_rollback.setter
-    def disable_automatic_rollback(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "disable_automatic_rollback", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableAutomaticOsUpgrade")
-    def enable_automatic_os_upgrade(self) -> pulumi.Input[_builtins.bool]:
+    @pulumi.getter(name="automaticOsUpgradeEnabled")
+    def automatic_os_upgrade_enabled(self) -> pulumi.Input[_builtins.bool]:
         """
         Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
         """
-        return pulumi.get(self, "enable_automatic_os_upgrade")
+        return pulumi.get(self, "automatic_os_upgrade_enabled")
 
-    @enable_automatic_os_upgrade.setter
-    def enable_automatic_os_upgrade(self, value: pulumi.Input[_builtins.bool]):
-        pulumi.set(self, "enable_automatic_os_upgrade", value)
+    @automatic_os_upgrade_enabled.setter
+    def automatic_os_upgrade_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "automatic_os_upgrade_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticRollbackEnabled")
+    def automatic_rollback_enabled(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Should automatic rollbacks be enabled?
+        """
+        return pulumi.get(self, "automatic_rollback_enabled")
+
+    @automatic_rollback_enabled.setter
+    def automatic_rollback_enabled(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "automatic_rollback_enabled", value)
 
 
 class WindowsVirtualMachineScaleSetBootDiagnosticsArgsDict(TypedDict):
@@ -13355,8 +13262,6 @@ class WindowsVirtualMachineScaleSetDataDiskArgsDict(TypedDict):
     """
     The name of the Data Disk.
     """
-    ultra_ssd_disk_iops_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
-    ultra_ssd_disk_mbps_read_write: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     write_accelerator_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should Write Accelerator be enabled for this Data Disk? Defaults to `false`.
@@ -13376,8 +13281,6 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
                  disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ultra_ssd_disk_iops_read_write: pulumi.Input[Optional[_builtins.int]] = None,
-                 ultra_ssd_disk_mbps_read_write: pulumi.Input[Optional[_builtins.int]] = None,
                  write_accelerator_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] caching: The type of Caching which should be used for this Data Disk. Possible values are `None`, `ReadOnly` and `ReadWrite`.
@@ -13413,16 +13316,6 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
             pulumi.set(__self__, "disk_mbps_read_write", disk_mbps_read_write)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if ultra_ssd_disk_iops_read_write is not None:
-            warnings.warn("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""", DeprecationWarning)
-            pulumi.log.warn("""ultra_ssd_disk_iops_read_write is deprecated: `data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
-        if ultra_ssd_disk_iops_read_write is not None:
-            pulumi.set(__self__, "ultra_ssd_disk_iops_read_write", ultra_ssd_disk_iops_read_write)
-        if ultra_ssd_disk_mbps_read_write is not None:
-            warnings.warn("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""", DeprecationWarning)
-            pulumi.log.warn("""ultra_ssd_disk_mbps_read_write is deprecated: `data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
-        if ultra_ssd_disk_mbps_read_write is not None:
-            pulumi.set(__self__, "ultra_ssd_disk_mbps_read_write", ultra_ssd_disk_mbps_read_write)
         if write_accelerator_enabled is not None:
             pulumi.set(__self__, "write_accelerator_enabled", write_accelerator_enabled)
 
@@ -13539,26 +13432,6 @@ class WindowsVirtualMachineScaleSetDataDiskArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ultraSsdDiskIopsReadWrite")
-    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_iops_read_write` has been deprecated in favour of `data_disk.disk_iops_read_write` and will be removed in v5.0 of the Provider""")
-    def ultra_ssd_disk_iops_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "ultra_ssd_disk_iops_read_write")
-
-    @ultra_ssd_disk_iops_read_write.setter
-    def ultra_ssd_disk_iops_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "ultra_ssd_disk_iops_read_write", value)
-
-    @_builtins.property
-    @pulumi.getter(name="ultraSsdDiskMbpsReadWrite")
-    @_utilities.deprecated("""`data_disk.ultra_ssd_disk_mbps_read_write` has been deprecated in favour of `data_disk.disk_mbps_read_write` and will be removed in v5.0 of the Provider""")
-    def ultra_ssd_disk_mbps_read_write(self) -> pulumi.Input[Optional[_builtins.int]]:
-        return pulumi.get(self, "ultra_ssd_disk_mbps_read_write")
-
-    @ultra_ssd_disk_mbps_read_write.setter
-    def ultra_ssd_disk_mbps_read_write(self, value: pulumi.Input[Optional[_builtins.int]]):
-        pulumi.set(self, "ultra_ssd_disk_mbps_read_write", value)
 
     @_builtins.property
     @pulumi.getter(name="writeAcceleratorEnabled")
@@ -14056,6 +13929,10 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgsDict(TypedDict):
     """
     The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
     """
+    accelerated_networking_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Does this Network Interface support Accelerated Networking? Defaults to `false`.
+    """
     auxiliary_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
@@ -14072,11 +13949,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgsDict(TypedDict):
     """
     A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
     """
-    enable_accelerated_networking: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
-    """
-    Does this Network Interface support Accelerated Networking? Defaults to `false`.
-    """
-    enable_ip_forwarding: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    ip_forwarding_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Does this Network Interface support IP Forwarding? Defaults to `false`.
     """
@@ -14096,16 +13969,17 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
     def __init__(__self__, *,
                  ip_configurations: pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]],
                  name: pulumi.Input[_builtins.str],
+                 accelerated_networking_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  auxiliary_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  auxiliary_sku: pulumi.Input[Optional[_builtins.str]] = None,
                  dns_servers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 enable_accelerated_networking: pulumi.Input[Optional[_builtins.bool]] = None,
-                 enable_ip_forwarding: pulumi.Input[Optional[_builtins.bool]] = None,
+                 ip_forwarding_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  primary: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['WindowsVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs']]] ip_configurations: One or more `ip_configuration` blocks as defined above.
         :param pulumi.Input[_builtins.str] name: The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.bool] accelerated_networking_enabled: Does this Network Interface support Accelerated Networking? Defaults to `false`.
         :param pulumi.Input[_builtins.str] auxiliary_mode: Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
                
                > **Note:** `auxiliary_mode` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
@@ -14113,8 +13987,7 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
                
                > **Note:** `auxiliary_sku` is in **Preview** and requires that the prerequisites are enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_servers: A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
-        :param pulumi.Input[_builtins.bool] enable_accelerated_networking: Does this Network Interface support Accelerated Networking? Defaults to `false`.
-        :param pulumi.Input[_builtins.bool] enable_ip_forwarding: Does this Network Interface support IP Forwarding? Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] ip_forwarding_enabled: Does this Network Interface support IP Forwarding? Defaults to `false`.
         :param pulumi.Input[_builtins.str] network_security_group_id: The ID of a Network Security Group which should be assigned to this Network Interface.
         :param pulumi.Input[_builtins.bool] primary: Is this the Primary IP Configuration?
                
@@ -14122,16 +13995,16 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
         """
         pulumi.set(__self__, "ip_configurations", ip_configurations)
         pulumi.set(__self__, "name", name)
+        if accelerated_networking_enabled is not None:
+            pulumi.set(__self__, "accelerated_networking_enabled", accelerated_networking_enabled)
         if auxiliary_mode is not None:
             pulumi.set(__self__, "auxiliary_mode", auxiliary_mode)
         if auxiliary_sku is not None:
             pulumi.set(__self__, "auxiliary_sku", auxiliary_sku)
         if dns_servers is not None:
             pulumi.set(__self__, "dns_servers", dns_servers)
-        if enable_accelerated_networking is not None:
-            pulumi.set(__self__, "enable_accelerated_networking", enable_accelerated_networking)
-        if enable_ip_forwarding is not None:
-            pulumi.set(__self__, "enable_ip_forwarding", enable_ip_forwarding)
+        if ip_forwarding_enabled is not None:
+            pulumi.set(__self__, "ip_forwarding_enabled", ip_forwarding_enabled)
         if network_security_group_id is not None:
             pulumi.set(__self__, "network_security_group_id", network_security_group_id)
         if primary is not None:
@@ -14160,6 +14033,18 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="acceleratedNetworkingEnabled")
+    def accelerated_networking_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Does this Network Interface support Accelerated Networking? Defaults to `false`.
+        """
+        return pulumi.get(self, "accelerated_networking_enabled")
+
+    @accelerated_networking_enabled.setter
+    def accelerated_networking_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "accelerated_networking_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="auxiliaryMode")
@@ -14202,28 +14087,16 @@ class WindowsVirtualMachineScaleSetNetworkInterfaceArgs:
         pulumi.set(self, "dns_servers", value)
 
     @_builtins.property
-    @pulumi.getter(name="enableAcceleratedNetworking")
-    def enable_accelerated_networking(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        """
-        Does this Network Interface support Accelerated Networking? Defaults to `false`.
-        """
-        return pulumi.get(self, "enable_accelerated_networking")
-
-    @enable_accelerated_networking.setter
-    def enable_accelerated_networking(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_accelerated_networking", value)
-
-    @_builtins.property
-    @pulumi.getter(name="enableIpForwarding")
-    def enable_ip_forwarding(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    @pulumi.getter(name="ipForwardingEnabled")
+    def ip_forwarding_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
         Does this Network Interface support IP Forwarding? Defaults to `false`.
         """
-        return pulumi.get(self, "enable_ip_forwarding")
+        return pulumi.get(self, "ip_forwarding_enabled")
 
-    @enable_ip_forwarding.setter
-    def enable_ip_forwarding(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "enable_ip_forwarding", value)
+    @ip_forwarding_enabled.setter
+    def ip_forwarding_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ip_forwarding_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="networkSecurityGroupId")
@@ -14689,8 +14562,6 @@ class WindowsVirtualMachineScaleSetOsDiskArgsDict(TypedDict):
     Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 
     > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
-
-    > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
     """
     write_accelerator_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -14728,8 +14599,6 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
         :param pulumi.Input[_builtins.str] security_encryption_type: Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
                
                > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
-               
-               > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         :param pulumi.Input[_builtins.bool] write_accelerator_enabled: Should Write Accelerator be Enabled for this OS Disk? Defaults to `false`.
                
                > **Note:** This requires that the `storage_account_type` is set to `Premium_LRS` and that `caching` is set to `None`.
@@ -14836,8 +14705,6 @@ class WindowsVirtualMachineScaleSetOsDiskArgs:
         Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
 
         > **Note:** `vtpm_enabled` must be set to `true` when `security_encryption_type` is specified.
-
-        > **Note:** `encryption_at_host_enabled` cannot be set to `true` when `security_encryption_type` is set to `DiskWithVMGuestState`.
         """
         return pulumi.get(self, "security_encryption_type")
 

@@ -82,6 +82,8 @@ export class MongoCluster extends pulumi.CustomResource {
     declare public readonly administratorPassword: pulumi.Output<string | undefined>;
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
      */
     declare public readonly administratorUsername: pulumi.Output<string | undefined>;
     /**
@@ -243,7 +245,7 @@ export class MongoCluster extends pulumi.CustomResource {
             resourceInputs["connectionStrings"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure:cosmosdb/mongoCluster:MongoCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure:cosmosdb/mongoCluster:MongoCluster" }, { type: "azure:cosmosdb/mongoCluster:MongoCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         const secretOpts = { additionalSecretOutputs: ["administratorPassword", "connectionStrings"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
@@ -261,6 +263,8 @@ export interface MongoClusterState {
     administratorPassword?: pulumi.Input<string | undefined>;
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
      */
     administratorUsername?: pulumi.Input<string | undefined>;
     /**
@@ -367,6 +371,8 @@ export interface MongoClusterArgs {
     administratorPassword?: pulumi.Input<string | undefined>;
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+     *
+     * > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
      */
     administratorUsername?: pulumi.Input<string | undefined>;
     /**

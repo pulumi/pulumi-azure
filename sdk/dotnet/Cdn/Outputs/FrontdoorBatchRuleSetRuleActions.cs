@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Cdn.Outputs
         /// <summary>
         /// A `UrlRewrite` block as defined below.
         /// 
-        /// &gt; **Note:** `UrlRewrite` conflicts with `UrlRedirect` and vice-versa.
+        /// &gt; **Note:** `UrlRewrite` conflicts with `UrlRedirect`
         /// </summary>
         public readonly Outputs.FrontdoorBatchRuleSetRuleActionsUrlRewrite? UrlRewrite;
 

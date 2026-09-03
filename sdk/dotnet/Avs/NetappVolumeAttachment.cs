@@ -148,7 +148,10 @@ namespace Pulumi.Azure.Avs
     ///                 {
     ///                     "0.0.0.0/0",
     ///                 },
-    ///                 ProtocolsEnabled = "NFSv3",
+    ///                 ProtocolsEnabled = new[]
+    ///                 {
+    ///                     "NFSv3",
+    ///                 },
     ///                 UnixReadOnly = false,
     ///                 UnixReadWrite = true,
     ///                 RootAccessEnabled = true,

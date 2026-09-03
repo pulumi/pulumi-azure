@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  *
  * ## Import
  *
@@ -106,10 +106,6 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly privateIpAddresses: pulumi.Output<string[]>;
     /**
-     * The ID of a Public IP Address which is associated with this Load Balancer.
-     */
-    declare public readonly publicIpAddressId: pulumi.Output<string>;
-    /**
      * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      */
     declare public readonly resourceGroupName: pulumi.Output<string>;
@@ -123,10 +119,6 @@ export class LoadBalancer extends pulumi.CustomResource {
      * `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
      */
     declare public readonly skuTier: pulumi.Output<string | undefined>;
-    /**
-     * The ID of the Subnet which is associated with the IP Configuration.
-     */
-    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -151,11 +143,9 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["privateIpAddress"] = state?.privateIpAddress;
             resourceInputs["privateIpAddresses"] = state?.privateIpAddresses;
-            resourceInputs["publicIpAddressId"] = state?.publicIpAddressId;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["sku"] = state?.sku;
             resourceInputs["skuTier"] = state?.skuTier;
-            resourceInputs["subnetId"] = state?.subnetId;
             resourceInputs["tags"] = state?.tags;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
@@ -166,11 +156,9 @@ export class LoadBalancer extends pulumi.CustomResource {
             resourceInputs["frontendIpConfigurations"] = args?.frontendIpConfigurations;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
-            resourceInputs["publicIpAddressId"] = args?.publicIpAddressId;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["skuTier"] = args?.skuTier;
-            resourceInputs["subnetId"] = args?.subnetId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["privateIpAddress"] = undefined /*out*/;
             resourceInputs["privateIpAddresses"] = undefined /*out*/;
@@ -211,10 +199,6 @@ export interface LoadBalancerState {
      */
     privateIpAddresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The ID of a Public IP Address which is associated with this Load Balancer.
-     */
-    publicIpAddressId?: pulumi.Input<string | undefined>;
-    /**
      * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string | undefined>;
@@ -228,10 +212,6 @@ export interface LoadBalancerState {
      * `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
      */
     skuTier?: pulumi.Input<string | undefined>;
-    /**
-     * The ID of the Subnet which is associated with the IP Configuration.
-     */
-    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */
@@ -261,10 +241,6 @@ export interface LoadBalancerArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The ID of a Public IP Address which is associated with this Load Balancer.
-     */
-    publicIpAddressId?: pulumi.Input<string | undefined>;
-    /**
      * The name of the Resource Group in which to create the Load Balancer. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
@@ -278,10 +254,6 @@ export interface LoadBalancerArgs {
      * `skuTier` - (Optional) The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created.
      */
     skuTier?: pulumi.Input<string | undefined>;
-    /**
-     * The ID of the Subnet which is associated with the IP Configuration.
-     */
-    subnetId?: pulumi.Input<string | undefined>;
     /**
      * A mapping of tags to assign to the resource.
      */

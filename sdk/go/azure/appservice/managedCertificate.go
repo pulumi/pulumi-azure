@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/dns"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -44,25 +45,27 @@ import (
 //				Name:              pulumi.String("mydomain.com"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
-//				Name:              pulumi.String("example-plan"),
+//			exampleAppServicePlan, err := azurerm.NewAppServicePlan(ctx, "example", &azurerm.AppServicePlanArgs{
+//				Name:              "example-plan",
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				Kind:              pulumi.Any("Linux"),
-//				Reserved:          pulumi.Bool(true),
-//				Sku: &appservice.PlanSkuArgs{
-//					Tier: pulumi.String("Basic"),
-//					Size: pulumi.String("B1"),
+//				Kind:              "Linux",
+//				Reserved:          true,
+//				Sku: []map[string]string{
+//					{
+//						"tier": "Basic",
+//						"size": "B1",
+//					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
-//				Name:              pulumi.String("example-app"),
+//			exampleAppService, err := azurerm.NewAppService(ctx, "example", &azurerm.AppServiceArgs{
+//				Name:              "example-app",
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				AppServicePlanId:  examplePlan.ID().ToIDOutput().ToStringOutput(),
+//				AppServicePlanId:  exampleAppServicePlan.Id,
 //			})
 //			if err != nil {
 //				return err
@@ -91,14 +94,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"input": pulumi.StringArray{
+//					exampleCNameRecord.Name,
+//					exampleCNameRecord.ZoneName,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleCustomHostnameBinding, err := appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
-//				Hostname: std.JoinOutput(ctx, std.JoinOutputArgs{
-//					Separator: pulumi.String("."),
-//					Input: pulumi.StringArray{
-//						exampleCNameRecord.Name,
-//						exampleCNameRecord.ZoneName,
-//					},
-//				}, nil).Result(),
+//				Hostname:          invokeJoin.Result,
 //				AppServiceName:    exampleAppService.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			})

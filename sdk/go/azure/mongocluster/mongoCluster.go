@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mongocluster"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mongocluster"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -77,6 +77,8 @@ type MongoCluster struct {
 	// The Password associated with the `administratorUsername` for the MongoDB Cluster.
 	AdministratorPassword pulumi.StringPtrOutput `pulumi:"administratorPassword"`
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
 	AdministratorUsername pulumi.StringPtrOutput `pulumi:"administratorUsername"`
 	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
 	AuthenticationMethods pulumi.StringArrayOutput `pulumi:"authenticationMethods"`
@@ -144,6 +146,9 @@ func NewMongoCluster(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure:cosmosdb/mongoCluster:MongoCluster"),
 		},
+		{
+			Type: pulumi.String("azure:cosmosdb/mongoCluster:MongoCluster"),
+		},
 	})
 	opts = append(opts, aliases)
 	if args.AdministratorPassword != nil {
@@ -180,6 +185,8 @@ type mongoClusterState struct {
 	// The Password associated with the `administratorUsername` for the MongoDB Cluster.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
 	AdministratorUsername *string `pulumi:"administratorUsername"`
 	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
 	AuthenticationMethods []string `pulumi:"authenticationMethods"`
@@ -237,6 +244,8 @@ type MongoClusterState struct {
 	// The Password associated with the `administratorUsername` for the MongoDB Cluster.
 	AdministratorPassword pulumi.StringPtrInput
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
 	AdministratorUsername pulumi.StringPtrInput
 	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
 	AuthenticationMethods pulumi.StringArrayInput
@@ -298,6 +307,8 @@ type mongoClusterArgs struct {
 	// The Password associated with the `administratorUsername` for the MongoDB Cluster.
 	AdministratorPassword *string `pulumi:"administratorPassword"`
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
 	AdministratorUsername *string `pulumi:"administratorUsername"`
 	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
 	AuthenticationMethods []string `pulumi:"authenticationMethods"`
@@ -354,6 +365,8 @@ type MongoClusterArgs struct {
 	// The Password associated with the `administratorUsername` for the MongoDB Cluster.
 	AdministratorPassword pulumi.StringPtrInput
 	// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
 	AdministratorUsername pulumi.StringPtrInput
 	// A list of allowed authentication modes for the MongoDB Cluster. Possible values are `NativeAuth` and `MicrosoftEntraID`.
 	AuthenticationMethods pulumi.StringArrayInput
@@ -498,6 +511,8 @@ func (o MongoClusterOutput) AdministratorPassword() pulumi.StringPtrOutput {
 }
 
 // The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+//
+// > **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
 func (o MongoClusterOutput) AdministratorUsername() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MongoCluster) pulumi.StringPtrOutput { return v.AdministratorUsername }).(pulumi.StringPtrOutput)
 }

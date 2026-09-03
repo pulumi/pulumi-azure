@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Use this data source to access information about an existing Trusted Signing Account.
+// Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+//
+// > **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
 //
 // ## Example Usage
 //
@@ -20,7 +22,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/trustedsigning"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/trustedsigning"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -46,7 +48,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This data source uses the following Azure API Providers:
 //
-// * `Microsoft.CodeSigning` - 2024-09-30-preview
+// * `Microsoft.CodeSigning` - 2025-10-13
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccountResult
@@ -59,25 +61,25 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getAccount.
 type LookupAccountArgs struct {
-	// The name of the Trusted Signing Account.
+	// The name of the Artifact Signing Account.
 	Name string `pulumi:"name"`
-	// The name of the Resource Group where the Trusted Signing Account exists.
+	// The name of the Resource Group where the Artifact Signing Account exists.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
 // A collection of values returned by getAccount.
 type LookupAccountResult struct {
-	// The URI of the Trusted Signing Account.
+	// The URI of the Artifact Signing Account.
 	AccountUri string `pulumi:"accountUri"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The Azure Region where the Trusted Signing Account exists.
+	// The Azure Region where the Artifact Signing Account exists.
 	Location          string `pulumi:"location"`
 	Name              string `pulumi:"name"`
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// The sku name of the Trusted Signing Account.
+	// The sku name of the Artifact Signing Account.
 	SkuName string `pulumi:"skuName"`
-	// A mapping of tags assigned to the Trusted Signing Account.
+	// A mapping of tags assigned to the Artifact Signing Account.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -88,9 +90,9 @@ func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts
 
 // A collection of arguments for invoking getAccount.
 type LookupAccountOutputArgs struct {
-	// The name of the Trusted Signing Account.
+	// The name of the Artifact Signing Account.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The name of the Resource Group where the Trusted Signing Account exists.
+	// The name of the Resource Group where the Artifact Signing Account exists.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }
 
@@ -113,7 +115,7 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 	return o
 }
 
-// The URI of the Trusted Signing Account.
+// The URI of the Artifact Signing Account.
 func (o LookupAccountResultOutput) AccountUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.AccountUri }).(pulumi.StringOutput)
 }
@@ -123,7 +125,7 @@ func (o LookupAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Azure Region where the Trusted Signing Account exists.
+// The Azure Region where the Artifact Signing Account exists.
 func (o LookupAccountResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -136,12 +138,12 @@ func (o LookupAccountResultOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// The sku name of the Trusted Signing Account.
+// The sku name of the Artifact Signing Account.
 func (o LookupAccountResultOutput) SkuName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccountResult) string { return v.SkuName }).(pulumi.StringOutput)
 }
 
-// A mapping of tags assigned to the Trusted Signing Account.
+// A mapping of tags assigned to the Artifact Signing Account.
 func (o LookupAccountResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAccountResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }

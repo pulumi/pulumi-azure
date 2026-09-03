@@ -212,23 +212,16 @@ namespace Pulumi.Azure.Role
     ///         PrincipalType = "ServicePrincipal",
     ///         Description = "Role Based Access Control Administrator role assignment with ABAC Condition.",
     ///         ConditionVersion = "2.0",
-    ///         Condition = Output.Tuple(Std.Basename.Invoke(new()
-    ///         {
-    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
-    ///         }), Std.Basename.Invoke(new()
-    ///         {
-    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
-    ///         })).Apply(values =&gt;
-    ///         {
-    ///             var invoke = values.Item1;
-    ///             var invoke1 = values.Item2;
-    ///             return @$"(
+    ///         Condition = @$"(
     ///  (
     ///   !(ActionMatches{{'Microsoft.Authorization/roleAssignments/write'}})
     ///  )
     ///  OR
     ///  (
-    ///   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{invoke.Result}}}
+    ///   @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{Std.Basename.Invoke(new()
+    ///         {
+    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
+    ///         }).Result}}}
     ///  )
     /// )
     /// AND
@@ -238,11 +231,13 @@ namespace Pulumi.Azure.Role
     ///  )
     ///  OR
     ///  (
-    ///   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{invoke1.Result}}}
+    ///   @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {{{Std.Basename.Invoke(new()
+    ///         {
+    ///             Input = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.RoleDefinitionId),
+    ///         }).Result}}}
     ///  )
     /// )
-    /// ";
-    ///         }),
+    /// ",
     ///     });
     /// 
     /// });
@@ -277,13 +272,13 @@ namespace Pulumi.Azure.Role
     public partial class Assignment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        /// The condition that limits the resources that the role can be assigned to.
         /// </summary>
         [Output("condition")]
         public Output<string?> Condition { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        /// The version of the condition. Possible values are `1.0` or `2.0`.
         /// 
         /// &gt; **Note:** `Condition` is required when `ConditionVersion` is set.
         /// </summary>
@@ -299,7 +294,7 @@ namespace Pulumi.Azure.Role
         public Output<string?> DelegatedManagedIdentityResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The description for this Role Assignment. Changing this forces a new resource to be created.
+        /// The description for this Role Assignment.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -399,13 +394,13 @@ namespace Pulumi.Azure.Role
     public sealed class AssignmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        /// The condition that limits the resources that the role can be assigned to.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        /// The version of the condition. Possible values are `1.0` or `2.0`.
         /// 
         /// &gt; **Note:** `Condition` is required when `ConditionVersion` is set.
         /// </summary>
@@ -421,7 +416,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? DelegatedManagedIdentityResourceId { get; set; }
 
         /// <summary>
-        /// The description for this Role Assignment. Changing this forces a new resource to be created.
+        /// The description for this Role Assignment.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -483,13 +478,13 @@ namespace Pulumi.Azure.Role
     public sealed class AssignmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+        /// The condition that limits the resources that the role can be assigned to.
         /// </summary>
         [Input("condition")]
         public Input<string>? Condition { get; set; }
 
         /// <summary>
-        /// The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+        /// The version of the condition. Possible values are `1.0` or `2.0`.
         /// 
         /// &gt; **Note:** `Condition` is required when `ConditionVersion` is set.
         /// </summary>
@@ -505,7 +500,7 @@ namespace Pulumi.Azure.Role
         public Input<string>? DelegatedManagedIdentityResourceId { get; set; }
 
         /// <summary>
-        /// The description for this Role Assignment. Changing this forces a new resource to be created.
+        /// The description for this Role Assignment.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

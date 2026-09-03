@@ -174,10 +174,6 @@ namespace Pulumi.Azure.PrivateLink
         /// </summary>
         public readonly ImmutableArray<string> AutoApprovalSubscriptionIds;
         /// <summary>
-        /// Does the Private Link Service support the Proxy Protocol?
-        /// </summary>
-        public readonly bool EnableProxyProtocol;
-        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -214,8 +210,6 @@ namespace Pulumi.Azure.PrivateLink
 
             ImmutableArray<string> autoApprovalSubscriptionIds,
 
-            bool enableProxyProtocol,
-
             string id,
 
             ImmutableArray<string> loadBalancerFrontendIpConfigurationIds,
@@ -236,7 +230,6 @@ namespace Pulumi.Azure.PrivateLink
         {
             Alias = alias;
             AutoApprovalSubscriptionIds = autoApprovalSubscriptionIds;
-            EnableProxyProtocol = enableProxyProtocol;
             Id = id;
             LoadBalancerFrontendIpConfigurationIds = loadBalancerFrontendIpConfigurationIds;
             Location = location;

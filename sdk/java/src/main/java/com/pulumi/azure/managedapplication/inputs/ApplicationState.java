@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.managedapplication.inputs;
 
+import com.pulumi.azure.managedapplication.inputs.ApplicationIdentityArgs;
 import com.pulumi.azure.managedapplication.inputs.ApplicationPlanArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -30,6 +31,21 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> applicationDefinitionId() {
         return Optional.ofNullable(this.applicationDefinitionId);
+    }
+
+    /**
+     * An `identity` block as defined below. Removing this block forces a new resource to be created.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<ApplicationIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below. Removing this block forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<ApplicationIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -171,6 +187,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
 
     private ApplicationState(ApplicationState $) {
         this.applicationDefinitionId = $.applicationDefinitionId;
+        this.identity = $.identity;
         this.kind = $.kind;
         this.location = $.location;
         this.managedResourceGroupName = $.managedResourceGroupName;
@@ -219,6 +236,27 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder applicationDefinitionId(String applicationDefinitionId) {
             return applicationDefinitionId(Output.of(applicationDefinitionId));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below. Removing this block forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<ApplicationIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below. Removing this block forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(ApplicationIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**

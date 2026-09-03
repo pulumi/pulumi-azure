@@ -181,14 +181,14 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="bgpEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> bgpEnabled;
+    private Output</* @Nullable */ Boolean> bgpEnabled;
 
     /**
      * @return If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`.
      * 
      */
-    public Output<Boolean> bgpEnabled() {
-        return this.bgpEnabled;
+    public Output<Optional<Boolean>> bgpEnabled() {
+        return Codegen.optional(this.bgpEnabled);
     }
     /**
      * Is BGP Route Translation for NAT enabled? Defaults to `false`.
@@ -273,18 +273,6 @@ public class VirtualNetworkGateway extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> edgeZone() {
         return Codegen.optional(this.edgeZone);
-    }
-    /**
-     * @deprecated
-     * the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* the `enableBgp` property has been deprecated in favour of the `bgpEnabled` property and will be removed in v5.0 of the AzureRM Provider */
-    @Export(name="enableBgp", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableBgp;
-
-    public Output<Boolean> enableBgp() {
-        return this.enableBgp;
     }
     /**
      * The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created.

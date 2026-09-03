@@ -91,13 +91,10 @@ namespace Pulumi.Azure.EventHub
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID of the EventHub Namespace.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Output("namespaceId")]
         public Output<string> NamespaceId { get; private set; } = null!;
-
-        [Output("namespaceName")]
-        public Output<string> NamespaceName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
@@ -115,9 +112,6 @@ namespace Pulumi.Azure.EventHub
         [Output("partitionIds")]
         public Output<ImmutableArray<string>> PartitionIds { get; private set; } = null!;
 
-        [Output("resourceGroupName")]
-        public Output<string> ResourceGroupName { get; private set; } = null!;
-
         /// <summary>
         /// A `RetentionDescription` block as defined below.
         /// </summary>
@@ -126,6 +120,8 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+        /// 
+        /// &gt; **Note:** `Status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `Status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
         /// </summary>
         [Output("status")]
         public Output<string?> Status { get; private set; } = null!;
@@ -197,13 +193,10 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the EventHub Namespace.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
-        [Input("namespaceId")]
-        public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
+        [Input("namespaceId", required: true)]
+        public Input<string> NamespaceId { get; set; } = null!;
 
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
@@ -215,9 +208,6 @@ namespace Pulumi.Azure.EventHub
         [Input("partitionCount", required: true)]
         public Input<int> PartitionCount { get; set; } = null!;
 
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         /// <summary>
         /// A `RetentionDescription` block as defined below.
         /// </summary>
@@ -226,6 +216,8 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+        /// 
+        /// &gt; **Note:** `Status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `Status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -259,13 +251,10 @@ namespace Pulumi.Azure.EventHub
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the ID of the EventHub Namespace.
+        /// Specifies the ID of the EventHub Namespace. Changing this forces a new resource to be created.
         /// </summary>
         [Input("namespaceId")]
         public Input<string>? NamespaceId { get; set; }
-
-        [Input("namespaceName")]
-        public Input<string>? NamespaceName { get; set; }
 
         /// <summary>
         /// Specifies the current number of shards on the Event Hub.
@@ -289,9 +278,6 @@ namespace Pulumi.Azure.EventHub
             set => _partitionIds = value;
         }
 
-        [Input("resourceGroupName")]
-        public Input<string>? ResourceGroupName { get; set; }
-
         /// <summary>
         /// A `RetentionDescription` block as defined below.
         /// </summary>
@@ -300,6 +286,8 @@ namespace Pulumi.Azure.EventHub
 
         /// <summary>
         /// Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`.
+        /// 
+        /// &gt; **Note:** `Status` cannot be set to `SendDisabled` when creating an Event Hub - the Event Hub must be created with a `Status` of `Active` or `Disabled` and can then be updated to `SendDisabled`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }

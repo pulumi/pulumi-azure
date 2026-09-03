@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleGroup = new Group("exampleGroup", GroupArgs.builder()
  *             .displayName("example-adg")
- *             .owners(current.objectId())
+ *             .owners(Arrays.asList(current.objectId()))
  *             .securityEnabled(true)
  *             .build());
  * 

@@ -107,7 +107,7 @@ import * as utilities from "../utilities";
  *         fqdn: "example-bucket.example.internal",
  *         certificatePem: std.base64encode({
  *             input: `${bucketSelfSignedCert.certPem}${bucket.privateKeyPem}`,
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *     },
  * });
  * // Subsequent bucket - reuses the server configured by the first bucket.

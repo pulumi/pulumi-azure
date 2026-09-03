@@ -16,6 +16,79 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// &gt; **NOTE:** Azure permits a maximum of 1024 Access Policies per Key Vault - [more information can be found in this document](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-access-control).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Azuread = Pulumi.Azuread;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
+    /// 
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
+    ///     {
+    ///         Name = "examplekeyvault",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         RbacAuthorizationEnabled = false,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SkuName = "premium",
+    ///     });
+    /// 
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("example", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///         SecretPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///         },
+    ///     });
+    /// 
+    ///     var example = Azuread.ServicePrincipal.Invoke(new()
+    ///     {
+    ///         DisplayName = "example-app",
+    ///     });
+    /// 
+    ///     var example_principal = new Azure.KeyVault.AccessPolicy("example-principal", new()
+    ///     {
+    ///         KeyVaultId = exampleKeyVault.Id,
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         ObjectId = example.ObjectId,
+    ///         KeyPermissions = new[]
+    ///         {
+    ///             "Get",
+    ///             "List",
+    ///             "Encrypt",
+    ///             "Decrypt",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.KeyVault` - 2026-02-01
+    /// 
     /// ## Import
     /// 
     /// Key Vault Access Policies can be imported using the Resource ID of the Key Vault, plus some additional metadata.

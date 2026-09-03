@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineSourceImageReferenceArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import com.pulumi.azure.compute.Extension;
  * import com.pulumi.azure.compute.ExtensionArgs;
  * import java.util.ArrayList;
@@ -105,9 +104,7 @@ import javax.annotation.Nullable;
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
  *                 .username("adminuser")
- *                 .publicKey(StdFunctions.file(FileArgs.builder()
- *                     .input("~/.ssh/id_rsa.pub")
- *                     .build()).result())
+ *                 .publicKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
  *                 .build())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching("ReadWrite")

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/logicapps"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/logicapps"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -46,8 +46,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "testdata/integration_account_map_content.xsd",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "testdata/integration_account_map_content.xsd",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -57,7 +57,7 @@ import (
 //				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				MapType:                pulumi.String("Xslt"),
-//				Content:                pulumi.String(invokeFile.Result),
+//				Content:                invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

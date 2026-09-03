@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -70,14 +70,13 @@ type GetGatewayConnectionResult struct {
 	// The authorization key associated with the
 	// Express Route Circuit. This field is present only if the type is an
 	// ExpressRoute connection.
-	AuthorizationKey   string `pulumi:"authorizationKey"`
+	AuthorizationKey string `pulumi:"authorizationKey"`
+	// If `true`, BGP (Border Gateway Protocol) is enabled for this connection.
+	BgpEnabled         bool   `pulumi:"bgpEnabled"`
 	ConnectionProtocol string `pulumi:"connectionProtocol"`
 	// The dead peer detection timeout of this connection in seconds.
 	DpdTimeoutSeconds      int `pulumi:"dpdTimeoutSeconds"`
 	EgressBytesTransferred int `pulumi:"egressBytesTransferred"`
-	// If `true`, BGP (Border Gateway Protocol) is enabled
-	// for this connection.
-	EnableBgp bool `pulumi:"enableBgp"`
 	// The ID of the Express Route Circuit
 	// (i.e. when `type` is `ExpressRoute`).
 	ExpressRouteCircuitId string `pulumi:"expressRouteCircuitId"`
@@ -169,6 +168,11 @@ func (o GetGatewayConnectionResultOutput) AuthorizationKey() pulumi.StringOutput
 	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.AuthorizationKey }).(pulumi.StringOutput)
 }
 
+// If `true`, BGP (Border Gateway Protocol) is enabled for this connection.
+func (o GetGatewayConnectionResultOutput) BgpEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGatewayConnectionResult) bool { return v.BgpEnabled }).(pulumi.BoolOutput)
+}
+
 func (o GetGatewayConnectionResultOutput) ConnectionProtocol() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGatewayConnectionResult) string { return v.ConnectionProtocol }).(pulumi.StringOutput)
 }
@@ -180,12 +184,6 @@ func (o GetGatewayConnectionResultOutput) DpdTimeoutSeconds() pulumi.IntOutput {
 
 func (o GetGatewayConnectionResultOutput) EgressBytesTransferred() pulumi.IntOutput {
 	return o.ApplyT(func(v GetGatewayConnectionResult) int { return v.EgressBytesTransferred }).(pulumi.IntOutput)
-}
-
-// If `true`, BGP (Border Gateway Protocol) is enabled
-// for this connection.
-func (o GetGatewayConnectionResultOutput) EnableBgp() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetGatewayConnectionResult) bool { return v.EnableBgp }).(pulumi.BoolOutput)
 }
 
 // The ID of the Express Route Circuit

@@ -110,12 +110,16 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
     /**
      * The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
      * 
+     * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
+     * 
      */
     @Export(name="administratorUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> administratorUsername;
 
     /**
      * @return The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `administratorUsername` is required when `authenticationMethods` contains `NativeAuth` or is not configured.
      * 
      */
     public Output<Optional<String>> administratorUsername() {
@@ -472,6 +476,7 @@ public class MongoCluster extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .aliases(List.of(
+                Output.of(Alias.builder().type("azure:cosmosdb/mongoCluster:MongoCluster").build()),
                 Output.of(Alias.builder().type("azure:cosmosdb/mongoCluster:MongoCluster").build())
             ))
             .additionalSecretOutputs(List.of(

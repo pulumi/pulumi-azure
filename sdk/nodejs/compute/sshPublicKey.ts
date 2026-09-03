@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  *     publicKey: std.file({
  *         input: "~/.ssh/id_rsa.pub",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

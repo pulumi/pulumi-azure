@@ -32,16 +32,12 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
      * 
      */
     private String adminUsername;
+    private @Nullable Boolean automaticUpdatesEnabled;
     /**
      * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      * 
      */
     private @Nullable String computerNamePrefix;
-    /**
-     * @return Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    private @Nullable Boolean enableAutomaticUpdates;
     /**
      * @return Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
      * 
@@ -106,19 +102,15 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     public String adminUsername() {
         return this.adminUsername;
     }
+    public Optional<Boolean> automaticUpdatesEnabled() {
+        return Optional.ofNullable(this.automaticUpdatesEnabled);
+    }
     /**
      * @return The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computerNamePrefix`, then you must specify `computerNamePrefix`. Changing this forces a new resource to be created.
      * 
      */
     public Optional<String> computerNamePrefix() {
         return Optional.ofNullable(this.computerNamePrefix);
-    }
-    /**
-     * @return Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
-     * 
-     */
-    public Optional<Boolean> enableAutomaticUpdates() {
-        return Optional.ofNullable(this.enableAutomaticUpdates);
     }
     /**
      * @return Should the VM be patched without requiring a reboot? Possible values are `true` and `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
@@ -188,8 +180,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> additionalUnattendContents;
         private String adminPassword;
         private String adminUsername;
+        private @Nullable Boolean automaticUpdatesEnabled;
         private @Nullable String computerNamePrefix;
-        private @Nullable Boolean enableAutomaticUpdates;
         private @Nullable Boolean hotpatchingEnabled;
         private @Nullable String patchAssessmentMode;
         private @Nullable String patchMode;
@@ -203,8 +195,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     	      this.additionalUnattendContents = defaults.additionalUnattendContents;
     	      this.adminPassword = defaults.adminPassword;
     	      this.adminUsername = defaults.adminUsername;
+    	      this.automaticUpdatesEnabled = defaults.automaticUpdatesEnabled;
     	      this.computerNamePrefix = defaults.computerNamePrefix;
-    	      this.enableAutomaticUpdates = defaults.enableAutomaticUpdates;
     	      this.hotpatchingEnabled = defaults.hotpatchingEnabled;
     	      this.patchAssessmentMode = defaults.patchAssessmentMode;
     	      this.patchMode = defaults.patchMode;
@@ -240,15 +232,15 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             return this;
         }
         @CustomType.Setter
-        public Builder computerNamePrefix(@Nullable String computerNamePrefix) {
+        public Builder automaticUpdatesEnabled(@Nullable Boolean automaticUpdatesEnabled) {
 
-            this.computerNamePrefix = computerNamePrefix;
+            this.automaticUpdatesEnabled = automaticUpdatesEnabled;
             return this;
         }
         @CustomType.Setter
-        public Builder enableAutomaticUpdates(@Nullable Boolean enableAutomaticUpdates) {
+        public Builder computerNamePrefix(@Nullable String computerNamePrefix) {
 
-            this.enableAutomaticUpdates = enableAutomaticUpdates;
+            this.computerNamePrefix = computerNamePrefix;
             return this;
         }
         @CustomType.Setter
@@ -304,8 +296,8 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
             _resultValue.additionalUnattendContents = additionalUnattendContents;
             _resultValue.adminPassword = adminPassword;
             _resultValue.adminUsername = adminUsername;
+            _resultValue.automaticUpdatesEnabled = automaticUpdatesEnabled;
             _resultValue.computerNamePrefix = computerNamePrefix;
-            _resultValue.enableAutomaticUpdates = enableAutomaticUpdates;
             _resultValue.hotpatchingEnabled = hotpatchingEnabled;
             _resultValue.patchAssessmentMode = patchAssessmentMode;
             _resultValue.patchMode = patchMode;

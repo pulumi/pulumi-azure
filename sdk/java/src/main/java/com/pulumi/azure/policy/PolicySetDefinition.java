@@ -86,8 +86,6 @@ import javax.annotation.Nullable;
  * 
  * * `Microsoft.Authorization` - 2025-01-01
  * 
- * * `Microsoft.Management` - 2025-01-01
- * 
  * ## Import
  * 
  * Policy Set Definitions can be imported using the `resource id`, e.g.
@@ -126,18 +124,6 @@ public class PolicySetDefinition extends com.pulumi.resources.CustomResource {
      */
     public Output<String> displayName() {
         return this.displayName;
-    }
-    /**
-     * @deprecated
-     * `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider. */
-    @Export(name="managementGroupId", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> managementGroupId;
-
-    public Output<Optional<String>> managementGroupId() {
-        return Codegen.optional(this.managementGroupId);
     }
     /**
      * The metadata for the Policy Set Definition in JSON format.

@@ -4,6 +4,7 @@
 package com.pulumi.azure.network.outputs;
 
 import com.pulumi.azure.network.outputs.VirtualNetworkSubnetDelegation;
+import com.pulumi.azure.network.outputs.VirtualNetworkSubnetServiceEndpoint;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -76,10 +77,10 @@ public final class VirtualNetworkSubnet {
      */
     private @Nullable List<String> serviceEndpointPolicyIds;
     /**
-     * @return The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+     * @return A `serviceEndpoint` block as defined below.
      * 
      */
-    private @Nullable List<String> serviceEndpoints;
+    private @Nullable List<VirtualNetworkSubnetServiceEndpoint> serviceEndpoints;
 
     private VirtualNetworkSubnet() {}
     /**
@@ -163,10 +164,10 @@ public final class VirtualNetworkSubnet {
         return this.serviceEndpointPolicyIds == null ? List.of() : this.serviceEndpointPolicyIds;
     }
     /**
-     * @return The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+     * @return A `serviceEndpoint` block as defined below.
      * 
      */
-    public List<String> serviceEndpoints() {
+    public List<VirtualNetworkSubnetServiceEndpoint> serviceEndpoints() {
         return this.serviceEndpoints == null ? List.of() : this.serviceEndpoints;
     }
 
@@ -189,7 +190,7 @@ public final class VirtualNetworkSubnet {
         private @Nullable String routeTableId;
         private @Nullable String securityGroup;
         private @Nullable List<String> serviceEndpointPolicyIds;
-        private @Nullable List<String> serviceEndpoints;
+        private @Nullable List<VirtualNetworkSubnetServiceEndpoint> serviceEndpoints;
         public Builder() {}
         public Builder(VirtualNetworkSubnet defaults) {
     	      Objects.requireNonNull(defaults);
@@ -277,12 +278,12 @@ public final class VirtualNetworkSubnet {
             return serviceEndpointPolicyIds(List.of(serviceEndpointPolicyIds));
         }
         @CustomType.Setter
-        public Builder serviceEndpoints(@Nullable List<String> serviceEndpoints) {
+        public Builder serviceEndpoints(@Nullable List<VirtualNetworkSubnetServiceEndpoint> serviceEndpoints) {
 
             this.serviceEndpoints = serviceEndpoints;
             return this;
         }
-        public Builder serviceEndpoints(String... serviceEndpoints) {
+        public Builder serviceEndpoints(VirtualNetworkSubnetServiceEndpoint... serviceEndpoints) {
             return serviceEndpoints(List.of(serviceEndpoints));
         }
         public VirtualNetworkSubnet build() {

@@ -13,7 +13,6 @@ namespace Pulumi.Azure.Automation.Outputs
     [OutputType]
     public sealed class AccountEncryption
     {
-        public readonly string? KeySource;
         /// <summary>
         /// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
         /// </summary>
@@ -25,13 +24,10 @@ namespace Pulumi.Azure.Automation.Outputs
 
         [OutputConstructor]
         private AccountEncryption(
-            string? keySource,
-
             string keyVaultKeyId,
 
             string? userAssignedIdentityId)
         {
-            KeySource = keySource;
             KeyVaultKeyId = keyVaultKeyId;
             UserAssignedIdentityId = userAssignedIdentityId;
         }

@@ -50,8 +50,6 @@ import * as utilities from "../utilities";
  *
  * * `Microsoft.Authorization` - 2025-01-01
  *
- * * `Microsoft.Management` - 2025-01-01
- *
  * ## Import
  *
  * Policy Set Definitions can be imported using the `resource id`, e.g.
@@ -97,10 +95,6 @@ export class PolicySetDefinition extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string>;
     /**
-     * @deprecated `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-     */
-    declare public readonly managementGroupId: pulumi.Output<string | undefined>;
-    /**
      * The metadata for the Policy Set Definition in JSON format.
      */
     declare public readonly metadata: pulumi.Output<string>;
@@ -140,7 +134,6 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             const state = argsOrState as PolicySetDefinitionState | undefined;
             resourceInputs["description"] = state?.description;
             resourceInputs["displayName"] = state?.displayName;
-            resourceInputs["managementGroupId"] = state?.managementGroupId;
             resourceInputs["metadata"] = state?.metadata;
             resourceInputs["name"] = state?.name;
             resourceInputs["parameters"] = state?.parameters;
@@ -160,7 +153,6 @@ export class PolicySetDefinition extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args?.description;
             resourceInputs["displayName"] = args?.displayName;
-            resourceInputs["managementGroupId"] = args?.managementGroupId;
             resourceInputs["metadata"] = args?.metadata;
             resourceInputs["name"] = args?.name;
             resourceInputs["parameters"] = args?.parameters;
@@ -185,10 +177,6 @@ export interface PolicySetDefinitionState {
      * The display name of this Policy Set Definition.
      */
     displayName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-     */
-    managementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The metadata for the Policy Set Definition in JSON format.
      */
@@ -227,10 +215,6 @@ export interface PolicySetDefinitionArgs {
      * The display name of this Policy Set Definition.
      */
     displayName: pulumi.Input<string>;
-    /**
-     * @deprecated `managementGroupId` has been deprecated in favour of the `azure.management.GroupPolicySetDefinition` resource and will be removed in v5.0 of the AzureRM Provider.
-     */
-    managementGroupId?: pulumi.Input<string | undefined>;
     /**
      * The metadata for the Policy Set Definition in JSON format.
      */

@@ -263,6 +263,7 @@ class AppConnection(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -305,13 +306,13 @@ class AppConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="P1v2",
             os_type="Linux")
-        test = azure.appservice.FunctionApp("test",
-            name="example-function-app",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            app_service_plan_id=test_azurerm_app_service_plan["id"],
-            storage_account_name=test_azurerm_storage_account["name"],
-            storage_account_access_key=test_azurerm_storage_account["primaryAccessKey"])
+        test = azurerm.FunctionApp("test",
+            name=example-function-app,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            app_service_plan_id=test_azurerm_app_service_plan.id,
+            storage_account_name=test_azurerm_storage_account.name,
+            storage_account_access_key=test_azurerm_storage_account.primary_access_key)
         example_app_connection = azure.appservice.AppConnection("example",
             name="example-serviceconnector",
             function_app_id=example_azurerm_function_app["id"],
@@ -360,6 +361,7 @@ class AppConnection(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_azurerm as azurerm
 
         example = azure.core.ResourceGroup("example",
             name="example-resources",
@@ -402,13 +404,13 @@ class AppConnection(pulumi.CustomResource):
             resource_group_name=example.name,
             sku_name="P1v2",
             os_type="Linux")
-        test = azure.appservice.FunctionApp("test",
-            name="example-function-app",
-            location=test_azurerm_resource_group["location"],
-            resource_group_name=test_azurerm_resource_group["name"],
-            app_service_plan_id=test_azurerm_app_service_plan["id"],
-            storage_account_name=test_azurerm_storage_account["name"],
-            storage_account_access_key=test_azurerm_storage_account["primaryAccessKey"])
+        test = azurerm.FunctionApp("test",
+            name=example-function-app,
+            location=test_azurerm_resource_group.location,
+            resource_group_name=test_azurerm_resource_group.name,
+            app_service_plan_id=test_azurerm_app_service_plan.id,
+            storage_account_name=test_azurerm_storage_account.name,
+            storage_account_access_key=test_azurerm_storage_account.primary_access_key)
         example_app_connection = azure.appservice.AppConnection("example",
             name="example-serviceconnector",
             function_app_id=example_azurerm_function_app["id"],

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     format: "xml",
  *     value: std.file({
  *         input: "policy-fragment-1.xml",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

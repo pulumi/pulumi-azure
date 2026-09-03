@@ -19,12 +19,10 @@ import * as utilities from "../utilities";
  * const example = azure.keyvault.getSecrets({
  *     keyVaultId: existing.id,
  * });
- * const exampleGetSecret = example.then(example => std.toset({
- *     input: example.names,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getSecret({
- *     name: String(__key),
+ * const exampleGetSecret = .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getSecret({
+ *     name: __key,
  *     keyVaultId: existing.id,
- * }) }), {}));
+ * }) }), {});
  * ```
  */
 export function getSecrets(args: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
@@ -77,12 +75,10 @@ export interface GetSecretsResult {
  * const example = azure.keyvault.getSecrets({
  *     keyVaultId: existing.id,
  * });
- * const exampleGetSecret = example.then(example => std.toset({
- *     input: example.names,
- * })).then(invoke => .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getSecret({
- *     name: String(__key),
+ * const exampleGetSecret = .reduce((__obj, [__key, __value]) => ({ ...__obj, [String(__key)]: azure.keyvault.getSecret({
+ *     name: __key,
  *     keyVaultId: existing.id,
- * }) }), {}));
+ * }) }), {});
  * ```
  */
 export function getSecretsOutput(args: GetSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretsResult> {

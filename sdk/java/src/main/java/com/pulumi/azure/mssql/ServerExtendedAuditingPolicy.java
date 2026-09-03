@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()
  *             .serverId(exampleServer.id())
- *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
+ *             .blobStorageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .storageAccountAccessKeyIsSecondary(false)
  *             .retentionInDays(6)
@@ -102,6 +102,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetServiceEndpointArgs;
  * import com.pulumi.azure.mssql.Server;
  * import com.pulumi.azure.mssql.ServerArgs;
  * import com.pulumi.azure.mssql.inputs.ServerIdentityArgs;
@@ -154,8 +155,12 @@ import javax.annotation.Nullable;
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
  *             .serviceEndpoints(            
- *                 "Microsoft.Sql",
- *                 "Microsoft.Storage")
+ *                 SubnetServiceEndpointArgs.builder()
+ *                     .service("Microsoft.Sql")
+ *                     .build(),
+ *                 SubnetServiceEndpointArgs.builder()
+ *                     .service("Microsoft.Storage")
+ *                     .build())
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
@@ -213,7 +218,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", ServerExtendedAuditingPolicyArgs.builder()
- *             .storageEndpoint(exampleAccount.primaryBlobEndpoint())
+ *             .blobStorageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .serverId(exampleServer.id())
  *             .retentionInDays(6)
  *             .logMonitoringEnabled(false)
@@ -255,9 +260,23 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
         return this.auditActionsAndGroups;
     }
     /**
+     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+     * 
+     */
+    @Export(name="blobStorageEndpoint", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> blobStorageEndpoint;
+
+    /**
+     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
+     * 
+     */
+    public Output<Optional<String>> blobStorageEndpoint() {
+        return Codegen.optional(this.blobStorageEndpoint);
+    }
+    /**
      * Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
@@ -266,7 +285,7 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
     /**
      * @return Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`.
      * 
-     * &gt; **Note:** If `enabled` is `true`, `storageEndpoint` or `logMonitoringEnabled` are required.
+     * &gt; **Note:** If `enabled` is `true`, `blobStorageEndpoint` or `logMonitoringEnabled` are required.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -369,20 +388,6 @@ public class ServerExtendedAuditingPolicy extends com.pulumi.resources.CustomRes
      */
     public Output<Optional<String>> storageAccountSubscriptionId() {
         return Codegen.optional(this.storageAccountSubscriptionId);
-    }
-    /**
-     * The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-     * 
-     */
-    @Export(name="storageEndpoint", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> storageEndpoint;
-
-    /**
-     * @return The blob storage endpoint (e.g. &lt;https://example.blob.core.windows.net&gt;). This blob storage will hold all extended auditing logs.
-     * 
-     */
-    public Output<Optional<String>> storageEndpoint() {
-        return Codegen.optional(this.storageEndpoint);
     }
 
     /**

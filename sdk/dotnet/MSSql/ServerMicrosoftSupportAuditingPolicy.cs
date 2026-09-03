@@ -99,8 +99,14 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///         ServiceEndpoints = new[]
     ///         {
-    ///             "Microsoft.Sql",
-    ///             "Microsoft.Storage",
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Sql",
+    ///             },
+    ///             new Azure.Network.Inputs.SubnetServiceEndpointArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
     ///         },
     ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
     ///     });
@@ -198,7 +204,7 @@ namespace Pulumi.Azure.MSSql
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Sql` - 2023-08-01-preview
+    /// * `Microsoft.Sql` - 2025-01-01
     /// 
     /// ## Import
     /// 

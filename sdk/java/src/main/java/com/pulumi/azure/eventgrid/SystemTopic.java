@@ -120,12 +120,6 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
     public Output<String> location() {
         return this.location;
     }
-    @Export(name="metricArmResourceId", refs={String.class}, tree="[0]")
-    private Output<String> metricArmResourceId;
-
-    public Output<String> metricArmResourceId() {
-        return this.metricArmResourceId;
-    }
     /**
      * The Metric Resource ID of the Event Grid System Topic.
      * 
@@ -167,18 +161,6 @@ public class SystemTopic extends com.pulumi.resources.CustomResource {
      */
     public Output<String> resourceGroupName() {
         return this.resourceGroupName;
-    }
-    /**
-     * @deprecated
-     * the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* the `sourceArmResourceId` property has been deprecated in favour of `sourceResourceId` and will be removed in version 5.0 of the Provider. */
-    @Export(name="sourceArmResourceId", refs={String.class}, tree="[0]")
-    private Output<String> sourceArmResourceId;
-
-    public Output<String> sourceArmResourceId() {
-        return this.sourceArmResourceId;
     }
     /**
      * The ID of the Event Grid System Topic ARM Source. Changing this forces a new Event Grid System Topic to be created.

@@ -45,7 +45,7 @@ namespace Pulumi.Azure.OperationalInsights
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
+    /// * `Microsoft.OperationalInsights` - 2025-07-01, 2020-08-01
     /// 
     /// ## Import
     /// 
@@ -95,25 +95,24 @@ namespace Pulumi.Azure.OperationalInsights
         public Output<bool?> ImmediateDataPurgeOn30DaysEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `True`.
+        /// Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         /// </summary>
-        [Output("internetIngestionEnabled")]
-        public Output<bool?> InternetIngestionEnabled { get; private set; } = null!;
+        [Output("internetIngestionAccessType")]
+        public Output<string?> InternetIngestionAccessType { get; private set; } = null!;
 
         /// <summary>
-        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `True`.
+        /// Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        /// 
+        /// &gt; **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `AccessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
         /// </summary>
-        [Output("internetQueryEnabled")]
-        public Output<bool?> InternetQueryEnabled { get; private set; } = null!;
-
-        [Output("localAuthenticationDisabled")]
-        public Output<bool> LocalAuthenticationDisabled { get; private set; } = null!;
+        [Output("internetQueryAccessType")]
+        public Output<string?> InternetQueryAccessType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `True`.
         /// </summary>
         [Output("localAuthenticationEnabled")]
-        public Output<bool> LocalAuthenticationEnabled { get; private set; } = null!;
+        public Output<bool?> LocalAuthenticationEnabled { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -271,19 +270,18 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? ImmediateDataPurgeOn30DaysEnabled { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `True`.
+        /// Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         /// </summary>
-        [Input("internetIngestionEnabled")]
-        public Input<bool>? InternetIngestionEnabled { get; set; }
+        [Input("internetIngestionAccessType")]
+        public Input<string>? InternetIngestionAccessType { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `True`.
+        /// Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        /// 
+        /// &gt; **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `AccessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
         /// </summary>
-        [Input("internetQueryEnabled")]
-        public Input<bool>? InternetQueryEnabled { get; set; }
-
-        [Input("localAuthenticationDisabled")]
-        public Input<bool>? LocalAuthenticationDisabled { get; set; }
+        [Input("internetQueryAccessType")]
+        public Input<string>? InternetQueryAccessType { get; set; }
 
         /// <summary>
         /// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `True`.
@@ -392,19 +390,18 @@ namespace Pulumi.Azure.OperationalInsights
         public Input<bool>? ImmediateDataPurgeOn30DaysEnabled { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `True`.
+        /// Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
         /// </summary>
-        [Input("internetIngestionEnabled")]
-        public Input<bool>? InternetIngestionEnabled { get; set; }
+        [Input("internetIngestionAccessType")]
+        public Input<string>? InternetIngestionAccessType { get; set; }
 
         /// <summary>
-        /// Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `True`.
+        /// Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+        /// 
+        /// &gt; **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `AccessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
         /// </summary>
-        [Input("internetQueryEnabled")]
-        public Input<bool>? InternetQueryEnabled { get; set; }
-
-        [Input("localAuthenticationDisabled")]
-        public Input<bool>? LocalAuthenticationDisabled { get; set; }
+        [Input("internetQueryAccessType")]
+        public Input<string>? InternetQueryAccessType { get; set; }
 
         /// <summary>
         /// Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `True`.

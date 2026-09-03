@@ -95,7 +95,7 @@ namespace Pulumi.Azure.Cdn
     ///                 "contoso",
     ///                 exampleZone.Name,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",
@@ -116,7 +116,7 @@ namespace Pulumi.Azure.Cdn
     ///                 "fabrikam",
     ///                 exampleZone.Name,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",
@@ -193,6 +193,13 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// });
     /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Cdn` - 2025-12-01
     /// 
     /// ## Import
     /// 

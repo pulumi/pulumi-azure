@@ -82,7 +82,7 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
-     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      */
     declare public readonly contentTypesToCompresses: pulumi.Output<string[] | undefined>;
     /**
@@ -233,7 +233,7 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointState {
     /**
-     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      */
     contentTypesToCompresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -317,7 +317,7 @@ export interface EndpointState {
  */
 export interface EndpointArgs {
     /**
-     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      */
     contentTypesToCompresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

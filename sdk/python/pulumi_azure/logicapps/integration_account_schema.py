@@ -258,7 +258,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             name="example-ias",
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
-            content=std.file(input="testdata/integration_account_schema_content.xsd").result)
+            content=std.file(input="testdata/integration_account_schema_content.xsd")["result"])
         ```
 
         ## API Providers
@@ -314,7 +314,7 @@ class IntegrationAccountSchema(pulumi.CustomResource):
             name="example-ias",
             resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
-            content=std.file(input="testdata/integration_account_schema_content.xsd").result)
+            content=std.file(input="testdata/integration_account_schema_content.xsd")["result"])
         ```
 
         ## API Providers

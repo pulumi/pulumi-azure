@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const example = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
@@ -62,7 +63,7 @@ import * as utilities from "../utilities";
  *     skuName: "P1v2",
  *     osType: "Linux",
  * });
- * const test = new azure.appservice.FunctionApp("test", {
+ * const test = new azurerm.index.FunctionApp("test", {
  *     name: "example-function-app",
  *     location: testAzurermResourceGroup.location,
  *     resourceGroupName: testAzurermResourceGroup.name,

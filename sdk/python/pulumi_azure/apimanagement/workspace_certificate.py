@@ -329,7 +329,7 @@ class WorkspaceCertificate(pulumi.CustomResource):
         example_workspace_certificate = azure.apimanagement.WorkspaceCertificate("example",
             name="example-cert",
             api_management_workspace_id=example_workspace.id,
-            certificate_data_base64=std.filebase64(input="example.pfx").result,
+            certificate_data_base64=std.filebase64(input="example.pfx")["result"],
             password="terraform")
         ```
 
@@ -395,7 +395,7 @@ class WorkspaceCertificate(pulumi.CustomResource):
         example_workspace_certificate = azure.apimanagement.WorkspaceCertificate("example",
             name="example-cert",
             api_management_workspace_id=example_workspace.id,
-            certificate_data_base64=std.filebase64(input="example.pfx").result,
+            certificate_data_base64=std.filebase64(input="example.pfx")["result"],
             password="terraform")
         ```
 

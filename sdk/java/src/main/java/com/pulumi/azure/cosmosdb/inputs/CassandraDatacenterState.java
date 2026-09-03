@@ -201,16 +201,12 @@ public final class CassandraDatacenterState extends com.pulumi.resources.Resourc
     /**
      * Determines the selected sku. Defaults to `Standard_E16s_v5`.
      * 
-     * &gt; **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
-     * 
      */
     @Import(name="skuName")
     private @Nullable Output<String> skuName;
 
     /**
      * @return Determines the selected sku. Defaults to `Standard_E16s_v5`.
-     * 
-     * &gt; **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
      * 
      */
     public Optional<Output<String>> skuName() {
@@ -518,8 +514,6 @@ public final class CassandraDatacenterState extends com.pulumi.resources.Resourc
         /**
          * @param skuName Determines the selected sku. Defaults to `Standard_E16s_v5`.
          * 
-         * &gt; **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
-         * 
          * @return builder
          * 
          */
@@ -530,8 +524,6 @@ public final class CassandraDatacenterState extends com.pulumi.resources.Resourc
 
         /**
          * @param skuName Determines the selected sku. Defaults to `Standard_E16s_v5`.
-         * 
-         * &gt; **Note:** In v4.0 of the provider the `skuName` will have a default value of `Standard_E16s_v5`.
          * 
          * @return builder
          * 

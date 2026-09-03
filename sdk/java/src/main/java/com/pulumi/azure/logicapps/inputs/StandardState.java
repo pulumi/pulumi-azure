@@ -87,14 +87,14 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      * 
      */
     @Import(name="clientCertificateMode")
     private @Nullable Output<String> clientCertificateMode;
 
     /**
-     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      * 
      */
     public Optional<Output<String>> clientCertificateMode() {
@@ -682,7 +682,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class StandardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+         * @param clientCertificateMode The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
          * 
          * @return builder
          * 

@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.redhatopenshift.inputs;
 
+import com.pulumi.azure.redhatopenshift.inputs.ClusterNetworkProfileLoadBalancerProfileArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class ClusterNetworkProfileArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ClusterNetworkProfileArgs Empty = new ClusterNetworkProfileArgs();
+
+    /**
+     * A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+     * 
+     */
+    @Import(name="loadBalancerProfile")
+    private @Nullable Output<ClusterNetworkProfileLoadBalancerProfileArgs> loadBalancerProfile;
+
+    /**
+     * @return A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+     * 
+     */
+    public Optional<Output<ClusterNetworkProfileLoadBalancerProfileArgs>> loadBalancerProfile() {
+        return Optional.ofNullable(this.loadBalancerProfile);
+    }
 
     /**
      * The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
@@ -80,6 +96,7 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
     private ClusterNetworkProfileArgs() {}
 
     private ClusterNetworkProfileArgs(ClusterNetworkProfileArgs $) {
+        this.loadBalancerProfile = $.loadBalancerProfile;
         this.outboundType = $.outboundType;
         this.podCidr = $.podCidr;
         this.preconfiguredNetworkSecurityGroupEnabled = $.preconfiguredNetworkSecurityGroupEnabled;
@@ -102,6 +119,27 @@ public final class ClusterNetworkProfileArgs extends com.pulumi.resources.Resour
 
         public Builder(ClusterNetworkProfileArgs defaults) {
             $ = new ClusterNetworkProfileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param loadBalancerProfile A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancerProfile(@Nullable Output<ClusterNetworkProfileLoadBalancerProfileArgs> loadBalancerProfile) {
+            $.loadBalancerProfile = loadBalancerProfile;
+            return this;
+        }
+
+        /**
+         * @param loadBalancerProfile A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder loadBalancerProfile(ClusterNetworkProfileLoadBalancerProfileArgs loadBalancerProfile) {
+            return loadBalancerProfile(Output.of(loadBalancerProfile));
         }
 
         /**

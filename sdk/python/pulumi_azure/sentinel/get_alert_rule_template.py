@@ -131,6 +131,15 @@ def get_alert_rule_template(display_name: Optional[_builtins.str] = None,
     pulumi.export("id", example.id)
     ```
 
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.OperationalInsights` - 2022-10-01-preview
+
+    * `Microsoft.SecurityInsights` - 2022-10-01-preview
+
 
     :param _builtins.str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.
            
@@ -170,6 +179,15 @@ def get_alert_rule_template_output(display_name: pulumi.Input[Optional[Optional[
         display_name="Create incidents based on Azure Security Center for IoT alerts")
     pulumi.export("id", example.id)
     ```
+
+    ## API Providers
+
+    <!-- This section is generated, changes will be overwritten -->
+    This data source uses the following Azure API Providers:
+
+    * `Microsoft.OperationalInsights` - 2022-10-01-preview
+
+    * `Microsoft.SecurityInsights` - 2022-10-01-preview
 
 
     :param _builtins.str display_name: The display name of this Sentinel Alert Rule Template. Either `display_name` or `name` have to be specified.

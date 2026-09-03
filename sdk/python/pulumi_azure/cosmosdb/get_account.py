@@ -27,7 +27,7 @@ class GetAccountResult:
     """
     A collection of values returned by getAccount.
     """
-    def __init__(__self__, automatic_failover_enabled=None, capabilities=None, consistency_policies=None, endpoint=None, free_tier_enabled=None, geo_locations=None, id=None, ip_range_filter=None, is_virtual_network_filter_enabled=None, key_vault_key_id=None, kind=None, location=None, multiple_write_locations_enabled=None, name=None, offer_type=None, primary_key=None, primary_mongodb_connection_string=None, primary_readonly_key=None, primary_readonly_mongodb_connection_string=None, primary_readonly_sql_connection_string=None, primary_sql_connection_string=None, read_endpoints=None, resource_group_name=None, secondary_key=None, secondary_mongodb_connection_string=None, secondary_readonly_key=None, secondary_readonly_mongodb_connection_string=None, secondary_readonly_sql_connection_string=None, secondary_sql_connection_string=None, tags=None, virtual_network_rules=None, write_endpoints=None):
+    def __init__(__self__, automatic_failover_enabled=None, capabilities=None, consistency_policies=None, endpoint=None, free_tier_enabled=None, geo_locations=None, id=None, ip_range_filters=None, is_virtual_network_filter_enabled=None, key_vault_key_id=None, kind=None, location=None, multiple_write_locations_enabled=None, name=None, offer_type=None, primary_key=None, primary_mongodb_connection_string=None, primary_readonly_key=None, primary_readonly_mongodb_connection_string=None, primary_readonly_sql_connection_string=None, primary_sql_connection_string=None, read_endpoints=None, resource_group_name=None, secondary_key=None, secondary_mongodb_connection_string=None, secondary_readonly_key=None, secondary_readonly_mongodb_connection_string=None, secondary_readonly_sql_connection_string=None, secondary_sql_connection_string=None, tags=None, virtual_network_rules=None, write_endpoints=None):
         if automatic_failover_enabled and not isinstance(automatic_failover_enabled, bool):
             raise TypeError("Expected argument 'automatic_failover_enabled' to be a bool")
         pulumi.set(__self__, "automatic_failover_enabled", automatic_failover_enabled)
@@ -49,9 +49,9 @@ class GetAccountResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if ip_range_filter and not isinstance(ip_range_filter, str):
-            raise TypeError("Expected argument 'ip_range_filter' to be a str")
-        pulumi.set(__self__, "ip_range_filter", ip_range_filter)
+        if ip_range_filters and not isinstance(ip_range_filters, list):
+            raise TypeError("Expected argument 'ip_range_filters' to be a list")
+        pulumi.set(__self__, "ip_range_filters", ip_range_filters)
         if is_virtual_network_filter_enabled and not isinstance(is_virtual_network_filter_enabled, bool):
             raise TypeError("Expected argument 'is_virtual_network_filter_enabled' to be a bool")
         pulumi.set(__self__, "is_virtual_network_filter_enabled", is_virtual_network_filter_enabled)
@@ -176,12 +176,12 @@ class GetAccountResult:
         return pulumi.get(self, "id")
 
     @_builtins.property
-    @pulumi.getter(name="ipRangeFilter")
-    def ip_range_filter(self) -> _builtins.str:
+    @pulumi.getter(name="ipRangeFilters")
+    def ip_range_filters(self) -> Sequence[_builtins.str]:
         """
-        The current IP Filter for this CosmosDB account
+        A list of IP ranges associated with this CosmosDB account.
         """
-        return pulumi.get(self, "ip_range_filter")
+        return pulumi.get(self, "ip_range_filters")
 
     @_builtins.property
     @pulumi.getter(name="isVirtualNetworkFilterEnabled")
@@ -383,7 +383,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             free_tier_enabled=self.free_tier_enabled,
             geo_locations=self.geo_locations,
             id=self.id,
-            ip_range_filter=self.ip_range_filter,
+            ip_range_filters=self.ip_range_filters,
             is_virtual_network_filter_enabled=self.is_virtual_network_filter_enabled,
             key_vault_key_id=self.key_vault_key_id,
             kind=self.kind,
@@ -452,7 +452,7 @@ def get_account(name: Optional[_builtins.str] = None,
         free_tier_enabled=pulumi.get(__ret__, 'free_tier_enabled'),
         geo_locations=pulumi.get(__ret__, 'geo_locations'),
         id=pulumi.get(__ret__, 'id'),
-        ip_range_filter=pulumi.get(__ret__, 'ip_range_filter'),
+        ip_range_filters=pulumi.get(__ret__, 'ip_range_filters'),
         is_virtual_network_filter_enabled=pulumi.get(__ret__, 'is_virtual_network_filter_enabled'),
         key_vault_key_id=pulumi.get(__ret__, 'key_vault_key_id'),
         kind=pulumi.get(__ret__, 'kind'),
@@ -518,7 +518,7 @@ def get_account_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         free_tier_enabled=pulumi.get(__response__, 'free_tier_enabled'),
         geo_locations=pulumi.get(__response__, 'geo_locations'),
         id=pulumi.get(__response__, 'id'),
-        ip_range_filter=pulumi.get(__response__, 'ip_range_filter'),
+        ip_range_filters=pulumi.get(__response__, 'ip_range_filters'),
         is_virtual_network_filter_enabled=pulumi.get(__response__, 'is_virtual_network_filter_enabled'),
         key_vault_key_id=pulumi.get(__response__, 'key_vault_key_id'),
         kind=pulumi.get(__response__, 'kind'),

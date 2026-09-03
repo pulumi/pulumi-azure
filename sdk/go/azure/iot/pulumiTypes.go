@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -3205,7 +3205,7 @@ func (o SecuritySolutionAdditionalWorkspaceArrayOutput) Index(i pulumi.IntInput)
 	}).(SecuritySolutionAdditionalWorkspaceOutput)
 }
 
-type SecuritySolutionRecommendationsEnabled struct {
+type SecuritySolutionRecommendations struct {
 	// Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
 	AcrAuthentication *bool `pulumi:"acrAuthentication"`
 	// Is Agent send underutilized messages enabled? Defaults to `true`.
@@ -3240,18 +3240,18 @@ type SecuritySolutionRecommendationsEnabled struct {
 	VulnerableTlsCipherSuite *bool `pulumi:"vulnerableTlsCipherSuite"`
 }
 
-// SecuritySolutionRecommendationsEnabledInput is an input type that accepts SecuritySolutionRecommendationsEnabledArgs and SecuritySolutionRecommendationsEnabledOutput values.
-// You can construct a concrete instance of `SecuritySolutionRecommendationsEnabledInput` via:
+// SecuritySolutionRecommendationsInput is an input type that accepts SecuritySolutionRecommendationsArgs and SecuritySolutionRecommendationsOutput values.
+// You can construct a concrete instance of `SecuritySolutionRecommendationsInput` via:
 //
-//	SecuritySolutionRecommendationsEnabledArgs{...}
-type SecuritySolutionRecommendationsEnabledInput interface {
+//	SecuritySolutionRecommendationsArgs{...}
+type SecuritySolutionRecommendationsInput interface {
 	pulumi.Input
 
-	ToSecuritySolutionRecommendationsEnabledOutput() SecuritySolutionRecommendationsEnabledOutput
-	ToSecuritySolutionRecommendationsEnabledOutputWithContext(context.Context) SecuritySolutionRecommendationsEnabledOutput
+	ToSecuritySolutionRecommendationsOutput() SecuritySolutionRecommendationsOutput
+	ToSecuritySolutionRecommendationsOutputWithContext(context.Context) SecuritySolutionRecommendationsOutput
 }
 
-type SecuritySolutionRecommendationsEnabledArgs struct {
+type SecuritySolutionRecommendationsArgs struct {
 	// Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
 	AcrAuthentication pulumi.BoolPtrInput `pulumi:"acrAuthentication"`
 	// Is Agent send underutilized messages enabled? Defaults to `true`.
@@ -3286,190 +3286,190 @@ type SecuritySolutionRecommendationsEnabledArgs struct {
 	VulnerableTlsCipherSuite pulumi.BoolPtrInput `pulumi:"vulnerableTlsCipherSuite"`
 }
 
-func (SecuritySolutionRecommendationsEnabledArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecuritySolutionRecommendationsEnabled)(nil)).Elem()
+func (SecuritySolutionRecommendationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecuritySolutionRecommendations)(nil)).Elem()
 }
 
-func (i SecuritySolutionRecommendationsEnabledArgs) ToSecuritySolutionRecommendationsEnabledOutput() SecuritySolutionRecommendationsEnabledOutput {
-	return i.ToSecuritySolutionRecommendationsEnabledOutputWithContext(context.Background())
+func (i SecuritySolutionRecommendationsArgs) ToSecuritySolutionRecommendationsOutput() SecuritySolutionRecommendationsOutput {
+	return i.ToSecuritySolutionRecommendationsOutputWithContext(context.Background())
 }
 
-func (i SecuritySolutionRecommendationsEnabledArgs) ToSecuritySolutionRecommendationsEnabledOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsEnabledOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionRecommendationsEnabledOutput)
+func (i SecuritySolutionRecommendationsArgs) ToSecuritySolutionRecommendationsOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionRecommendationsOutput)
 }
 
-func (i SecuritySolutionRecommendationsEnabledArgs) ToSecuritySolutionRecommendationsEnabledPtrOutput() SecuritySolutionRecommendationsEnabledPtrOutput {
-	return i.ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(context.Background())
+func (i SecuritySolutionRecommendationsArgs) ToSecuritySolutionRecommendationsPtrOutput() SecuritySolutionRecommendationsPtrOutput {
+	return i.ToSecuritySolutionRecommendationsPtrOutputWithContext(context.Background())
 }
 
-func (i SecuritySolutionRecommendationsEnabledArgs) ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsEnabledPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionRecommendationsEnabledOutput).ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(ctx)
+func (i SecuritySolutionRecommendationsArgs) ToSecuritySolutionRecommendationsPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionRecommendationsOutput).ToSecuritySolutionRecommendationsPtrOutputWithContext(ctx)
 }
 
-// SecuritySolutionRecommendationsEnabledPtrInput is an input type that accepts SecuritySolutionRecommendationsEnabledArgs, SecuritySolutionRecommendationsEnabledPtr and SecuritySolutionRecommendationsEnabledPtrOutput values.
-// You can construct a concrete instance of `SecuritySolutionRecommendationsEnabledPtrInput` via:
+// SecuritySolutionRecommendationsPtrInput is an input type that accepts SecuritySolutionRecommendationsArgs, SecuritySolutionRecommendationsPtr and SecuritySolutionRecommendationsPtrOutput values.
+// You can construct a concrete instance of `SecuritySolutionRecommendationsPtrInput` via:
 //
-//	        SecuritySolutionRecommendationsEnabledArgs{...}
+//	        SecuritySolutionRecommendationsArgs{...}
 //
 //	or:
 //
 //	        nil
-type SecuritySolutionRecommendationsEnabledPtrInput interface {
+type SecuritySolutionRecommendationsPtrInput interface {
 	pulumi.Input
 
-	ToSecuritySolutionRecommendationsEnabledPtrOutput() SecuritySolutionRecommendationsEnabledPtrOutput
-	ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(context.Context) SecuritySolutionRecommendationsEnabledPtrOutput
+	ToSecuritySolutionRecommendationsPtrOutput() SecuritySolutionRecommendationsPtrOutput
+	ToSecuritySolutionRecommendationsPtrOutputWithContext(context.Context) SecuritySolutionRecommendationsPtrOutput
 }
 
-type securitySolutionRecommendationsEnabledPtrType SecuritySolutionRecommendationsEnabledArgs
+type securitySolutionRecommendationsPtrType SecuritySolutionRecommendationsArgs
 
-func SecuritySolutionRecommendationsEnabledPtr(v *SecuritySolutionRecommendationsEnabledArgs) SecuritySolutionRecommendationsEnabledPtrInput {
-	return (*securitySolutionRecommendationsEnabledPtrType)(v)
+func SecuritySolutionRecommendationsPtr(v *SecuritySolutionRecommendationsArgs) SecuritySolutionRecommendationsPtrInput {
+	return (*securitySolutionRecommendationsPtrType)(v)
 }
 
-func (*securitySolutionRecommendationsEnabledPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecuritySolutionRecommendationsEnabled)(nil)).Elem()
+func (*securitySolutionRecommendationsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecuritySolutionRecommendations)(nil)).Elem()
 }
 
-func (i *securitySolutionRecommendationsEnabledPtrType) ToSecuritySolutionRecommendationsEnabledPtrOutput() SecuritySolutionRecommendationsEnabledPtrOutput {
-	return i.ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(context.Background())
+func (i *securitySolutionRecommendationsPtrType) ToSecuritySolutionRecommendationsPtrOutput() SecuritySolutionRecommendationsPtrOutput {
+	return i.ToSecuritySolutionRecommendationsPtrOutputWithContext(context.Background())
 }
 
-func (i *securitySolutionRecommendationsEnabledPtrType) ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsEnabledPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionRecommendationsEnabledPtrOutput)
+func (i *securitySolutionRecommendationsPtrType) ToSecuritySolutionRecommendationsPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecuritySolutionRecommendationsPtrOutput)
 }
 
-type SecuritySolutionRecommendationsEnabledOutput struct{ *pulumi.OutputState }
+type SecuritySolutionRecommendationsOutput struct{ *pulumi.OutputState }
 
-func (SecuritySolutionRecommendationsEnabledOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecuritySolutionRecommendationsEnabled)(nil)).Elem()
+func (SecuritySolutionRecommendationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecuritySolutionRecommendations)(nil)).Elem()
 }
 
-func (o SecuritySolutionRecommendationsEnabledOutput) ToSecuritySolutionRecommendationsEnabledOutput() SecuritySolutionRecommendationsEnabledOutput {
+func (o SecuritySolutionRecommendationsOutput) ToSecuritySolutionRecommendationsOutput() SecuritySolutionRecommendationsOutput {
 	return o
 }
 
-func (o SecuritySolutionRecommendationsEnabledOutput) ToSecuritySolutionRecommendationsEnabledOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsEnabledOutput {
+func (o SecuritySolutionRecommendationsOutput) ToSecuritySolutionRecommendationsOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsOutput {
 	return o
 }
 
-func (o SecuritySolutionRecommendationsEnabledOutput) ToSecuritySolutionRecommendationsEnabledPtrOutput() SecuritySolutionRecommendationsEnabledPtrOutput {
-	return o.ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(context.Background())
+func (o SecuritySolutionRecommendationsOutput) ToSecuritySolutionRecommendationsPtrOutput() SecuritySolutionRecommendationsPtrOutput {
+	return o.ToSecuritySolutionRecommendationsPtrOutputWithContext(context.Background())
 }
 
-func (o SecuritySolutionRecommendationsEnabledOutput) ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsEnabledPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecuritySolutionRecommendationsEnabled) *SecuritySolutionRecommendationsEnabled {
+func (o SecuritySolutionRecommendationsOutput) ToSecuritySolutionRecommendationsPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecuritySolutionRecommendations) *SecuritySolutionRecommendations {
 		return &v
-	}).(SecuritySolutionRecommendationsEnabledPtrOutput)
+	}).(SecuritySolutionRecommendationsPtrOutput)
 }
 
 // Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) AcrAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.AcrAuthentication }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) AcrAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.AcrAuthentication }).(pulumi.BoolPtrOutput)
 }
 
 // Is Agent send underutilized messages enabled? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) AgentSendUnutilizedMsg() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.AgentSendUnutilizedMsg }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) AgentSendUnutilizedMsg() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.AgentSendUnutilizedMsg }).(pulumi.BoolPtrOutput)
 }
 
 // Is Security related system configuration issues identified? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) Baseline() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.Baseline }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) Baseline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.Baseline }).(pulumi.BoolPtrOutput)
 }
 
 // Is IoT Edge Hub memory optimized? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) EdgeHubMemOptimize() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.EdgeHubMemOptimize }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) EdgeHubMemOptimize() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.EdgeHubMemOptimize }).(pulumi.BoolPtrOutput)
 }
 
 // Is logging configured for IoT Edge module? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) EdgeLoggingOption() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.EdgeLoggingOption }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) EdgeLoggingOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.EdgeLoggingOption }).(pulumi.BoolPtrOutput)
 }
 
 // Is inconsistent module settings enabled for SecurityGroup? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) InconsistentModuleSettings() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.InconsistentModuleSettings }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) InconsistentModuleSettings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.InconsistentModuleSettings }).(pulumi.BoolPtrOutput)
 }
 
 // is Azure IoT Security agent installed? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) InstallAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.InstallAgent }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) InstallAgent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.InstallAgent }).(pulumi.BoolPtrOutput)
 }
 
 // Is Default IP filter policy denied? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) IpFilterDenyAll() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.IpFilterDenyAll }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) IpFilterDenyAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.IpFilterDenyAll }).(pulumi.BoolPtrOutput)
 }
 
 // Is IP filter rule source allowable IP range too large? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) IpFilterPermissiveRule() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.IpFilterPermissiveRule }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) IpFilterPermissiveRule() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.IpFilterPermissiveRule }).(pulumi.BoolPtrOutput)
 }
 
 // Is any ports open on the device? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) OpenPorts() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.OpenPorts }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) OpenPorts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.OpenPorts }).(pulumi.BoolPtrOutput)
 }
 
 // Does firewall policy exist which allow necessary communication to/from the device? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) PermissiveFirewallPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.PermissiveFirewallPolicy }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) PermissiveFirewallPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.PermissiveFirewallPolicy }).(pulumi.BoolPtrOutput)
 }
 
 // Is only necessary addresses or ports are permitted in? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) PermissiveInputFirewallRules() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.PermissiveInputFirewallRules }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) PermissiveInputFirewallRules() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.PermissiveInputFirewallRules }).(pulumi.BoolPtrOutput)
 }
 
 // Is only necessary addresses or ports are permitted out? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) PermissiveOutputFirewallRules() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.PermissiveOutputFirewallRules }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) PermissiveOutputFirewallRules() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.PermissiveOutputFirewallRules }).(pulumi.BoolPtrOutput)
 }
 
 // Is high level permissions are needed for the module? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) PrivilegedDockerOptions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.PrivilegedDockerOptions }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) PrivilegedDockerOptions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.PrivilegedDockerOptions }).(pulumi.BoolPtrOutput)
 }
 
 // Is any credentials shared among devices? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) SharedCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.SharedCredentials }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) SharedCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.SharedCredentials }).(pulumi.BoolPtrOutput)
 }
 
 // Does TLS cipher suite need to be updated? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledOutput) VulnerableTlsCipherSuite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v SecuritySolutionRecommendationsEnabled) *bool { return v.VulnerableTlsCipherSuite }).(pulumi.BoolPtrOutput)
+func (o SecuritySolutionRecommendationsOutput) VulnerableTlsCipherSuite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SecuritySolutionRecommendations) *bool { return v.VulnerableTlsCipherSuite }).(pulumi.BoolPtrOutput)
 }
 
-type SecuritySolutionRecommendationsEnabledPtrOutput struct{ *pulumi.OutputState }
+type SecuritySolutionRecommendationsPtrOutput struct{ *pulumi.OutputState }
 
-func (SecuritySolutionRecommendationsEnabledPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecuritySolutionRecommendationsEnabled)(nil)).Elem()
+func (SecuritySolutionRecommendationsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SecuritySolutionRecommendations)(nil)).Elem()
 }
 
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) ToSecuritySolutionRecommendationsEnabledPtrOutput() SecuritySolutionRecommendationsEnabledPtrOutput {
+func (o SecuritySolutionRecommendationsPtrOutput) ToSecuritySolutionRecommendationsPtrOutput() SecuritySolutionRecommendationsPtrOutput {
 	return o
 }
 
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) ToSecuritySolutionRecommendationsEnabledPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsEnabledPtrOutput {
+func (o SecuritySolutionRecommendationsPtrOutput) ToSecuritySolutionRecommendationsPtrOutputWithContext(ctx context.Context) SecuritySolutionRecommendationsPtrOutput {
 	return o
 }
 
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) Elem() SecuritySolutionRecommendationsEnabledOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) SecuritySolutionRecommendationsEnabled {
+func (o SecuritySolutionRecommendationsPtrOutput) Elem() SecuritySolutionRecommendationsOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) SecuritySolutionRecommendations {
 		if v != nil {
 			return *v
 		}
-		var ret SecuritySolutionRecommendationsEnabled
+		var ret SecuritySolutionRecommendations
 		return ret
-	}).(SecuritySolutionRecommendationsEnabledOutput)
+	}).(SecuritySolutionRecommendationsOutput)
 }
 
 // Is Principal Authentication enabled for the ACR repository? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) AcrAuthentication() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) AcrAuthentication() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3478,8 +3478,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) AcrAuthentication() pul
 }
 
 // Is Agent send underutilized messages enabled? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) AgentSendUnutilizedMsg() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) AgentSendUnutilizedMsg() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3488,8 +3488,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) AgentSendUnutilizedMsg(
 }
 
 // Is Security related system configuration issues identified? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) Baseline() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) Baseline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3498,8 +3498,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) Baseline() pulumi.BoolP
 }
 
 // Is IoT Edge Hub memory optimized? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) EdgeHubMemOptimize() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) EdgeHubMemOptimize() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3508,8 +3508,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) EdgeHubMemOptimize() pu
 }
 
 // Is logging configured for IoT Edge module? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) EdgeLoggingOption() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) EdgeLoggingOption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3518,8 +3518,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) EdgeLoggingOption() pul
 }
 
 // Is inconsistent module settings enabled for SecurityGroup? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) InconsistentModuleSettings() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) InconsistentModuleSettings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3528,8 +3528,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) InconsistentModuleSetti
 }
 
 // is Azure IoT Security agent installed? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) InstallAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) InstallAgent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3538,8 +3538,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) InstallAgent() pulumi.B
 }
 
 // Is Default IP filter policy denied? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) IpFilterDenyAll() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) IpFilterDenyAll() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3548,8 +3548,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) IpFilterDenyAll() pulum
 }
 
 // Is IP filter rule source allowable IP range too large? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) IpFilterPermissiveRule() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) IpFilterPermissiveRule() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3558,8 +3558,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) IpFilterPermissiveRule(
 }
 
 // Is any ports open on the device? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) OpenPorts() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) OpenPorts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3568,8 +3568,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) OpenPorts() pulumi.Bool
 }
 
 // Does firewall policy exist which allow necessary communication to/from the device? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) PermissiveFirewallPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) PermissiveFirewallPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3578,8 +3578,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) PermissiveFirewallPolic
 }
 
 // Is only necessary addresses or ports are permitted in? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) PermissiveInputFirewallRules() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) PermissiveInputFirewallRules() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3588,8 +3588,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) PermissiveInputFirewall
 }
 
 // Is only necessary addresses or ports are permitted out? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) PermissiveOutputFirewallRules() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) PermissiveOutputFirewallRules() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3598,8 +3598,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) PermissiveOutputFirewal
 }
 
 // Is high level permissions are needed for the module? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) PrivilegedDockerOptions() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) PrivilegedDockerOptions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3608,8 +3608,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) PrivilegedDockerOptions
 }
 
 // Is any credentials shared among devices? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) SharedCredentials() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) SharedCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3618,8 +3618,8 @@ func (o SecuritySolutionRecommendationsEnabledPtrOutput) SharedCredentials() pul
 }
 
 // Does TLS cipher suite need to be updated? Defaults to `true`.
-func (o SecuritySolutionRecommendationsEnabledPtrOutput) VulnerableTlsCipherSuite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *SecuritySolutionRecommendationsEnabled) *bool {
+func (o SecuritySolutionRecommendationsPtrOutput) VulnerableTlsCipherSuite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SecuritySolutionRecommendations) *bool {
 		if v == nil {
 			return nil
 		}
@@ -3792,8 +3792,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityDeviceGroupRangeRuleArrayInput)(nil)).Elem(), SecurityDeviceGroupRangeRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionAdditionalWorkspaceInput)(nil)).Elem(), SecuritySolutionAdditionalWorkspaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionAdditionalWorkspaceArrayInput)(nil)).Elem(), SecuritySolutionAdditionalWorkspaceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsEnabledInput)(nil)).Elem(), SecuritySolutionRecommendationsEnabledArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsEnabledPtrInput)(nil)).Elem(), SecuritySolutionRecommendationsEnabledArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsInput)(nil)).Elem(), SecuritySolutionRecommendationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecuritySolutionRecommendationsPtrInput)(nil)).Elem(), SecuritySolutionRecommendationsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIotHubIdentityInput)(nil)).Elem(), GetIotHubIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIotHubIdentityArrayInput)(nil)).Elem(), GetIotHubIdentityArray{})
 	pulumi.RegisterOutputType(IoTHubCloudToDeviceOutput{})
@@ -3836,8 +3836,8 @@ func init() {
 	pulumi.RegisterOutputType(SecurityDeviceGroupRangeRuleArrayOutput{})
 	pulumi.RegisterOutputType(SecuritySolutionAdditionalWorkspaceOutput{})
 	pulumi.RegisterOutputType(SecuritySolutionAdditionalWorkspaceArrayOutput{})
-	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledOutput{})
-	pulumi.RegisterOutputType(SecuritySolutionRecommendationsEnabledPtrOutput{})
+	pulumi.RegisterOutputType(SecuritySolutionRecommendationsOutput{})
+	pulumi.RegisterOutputType(SecuritySolutionRecommendationsPtrOutput{})
 	pulumi.RegisterOutputType(GetIotHubIdentityOutput{})
 	pulumi.RegisterOutputType(GetIotHubIdentityArrayOutput{})
 }

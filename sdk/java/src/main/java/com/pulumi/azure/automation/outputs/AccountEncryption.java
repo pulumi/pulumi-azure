@@ -13,13 +13,6 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountEncryption {
     /**
-     * @deprecated
-     * `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
-     * 
-     */
-    @Deprecated /* `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block */
-    private @Nullable String keySource;
-    /**
      * @return The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
      * 
      */
@@ -31,15 +24,6 @@ public final class AccountEncryption {
     private @Nullable String userAssignedIdentityId;
 
     private AccountEncryption() {}
-    /**
-     * @deprecated
-     * `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block
-     * 
-     */
-    @Deprecated /* `encryption.key_source` has been deprecated and will be removed in v5.0 of the AzureRM Provider. To disable encryption, omit the `encryption` block */
-    public Optional<String> keySource() {
-        return Optional.ofNullable(this.keySource);
-    }
     /**
      * @return The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
      * 
@@ -64,23 +48,15 @@ public final class AccountEncryption {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String keySource;
         private String keyVaultKeyId;
         private @Nullable String userAssignedIdentityId;
         public Builder() {}
         public Builder(AccountEncryption defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.keySource = defaults.keySource;
     	      this.keyVaultKeyId = defaults.keyVaultKeyId;
     	      this.userAssignedIdentityId = defaults.userAssignedIdentityId;
         }
 
-        @CustomType.Setter
-        public Builder keySource(@Nullable String keySource) {
-
-            this.keySource = keySource;
-            return this;
-        }
         @CustomType.Setter
         public Builder keyVaultKeyId(String keyVaultKeyId) {
             if (keyVaultKeyId == null) {
@@ -97,7 +73,6 @@ public final class AccountEncryption {
         }
         public AccountEncryption build() {
             final var _resultValue = new AccountEncryption();
-            _resultValue.keySource = keySource;
             _resultValue.keyVaultKeyId = keyVaultKeyId;
             _resultValue.userAssignedIdentityId = userAssignedIdentityId;
             return _resultValue;

@@ -195,7 +195,7 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_environment_custom_domain = azure.containerapp.EnvironmentCustomDomain("example",
             container_app_environment_id=example_environment.id,
-            certificate_blob_base64=std.filebase64(input="testacc.pfx").result,
+            certificate_blob_base64=std.filebase64(input="testacc.pfx")["result"],
             certificate_password="TestAcc",
             dns_suffix="acceptancetest.contoso.com")
         ```
@@ -257,7 +257,7 @@ class EnvironmentCustomDomain(pulumi.CustomResource):
             log_analytics_workspace_id=example_analytics_workspace.id)
         example_environment_custom_domain = azure.containerapp.EnvironmentCustomDomain("example",
             container_app_environment_id=example_environment.id,
-            certificate_blob_base64=std.filebase64(input="testacc.pfx").result,
+            certificate_blob_base64=std.filebase64(input="testacc.pfx")["result"],
             certificate_password="TestAcc",
             dns_suffix="acceptancetest.contoso.com")
         ```

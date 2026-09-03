@@ -7,126 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
-
-type ApplicationGatewayAuthenticationCertificate struct {
-	// The contents of the Authentication Certificate which should be used.
-	Data string `pulumi:"data"`
-	// The ID of the Rewrite Rule Set
-	Id *string `pulumi:"id"`
-	// The Name of the Authentication Certificate to use.
-	Name string `pulumi:"name"`
-}
-
-// ApplicationGatewayAuthenticationCertificateInput is an input type that accepts ApplicationGatewayAuthenticationCertificateArgs and ApplicationGatewayAuthenticationCertificateOutput values.
-// You can construct a concrete instance of `ApplicationGatewayAuthenticationCertificateInput` via:
-//
-//	ApplicationGatewayAuthenticationCertificateArgs{...}
-type ApplicationGatewayAuthenticationCertificateInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayAuthenticationCertificateOutput() ApplicationGatewayAuthenticationCertificateOutput
-	ToApplicationGatewayAuthenticationCertificateOutputWithContext(context.Context) ApplicationGatewayAuthenticationCertificateOutput
-}
-
-type ApplicationGatewayAuthenticationCertificateArgs struct {
-	// The contents of the Authentication Certificate which should be used.
-	Data pulumi.StringInput `pulumi:"data"`
-	// The ID of the Rewrite Rule Set
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The Name of the Authentication Certificate to use.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (ApplicationGatewayAuthenticationCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayAuthenticationCertificate)(nil)).Elem()
-}
-
-func (i ApplicationGatewayAuthenticationCertificateArgs) ToApplicationGatewayAuthenticationCertificateOutput() ApplicationGatewayAuthenticationCertificateOutput {
-	return i.ToApplicationGatewayAuthenticationCertificateOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayAuthenticationCertificateArgs) ToApplicationGatewayAuthenticationCertificateOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayAuthenticationCertificateOutput)
-}
-
-// ApplicationGatewayAuthenticationCertificateArrayInput is an input type that accepts ApplicationGatewayAuthenticationCertificateArray and ApplicationGatewayAuthenticationCertificateArrayOutput values.
-// You can construct a concrete instance of `ApplicationGatewayAuthenticationCertificateArrayInput` via:
-//
-//	ApplicationGatewayAuthenticationCertificateArray{ ApplicationGatewayAuthenticationCertificateArgs{...} }
-type ApplicationGatewayAuthenticationCertificateArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayAuthenticationCertificateArrayOutput() ApplicationGatewayAuthenticationCertificateArrayOutput
-	ToApplicationGatewayAuthenticationCertificateArrayOutputWithContext(context.Context) ApplicationGatewayAuthenticationCertificateArrayOutput
-}
-
-type ApplicationGatewayAuthenticationCertificateArray []ApplicationGatewayAuthenticationCertificateInput
-
-func (ApplicationGatewayAuthenticationCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayAuthenticationCertificate)(nil)).Elem()
-}
-
-func (i ApplicationGatewayAuthenticationCertificateArray) ToApplicationGatewayAuthenticationCertificateArrayOutput() ApplicationGatewayAuthenticationCertificateArrayOutput {
-	return i.ToApplicationGatewayAuthenticationCertificateArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayAuthenticationCertificateArray) ToApplicationGatewayAuthenticationCertificateArrayOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayAuthenticationCertificateArrayOutput)
-}
-
-type ApplicationGatewayAuthenticationCertificateOutput struct{ *pulumi.OutputState }
-
-func (ApplicationGatewayAuthenticationCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayAuthenticationCertificate)(nil)).Elem()
-}
-
-func (o ApplicationGatewayAuthenticationCertificateOutput) ToApplicationGatewayAuthenticationCertificateOutput() ApplicationGatewayAuthenticationCertificateOutput {
-	return o
-}
-
-func (o ApplicationGatewayAuthenticationCertificateOutput) ToApplicationGatewayAuthenticationCertificateOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificateOutput {
-	return o
-}
-
-// The contents of the Authentication Certificate which should be used.
-func (o ApplicationGatewayAuthenticationCertificateOutput) Data() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayAuthenticationCertificate) string { return v.Data }).(pulumi.StringOutput)
-}
-
-// The ID of the Rewrite Rule Set
-func (o ApplicationGatewayAuthenticationCertificateOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayAuthenticationCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The Name of the Authentication Certificate to use.
-func (o ApplicationGatewayAuthenticationCertificateOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayAuthenticationCertificate) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type ApplicationGatewayAuthenticationCertificateArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationGatewayAuthenticationCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayAuthenticationCertificate)(nil)).Elem()
-}
-
-func (o ApplicationGatewayAuthenticationCertificateArrayOutput) ToApplicationGatewayAuthenticationCertificateArrayOutput() ApplicationGatewayAuthenticationCertificateArrayOutput {
-	return o
-}
-
-func (o ApplicationGatewayAuthenticationCertificateArrayOutput) ToApplicationGatewayAuthenticationCertificateArrayOutputWithContext(ctx context.Context) ApplicationGatewayAuthenticationCertificateArrayOutput {
-	return o
-}
-
-func (o ApplicationGatewayAuthenticationCertificateArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayAuthenticationCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayAuthenticationCertificate {
-		return vs[0].([]ApplicationGatewayAuthenticationCertificate)[vs[1].(int)]
-	}).(ApplicationGatewayAuthenticationCertificateOutput)
-}
 
 type ApplicationGatewayAutoscaleConfiguration struct {
 	// Maximum capacity for autoscaling. Accepted values are in the range `2` to `125`.
@@ -589,8 +474,6 @@ func (o ApplicationGatewayBackendAddressPoolArrayOutput) Index(i pulumi.IntInput
 type ApplicationGatewayBackendHttpSetting struct {
 	// The name of the affinity cookie.
 	AffinityCookieName *string `pulumi:"affinityCookieName"`
-	// One or more `authenticationCertificateBackend` blocks as defined below.
-	AuthenticationCertificates []ApplicationGatewayBackendHttpSettingAuthenticationCertificate `pulumi:"authenticationCertificates"`
 	// Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
 	CertificateChainValidationEnabled *bool `pulumi:"certificateChainValidationEnabled"`
 	// A `connectionDraining` block as defined below.
@@ -603,7 +486,7 @@ type ApplicationGatewayBackendHttpSetting struct {
 	HostName *string `pulumi:"hostName"`
 	// The ID of the Rewrite Rule Set
 	Id *string `pulumi:"id"`
-	// The name of the Authentication Certificate.
+	// The name of the Backend HTTP Settings Collection.
 	Name string `pulumi:"name"`
 	// The Path which should be used as a prefix for all HTTP requests.
 	Path *string `pulumi:"path"`
@@ -643,8 +526,6 @@ type ApplicationGatewayBackendHttpSettingInput interface {
 type ApplicationGatewayBackendHttpSettingArgs struct {
 	// The name of the affinity cookie.
 	AffinityCookieName pulumi.StringPtrInput `pulumi:"affinityCookieName"`
-	// One or more `authenticationCertificateBackend` blocks as defined below.
-	AuthenticationCertificates ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput `pulumi:"authenticationCertificates"`
 	// Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
 	CertificateChainValidationEnabled pulumi.BoolPtrInput `pulumi:"certificateChainValidationEnabled"`
 	// A `connectionDraining` block as defined below.
@@ -657,7 +538,7 @@ type ApplicationGatewayBackendHttpSettingArgs struct {
 	HostName pulumi.StringPtrInput `pulumi:"hostName"`
 	// The ID of the Rewrite Rule Set
 	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The name of the Authentication Certificate.
+	// The name of the Backend HTTP Settings Collection.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Path which should be used as a prefix for all HTTP requests.
 	Path pulumi.StringPtrInput `pulumi:"path"`
@@ -739,13 +620,6 @@ func (o ApplicationGatewayBackendHttpSettingOutput) AffinityCookieName() pulumi.
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *string { return v.AffinityCookieName }).(pulumi.StringPtrOutput)
 }
 
-// One or more `authenticationCertificateBackend` blocks as defined below.
-func (o ApplicationGatewayBackendHttpSettingOutput) AuthenticationCertificates() ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) []ApplicationGatewayBackendHttpSettingAuthenticationCertificate {
-		return v.AuthenticationCertificates
-	}).(ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput)
-}
-
 // Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
 func (o ApplicationGatewayBackendHttpSettingOutput) CertificateChainValidationEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *bool { return v.CertificateChainValidationEnabled }).(pulumi.BoolPtrOutput)
@@ -778,7 +652,7 @@ func (o ApplicationGatewayBackendHttpSettingOutput) Id() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// The name of the Authentication Certificate.
+// The name of the Backend HTTP Settings Collection.
 func (o ApplicationGatewayBackendHttpSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationGatewayBackendHttpSetting) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -853,112 +727,6 @@ func (o ApplicationGatewayBackendHttpSettingArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayBackendHttpSetting {
 		return vs[0].([]ApplicationGatewayBackendHttpSetting)[vs[1].(int)]
 	}).(ApplicationGatewayBackendHttpSettingOutput)
-}
-
-type ApplicationGatewayBackendHttpSettingAuthenticationCertificate struct {
-	// The ID of the Rewrite Rule Set
-	Id *string `pulumi:"id"`
-	// The Name of the Authentication Certificate to use.
-	Name string `pulumi:"name"`
-}
-
-// ApplicationGatewayBackendHttpSettingAuthenticationCertificateInput is an input type that accepts ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs and ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput values.
-// You can construct a concrete instance of `ApplicationGatewayBackendHttpSettingAuthenticationCertificateInput` via:
-//
-//	ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...}
-type ApplicationGatewayBackendHttpSettingAuthenticationCertificateInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput() ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput
-	ToApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(context.Context) ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput
-}
-
-type ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs struct {
-	// The ID of the Rewrite Rule Set
-	Id pulumi.StringPtrInput `pulumi:"id"`
-	// The Name of the Authentication Certificate to use.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
-}
-
-func (i ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ToApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput() ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return i.ToApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ToApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput)
-}
-
-// ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput is an input type that accepts ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray and ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput values.
-// You can construct a concrete instance of `ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput` via:
-//
-//	ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray{ ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...} }
-type ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput interface {
-	pulumi.Input
-
-	ToApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput() ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput
-	ToApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(context.Context) ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput
-}
-
-type ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray []ApplicationGatewayBackendHttpSettingAuthenticationCertificateInput
-
-func (ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
-}
-
-func (i ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ToApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput() ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return i.ToApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(context.Background())
-}
-
-func (i ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ToApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput)
-}
-
-type ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput struct{ *pulumi.OutputState }
-
-func (ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
-}
-
-func (o ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ToApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput() ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return o
-}
-
-func (o ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ToApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return o
-}
-
-// The ID of the Rewrite Rule Set
-func (o ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingAuthenticationCertificate) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-// The Name of the Authentication Certificate to use.
-func (o ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v ApplicationGatewayBackendHttpSettingAuthenticationCertificate) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput struct{ *pulumi.OutputState }
-
-func (ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
-}
-
-func (o ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ToApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput() ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return o
-}
-
-func (o ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ToApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(ctx context.Context) ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return o
-}
-
-func (o ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) Index(i pulumi.IntInput) ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationGatewayBackendHttpSettingAuthenticationCertificate {
-		return vs[0].([]ApplicationGatewayBackendHttpSettingAuthenticationCertificate)[vs[1].(int)]
-	}).(ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput)
 }
 
 type ApplicationGatewayBackendHttpSettingConnectionDraining struct {
@@ -5260,8 +5028,6 @@ type ApplicationGatewaySslProfile struct {
 	SslPolicy *ApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicy"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames []string `pulumi:"trustedClientCertificateNames"`
-	// Deprecated: the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-	VerifyClientCertIssuerDn *bool `pulumi:"verifyClientCertIssuerDn"`
 	// Should client certificate issuer DN be verified? Defaults to `false`.
 	VerifyClientCertificateIssuerDn *bool `pulumi:"verifyClientCertificateIssuerDn"`
 	// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
@@ -5288,8 +5054,6 @@ type ApplicationGatewaySslProfileArgs struct {
 	SslPolicy ApplicationGatewaySslProfileSslPolicyPtrInput `pulumi:"sslPolicy"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 	TrustedClientCertificateNames pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
-	// Deprecated: the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-	VerifyClientCertIssuerDn pulumi.BoolPtrInput `pulumi:"verifyClientCertIssuerDn"`
 	// Should client certificate issuer DN be verified? Defaults to `false`.
 	VerifyClientCertificateIssuerDn pulumi.BoolPtrInput `pulumi:"verifyClientCertificateIssuerDn"`
 	// Specify the method to check client certificate revocation status. Possible value is `OCSP`.
@@ -5365,11 +5129,6 @@ func (o ApplicationGatewaySslProfileOutput) SslPolicy() ApplicationGatewaySslPro
 // The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
 func (o ApplicationGatewaySslProfileOutput) TrustedClientCertificateNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewaySslProfile) []string { return v.TrustedClientCertificateNames }).(pulumi.StringArrayOutput)
-}
-
-// Deprecated: the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider
-func (o ApplicationGatewaySslProfileOutput) VerifyClientCertIssuerDn() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ApplicationGatewaySslProfile) *bool { return v.VerifyClientCertIssuerDn }).(pulumi.BoolPtrOutput)
 }
 
 // Should client certificate issuer DN be verified? Defaults to `false`.
@@ -18560,6 +18319,112 @@ func (o SubnetIpAddressPoolPtrOutput) NumberOfIpAddresses() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type SubnetServiceEndpoint struct {
+	// The ARM resource ID of the network identifier to associate with the service endpoint.
+	NetworkIdentifier *string `pulumi:"networkIdentifier"`
+	// The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+	Service string `pulumi:"service"`
+}
+
+// SubnetServiceEndpointInput is an input type that accepts SubnetServiceEndpointArgs and SubnetServiceEndpointOutput values.
+// You can construct a concrete instance of `SubnetServiceEndpointInput` via:
+//
+//	SubnetServiceEndpointArgs{...}
+type SubnetServiceEndpointInput interface {
+	pulumi.Input
+
+	ToSubnetServiceEndpointOutput() SubnetServiceEndpointOutput
+	ToSubnetServiceEndpointOutputWithContext(context.Context) SubnetServiceEndpointOutput
+}
+
+type SubnetServiceEndpointArgs struct {
+	// The ARM resource ID of the network identifier to associate with the service endpoint.
+	NetworkIdentifier pulumi.StringPtrInput `pulumi:"networkIdentifier"`
+	// The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (SubnetServiceEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (i SubnetServiceEndpointArgs) ToSubnetServiceEndpointOutput() SubnetServiceEndpointOutput {
+	return i.ToSubnetServiceEndpointOutputWithContext(context.Background())
+}
+
+func (i SubnetServiceEndpointArgs) ToSubnetServiceEndpointOutputWithContext(ctx context.Context) SubnetServiceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointOutput)
+}
+
+// SubnetServiceEndpointArrayInput is an input type that accepts SubnetServiceEndpointArray and SubnetServiceEndpointArrayOutput values.
+// You can construct a concrete instance of `SubnetServiceEndpointArrayInput` via:
+//
+//	SubnetServiceEndpointArray{ SubnetServiceEndpointArgs{...} }
+type SubnetServiceEndpointArrayInput interface {
+	pulumi.Input
+
+	ToSubnetServiceEndpointArrayOutput() SubnetServiceEndpointArrayOutput
+	ToSubnetServiceEndpointArrayOutputWithContext(context.Context) SubnetServiceEndpointArrayOutput
+}
+
+type SubnetServiceEndpointArray []SubnetServiceEndpointInput
+
+func (SubnetServiceEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (i SubnetServiceEndpointArray) ToSubnetServiceEndpointArrayOutput() SubnetServiceEndpointArrayOutput {
+	return i.ToSubnetServiceEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i SubnetServiceEndpointArray) ToSubnetServiceEndpointArrayOutputWithContext(ctx context.Context) SubnetServiceEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SubnetServiceEndpointArrayOutput)
+}
+
+type SubnetServiceEndpointOutput struct{ *pulumi.OutputState }
+
+func (SubnetServiceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (o SubnetServiceEndpointOutput) ToSubnetServiceEndpointOutput() SubnetServiceEndpointOutput {
+	return o
+}
+
+func (o SubnetServiceEndpointOutput) ToSubnetServiceEndpointOutputWithContext(ctx context.Context) SubnetServiceEndpointOutput {
+	return o
+}
+
+// The ARM resource ID of the network identifier to associate with the service endpoint.
+func (o SubnetServiceEndpointOutput) NetworkIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SubnetServiceEndpoint) *string { return v.NetworkIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+func (o SubnetServiceEndpointOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v SubnetServiceEndpoint) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type SubnetServiceEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (SubnetServiceEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (o SubnetServiceEndpointArrayOutput) ToSubnetServiceEndpointArrayOutput() SubnetServiceEndpointArrayOutput {
+	return o
+}
+
+func (o SubnetServiceEndpointArrayOutput) ToSubnetServiceEndpointArrayOutputWithContext(ctx context.Context) SubnetServiceEndpointArrayOutput {
+	return o
+}
+
+func (o SubnetServiceEndpointArrayOutput) Index(i pulumi.IntInput) SubnetServiceEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SubnetServiceEndpoint {
+		return vs[0].([]SubnetServiceEndpoint)[vs[1].(int)]
+	}).(SubnetServiceEndpointOutput)
+}
+
 type SubnetServiceEndpointStoragePolicyDefinition struct {
 	// The description of this Subnet Service Endpoint Storage Policy Definition.
 	Description *string `pulumi:"description"`
@@ -23849,8 +23714,8 @@ type VirtualNetworkSubnet struct {
 	SecurityGroup *string `pulumi:"securityGroup"`
 	// The list of IDs of Service Endpoint Policies to associate with the subnet.
 	ServiceEndpointPolicyIds []string `pulumi:"serviceEndpointPolicyIds"`
-	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-	ServiceEndpoints []string `pulumi:"serviceEndpoints"`
+	// A `serviceEndpoint` block as defined below.
+	ServiceEndpoints []VirtualNetworkSubnetServiceEndpoint `pulumi:"serviceEndpoints"`
 }
 
 // VirtualNetworkSubnetInput is an input type that accepts VirtualNetworkSubnetArgs and VirtualNetworkSubnetOutput values.
@@ -23895,8 +23760,8 @@ type VirtualNetworkSubnetArgs struct {
 	SecurityGroup pulumi.StringPtrInput `pulumi:"securityGroup"`
 	// The list of IDs of Service Endpoint Policies to associate with the subnet.
 	ServiceEndpointPolicyIds pulumi.StringArrayInput `pulumi:"serviceEndpointPolicyIds"`
-	// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-	ServiceEndpoints pulumi.StringArrayInput `pulumi:"serviceEndpoints"`
+	// A `serviceEndpoint` block as defined below.
+	ServiceEndpoints VirtualNetworkSubnetServiceEndpointArrayInput `pulumi:"serviceEndpoints"`
 }
 
 func (VirtualNetworkSubnetArgs) ElementType() reflect.Type {
@@ -24010,9 +23875,9 @@ func (o VirtualNetworkSubnetOutput) ServiceEndpointPolicyIds() pulumi.StringArra
 	return o.ApplyT(func(v VirtualNetworkSubnet) []string { return v.ServiceEndpointPolicyIds }).(pulumi.StringArrayOutput)
 }
 
-// The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-func (o VirtualNetworkSubnetOutput) ServiceEndpoints() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v VirtualNetworkSubnet) []string { return v.ServiceEndpoints }).(pulumi.StringArrayOutput)
+// A `serviceEndpoint` block as defined below.
+func (o VirtualNetworkSubnetOutput) ServiceEndpoints() VirtualNetworkSubnetServiceEndpointArrayOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnet) []VirtualNetworkSubnetServiceEndpoint { return v.ServiceEndpoints }).(VirtualNetworkSubnetServiceEndpointArrayOutput)
 }
 
 type VirtualNetworkSubnetArrayOutput struct{ *pulumi.OutputState }
@@ -24355,6 +24220,112 @@ func (o VirtualNetworkSubnetDelegationServiceDelegationPtrOutput) Name() pulumi.
 		}
 		return &v.Name
 	}).(pulumi.StringPtrOutput)
+}
+
+type VirtualNetworkSubnetServiceEndpoint struct {
+	// The ARM resource ID of the network identifier to associate with the service endpoint.
+	NetworkIdentifier *string `pulumi:"networkIdentifier"`
+	// The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+	Service string `pulumi:"service"`
+}
+
+// VirtualNetworkSubnetServiceEndpointInput is an input type that accepts VirtualNetworkSubnetServiceEndpointArgs and VirtualNetworkSubnetServiceEndpointOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetServiceEndpointInput` via:
+//
+//	VirtualNetworkSubnetServiceEndpointArgs{...}
+type VirtualNetworkSubnetServiceEndpointInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetServiceEndpointOutput() VirtualNetworkSubnetServiceEndpointOutput
+	ToVirtualNetworkSubnetServiceEndpointOutputWithContext(context.Context) VirtualNetworkSubnetServiceEndpointOutput
+}
+
+type VirtualNetworkSubnetServiceEndpointArgs struct {
+	// The ARM resource ID of the network identifier to associate with the service endpoint.
+	NetworkIdentifier pulumi.StringPtrInput `pulumi:"networkIdentifier"`
+	// The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (VirtualNetworkSubnetServiceEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (i VirtualNetworkSubnetServiceEndpointArgs) ToVirtualNetworkSubnetServiceEndpointOutput() VirtualNetworkSubnetServiceEndpointOutput {
+	return i.ToVirtualNetworkSubnetServiceEndpointOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetServiceEndpointArgs) ToVirtualNetworkSubnetServiceEndpointOutputWithContext(ctx context.Context) VirtualNetworkSubnetServiceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetServiceEndpointOutput)
+}
+
+// VirtualNetworkSubnetServiceEndpointArrayInput is an input type that accepts VirtualNetworkSubnetServiceEndpointArray and VirtualNetworkSubnetServiceEndpointArrayOutput values.
+// You can construct a concrete instance of `VirtualNetworkSubnetServiceEndpointArrayInput` via:
+//
+//	VirtualNetworkSubnetServiceEndpointArray{ VirtualNetworkSubnetServiceEndpointArgs{...} }
+type VirtualNetworkSubnetServiceEndpointArrayInput interface {
+	pulumi.Input
+
+	ToVirtualNetworkSubnetServiceEndpointArrayOutput() VirtualNetworkSubnetServiceEndpointArrayOutput
+	ToVirtualNetworkSubnetServiceEndpointArrayOutputWithContext(context.Context) VirtualNetworkSubnetServiceEndpointArrayOutput
+}
+
+type VirtualNetworkSubnetServiceEndpointArray []VirtualNetworkSubnetServiceEndpointInput
+
+func (VirtualNetworkSubnetServiceEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkSubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (i VirtualNetworkSubnetServiceEndpointArray) ToVirtualNetworkSubnetServiceEndpointArrayOutput() VirtualNetworkSubnetServiceEndpointArrayOutput {
+	return i.ToVirtualNetworkSubnetServiceEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualNetworkSubnetServiceEndpointArray) ToVirtualNetworkSubnetServiceEndpointArrayOutputWithContext(ctx context.Context) VirtualNetworkSubnetServiceEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualNetworkSubnetServiceEndpointArrayOutput)
+}
+
+type VirtualNetworkSubnetServiceEndpointOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetServiceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualNetworkSubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetServiceEndpointOutput) ToVirtualNetworkSubnetServiceEndpointOutput() VirtualNetworkSubnetServiceEndpointOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetServiceEndpointOutput) ToVirtualNetworkSubnetServiceEndpointOutputWithContext(ctx context.Context) VirtualNetworkSubnetServiceEndpointOutput {
+	return o
+}
+
+// The ARM resource ID of the network identifier to associate with the service endpoint.
+func (o VirtualNetworkSubnetServiceEndpointOutput) NetworkIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnetServiceEndpoint) *string { return v.NetworkIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+func (o VirtualNetworkSubnetServiceEndpointOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v VirtualNetworkSubnetServiceEndpoint) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type VirtualNetworkSubnetServiceEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualNetworkSubnetServiceEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualNetworkSubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (o VirtualNetworkSubnetServiceEndpointArrayOutput) ToVirtualNetworkSubnetServiceEndpointArrayOutput() VirtualNetworkSubnetServiceEndpointArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetServiceEndpointArrayOutput) ToVirtualNetworkSubnetServiceEndpointArrayOutputWithContext(ctx context.Context) VirtualNetworkSubnetServiceEndpointArrayOutput {
+	return o
+}
+
+func (o VirtualNetworkSubnetServiceEndpointArrayOutput) Index(i pulumi.IntInput) VirtualNetworkSubnetServiceEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualNetworkSubnetServiceEndpoint {
+		return vs[0].([]VirtualNetworkSubnetServiceEndpoint)[vs[1].(int)]
+	}).(VirtualNetworkSubnetServiceEndpointOutput)
 }
 
 type VnpGatewayNatRuleExternalMapping struct {
@@ -28096,112 +28067,6 @@ func (o VpnSiteO365PolicyTrafficCategoryPtrOutput) OptimizeEndpointEnabled() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-type GetApplicationGatewayAuthenticationCertificate struct {
-	// The ID of the Rewrite Rule Set
-	Id string `pulumi:"id"`
-	// The name of this Application Gateway.
-	Name string `pulumi:"name"`
-}
-
-// GetApplicationGatewayAuthenticationCertificateInput is an input type that accepts GetApplicationGatewayAuthenticationCertificateArgs and GetApplicationGatewayAuthenticationCertificateOutput values.
-// You can construct a concrete instance of `GetApplicationGatewayAuthenticationCertificateInput` via:
-//
-//	GetApplicationGatewayAuthenticationCertificateArgs{...}
-type GetApplicationGatewayAuthenticationCertificateInput interface {
-	pulumi.Input
-
-	ToGetApplicationGatewayAuthenticationCertificateOutput() GetApplicationGatewayAuthenticationCertificateOutput
-	ToGetApplicationGatewayAuthenticationCertificateOutputWithContext(context.Context) GetApplicationGatewayAuthenticationCertificateOutput
-}
-
-type GetApplicationGatewayAuthenticationCertificateArgs struct {
-	// The ID of the Rewrite Rule Set
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of this Application Gateway.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetApplicationGatewayAuthenticationCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApplicationGatewayAuthenticationCertificate)(nil)).Elem()
-}
-
-func (i GetApplicationGatewayAuthenticationCertificateArgs) ToGetApplicationGatewayAuthenticationCertificateOutput() GetApplicationGatewayAuthenticationCertificateOutput {
-	return i.ToGetApplicationGatewayAuthenticationCertificateOutputWithContext(context.Background())
-}
-
-func (i GetApplicationGatewayAuthenticationCertificateArgs) ToGetApplicationGatewayAuthenticationCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayAuthenticationCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayAuthenticationCertificateOutput)
-}
-
-// GetApplicationGatewayAuthenticationCertificateArrayInput is an input type that accepts GetApplicationGatewayAuthenticationCertificateArray and GetApplicationGatewayAuthenticationCertificateArrayOutput values.
-// You can construct a concrete instance of `GetApplicationGatewayAuthenticationCertificateArrayInput` via:
-//
-//	GetApplicationGatewayAuthenticationCertificateArray{ GetApplicationGatewayAuthenticationCertificateArgs{...} }
-type GetApplicationGatewayAuthenticationCertificateArrayInput interface {
-	pulumi.Input
-
-	ToGetApplicationGatewayAuthenticationCertificateArrayOutput() GetApplicationGatewayAuthenticationCertificateArrayOutput
-	ToGetApplicationGatewayAuthenticationCertificateArrayOutputWithContext(context.Context) GetApplicationGatewayAuthenticationCertificateArrayOutput
-}
-
-type GetApplicationGatewayAuthenticationCertificateArray []GetApplicationGatewayAuthenticationCertificateInput
-
-func (GetApplicationGatewayAuthenticationCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApplicationGatewayAuthenticationCertificate)(nil)).Elem()
-}
-
-func (i GetApplicationGatewayAuthenticationCertificateArray) ToGetApplicationGatewayAuthenticationCertificateArrayOutput() GetApplicationGatewayAuthenticationCertificateArrayOutput {
-	return i.ToGetApplicationGatewayAuthenticationCertificateArrayOutputWithContext(context.Background())
-}
-
-func (i GetApplicationGatewayAuthenticationCertificateArray) ToGetApplicationGatewayAuthenticationCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayAuthenticationCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayAuthenticationCertificateArrayOutput)
-}
-
-type GetApplicationGatewayAuthenticationCertificateOutput struct{ *pulumi.OutputState }
-
-func (GetApplicationGatewayAuthenticationCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApplicationGatewayAuthenticationCertificate)(nil)).Elem()
-}
-
-func (o GetApplicationGatewayAuthenticationCertificateOutput) ToGetApplicationGatewayAuthenticationCertificateOutput() GetApplicationGatewayAuthenticationCertificateOutput {
-	return o
-}
-
-func (o GetApplicationGatewayAuthenticationCertificateOutput) ToGetApplicationGatewayAuthenticationCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayAuthenticationCertificateOutput {
-	return o
-}
-
-// The ID of the Rewrite Rule Set
-func (o GetApplicationGatewayAuthenticationCertificateOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationGatewayAuthenticationCertificate) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The name of this Application Gateway.
-func (o GetApplicationGatewayAuthenticationCertificateOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationGatewayAuthenticationCertificate) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetApplicationGatewayAuthenticationCertificateArrayOutput struct{ *pulumi.OutputState }
-
-func (GetApplicationGatewayAuthenticationCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApplicationGatewayAuthenticationCertificate)(nil)).Elem()
-}
-
-func (o GetApplicationGatewayAuthenticationCertificateArrayOutput) ToGetApplicationGatewayAuthenticationCertificateArrayOutput() GetApplicationGatewayAuthenticationCertificateArrayOutput {
-	return o
-}
-
-func (o GetApplicationGatewayAuthenticationCertificateArrayOutput) ToGetApplicationGatewayAuthenticationCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayAuthenticationCertificateArrayOutput {
-	return o
-}
-
-func (o GetApplicationGatewayAuthenticationCertificateArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayAuthenticationCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayAuthenticationCertificate {
-		return vs[0].([]GetApplicationGatewayAuthenticationCertificate)[vs[1].(int)]
-	}).(GetApplicationGatewayAuthenticationCertificateOutput)
-}
-
 type GetApplicationGatewayAutoscaleConfiguration struct {
 	// Maximum capacity for autoscaling.
 	MaxCapacity int `pulumi:"maxCapacity"`
@@ -28613,8 +28478,6 @@ func (o GetApplicationGatewayBackendAddressPoolArrayOutput) Index(i pulumi.IntIn
 type GetApplicationGatewayBackendHttpSetting struct {
 	// The name of the affinity cookie.
 	AffinityCookieName string `pulumi:"affinityCookieName"`
-	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates []GetApplicationGatewayBackendHttpSettingAuthenticationCertificate `pulumi:"authenticationCertificates"`
 	// Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
 	CertificateChainValidationEnabled bool `pulumi:"certificateChainValidationEnabled"`
 	// A `connectionDraining` block as defined below.
@@ -28665,8 +28528,6 @@ type GetApplicationGatewayBackendHttpSettingInput interface {
 type GetApplicationGatewayBackendHttpSettingArgs struct {
 	// The name of the affinity cookie.
 	AffinityCookieName pulumi.StringInput `pulumi:"affinityCookieName"`
-	// One or more `authenticationCertificate` blocks as defined below.
-	AuthenticationCertificates GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput `pulumi:"authenticationCertificates"`
 	// Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
 	CertificateChainValidationEnabled pulumi.BoolInput `pulumi:"certificateChainValidationEnabled"`
 	// A `connectionDraining` block as defined below.
@@ -28757,13 +28618,6 @@ func (o GetApplicationGatewayBackendHttpSettingOutput) ToGetApplicationGatewayBa
 // The name of the affinity cookie.
 func (o GetApplicationGatewayBackendHttpSettingOutput) AffinityCookieName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) string { return v.AffinityCookieName }).(pulumi.StringOutput)
-}
-
-// One or more `authenticationCertificate` blocks as defined below.
-func (o GetApplicationGatewayBackendHttpSettingOutput) AuthenticationCertificates() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSetting) []GetApplicationGatewayBackendHttpSettingAuthenticationCertificate {
-		return v.AuthenticationCertificates
-	}).(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput)
 }
 
 // Whether certificate chain and expiry validation on the backend HTTPS servers is enabled.
@@ -28871,112 +28725,6 @@ func (o GetApplicationGatewayBackendHttpSettingArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayBackendHttpSetting {
 		return vs[0].([]GetApplicationGatewayBackendHttpSetting)[vs[1].(int)]
 	}).(GetApplicationGatewayBackendHttpSettingOutput)
-}
-
-type GetApplicationGatewayBackendHttpSettingAuthenticationCertificate struct {
-	// The ID of the Rewrite Rule Set
-	Id string `pulumi:"id"`
-	// The name of this Application Gateway.
-	Name string `pulumi:"name"`
-}
-
-// GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput is an input type that accepts GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs and GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput values.
-// You can construct a concrete instance of `GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput` via:
-//
-//	GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...}
-type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput interface {
-	pulumi.Input
-
-	ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput
-	ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput
-}
-
-type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs struct {
-	// The ID of the Rewrite Rule Set
-	Id pulumi.StringInput `pulumi:"id"`
-	// The name of this Application Gateway.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
-}
-
-func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return i.ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(context.Background())
-}
-
-func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput)
-}
-
-// GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput is an input type that accepts GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray and GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput values.
-// You can construct a concrete instance of `GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput` via:
-//
-//	GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray{ GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{...} }
-type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput interface {
-	pulumi.Input
-
-	ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput
-	ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput
-}
-
-type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray []GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput
-
-func (GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
-}
-
-func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return i.ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(context.Background())
-}
-
-func (i GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput)
-}
-
-type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput struct{ *pulumi.OutputState }
-
-func (GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
-}
-
-func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return o
-}
-
-func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return o
-}
-
-// The ID of the Rewrite Rule Set
-func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSettingAuthenticationCertificate) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The name of this Application Gateway.
-func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetApplicationGatewayBackendHttpSettingAuthenticationCertificate) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput struct{ *pulumi.OutputState }
-
-func (GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)(nil)).Elem()
-}
-
-func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput() GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return o
-}
-
-func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) ToGetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutputWithContext(ctx context.Context) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput {
-	return o
-}
-
-func (o GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput) Index(i pulumi.IntInput) GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetApplicationGatewayBackendHttpSettingAuthenticationCertificate {
-		return vs[0].([]GetApplicationGatewayBackendHttpSettingAuthenticationCertificate)[vs[1].(int)]
-	}).(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput)
 }
 
 type GetApplicationGatewayBackendHttpSettingConnectionDraining struct {
@@ -32701,8 +32449,9 @@ type GetApplicationGatewaySslProfile struct {
 	// a `sslPolicy` block as defined below.
 	SslPolicies []GetApplicationGatewaySslProfileSslPolicy `pulumi:"sslPolicies"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
-	TrustedClientCertificateNames   []string `pulumi:"trustedClientCertificateNames"`
-	VerifyClientCertificateIssuerDn bool     `pulumi:"verifyClientCertificateIssuerDn"`
+	TrustedClientCertificateNames []string `pulumi:"trustedClientCertificateNames"`
+	// Will the client certificate issuer DN be verified?
+	VerifyClientCertificateIssuerDn bool `pulumi:"verifyClientCertificateIssuerDn"`
 	// The method used to check client certificate revocation status.
 	VerifyClientCertificateRevocation string `pulumi:"verifyClientCertificateRevocation"`
 }
@@ -32726,8 +32475,9 @@ type GetApplicationGatewaySslProfileArgs struct {
 	// a `sslPolicy` block as defined below.
 	SslPolicies GetApplicationGatewaySslProfileSslPolicyArrayInput `pulumi:"sslPolicies"`
 	// The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
-	TrustedClientCertificateNames   pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
-	VerifyClientCertificateIssuerDn pulumi.BoolInput        `pulumi:"verifyClientCertificateIssuerDn"`
+	TrustedClientCertificateNames pulumi.StringArrayInput `pulumi:"trustedClientCertificateNames"`
+	// Will the client certificate issuer DN be verified?
+	VerifyClientCertificateIssuerDn pulumi.BoolInput `pulumi:"verifyClientCertificateIssuerDn"`
 	// The method used to check client certificate revocation status.
 	VerifyClientCertificateRevocation pulumi.StringInput `pulumi:"verifyClientCertificateRevocation"`
 }
@@ -32805,6 +32555,7 @@ func (o GetApplicationGatewaySslProfileOutput) TrustedClientCertificateNames() p
 	return o.ApplyT(func(v GetApplicationGatewaySslProfile) []string { return v.TrustedClientCertificateNames }).(pulumi.StringArrayOutput)
 }
 
+// Will the client certificate issuer DN be verified?
 func (o GetApplicationGatewaySslProfileOutput) VerifyClientCertificateIssuerDn() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetApplicationGatewaySslProfile) bool { return v.VerifyClientCertificateIssuerDn }).(pulumi.BoolOutput)
 }
@@ -36537,6 +36288,112 @@ func (o GetRouteTableRouteArrayOutput) Index(i pulumi.IntInput) GetRouteTableRou
 	}).(GetRouteTableRouteOutput)
 }
 
+type GetSubnetServiceEndpoint struct {
+	// The ID of the network resource associated with the Service Endpoint.
+	NetworkIdentifier string `pulumi:"networkIdentifier"`
+	// The type of the Service Endpoint.
+	Service string `pulumi:"service"`
+}
+
+// GetSubnetServiceEndpointInput is an input type that accepts GetSubnetServiceEndpointArgs and GetSubnetServiceEndpointOutput values.
+// You can construct a concrete instance of `GetSubnetServiceEndpointInput` via:
+//
+//	GetSubnetServiceEndpointArgs{...}
+type GetSubnetServiceEndpointInput interface {
+	pulumi.Input
+
+	ToGetSubnetServiceEndpointOutput() GetSubnetServiceEndpointOutput
+	ToGetSubnetServiceEndpointOutputWithContext(context.Context) GetSubnetServiceEndpointOutput
+}
+
+type GetSubnetServiceEndpointArgs struct {
+	// The ID of the network resource associated with the Service Endpoint.
+	NetworkIdentifier pulumi.StringInput `pulumi:"networkIdentifier"`
+	// The type of the Service Endpoint.
+	Service pulumi.StringInput `pulumi:"service"`
+}
+
+func (GetSubnetServiceEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (i GetSubnetServiceEndpointArgs) ToGetSubnetServiceEndpointOutput() GetSubnetServiceEndpointOutput {
+	return i.ToGetSubnetServiceEndpointOutputWithContext(context.Background())
+}
+
+func (i GetSubnetServiceEndpointArgs) ToGetSubnetServiceEndpointOutputWithContext(ctx context.Context) GetSubnetServiceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetServiceEndpointOutput)
+}
+
+// GetSubnetServiceEndpointArrayInput is an input type that accepts GetSubnetServiceEndpointArray and GetSubnetServiceEndpointArrayOutput values.
+// You can construct a concrete instance of `GetSubnetServiceEndpointArrayInput` via:
+//
+//	GetSubnetServiceEndpointArray{ GetSubnetServiceEndpointArgs{...} }
+type GetSubnetServiceEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetSubnetServiceEndpointArrayOutput() GetSubnetServiceEndpointArrayOutput
+	ToGetSubnetServiceEndpointArrayOutputWithContext(context.Context) GetSubnetServiceEndpointArrayOutput
+}
+
+type GetSubnetServiceEndpointArray []GetSubnetServiceEndpointInput
+
+func (GetSubnetServiceEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (i GetSubnetServiceEndpointArray) ToGetSubnetServiceEndpointArrayOutput() GetSubnetServiceEndpointArrayOutput {
+	return i.ToGetSubnetServiceEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetSubnetServiceEndpointArray) ToGetSubnetServiceEndpointArrayOutputWithContext(ctx context.Context) GetSubnetServiceEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSubnetServiceEndpointArrayOutput)
+}
+
+type GetSubnetServiceEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetServiceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (o GetSubnetServiceEndpointOutput) ToGetSubnetServiceEndpointOutput() GetSubnetServiceEndpointOutput {
+	return o
+}
+
+func (o GetSubnetServiceEndpointOutput) ToGetSubnetServiceEndpointOutputWithContext(ctx context.Context) GetSubnetServiceEndpointOutput {
+	return o
+}
+
+// The ID of the network resource associated with the Service Endpoint.
+func (o GetSubnetServiceEndpointOutput) NetworkIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubnetServiceEndpoint) string { return v.NetworkIdentifier }).(pulumi.StringOutput)
+}
+
+// The type of the Service Endpoint.
+func (o GetSubnetServiceEndpointOutput) Service() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSubnetServiceEndpoint) string { return v.Service }).(pulumi.StringOutput)
+}
+
+type GetSubnetServiceEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSubnetServiceEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSubnetServiceEndpoint)(nil)).Elem()
+}
+
+func (o GetSubnetServiceEndpointArrayOutput) ToGetSubnetServiceEndpointArrayOutput() GetSubnetServiceEndpointArrayOutput {
+	return o
+}
+
+func (o GetSubnetServiceEndpointArrayOutput) ToGetSubnetServiceEndpointArrayOutputWithContext(ctx context.Context) GetSubnetServiceEndpointArrayOutput {
+	return o
+}
+
+func (o GetSubnetServiceEndpointArrayOutput) Index(i pulumi.IntInput) GetSubnetServiceEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSubnetServiceEndpoint {
+		return vs[0].([]GetSubnetServiceEndpoint)[vs[1].(int)]
+	}).(GetSubnetServiceEndpointOutput)
+}
+
 type GetTrafficManagerProfileDnsConfig struct {
 	// The relative domain name, this is combined with the domain name used by Traffic Manager to form the FQDN which is exported as documented below.
 	RelativeName string `pulumi:"relativeName"`
@@ -39683,8 +39540,6 @@ func (o GetVpnServerConfigurationRadiusServerRootCertificateArrayOutput) Index(i
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayAuthenticationCertificateInput)(nil)).Elem(), ApplicationGatewayAuthenticationCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayAuthenticationCertificateArrayInput)(nil)).Elem(), ApplicationGatewayAuthenticationCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayAutoscaleConfigurationInput)(nil)).Elem(), ApplicationGatewayAutoscaleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayAutoscaleConfigurationPtrInput)(nil)).Elem(), ApplicationGatewayAutoscaleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendInput)(nil)).Elem(), ApplicationGatewayBackendArgs{})
@@ -39693,8 +39548,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendAddressPoolArrayInput)(nil)).Elem(), ApplicationGatewayBackendAddressPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendHttpSettingInput)(nil)).Elem(), ApplicationGatewayBackendHttpSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendHttpSettingArrayInput)(nil)).Elem(), ApplicationGatewayBackendHttpSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendHttpSettingAuthenticationCertificateInput)(nil)).Elem(), ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput)(nil)).Elem(), ApplicationGatewayBackendHttpSettingAuthenticationCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendHttpSettingConnectionDrainingInput)(nil)).Elem(), ApplicationGatewayBackendHttpSettingConnectionDrainingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayBackendHttpSettingConnectionDrainingPtrInput)(nil)).Elem(), ApplicationGatewayBackendHttpSettingConnectionDrainingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationGatewayCustomErrorConfigurationInput)(nil)).Elem(), ApplicationGatewayCustomErrorConfigurationArgs{})
@@ -39913,6 +39766,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetDelegationServiceDelegationInput)(nil)).Elem(), SubnetDelegationServiceDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetIpAddressPoolInput)(nil)).Elem(), SubnetIpAddressPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetIpAddressPoolPtrInput)(nil)).Elem(), SubnetIpAddressPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointInput)(nil)).Elem(), SubnetServiceEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointArrayInput)(nil)).Elem(), SubnetServiceEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinitionInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SubnetServiceEndpointStoragePolicyDefinitionArrayInput)(nil)).Elem(), SubnetServiceEndpointStoragePolicyDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficManagerAzureEndpointCustomHeaderInput)(nil)).Elem(), TrafficManagerAzureEndpointCustomHeaderArgs{})
@@ -39989,6 +39844,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetDelegationPtrInput)(nil)).Elem(), VirtualNetworkSubnetDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetDelegationServiceDelegationInput)(nil)).Elem(), VirtualNetworkSubnetDelegationServiceDelegationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetDelegationServiceDelegationPtrInput)(nil)).Elem(), VirtualNetworkSubnetDelegationServiceDelegationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetServiceEndpointInput)(nil)).Elem(), VirtualNetworkSubnetServiceEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNetworkSubnetServiceEndpointArrayInput)(nil)).Elem(), VirtualNetworkSubnetServiceEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleExternalMappingInput)(nil)).Elem(), VnpGatewayNatRuleExternalMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleExternalMappingArrayInput)(nil)).Elem(), VnpGatewayNatRuleExternalMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VnpGatewayNatRuleInternalMappingInput)(nil)).Elem(), VnpGatewayNatRuleInternalMappingArgs{})
@@ -40039,8 +39896,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyPtrInput)(nil)).Elem(), VpnSiteO365PolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyTrafficCategoryInput)(nil)).Elem(), VpnSiteO365PolicyTrafficCategoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnSiteO365PolicyTrafficCategoryPtrInput)(nil)).Elem(), VpnSiteO365PolicyTrafficCategoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAuthenticationCertificateInput)(nil)).Elem(), GetApplicationGatewayAuthenticationCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAuthenticationCertificateArrayInput)(nil)).Elem(), GetApplicationGatewayAuthenticationCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAutoscaleConfigurationInput)(nil)).Elem(), GetApplicationGatewayAutoscaleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayAutoscaleConfigurationArrayInput)(nil)).Elem(), GetApplicationGatewayAutoscaleConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendInput)(nil)).Elem(), GetApplicationGatewayBackendArgs{})
@@ -40049,8 +39904,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendAddressPoolArrayInput)(nil)).Elem(), GetApplicationGatewayBackendAddressPoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingArrayInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingAuthenticationCertificateInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingConnectionDrainingInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingConnectionDrainingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayInput)(nil)).Elem(), GetApplicationGatewayBackendHttpSettingConnectionDrainingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationGatewayCustomErrorConfigurationInput)(nil)).Elem(), GetApplicationGatewayCustomErrorConfigurationArgs{})
@@ -40162,6 +40015,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteFilterRuleArrayInput)(nil)).Elem(), GetRouteFilterRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableRouteInput)(nil)).Elem(), GetRouteTableRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableRouteArrayInput)(nil)).Elem(), GetRouteTableRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetServiceEndpointInput)(nil)).Elem(), GetSubnetServiceEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSubnetServiceEndpointArrayInput)(nil)).Elem(), GetSubnetServiceEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficManagerProfileDnsConfigInput)(nil)).Elem(), GetTrafficManagerProfileDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficManagerProfileDnsConfigArrayInput)(nil)).Elem(), GetTrafficManagerProfileDnsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficManagerProfileMonitorConfigInput)(nil)).Elem(), GetTrafficManagerProfileMonitorConfigArgs{})
@@ -40212,8 +40067,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusServerArrayInput)(nil)).Elem(), GetVpnServerConfigurationRadiusServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusServerRootCertificateInput)(nil)).Elem(), GetVpnServerConfigurationRadiusServerRootCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnServerConfigurationRadiusServerRootCertificateArrayInput)(nil)).Elem(), GetVpnServerConfigurationRadiusServerRootCertificateArray{})
-	pulumi.RegisterOutputType(ApplicationGatewayAuthenticationCertificateOutput{})
-	pulumi.RegisterOutputType(ApplicationGatewayAuthenticationCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayAutoscaleConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayAutoscaleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendOutput{})
@@ -40222,8 +40075,6 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationGatewayBackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingArrayOutput{})
-	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput{})
-	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingConnectionDrainingOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayBackendHttpSettingConnectionDrainingPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationGatewayCustomErrorConfigurationOutput{})
@@ -40442,6 +40293,8 @@ func init() {
 	pulumi.RegisterOutputType(SubnetDelegationServiceDelegationOutput{})
 	pulumi.RegisterOutputType(SubnetIpAddressPoolOutput{})
 	pulumi.RegisterOutputType(SubnetIpAddressPoolPtrOutput{})
+	pulumi.RegisterOutputType(SubnetServiceEndpointOutput{})
+	pulumi.RegisterOutputType(SubnetServiceEndpointArrayOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionOutput{})
 	pulumi.RegisterOutputType(SubnetServiceEndpointStoragePolicyDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(TrafficManagerAzureEndpointCustomHeaderOutput{})
@@ -40518,6 +40371,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkSubnetDelegationPtrOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetDelegationServiceDelegationOutput{})
 	pulumi.RegisterOutputType(VirtualNetworkSubnetDelegationServiceDelegationPtrOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetServiceEndpointOutput{})
+	pulumi.RegisterOutputType(VirtualNetworkSubnetServiceEndpointArrayOutput{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleExternalMappingOutput{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleExternalMappingArrayOutput{})
 	pulumi.RegisterOutputType(VnpGatewayNatRuleInternalMappingOutput{})
@@ -40568,8 +40423,6 @@ func init() {
 	pulumi.RegisterOutputType(VpnSiteO365PolicyPtrOutput{})
 	pulumi.RegisterOutputType(VpnSiteO365PolicyTrafficCategoryOutput{})
 	pulumi.RegisterOutputType(VpnSiteO365PolicyTrafficCategoryPtrOutput{})
-	pulumi.RegisterOutputType(GetApplicationGatewayAuthenticationCertificateOutput{})
-	pulumi.RegisterOutputType(GetApplicationGatewayAuthenticationCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayAutoscaleConfigurationOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayAutoscaleConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendOutput{})
@@ -40578,8 +40431,6 @@ func init() {
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendAddressPoolArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingArrayOutput{})
-	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateOutput{})
-	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingAuthenticationCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingConnectionDrainingOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayBackendHttpSettingConnectionDrainingArrayOutput{})
 	pulumi.RegisterOutputType(GetApplicationGatewayCustomErrorConfigurationOutput{})
@@ -40691,6 +40542,8 @@ func init() {
 	pulumi.RegisterOutputType(GetRouteFilterRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetRouteTableRouteOutput{})
 	pulumi.RegisterOutputType(GetRouteTableRouteArrayOutput{})
+	pulumi.RegisterOutputType(GetSubnetServiceEndpointOutput{})
+	pulumi.RegisterOutputType(GetSubnetServiceEndpointArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficManagerProfileDnsConfigOutput{})
 	pulumi.RegisterOutputType(GetTrafficManagerProfileDnsConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetTrafficManagerProfileMonitorConfigOutput{})

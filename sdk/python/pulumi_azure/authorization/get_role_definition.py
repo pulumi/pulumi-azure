@@ -27,7 +27,7 @@ class GetRoleDefinitionResult:
     """
     A collection of values returned by getRoleDefinition.
     """
-    def __init__(__self__, assignable_scopes=None, description=None, id=None, name=None, permissions=None, role_definition_id=None, scope=None, type=None):
+    def __init__(__self__, assignable_scopes=None, description=None, id=None, name=None, permissions=None, role_definition_id=None, role_definition_resource_id=None, scope=None, type=None):
         if assignable_scopes and not isinstance(assignable_scopes, list):
             raise TypeError("Expected argument 'assignable_scopes' to be a list")
         pulumi.set(__self__, "assignable_scopes", assignable_scopes)
@@ -46,6 +46,9 @@ class GetRoleDefinitionResult:
         if role_definition_id and not isinstance(role_definition_id, str):
             raise TypeError("Expected argument 'role_definition_id' to be a str")
         pulumi.set(__self__, "role_definition_id", role_definition_id)
+        if role_definition_resource_id and not isinstance(role_definition_resource_id, str):
+            raise TypeError("Expected argument 'role_definition_resource_id' to be a str")
+        pulumi.set(__self__, "role_definition_resource_id", role_definition_resource_id)
         if scope and not isinstance(scope, str):
             raise TypeError("Expected argument 'scope' to be a str")
         pulumi.set(__self__, "scope", scope)
@@ -96,6 +99,14 @@ class GetRoleDefinitionResult:
         return pulumi.get(self, "role_definition_id")
 
     @_builtins.property
+    @pulumi.getter(name="roleDefinitionResourceId")
+    def role_definition_resource_id(self) -> _builtins.str:
+        """
+        The Azure Resource Manager ID for the resource.
+        """
+        return pulumi.get(self, "role_definition_resource_id")
+
+    @_builtins.property
     @pulumi.getter
     def scope(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "scope")
@@ -121,6 +132,7 @@ class AwaitableGetRoleDefinitionResult(GetRoleDefinitionResult):
             name=self.name,
             permissions=self.permissions,
             role_definition_id=self.role_definition_id,
+            role_definition_resource_id=self.role_definition_resource_id,
             scope=self.scope,
             type=self.type)
 
@@ -182,6 +194,7 @@ def get_role_definition(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         permissions=pulumi.get(__ret__, 'permissions'),
         role_definition_id=pulumi.get(__ret__, 'role_definition_id'),
+        role_definition_resource_id=pulumi.get(__ret__, 'role_definition_resource_id'),
         scope=pulumi.get(__ret__, 'scope'),
         type=pulumi.get(__ret__, 'type'))
 def get_role_definition_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
@@ -240,5 +253,6 @@ def get_role_definition_output(name: pulumi.Input[Optional[Optional[_builtins.st
         name=pulumi.get(__response__, 'name'),
         permissions=pulumi.get(__response__, 'permissions'),
         role_definition_id=pulumi.get(__response__, 'role_definition_id'),
+        role_definition_resource_id=pulumi.get(__response__, 'role_definition_resource_id'),
         scope=pulumi.get(__response__, 'scope'),
         type=pulumi.get(__response__, 'type')))

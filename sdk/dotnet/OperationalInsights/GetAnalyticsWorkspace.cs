@@ -173,6 +173,14 @@ namespace Pulumi.Azure.OperationalInsights
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The public network access type for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+        /// </summary>
+        public readonly string InternetIngestionAccessType;
+        /// <summary>
+        /// The public network access type for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+        /// </summary>
+        public readonly string InternetQueryAccessType;
         public readonly string Location;
         public readonly string Name;
         /// <summary>
@@ -207,6 +215,10 @@ namespace Pulumi.Azure.OperationalInsights
 
             string id,
 
+            string internetIngestionAccessType,
+
+            string internetQueryAccessType,
+
             string location,
 
             string name,
@@ -227,6 +239,8 @@ namespace Pulumi.Azure.OperationalInsights
         {
             DailyQuotaGb = dailyQuotaGb;
             Id = id;
+            InternetIngestionAccessType = internetIngestionAccessType;
+            InternetQueryAccessType = internetQueryAccessType;
             Location = location;
             Name = name;
             PrimarySharedKey = primarySharedKey;

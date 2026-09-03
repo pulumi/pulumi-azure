@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Lb
     /// &lt;!-- This section is generated, changes will be overwritten --&gt;
     /// This resource uses the following Azure API Providers:
     /// 
-    /// * `Microsoft.Network` - 2023-09-01
+    /// * `Microsoft.Network` - 2025-01-01
     /// 
     /// ## Import
     /// 
@@ -106,9 +106,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Output("backendAddressPoolId")]
         public Output<string> BackendAddressPoolId { get; private set; } = null!;
-
-        [Output("enableTcpReset")]
-        public Output<bool> EnableTcpReset { get; private set; } = null!;
 
         /// <summary>
         /// One or more `FrontendIpConfiguration` blocks as defined below.
@@ -144,7 +141,7 @@ namespace Pulumi.Azure.Lb
         /// Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
         /// </summary>
         [Output("tcpResetEnabled")]
-        public Output<bool> TcpResetEnabled { get; private set; } = null!;
+        public Output<bool?> TcpResetEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -203,9 +200,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("backendAddressPoolId", required: true)]
         public Input<string> BackendAddressPoolId { get; set; } = null!;
-
-        [Input("enableTcpReset")]
-        public Input<bool>? EnableTcpReset { get; set; }
 
         [Input("frontendIpConfigurations")]
         private InputList<Inputs.OutboundRuleFrontendIpConfigurationArgs>? _frontendIpConfigurations;
@@ -268,9 +262,6 @@ namespace Pulumi.Azure.Lb
         /// </summary>
         [Input("backendAddressPoolId")]
         public Input<string>? BackendAddressPoolId { get; set; }
-
-        [Input("enableTcpReset")]
-        public Input<bool>? EnableTcpReset { get; set; }
 
         [Input("frontendIpConfigurations")]
         private InputList<Inputs.OutboundRuleFrontendIpConfigurationGetArgs>? _frontendIpConfigurations;

@@ -14,12 +14,13 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
  *
  * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
  *     name: "example-resources",
  *     location: "West Europe",
  * });
- * const example = azure.appservice.getFunctionAppOutput({
+ * const example = azurerm.FunctionApp({
  *     name: "test-azure-functions",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
@@ -31,7 +32,7 @@ import * as utilities from "../utilities";
  * const exampleLinkedServiceAzureFunction = new azure.datafactory.LinkedServiceAzureFunction("example", {
  *     name: "example",
  *     dataFactoryId: exampleFactory.id,
- *     url: pulumi.interpolate`https://${example.defaultHostname}`,
+ *     url: `https://${example.defaultHostname}`,
  *     key: "foo",
  * });
  * ```

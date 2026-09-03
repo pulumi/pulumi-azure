@@ -28,8 +28,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.cosmosdb.Account;
+ * import com.pulumi.azure.cosmosdb.AccountArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
  * import com.pulumi.azure.securitycenter.AdvancedThreatProtection;
  * import com.pulumi.azure.securitycenter.AdvancedThreatProtectionArgs;
  * import java.util.ArrayList;
@@ -51,12 +53,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account("exampleAccount", AccountArgs.builder()
- *             .name("examplestorage")
- *             .resourceGroupName(example.name())
+ *             .name("example-cosmosdb-account")
  *             .location(example.location())
- *             .accountTier("Standard")
- *             .accountReplicationType("LRS")
- *             .tags(Map.of("environment", "example"))
+ *             .resourceGroupName(example.name())
+ *             .offerType("Standard")
+ *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
+ *                 .consistencyLevel("Eventual")
+ *                 .build())
+ *             .geoLocations(AccountGeoLocationArgs.builder()
+ *                 .location(example.location())
+ *                 .failoverPriority(0)
+ *                 .build())
  *             .build());
  * 
  *         var exampleAdvancedThreatProtection = new AdvancedThreatProtection("exampleAdvancedThreatProtection", AdvancedThreatProtectionArgs.builder()
@@ -74,7 +81,7 @@ import javax.annotation.Nullable;
  * Advanced Threat Protection can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/default
+ * $ pulumi import azure:securitycenter/advancedThreatProtection:AdvancedThreatProtection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DocumentDB/databaseAccounts/databaseAccount1/providers/Microsoft.Security/advancedThreatProtectionSettings/default
  * ```
  * 
  */

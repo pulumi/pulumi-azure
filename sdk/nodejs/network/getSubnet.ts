@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -91,9 +93,9 @@ export interface GetSubnetResult {
      */
     readonly routeTableId: string;
     /**
-     * A list of Service Endpoints within this subnet.
+     * A `serviceEndpoint` block as defined below.
      */
-    readonly serviceEndpoints: string[];
+    readonly serviceEndpoints: outputs.network.GetSubnetServiceEndpoint[];
     readonly virtualNetworkName: string;
 }
 /**

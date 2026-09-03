@@ -320,7 +320,7 @@ class ApiSchema(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             schema_id="example-schema",
             content_type="application/vnd.ms-azure-apim.xsd+xml",
-            value=std.file(input="api_management_api_schema.xml").result)
+            value=std.file(input="api_management_api_schema.xml")["result"])
         ```
 
         ## API Providers
@@ -376,7 +376,7 @@ class ApiSchema(pulumi.CustomResource):
             resource_group_name=example.resource_group_name,
             schema_id="example-schema",
             content_type="application/vnd.ms-azure-apim.xsd+xml",
-            value=std.file(input="api_management_api_schema.xml").result)
+            value=std.file(input="api_management_api_schema.xml")["result"])
         ```
 
         ## API Providers

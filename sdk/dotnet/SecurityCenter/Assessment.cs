@@ -67,7 +67,7 @@ namespace Pulumi.Azure.SecurityCenter
     ///                 PublicKey = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "~/.ssh/id_rsa.pub",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 }).Result,
     ///             },
     ///         },
     ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineScaleSetSourceImageReferenceArgs

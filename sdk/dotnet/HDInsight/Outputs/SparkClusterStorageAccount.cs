@@ -20,34 +20,32 @@ namespace Pulumi.Azure.HDInsight.Outputs
         /// </summary>
         public readonly bool IsDefault;
         /// <summary>
+        /// The ID of the Storage Account. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly string? StorageAccountId;
+        /// <summary>
         /// The Access Key which should be used to connect to the Storage Account. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string StorageAccountKey;
         /// <summary>
-        /// The ID of the Storage Container. Changing this forces a new resource to be created.
-        /// 
-        /// &gt; **Note:** When the `azure.storage.Container` resource is created with `StorageAccountName`, this can be obtained from the `Id` of the `azure.storage.Container` resource. When the `azure.storage.Container` resource is created with `StorageAccountId`, please use `azure.storage.getContainers` data source to get the `DataPlaneId` of the `azure.storage.Container` resource for this field.
+        /// The URL of the Storage Container. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly string StorageContainerId;
-        /// <summary>
-        /// The ID of the Storage Account. Changing this forces a new resource to be created.
-        /// </summary>
-        public readonly string? StorageResourceId;
+        public readonly string StorageContainerUrl;
 
         [OutputConstructor]
         private SparkClusterStorageAccount(
             bool isDefault,
 
+            string? storageAccountId,
+
             string storageAccountKey,
 
-            string storageContainerId,
-
-            string? storageResourceId)
+            string storageContainerUrl)
         {
             IsDefault = isDefault;
+            StorageAccountId = storageAccountId;
             StorageAccountKey = storageAccountKey;
-            StorageContainerId = storageContainerId;
-            StorageResourceId = storageResourceId;
+            StorageContainerUrl = storageContainerUrl;
         }
     }
 }

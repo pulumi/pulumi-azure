@@ -248,14 +248,14 @@ public class Standard extends com.pulumi.resources.CustomResource {
         return this.clientAffinityEnabled;
     }
     /**
-     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      * 
      */
     @Export(name="clientCertificateMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientCertificateMode;
 
     /**
-     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * @return The mode of the Logic App&#39;s client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      * 
      */
     public Output<Optional<String>> clientCertificateMode() {
@@ -454,7 +454,7 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="publicNetworkAccess", refs={String.class}, tree="[0]")
-    private Output<String> publicNetworkAccess;
+    private Output</* @Nullable */ String> publicNetworkAccess;
 
     /**
      * @return Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
@@ -462,8 +462,8 @@ public class Standard extends com.pulumi.resources.CustomResource {
      * &gt; **Note:** Setting this property will also set it in the Site Config.
      * 
      */
-    public Output<String> publicNetworkAccess() {
-        return this.publicNetworkAccess;
+    public Output<Optional<String>> publicNetworkAccess() {
+        return Codegen.optional(this.publicNetworkAccess);
     }
     /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.

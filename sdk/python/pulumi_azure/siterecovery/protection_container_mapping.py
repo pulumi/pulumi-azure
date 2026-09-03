@@ -32,13 +32,13 @@ class ProtectionContainerMappingArgs:
         """
         The set of arguments for constructing a ProtectionContainerMapping resource.
 
-        :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_source_protection_container_name: Name of the source protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_target_protection_container_id: Id of target protection container to map to. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_vault_name: The name of the vault that should be updated. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: Name of the resource group where the vault that should be updated is located. Changing this forces a new resource to be created.
-        :param pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs'] automatic_update: a `automatic_update` block defined as below.
+        :param pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs'] automatic_update: An `automatic_update` block defined as below.
         :param pulumi.Input[_builtins.str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "recovery_fabric_name", recovery_fabric_name)
@@ -56,7 +56,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter(name="recoveryFabricName")
     def recovery_fabric_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_fabric_name")
 
@@ -128,7 +128,7 @@ class ProtectionContainerMappingArgs:
     @pulumi.getter(name="automaticUpdate")
     def automatic_update(self) -> pulumi.Input[Optional['ProtectionContainerMappingAutomaticUpdateArgs']]:
         """
-        a `automatic_update` block defined as below.
+        An `automatic_update` block defined as below.
         """
         return pulumi.get(self, "automatic_update")
 
@@ -163,9 +163,9 @@ class _ProtectionContainerMappingState:
         """
         Input properties used for looking up and filtering ProtectionContainerMapping resources.
 
-        :param pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs'] automatic_update: a `automatic_update` block defined as below.
+        :param pulumi.Input['ProtectionContainerMappingAutomaticUpdateArgs'] automatic_update: An `automatic_update` block defined as below.
         :param pulumi.Input[_builtins.str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_source_protection_container_name: Name of the source protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_target_protection_container_id: Id of target protection container to map to. Changing this forces a new resource to be created.
@@ -193,7 +193,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter(name="automaticUpdate")
     def automatic_update(self) -> pulumi.Input[Optional['ProtectionContainerMappingAutomaticUpdateArgs']]:
         """
-        a `automatic_update` block defined as below.
+        An `automatic_update` block defined as below.
         """
         return pulumi.get(self, "automatic_update")
 
@@ -217,7 +217,7 @@ class _ProtectionContainerMappingState:
     @pulumi.getter(name="recoveryFabricName")
     def recovery_fabric_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_fabric_name")
 
@@ -302,7 +302,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
+        Manages an Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
 
         ## Example Usage
 
@@ -311,10 +311,10 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         import pulumi_azure as azure
 
         primary = azure.core.ResourceGroup("primary",
-            name="tfex-network-mapping-primary",
+            name="example-network-mapping-primary",
             location="West US")
         secondary = azure.core.ResourceGroup("secondary",
-            name="tfex-network-mapping-secondary",
+            name="example-network-mapping-secondary",
             location="East US")
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
@@ -375,9 +375,9 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']] automatic_update: a `automatic_update` block defined as below.
+        :param pulumi.Input[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']] automatic_update: An `automatic_update` block defined as below.
         :param pulumi.Input[_builtins.str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_source_protection_container_name: Name of the source protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_target_protection_container_id: Id of target protection container to map to. Changing this forces a new resource to be created.
@@ -391,7 +391,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
                  args: ProtectionContainerMappingArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
+        Manages an Azure recovery vault protection container mapping. A protection container mapping decides how to translate the protection container when a VM is migrated from one region to another.
 
         ## Example Usage
 
@@ -400,10 +400,10 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         import pulumi_azure as azure
 
         primary = azure.core.ResourceGroup("primary",
-            name="tfex-network-mapping-primary",
+            name="example-network-mapping-primary",
             location="West US")
         secondary = azure.core.ResourceGroup("secondary",
-            name="tfex-network-mapping-secondary",
+            name="example-network-mapping-secondary",
             location="East US")
         vault = azure.recoveryservices.Vault("vault",
             name="example-recovery-vault",
@@ -539,9 +539,9 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']] automatic_update: a `automatic_update` block defined as below.
+        :param pulumi.Input[Union['ProtectionContainerMappingAutomaticUpdateArgs', 'ProtectionContainerMappingAutomaticUpdateArgsDict']] automatic_update: An `automatic_update` block defined as below.
         :param pulumi.Input[_builtins.str] name: The name of the protection container mapping. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] recovery_fabric_name: Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_replication_policy_id: Id of the policy to use for this mapping. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_source_protection_container_name: Name of the source protection container to map. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] recovery_target_protection_container_id: Id of target protection container to map to. Changing this forces a new resource to be created.
@@ -564,9 +564,9 @@ class ProtectionContainerMapping(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="automaticUpdate")
-    def automatic_update(self) -> pulumi.Output['outputs.ProtectionContainerMappingAutomaticUpdate']:
+    def automatic_update(self) -> pulumi.Output[Optional['outputs.ProtectionContainerMappingAutomaticUpdate']]:
         """
-        a `automatic_update` block defined as below.
+        An `automatic_update` block defined as below.
         """
         return pulumi.get(self, "automatic_update")
 
@@ -582,7 +582,7 @@ class ProtectionContainerMapping(pulumi.CustomResource):
     @pulumi.getter(name="recoveryFabricName")
     def recovery_fabric_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of fabric that should contains the protection container to map. Changing this forces a new resource to be created.
+        Name of fabric that should contain the protection container to map. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "recovery_fabric_name")
 

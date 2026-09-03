@@ -30,21 +30,7 @@ public final class GetLBRuleResult {
     /**
      * @return If Floating IPs are enabled for this Load Balancer Rule
      * 
-     * @deprecated
-     * The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
-     * 
      */
-    @Deprecated /* The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider */
-    private Boolean enableFloatingIp;
-    /**
-     * @return If TCP Reset is enabled for this Load Balancer Rule.
-     * 
-     * @deprecated
-     * The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
-     * 
-     */
-    @Deprecated /* The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider */
-    private Boolean enableTcpReset;
     private Boolean floatingIpEnabled;
     /**
      * @return The name of the frontend IP configuration to which the rule is associated.
@@ -83,6 +69,10 @@ public final class GetLBRuleResult {
      * 
      */
     private String protocol;
+    /**
+     * @return If TCP Reset is enabled for this Load Balancer Rule.
+     * 
+     */
     private Boolean tcpResetEnabled;
 
     private GetLBRuleResult() {}
@@ -110,25 +100,7 @@ public final class GetLBRuleResult {
     /**
      * @return If Floating IPs are enabled for this Load Balancer Rule
      * 
-     * @deprecated
-     * The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider
-     * 
      */
-    @Deprecated /* The property `enableFloatingIp` has been deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider */
-    public Boolean enableFloatingIp() {
-        return this.enableFloatingIp;
-    }
-    /**
-     * @return If TCP Reset is enabled for this Load Balancer Rule.
-     * 
-     * @deprecated
-     * The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider
-     * 
-     */
-    @Deprecated /* The property `enableTcpReset` has been deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider */
-    public Boolean enableTcpReset() {
-        return this.enableTcpReset;
-    }
     public Boolean floatingIpEnabled() {
         return this.floatingIpEnabled;
     }
@@ -187,6 +159,10 @@ public final class GetLBRuleResult {
     public String protocol() {
         return this.protocol;
     }
+    /**
+     * @return If TCP Reset is enabled for this Load Balancer Rule.
+     * 
+     */
     public Boolean tcpResetEnabled() {
         return this.tcpResetEnabled;
     }
@@ -203,8 +179,6 @@ public final class GetLBRuleResult {
         private String backendAddressPoolId;
         private Integer backendPort;
         private Boolean disableOutboundSnat;
-        private Boolean enableFloatingIp;
-        private Boolean enableTcpReset;
         private Boolean floatingIpEnabled;
         private String frontendIpConfigurationName;
         private Integer frontendPort;
@@ -222,8 +196,6 @@ public final class GetLBRuleResult {
     	      this.backendAddressPoolId = defaults.backendAddressPoolId;
     	      this.backendPort = defaults.backendPort;
     	      this.disableOutboundSnat = defaults.disableOutboundSnat;
-    	      this.enableFloatingIp = defaults.enableFloatingIp;
-    	      this.enableTcpReset = defaults.enableTcpReset;
     	      this.floatingIpEnabled = defaults.floatingIpEnabled;
     	      this.frontendIpConfigurationName = defaults.frontendIpConfigurationName;
     	      this.frontendPort = defaults.frontendPort;
@@ -259,22 +231,6 @@ public final class GetLBRuleResult {
               throw new MissingRequiredPropertyException("GetLBRuleResult", "disableOutboundSnat");
             }
             this.disableOutboundSnat = disableOutboundSnat;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableFloatingIp(Boolean enableFloatingIp) {
-            if (enableFloatingIp == null) {
-              throw new MissingRequiredPropertyException("GetLBRuleResult", "enableFloatingIp");
-            }
-            this.enableFloatingIp = enableFloatingIp;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableTcpReset(Boolean enableTcpReset) {
-            if (enableTcpReset == null) {
-              throw new MissingRequiredPropertyException("GetLBRuleResult", "enableTcpReset");
-            }
-            this.enableTcpReset = enableTcpReset;
             return this;
         }
         @CustomType.Setter
@@ -370,8 +326,6 @@ public final class GetLBRuleResult {
             _resultValue.backendAddressPoolId = backendAddressPoolId;
             _resultValue.backendPort = backendPort;
             _resultValue.disableOutboundSnat = disableOutboundSnat;
-            _resultValue.enableFloatingIp = enableFloatingIp;
-            _resultValue.enableTcpReset = enableTcpReset;
             _resultValue.floatingIpEnabled = floatingIpEnabled;
             _resultValue.frontendIpConfigurationName = frontendIpConfigurationName;
             _resultValue.frontendPort = frontendPort;

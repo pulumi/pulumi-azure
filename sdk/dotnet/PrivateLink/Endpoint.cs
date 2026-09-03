@@ -255,8 +255,7 @@ namespace Pulumi.Azure.PrivateLink
     ///     var exampleZoneVirtualNetworkLink = new Azure.PrivateDns.ZoneVirtualNetworkLink("example", new()
     ///     {
     ///         Name = "example-link",
-    ///         ResourceGroupName = example.Name,
-    ///         PrivateDnsZoneName = exampleZone.Name,
+    ///         PrivateDnsZoneId = exampleZone.Id,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });
     /// 

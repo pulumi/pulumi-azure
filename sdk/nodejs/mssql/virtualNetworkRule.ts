@@ -28,7 +28,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.7.29.0/29"],
- *     serviceEndpoints: ["Microsoft.Sql"],
+ *     serviceEndpoints: [{
+ *         service: "Microsoft.Sql",
+ *     }],
  * });
  * const exampleServer = new azure.mssql.Server("example", {
  *     name: "uniqueazuresqlserver",
@@ -50,7 +52,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  *
  * ## Import
  *

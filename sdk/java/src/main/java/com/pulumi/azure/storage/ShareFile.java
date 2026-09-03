@@ -137,7 +137,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
     /**
      * The MD5 sum of the file contents. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
      * 
      */
     @Export(name="contentMd5", refs={String.class}, tree="[0]")
@@ -146,7 +146,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
     /**
      * @return The MD5 sum of the file contents. Changing this forces a new resource to be created.
      * 
-     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+     * &gt; **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
      * 
      */
     public Output<Optional<String>> contentMd5() {
@@ -209,7 +209,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.path);
     }
     /**
-     * An absolute path to a file on the local system. Changing this forces a new resource to be created.
+     * An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
      * 
      * &gt; **Note:** The file specified with `source` can not be empty.
      * 
@@ -218,7 +218,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> source;
 
     /**
-     * @return An absolute path to a file on the local system. Changing this forces a new resource to be created.
+     * @return An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
      * 
      * &gt; **Note:** The file specified with `source` can not be empty.
      * 
@@ -227,16 +227,26 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.source);
     }
     /**
-     * @deprecated
-     * This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
+     * The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+     * 
+     * &gt; **Note:** The content specified with `sourceContent` can not be empty.
+     * 
+     * &gt; **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
      * 
      */
-    @Deprecated /* This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider. */
-    @Export(name="storageShareId", refs={String.class}, tree="[0]")
-    private Output<String> storageShareId;
+    @Export(name="sourceContent", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> sourceContent;
 
-    public Output<String> storageShareId() {
-        return this.storageShareId;
+    /**
+     * @return The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+     * 
+     * &gt; **Note:** The content specified with `sourceContent` can not be empty.
+     * 
+     * &gt; **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+     * 
+     */
+    public Output<Optional<String>> sourceContent() {
+        return Codegen.optional(this.sourceContent);
     }
     /**
      * The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
@@ -265,7 +275,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ShareFile(java.lang.String name, @Nullable ShareFileArgs args) {
+    public ShareFile(java.lang.String name, ShareFileArgs args) {
         this(name, args, null);
     }
     /**
@@ -274,7 +284,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ShareFile(java.lang.String name, @Nullable ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ShareFile(java.lang.String name, ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("azure:storage/shareFile:ShareFile", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -282,7 +292,7 @@ public class ShareFile extends com.pulumi.resources.CustomResource {
         super("azure:storage/shareFile:ShareFile", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ShareFileArgs makeArgs(@Nullable ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ShareFileArgs makeArgs(ShareFileArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -280,7 +280,7 @@ namespace Pulumi.Azure.Oracle
             set => _tags = value;
         }
 
-        [Input("zones", required: true)]
+        [Input("zones")]
         private InputList<string>? _zones;
 
         /// <summary>

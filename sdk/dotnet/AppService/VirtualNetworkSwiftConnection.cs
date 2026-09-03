@@ -42,6 +42,7 @@ namespace Pulumi.Azure.AppService
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -88,24 +89,27 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var exampleAppServicePlan = new Azurerm.AppServicePlan("example", new()
     ///     {
     ///         Name = "example-app-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = new[]
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             
+    ///             {
+    ///                 { "tier", "Standard" },
+    ///                 { "size", "S1" },
+    ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     var exampleAppService = new Azurerm.AppService("example", new()
     ///     {
     ///         Name = "example-app-service",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppServicePlanId = exampleAppServicePlan.Id,
     ///     });
     /// 
     ///     var exampleVirtualNetworkSwiftConnection = new Azure.AppService.VirtualNetworkSwiftConnection("example", new()
@@ -124,6 +128,7 @@ namespace Pulumi.Azure.AppService
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Azurerm = Pulumi.Azurerm;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -170,15 +175,18 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     var exampleAppServicePlan = new Azurerm.AppServicePlan("example", new()
     ///     {
     ///         Name = "example-app-service-plan",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         Sku = new[]
     ///         {
-    ///             Tier = "Standard",
-    ///             Size = "S1",
+    ///             
+    ///             {
+    ///                 { "tier", "Standard" },
+    ///                 { "size", "S1" },
+    ///             },
     ///         },
     ///     });
     /// 
@@ -191,12 +199,12 @@ namespace Pulumi.Azure.AppService
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
+    ///     var exampleFunctionApp = new Azurerm.FunctionApp("example", new()
     ///     {
     ///         Name = "example-function-app",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
-    ///         AppServicePlanId = examplePlan.Id,
+    ///         AppServicePlanId = exampleAppServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///     });

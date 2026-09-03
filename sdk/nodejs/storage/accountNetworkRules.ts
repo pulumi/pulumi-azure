@@ -36,7 +36,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
- *     serviceEndpoints: ["Microsoft.Storage"],
+ *     serviceEndpoints: [{
+ *         service: "Microsoft.Storage",
+ *     }],
  * });
  * const exampleAccount = new azure.storage.Account("example", {
  *     name: "storageaccountname",

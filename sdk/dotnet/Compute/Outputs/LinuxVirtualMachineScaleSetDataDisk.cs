@@ -55,8 +55,6 @@ namespace Pulumi.Azure.Compute.Outputs
         /// &gt; **Note:** `UltraSSD_LRS` is only supported when `UltraSsdEnabled` within the `AdditionalCapabilities` block is enabled.
         /// </summary>
         public readonly string StorageAccountType;
-        public readonly int? UltraSsdDiskIopsReadWrite;
-        public readonly int? UltraSsdDiskMbpsReadWrite;
         /// <summary>
         /// Should Write Accelerator be enabled for this Data Disk? Defaults to `False`.
         /// 
@@ -84,10 +82,6 @@ namespace Pulumi.Azure.Compute.Outputs
 
             string storageAccountType,
 
-            int? ultraSsdDiskIopsReadWrite,
-
-            int? ultraSsdDiskMbpsReadWrite,
-
             bool? writeAcceleratorEnabled)
         {
             Caching = caching;
@@ -99,8 +93,6 @@ namespace Pulumi.Azure.Compute.Outputs
             Lun = lun;
             Name = name;
             StorageAccountType = storageAccountType;
-            UltraSsdDiskIopsReadWrite = ultraSsdDiskIopsReadWrite;
-            UltraSsdDiskMbpsReadWrite = ultraSsdDiskMbpsReadWrite;
             WriteAcceleratorEnabled = writeAcceleratorEnabled;
         }
     }

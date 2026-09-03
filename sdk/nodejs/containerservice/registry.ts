@@ -28,11 +28,13 @@ import * as utilities from "../utilities";
  *     georeplications: [
  *         {
  *             location: "East US",
+ *             globalEndpointRoutingEnabled: true,
  *             zoneRedundancyEnabled: true,
  *             tags: {},
  *         },
  *         {
  *             location: "North Europe",
+ *             globalEndpointRoutingEnabled: true,
  *             zoneRedundancyEnabled: true,
  *             tags: {},
  *         },
@@ -178,7 +180,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
      *
-     * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
     declare public readonly azureadAuthenticationAsArmPolicyEnabled: pulumi.Output<boolean | undefined>;
     /**
@@ -192,7 +194,7 @@ export class Registry extends pulumi.CustomResource {
     /**
      * An `encryption` block as documented below.
      */
-    declare public readonly encryption: pulumi.Output<outputs.containerservice.RegistryEncryption>;
+    declare public readonly encryption: pulumi.Output<outputs.containerservice.RegistryEncryption | undefined>;
     /**
      * Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
      */
@@ -264,10 +266,6 @@ export class Registry extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-     */
-    declare public readonly trustPolicyEnabled: pulumi.Output<boolean | undefined>;
-    /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      */
     declare public readonly zoneRedundancyEnabled: pulumi.Output<boolean | undefined>;
@@ -309,7 +307,6 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["roleAssignmentMode"] = state?.roleAssignmentMode;
             resourceInputs["sku"] = state?.sku;
             resourceInputs["tags"] = state?.tags;
-            resourceInputs["trustPolicyEnabled"] = state?.trustPolicyEnabled;
             resourceInputs["zoneRedundancyEnabled"] = state?.zoneRedundancyEnabled;
         } else {
             const args = argsOrState as RegistryArgs | undefined;
@@ -339,7 +336,6 @@ export class Registry extends pulumi.CustomResource {
             resourceInputs["roleAssignmentMode"] = args?.roleAssignmentMode;
             resourceInputs["sku"] = args?.sku;
             resourceInputs["tags"] = args?.tags;
-            resourceInputs["trustPolicyEnabled"] = args?.trustPolicyEnabled;
             resourceInputs["zoneRedundancyEnabled"] = args?.zoneRedundancyEnabled;
             resourceInputs["adminPassword"] = undefined /*out*/;
             resourceInputs["adminUsername"] = undefined /*out*/;
@@ -376,7 +372,7 @@ export interface RegistryState {
     /**
      * Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
      *
-     * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
     azureadAuthenticationAsArmPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -462,10 +458,6 @@ export interface RegistryState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-     */
-    trustPolicyEnabled?: pulumi.Input<boolean | undefined>;
-    /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      */
     zoneRedundancyEnabled?: pulumi.Input<boolean | undefined>;
@@ -486,7 +478,7 @@ export interface RegistryArgs {
     /**
      * Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
      *
-     * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+     * > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
      */
     azureadAuthenticationAsArmPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -563,10 +555,6 @@ export interface RegistryArgs {
      * A mapping of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
-    /**
-     * Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-     */
-    trustPolicyEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
      */

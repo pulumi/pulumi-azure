@@ -12,6 +12,53 @@ namespace Pulumi.Azure.ManagedRedis
     /// <summary>
     /// Manages a Managed Redis Access Policy Assignment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Azuread = Pulumi.Azuread;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Azuread.ClientConfig.Invoke();
+    /// 
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleManagedRedis = new Azure.ManagedRedis.ManagedRedis("example", new()
+    ///     {
+    ///         Name = "example-managedredis",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         SkuName = "Balanced_B0",
+    ///         DefaultDatabase = new Azure.ManagedRedis.Inputs.ManagedRedisDefaultDatabaseArgs
+    ///         {
+    ///             AccessKeysAuthenticationEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccessPolicyAssignment = new Azure.ManagedRedis.AccessPolicyAssignment("example", new()
+    ///     {
+    ///         ManagedRedisId = exampleManagedRedis.Id,
+    ///         ObjectId = current.ObjectId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## API Providers
+    /// 
+    /// &lt;!-- This section is generated, changes will be overwritten --&gt;
+    /// This resource uses the following Azure API Providers:
+    /// 
+    /// * `Microsoft.Cache` - 2025-07-01
+    /// 
     /// ## Import
     /// 
     /// Managed Redis Access Policy Assignments can be imported using the `resource id`, e.g.

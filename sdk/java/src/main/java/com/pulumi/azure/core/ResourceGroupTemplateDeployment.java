@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.ResourceGroupTemplateDeployment;
  * import com.pulumi.azure.core.ResourceGroupTemplateDeploymentArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JsondecodeArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -99,9 +98,7 @@ import javax.annotation.Nullable;
  *             """)
  *             .build());
  * 
- *         ctx.export("armExampleOutput", StdFunctions.jsondecode(JsondecodeArgs.builder()
- *             .input(example.outputContent())
- *             .build()).applyValue(_invoke -> _invoke.result().exampleOutput().value()));
+ *         ctx.export("armExampleOutput", StdFunctions.jsondecode(Map.of("input", example.outputContent())).result().exampleOutput().value());
  *     }
  * }
  * }

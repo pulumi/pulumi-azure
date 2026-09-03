@@ -290,25 +290,6 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * @deprecated
-     * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
-    @Import(name="enableAutomaticUpdates")
-    private @Nullable Output<Boolean> enableAutomaticUpdates;
-
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
-    public Optional<Output<Boolean>> enableAutomaticUpdates() {
-        return Optional.ofNullable(this.enableAutomaticUpdates);
-    }
-
-    /**
      * Should all of the disks (including the temp disk) attached to this Virtual Machine be encrypted by enabling Encryption at Host?
      * 
      */
@@ -860,29 +841,6 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-     * 
-     */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
-    @Import(name="vmAgentPlatformUpdatesEnabled")
-    private @Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled;
-
-    /**
-     * @return Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-     * 
-     * @deprecated
-     * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-     * 
-     */
-    @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
-    public Optional<Output<Boolean>> vmAgentPlatformUpdatesEnabled() {
-        return Optional.ofNullable(this.vmAgentPlatformUpdatesEnabled);
-    }
-
-    /**
      * Specifies if vTPM (virtual Trusted Platform Module) and Trusted Launch is enabled for the Virtual Machine. Changing this forces a new resource to be created.
      * 
      */
@@ -946,7 +904,6 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         this.dedicatedHostId = $.dedicatedHostId;
         this.diskControllerType = $.diskControllerType;
         this.edgeZone = $.edgeZone;
-        this.enableAutomaticUpdates = $.enableAutomaticUpdates;
         this.encryptionAtHostEnabled = $.encryptionAtHostEnabled;
         this.evictionPolicy = $.evictionPolicy;
         this.extensionsTimeBudget = $.extensionsTimeBudget;
@@ -980,7 +937,6 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
         this.timezone = $.timezone;
         this.userData = $.userData;
         this.virtualMachineScaleSetId = $.virtualMachineScaleSetId;
-        this.vmAgentPlatformUpdatesEnabled = $.vmAgentPlatformUpdatesEnabled;
         this.vtpmEnabled = $.vtpmEnabled;
         this.winrmListeners = $.winrmListeners;
         this.zone = $.zone;
@@ -1364,31 +1320,6 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
          */
         public Builder edgeZone(String edgeZone) {
             return edgeZone(Output.of(edgeZone));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
-        public Builder enableAutomaticUpdates(@Nullable Output<Boolean> enableAutomaticUpdates) {
-            $.enableAutomaticUpdates = enableAutomaticUpdates;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider.
-         * 
-         */
-        @Deprecated /* this property has been deprecated in favour of automaticUpdatesEnabled and will be removed in 5.0 of the provider. */
-        public Builder enableAutomaticUpdates(Boolean enableAutomaticUpdates) {
-            return enableAutomaticUpdates(Output.of(enableAutomaticUpdates));
         }
 
         /**
@@ -2170,35 +2101,6 @@ public final class WindowsVirtualMachineArgs extends com.pulumi.resources.Resour
          */
         public Builder virtualMachineScaleSetId(String virtualMachineScaleSetId) {
             return virtualMachineScaleSetId(Output.of(virtualMachineScaleSetId));
-        }
-
-        /**
-         * @param vmAgentPlatformUpdatesEnabled Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-         * 
-         */
-        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
-        public Builder vmAgentPlatformUpdatesEnabled(@Nullable Output<Boolean> vmAgentPlatformUpdatesEnabled) {
-            $.vmAgentPlatformUpdatesEnabled = vmAgentPlatformUpdatesEnabled;
-            return this;
-        }
-
-        /**
-         * @param vmAgentPlatformUpdatesEnabled Specifies whether VMAgent Platform Updates is enabled. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API
-         * 
-         */
-        @Deprecated /* this property has been deprecated due to a breaking change introduced by the Service team, which redefined it as a read-only field within the API */
-        public Builder vmAgentPlatformUpdatesEnabled(Boolean vmAgentPlatformUpdatesEnabled) {
-            return vmAgentPlatformUpdatesEnabled(Output.of(vmAgentPlatformUpdatesEnabled));
         }
 
         /**

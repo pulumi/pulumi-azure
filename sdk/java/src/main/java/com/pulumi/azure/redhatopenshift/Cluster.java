@@ -8,9 +8,11 @@ import com.pulumi.azure.redhatopenshift.ClusterArgs;
 import com.pulumi.azure.redhatopenshift.inputs.ClusterState;
 import com.pulumi.azure.redhatopenshift.outputs.ClusterApiServerProfile;
 import com.pulumi.azure.redhatopenshift.outputs.ClusterClusterProfile;
+import com.pulumi.azure.redhatopenshift.outputs.ClusterIdentity;
 import com.pulumi.azure.redhatopenshift.outputs.ClusterIngressProfile;
 import com.pulumi.azure.redhatopenshift.outputs.ClusterMainProfile;
 import com.pulumi.azure.redhatopenshift.outputs.ClusterNetworkProfile;
+import com.pulumi.azure.redhatopenshift.outputs.ClusterPlatformWorkloadIdentityProfile;
 import com.pulumi.azure.redhatopenshift.outputs.ClusterServicePrincipal;
 import com.pulumi.azure.redhatopenshift.outputs.ClusterWorkerProfile;
 import com.pulumi.core.Output;
@@ -27,12 +29,183 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azuread.Application;
+ * import com.pulumi.azuread.ApplicationArgs;
+ * import com.pulumi.azuread.ServicePrincipal;
+ * import com.pulumi.azuread.ServicePrincipalArgs;
+ * import com.pulumi.azuread.ServicePrincipalPassword;
+ * import com.pulumi.azuread.ServicePrincipalPasswordArgs;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.authorization.Assignment;
+ * import com.pulumi.azure.authorization.AssignmentArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetServiceEndpointArgs;
+ * import com.pulumi.azure.redhatopenshift.Cluster;
+ * import com.pulumi.azure.redhatopenshift.ClusterArgs;
+ * import com.pulumi.azure.redhatopenshift.inputs.ClusterClusterProfileArgs;
+ * import com.pulumi.azure.redhatopenshift.inputs.ClusterNetworkProfileArgs;
+ * import com.pulumi.azure.redhatopenshift.inputs.ClusterMainProfileArgs;
+ * import com.pulumi.azure.redhatopenshift.inputs.ClusterApiServerProfileArgs;
+ * import com.pulumi.azure.redhatopenshift.inputs.ClusterIngressProfileArgs;
+ * import com.pulumi.azure.redhatopenshift.inputs.ClusterWorkerProfileArgs;
+ * import com.pulumi.azure.redhatopenshift.inputs.ClusterServicePrincipalArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = CoreFunctions.getClientConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ * 
+ *         final var exampleClientConfig = AzureadFunctions.ClientConfig(Map.ofEntries(
+ *         ));
+ * 
+ *         var exampleApplication = new Application("exampleApplication", ApplicationArgs.builder()
+ *             .displayName("example-aro")
+ *             .build());
+ * 
+ *         var exampleServicePrincipal = new ServicePrincipal("exampleServicePrincipal", ServicePrincipalArgs.builder()
+ *             .clientId(exampleApplication.clientId())
+ *             .build());
+ * 
+ *         var exampleServicePrincipalPassword = new ServicePrincipalPassword("exampleServicePrincipalPassword", ServicePrincipalPasswordArgs.builder()
+ *             .servicePrincipalId(exampleServicePrincipal.objectId())
+ *             .build());
+ * 
+ *         final var redhatopenshift = AzureadFunctions.ServicePrincipal(Map.of("clientId", "f1dd0a37-89c6-4e07-bcd1-ffd3d43d8875"));
+ * 
+ *         var exampleResourceGroup = new ResourceGroup("exampleResourceGroup", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West US")
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork("exampleVirtualNetwork", VirtualNetworkArgs.builder()
+ *             .name("example-vnet")
+ *             .addressSpaces("10.0.0.0/22")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var roleNetwork1 = new Assignment("roleNetwork1", AssignmentArgs.builder()
+ *             .scope(exampleVirtualNetwork.id())
+ *             .roleDefinitionName("Network Contributor")
+ *             .principalId(exampleServicePrincipal.objectId())
+ *             .build());
+ * 
+ *         var roleNetwork2 = new Assignment("roleNetwork2", AssignmentArgs.builder()
+ *             .scope(exampleVirtualNetwork.id())
+ *             .roleDefinitionName("Network Contributor")
+ *             .principalId(redhatopenshift.objectId())
+ *             .build());
+ * 
+ *         var mainSubnet = new Subnet("mainSubnet", SubnetArgs.builder()
+ *             .name("main-subnet")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.0.0/23")
+ *             .serviceEndpoints(            
+ *                 SubnetServiceEndpointArgs.builder()
+ *                     .service("Microsoft.Storage")
+ *                     .build(),
+ *                 SubnetServiceEndpointArgs.builder()
+ *                     .service("Microsoft.ContainerRegistry")
+ *                     .build())
+ *             .build());
+ * 
+ *         var workerSubnet = new Subnet("workerSubnet", SubnetArgs.builder()
+ *             .name("worker-subnet")
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes("10.0.2.0/23")
+ *             .serviceEndpoints(            
+ *                 SubnetServiceEndpointArgs.builder()
+ *                     .service("Microsoft.Storage")
+ *                     .build(),
+ *                 SubnetServiceEndpointArgs.builder()
+ *                     .service("Microsoft.ContainerRegistry")
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
+ *             .name("examplearo")
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .clusterProfile(ClusterClusterProfileArgs.builder()
+ *                 .domain("aro-example.com")
+ *                 .version("4.13.23")
+ *                 .build())
+ *             .networkProfile(ClusterNetworkProfileArgs.builder()
+ *                 .podCidr("10.128.0.0/14")
+ *                 .serviceCidr("172.30.0.0/16")
+ *                 .build())
+ *             .mainProfile(ClusterMainProfileArgs.builder()
+ *                 .vmSize("Standard_D8s_v3")
+ *                 .subnetId(mainSubnet.id())
+ *                 .build())
+ *             .apiServerProfile(ClusterApiServerProfileArgs.builder()
+ *                 .visibility("Public")
+ *                 .build())
+ *             .ingressProfile(ClusterIngressProfileArgs.builder()
+ *                 .visibility("Public")
+ *                 .build())
+ *             .workerProfile(ClusterWorkerProfileArgs.builder()
+ *                 .vmSize("Standard_D4s_v3")
+ *                 .diskSizeGb(128)
+ *                 .nodeCount(3)
+ *                 .subnetId(workerSubnet.id())
+ *                 .build())
+ *             .servicePrincipal(ClusterServicePrincipalArgs.builder()
+ *                 .clientId(exampleApplication.clientId())
+ *                 .clientSecret(exampleServicePrincipalPassword.value())
+ *                 .build())
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(                
+ *                     roleNetwork1,
+ *                     roleNetwork2)
+ *                 .build());
+ * 
+ *         ctx.export("consoleUrl", exampleCluster.consoleUrl());
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.RedHatOpenShift` - 2025-07-25
+ * 
  * ## Import
  * 
- * Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.
+ * An Azure Red Hat OpenShift Cluster can be imported using the `resource id`, e.g.
  * 
  * ```sh
- * $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
+ * $ pulumi import azure:redhatopenshift/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.RedHatOpenShift/openShiftClusters/openShiftCluster1
  * ```
  * 
  */
@@ -67,18 +240,32 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterProfile;
     }
     /**
-     * The Red Hat OpenShift cluster console URL.
+     * The console URL of the Azure Red Hat OpenShift Cluster.
      * 
      */
     @Export(name="consoleUrl", refs={String.class}, tree="[0]")
     private Output<String> consoleUrl;
 
     /**
-     * @return The Red Hat OpenShift cluster console URL.
+     * @return The console URL of the Azure Red Hat OpenShift Cluster.
      * 
      */
     public Output<String> consoleUrl() {
         return this.consoleUrl;
+    }
+    /**
+     * An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+     * 
+     */
+    @Export(name="identity", refs={ClusterIdentity.class}, tree="[0]")
+    private Output</* @Nullable */ ClusterIdentity> identity;
+
+    /**
+     * @return An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+     * 
+     */
+    public Output<Optional<ClusterIdentity>> identity() {
+        return Codegen.optional(this.identity);
     }
     /**
      * An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
@@ -137,18 +324,32 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+     * A `networkProfile` block as defined below.
      * 
      */
     @Export(name="networkProfile", refs={ClusterNetworkProfile.class}, tree="[0]")
     private Output<ClusterNetworkProfile> networkProfile;
 
     /**
-     * @return A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `networkProfile` block as defined below.
      * 
      */
     public Output<ClusterNetworkProfile> networkProfile() {
         return this.networkProfile;
+    }
+    /**
+     * A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+     * 
+     */
+    @Export(name="platformWorkloadIdentityProfile", refs={ClusterPlatformWorkloadIdentityProfile.class}, tree="[0]")
+    private Output</* @Nullable */ ClusterPlatformWorkloadIdentityProfile> platformWorkloadIdentityProfile;
+
+    /**
+     * @return A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+     * 
+     */
+    public Output<Optional<ClusterPlatformWorkloadIdentityProfile>> platformWorkloadIdentityProfile() {
+        return Codegen.optional(this.platformWorkloadIdentityProfile);
     }
     /**
      * Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
@@ -165,18 +366,18 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * A `servicePrincipal` block as defined below.
+     * A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
      * 
      */
     @Export(name="servicePrincipal", refs={ClusterServicePrincipal.class}, tree="[0]")
-    private Output<ClusterServicePrincipal> servicePrincipal;
+    private Output</* @Nullable */ ClusterServicePrincipal> servicePrincipal;
 
     /**
-     * @return A `servicePrincipal` block as defined below.
+     * @return A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
      * 
      */
-    public Output<ClusterServicePrincipal> servicePrincipal() {
-        return this.servicePrincipal;
+    public Output<Optional<ClusterServicePrincipal>> servicePrincipal() {
+        return Codegen.optional(this.servicePrincipal);
     }
     /**
      * A mapping of tags to assign to the resource.

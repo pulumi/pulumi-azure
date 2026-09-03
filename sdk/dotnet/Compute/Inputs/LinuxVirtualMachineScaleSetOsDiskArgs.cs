@@ -54,8 +54,6 @@ namespace Pulumi.Azure.Compute.Inputs
         /// Encryption Type when the Virtual Machine Scale Set is Confidential VMSS. Possible values are `VMGuestStateOnly` and `DiskWithVMGuestState`. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** `VtpmEnabled` must be set to `True` when `SecurityEncryptionType` is specified.
-        /// 
-        /// &gt; **Note:** `EncryptionAtHostEnabled` cannot be set to `True` when `SecurityEncryptionType` is set to `DiskWithVMGuestState`.
         /// </summary>
         [Input("securityEncryptionType")]
         public Input<string>? SecurityEncryptionType { get; set; }

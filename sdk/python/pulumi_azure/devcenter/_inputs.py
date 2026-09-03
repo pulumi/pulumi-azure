@@ -447,7 +447,9 @@ class ManagedDevOpsPoolAzureDevopsOrganizationOrganizationArgs:
 class ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgsDict(TypedDict):
     kind: pulumi.Input[_builtins.str]
     """
-    Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+    Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+
+    > **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
     """
     administrator_account: NotRequired[pulumi.Input[Optional['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgsDict']]]
     """
@@ -460,7 +462,9 @@ class ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs:
                  kind: pulumi.Input[_builtins.str],
                  administrator_account: pulumi.Input[Optional['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] kind: Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] kind: Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+               
+               > **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
         :param pulumi.Input['ManagedDevOpsPoolAzureDevopsOrganizationPermissionAdministratorAccountArgs'] administrator_account: An `administrator_account` block as defined below. This block is only valid when `kind` is set to `SpecificAccounts`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "kind", kind)
@@ -471,7 +475,9 @@ class ManagedDevOpsPoolAzureDevopsOrganizationPermissionArgs:
     @pulumi.getter
     def kind(self) -> pulumi.Input[_builtins.str]:
         """
-        Determines who has admin permissions to the Azure DevOps pool. Possible values are `Inherit` and `SpecificAccounts`. Changing this forces a new resource to be created.
+        Determines who has admin permissions to the Azure DevOps pool. Possible values are `CreatorOnly`, `Inherit`, and `SpecificAccounts`. Changing this forces a new resource to be created.
+
+        > **Note:** When `kind` is set to `CreatorOnly` and the pool is created using a service principal, the service principal is not automatically granted the administrator role on the Azure DevOps pool.
         """
         return pulumi.get(self, "kind")
 

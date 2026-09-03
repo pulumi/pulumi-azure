@@ -19,9 +19,9 @@ import * as utilities from "../utilities";
  *     resourceGroupName: "tfex-example-rg",
  *     automationAccountName: "tfex-example-account",
  * });
- * export const variable = example.then(example => std.jsondecode({
- *     input: example.value,
- * })).then(invoke => invoke.result);
+ * export const variable = std.jsondecode({
+ *     input: example.then(example => example.value),
+ * }).result;
  * ```
  */
 export function getVariableObject(args: GetVariableObjectArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableObjectResult> {
@@ -90,9 +90,9 @@ export interface GetVariableObjectResult {
  *     resourceGroupName: "tfex-example-rg",
  *     automationAccountName: "tfex-example-account",
  * });
- * export const variable = example.then(example => std.jsondecode({
- *     input: example.value,
- * })).then(invoke => invoke.result);
+ * export const variable = std.jsondecode({
+ *     input: example.then(example => example.value),
+ * }).result;
  * ```
  */
 export function getVariableObjectOutput(args: GetVariableObjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVariableObjectResult> {

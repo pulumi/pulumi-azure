@@ -273,12 +273,12 @@ class CustomDomain(pulumi.CustomResource):
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
             name="myfriendlyname",
             container_app_environment_id=example_environment.id,
-            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx")["result"],
             certificate_password="$3cretSqu1rreL")
         example_custom_domain = azure.containerapp.CustomDomain("example",
             name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
+                    prefix="asuid.")["result"],
+                suffix=".")["result"],
             container_app_id=example_app.id,
             container_app_environment_certificate_id=example_environment_certificate.id,
             certificate_binding_type="SniEnabled")
@@ -293,8 +293,8 @@ class CustomDomain(pulumi.CustomResource):
 
         example = azure.containerapp.CustomDomain("example",
             name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
+                    prefix="asuid.")["result"],
+                suffix=".")["result"],
             container_app_id=example_azurerm_container_app["id"])
         ```
 
@@ -394,12 +394,12 @@ class CustomDomain(pulumi.CustomResource):
         example_environment_certificate = azure.containerapp.EnvironmentCertificate("example",
             name="myfriendlyname",
             container_app_environment_id=example_environment.id,
-            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx").result,
+            certificate_blob=std.filebase64(input="path/to/certificate_file.pfx")["result"],
             certificate_password="$3cretSqu1rreL")
         example_custom_domain = azure.containerapp.CustomDomain("example",
             name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
+                    prefix="asuid.")["result"],
+                suffix=".")["result"],
             container_app_id=example_app.id,
             container_app_environment_certificate_id=example_environment_certificate.id,
             certificate_binding_type="SniEnabled")
@@ -414,8 +414,8 @@ class CustomDomain(pulumi.CustomResource):
 
         example = azure.containerapp.CustomDomain("example",
             name=std.trimsuffix(input=std.trimprefix(input=api["fqdn"],
-                    prefix="asuid.").result,
-                suffix=".").result,
+                    prefix="asuid.")["result"],
+                suffix=".")["result"],
             container_app_id=example_azurerm_container_app["id"])
         ```
 
