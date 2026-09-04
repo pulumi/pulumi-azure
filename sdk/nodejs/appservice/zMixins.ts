@@ -745,6 +745,28 @@ export class CallbackFunctionApp<C extends Context<R>, E, R extends Result, OS e
     }
 }
 
+/**
+ * Convenience subclass of `CallbackFunctionApp` that always targets Linux, so callers don't need
+ * to write `CallbackFunctionApp<C, E, R, "linux">` or pass `os: "linux"` themselves.
+ */
+export class LinuxCallbackFunctionApp<C extends Context<R>, E, R extends Result> extends CallbackFunctionApp<C, E, R, "linux"> {
+    constructor(name: string, bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
+                args: Omit<CallbackFunctionAppArgs<C, E, R, "linux">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, bindingsOrFunc, { ...args, os: "linux" }, opts);
+    }
+}
+
+/**
+ * Convenience subclass of `CallbackFunctionApp` that always targets Windows, so callers don't need
+ * to write `CallbackFunctionApp<C, E, R, "windows">` or pass `os: "windows"` themselves.
+ */
+export class WindowsCallbackFunctionApp<C extends Context<R>, E, R extends Result> extends CallbackFunctionApp<C, E, R, "windows"> {
+    constructor(name: string, bindingsOrFunc: pulumi.Input<BindingDefinition[]> | Function<C, E, R>,
+                args: Omit<CallbackFunctionAppArgs<C, E, R, "windows">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, bindingsOrFunc, { ...args, os: "windows" }, opts);
+    }
+}
+
 function getEndpoint(app: FunctionApp, rootPath: string) {
     return pulumi.interpolate`https://${app.defaultHostname}/${rootPath}`;
 }
@@ -812,6 +834,20 @@ export class ArchiveFunctionApp<OS extends FunctionAppOS = "linux"> extends Pack
     }
 }
 
+/** Convenience subclass of `ArchiveFunctionApp` that always targets Linux. */
+export class LinuxArchiveFunctionApp extends ArchiveFunctionApp<"linux"> {
+    constructor(name: string, args: Omit<ArchiveFunctionAppArgs<"linux">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, { ...args, os: "linux" }, opts);
+    }
+}
+
+/** Convenience subclass of `ArchiveFunctionApp` that always targets Windows. */
+export class WindowsArchiveFunctionApp extends ArchiveFunctionApp<"windows"> {
+    constructor(name: string, args: Omit<ArchiveFunctionAppArgs<"windows">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, { ...args, os: "windows" }, opts);
+    }
+}
+
 /**
   * A MultiCallbackFunctionApp is a component that instantiates a azure.appservice.FunctionApp and all the required
   * dependencies out of multiple actual JavaScript functions. At least 1 function is required. The function instances
@@ -842,6 +878,20 @@ export class MultiCallbackFunctionApp<OS extends FunctionAppOS = "linux"> extend
         }, opts);
 
         this.registerOutputs();
+    }
+}
+
+/** Convenience subclass of `MultiCallbackFunctionApp` that always targets Linux. */
+export class LinuxMultiCallbackFunctionApp extends MultiCallbackFunctionApp<"linux"> {
+    constructor(name: string, args: Omit<MultiCallbackFunctionAppArgs<"linux">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, { ...args, os: "linux" }, opts);
+    }
+}
+
+/** Convenience subclass of `MultiCallbackFunctionApp` that always targets Windows. */
+export class WindowsMultiCallbackFunctionApp extends MultiCallbackFunctionApp<"windows"> {
+    constructor(name: string, args: Omit<MultiCallbackFunctionAppArgs<"windows">, "os">, opts: pulumi.ComponentResourceOptions = {}) {
+        super(name, { ...args, os: "windows" }, opts);
     }
 }
 
