@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.Certificate;
  * import com.pulumi.azure.automation.CertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.automation.ConnectionCertificate;
  * import com.pulumi.azure.automation.ConnectionCertificateArgs;
  * import java.util.ArrayList;
@@ -68,9 +67,7 @@ import javax.annotation.Nullable;
  *             .name("certificate-example")
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
- *             .base64(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("certificate.pfx")
- *                 .build()).result())
+ *             .base64(StdFunctions.filebase64(Map.of("input", "certificate.pfx")).result())
  *             .build());
  * 
  *         var exampleConnectionCertificate = new ConnectionCertificate("exampleConnectionCertificate", ConnectionCertificateArgs.builder()

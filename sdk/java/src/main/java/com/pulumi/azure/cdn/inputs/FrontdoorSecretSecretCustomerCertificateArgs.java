@@ -18,6 +18,21 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
     public static final FrontdoorSecretSecretCustomerCertificateArgs Empty = new FrontdoorSecretSecretCustomerCertificateArgs();
 
     /**
+     * The key vault certificate expiration date.
+     * 
+     */
+    @Import(name="expirationDate")
+    private @Nullable Output<String> expirationDate;
+
+    /**
+     * @return The key vault certificate expiration date.
+     * 
+     */
+    public Optional<Output<String>> expirationDate() {
+        return Optional.ofNullable(this.expirationDate);
+    }
+
+    /**
      * The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
      * 
      * &gt; **Note:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `versionlessId` attribute as the `keyVaultCertificateId` fields value(e.g. `keyVaultCertificateId = azurerm_key_vault_certificate.example.versionless_id`).
@@ -54,6 +69,7 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
     private FrontdoorSecretSecretCustomerCertificateArgs() {}
 
     private FrontdoorSecretSecretCustomerCertificateArgs(FrontdoorSecretSecretCustomerCertificateArgs $) {
+        this.expirationDate = $.expirationDate;
         this.keyVaultCertificateId = $.keyVaultCertificateId;
         this.subjectAlternativeNames = $.subjectAlternativeNames;
     }
@@ -74,6 +90,27 @@ public final class FrontdoorSecretSecretCustomerCertificateArgs extends com.pulu
 
         public Builder(FrontdoorSecretSecretCustomerCertificateArgs defaults) {
             $ = new FrontdoorSecretSecretCustomerCertificateArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param expirationDate The key vault certificate expiration date.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expirationDate(@Nullable Output<String> expirationDate) {
+            $.expirationDate = expirationDate;
+            return this;
+        }
+
+        /**
+         * @param expirationDate The key vault certificate expiration date.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder expirationDate(String expirationDate) {
+            return expirationDate(Output.of(expirationDate));
         }
 
         /**

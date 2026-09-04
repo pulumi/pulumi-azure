@@ -151,7 +151,9 @@ class LinuxVirtualMachineScaleSetArgs:
         :param pulumi.Input[_builtins.bool] resilient_vm_deletion_enabled: Should resilient VM deletion be enabled? When enabled, the service will use a more resilient deletion process that attempts to gracefully handle failures during VM termination. Defaults to `false`.
                
                > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
-        :param pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** `rolling_upgrade_policy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         :param pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs'] scale_in: A `scale_in` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -787,7 +789,9 @@ class LinuxVirtualMachineScaleSetArgs:
     @pulumi.getter(name="rollingUpgradePolicy")
     def rolling_upgrade_policy(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
         """
-        A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** `rolling_upgrade_policy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         """
         return pulumi.get(self, "rolling_upgrade_policy")
 
@@ -1107,7 +1111,9 @@ class _LinuxVirtualMachineScaleSetState:
                
                > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        :param pulumi.Input['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs'] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** `rolling_upgrade_policy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         :param pulumi.Input['LinuxVirtualMachineScaleSetScaleInArgs'] scale_in: A `scale_in` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['LinuxVirtualMachineScaleSetSecretArgs']]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -1740,7 +1746,9 @@ class _LinuxVirtualMachineScaleSetState:
     @pulumi.getter(name="rollingUpgradePolicy")
     def rolling_upgrade_policy(self) -> pulumi.Input[Optional['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs']]:
         """
-        A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** `rolling_upgrade_policy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         """
         return pulumi.get(self, "rolling_upgrade_policy")
 
@@ -2163,7 +2171,9 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** `rolling_upgrade_policy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']] scale_in: A `scale_in` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -2562,7 +2572,9 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
                
                > **Note:** `resilient_vm_deletion_enabled` is currently not supported in the `austriaeast`, `belgiumcentral`, `centraluseuap`, `chilecentral`, `indonesiacentral`, `israelnorthwest`, `malaysiawest`, `mexicocentral`, `newzealandnorth`, `southcentralus2`, `southindia`, `southeastus3`, `southwestus`, `eastasia`, `eastus`, `southcentralus`, `southeastasia`, and `westeurope` regions.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
-        :param pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Union['LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs', 'LinuxVirtualMachineScaleSetRollingUpgradePolicyArgsDict']] rolling_upgrade_policy: A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
+               
+               > **Note:** `rolling_upgrade_policy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         :param pulumi.Input[Union['LinuxVirtualMachineScaleSetScaleInArgs', 'LinuxVirtualMachineScaleSetScaleInArgsDict']] scale_in: A `scale_in` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LinuxVirtualMachineScaleSetSecretArgs', 'LinuxVirtualMachineScaleSetSecretArgsDict']]]] secrets: One or more `secret` blocks as defined below.
         :param pulumi.Input[_builtins.bool] secure_boot_enabled: Specifies whether secure boot should be enabled on the virtual machine. Changing this forces a new resource to be created.
@@ -2993,7 +3005,9 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
     @pulumi.getter(name="rollingUpgradePolicy")
     def rolling_upgrade_policy(self) -> pulumi.Output[Optional['outputs.LinuxVirtualMachineScaleSetRollingUpgradePolicy']]:
         """
-        A `rolling_upgrade_policy` block as defined below. This is Required and can only be specified when `upgrade_mode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+        A `rolling_upgrade_policy` block as defined below. Changing this forces a new resource to be created.
+
+        > **Note:** `rolling_upgrade_policy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
         """
         return pulumi.get(self, "rolling_upgrade_policy")
 

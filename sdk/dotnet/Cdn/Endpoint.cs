@@ -75,7 +75,7 @@ namespace Pulumi.Azure.Cdn
     public partial class Endpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `IsCompressionEnabled` is `True`.
         /// </summary>
         [Output("contentTypesToCompresses")]
         public Output<ImmutableArray<string>> ContentTypesToCompresses { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _contentTypesToCompresses;
 
         /// <summary>
-        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `IsCompressionEnabled` is `True`.
         /// </summary>
         public InputList<string> ContentTypesToCompresses
         {
@@ -388,7 +388,7 @@ namespace Pulumi.Azure.Cdn
         private InputList<string>? _contentTypesToCompresses;
 
         /// <summary>
-        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        /// An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `IsCompressionEnabled` is `True`.
         /// </summary>
         public InputList<string> ContentTypesToCompresses
         {

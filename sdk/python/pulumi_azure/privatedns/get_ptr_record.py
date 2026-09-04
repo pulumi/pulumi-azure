@@ -139,11 +139,10 @@ def get_ptr_record(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatedns.PTRRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("privateDnsPtrRecordId", example_azurerm_private_dns_ptr_record["id"])
+    example = azure.privatedns.get_ptr_record(name="example",
+        zone_name="example-zone",
+        resource_group_name="example-rg")
+    pulumi.export("privateDnsPtrRecordId", example.id)
     ```
 
     ## API Providers
@@ -189,11 +188,10 @@ def get_ptr_record_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.privatedns.PTRRecord("example",
-        name="test",
-        zone_name="test-zone",
-        resource_group_name="test-rg")
-    pulumi.export("privateDnsPtrRecordId", example_azurerm_private_dns_ptr_record["id"])
+    example = azure.privatedns.get_ptr_record(name="example",
+        zone_name="example-zone",
+        resource_group_name="example-rg")
+    pulumi.export("privateDnsPtrRecordId", example.id)
     ```
 
     ## API Providers

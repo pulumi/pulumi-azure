@@ -56,7 +56,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         XmlContent = Std.File.Invoke(new()
     ///         {
     ///             Input = "example.xml",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });

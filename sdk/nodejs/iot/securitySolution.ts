@@ -122,9 +122,9 @@ export class SecuritySolution extends pulumi.CustomResource {
      */
     declare public readonly querySubscriptionIds: pulumi.Output<string[]>;
     /**
-     * A `recommendationsEnabled` block of options to enable or disable as defined below.
+     * A `recommendations` block as defined below.
      */
-    declare public readonly recommendationsEnabled: pulumi.Output<outputs.iot.SecuritySolutionRecommendationsEnabled>;
+    declare public readonly recommendations: pulumi.Output<outputs.iot.SecuritySolutionRecommendations>;
     /**
      * Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
      */
@@ -159,7 +159,7 @@ export class SecuritySolution extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["queryForResources"] = state?.queryForResources;
             resourceInputs["querySubscriptionIds"] = state?.querySubscriptionIds;
-            resourceInputs["recommendationsEnabled"] = state?.recommendationsEnabled;
+            resourceInputs["recommendations"] = state?.recommendations;
             resourceInputs["resourceGroupName"] = state?.resourceGroupName;
             resourceInputs["tags"] = state?.tags;
         } else {
@@ -185,7 +185,7 @@ export class SecuritySolution extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["queryForResources"] = args?.queryForResources;
             resourceInputs["querySubscriptionIds"] = args?.querySubscriptionIds;
-            resourceInputs["recommendationsEnabled"] = args?.recommendationsEnabled;
+            resourceInputs["recommendations"] = args?.recommendations;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;
         }
@@ -247,9 +247,9 @@ export interface SecuritySolutionState {
      */
     querySubscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A `recommendationsEnabled` block of options to enable or disable as defined below.
+     * A `recommendations` block as defined below.
      */
-    recommendationsEnabled?: pulumi.Input<inputs.iot.SecuritySolutionRecommendationsEnabled | undefined>;
+    recommendations?: pulumi.Input<inputs.iot.SecuritySolutionRecommendations | undefined>;
     /**
      * Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
      */
@@ -313,9 +313,9 @@ export interface SecuritySolutionArgs {
      */
     querySubscriptionIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A `recommendationsEnabled` block of options to enable or disable as defined below.
+     * A `recommendations` block as defined below.
      */
-    recommendationsEnabled?: pulumi.Input<inputs.iot.SecuritySolutionRecommendationsEnabled | undefined>;
+    recommendations?: pulumi.Input<inputs.iot.SecuritySolutionRecommendations | undefined>;
     /**
      * Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.
      */

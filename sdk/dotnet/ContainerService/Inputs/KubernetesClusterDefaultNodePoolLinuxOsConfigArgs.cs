@@ -36,9 +36,6 @@ namespace Pulumi.Azure.ContainerService.Inputs
         [Input("transparentHugePageDefrag")]
         public Input<string>? TransparentHugePageDefrag { get; set; }
 
-        [Input("transparentHugePageEnabled")]
-        public Input<string>? TransparentHugePageEnabled { get; set; }
-
         public KubernetesClusterDefaultNodePoolLinuxOsConfigArgs()
         {
         }

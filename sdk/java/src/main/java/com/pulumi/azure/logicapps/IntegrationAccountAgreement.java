@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.logicapps.inputs.IntegrationAccountAgreementHostIdentityArgs;
  * import com.pulumi.azure.logicapps.inputs.IntegrationAccountAgreementGuestIdentityArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -94,9 +93,7 @@ import javax.annotation.Nullable;
  *             .agreementType("AS2")
  *             .hostPartnerName(host.name())
  *             .guestPartnerName(guest.name())
- *             .content(StdFunctions.file(FileArgs.builder()
- *                 .input("testdata/integration_account_agreement_content_as2.json")
- *                 .build()).result())
+ *             .content(StdFunctions.file(Map.of("input", "testdata/integration_account_agreement_content_as2.json")).result())
  *             .hostIdentity(IntegrationAccountAgreementHostIdentityArgs.builder()
  *                 .qualifier("AS2Identity")
  *                 .value("FabrikamNY")

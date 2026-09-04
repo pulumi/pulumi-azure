@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Compute
     ///                 PublicKey = Std.File.Invoke(new()
     ///                 {
     ///                     Input = "~/.ssh/id_rsa.pub",
-    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 }).Result,
     ///             },
     ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
@@ -932,12 +932,6 @@ namespace Pulumi.Azure.Compute
         /// </summary>
         [Input("virtualMachineScaleSetId")]
         public Input<string>? VirtualMachineScaleSetId { get; set; }
-
-        /// <summary>
-        /// Specifies whether VMAgent Platform Updates is enabled. Defaults to `False`.
-        /// </summary>
-        [Input("vmAgentPlatformUpdatesEnabled")]
-        public Input<bool>? VmAgentPlatformUpdatesEnabled { get; set; }
 
         /// <summary>
         /// Specifies whether vTPM should be enabled on the virtual machine. Changing this forces a new resource to be created.

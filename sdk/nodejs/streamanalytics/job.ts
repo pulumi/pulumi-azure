@@ -123,7 +123,7 @@ export class Job extends pulumi.CustomResource {
      *
      * > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      */
-    declare public readonly jobStorageAccounts: pulumi.Output<outputs.streamanalytics.JobJobStorageAccount[] | undefined>;
+    declare public readonly jobStorageAccount: pulumi.Output<outputs.streamanalytics.JobJobStorageAccount | undefined>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
@@ -184,7 +184,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["eventsOutOfOrderPolicy"] = state?.eventsOutOfOrderPolicy;
             resourceInputs["identity"] = state?.identity;
             resourceInputs["jobId"] = state?.jobId;
-            resourceInputs["jobStorageAccounts"] = state?.jobStorageAccounts;
+            resourceInputs["jobStorageAccount"] = state?.jobStorageAccount;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
             resourceInputs["outputErrorPolicy"] = state?.outputErrorPolicy;
@@ -210,7 +210,7 @@ export class Job extends pulumi.CustomResource {
             resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args?.eventsOutOfOrderMaxDelayInSeconds;
             resourceInputs["eventsOutOfOrderPolicy"] = args?.eventsOutOfOrderPolicy;
             resourceInputs["identity"] = args?.identity;
-            resourceInputs["jobStorageAccounts"] = args?.jobStorageAccounts;
+            resourceInputs["jobStorageAccount"] = args?.jobStorageAccount;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
             resourceInputs["outputErrorPolicy"] = args?.outputErrorPolicy;
@@ -271,7 +271,7 @@ export interface JobState {
      *
      * > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      */
-    jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[] | undefined>;
+    jobStorageAccount?: pulumi.Input<inputs.streamanalytics.JobJobStorageAccount | undefined>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */
@@ -351,7 +351,7 @@ export interface JobArgs {
      *
      * > **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      */
-    jobStorageAccounts?: pulumi.Input<pulumi.Input<inputs.streamanalytics.JobJobStorageAccount>[] | undefined>;
+    jobStorageAccount?: pulumi.Input<inputs.streamanalytics.JobJobStorageAccount | undefined>;
     /**
      * The Azure Region in which the Resource Group exists. Changing this forces a new resource to be created.
      */

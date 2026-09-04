@@ -76,6 +76,77 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Cross-Region Incremental Snapshot Copy)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.compute.ManagedDisk;
+ * import com.pulumi.azure.compute.ManagedDiskArgs;
+ * import com.pulumi.azure.compute.Snapshot;
+ * import com.pulumi.azure.compute.SnapshotArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var source = new ResourceGroup("source", ResourceGroupArgs.builder()
+ *             .name("snapshot-source-rg")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var sourceManagedDisk = new ManagedDisk("sourceManagedDisk", ManagedDiskArgs.builder()
+ *             .name("source-managed-disk")
+ *             .location(source.location())
+ *             .resourceGroupName(source.name())
+ *             .storageAccountType("Standard_LRS")
+ *             .createOption("Empty")
+ *             .diskSizeGb(10)
+ *             .build());
+ * 
+ *         var sourceSnapshot = new Snapshot("sourceSnapshot", SnapshotArgs.builder()
+ *             .name("source-snapshot")
+ *             .location(source.location())
+ *             .resourceGroupName(source.name())
+ *             .createOption("Copy")
+ *             .sourceUri(sourceManagedDisk.id())
+ *             .incrementalEnabled(true)
+ *             .build());
+ * 
+ *         var target = new ResourceGroup("target", ResourceGroupArgs.builder()
+ *             .name("snapshot-target-rg")
+ *             .location("North Europe")
+ *             .build());
+ * 
+ *         var targetSnapshot = new Snapshot("targetSnapshot", SnapshotArgs.builder()
+ *             .name("target-snapshot")
+ *             .location(target.location())
+ *             .resourceGroupName(target.name())
+ *             .createOption("CopyStart")
+ *             .sourceResourceId(sourceSnapshot.id())
+ *             .incrementalEnabled(true)
+ *             .publicNetworkAccessEnabled(false)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## API Providers
  * 
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
@@ -95,18 +166,22 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:compute/snapshot:Snapshot")
 public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
-     * Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
      * 
      * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+     * 
+     * &gt; **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
      * 
      */
     @Export(name="createOption", refs={String.class}, tree="[0]")
     private Output<String> createOption;
 
     /**
-     * @return Indicates how the snapshot is to be created. Possible values are `Copy` or `Import`.
+     * @return Indicates how the snapshot is to be created. Possible values are `Copy`, `CopyStart` or `Import`.
      * 
      * &gt; **Note:** One of `sourceUri`, `sourceResourceId` or `storageAccountId` must be specified.
+     * 
+     * &gt; **Note:** When `createOption` is set to `CopyStart` the snapshot is created using a background copy operation (for example when copying an incremental snapshot across regions). Terraform waits for the copy to reach 100% completion before finishing the create.
      * 
      */
     public Output<String> createOption() {
@@ -243,14 +318,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return this.resourceGroupName;
     }
     /**
-     * Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+     * Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="sourceResourceId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceResourceId;
 
     /**
-     * @return Specifies a reference to an existing snapshot, when `createOption` is `Copy`. Changing this forces a new resource to be created.
+     * @return Specifies a reference to an existing snapshot, when `createOption` is `Copy` or `CopyStart`. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<String>> sourceResourceId() {

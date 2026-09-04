@@ -258,7 +258,7 @@ class ConnectionCertificate(pulumi.CustomResource):
             name="certificate-example",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
-            base64=std.filebase64(input="certificate.pfx").result)
+            base64=std.filebase64(input="certificate.pfx")["result"])
         example_connection_certificate = azure.automation.ConnectionCertificate("example",
             name="connection-example",
             resource_group_name=example_resource_group.name,
@@ -321,7 +321,7 @@ class ConnectionCertificate(pulumi.CustomResource):
             name="certificate-example",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
-            base64=std.filebase64(input="certificate.pfx").result)
+            base64=std.filebase64(input="certificate.pfx")["result"])
         example_connection_certificate = azure.automation.ConnectionCertificate("example",
             name="connection-example",
             resource_group_name=example_resource_group.name,

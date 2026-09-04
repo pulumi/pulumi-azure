@@ -53,7 +53,7 @@ class GetAccountResult:
     @pulumi.getter(name="accountUri")
     def account_uri(self) -> _builtins.str:
         """
-        The URI of the Trusted Signing Account.
+        The URI of the Artifact Signing Account.
         """
         return pulumi.get(self, "account_uri")
 
@@ -69,7 +69,7 @@ class GetAccountResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        The Azure Region where the Trusted Signing Account exists.
+        The Azure Region where the Artifact Signing Account exists.
         """
         return pulumi.get(self, "location")
 
@@ -87,7 +87,7 @@ class GetAccountResult:
     @pulumi.getter(name="skuName")
     def sku_name(self) -> _builtins.str:
         """
-        The sku name of the Trusted Signing Account.
+        The sku name of the Artifact Signing Account.
         """
         return pulumi.get(self, "sku_name")
 
@@ -95,7 +95,7 @@ class GetAccountResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        A mapping of tags assigned to the Trusted Signing Account.
+        A mapping of tags assigned to the Artifact Signing Account.
         """
         return pulumi.get(self, "tags")
 
@@ -119,7 +119,9 @@ def get_account(name: Optional[_builtins.str] = None,
                 resource_group_name: Optional[_builtins.str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountResult:
     """
-    Use this data source to access information about an existing Trusted Signing Account.
+    Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+
+    > **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
 
     ## Example Usage
 
@@ -137,11 +139,11 @@ def get_account(name: Optional[_builtins.str] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.CodeSigning` - 2024-09-30-preview
+    * `Microsoft.CodeSigning` - 2025-10-13
 
 
-    :param _builtins.str name: The name of the Trusted Signing Account.
-    :param _builtins.str resource_group_name: The name of the Resource Group where the Trusted Signing Account exists.
+    :param _builtins.str name: The name of the Artifact Signing Account.
+    :param _builtins.str resource_group_name: The name of the Resource Group where the Artifact Signing Account exists.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -161,7 +163,9 @@ def get_account_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                        resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountResult]:
     """
-    Use this data source to access information about an existing Trusted Signing Account.
+    Use this data source to access information about an existing Trusted Signing Account (Artifact Signing Account).
+
+    > **Note:** The resource provider has been rebranded to [Artifact Signing](https://learn.microsoft.com/azure/artifact-signing/overview).
 
     ## Example Usage
 
@@ -179,11 +183,11 @@ def get_account_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     <!-- This section is generated, changes will be overwritten -->
     This data source uses the following Azure API Providers:
 
-    * `Microsoft.CodeSigning` - 2024-09-30-preview
+    * `Microsoft.CodeSigning` - 2025-10-13
 
 
-    :param _builtins.str name: The name of the Trusted Signing Account.
-    :param _builtins.str resource_group_name: The name of the Resource Group where the Trusted Signing Account exists.
+    :param _builtins.str name: The name of the Artifact Signing Account.
+    :param _builtins.str resource_group_name: The name of the Resource Group where the Artifact Signing Account exists.
     """
     __args__ = dict()
     __args__['name'] = name

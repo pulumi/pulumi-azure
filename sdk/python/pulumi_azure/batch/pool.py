@@ -27,7 +27,6 @@ class PoolArgs:
                  storage_image_reference: pulumi.Input['PoolStorageImageReferenceArgs'],
                  vm_size: pulumi.Input[_builtins.str],
                  auto_scale: pulumi.Input[Optional['PoolAutoScaleArgs']] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]] = None,
                  container_configuration: pulumi.Input[Optional['PoolContainerConfigurationArgs']] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['PoolDataDiskArgs']]]] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]]] = None,
@@ -93,11 +92,6 @@ class PoolArgs:
         pulumi.set(__self__, "vm_size", vm_size)
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
-        if certificates is not None:
-            warnings.warn("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""certificates is deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-        if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
         if data_disks is not None:
@@ -218,16 +212,6 @@ class PoolArgs:
     @auto_scale.setter
     def auto_scale(self, value: pulumi.Input[Optional['PoolAutoScaleArgs']]):
         pulumi.set(self, "auto_scale", value)
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]]:
-        return pulumi.get(self, "certificates")
-
-    @certificates.setter
-    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]]):
-        pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
@@ -511,7 +495,6 @@ class _PoolState:
     def __init__(__self__, *,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_scale: pulumi.Input[Optional['PoolAutoScaleArgs']] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]] = None,
                  container_configuration: pulumi.Input[Optional['PoolContainerConfigurationArgs']] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input['PoolDataDiskArgs']]]] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['PoolDiskEncryptionArgs']]]] = None,
@@ -578,11 +561,6 @@ class _PoolState:
             pulumi.set(__self__, "account_name", account_name)
         if auto_scale is not None:
             pulumi.set(__self__, "auto_scale", auto_scale)
-        if certificates is not None:
-            warnings.warn("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""", DeprecationWarning)
-            pulumi.log.warn("""certificates is deprecated: the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-        if certificates is not None:
-            pulumi.set(__self__, "certificates", certificates)
         if container_configuration is not None:
             pulumi.set(__self__, "container_configuration", container_configuration)
         if data_disks is not None:
@@ -663,16 +641,6 @@ class _PoolState:
     @auto_scale.setter
     def auto_scale(self, value: pulumi.Input[Optional['PoolAutoScaleArgs']]):
         pulumi.set(self, "auto_scale", value)
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-    def certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]]:
-        return pulumi.get(self, "certificates")
-
-    @certificates.setter
-    def certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PoolCertificateArgs']]]]):
-        pulumi.set(self, "certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")
@@ -1007,7 +975,6 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict']]]]] = None,
                  container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']]] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]]] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]]] = None,
@@ -1273,7 +1240,6 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_name: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict']]]]] = None,
                  container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']]] = None,
                  data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]]] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]]] = None,
@@ -1314,7 +1280,6 @@ class Pool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'account_name'")
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["auto_scale"] = auto_scale
-            __props__.__dict__["certificates"] = certificates
             __props__.__dict__["container_configuration"] = container_configuration
             __props__.__dict__["data_disks"] = data_disks
             __props__.__dict__["disk_encryptions"] = disk_encryptions
@@ -1362,7 +1327,6 @@ class Pool(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             account_name: pulumi.Input[Optional[_builtins.str]] = None,
             auto_scale: pulumi.Input[Optional[Union['PoolAutoScaleArgs', 'PoolAutoScaleArgsDict']]] = None,
-            certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolCertificateArgs', 'PoolCertificateArgsDict']]]]] = None,
             container_configuration: pulumi.Input[Optional[Union['PoolContainerConfigurationArgs', 'PoolContainerConfigurationArgsDict']]] = None,
             data_disks: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDataDiskArgs', 'PoolDataDiskArgsDict']]]]] = None,
             disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PoolDiskEncryptionArgs', 'PoolDiskEncryptionArgsDict']]]]] = None,
@@ -1435,7 +1399,6 @@ class Pool(pulumi.CustomResource):
 
         __props__.__dict__["account_name"] = account_name
         __props__.__dict__["auto_scale"] = auto_scale
-        __props__.__dict__["certificates"] = certificates
         __props__.__dict__["container_configuration"] = container_configuration
         __props__.__dict__["data_disks"] = data_disks
         __props__.__dict__["disk_encryptions"] = disk_encryptions
@@ -1482,12 +1445,6 @@ class Pool(pulumi.CustomResource):
         > **Note:** `fixed_scale` and `auto_scale` blocks cannot be used both at the same time.
         """
         return pulumi.get(self, "auto_scale")
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.""")
-    def certificates(self) -> pulumi.Output[Optional[Sequence['outputs.PoolCertificate']]]:
-        return pulumi.get(self, "certificates")
 
     @_builtins.property
     @pulumi.getter(name="containerConfiguration")

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -734,29 +734,45 @@ func (i JobJobStorageAccountArgs) ToJobJobStorageAccountOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(JobJobStorageAccountOutput)
 }
 
-// JobJobStorageAccountArrayInput is an input type that accepts JobJobStorageAccountArray and JobJobStorageAccountArrayOutput values.
-// You can construct a concrete instance of `JobJobStorageAccountArrayInput` via:
+func (i JobJobStorageAccountArgs) ToJobJobStorageAccountPtrOutput() JobJobStorageAccountPtrOutput {
+	return i.ToJobJobStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i JobJobStorageAccountArgs) ToJobJobStorageAccountPtrOutputWithContext(ctx context.Context) JobJobStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobJobStorageAccountOutput).ToJobJobStorageAccountPtrOutputWithContext(ctx)
+}
+
+// JobJobStorageAccountPtrInput is an input type that accepts JobJobStorageAccountArgs, JobJobStorageAccountPtr and JobJobStorageAccountPtrOutput values.
+// You can construct a concrete instance of `JobJobStorageAccountPtrInput` via:
 //
-//	JobJobStorageAccountArray{ JobJobStorageAccountArgs{...} }
-type JobJobStorageAccountArrayInput interface {
+//	        JobJobStorageAccountArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobJobStorageAccountPtrInput interface {
 	pulumi.Input
 
-	ToJobJobStorageAccountArrayOutput() JobJobStorageAccountArrayOutput
-	ToJobJobStorageAccountArrayOutputWithContext(context.Context) JobJobStorageAccountArrayOutput
+	ToJobJobStorageAccountPtrOutput() JobJobStorageAccountPtrOutput
+	ToJobJobStorageAccountPtrOutputWithContext(context.Context) JobJobStorageAccountPtrOutput
 }
 
-type JobJobStorageAccountArray []JobJobStorageAccountInput
+type jobJobStorageAccountPtrType JobJobStorageAccountArgs
 
-func (JobJobStorageAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobJobStorageAccount)(nil)).Elem()
+func JobJobStorageAccountPtr(v *JobJobStorageAccountArgs) JobJobStorageAccountPtrInput {
+	return (*jobJobStorageAccountPtrType)(v)
 }
 
-func (i JobJobStorageAccountArray) ToJobJobStorageAccountArrayOutput() JobJobStorageAccountArrayOutput {
-	return i.ToJobJobStorageAccountArrayOutputWithContext(context.Background())
+func (*jobJobStorageAccountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobJobStorageAccount)(nil)).Elem()
 }
 
-func (i JobJobStorageAccountArray) ToJobJobStorageAccountArrayOutputWithContext(ctx context.Context) JobJobStorageAccountArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobJobStorageAccountArrayOutput)
+func (i *jobJobStorageAccountPtrType) ToJobJobStorageAccountPtrOutput() JobJobStorageAccountPtrOutput {
+	return i.ToJobJobStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (i *jobJobStorageAccountPtrType) ToJobJobStorageAccountPtrOutputWithContext(ctx context.Context) JobJobStorageAccountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobJobStorageAccountPtrOutput)
 }
 
 type JobJobStorageAccountOutput struct{ *pulumi.OutputState }
@@ -771,6 +787,16 @@ func (o JobJobStorageAccountOutput) ToJobJobStorageAccountOutput() JobJobStorage
 
 func (o JobJobStorageAccountOutput) ToJobJobStorageAccountOutputWithContext(ctx context.Context) JobJobStorageAccountOutput {
 	return o
+}
+
+func (o JobJobStorageAccountOutput) ToJobJobStorageAccountPtrOutput() JobJobStorageAccountPtrOutput {
+	return o.ToJobJobStorageAccountPtrOutputWithContext(context.Background())
+}
+
+func (o JobJobStorageAccountOutput) ToJobJobStorageAccountPtrOutputWithContext(ctx context.Context) JobJobStorageAccountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobJobStorageAccount) *JobJobStorageAccount {
+		return &v
+	}).(JobJobStorageAccountPtrOutput)
 }
 
 // The account key for the Azure storage account.
@@ -788,24 +814,58 @@ func (o JobJobStorageAccountOutput) AuthenticationMode() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v JobJobStorageAccount) *string { return v.AuthenticationMode }).(pulumi.StringPtrOutput)
 }
 
-type JobJobStorageAccountArrayOutput struct{ *pulumi.OutputState }
+type JobJobStorageAccountPtrOutput struct{ *pulumi.OutputState }
 
-func (JobJobStorageAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobJobStorageAccount)(nil)).Elem()
+func (JobJobStorageAccountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobJobStorageAccount)(nil)).Elem()
 }
 
-func (o JobJobStorageAccountArrayOutput) ToJobJobStorageAccountArrayOutput() JobJobStorageAccountArrayOutput {
+func (o JobJobStorageAccountPtrOutput) ToJobJobStorageAccountPtrOutput() JobJobStorageAccountPtrOutput {
 	return o
 }
 
-func (o JobJobStorageAccountArrayOutput) ToJobJobStorageAccountArrayOutputWithContext(ctx context.Context) JobJobStorageAccountArrayOutput {
+func (o JobJobStorageAccountPtrOutput) ToJobJobStorageAccountPtrOutputWithContext(ctx context.Context) JobJobStorageAccountPtrOutput {
 	return o
 }
 
-func (o JobJobStorageAccountArrayOutput) Index(i pulumi.IntInput) JobJobStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobJobStorageAccount {
-		return vs[0].([]JobJobStorageAccount)[vs[1].(int)]
+func (o JobJobStorageAccountPtrOutput) Elem() JobJobStorageAccountOutput {
+	return o.ApplyT(func(v *JobJobStorageAccount) JobJobStorageAccount {
+		if v != nil {
+			return *v
+		}
+		var ret JobJobStorageAccount
+		return ret
 	}).(JobJobStorageAccountOutput)
+}
+
+// The account key for the Azure storage account.
+func (o JobJobStorageAccountPtrOutput) AccountKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobJobStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccountKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the Azure storage account.
+func (o JobJobStorageAccountPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobJobStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authentication mode of the storage account. Possible values are `ConnectionString` and `Msi`. Defaults to `ConnectionString`.
+func (o JobJobStorageAccountPtrOutput) AuthenticationMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobJobStorageAccount) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationMode
+	}).(pulumi.StringPtrOutput)
 }
 
 type OutputBlobSerialization struct {
@@ -2779,7 +2839,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobIdentityInput)(nil)).Elem(), JobIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobIdentityPtrInput)(nil)).Elem(), JobIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobJobStorageAccountInput)(nil)).Elem(), JobJobStorageAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobJobStorageAccountArrayInput)(nil)).Elem(), JobJobStorageAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobJobStorageAccountPtrInput)(nil)).Elem(), JobJobStorageAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputBlobSerializationInput)(nil)).Elem(), OutputBlobSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputBlobSerializationPtrInput)(nil)).Elem(), OutputBlobSerializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OutputEventHubSerializationInput)(nil)).Elem(), OutputEventHubSerializationArgs{})
@@ -2811,7 +2871,7 @@ func init() {
 	pulumi.RegisterOutputType(JobIdentityOutput{})
 	pulumi.RegisterOutputType(JobIdentityPtrOutput{})
 	pulumi.RegisterOutputType(JobJobStorageAccountOutput{})
-	pulumi.RegisterOutputType(JobJobStorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(JobJobStorageAccountPtrOutput{})
 	pulumi.RegisterOutputType(OutputBlobSerializationOutput{})
 	pulumi.RegisterOutputType(OutputBlobSerializationPtrOutput{})
 	pulumi.RegisterOutputType(OutputEventHubSerializationOutput{})

@@ -30,7 +30,7 @@ namespace Pulumi.Azure.Stack.Outputs
         /// <summary>
         /// A `Route` block as defined above. Changing this forces a new resource to be created.
         /// </summary>
-        public readonly ImmutableArray<Outputs.HciLogicalNetworkSubnetRoute> Routes;
+        public readonly Outputs.HciLogicalNetworkSubnetRoute? Route;
         /// <summary>
         /// The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
         /// </summary>
@@ -44,14 +44,14 @@ namespace Pulumi.Azure.Stack.Outputs
 
             ImmutableArray<Outputs.HciLogicalNetworkSubnetIpPool> ipPools,
 
-            ImmutableArray<Outputs.HciLogicalNetworkSubnetRoute> routes,
+            Outputs.HciLogicalNetworkSubnetRoute? route,
 
             int? vlanId)
         {
             AddressPrefix = addressPrefix;
             IpAllocationMethod = ipAllocationMethod;
             IpPools = ipPools;
-            Routes = routes;
+            Route = route;
             VlanId = vlanId;
         }
     }

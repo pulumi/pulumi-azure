@@ -23,7 +23,7 @@ class ServerSecurityAlertPolicyArgs:
                  server_name: pulumi.Input[_builtins.str],
                  state: pulumi.Input[_builtins.str],
                  disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  retention_days: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_account_access_key: pulumi.Input[Optional[_builtins.str]] = None,
@@ -35,7 +35,7 @@ class ServerSecurityAlertPolicyArgs:
         :param pulumi.Input[_builtins.str] server_name: Specifies the name of the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] state: Specifies the state of the policy. Possible values are `Disabled` or `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
-        :param pulumi.Input[_builtins.bool] email_account_admins: Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] email_account_admins_enabled: Are the alerts sent to the account administrators? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
         :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
         :param pulumi.Input[_builtins.str] storage_account_access_key: Specifies the primary access key of the Threat Detection audit logs blob storage endpoint.
@@ -52,8 +52,8 @@ class ServerSecurityAlertPolicyArgs:
         pulumi.set(__self__, "state", state)
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
-        if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+        if email_account_admins_enabled is not None:
+            pulumi.set(__self__, "email_account_admins_enabled", email_account_admins_enabled)
         if email_addresses is not None:
             pulumi.set(__self__, "email_addresses", email_addresses)
         if retention_days is not None:
@@ -112,16 +112,16 @@ class ServerSecurityAlertPolicyArgs:
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
-    @pulumi.getter(name="emailAccountAdmins")
-    def email_account_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    @pulumi.getter(name="emailAccountAdminsEnabled")
+    def email_account_admins_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+        Are the alerts sent to the account administrators? Defaults to `false`.
         """
-        return pulumi.get(self, "email_account_admins")
+        return pulumi.get(self, "email_account_admins_enabled")
 
-    @email_account_admins.setter
-    def email_account_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "email_account_admins", value)
+    @email_account_admins_enabled.setter
+    def email_account_admins_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "email_account_admins_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
@@ -182,7 +182,7 @@ class ServerSecurityAlertPolicyArgs:
 class _ServerSecurityAlertPolicyState:
     def __init__(__self__, *,
                  disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -194,7 +194,7 @@ class _ServerSecurityAlertPolicyState:
         Input properties used for looking up and filtering ServerSecurityAlertPolicy resources.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
-        :param pulumi.Input[_builtins.bool] email_account_admins: Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] email_account_admins_enabled: Are the alerts sent to the account administrators? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
@@ -211,8 +211,8 @@ class _ServerSecurityAlertPolicyState:
         """
         if disabled_alerts is not None:
             pulumi.set(__self__, "disabled_alerts", disabled_alerts)
-        if email_account_admins is not None:
-            pulumi.set(__self__, "email_account_admins", email_account_admins)
+        if email_account_admins_enabled is not None:
+            pulumi.set(__self__, "email_account_admins_enabled", email_account_admins_enabled)
         if email_addresses is not None:
             pulumi.set(__self__, "email_addresses", email_addresses)
         if resource_group_name is not None:
@@ -241,16 +241,16 @@ class _ServerSecurityAlertPolicyState:
         pulumi.set(self, "disabled_alerts", value)
 
     @_builtins.property
-    @pulumi.getter(name="emailAccountAdmins")
-    def email_account_admins(self) -> pulumi.Input[Optional[_builtins.bool]]:
+    @pulumi.getter(name="emailAccountAdminsEnabled")
+    def email_account_admins_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+        Are the alerts sent to the account administrators? Defaults to `false`.
         """
-        return pulumi.get(self, "email_account_admins")
+        return pulumi.get(self, "email_account_admins_enabled")
 
-    @email_account_admins.setter
-    def email_account_admins(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "email_account_admins", value)
+    @email_account_admins_enabled.setter
+    def email_account_admins_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "email_account_admins_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")
@@ -350,7 +350,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -405,7 +405,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql` - 2023-08-01-preview
+        * `Microsoft.Sql` - 2025-01-01
 
         ## Import
 
@@ -419,7 +419,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
-        :param pulumi.Input[_builtins.bool] email_account_admins: Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] email_account_admins_enabled: Are the alerts sent to the account administrators? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
@@ -486,7 +486,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql` - 2023-08-01-preview
+        * `Microsoft.Sql` - 2025-01-01
 
         ## Import
 
@@ -513,7 +513,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 email_account_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+                 email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  retention_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -531,7 +531,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             __props__ = ServerSecurityAlertPolicyArgs.__new__(ServerSecurityAlertPolicyArgs)
 
             __props__.__dict__["disabled_alerts"] = disabled_alerts
-            __props__.__dict__["email_account_admins"] = email_account_admins
+            __props__.__dict__["email_account_admins_enabled"] = email_account_admins_enabled
             __props__.__dict__["email_addresses"] = email_addresses
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -558,7 +558,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             disabled_alerts: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            email_account_admins: pulumi.Input[Optional[_builtins.bool]] = None,
+            email_account_admins_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
             retention_days: pulumi.Input[Optional[_builtins.int]] = None,
@@ -574,7 +574,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: `Sql_Injection`, `Sql_Injection_Vulnerability`, `Access_Anomaly`, `Data_Exfiltration`, `Unsafe_Action`.
-        :param pulumi.Input[_builtins.bool] email_account_admins: Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+        :param pulumi.Input[_builtins.bool] email_account_admins_enabled: Are the alerts sent to the account administrators? Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] email_addresses: Specifies an array of email addresses to which the alert is sent.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.int] retention_days: Specifies the number of days to keep the Threat Detection audit logs. Defaults to `0`.
@@ -594,7 +594,7 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         __props__ = _ServerSecurityAlertPolicyState.__new__(_ServerSecurityAlertPolicyState)
 
         __props__.__dict__["disabled_alerts"] = disabled_alerts
-        __props__.__dict__["email_account_admins"] = email_account_admins
+        __props__.__dict__["email_account_admins_enabled"] = email_account_admins_enabled
         __props__.__dict__["email_addresses"] = email_addresses
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["retention_days"] = retention_days
@@ -613,12 +613,12 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         return pulumi.get(self, "disabled_alerts")
 
     @_builtins.property
-    @pulumi.getter(name="emailAccountAdmins")
-    def email_account_admins(self) -> pulumi.Output[Optional[_builtins.bool]]:
+    @pulumi.getter(name="emailAccountAdminsEnabled")
+    def email_account_admins_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Are the alerts sent to the account administrators? Possible values are `true` or `false`. Defaults to `false`.
+        Are the alerts sent to the account administrators? Defaults to `false`.
         """
-        return pulumi.get(self, "email_account_admins")
+        return pulumi.get(self, "email_account_admins_enabled")
 
     @_builtins.property
     @pulumi.getter(name="emailAddresses")

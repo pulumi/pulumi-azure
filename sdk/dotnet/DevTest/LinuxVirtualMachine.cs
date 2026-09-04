@@ -63,7 +63,7 @@ namespace Pulumi.Azure.DevTest
     ///         SshKey = Std.File.Invoke(new()
     ///         {
     ///             Input = "~/.ssh/id_rsa.pub",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         LabVirtualNetworkId = exampleVirtualNetwork.Id,
     ///         LabSubnetName = exampleVirtualNetwork.Subnet.Apply(subnet =&gt; subnet.Name),
     ///         StorageType = "Premium",

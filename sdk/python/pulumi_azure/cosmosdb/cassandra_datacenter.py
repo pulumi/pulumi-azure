@@ -46,8 +46,6 @@ class CassandraDatacenterArgs:
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
-               
-               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         pulumi.set(__self__, "cassandra_cluster_id", cassandra_cluster_id)
         pulumi.set(__self__, "delegated_management_subnet_id", delegated_management_subnet_id)
@@ -209,8 +207,6 @@ class CassandraDatacenterArgs:
     def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the selected sku. Defaults to `Standard_E16s_v5`.
-
-        > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -251,8 +247,6 @@ class _CassandraDatacenterState:
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
         :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
-               
-               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         if availability_zones_enabled is not None:
             pulumi.set(__self__, "availability_zones_enabled", availability_zones_enabled)
@@ -430,8 +424,6 @@ class _CassandraDatacenterState:
     def sku_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Determines the selected sku. Defaults to `Standard_E16s_v5`.
-
-        > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         return pulumi.get(self, "sku_name")
 
@@ -464,6 +456,56 @@ class CassandraDatacenter(pulumi.CustomResource):
 
         > **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="accexample-rg",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        example = azuread.service_principal(display_name="Azure Cosmos DB")
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_virtual_network.id,
+            role_definition_name="Network Contributor",
+            principal_id=example["objectId"])
+        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("example",
+            name="example-cluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            delegated_management_subnet_id=example_subnet.id,
+            default_admin_password="Password1234",
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
+        example_cassandra_datacenter = azure.cosmosdb.CassandraDatacenter("example",
+            name="example-datacenter",
+            location=example_cassandra_cluster.location,
+            cassandra_cluster_id=example_cassandra_cluster.id,
+            delegated_management_subnet_id=example_subnet.id,
+            node_count=3,
+            disk_count=4,
+            sku_name="Standard_DS14_v2",
+            availability_zones_enabled=False)
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2023-04-15
+
         ## Import
 
         Cassandra Datacenters can be imported using the `resource id`, e.g.
@@ -487,8 +529,6 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name which should be used for this Cassandra Datacenter. Changing this forces a new Cassandra Datacenter to be created.
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
-               
-               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         ...
     @overload
@@ -500,6 +540,56 @@ class CassandraDatacenter(pulumi.CustomResource):
         Manages a Cassandra Datacenter.
 
         > **Note:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_azuread as azuread
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="accexample-rg",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            address_spaces=["10.0.0.0/16"])
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example_resource_group.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.1.0/24"])
+        example = azuread.service_principal(display_name="Azure Cosmos DB")
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_virtual_network.id,
+            role_definition_name="Network Contributor",
+            principal_id=example["objectId"])
+        example_cassandra_cluster = azure.cosmosdb.CassandraCluster("example",
+            name="example-cluster",
+            resource_group_name=example_resource_group.name,
+            location=example_resource_group.location,
+            delegated_management_subnet_id=example_subnet.id,
+            default_admin_password="Password1234",
+            opts = pulumi.ResourceOptions(depends_on=[example_assignment]))
+        example_cassandra_datacenter = azure.cosmosdb.CassandraDatacenter("example",
+            name="example-datacenter",
+            location=example_cassandra_cluster.location,
+            cassandra_cluster_id=example_cassandra_cluster.id,
+            delegated_management_subnet_id=example_subnet.id,
+            node_count=3,
+            disk_count=4,
+            sku_name="Standard_DS14_v2",
+            availability_zones_enabled=False)
+        ```
+
+        ## API Providers
+
+        <!-- This section is generated, changes will be overwritten -->
+        This resource uses the following Azure API Providers:
+
+        * `Microsoft.DocumentDB` - 2023-04-15
 
         ## Import
 
@@ -606,8 +696,6 @@ class CassandraDatacenter(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] node_count: The number of nodes the Cassandra Datacenter should have. The number should be equal or greater than `3`. Defaults to `3`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] seed_node_ip_addresses: A list of IP Address for the seed nodes in this Cassandra Datacenter.
         :param pulumi.Input[_builtins.str] sku_name: Determines the selected sku. Defaults to `Standard_E16s_v5`.
-               
-               > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -729,8 +817,6 @@ class CassandraDatacenter(pulumi.CustomResource):
     def sku_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Determines the selected sku. Defaults to `Standard_E16s_v5`.
-
-        > **Note:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`.
         """
         return pulumi.get(self, "sku_name")
 

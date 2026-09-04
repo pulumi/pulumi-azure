@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/netapp"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -92,9 +92,9 @@ type LookupVolumeResult struct {
 	LargeVolumeEnabled bool `pulumi:"largeVolumeEnabled"`
 	// The Azure Region where the NetApp Volume exists.
 	Location string `pulumi:"location"`
-	// A list of IPv4 Addresses which should be used to mount the volume.
-	MountIpAddresses []string `pulumi:"mountIpAddresses"`
-	Name             string   `pulumi:"name"`
+	// One or more `mountTarget` blocks as defined below.
+	MountTargets []GetVolumeMountTarget `pulumi:"mountTargets"`
+	Name         string                 `pulumi:"name"`
 	// Network features in use `Basic` or `Standard`.
 	NetworkFeatures string `pulumi:"networkFeatures"`
 	PoolName        string `pulumi:"poolName"`
@@ -208,9 +208,9 @@ func (o LookupVolumeResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// A list of IPv4 Addresses which should be used to mount the volume.
-func (o LookupVolumeResultOutput) MountIpAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v LookupVolumeResult) []string { return v.MountIpAddresses }).(pulumi.StringArrayOutput)
+// One or more `mountTarget` blocks as defined below.
+func (o LookupVolumeResultOutput) MountTargets() GetVolumeMountTargetArrayOutput {
+	return o.ApplyT(func(v LookupVolumeResult) []GetVolumeMountTarget { return v.MountTargets }).(GetVolumeMountTargetArrayOutput)
 }
 
 func (o LookupVolumeResultOutput) Name() pulumi.StringOutput {

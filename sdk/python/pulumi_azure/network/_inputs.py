@@ -15,8 +15,6 @@ else:
 from .. import _utilities
 
 __all__ = [
-    'ApplicationGatewayAuthenticationCertificateArgs',
-    'ApplicationGatewayAuthenticationCertificateArgsDict',
     'ApplicationGatewayAutoscaleConfigurationArgs',
     'ApplicationGatewayAutoscaleConfigurationArgsDict',
     'ApplicationGatewayBackendArgs',
@@ -25,8 +23,6 @@ __all__ = [
     'ApplicationGatewayBackendAddressPoolArgsDict',
     'ApplicationGatewayBackendHttpSettingArgs',
     'ApplicationGatewayBackendHttpSettingArgsDict',
-    'ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs',
-    'ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict',
     'ApplicationGatewayBackendHttpSettingConnectionDrainingArgs',
     'ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict',
     'ApplicationGatewayCustomErrorConfigurationArgs',
@@ -247,6 +243,8 @@ __all__ = [
     'SubnetDelegationServiceDelegationArgsDict',
     'SubnetIpAddressPoolArgs',
     'SubnetIpAddressPoolArgsDict',
+    'SubnetServiceEndpointArgs',
+    'SubnetServiceEndpointArgsDict',
     'SubnetServiceEndpointStoragePolicyDefinitionArgs',
     'SubnetServiceEndpointStoragePolicyDefinitionArgsDict',
     'TrafficManagerAzureEndpointCustomHeaderArgs',
@@ -323,6 +321,8 @@ __all__ = [
     'VirtualNetworkSubnetDelegationArgsDict',
     'VirtualNetworkSubnetDelegationServiceDelegationArgs',
     'VirtualNetworkSubnetDelegationServiceDelegationArgsDict',
+    'VirtualNetworkSubnetServiceEndpointArgs',
+    'VirtualNetworkSubnetServiceEndpointArgsDict',
     'VnpGatewayNatRuleExternalMappingArgs',
     'VnpGatewayNatRuleExternalMappingArgsDict',
     'VnpGatewayNatRuleInternalMappingArgs',
@@ -374,73 +374,6 @@ __all__ = [
     'VpnSiteO365PolicyTrafficCategoryArgs',
     'VpnSiteO365PolicyTrafficCategoryArgsDict',
 ]
-
-class ApplicationGatewayAuthenticationCertificateArgsDict(TypedDict):
-    data: pulumi.Input[_builtins.str]
-    """
-    The contents of the Authentication Certificate which should be used.
-    """
-    name: pulumi.Input[_builtins.str]
-    """
-    The Name of the Authentication Certificate to use.
-    """
-    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The ID of the Rewrite Rule Set
-    """
-
-@pulumi.input_type
-class ApplicationGatewayAuthenticationCertificateArgs:
-    def __init__(__self__, *,
-                 data: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[_builtins.str],
-                 id: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] data: The contents of the Authentication Certificate which should be used.
-        :param pulumi.Input[_builtins.str] name: The Name of the Authentication Certificate to use.
-        :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
-        """
-        pulumi.set(__self__, "data", data)
-        pulumi.set(__self__, "name", name)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def data(self) -> pulumi.Input[_builtins.str]:
-        """
-        The contents of the Authentication Certificate which should be used.
-        """
-        return pulumi.get(self, "data")
-
-    @data.setter
-    def data(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "data", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Name of the Authentication Certificate to use.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the Rewrite Rule Set
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "id", value)
-
 
 class ApplicationGatewayAutoscaleConfigurationArgsDict(TypedDict):
     min_capacity: pulumi.Input[_builtins.int]
@@ -791,7 +724,7 @@ class ApplicationGatewayBackendHttpSettingArgsDict(TypedDict):
     """
     name: pulumi.Input[_builtins.str]
     """
-    The name of the Authentication Certificate.
+    The name of the Backend HTTP Settings Collection.
     """
     port: pulumi.Input[_builtins.int]
     """
@@ -804,10 +737,6 @@ class ApplicationGatewayBackendHttpSettingArgsDict(TypedDict):
     affinity_cookie_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The name of the affinity cookie.
-    """
-    authentication_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict']]]]]
-    """
-    One or more `authentication_certificate_backend` blocks as defined below.
     """
     certificate_chain_validation_enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -872,7 +801,6 @@ class ApplicationGatewayBackendHttpSettingArgs:
                  port: pulumi.Input[_builtins.int],
                  protocol: pulumi.Input[_builtins.str],
                  affinity_cookie_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 authentication_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]] = None,
                  certificate_chain_validation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  connection_draining: pulumi.Input[Optional['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs']] = None,
                  dedicated_backend_connection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -888,11 +816,10 @@ class ApplicationGatewayBackendHttpSettingArgs:
                  trusted_root_certificate_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] cookie_based_affinity: Is Cookie-Based Affinity enabled? Possible values are `Enabled` and `Disabled`.
-        :param pulumi.Input[_builtins.str] name: The name of the Authentication Certificate.
+        :param pulumi.Input[_builtins.str] name: The name of the Backend HTTP Settings Collection.
         :param pulumi.Input[_builtins.int] port: The port which should be used for this Backend HTTP Settings Collection.
         :param pulumi.Input[_builtins.str] protocol: The Protocol which should be used. Possible values are `Http` and `Https`.
         :param pulumi.Input[_builtins.str] affinity_cookie_name: The name of the affinity cookie.
-        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]] authentication_certificates: One or more `authentication_certificate_backend` blocks as defined below.
         :param pulumi.Input[_builtins.bool] certificate_chain_validation_enabled: Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `true`.
         :param pulumi.Input['ApplicationGatewayBackendHttpSettingConnectionDrainingArgs'] connection_draining: A `connection_draining` block as defined below.
         :param pulumi.Input[_builtins.bool] dedicated_backend_connection_enabled: Whether to use a dedicated backend connection. Defaults to `false`.
@@ -915,8 +842,6 @@ class ApplicationGatewayBackendHttpSettingArgs:
         pulumi.set(__self__, "protocol", protocol)
         if affinity_cookie_name is not None:
             pulumi.set(__self__, "affinity_cookie_name", affinity_cookie_name)
-        if authentication_certificates is not None:
-            pulumi.set(__self__, "authentication_certificates", authentication_certificates)
         if certificate_chain_validation_enabled is not None:
             pulumi.set(__self__, "certificate_chain_validation_enabled", certificate_chain_validation_enabled)
         if connection_draining is not None:
@@ -960,7 +885,7 @@ class ApplicationGatewayBackendHttpSettingArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Authentication Certificate.
+        The name of the Backend HTTP Settings Collection.
         """
         return pulumi.get(self, "name")
 
@@ -1003,18 +928,6 @@ class ApplicationGatewayBackendHttpSettingArgs:
     @affinity_cookie_name.setter
     def affinity_cookie_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "affinity_cookie_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authenticationCertificates")
-    def authentication_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]:
-        """
-        One or more `authentication_certificate_backend` blocks as defined below.
-        """
-        return pulumi.get(self, "authentication_certificates")
-
-    @authentication_certificates.setter
-    def authentication_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs']]]]):
-        pulumi.set(self, "authentication_certificates", value)
 
     @_builtins.property
     @pulumi.getter(name="certificateChainValidationEnabled")
@@ -1173,54 +1086,6 @@ class ApplicationGatewayBackendHttpSettingArgs:
     @trusted_root_certificate_names.setter
     def trusted_root_certificate_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusted_root_certificate_names", value)
-
-
-class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgsDict(TypedDict):
-    name: pulumi.Input[_builtins.str]
-    """
-    The Name of the Authentication Certificate to use.
-    """
-    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
-    """
-    The ID of the Rewrite Rule Set
-    """
-
-@pulumi.input_type
-class ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs:
-    def __init__(__self__, *,
-                 name: pulumi.Input[_builtins.str],
-                 id: pulumi.Input[Optional[_builtins.str]] = None):
-        """
-        :param pulumi.Input[_builtins.str] name: The Name of the Authentication Certificate to use.
-        :param pulumi.Input[_builtins.str] id: The ID of the Rewrite Rule Set
-        """
-        pulumi.set(__self__, "name", name)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @_builtins.property
-    @pulumi.getter
-    def name(self) -> pulumi.Input[_builtins.str]:
-        """
-        The Name of the Authentication Certificate to use.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The ID of the Rewrite Rule Set
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "id", value)
 
 
 class ApplicationGatewayBackendHttpSettingConnectionDrainingArgsDict(TypedDict):
@@ -4509,7 +4374,6 @@ class ApplicationGatewaySslProfileArgsDict(TypedDict):
     """
     The name of the Trusted Client Certificate that will be used to authenticate requests from clients.
     """
-    verify_client_cert_issuer_dn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     verify_client_certificate_issuer_dn: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
     Should client certificate issuer DN be verified? Defaults to `false`.
@@ -4526,7 +4390,6 @@ class ApplicationGatewaySslProfileArgs:
                  id: pulumi.Input[Optional[_builtins.str]] = None,
                  ssl_policy: pulumi.Input[Optional['ApplicationGatewaySslProfileSslPolicyArgs']] = None,
                  trusted_client_certificate_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 verify_client_cert_issuer_dn: pulumi.Input[Optional[_builtins.bool]] = None,
                  verify_client_certificate_issuer_dn: pulumi.Input[Optional[_builtins.bool]] = None,
                  verify_client_certificate_revocation: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -4544,11 +4407,6 @@ class ApplicationGatewaySslProfileArgs:
             pulumi.set(__self__, "ssl_policy", ssl_policy)
         if trusted_client_certificate_names is not None:
             pulumi.set(__self__, "trusted_client_certificate_names", trusted_client_certificate_names)
-        if verify_client_cert_issuer_dn is not None:
-            warnings.warn("""the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""verify_client_cert_issuer_dn is deprecated: the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider""")
-        if verify_client_cert_issuer_dn is not None:
-            pulumi.set(__self__, "verify_client_cert_issuer_dn", verify_client_cert_issuer_dn)
         if verify_client_certificate_issuer_dn is not None:
             pulumi.set(__self__, "verify_client_certificate_issuer_dn", verify_client_certificate_issuer_dn)
         if verify_client_certificate_revocation is not None:
@@ -4601,16 +4459,6 @@ class ApplicationGatewaySslProfileArgs:
     @trusted_client_certificate_names.setter
     def trusted_client_certificate_names(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "trusted_client_certificate_names", value)
-
-    @_builtins.property
-    @pulumi.getter(name="verifyClientCertIssuerDn")
-    @_utilities.deprecated("""the `ssl_profile.verify_client_cert_issuer_dn` property has been deprecated in favour of the `ssl_profile.verify_client_certificate_issuer_dn` property and will be removed in v5.0 of the AzureRM provider""")
-    def verify_client_cert_issuer_dn(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "verify_client_cert_issuer_dn")
-
-    @verify_client_cert_issuer_dn.setter
-    def verify_client_cert_issuer_dn(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "verify_client_cert_issuer_dn", value)
 
     @_builtins.property
     @pulumi.getter(name="verifyClientCertificateIssuerDn")
@@ -12452,6 +12300,54 @@ class SubnetIpAddressPoolArgs:
         pulumi.set(self, "allocated_ip_address_prefixes", value)
 
 
+class SubnetServiceEndpointArgsDict(TypedDict):
+    service: pulumi.Input[_builtins.str]
+    """
+    The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+    """
+    network_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARM resource ID of the network identifier to associate with the service endpoint.
+    """
+
+@pulumi.input_type
+class SubnetServiceEndpointArgs:
+    def __init__(__self__, *,
+                 service: pulumi.Input[_builtins.str],
+                 network_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] service: The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+        :param pulumi.Input[_builtins.str] network_identifier: The ARM resource ID of the network identifier to associate with the service endpoint.
+        """
+        pulumi.set(__self__, "service", service)
+        if network_identifier is not None:
+            pulumi.set(__self__, "network_identifier", network_identifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkIdentifier")
+    def network_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARM resource ID of the network identifier to associate with the service endpoint.
+        """
+        return pulumi.get(self, "network_identifier")
+
+    @network_identifier.setter
+    def network_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_identifier", value)
+
+
 class SubnetServiceEndpointStoragePolicyDefinitionArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
@@ -15257,9 +15153,9 @@ class VirtualNetworkSubnetArgsDict(TypedDict):
     """
     The list of IDs of Service Endpoint Policies to associate with the subnet.
     """
-    service_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    service_endpoints: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetServiceEndpointArgsDict']]]]]
     """
-    The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+    A `service_endpoint` block as defined below.
     """
 
 @pulumi.input_type
@@ -15275,7 +15171,7 @@ class VirtualNetworkSubnetArgs:
                  route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group: pulumi.Input[Optional[_builtins.str]] = None,
                  service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetServiceEndpointArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] address_prefixes: The address prefixes to use for the subnet.
         :param pulumi.Input[_builtins.str] name: The name of the subnet.
@@ -15297,7 +15193,7 @@ class VirtualNetworkSubnetArgs:
                > **Note:** If you declare the subnet inline inside `network.VirtualNetwork`, set `route_table_id` in that `subnet` block — do not also create an `network.SubnetRouteTableAssociation` for the same subnet. The association resource is for when you manage the subnet as a separate `network.Subnet` resource.
         :param pulumi.Input[_builtins.str] security_group: The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        :param pulumi.Input[Sequence[pulumi.Input['VirtualNetworkSubnetServiceEndpointArgs']]] service_endpoints: A `service_endpoint` block as defined below.
         """
         pulumi.set(__self__, "address_prefixes", address_prefixes)
         pulumi.set(__self__, "name", name)
@@ -15452,14 +15348,14 @@ class VirtualNetworkSubnetArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetServiceEndpointArgs']]]]:
         """
-        The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        A `service_endpoint` block as defined below.
         """
         return pulumi.get(self, "service_endpoints")
 
     @service_endpoints.setter
-    def service_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VirtualNetworkSubnetServiceEndpointArgs']]]]):
         pulumi.set(self, "service_endpoints", value)
 
 
@@ -15562,6 +15458,54 @@ class VirtualNetworkSubnetDelegationServiceDelegationArgs:
     @actions.setter
     def actions(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "actions", value)
+
+
+class VirtualNetworkSubnetServiceEndpointArgsDict(TypedDict):
+    service: pulumi.Input[_builtins.str]
+    """
+    The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+    """
+    network_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ARM resource ID of the network identifier to associate with the service endpoint.
+    """
+
+@pulumi.input_type
+class VirtualNetworkSubnetServiceEndpointArgs:
+    def __init__(__self__, *,
+                 service: pulumi.Input[_builtins.str],
+                 network_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] service: The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+        :param pulumi.Input[_builtins.str] network_identifier: The ARM resource ID of the network identifier to associate with the service endpoint.
+        """
+        pulumi.set(__self__, "service", service)
+        if network_identifier is not None:
+            pulumi.set(__self__, "network_identifier", network_identifier)
+
+    @_builtins.property
+    @pulumi.getter
+    def service(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Service endpoint to associate with the subnet. Possible values are `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.CognitiveService`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global`, and `Microsoft.Web`.
+        """
+        return pulumi.get(self, "service")
+
+    @service.setter
+    def service(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "service", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkIdentifier")
+    def network_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ARM resource ID of the network identifier to associate with the service endpoint.
+        """
+        return pulumi.get(self, "network_identifier")
+
+    @network_identifier.setter
+    def network_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_identifier", value)
 
 
 class VnpGatewayNatRuleExternalMappingArgsDict(TypedDict):

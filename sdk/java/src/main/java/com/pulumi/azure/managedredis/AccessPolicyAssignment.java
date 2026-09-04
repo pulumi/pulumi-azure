@@ -16,6 +16,71 @@ import javax.annotation.Nullable;
 /**
  * Manages a Managed Redis Access Policy Assignment.
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuread.AzureadFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.managedredis.ManagedRedis;
+ * import com.pulumi.azure.managedredis.ManagedRedisArgs;
+ * import com.pulumi.azure.managedredis.inputs.ManagedRedisDefaultDatabaseArgs;
+ * import com.pulumi.azure.managedredis.AccessPolicyAssignment;
+ * import com.pulumi.azure.managedredis.AccessPolicyAssignmentArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AzureadFunctions.ClientConfig(Map.ofEntries(
+ *         ));
+ * 
+ *         var example = new ResourceGroup("example", ResourceGroupArgs.builder()
+ *             .name("example-resources")
+ *             .location("West Europe")
+ *             .build());
+ * 
+ *         var exampleManagedRedis = new ManagedRedis("exampleManagedRedis", ManagedRedisArgs.builder()
+ *             .name("example-managedredis")
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .skuName("Balanced_B0")
+ *             .defaultDatabase(ManagedRedisDefaultDatabaseArgs.builder()
+ *                 .accessKeysAuthenticationEnabled(true)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAccessPolicyAssignment = new AccessPolicyAssignment("exampleAccessPolicyAssignment", AccessPolicyAssignmentArgs.builder()
+ *             .managedRedisId(exampleManagedRedis.id())
+ *             .objectId(current.objectId())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cache` - 2025-07-01
+ * 
  * ## Import
  * 
  * Managed Redis Access Policy Assignments can be imported using the `resource id`, e.g.

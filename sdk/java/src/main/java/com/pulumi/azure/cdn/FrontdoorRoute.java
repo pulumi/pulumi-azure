@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.JoinArgs;
  * import com.pulumi.azure.cdn.FrontdoorRoute;
  * import com.pulumi.azure.cdn.FrontdoorRouteArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorRouteCacheArgs;
@@ -122,12 +121,12 @@ import javax.annotation.Nullable;
  *             .name("contoso-custom-domain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
- *             .hostName(StdFunctions.join(JoinArgs.builder()
- *                 .separator(".")
- *                 .input(                
+ *             .hostName(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "."),
+ *                 Map.entry("input", Arrays.asList(                
  *                     "contoso",
- *                     exampleZone.name())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
+ *                     exampleZone.name()))
+ *             )).result())
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
  *                 .certificateType("ManagedCertificate")
  *                 .minimumTlsVersion("TLS12")
@@ -138,12 +137,12 @@ import javax.annotation.Nullable;
  *             .name("fabrikam-custom-domain")
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
- *             .hostName(StdFunctions.join(JoinArgs.builder()
- *                 .separator(".")
- *                 .input(                
+ *             .hostName(StdFunctions.join(Map.ofEntries(
+ *                 Map.entry("separator", "."),
+ *                 Map.entry("input", Arrays.asList(                
  *                     "fabrikam",
- *                     exampleZone.name())
- *                 .build()).applyValue(_invoke -> _invoke.result()))
+ *                     exampleZone.name()))
+ *             )).result())
  *             .tls(FrontdoorCustomDomainTlsArgs.builder()
  *                 .certificateType("ManagedCertificate")
  *                 .minimumTlsVersion("TLS12")
@@ -194,6 +193,13 @@ import javax.annotation.Nullable;
  * }
  * }
  * </pre>
+ * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.Cdn` - 2025-12-01
  * 
  * ## Import
  * 

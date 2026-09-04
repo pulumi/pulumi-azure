@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         Data = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "example.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });
@@ -122,7 +122,7 @@ namespace Pulumi.Azure.ApiManagement
     ///             Contents = Std.Filebase64.Invoke(new()
     ///             {
     ///                 Input = "example_cert.pfx",
-    ///             }).Apply(invoke =&gt; invoke.Result),
+    ///             }).Result,
     ///             Password = "terraform",
     ///         },
     ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs

@@ -27,13 +27,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.appservice.Plan;
- * import com.pulumi.azure.appservice.PlanArgs;
- * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
- * import com.pulumi.azure.appservice.AppService;
- * import com.pulumi.azure.appservice.AppServiceArgs;
- * import com.pulumi.azure.appservice.Slot;
- * import com.pulumi.azure.appservice.SlotArgs;
+ * import com.pulumi.azurerm.AppServicePlan;
+ * import com.pulumi.azurerm.AppServicePlanArgs;
+ * import com.pulumi.azurerm.AppService;
+ * import com.pulumi.azurerm.AppServiceArgs;
+ * import com.pulumi.azurerm.AppServiceSlot;
+ * import com.pulumi.azurerm.AppServiceSlotArgs;
  * import com.pulumi.azure.appservice.SlotCustomHostnameBinding;
  * import com.pulumi.azure.appservice.SlotCustomHostnameBindingArgs;
  * import java.util.ArrayList;
@@ -54,33 +53,33 @@ import javax.annotation.Nullable;
  *             .location("West Europe")
  *             .build());
  * 
- *         var examplePlan = new Plan("examplePlan", PlanArgs.builder()
+ *         var exampleAppServicePlan = new AppServicePlan("exampleAppServicePlan", AppServicePlanArgs.builder()
  *             .name("some-app-service-plan")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .sku(PlanSkuArgs.builder()
- *                 .tier("Standard")
- *                 .size("S1")
- *                 .build())
+ *             .sku(Arrays.asList(Map.ofEntries(
+ *                 Map.entry("tier", "Standard"),
+ *                 Map.entry("size", "S1")
+ *             )))
  *             .build());
  * 
  *         var exampleAppService = new AppService("exampleAppService", AppServiceArgs.builder()
  *             .name("some-app-service")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
- *             .appServicePlanId(examplePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.id())
  *             .build());
  * 
- *         var exampleSlot = new Slot("exampleSlot", SlotArgs.builder()
+ *         var exampleAppServiceSlot = new AppServiceSlot("exampleAppServiceSlot", AppServiceSlotArgs.builder()
  *             .name("staging")
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .appServiceName(exampleAppService.name())
- *             .appServicePlanId(examplePlan.id())
+ *             .appServicePlanId(exampleAppServicePlan.id())
  *             .build());
  * 
  *         var exampleSlotCustomHostnameBinding = new SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding", SlotCustomHostnameBindingArgs.builder()
- *             .appServiceSlotId(exampleSlot.id())
+ *             .appServiceSlotId(exampleAppServiceSlot.id())
  *             .hostname("www.mywebsite.com")
  *             .build());
  * 

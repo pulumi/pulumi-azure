@@ -115,7 +115,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.Network` - 2023-09-01
+ * * `Microsoft.Network` - 2025-01-01
  * 
  * ## Import
  * 
@@ -161,30 +161,6 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> backendPort() {
         return this.backendPort;
-    }
-    /**
-     * @deprecated
-     * This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This field is deprecated in favour of `floatingIpEnabled` and will be removed in version 5.0 of the provider. */
-    @Export(name="enableFloatingIp", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableFloatingIp;
-
-    public Output<Boolean> enableFloatingIp() {
-        return this.enableFloatingIp;
-    }
-    /**
-     * @deprecated
-     * This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider.
-     * 
-     */
-    @Deprecated /* This field is deprecated in favour of `tcpResetEnabled` and will be removed in version 5.0 of the provider. */
-    @Export(name="enableTcpReset", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> enableTcpReset;
-
-    public Output<Boolean> enableTcpReset() {
-        return this.enableTcpReset;
     }
     /**
      * Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating&#34; IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
@@ -337,14 +313,14 @@ public class NatRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="tcpResetEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> tcpResetEnabled;
+    private Output</* @Nullable */ Boolean> tcpResetEnabled;
 
     /**
      * @return Is TCP Reset enabled for this Load Balancer Rule?
      * 
      */
-    public Output<Boolean> tcpResetEnabled() {
-        return this.tcpResetEnabled;
+    public Output<Optional<Boolean>> tcpResetEnabled() {
+        return Codegen.optional(this.tcpResetEnabled);
     }
 
     /**

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2025-07-01, 2020-08-01
  *
  * ## Import
  *
@@ -96,21 +96,19 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
      */
     declare public readonly immediateDataPurgeOn30DaysEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      */
-    declare public readonly internetIngestionEnabled: pulumi.Output<boolean | undefined>;
+    declare public readonly internetIngestionAccessType: pulumi.Output<string | undefined>;
     /**
-     * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+     * Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     *
+     * > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
      */
-    declare public readonly internetQueryEnabled: pulumi.Output<boolean | undefined>;
-    /**
-     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly localAuthenticationDisabled: pulumi.Output<boolean>;
+    declare public readonly internetQueryAccessType: pulumi.Output<string | undefined>;
     /**
      * Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
      */
-    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean>;
+    declare public readonly localAuthenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -179,9 +177,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["dataCollectionRuleId"] = state?.dataCollectionRuleId;
             resourceInputs["identity"] = state?.identity;
             resourceInputs["immediateDataPurgeOn30DaysEnabled"] = state?.immediateDataPurgeOn30DaysEnabled;
-            resourceInputs["internetIngestionEnabled"] = state?.internetIngestionEnabled;
-            resourceInputs["internetQueryEnabled"] = state?.internetQueryEnabled;
-            resourceInputs["localAuthenticationDisabled"] = state?.localAuthenticationDisabled;
+            resourceInputs["internetIngestionAccessType"] = state?.internetIngestionAccessType;
+            resourceInputs["internetQueryAccessType"] = state?.internetQueryAccessType;
             resourceInputs["localAuthenticationEnabled"] = state?.localAuthenticationEnabled;
             resourceInputs["location"] = state?.location;
             resourceInputs["name"] = state?.name;
@@ -204,9 +201,8 @@ export class AnalyticsWorkspace extends pulumi.CustomResource {
             resourceInputs["dataCollectionRuleId"] = args?.dataCollectionRuleId;
             resourceInputs["identity"] = args?.identity;
             resourceInputs["immediateDataPurgeOn30DaysEnabled"] = args?.immediateDataPurgeOn30DaysEnabled;
-            resourceInputs["internetIngestionEnabled"] = args?.internetIngestionEnabled;
-            resourceInputs["internetQueryEnabled"] = args?.internetQueryEnabled;
-            resourceInputs["localAuthenticationDisabled"] = args?.localAuthenticationDisabled;
+            resourceInputs["internetIngestionAccessType"] = args?.internetIngestionAccessType;
+            resourceInputs["internetQueryAccessType"] = args?.internetQueryAccessType;
             resourceInputs["localAuthenticationEnabled"] = args?.localAuthenticationEnabled;
             resourceInputs["location"] = args?.location;
             resourceInputs["name"] = args?.name;
@@ -255,17 +251,15 @@ export interface AnalyticsWorkspaceState {
      */
     immediateDataPurgeOn30DaysEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      */
-    internetIngestionEnabled?: pulumi.Input<boolean | undefined>;
+    internetIngestionAccessType?: pulumi.Input<string | undefined>;
     /**
-     * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+     * Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     *
+     * > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
      */
-    internetQueryEnabled?: pulumi.Input<boolean | undefined>;
-    /**
-     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
+    internetQueryAccessType?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
      */
@@ -349,17 +343,15 @@ export interface AnalyticsWorkspaceArgs {
      */
     immediateDataPurgeOn30DaysEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      */
-    internetIngestionEnabled?: pulumi.Input<boolean | undefined>;
+    internetIngestionAccessType?: pulumi.Input<string | undefined>;
     /**
-     * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+     * Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     *
+     * > **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
      */
-    internetQueryEnabled?: pulumi.Input<boolean | undefined>;
-    /**
-     * @deprecated `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     */
-    localAuthenticationDisabled?: pulumi.Input<boolean | undefined>;
+    internetQueryAccessType?: pulumi.Input<string | undefined>;
     /**
      * Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
      */

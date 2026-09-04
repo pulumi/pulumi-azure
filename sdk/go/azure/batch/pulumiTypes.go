@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1356,121 +1356,6 @@ func (o PoolAutoScalePtrOutput) Formula() pulumi.StringPtrOutput {
 		}
 		return &v.Formula
 	}).(pulumi.StringPtrOutput)
-}
-
-type PoolCertificate struct {
-	// The ID of the Batch Pool.
-	Id            string   `pulumi:"id"`
-	StoreLocation string   `pulumi:"storeLocation"`
-	StoreName     *string  `pulumi:"storeName"`
-	Visibilities  []string `pulumi:"visibilities"`
-}
-
-// PoolCertificateInput is an input type that accepts PoolCertificateArgs and PoolCertificateOutput values.
-// You can construct a concrete instance of `PoolCertificateInput` via:
-//
-//	PoolCertificateArgs{...}
-type PoolCertificateInput interface {
-	pulumi.Input
-
-	ToPoolCertificateOutput() PoolCertificateOutput
-	ToPoolCertificateOutputWithContext(context.Context) PoolCertificateOutput
-}
-
-type PoolCertificateArgs struct {
-	// The ID of the Batch Pool.
-	Id            pulumi.StringInput      `pulumi:"id"`
-	StoreLocation pulumi.StringInput      `pulumi:"storeLocation"`
-	StoreName     pulumi.StringPtrInput   `pulumi:"storeName"`
-	Visibilities  pulumi.StringArrayInput `pulumi:"visibilities"`
-}
-
-func (PoolCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolCertificate)(nil)).Elem()
-}
-
-func (i PoolCertificateArgs) ToPoolCertificateOutput() PoolCertificateOutput {
-	return i.ToPoolCertificateOutputWithContext(context.Background())
-}
-
-func (i PoolCertificateArgs) ToPoolCertificateOutputWithContext(ctx context.Context) PoolCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PoolCertificateOutput)
-}
-
-// PoolCertificateArrayInput is an input type that accepts PoolCertificateArray and PoolCertificateArrayOutput values.
-// You can construct a concrete instance of `PoolCertificateArrayInput` via:
-//
-//	PoolCertificateArray{ PoolCertificateArgs{...} }
-type PoolCertificateArrayInput interface {
-	pulumi.Input
-
-	ToPoolCertificateArrayOutput() PoolCertificateArrayOutput
-	ToPoolCertificateArrayOutputWithContext(context.Context) PoolCertificateArrayOutput
-}
-
-type PoolCertificateArray []PoolCertificateInput
-
-func (PoolCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PoolCertificate)(nil)).Elem()
-}
-
-func (i PoolCertificateArray) ToPoolCertificateArrayOutput() PoolCertificateArrayOutput {
-	return i.ToPoolCertificateArrayOutputWithContext(context.Background())
-}
-
-func (i PoolCertificateArray) ToPoolCertificateArrayOutputWithContext(ctx context.Context) PoolCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PoolCertificateArrayOutput)
-}
-
-type PoolCertificateOutput struct{ *pulumi.OutputState }
-
-func (PoolCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolCertificate)(nil)).Elem()
-}
-
-func (o PoolCertificateOutput) ToPoolCertificateOutput() PoolCertificateOutput {
-	return o
-}
-
-func (o PoolCertificateOutput) ToPoolCertificateOutputWithContext(ctx context.Context) PoolCertificateOutput {
-	return o
-}
-
-// The ID of the Batch Pool.
-func (o PoolCertificateOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolCertificate) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o PoolCertificateOutput) StoreLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v PoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
-}
-
-func (o PoolCertificateOutput) StoreName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PoolCertificate) *string { return v.StoreName }).(pulumi.StringPtrOutput)
-}
-
-func (o PoolCertificateOutput) Visibilities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
-}
-
-type PoolCertificateArrayOutput struct{ *pulumi.OutputState }
-
-func (PoolCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PoolCertificate)(nil)).Elem()
-}
-
-func (o PoolCertificateArrayOutput) ToPoolCertificateArrayOutput() PoolCertificateArrayOutput {
-	return o
-}
-
-func (o PoolCertificateArrayOutput) ToPoolCertificateArrayOutputWithContext(ctx context.Context) PoolCertificateArrayOutput {
-	return o
-}
-
-func (o PoolCertificateArrayOutput) Index(i pulumi.IntInput) PoolCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolCertificate {
-		return vs[0].([]PoolCertificate)[vs[1].(int)]
-	}).(PoolCertificateOutput)
 }
 
 type PoolContainerConfiguration struct {
@@ -6119,121 +6004,6 @@ func (o GetPoolAutoScaleArrayOutput) Index(i pulumi.IntInput) GetPoolAutoScaleOu
 	}).(GetPoolAutoScaleOutput)
 }
 
-type GetPoolCertificate struct {
-	// The Batch pool ID.
-	Id            string   `pulumi:"id"`
-	StoreLocation string   `pulumi:"storeLocation"`
-	StoreName     string   `pulumi:"storeName"`
-	Visibilities  []string `pulumi:"visibilities"`
-}
-
-// GetPoolCertificateInput is an input type that accepts GetPoolCertificateArgs and GetPoolCertificateOutput values.
-// You can construct a concrete instance of `GetPoolCertificateInput` via:
-//
-//	GetPoolCertificateArgs{...}
-type GetPoolCertificateInput interface {
-	pulumi.Input
-
-	ToGetPoolCertificateOutput() GetPoolCertificateOutput
-	ToGetPoolCertificateOutputWithContext(context.Context) GetPoolCertificateOutput
-}
-
-type GetPoolCertificateArgs struct {
-	// The Batch pool ID.
-	Id            pulumi.StringInput      `pulumi:"id"`
-	StoreLocation pulumi.StringInput      `pulumi:"storeLocation"`
-	StoreName     pulumi.StringInput      `pulumi:"storeName"`
-	Visibilities  pulumi.StringArrayInput `pulumi:"visibilities"`
-}
-
-func (GetPoolCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPoolCertificate)(nil)).Elem()
-}
-
-func (i GetPoolCertificateArgs) ToGetPoolCertificateOutput() GetPoolCertificateOutput {
-	return i.ToGetPoolCertificateOutputWithContext(context.Background())
-}
-
-func (i GetPoolCertificateArgs) ToGetPoolCertificateOutputWithContext(ctx context.Context) GetPoolCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPoolCertificateOutput)
-}
-
-// GetPoolCertificateArrayInput is an input type that accepts GetPoolCertificateArray and GetPoolCertificateArrayOutput values.
-// You can construct a concrete instance of `GetPoolCertificateArrayInput` via:
-//
-//	GetPoolCertificateArray{ GetPoolCertificateArgs{...} }
-type GetPoolCertificateArrayInput interface {
-	pulumi.Input
-
-	ToGetPoolCertificateArrayOutput() GetPoolCertificateArrayOutput
-	ToGetPoolCertificateArrayOutputWithContext(context.Context) GetPoolCertificateArrayOutput
-}
-
-type GetPoolCertificateArray []GetPoolCertificateInput
-
-func (GetPoolCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetPoolCertificate)(nil)).Elem()
-}
-
-func (i GetPoolCertificateArray) ToGetPoolCertificateArrayOutput() GetPoolCertificateArrayOutput {
-	return i.ToGetPoolCertificateArrayOutputWithContext(context.Background())
-}
-
-func (i GetPoolCertificateArray) ToGetPoolCertificateArrayOutputWithContext(ctx context.Context) GetPoolCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPoolCertificateArrayOutput)
-}
-
-type GetPoolCertificateOutput struct{ *pulumi.OutputState }
-
-func (GetPoolCertificateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPoolCertificate)(nil)).Elem()
-}
-
-func (o GetPoolCertificateOutput) ToGetPoolCertificateOutput() GetPoolCertificateOutput {
-	return o
-}
-
-func (o GetPoolCertificateOutput) ToGetPoolCertificateOutputWithContext(ctx context.Context) GetPoolCertificateOutput {
-	return o
-}
-
-// The Batch pool ID.
-func (o GetPoolCertificateOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPoolCertificate) string { return v.Id }).(pulumi.StringOutput)
-}
-
-func (o GetPoolCertificateOutput) StoreLocation() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPoolCertificate) string { return v.StoreLocation }).(pulumi.StringOutput)
-}
-
-func (o GetPoolCertificateOutput) StoreName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetPoolCertificate) string { return v.StoreName }).(pulumi.StringOutput)
-}
-
-func (o GetPoolCertificateOutput) Visibilities() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetPoolCertificate) []string { return v.Visibilities }).(pulumi.StringArrayOutput)
-}
-
-type GetPoolCertificateArrayOutput struct{ *pulumi.OutputState }
-
-func (GetPoolCertificateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetPoolCertificate)(nil)).Elem()
-}
-
-func (o GetPoolCertificateArrayOutput) ToGetPoolCertificateArrayOutput() GetPoolCertificateArrayOutput {
-	return o
-}
-
-func (o GetPoolCertificateArrayOutput) ToGetPoolCertificateArrayOutputWithContext(ctx context.Context) GetPoolCertificateArrayOutput {
-	return o
-}
-
-func (o GetPoolCertificateArrayOutput) Index(i pulumi.IntInput) GetPoolCertificateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPoolCertificate {
-		return vs[0].([]GetPoolCertificate)[vs[1].(int)]
-	}).(GetPoolCertificateOutput)
-}
-
 type GetPoolContainerConfiguration struct {
 	// A list of container image names to use, as would be specified by `docker pull`.
 	ContainerImageNames []string `pulumi:"containerImageNames"`
@@ -9580,8 +9350,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountNetworkProfileNodeManagementAccessIpRuleArrayInput)(nil)).Elem(), AccountNetworkProfileNodeManagementAccessIpRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolAutoScaleInput)(nil)).Elem(), PoolAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolAutoScalePtrInput)(nil)).Elem(), PoolAutoScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PoolCertificateInput)(nil)).Elem(), PoolCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PoolCertificateArrayInput)(nil)).Elem(), PoolCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolContainerConfigurationInput)(nil)).Elem(), PoolContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolContainerConfigurationPtrInput)(nil)).Elem(), PoolContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolContainerConfigurationContainerRegistryInput)(nil)).Elem(), PoolContainerConfigurationContainerRegistryArgs{})
@@ -9646,8 +9414,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccountKeyVaultReferenceArrayInput)(nil)).Elem(), GetAccountKeyVaultReferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolAutoScaleInput)(nil)).Elem(), GetPoolAutoScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolAutoScaleArrayInput)(nil)).Elem(), GetPoolAutoScaleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolCertificateInput)(nil)).Elem(), GetPoolCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolCertificateArrayInput)(nil)).Elem(), GetPoolCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolContainerConfigurationInput)(nil)).Elem(), GetPoolContainerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolContainerConfigurationArrayInput)(nil)).Elem(), GetPoolContainerConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolContainerConfigurationContainerRegistryInput)(nil)).Elem(), GetPoolContainerConfigurationContainerRegistryArgs{})
@@ -9720,8 +9486,6 @@ func init() {
 	pulumi.RegisterOutputType(AccountNetworkProfileNodeManagementAccessIpRuleArrayOutput{})
 	pulumi.RegisterOutputType(PoolAutoScaleOutput{})
 	pulumi.RegisterOutputType(PoolAutoScalePtrOutput{})
-	pulumi.RegisterOutputType(PoolCertificateOutput{})
-	pulumi.RegisterOutputType(PoolCertificateArrayOutput{})
 	pulumi.RegisterOutputType(PoolContainerConfigurationOutput{})
 	pulumi.RegisterOutputType(PoolContainerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PoolContainerConfigurationContainerRegistryOutput{})
@@ -9786,8 +9550,6 @@ func init() {
 	pulumi.RegisterOutputType(GetAccountKeyVaultReferenceArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolAutoScaleOutput{})
 	pulumi.RegisterOutputType(GetPoolAutoScaleArrayOutput{})
-	pulumi.RegisterOutputType(GetPoolCertificateOutput{})
-	pulumi.RegisterOutputType(GetPoolCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolContainerConfigurationOutput{})
 	pulumi.RegisterOutputType(GetPoolContainerConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolContainerConfigurationContainerRegistryOutput{})

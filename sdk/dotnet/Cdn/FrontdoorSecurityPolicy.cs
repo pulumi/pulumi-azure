@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Cdn
     ///                 "contoso",
     ///                 exampleZone.Name,
     ///             },
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
     ///         {
     ///             CertificateType = "ManagedCertificate",

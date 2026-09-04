@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mysql"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatedns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mysql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatedns"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -56,8 +56,10 @@ import (
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
 //				},
-//				ServiceEndpoints: pulumi.StringArray{
-//					pulumi.String("Microsoft.Storage"),
+//				ServiceEndpoints: network.SubnetServiceEndpointArray{
+//					&network.SubnetServiceEndpointArgs{
+//						Service: pulumi.String("Microsoft.Storage"),
+//					},
 //				},
 //				Delegations: network.SubnetDelegationArray{
 //					&network.SubnetDelegationArgs{
@@ -82,10 +84,9 @@ import (
 //				return err
 //			}
 //			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				Name:               pulumi.String("exampleVnetZone.com"),
-//				PrivateDnsZoneName: exampleZone.Name,
-//				VirtualNetworkId:   exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
-//				ResourceGroupName:  example.Name,
+//				Name:             pulumi.String("exampleVnetZone.com"),
+//				PrivateDnsZoneId: exampleZone.ID().ToIDOutput().ToStringOutput(),
+//				VirtualNetworkId: exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -176,8 +177,7 @@ type FlexibleServer struct {
 	// Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
 	//
 	// > **Note:** `publicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegatedSubnetId` and `privateDnsZoneId`").
-	PublicNetworkAccess        pulumi.StringOutput `pulumi:"publicNetworkAccess"`
-	PublicNetworkAccessEnabled pulumi.BoolOutput   `pulumi:"publicNetworkAccessEnabled"`
+	PublicNetworkAccess pulumi.StringOutput `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary MySQL Flexible Server can have.
 	ReplicaCapacity pulumi.IntOutput `pulumi:"replicaCapacity"`
 	// The replication role. Possible value is `None`.
@@ -295,8 +295,7 @@ type flexibleServerState struct {
 	// Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
 	//
 	// > **Note:** `publicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegatedSubnetId` and `privateDnsZoneId`").
-	PublicNetworkAccess        *string `pulumi:"publicNetworkAccess"`
-	PublicNetworkAccessEnabled *bool   `pulumi:"publicNetworkAccessEnabled"`
+	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
 	// The maximum number of replicas that a primary MySQL Flexible Server can have.
 	ReplicaCapacity *int `pulumi:"replicaCapacity"`
 	// The replication role. Possible value is `None`.
@@ -375,8 +374,7 @@ type FlexibleServerState struct {
 	// Whether approved public traffic is allowed through the firewall to this server. Possible values are `Enabled` and `Disabled`.
 	//
 	// > **Note:** `publicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegatedSubnetId` and `privateDnsZoneId`").
-	PublicNetworkAccess        pulumi.StringPtrInput
-	PublicNetworkAccessEnabled pulumi.BoolPtrInput
+	PublicNetworkAccess pulumi.StringPtrInput
 	// The maximum number of replicas that a primary MySQL Flexible Server can have.
 	ReplicaCapacity pulumi.IntPtrInput
 	// The replication role. Possible value is `None`.
@@ -746,10 +744,6 @@ func (o FlexibleServerOutput) PrivateDnsZoneId() pulumi.StringPtrOutput {
 // > **Note:** `publicNetworkAccess` is automatically set to `Disabled` if the server is created with VNet Integration (i.e. values are provided for `delegatedSubnetId` and `privateDnsZoneId`").
 func (o FlexibleServerOutput) PublicNetworkAccess() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlexibleServer) pulumi.StringOutput { return v.PublicNetworkAccess }).(pulumi.StringOutput)
-}
-
-func (o FlexibleServerOutput) PublicNetworkAccessEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v *FlexibleServer) pulumi.BoolOutput { return v.PublicNetworkAccessEnabled }).(pulumi.BoolOutput)
 }
 
 // The maximum number of replicas that a primary MySQL Flexible Server can have.

@@ -3,11 +3,11 @@
 
 package com.pulumi.azure.cdn.inputs;
 
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsRequestHeaderActionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsResponseHeaderActionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsUrlRedirectActionArgs;
-import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsUrlRewriteActionArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsModifyRequestHeaderArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsModifyResponseHeaderArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsRouteConfigurationOverrideArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsUrlRedirectArgs;
+import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsUrlRewriteArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -21,88 +21,96 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
     public static final FrontdoorRuleActionsArgs Empty = new FrontdoorRuleActionsArgs();
 
     /**
-     * A `requestHeaderAction` block as defined below.
+     * One or more `modifyRequestHeader` block as defined below.
      * 
      */
-    @Import(name="requestHeaderActions")
-    private @Nullable Output<List<FrontdoorRuleActionsRequestHeaderActionArgs>> requestHeaderActions;
+    @Import(name="modifyRequestHeaders")
+    private @Nullable Output<List<FrontdoorRuleActionsModifyRequestHeaderArgs>> modifyRequestHeaders;
 
     /**
-     * @return A `requestHeaderAction` block as defined below.
+     * @return One or more `modifyRequestHeader` block as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleActionsRequestHeaderActionArgs>>> requestHeaderActions() {
-        return Optional.ofNullable(this.requestHeaderActions);
+    public Optional<Output<List<FrontdoorRuleActionsModifyRequestHeaderArgs>>> modifyRequestHeaders() {
+        return Optional.ofNullable(this.modifyRequestHeaders);
     }
 
     /**
-     * A `responseHeaderAction` block as defined below.
+     * One or more `modifyResponseHeader` block as defined below.
      * 
      */
-    @Import(name="responseHeaderActions")
-    private @Nullable Output<List<FrontdoorRuleActionsResponseHeaderActionArgs>> responseHeaderActions;
+    @Import(name="modifyResponseHeaders")
+    private @Nullable Output<List<FrontdoorRuleActionsModifyResponseHeaderArgs>> modifyResponseHeaders;
 
     /**
-     * @return A `responseHeaderAction` block as defined below.
+     * @return One or more `modifyResponseHeader` block as defined below.
      * 
      */
-    public Optional<Output<List<FrontdoorRuleActionsResponseHeaderActionArgs>>> responseHeaderActions() {
-        return Optional.ofNullable(this.responseHeaderActions);
+    public Optional<Output<List<FrontdoorRuleActionsModifyResponseHeaderArgs>>> modifyResponseHeaders() {
+        return Optional.ofNullable(this.modifyResponseHeaders);
     }
 
     /**
-     * A `routeConfigurationOverrideAction` block as defined below.
+     * A `routeConfigurationOverride` block as defined below.
+     * 
+     * &gt; **Note:** `routeConfigurationOverride` conflicts with `urlRedirect`.
      * 
      */
-    @Import(name="routeConfigurationOverrideAction")
-    private @Nullable Output<FrontdoorRuleActionsRouteConfigurationOverrideActionArgs> routeConfigurationOverrideAction;
+    @Import(name="routeConfigurationOverride")
+    private @Nullable Output<FrontdoorRuleActionsRouteConfigurationOverrideArgs> routeConfigurationOverride;
 
     /**
-     * @return A `routeConfigurationOverrideAction` block as defined below.
+     * @return A `routeConfigurationOverride` block as defined below.
+     * 
+     * &gt; **Note:** `routeConfigurationOverride` conflicts with `urlRedirect`.
      * 
      */
-    public Optional<Output<FrontdoorRuleActionsRouteConfigurationOverrideActionArgs>> routeConfigurationOverrideAction() {
-        return Optional.ofNullable(this.routeConfigurationOverrideAction);
+    public Optional<Output<FrontdoorRuleActionsRouteConfigurationOverrideArgs>> routeConfigurationOverride() {
+        return Optional.ofNullable(this.routeConfigurationOverride);
     }
 
     /**
-     * A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+     * A `urlRedirect` block as defined below.
+     * 
+     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
      * 
      */
-    @Import(name="urlRedirectAction")
-    private @Nullable Output<FrontdoorRuleActionsUrlRedirectActionArgs> urlRedirectAction;
+    @Import(name="urlRedirect")
+    private @Nullable Output<FrontdoorRuleActionsUrlRedirectArgs> urlRedirect;
 
     /**
-     * @return A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+     * @return A `urlRedirect` block as defined below.
+     * 
+     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
      * 
      */
-    public Optional<Output<FrontdoorRuleActionsUrlRedirectActionArgs>> urlRedirectAction() {
-        return Optional.ofNullable(this.urlRedirectAction);
+    public Optional<Output<FrontdoorRuleActionsUrlRedirectArgs>> urlRedirect() {
+        return Optional.ofNullable(this.urlRedirect);
     }
 
     /**
-     * A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+     * A `urlRewrite` block as defined below.
      * 
      */
-    @Import(name="urlRewriteAction")
-    private @Nullable Output<FrontdoorRuleActionsUrlRewriteActionArgs> urlRewriteAction;
+    @Import(name="urlRewrite")
+    private @Nullable Output<FrontdoorRuleActionsUrlRewriteArgs> urlRewrite;
 
     /**
-     * @return A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+     * @return A `urlRewrite` block as defined below.
      * 
      */
-    public Optional<Output<FrontdoorRuleActionsUrlRewriteActionArgs>> urlRewriteAction() {
-        return Optional.ofNullable(this.urlRewriteAction);
+    public Optional<Output<FrontdoorRuleActionsUrlRewriteArgs>> urlRewrite() {
+        return Optional.ofNullable(this.urlRewrite);
     }
 
     private FrontdoorRuleActionsArgs() {}
 
     private FrontdoorRuleActionsArgs(FrontdoorRuleActionsArgs $) {
-        this.requestHeaderActions = $.requestHeaderActions;
-        this.responseHeaderActions = $.responseHeaderActions;
-        this.routeConfigurationOverrideAction = $.routeConfigurationOverrideAction;
-        this.urlRedirectAction = $.urlRedirectAction;
-        this.urlRewriteAction = $.urlRewriteAction;
+        this.modifyRequestHeaders = $.modifyRequestHeaders;
+        this.modifyResponseHeaders = $.modifyResponseHeaders;
+        this.routeConfigurationOverride = $.routeConfigurationOverride;
+        this.urlRedirect = $.urlRedirect;
+        this.urlRewrite = $.urlRewrite;
     }
 
     public static Builder builder() {
@@ -124,128 +132,136 @@ public final class FrontdoorRuleActionsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param requestHeaderActions A `requestHeaderAction` block as defined below.
+         * @param modifyRequestHeaders One or more `modifyRequestHeader` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestHeaderActions(@Nullable Output<List<FrontdoorRuleActionsRequestHeaderActionArgs>> requestHeaderActions) {
-            $.requestHeaderActions = requestHeaderActions;
+        public Builder modifyRequestHeaders(@Nullable Output<List<FrontdoorRuleActionsModifyRequestHeaderArgs>> modifyRequestHeaders) {
+            $.modifyRequestHeaders = modifyRequestHeaders;
             return this;
         }
 
         /**
-         * @param requestHeaderActions A `requestHeaderAction` block as defined below.
+         * @param modifyRequestHeaders One or more `modifyRequestHeader` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestHeaderActions(List<FrontdoorRuleActionsRequestHeaderActionArgs> requestHeaderActions) {
-            return requestHeaderActions(Output.of(requestHeaderActions));
+        public Builder modifyRequestHeaders(List<FrontdoorRuleActionsModifyRequestHeaderArgs> modifyRequestHeaders) {
+            return modifyRequestHeaders(Output.of(modifyRequestHeaders));
         }
 
         /**
-         * @param requestHeaderActions A `requestHeaderAction` block as defined below.
+         * @param modifyRequestHeaders One or more `modifyRequestHeader` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder requestHeaderActions(FrontdoorRuleActionsRequestHeaderActionArgs... requestHeaderActions) {
-            return requestHeaderActions(List.of(requestHeaderActions));
+        public Builder modifyRequestHeaders(FrontdoorRuleActionsModifyRequestHeaderArgs... modifyRequestHeaders) {
+            return modifyRequestHeaders(List.of(modifyRequestHeaders));
         }
 
         /**
-         * @param responseHeaderActions A `responseHeaderAction` block as defined below.
+         * @param modifyResponseHeaders One or more `modifyResponseHeader` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder responseHeaderActions(@Nullable Output<List<FrontdoorRuleActionsResponseHeaderActionArgs>> responseHeaderActions) {
-            $.responseHeaderActions = responseHeaderActions;
+        public Builder modifyResponseHeaders(@Nullable Output<List<FrontdoorRuleActionsModifyResponseHeaderArgs>> modifyResponseHeaders) {
+            $.modifyResponseHeaders = modifyResponseHeaders;
             return this;
         }
 
         /**
-         * @param responseHeaderActions A `responseHeaderAction` block as defined below.
+         * @param modifyResponseHeaders One or more `modifyResponseHeader` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder responseHeaderActions(List<FrontdoorRuleActionsResponseHeaderActionArgs> responseHeaderActions) {
-            return responseHeaderActions(Output.of(responseHeaderActions));
+        public Builder modifyResponseHeaders(List<FrontdoorRuleActionsModifyResponseHeaderArgs> modifyResponseHeaders) {
+            return modifyResponseHeaders(Output.of(modifyResponseHeaders));
         }
 
         /**
-         * @param responseHeaderActions A `responseHeaderAction` block as defined below.
+         * @param modifyResponseHeaders One or more `modifyResponseHeader` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder responseHeaderActions(FrontdoorRuleActionsResponseHeaderActionArgs... responseHeaderActions) {
-            return responseHeaderActions(List.of(responseHeaderActions));
+        public Builder modifyResponseHeaders(FrontdoorRuleActionsModifyResponseHeaderArgs... modifyResponseHeaders) {
+            return modifyResponseHeaders(List.of(modifyResponseHeaders));
         }
 
         /**
-         * @param routeConfigurationOverrideAction A `routeConfigurationOverrideAction` block as defined below.
+         * @param routeConfigurationOverride A `routeConfigurationOverride` block as defined below.
+         * 
+         * &gt; **Note:** `routeConfigurationOverride` conflicts with `urlRedirect`.
          * 
          * @return builder
          * 
          */
-        public Builder routeConfigurationOverrideAction(@Nullable Output<FrontdoorRuleActionsRouteConfigurationOverrideActionArgs> routeConfigurationOverrideAction) {
-            $.routeConfigurationOverrideAction = routeConfigurationOverrideAction;
+        public Builder routeConfigurationOverride(@Nullable Output<FrontdoorRuleActionsRouteConfigurationOverrideArgs> routeConfigurationOverride) {
+            $.routeConfigurationOverride = routeConfigurationOverride;
             return this;
         }
 
         /**
-         * @param routeConfigurationOverrideAction A `routeConfigurationOverrideAction` block as defined below.
+         * @param routeConfigurationOverride A `routeConfigurationOverride` block as defined below.
+         * 
+         * &gt; **Note:** `routeConfigurationOverride` conflicts with `urlRedirect`.
          * 
          * @return builder
          * 
          */
-        public Builder routeConfigurationOverrideAction(FrontdoorRuleActionsRouteConfigurationOverrideActionArgs routeConfigurationOverrideAction) {
-            return routeConfigurationOverrideAction(Output.of(routeConfigurationOverrideAction));
+        public Builder routeConfigurationOverride(FrontdoorRuleActionsRouteConfigurationOverrideArgs routeConfigurationOverride) {
+            return routeConfigurationOverride(Output.of(routeConfigurationOverride));
         }
 
         /**
-         * @param urlRedirectAction A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+         * @param urlRedirect A `urlRedirect` block as defined below.
+         * 
+         * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
          * 
          * @return builder
          * 
          */
-        public Builder urlRedirectAction(@Nullable Output<FrontdoorRuleActionsUrlRedirectActionArgs> urlRedirectAction) {
-            $.urlRedirectAction = urlRedirectAction;
+        public Builder urlRedirect(@Nullable Output<FrontdoorRuleActionsUrlRedirectArgs> urlRedirect) {
+            $.urlRedirect = urlRedirect;
             return this;
         }
 
         /**
-         * @param urlRedirectAction A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+         * @param urlRedirect A `urlRedirect` block as defined below.
+         * 
+         * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
          * 
          * @return builder
          * 
          */
-        public Builder urlRedirectAction(FrontdoorRuleActionsUrlRedirectActionArgs urlRedirectAction) {
-            return urlRedirectAction(Output.of(urlRedirectAction));
+        public Builder urlRedirect(FrontdoorRuleActionsUrlRedirectArgs urlRedirect) {
+            return urlRedirect(Output.of(urlRedirect));
         }
 
         /**
-         * @param urlRewriteAction A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+         * @param urlRewrite A `urlRewrite` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlRewriteAction(@Nullable Output<FrontdoorRuleActionsUrlRewriteActionArgs> urlRewriteAction) {
-            $.urlRewriteAction = urlRewriteAction;
+        public Builder urlRewrite(@Nullable Output<FrontdoorRuleActionsUrlRewriteArgs> urlRewrite) {
+            $.urlRewrite = urlRewrite;
             return this;
         }
 
         /**
-         * @param urlRewriteAction A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+         * @param urlRewrite A `urlRewrite` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder urlRewriteAction(FrontdoorRuleActionsUrlRewriteActionArgs urlRewriteAction) {
-            return urlRewriteAction(Output.of(urlRewriteAction));
+        public Builder urlRewrite(FrontdoorRuleActionsUrlRewriteArgs urlRewrite) {
+            return urlRewrite(Output.of(urlRewrite));
         }
 
         public FrontdoorRuleActionsArgs build() {

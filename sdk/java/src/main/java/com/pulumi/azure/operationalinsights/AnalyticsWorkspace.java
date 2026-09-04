@@ -72,7 +72,7 @@ import javax.annotation.Nullable;
  * &lt;!-- This section is generated, changes will be overwritten --&gt;
  * This resource uses the following Azure API Providers:
  * 
- * * `Microsoft.OperationalInsights` - 2023-09-01, 2020-08-01
+ * * `Microsoft.OperationalInsights` - 2025-07-01, 2020-08-01
  * 
  * ## Import
  * 
@@ -170,58 +170,50 @@ public class AnalyticsWorkspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.immediateDataPurgeOn30DaysEnabled);
     }
     /**
-     * Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      * 
      */
-    @Export(name="internetIngestionEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> internetIngestionEnabled;
+    @Export(name="internetIngestionAccessType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> internetIngestionAccessType;
 
     /**
-     * @return Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`.
+     * @return Controls public network access for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
      * 
      */
-    public Output<Optional<Boolean>> internetIngestionEnabled() {
-        return Codegen.optional(this.internetIngestionEnabled);
+    public Output<Optional<String>> internetIngestionAccessType() {
+        return Codegen.optional(this.internetIngestionAccessType);
     }
     /**
-     * Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+     * Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     * 
+     * &gt; **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
      * 
      */
-    @Export(name="internetQueryEnabled", refs={Boolean.class}, tree="[0]")
-    private Output</* @Nullable */ Boolean> internetQueryEnabled;
+    @Export(name="internetQueryAccessType", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> internetQueryAccessType;
 
     /**
-     * @return Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`.
+     * @return Controls public network access for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`. Defaults to `Enabled`.
+     * 
+     * &gt; **Note:** `SecuredByPerimeter` indicates that access is governed by an [Azure Network Security Perimeter](https://learn.microsoft.com/en-us/azure/private-link/network-security-perimeter-concepts) associated with this workspace via an `azure.network.NetworkSecurityPerimeterAssociation` resource with `accessMode` set to `Enforced`. Azure will also set this value automatically when such an association is created.
      * 
      */
-    public Output<Optional<Boolean>> internetQueryEnabled() {
-        return Codegen.optional(this.internetQueryEnabled);
-    }
-    /**
-     * @deprecated
-     * `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `localAuthenticationDisabled` has been deprecated in favour of `localAuthenticationEnabled` and will be removed in v5.0 of the AzureRM Provider */
-    @Export(name="localAuthenticationDisabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> localAuthenticationDisabled;
-
-    public Output<Boolean> localAuthenticationDisabled() {
-        return this.localAuthenticationDisabled;
+    public Output<Optional<String>> internetQueryAccessType() {
+        return Codegen.optional(this.internetQueryAccessType);
     }
     /**
      * Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
      * 
      */
     @Export(name="localAuthenticationEnabled", refs={Boolean.class}, tree="[0]")
-    private Output<Boolean> localAuthenticationEnabled;
+    private Output</* @Nullable */ Boolean> localAuthenticationEnabled;
 
     /**
      * @return Specifies if the log Analytics workspace should allow local authentication methods in addition to Microsoft Entra (Azure AD). Defaults to `true`.
      * 
      */
-    public Output<Boolean> localAuthenticationEnabled() {
-        return this.localAuthenticationEnabled;
+    public Output<Optional<Boolean>> localAuthenticationEnabled() {
+        return Codegen.optional(this.localAuthenticationEnabled);
     }
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

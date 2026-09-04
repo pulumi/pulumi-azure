@@ -95,7 +95,7 @@ def get_resource_group_template_deployment(name: Optional[_builtins.str] = None,
     example = azure.core.get_resource_group_template_deployment(name="existing",
         resource_group_name="existing")
     pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content).result["exampleOutput"]["value"])
+    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content)["result"]["exampleOutput"]["value"])
     ```
 
 
@@ -129,7 +129,7 @@ def get_resource_group_template_deployment_output(name: pulumi.Input[Optional[_b
     example = azure.core.get_resource_group_template_deployment(name="existing",
         resource_group_name="existing")
     pulumi.export("id", example.id)
-    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content).result["exampleOutput"]["value"])
+    pulumi.export("exampleOutput", std.jsondecode(input=example.output_content)["result"]["exampleOutput"]["value"])
     ```
 
 

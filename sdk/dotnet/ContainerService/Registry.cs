@@ -40,12 +40,14 @@ namespace Pulumi.Azure.ContainerService
     ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
     ///             {
     ///                 Location = "East US",
+    ///                 GlobalEndpointRoutingEnabled = true,
     ///                 ZoneRedundancyEnabled = true,
     ///                 Tags = null,
     ///             },
     ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
     ///             {
     ///                 Location = "North Europe",
+    ///                 GlobalEndpointRoutingEnabled = true,
     ///                 ZoneRedundancyEnabled = true,
     ///                 Tags = null,
     ///             },
@@ -210,7 +212,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `True`.
         /// 
-        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Output("azureadAuthenticationAsArmPolicyEnabled")]
         public Output<bool?> AzureadAuthenticationAsArmPolicyEnabled { get; private set; } = null!;
@@ -231,7 +233,7 @@ namespace Pulumi.Azure.ContainerService
         /// An `Encryption` block as documented below.
         /// </summary>
         [Output("encryption")]
-        public Output<Outputs.RegistryEncryption> Encryption { get; private set; } = null!;
+        public Output<Outputs.RegistryEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
         /// Boolean value that indicates whether export policy is enabled. Defaults to `True`. In order to set it to `False`, make sure the `PublicNetworkAccessEnabled` is also set to `False`.
@@ -336,12 +338,6 @@ namespace Pulumi.Azure.ContainerService
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value that indicated whether trust policy is enabled. Defaults to `False`.
-        /// </summary>
-        [Output("trustPolicyEnabled")]
-        public Output<bool?> TrustPolicyEnabled { get; private set; } = null!;
-
-        /// <summary>
         /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Output("zoneRedundancyEnabled")]
@@ -412,7 +408,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `True`.
         /// 
-        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("azureadAuthenticationAsArmPolicyEnabled")]
         public Input<bool>? AzureadAuthenticationAsArmPolicyEnabled { get; set; }
@@ -538,12 +534,6 @@ namespace Pulumi.Azure.ContainerService
         }
 
         /// <summary>
-        /// Boolean value that indicated whether trust policy is enabled. Defaults to `False`.
-        /// </summary>
-        [Input("trustPolicyEnabled")]
-        public Input<bool>? TrustPolicyEnabled { get; set; }
-
-        /// <summary>
         /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `False`.
         /// </summary>
         [Input("zoneRedundancyEnabled")]
@@ -594,7 +584,7 @@ namespace Pulumi.Azure.ContainerService
         /// <summary>
         /// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `True`.
         /// 
-        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `TrustPolicyEnabled`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+        /// &gt; **Note:** `QuarantinePolicyEnabled`, `RetentionPolicyInDays`, `ExportPolicyEnabled` and `ZoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
         /// </summary>
         [Input("azureadAuthenticationAsArmPolicyEnabled")]
         public Input<bool>? AzureadAuthenticationAsArmPolicyEnabled { get; set; }
@@ -736,12 +726,6 @@ namespace Pulumi.Azure.ContainerService
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
-
-        /// <summary>
-        /// Boolean value that indicated whether trust policy is enabled. Defaults to `False`.
-        /// </summary>
-        [Input("trustPolicyEnabled")]
-        public Input<bool>? TrustPolicyEnabled { get; set; }
 
         /// <summary>
         /// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `False`.

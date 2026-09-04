@@ -57,7 +57,7 @@ class StandardArgs:
                > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
-        :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
@@ -212,7 +212,7 @@ class StandardArgs:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -521,7 +521,7 @@ class _StandardState:
                > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
-        :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input['StandardConnectionStringArgs']]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
@@ -685,7 +685,7 @@ class _StandardState:
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -1168,7 +1168,7 @@ class Standard(pulumi.CustomResource):
                > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
-        :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[_builtins.bool] enabled: Is the Logic App enabled? Defaults to `true`.
         :param pulumi.Input[_builtins.bool] ftp_publish_basic_authentication_enabled: Whether the FTP basic authentication publishing profile is enabled. Defaults to `true`.
@@ -1449,7 +1449,7 @@ class Standard(pulumi.CustomResource):
                > **Note:** There are a number of application settings that will be managed for you by this resource type and *shouldn't* be configured separately as part of the app_settings you specify.  `AzureWebJobsStorage` is filled based on `storage_account_name` and `storage_account_access_key`, or from `storage_key_vault_secret_id` when using a Key Vault reference. `WEBSITE_CONTENTSHARE` is detailed below. `FUNCTIONS_EXTENSION_VERSION` is filled based on `version`. `APP_KIND` is set to workflowApp and `AzureFunctionsJobHost__extensionBundle__id` and `AzureFunctionsJobHost__extensionBundle__version` are set as detailed below.
         :param pulumi.Input[_builtins.str] bundle_version: If `use_extension_bundle` is set to `true` this controls the allowed range for bundle versions. Defaults to `[1.*, 2.0.0)`.
         :param pulumi.Input[_builtins.bool] client_affinity_enabled: Should the Logic App send session affinity cookies, which route client requests in the same session to the same instance?
-        :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        :param pulumi.Input[_builtins.str] client_certificate_mode: The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StandardConnectionStringArgs', 'StandardConnectionStringArgsDict']]]] connection_strings: A `connection_string` block as defined below.
         :param pulumi.Input[_builtins.str] custom_domain_verification_id: An identifier used by App Service to perform domain ownership verification via DNS TXT record.
         :param pulumi.Input[_builtins.str] default_hostname: The default hostname associated with the Logic App - such as `mysite.azurewebsites.net`.
@@ -1570,7 +1570,7 @@ class Standard(pulumi.CustomResource):
     @pulumi.getter(name="clientCertificateMode")
     def client_certificate_mode(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+        The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
         """
         return pulumi.get(self, "client_certificate_mode")
 
@@ -1682,7 +1682,7 @@ class Standard(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> pulumi.Output[_builtins.str]:
+    def public_network_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Whether Public Network Access should be enabled or not. Possible values are `Enabled` and `Disabled`. Defaults to `Enabled`.
 

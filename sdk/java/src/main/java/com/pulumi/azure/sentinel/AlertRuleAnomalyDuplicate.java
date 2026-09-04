@@ -96,6 +96,15 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ## API Providers
+ * 
+ * &lt;!-- This section is generated, changes will be overwritten --&gt;
+ * This resource uses the following Azure API Providers:
+ * 
+ * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+ * 
+ * * `Microsoft.SecurityInsights` - 2022-10-01-preview
+ * 
  * ## Import
  * 
  * Built In Anomaly Alert Rules can be imported using the `resource id`, e.g.

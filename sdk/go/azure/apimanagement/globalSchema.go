@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/apimanagement"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -48,8 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "api_management_api_schema.xml",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "api_management_api_schema.xml",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -59,7 +59,7 @@ import (
 //				ApiManagementName: exampleService.Name,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("xml"),
-//				Value:             pulumi.String(invokeFile.Result),
+//				Value:             invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

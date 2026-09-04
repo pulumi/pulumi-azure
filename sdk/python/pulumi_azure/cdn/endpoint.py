@@ -45,7 +45,7 @@ class EndpointArgs:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointOriginArgs']]] origins: The set of origins of the CDN endpoint. When multiple origins exist, the first origin will be used as primary and rest will be used as failover options. Each `origin` block supports fields documented below. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] profile_name: The CDN Profile to which to attach the CDN Endpoint. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the CDN Endpoint. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleArgs']]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input['EndpointGlobalDeliveryRuleArgs'] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
@@ -137,7 +137,7 @@ class EndpointArgs:
     @pulumi.getter(name="contentTypesToCompresses")
     def content_types_to_compresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         """
         return pulumi.get(self, "content_types_to_compresses")
 
@@ -341,7 +341,7 @@ class _EndpointState:
         """
         Input properties used for looking up and filtering Endpoint resources.
 
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointDeliveryRuleArgs']]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] fqdn: The Fully Qualified Domain Name of the CDN Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['EndpointGeoFilterArgs']]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
@@ -406,7 +406,7 @@ class _EndpointState:
     @pulumi.getter(name="contentTypesToCompresses")
     def content_types_to_compresses(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         """
         return pulumi.get(self, "content_types_to_compresses")
 
@@ -705,7 +705,7 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
         :param pulumi.Input[Union['EndpointGlobalDeliveryRuleArgs', 'EndpointGlobalDeliveryRuleArgsDict']] global_delivery_rule: Actions that are valid for all resources regardless of any conditions. A `global_delivery_rule` block as defined below.
@@ -880,7 +880,7 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] content_types_to_compresses: An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointDeliveryRuleArgs', 'EndpointDeliveryRuleArgsDict']]]] delivery_rules: Rules for the rules engine. An endpoint can contain up until 4 of those rules that consist of conditions and actions. A `delivery_rule` blocks as defined below.
         :param pulumi.Input[_builtins.str] fqdn: The Fully Qualified Domain Name of the CDN Endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGeoFilterArgs', 'EndpointGeoFilterArgsDict']]]] geo_filters: A set of Geo Filters for this CDN Endpoint. Each `geo_filter` block supports fields documented below.
@@ -931,7 +931,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="contentTypesToCompresses")
     def content_types_to_compresses(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+        An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `is_compression_enabled` is `true`.
         """
         return pulumi.get(self, "content_types_to_compresses")
 

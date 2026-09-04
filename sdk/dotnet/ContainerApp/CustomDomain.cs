@@ -110,21 +110,21 @@ namespace Pulumi.Azure.ContainerApp
     ///         CertificateBlob = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "path/to/certificate_file.pfx",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         CertificatePassword = "$3cretSqu1rreL",
     ///     });
     /// 
     ///     var exampleCustomDomain = new Azure.ContainerApp.CustomDomain("example", new()
     ///     {
-    ///         Name = Std.Trimprefix.Invoke(new()
+    ///         Name = Std.Trimsuffix.Invoke(new()
     ///         {
-    ///             Input = api.Fqdn,
-    ///             Prefix = "asuid.",
-    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
-    ///         {
-    ///             Input = invoke.Result,
+    ///             Input = Std.Trimprefix.Invoke(new()
+    ///             {
+    ///                 Input = api.Fqdn,
+    ///                 Prefix = "asuid.",
+    ///             }).Result,
     ///             Suffix = ".",
-    ///         })).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         ContainerAppId = exampleApp.Id,
     ///         ContainerAppEnvironmentCertificateId = exampleEnvironmentCertificate.Id,
     ///         CertificateBindingType = "SniEnabled",
@@ -146,15 +146,15 @@ namespace Pulumi.Azure.ContainerApp
     /// {
     ///     var example = new Azure.ContainerApp.CustomDomain("example", new()
     ///     {
-    ///         Name = Std.Trimprefix.Invoke(new()
+    ///         Name = Std.Trimsuffix.Invoke(new()
     ///         {
-    ///             Input = api.Fqdn,
-    ///             Prefix = "asuid.",
-    ///         }).Apply(invoke =&gt; Std.Trimsuffix.Invoke(new()
-    ///         {
-    ///             Input = invoke.Result,
+    ///             Input = Std.Trimprefix.Invoke(new()
+    ///             {
+    ///                 Input = api.Fqdn,
+    ///                 Prefix = "asuid.",
+    ///             }).Result,
     ///             Suffix = ".",
-    ///         })).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         ContainerAppId = exampleAzurermContainerApp.Id,
     ///     });
     /// 

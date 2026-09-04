@@ -4,7 +4,6 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -13,13 +12,6 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ManagedDatabaseLongTermRetentionPolicy {
-    /**
-     * @deprecated
-     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-     * 
-     */
-    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource. */
-    private @Nullable Boolean immutableBackupsEnabled;
     /**
      * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
      * 
@@ -42,15 +34,6 @@ public final class ManagedDatabaseLongTermRetentionPolicy {
     private @Nullable String yearlyRetention;
 
     private ManagedDatabaseLongTermRetentionPolicy() {}
-    /**
-     * @deprecated
-     * The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource.
-     * 
-     */
-    @Deprecated /* The `long_term_retention_policy.immutable_backups_enabled` property has been deprecated and will be removed in v5.0 of the AzureRM provider. This property is non-functional and was mistakenly exposed in the resource. */
-    public Optional<Boolean> immutableBackupsEnabled() {
-        return Optional.ofNullable(this.immutableBackupsEnabled);
-    }
     /**
      * @return The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 and 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`. Defaults to `PT0S`.
      * 
@@ -89,7 +72,6 @@ public final class ManagedDatabaseLongTermRetentionPolicy {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable Boolean immutableBackupsEnabled;
         private @Nullable String monthlyRetention;
         private @Nullable Integer weekOfYear;
         private @Nullable String weeklyRetention;
@@ -97,19 +79,12 @@ public final class ManagedDatabaseLongTermRetentionPolicy {
         public Builder() {}
         public Builder(ManagedDatabaseLongTermRetentionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.immutableBackupsEnabled = defaults.immutableBackupsEnabled;
     	      this.monthlyRetention = defaults.monthlyRetention;
     	      this.weekOfYear = defaults.weekOfYear;
     	      this.weeklyRetention = defaults.weeklyRetention;
     	      this.yearlyRetention = defaults.yearlyRetention;
         }
 
-        @CustomType.Setter
-        public Builder immutableBackupsEnabled(@Nullable Boolean immutableBackupsEnabled) {
-
-            this.immutableBackupsEnabled = immutableBackupsEnabled;
-            return this;
-        }
         @CustomType.Setter
         public Builder monthlyRetention(@Nullable String monthlyRetention) {
 
@@ -136,7 +111,6 @@ public final class ManagedDatabaseLongTermRetentionPolicy {
         }
         public ManagedDatabaseLongTermRetentionPolicy build() {
             final var _resultValue = new ManagedDatabaseLongTermRetentionPolicy();
-            _resultValue.immutableBackupsEnabled = immutableBackupsEnabled;
             _resultValue.monthlyRetention = monthlyRetention;
             _resultValue.weekOfYear = weekOfYear;
             _resultValue.weeklyRetention = weeklyRetention;

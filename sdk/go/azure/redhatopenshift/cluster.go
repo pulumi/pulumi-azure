@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -16,12 +16,187 @@ import (
 //
 // > **Note:** All arguments including the client secret will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/docs/state/sensitive-data.html).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/redhatopenshift"
+//	"github.com/pulumi/pulumi-azuread/sdk/go/azuread"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuread.ClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleApplication, err := azuread.NewApplication(ctx, "example", &azuread.ApplicationArgs{
+//				DisplayName: "example-aro",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipal, err := azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
+//				ClientId: exampleApplication.ClientId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServicePrincipalPassword, err := azuread.NewServicePrincipalPassword(ctx, "example", &azuread.ServicePrincipalPasswordArgs{
+//				ServicePrincipalId: exampleServicePrincipal.ObjectId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			redhatopenshift2, err := azuread.ServicePrincipal(ctx, map[string]string{
+//				"clientId": "f1dd0a37-89c6-4e07-bcd1-ffd3d43d8875",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West US"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/22"),
+//				},
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			roleNetwork1, err := authorization.NewAssignment(ctx, "role_network1", &authorization.AssignmentArgs{
+//				Scope:              exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionName: pulumi.String("Network Contributor"),
+//				PrincipalId:        exampleServicePrincipal.ObjectId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			roleNetwork2, err := authorization.NewAssignment(ctx, "role_network2", &authorization.AssignmentArgs{
+//				Scope:              exampleVirtualNetwork.ID().ToIDOutput().ToStringOutput(),
+//				RoleDefinitionName: pulumi.String("Network Contributor"),
+//				PrincipalId:        pulumi.Any(redhatopenshift2.ObjectId),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			mainSubnet, err := network.NewSubnet(ctx, "main_subnet", &network.SubnetArgs{
+//				Name:               pulumi.String("main-subnet"),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/23"),
+//				},
+//				ServiceEndpoints: network.SubnetServiceEndpointArray{
+//					&network.SubnetServiceEndpointArgs{
+//						Service: pulumi.String("Microsoft.Storage"),
+//					},
+//					&network.SubnetServiceEndpointArgs{
+//						Service: pulumi.String("Microsoft.ContainerRegistry"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			workerSubnet, err := network.NewSubnet(ctx, "worker_subnet", &network.SubnetArgs{
+//				Name:               pulumi.String("worker-subnet"),
+//				ResourceGroupName:  exampleResourceGroup.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/23"),
+//				},
+//				ServiceEndpoints: network.SubnetServiceEndpointArray{
+//					&network.SubnetServiceEndpointArgs{
+//						Service: pulumi.String("Microsoft.Storage"),
+//					},
+//					&network.SubnetServiceEndpointArgs{
+//						Service: pulumi.String("Microsoft.ContainerRegistry"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCluster, err := redhatopenshift.NewCluster(ctx, "example", &redhatopenshift.ClusterArgs{
+//				Name:              pulumi.String("examplearo"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				ClusterProfile: &redhatopenshift.ClusterClusterProfileArgs{
+//					Domain:  pulumi.String("aro-example.com"),
+//					Version: pulumi.String("4.13.23"),
+//				},
+//				NetworkProfile: &redhatopenshift.ClusterNetworkProfileArgs{
+//					PodCidr:     pulumi.String("10.128.0.0/14"),
+//					ServiceCidr: pulumi.String("172.30.0.0/16"),
+//				},
+//				MainProfile: &redhatopenshift.ClusterMainProfileArgs{
+//					VmSize:   pulumi.String("Standard_D8s_v3"),
+//					SubnetId: mainSubnet.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				ApiServerProfile: &redhatopenshift.ClusterApiServerProfileArgs{
+//					Visibility: pulumi.String("Public"),
+//				},
+//				IngressProfile: &redhatopenshift.ClusterIngressProfileArgs{
+//					Visibility: pulumi.String("Public"),
+//				},
+//				WorkerProfile: &redhatopenshift.ClusterWorkerProfileArgs{
+//					VmSize:     pulumi.String("Standard_D4s_v3"),
+//					DiskSizeGb: pulumi.Int(128),
+//					NodeCount:  pulumi.Int(3),
+//					SubnetId:   workerSubnet.ID().ToIDOutput().ToStringOutput(),
+//				},
+//				ServicePrincipal: &redhatopenshift.ClusterServicePrincipalArgs{
+//					ClientId:     exampleApplication.ClientId,
+//					ClientSecret: exampleServicePrincipalPassword.Value,
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				roleNetwork1,
+//				roleNetwork2,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("consoleUrl", exampleCluster.ConsoleUrl)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## API Providers
+//
+// <!-- This section is generated, changes will be overwritten -->
+// This resource uses the following Azure API Providers:
+//
+// * `Microsoft.RedHatOpenShift` - 2025-07-25
+//
 // ## Import
 //
-// Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.
+// An Azure Red Hat OpenShift Cluster can be imported using the `resource id`, e.g.
 //
 // ```sh
-// $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
+// $ pulumi import azure:redhatopenshift/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.RedHatOpenShift/openShiftClusters/openShiftCluster1
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState
@@ -30,8 +205,10 @@ type Cluster struct {
 	ApiServerProfile ClusterApiServerProfileOutput `pulumi:"apiServerProfile"`
 	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile ClusterClusterProfileOutput `pulumi:"clusterProfile"`
-	// The Red Hat OpenShift cluster console URL.
+	// The console URL of the Azure Red Hat OpenShift Cluster.
 	ConsoleUrl pulumi.StringOutput `pulumi:"consoleUrl"`
+	// An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+	Identity ClusterIdentityPtrOutput `pulumi:"identity"`
 	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile ClusterIngressProfileOutput `pulumi:"ingressProfile"`
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
@@ -40,12 +217,14 @@ type Cluster struct {
 	MainProfile ClusterMainProfileOutput `pulumi:"mainProfile"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	// A `networkProfile` block as defined below.
 	NetworkProfile ClusterNetworkProfileOutput `pulumi:"networkProfile"`
+	// A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+	PlatformWorkloadIdentityProfile ClusterPlatformWorkloadIdentityProfilePtrOutput `pulumi:"platformWorkloadIdentityProfile"`
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `servicePrincipal` block as defined below.
-	ServicePrincipal ClusterServicePrincipalOutput `pulumi:"servicePrincipal"`
+	// A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
+	ServicePrincipal ClusterServicePrincipalPtrOutput `pulumi:"servicePrincipal"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A `workerProfile` block as defined below. Changing this forces a new resource to be created.
@@ -77,9 +256,6 @@ func NewCluster(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.ServicePrincipal == nil {
-		return nil, errors.New("invalid value for required argument 'ServicePrincipal'")
-	}
 	if args.WorkerProfile == nil {
 		return nil, errors.New("invalid value for required argument 'WorkerProfile'")
 	}
@@ -110,8 +286,10 @@ type clusterState struct {
 	ApiServerProfile *ClusterApiServerProfile `pulumi:"apiServerProfile"`
 	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile *ClusterClusterProfile `pulumi:"clusterProfile"`
-	// The Red Hat OpenShift cluster console URL.
+	// The console URL of the Azure Red Hat OpenShift Cluster.
 	ConsoleUrl *string `pulumi:"consoleUrl"`
+	// An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+	Identity *ClusterIdentity `pulumi:"identity"`
 	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile *ClusterIngressProfile `pulumi:"ingressProfile"`
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
@@ -120,11 +298,13 @@ type clusterState struct {
 	MainProfile *ClusterMainProfile `pulumi:"mainProfile"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	// A `networkProfile` block as defined below.
 	NetworkProfile *ClusterNetworkProfile `pulumi:"networkProfile"`
+	// A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+	PlatformWorkloadIdentityProfile *ClusterPlatformWorkloadIdentityProfile `pulumi:"platformWorkloadIdentityProfile"`
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `servicePrincipal` block as defined below.
+	// A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
 	ServicePrincipal *ClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -137,8 +317,10 @@ type ClusterState struct {
 	ApiServerProfile ClusterApiServerProfilePtrInput
 	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile ClusterClusterProfilePtrInput
-	// The Red Hat OpenShift cluster console URL.
+	// The console URL of the Azure Red Hat OpenShift Cluster.
 	ConsoleUrl pulumi.StringPtrInput
+	// An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+	Identity ClusterIdentityPtrInput
 	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile ClusterIngressProfilePtrInput
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
@@ -147,11 +329,13 @@ type ClusterState struct {
 	MainProfile ClusterMainProfilePtrInput
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	// A `networkProfile` block as defined below.
 	NetworkProfile ClusterNetworkProfilePtrInput
+	// A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+	PlatformWorkloadIdentityProfile ClusterPlatformWorkloadIdentityProfilePtrInput
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `servicePrincipal` block as defined below.
+	// A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
 	ServicePrincipal ClusterServicePrincipalPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
@@ -168,6 +352,8 @@ type clusterArgs struct {
 	ApiServerProfile ClusterApiServerProfile `pulumi:"apiServerProfile"`
 	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile ClusterClusterProfile `pulumi:"clusterProfile"`
+	// An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+	Identity *ClusterIdentity `pulumi:"identity"`
 	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile ClusterIngressProfile `pulumi:"ingressProfile"`
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
@@ -176,12 +362,14 @@ type clusterArgs struct {
 	MainProfile ClusterMainProfile `pulumi:"mainProfile"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	// A `networkProfile` block as defined below.
 	NetworkProfile ClusterNetworkProfile `pulumi:"networkProfile"`
+	// A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+	PlatformWorkloadIdentityProfile *ClusterPlatformWorkloadIdentityProfile `pulumi:"platformWorkloadIdentityProfile"`
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `servicePrincipal` block as defined below.
-	ServicePrincipal ClusterServicePrincipal `pulumi:"servicePrincipal"`
+	// A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
+	ServicePrincipal *ClusterServicePrincipal `pulumi:"servicePrincipal"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// A `workerProfile` block as defined below. Changing this forces a new resource to be created.
@@ -194,6 +382,8 @@ type ClusterArgs struct {
 	ApiServerProfile ClusterApiServerProfileInput
 	// A `clusterProfile` block as defined below. Changing this forces a new resource to be created.
 	ClusterProfile ClusterClusterProfileInput
+	// An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+	Identity ClusterIdentityPtrInput
 	// An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
 	IngressProfile ClusterIngressProfileInput
 	// The location where the Azure Red Hat OpenShift Cluster should be created. Changing this forces a new resource to be created.
@@ -202,12 +392,14 @@ type ClusterArgs struct {
 	MainProfile ClusterMainProfileInput
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
-	// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+	// A `networkProfile` block as defined below.
 	NetworkProfile ClusterNetworkProfileInput
+	// A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+	PlatformWorkloadIdentityProfile ClusterPlatformWorkloadIdentityProfilePtrInput
 	// Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `servicePrincipal` block as defined below.
-	ServicePrincipal ClusterServicePrincipalInput
+	// A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
+	ServicePrincipal ClusterServicePrincipalPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 	// A `workerProfile` block as defined below. Changing this forces a new resource to be created.
@@ -311,9 +503,14 @@ func (o ClusterOutput) ClusterProfile() ClusterClusterProfileOutput {
 	return o.ApplyT(func(v *Cluster) ClusterClusterProfileOutput { return v.ClusterProfile }).(ClusterClusterProfileOutput)
 }
 
-// The Red Hat OpenShift cluster console URL.
+// The console URL of the Azure Red Hat OpenShift Cluster.
 func (o ClusterOutput) ConsoleUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ConsoleUrl }).(pulumi.StringOutput)
+}
+
+// An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+func (o ClusterOutput) Identity() ClusterIdentityPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterIdentityPtrOutput { return v.Identity }).(ClusterIdentityPtrOutput)
 }
 
 // An `ingressProfile` block as defined below. Changing this forces a new resource to be created.
@@ -336,9 +533,16 @@ func (o ClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+// A `networkProfile` block as defined below.
 func (o ClusterOutput) NetworkProfile() ClusterNetworkProfileOutput {
 	return o.ApplyT(func(v *Cluster) ClusterNetworkProfileOutput { return v.NetworkProfile }).(ClusterNetworkProfileOutput)
+}
+
+// A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+func (o ClusterOutput) PlatformWorkloadIdentityProfile() ClusterPlatformWorkloadIdentityProfilePtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterPlatformWorkloadIdentityProfilePtrOutput {
+		return v.PlatformWorkloadIdentityProfile
+	}).(ClusterPlatformWorkloadIdentityProfilePtrOutput)
 }
 
 // Specifies the Resource Group where the Azure Red Hat OpenShift Cluster should exist. Changing this forces a new resource to be created.
@@ -346,9 +550,9 @@ func (o ClusterOutput) ResourceGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `servicePrincipal` block as defined below.
-func (o ClusterOutput) ServicePrincipal() ClusterServicePrincipalOutput {
-	return o.ApplyT(func(v *Cluster) ClusterServicePrincipalOutput { return v.ServicePrincipal }).(ClusterServicePrincipalOutput)
+// A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
+func (o ClusterOutput) ServicePrincipal() ClusterServicePrincipalPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServicePrincipalPtrOutput { return v.ServicePrincipal }).(ClusterServicePrincipalPtrOutput)
 }
 
 // A mapping of tags to assign to the resource.

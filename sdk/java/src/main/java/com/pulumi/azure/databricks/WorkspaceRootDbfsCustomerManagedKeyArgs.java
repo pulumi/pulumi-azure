@@ -19,22 +19,22 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
     /**
      * Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
      * 
-     * &gt; **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
-     * 
-     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * @deprecated
+     * `keyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
      * 
      */
+    @Deprecated /* `keyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios. */
     @Import(name="keyVaultId")
     private @Nullable Output<String> keyVaultId;
 
     /**
      * @return Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
      * 
-     * &gt; **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
-     * 
-     * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+     * @deprecated
+     * `keyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
      * 
      */
+    @Deprecated /* `keyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios. */
     public Optional<Output<String>> keyVaultId() {
         return Optional.ofNullable(this.keyVaultId);
     }
@@ -98,13 +98,13 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
         /**
          * @param keyVaultId Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
          * 
-         * &gt; **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
-         * 
-         * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `keyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
+         * 
          */
+        @Deprecated /* `keyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios. */
         public Builder keyVaultId(@Nullable Output<String> keyVaultId) {
             $.keyVaultId = keyVaultId;
             return this;
@@ -113,13 +113,13 @@ public final class WorkspaceRootDbfsCustomerManagedKeyArgs extends com.pulumi.re
         /**
          * @param keyVaultId Specifies the Resource ID of the Key Vault which contains the `keyVaultKeyId`.
          * 
-         * &gt; **Note:** The `keyVaultId` field only needs to be specified if the Key Vault which contains the `keyVaultKeyId` exists in a different subscription than the Databricks Workspace. If the `keyVaultId` field is not specified it is assumed that the `keyVaultKeyId` is hosted in the same subscription as the Databricks Workspace. Does not apply to managed HSM vaults.
-         * 
-         * &gt; **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `azure.keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
-         * 
          * @return builder
          * 
+         * @deprecated
+         * `keyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
+         * 
          */
+        @Deprecated /* `keyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios. */
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
         }

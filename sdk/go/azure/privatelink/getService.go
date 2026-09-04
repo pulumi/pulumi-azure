@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/privatelink"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/privatelink"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -71,10 +71,6 @@ type GetServiceResult struct {
 	Alias string `pulumi:"alias"`
 	// The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
 	AutoApprovalSubscriptionIds []string `pulumi:"autoApprovalSubscriptionIds"`
-	// Does the Private Link Service support the Proxy Protocol?
-	//
-	// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-	EnableProxyProtocol bool `pulumi:"enableProxyProtocol"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The list of Standard Load Balancer(SLB) resource IDs. The Private Link service is tied to the frontend IP address of a SLB. All traffic destined for the private link service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running.
@@ -133,13 +129,6 @@ func (o GetServiceResultOutput) Alias() pulumi.StringOutput {
 // The list of subscription(s) globally unique identifiers that will be auto approved to use the private link service.
 func (o GetServiceResultOutput) AutoApprovalSubscriptionIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetServiceResult) []string { return v.AutoApprovalSubscriptionIds }).(pulumi.StringArrayOutput)
-}
-
-// Does the Private Link Service support the Proxy Protocol?
-//
-// Deprecated: the `enableProxyProtocol` property has been deprecated in favour of the `proxyProtocolEnabled` property and will be removed in v5.0 of the AzureRM Provider
-func (o GetServiceResultOutput) EnableProxyProtocol() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetServiceResult) bool { return v.EnableProxyProtocol }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,11 +21,9 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azurerm/sdk/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -39,10 +37,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example := appservice.LookupFunctionAppOutput(ctx, appservice.GetFunctionAppOutputArgs{
-//				Name:              pulumi.String("test-azure-functions"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			example, err := azurerm.FunctionApp(ctx, map[string]interface{}{
+//				"name":              "test-azure-functions",
+//				"resourceGroupName": exampleResourceGroup.Name,
 //			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
 //				Name:              pulumi.String("example"),
 //				Location:          exampleResourceGroup.Location,
@@ -54,10 +55,8 @@ import (
 //			_, err = datafactory.NewLinkedServiceAzureFunction(ctx, "example", &datafactory.LinkedServiceAzureFunctionArgs{
 //				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID().ToIDOutput().ToStringOutput(),
-//				Url: example.ApplyT(func(example appservice.GetFunctionAppResult) (string, error) {
-//					return fmt.Sprintf("https://%v", example.DefaultHostname), nil
-//				}).(pulumi.StringOutput),
-//				Key: pulumi.String("foo"),
+//				Url:           pulumi.Sprintf("https://%v", example.DefaultHostname),
+//				Key:           pulumi.String("foo"),
 //			})
 //			if err != nil {
 //				return err

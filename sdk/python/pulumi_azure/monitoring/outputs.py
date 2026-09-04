@@ -17,7 +17,6 @@ from . import outputs
 
 __all__ = [
     'AadDiagnosticSettingEnabledLog',
-    'AadDiagnosticSettingEnabledLogRetentionPolicy',
     'ActionGroupArmRoleReceiver',
     'ActionGroupAutomationRunbookReceiver',
     'ActionGroupAzureAppPushReceiver',
@@ -112,10 +111,7 @@ __all__ = [
     'DataCollectionRuleStreamDeclaration',
     'DataCollectionRuleStreamDeclarationColumn',
     'DiagnosticSettingEnabledLog',
-    'DiagnosticSettingEnabledLogRetentionPolicy',
     'DiagnosticSettingEnabledMetric',
-    'DiagnosticSettingMetric',
-    'DiagnosticSettingMetricRetentionPolicy',
     'MetricAlertAction',
     'MetricAlertApplicationInsightsWebTestLocationAvailabilityCriteria',
     'MetricAlertCriteria',
@@ -182,32 +178,12 @@ __all__ = [
 
 @pulumi.output_type
 class AadDiagnosticSettingEnabledLog(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retentionPolicy":
-            suggest = "retention_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AadDiagnosticSettingEnabledLog. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AadDiagnosticSettingEnabledLog.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AadDiagnosticSettingEnabledLog.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 category: _builtins.str,
-                 retention_policy: Optional['outputs.AadDiagnosticSettingEnabledLogRetentionPolicy'] = None):
+                 category: _builtins.str):
         """
         :param _builtins.str category: The log category for the Azure Active Directory Diagnostic.
         """
         pulumi.set(__self__, "category", category)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
 
     @_builtins.property
     @pulumi.getter
@@ -216,33 +192,6 @@ class AadDiagnosticSettingEnabledLog(dict):
         The log category for the Azure Active Directory Diagnostic.
         """
         return pulumi.get(self, "category")
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""Azure does not support retention for new Azure Active Directory Diagnostic Settings""")
-    def retention_policy(self) -> Optional['outputs.AadDiagnosticSettingEnabledLogRetentionPolicy']:
-        return pulumi.get(self, "retention_policy")
-
-
-@pulumi.output_type
-class AadDiagnosticSettingEnabledLogRetentionPolicy(dict):
-    def __init__(__self__, *,
-                 days: Optional[_builtins.int] = None,
-                 enabled: Optional[_builtins.bool] = None):
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> Optional[_builtins.int]:
-        return pulumi.get(self, "days")
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[_builtins.bool]:
-        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -5783,8 +5732,6 @@ class DiagnosticSettingEnabledLog(dict):
         suggest = None
         if key == "categoryGroup":
             suggest = "category_group"
-        elif key == "retentionPolicy":
-            suggest = "retention_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DiagnosticSettingEnabledLog. Access the value via the '{suggest}' property getter instead.")
@@ -5799,8 +5746,7 @@ class DiagnosticSettingEnabledLog(dict):
 
     def __init__(__self__, *,
                  category: Optional[_builtins.str] = None,
-                 category_group: Optional[_builtins.str] = None,
-                 retention_policy: Optional['outputs.DiagnosticSettingEnabledLogRetentionPolicy'] = None):
+                 category_group: Optional[_builtins.str] = None):
         """
         :param _builtins.str category: The name of a Diagnostic Log Category for this Resource.
                
@@ -5815,8 +5761,6 @@ class DiagnosticSettingEnabledLog(dict):
             pulumi.set(__self__, "category", category)
         if category_group is not None:
             pulumi.set(__self__, "category_group", category_group)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
 
     @_builtins.property
     @pulumi.getter
@@ -5840,32 +5784,6 @@ class DiagnosticSettingEnabledLog(dict):
         """
         return pulumi.get(self, "category_group")
 
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favour of `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more https://aka.ms/diagnostic_settings_log_retention""")
-    def retention_policy(self) -> Optional['outputs.DiagnosticSettingEnabledLogRetentionPolicy']:
-        return pulumi.get(self, "retention_policy")
-
-
-@pulumi.output_type
-class DiagnosticSettingEnabledLogRetentionPolicy(dict):
-    def __init__(__self__, *,
-                 enabled: _builtins.bool,
-                 days: Optional[_builtins.int] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> _builtins.bool:
-        return pulumi.get(self, "enabled")
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> Optional[_builtins.int]:
-        return pulumi.get(self, "days")
-
 
 @pulumi.output_type
 class DiagnosticSettingEnabledMetric(dict):
@@ -5887,72 +5805,6 @@ class DiagnosticSettingEnabledMetric(dict):
         > **NOTE:** The Metric Categories available vary depending on the Resource being used. You may wish to use the `monitoring_get_diagnostic_categories` Data Source to identify which categories are available for a given Resource.
         """
         return pulumi.get(self, "category")
-
-
-@pulumi.output_type
-class DiagnosticSettingMetric(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "retentionPolicy":
-            suggest = "retention_policy"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DiagnosticSettingMetric. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DiagnosticSettingMetric.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DiagnosticSettingMetric.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 category: _builtins.str,
-                 enabled: Optional[_builtins.bool] = None,
-                 retention_policy: Optional['outputs.DiagnosticSettingMetricRetentionPolicy'] = None):
-        pulumi.set(__self__, "category", category)
-        if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
-        if retention_policy is not None:
-            pulumi.set(__self__, "retention_policy", retention_policy)
-
-    @_builtins.property
-    @pulumi.getter
-    def category(self) -> _builtins.str:
-        return pulumi.get(self, "category")
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> Optional[_builtins.bool]:
-        return pulumi.get(self, "enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="retentionPolicy")
-    @_utilities.deprecated("""`retention_policy` has been deprecated in favour of the `storage.ManagementPolicy` resource and will be removed in v5.0 of the AzureRM provider - to learn more go to https://aka.ms/diagnostic_settings_log_retention""")
-    def retention_policy(self) -> Optional['outputs.DiagnosticSettingMetricRetentionPolicy']:
-        return pulumi.get(self, "retention_policy")
-
-
-@pulumi.output_type
-class DiagnosticSettingMetricRetentionPolicy(dict):
-    def __init__(__self__, *,
-                 enabled: _builtins.bool,
-                 days: Optional[_builtins.int] = None):
-        pulumi.set(__self__, "enabled", enabled)
-        if days is not None:
-            pulumi.set(__self__, "days", days)
-
-    @_builtins.property
-    @pulumi.getter
-    def enabled(self) -> _builtins.bool:
-        return pulumi.get(self, "enabled")
-
-    @_builtins.property
-    @pulumi.getter
-    def days(self) -> Optional[_builtins.int]:
-        return pulumi.get(self, "days")
 
 
 @pulumi.output_type

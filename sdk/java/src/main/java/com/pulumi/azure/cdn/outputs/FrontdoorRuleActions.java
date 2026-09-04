@@ -3,11 +3,11 @@
 
 package com.pulumi.azure.cdn.outputs;
 
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsRequestHeaderAction;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsResponseHeaderAction;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsRouteConfigurationOverrideAction;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsUrlRedirectAction;
-import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsUrlRewriteAction;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsModifyRequestHeader;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsModifyResponseHeader;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsRouteConfigurationOverride;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsUrlRedirect;
+import com.pulumi.azure.cdn.outputs.FrontdoorRuleActionsUrlRewrite;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -17,66 +17,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class FrontdoorRuleActions {
     /**
-     * @return A `requestHeaderAction` block as defined below.
+     * @return One or more `modifyRequestHeader` block as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleActionsRequestHeaderAction> requestHeaderActions;
+    private @Nullable List<FrontdoorRuleActionsModifyRequestHeader> modifyRequestHeaders;
     /**
-     * @return A `responseHeaderAction` block as defined below.
+     * @return One or more `modifyResponseHeader` block as defined below.
      * 
      */
-    private @Nullable List<FrontdoorRuleActionsResponseHeaderAction> responseHeaderActions;
+    private @Nullable List<FrontdoorRuleActionsModifyResponseHeader> modifyResponseHeaders;
     /**
-     * @return A `routeConfigurationOverrideAction` block as defined below.
+     * @return A `routeConfigurationOverride` block as defined below.
+     * 
+     * &gt; **Note:** `routeConfigurationOverride` conflicts with `urlRedirect`.
      * 
      */
-    private @Nullable FrontdoorRuleActionsRouteConfigurationOverrideAction routeConfigurationOverrideAction;
+    private @Nullable FrontdoorRuleActionsRouteConfigurationOverride routeConfigurationOverride;
     /**
-     * @return A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+     * @return A `urlRedirect` block as defined below.
+     * 
+     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
      * 
      */
-    private @Nullable FrontdoorRuleActionsUrlRedirectAction urlRedirectAction;
+    private @Nullable FrontdoorRuleActionsUrlRedirect urlRedirect;
     /**
-     * @return A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+     * @return A `urlRewrite` block as defined below.
      * 
      */
-    private @Nullable FrontdoorRuleActionsUrlRewriteAction urlRewriteAction;
+    private @Nullable FrontdoorRuleActionsUrlRewrite urlRewrite;
 
     private FrontdoorRuleActions() {}
     /**
-     * @return A `requestHeaderAction` block as defined below.
+     * @return One or more `modifyRequestHeader` block as defined below.
      * 
      */
-    public List<FrontdoorRuleActionsRequestHeaderAction> requestHeaderActions() {
-        return this.requestHeaderActions == null ? List.of() : this.requestHeaderActions;
+    public List<FrontdoorRuleActionsModifyRequestHeader> modifyRequestHeaders() {
+        return this.modifyRequestHeaders == null ? List.of() : this.modifyRequestHeaders;
     }
     /**
-     * @return A `responseHeaderAction` block as defined below.
+     * @return One or more `modifyResponseHeader` block as defined below.
      * 
      */
-    public List<FrontdoorRuleActionsResponseHeaderAction> responseHeaderActions() {
-        return this.responseHeaderActions == null ? List.of() : this.responseHeaderActions;
+    public List<FrontdoorRuleActionsModifyResponseHeader> modifyResponseHeaders() {
+        return this.modifyResponseHeaders == null ? List.of() : this.modifyResponseHeaders;
     }
     /**
-     * @return A `routeConfigurationOverrideAction` block as defined below.
+     * @return A `routeConfigurationOverride` block as defined below.
+     * 
+     * &gt; **Note:** `routeConfigurationOverride` conflicts with `urlRedirect`.
      * 
      */
-    public Optional<FrontdoorRuleActionsRouteConfigurationOverrideAction> routeConfigurationOverrideAction() {
-        return Optional.ofNullable(this.routeConfigurationOverrideAction);
+    public Optional<FrontdoorRuleActionsRouteConfigurationOverride> routeConfigurationOverride() {
+        return Optional.ofNullable(this.routeConfigurationOverride);
     }
     /**
-     * @return A `urlRedirectAction` block as defined below. You may **not** have a `urlRedirectAction` **and** a `urlRewriteAction` defined in the same `actions` block.
+     * @return A `urlRedirect` block as defined below.
+     * 
+     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
      * 
      */
-    public Optional<FrontdoorRuleActionsUrlRedirectAction> urlRedirectAction() {
-        return Optional.ofNullable(this.urlRedirectAction);
+    public Optional<FrontdoorRuleActionsUrlRedirect> urlRedirect() {
+        return Optional.ofNullable(this.urlRedirect);
     }
     /**
-     * @return A `urlRewriteAction` block as defined below. You may **not** have a `urlRewriteAction` **and** a `urlRedirectAction` defined in the same `actions` block.
+     * @return A `urlRewrite` block as defined below.
      * 
      */
-    public Optional<FrontdoorRuleActionsUrlRewriteAction> urlRewriteAction() {
-        return Optional.ofNullable(this.urlRewriteAction);
+    public Optional<FrontdoorRuleActionsUrlRewrite> urlRewrite() {
+        return Optional.ofNullable(this.urlRewrite);
     }
 
     public static Builder builder() {
@@ -88,64 +96,64 @@ public final class FrontdoorRuleActions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<FrontdoorRuleActionsRequestHeaderAction> requestHeaderActions;
-        private @Nullable List<FrontdoorRuleActionsResponseHeaderAction> responseHeaderActions;
-        private @Nullable FrontdoorRuleActionsRouteConfigurationOverrideAction routeConfigurationOverrideAction;
-        private @Nullable FrontdoorRuleActionsUrlRedirectAction urlRedirectAction;
-        private @Nullable FrontdoorRuleActionsUrlRewriteAction urlRewriteAction;
+        private @Nullable List<FrontdoorRuleActionsModifyRequestHeader> modifyRequestHeaders;
+        private @Nullable List<FrontdoorRuleActionsModifyResponseHeader> modifyResponseHeaders;
+        private @Nullable FrontdoorRuleActionsRouteConfigurationOverride routeConfigurationOverride;
+        private @Nullable FrontdoorRuleActionsUrlRedirect urlRedirect;
+        private @Nullable FrontdoorRuleActionsUrlRewrite urlRewrite;
         public Builder() {}
         public Builder(FrontdoorRuleActions defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.requestHeaderActions = defaults.requestHeaderActions;
-    	      this.responseHeaderActions = defaults.responseHeaderActions;
-    	      this.routeConfigurationOverrideAction = defaults.routeConfigurationOverrideAction;
-    	      this.urlRedirectAction = defaults.urlRedirectAction;
-    	      this.urlRewriteAction = defaults.urlRewriteAction;
+    	      this.modifyRequestHeaders = defaults.modifyRequestHeaders;
+    	      this.modifyResponseHeaders = defaults.modifyResponseHeaders;
+    	      this.routeConfigurationOverride = defaults.routeConfigurationOverride;
+    	      this.urlRedirect = defaults.urlRedirect;
+    	      this.urlRewrite = defaults.urlRewrite;
         }
 
         @CustomType.Setter
-        public Builder requestHeaderActions(@Nullable List<FrontdoorRuleActionsRequestHeaderAction> requestHeaderActions) {
+        public Builder modifyRequestHeaders(@Nullable List<FrontdoorRuleActionsModifyRequestHeader> modifyRequestHeaders) {
 
-            this.requestHeaderActions = requestHeaderActions;
+            this.modifyRequestHeaders = modifyRequestHeaders;
             return this;
         }
-        public Builder requestHeaderActions(FrontdoorRuleActionsRequestHeaderAction... requestHeaderActions) {
-            return requestHeaderActions(List.of(requestHeaderActions));
+        public Builder modifyRequestHeaders(FrontdoorRuleActionsModifyRequestHeader... modifyRequestHeaders) {
+            return modifyRequestHeaders(List.of(modifyRequestHeaders));
         }
         @CustomType.Setter
-        public Builder responseHeaderActions(@Nullable List<FrontdoorRuleActionsResponseHeaderAction> responseHeaderActions) {
+        public Builder modifyResponseHeaders(@Nullable List<FrontdoorRuleActionsModifyResponseHeader> modifyResponseHeaders) {
 
-            this.responseHeaderActions = responseHeaderActions;
+            this.modifyResponseHeaders = modifyResponseHeaders;
             return this;
         }
-        public Builder responseHeaderActions(FrontdoorRuleActionsResponseHeaderAction... responseHeaderActions) {
-            return responseHeaderActions(List.of(responseHeaderActions));
+        public Builder modifyResponseHeaders(FrontdoorRuleActionsModifyResponseHeader... modifyResponseHeaders) {
+            return modifyResponseHeaders(List.of(modifyResponseHeaders));
         }
         @CustomType.Setter
-        public Builder routeConfigurationOverrideAction(@Nullable FrontdoorRuleActionsRouteConfigurationOverrideAction routeConfigurationOverrideAction) {
+        public Builder routeConfigurationOverride(@Nullable FrontdoorRuleActionsRouteConfigurationOverride routeConfigurationOverride) {
 
-            this.routeConfigurationOverrideAction = routeConfigurationOverrideAction;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder urlRedirectAction(@Nullable FrontdoorRuleActionsUrlRedirectAction urlRedirectAction) {
-
-            this.urlRedirectAction = urlRedirectAction;
+            this.routeConfigurationOverride = routeConfigurationOverride;
             return this;
         }
         @CustomType.Setter
-        public Builder urlRewriteAction(@Nullable FrontdoorRuleActionsUrlRewriteAction urlRewriteAction) {
+        public Builder urlRedirect(@Nullable FrontdoorRuleActionsUrlRedirect urlRedirect) {
 
-            this.urlRewriteAction = urlRewriteAction;
+            this.urlRedirect = urlRedirect;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder urlRewrite(@Nullable FrontdoorRuleActionsUrlRewrite urlRewrite) {
+
+            this.urlRewrite = urlRewrite;
             return this;
         }
         public FrontdoorRuleActions build() {
             final var _resultValue = new FrontdoorRuleActions();
-            _resultValue.requestHeaderActions = requestHeaderActions;
-            _resultValue.responseHeaderActions = responseHeaderActions;
-            _resultValue.routeConfigurationOverrideAction = routeConfigurationOverrideAction;
-            _resultValue.urlRedirectAction = urlRedirectAction;
-            _resultValue.urlRewriteAction = urlRewriteAction;
+            _resultValue.modifyRequestHeaders = modifyRequestHeaders;
+            _resultValue.modifyResponseHeaders = modifyResponseHeaders;
+            _resultValue.routeConfigurationOverride = routeConfigurationOverride;
+            _resultValue.urlRedirect = urlRedirect;
+            _resultValue.urlRewrite = urlRewrite;
             return _resultValue;
         }
     }

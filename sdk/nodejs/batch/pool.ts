@@ -138,10 +138,6 @@ export class Pool extends pulumi.CustomResource {
      */
     declare public readonly autoScale: pulumi.Output<outputs.batch.PoolAutoScale | undefined>;
     /**
-     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-     */
-    declare public readonly certificates: pulumi.Output<outputs.batch.PoolCertificate[] | undefined>;
-    /**
      * The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
      */
     declare public readonly containerConfiguration: pulumi.Output<outputs.batch.PoolContainerConfiguration | undefined>;
@@ -265,7 +261,6 @@ export class Pool extends pulumi.CustomResource {
             const state = argsOrState as PoolState | undefined;
             resourceInputs["accountName"] = state?.accountName;
             resourceInputs["autoScale"] = state?.autoScale;
-            resourceInputs["certificates"] = state?.certificates;
             resourceInputs["containerConfiguration"] = state?.containerConfiguration;
             resourceInputs["dataDisks"] = state?.dataDisks;
             resourceInputs["diskEncryptions"] = state?.diskEncryptions;
@@ -312,7 +307,6 @@ export class Pool extends pulumi.CustomResource {
             }
             resourceInputs["accountName"] = args?.accountName;
             resourceInputs["autoScale"] = args?.autoScale;
-            resourceInputs["certificates"] = args?.certificates;
             resourceInputs["containerConfiguration"] = args?.containerConfiguration;
             resourceInputs["dataDisks"] = args?.dataDisks;
             resourceInputs["diskEncryptions"] = args?.diskEncryptions;
@@ -360,10 +354,6 @@ export interface PoolState {
      * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
     autoScale?: pulumi.Input<inputs.batch.PoolAutoScale | undefined>;
-    /**
-     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-     */
-    certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[] | undefined>;
     /**
      * The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
      */
@@ -488,10 +478,6 @@ export interface PoolArgs {
      * > **Note:** `fixedScale` and `autoScale` blocks cannot be used both at the same time.
      */
     autoScale?: pulumi.Input<inputs.batch.PoolAutoScale | undefined>;
-    /**
-     * @deprecated the `certificate` property has been deprecated and will be removed in v5.0 of the AzureRM provider.
-     */
-    certificates?: pulumi.Input<pulumi.Input<inputs.batch.PoolCertificate>[] | undefined>;
     /**
      * The container configuration used in the pool's VMs. One `containerConfiguration` block as defined below.
      */

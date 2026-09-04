@@ -19,6 +19,8 @@ public final class EventHubNamespaceNetworkRulesets {
     /**
      * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
      * 
+     * &gt; **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
+     * 
      */
     private String defaultAction;
     /**
@@ -47,6 +49,8 @@ public final class EventHubNamespaceNetworkRulesets {
     private EventHubNamespaceNetworkRulesets() {}
     /**
      * @return The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+     * 
+     * &gt; **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
      * 
      */
     public String defaultAction() {

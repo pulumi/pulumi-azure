@@ -19,8 +19,6 @@ namespace Pulumi.Azure.HDInsight.Outputs
         public readonly Outputs.KafkaClusterRolesHeadNode HeadNode;
         /// <summary>
         /// A `KafkaManagementNode` block as defined below.
-        /// 
-        /// &gt; **Note:** This property has been deprecated and will be removed in version 4.0.
         /// </summary>
         public readonly Outputs.KafkaClusterRolesKafkaManagementNode? KafkaManagementNode;
         /// <summary>

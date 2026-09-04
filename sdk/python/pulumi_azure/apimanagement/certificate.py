@@ -368,7 +368,7 @@ class Certificate(pulumi.CustomResource):
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         ```
 
         ### With Key Vault Certificate)
@@ -409,7 +409,7 @@ class Certificate(pulumi.CustomResource):
             name="example-cert",
             key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="example_cert.pfx").result,
+                "contents": std.filebase64(input="example_cert.pfx")["result"],
                 "password": "terraform",
             },
             certificate_policy={
@@ -497,7 +497,7 @@ class Certificate(pulumi.CustomResource):
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         ```
 
         ### With Key Vault Certificate)
@@ -538,7 +538,7 @@ class Certificate(pulumi.CustomResource):
             name="example-cert",
             key_vault_id=example_key_vault.id,
             certificate={
-                "contents": std.filebase64(input="example_cert.pfx").result,
+                "contents": std.filebase64(input="example_cert.pfx")["result"],
                 "password": "terraform",
             },
             certificate_policy={

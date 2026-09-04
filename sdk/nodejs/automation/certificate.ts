@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *     description: "This is an example certificate",
  *     base64: std.filebase64({
  *         input: "certificate.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     exportable: true,
  * });
  * ```

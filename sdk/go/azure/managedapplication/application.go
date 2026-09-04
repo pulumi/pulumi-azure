@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,99 +23,99 @@ import (
 //
 //	"encoding/json"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/managedapplication"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/managedapplication"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// current, err := core.GetClientConfig(ctx, map[string]interface{}{
-// }, nil);
-// if err != nil {
-// return err
-// }
-// builtin, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
-// Name: pulumi.StringRef("Contributor"),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
-// Name: pulumi.String("example-resources"),
-// Location: pulumi.String("West Europe"),
-// })
-// if err != nil {
-// return err
-// }
-// invokeSplit, err := std.Split(ctx, &std.SplitArgs{
-// Separator: "/",
-// Text: builtin.Id,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// invokeSplit1, err := std.Split(ctx, &std.SplitArgs{
-// Separator: "/",
-// Text: builtin.Id,
-// }, nil)
-// if err != nil {
-// return err
-// }
-// exampleDefinition, err := managedapplication.NewDefinition(ctx, "example", &managedapplication.DefinitionArgs{
-// Name: pulumi.String("examplemanagedapplicationdefinition"),
-// Location: example.Location,
-// ResourceGroupName: example.Name,
-// LockLevel: pulumi.String("ReadOnly"),
-// PackageFileUri: pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
-// DisplayName: pulumi.String("TestManagedAppDefinition"),
-// Description: pulumi.String("Test Managed App Definition"),
-// Authorizations: managedapplication.DefinitionAuthorizationArray{
-// &managedapplication.DefinitionAuthorizationArgs{
-// ServicePrincipalId: pulumi.String(current.ObjectId),
-// RoleDefinitionId: len(invokeSplit.Result).ApplyT(func(length int) (string, error) {
-// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(pulumi.StringOutput),
-// },
-// },
-// })
-// if err != nil {
-// return err
-// }
-// _, err = managedapplication.NewApplication(ctx, "example", &managedapplication.ApplicationArgs{
-// Name: pulumi.String("example-managedapplication"),
-// Location: example.Location,
-// ResourceGroupName: example.Name,
-// Kind: pulumi.String("ServiceCatalog"),
-// ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
-// ApplicationDefinitionId: exampleDefinition.ID().ToIDOutput().ToStringOutput(),
-// ParameterValues: example.Location.ApplyT(func(location string) (pulumi.String, error) {
-// var _zero pulumi.String
-// tmpJSON0, err := json.Marshal(map[string]map[string]string{
-// "location": map[string]string{
-// "value": location,
-// },
-// "storageAccountNamePrefix": map[string]string{
-// "value": "storeNamePrefix",
-// },
-// "storageAccountType": map[string]string{
-// "value": "Standard_LRS",
-// },
-// })
-// if err != nil {
-// return _zero, err
-// }
-// json0 := string(tmpJSON0)
-// return pulumi.String(json0), nil
-// }).(pulumi.StringOutput),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := core.GetClientConfig(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			builtin, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//				Name: pulumi.StringRef("Contributor"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeSplit, err := std.Split(ctx, map[string]interface{}{
+//				"separator": "/",
+//				"text":      builtin.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeSplit1, err := std.Split(ctx, map[string]interface{}{
+//				"separator": "/",
+//				"text":      builtin.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := managedapplication.NewDefinition(ctx, "example", &managedapplication.DefinitionArgs{
+//				Name:              pulumi.String("examplemanagedapplicationdefinition"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				LockLevel:         pulumi.String("ReadOnly"),
+//				PackageFileUri:    pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
+//				DisplayName:       pulumi.String("TestManagedAppDefinition"),
+//				Description:       pulumi.String("Test Managed App Definition"),
+//				Authorizations: managedapplication.DefinitionAuthorizationArray{
+//					&managedapplication.DefinitionAuthorizationArgs{
+//						ServicePrincipalId: pulumi.String(current.ObjectId),
+//						RoleDefinitionId:   invokeSplit.Result[len(invokeSplit1.Result)-1],
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = managedapplication.NewApplication(ctx, "example", &managedapplication.ApplicationArgs{
+//				Name:                     pulumi.String("example-managedapplication"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
+//				Kind:                     pulumi.String("ServiceCatalog"),
+//				ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
+//				ApplicationDefinitionId:  exampleDefinition.ID().ToIDOutput().ToStringOutput(),
+//				ParameterValues: example.Location.ApplyT(func(location string) (pulumi.String, error) {
+//					var _zero pulumi.String
+//					tmpJSON0, err := json.Marshal(map[string]map[string]string{
+//						"location": map[string]string{
+//							"value": location,
+//						},
+//						"storageAccountNamePrefix": map[string]string{
+//							"value": "storeNamePrefix",
+//						},
+//						"storageAccountType": map[string]string{
+//							"value": "Standard_LRS",
+//						},
+//					})
+//					if err != nil {
+//						return _zero, err
+//					}
+//					json0 := string(tmpJSON0)
+//					return pulumi.String(json0), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## API Providers
@@ -137,6 +137,8 @@ type Application struct {
 
 	// The application definition ID to deploy.
 	ApplicationDefinitionId pulumi.StringPtrOutput `pulumi:"applicationDefinitionId"`
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity ApplicationIdentityPtrOutput `pulumi:"identity"`
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind pulumi.StringOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -198,6 +200,8 @@ func GetApplication(ctx *pulumi.Context,
 type applicationState struct {
 	// The application definition ID to deploy.
 	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity *ApplicationIdentity `pulumi:"identity"`
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -221,6 +225,8 @@ type applicationState struct {
 type ApplicationState struct {
 	// The application definition ID to deploy.
 	ApplicationDefinitionId pulumi.StringPtrInput
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity ApplicationIdentityPtrInput
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -248,6 +254,8 @@ func (ApplicationState) ElementType() reflect.Type {
 type applicationArgs struct {
 	// The application definition ID to deploy.
 	ApplicationDefinitionId *string `pulumi:"applicationDefinitionId"`
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity *ApplicationIdentity `pulumi:"identity"`
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind string `pulumi:"kind"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -270,6 +278,8 @@ type applicationArgs struct {
 type ApplicationArgs struct {
 	// The application definition ID to deploy.
 	ApplicationDefinitionId pulumi.StringPtrInput
+	// An `identity` block as defined below. Removing this block forces a new resource to be created.
+	Identity ApplicationIdentityPtrInput
 	// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
 	Kind pulumi.StringInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
@@ -378,6 +388,11 @@ func (o ApplicationOutput) ToApplicationOutputWithContext(ctx context.Context) A
 // The application definition ID to deploy.
 func (o ApplicationOutput) ApplicationDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringPtrOutput { return v.ApplicationDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// An `identity` block as defined below. Removing this block forces a new resource to be created.
+func (o ApplicationOutput) Identity() ApplicationIdentityPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationIdentityPtrOutput { return v.Identity }).(ApplicationIdentityPtrOutput)
 }
 
 // The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.

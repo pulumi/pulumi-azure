@@ -24,14 +24,14 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
     public static final EndpointArgs Empty = new EndpointArgs();
 
     /**
-     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      * 
      */
     @Import(name="contentTypesToCompresses")
     private @Nullable Output<List<String>> contentTypesToCompresses;
 
     /**
-     * @return An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * @return An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      * 
      */
     public Optional<Output<List<String>>> contentTypesToCompresses() {
@@ -339,7 +339,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class EndpointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+         * @param contentTypesToCompresses An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
          * 
          * @return builder
          * 

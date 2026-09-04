@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/databricks"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/databricks"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -65,7 +65,6 @@ import (
 // * Databricks Workspace with Root Databricks File System Customer Managed Keys
 // * Databricks Workspace with Root Databricks File System Customer Managed Keys in a Different Subscription
 // * Databricks Workspace with Customer Managed Keys for Managed Services
-// * Databricks Workspace with Customer Managed Keys for Managed Services with Key Vault and Key in a Different Subscription
 //
 // ## API Providers
 //
@@ -74,7 +73,7 @@ import (
 //
 // * `Microsoft.Databricks` - 2026-01-01
 //
-// * `Microsoft.Network` - 2025-01-01, 2023-09-01
+// * `Microsoft.Network` - 2025-01-01
 //
 // ## Import
 //
@@ -108,9 +107,7 @@ type Workspace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedDiskCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedDiskCmkKeyVaultId pulumi.StringPtrOutput `pulumi:"managedDiskCmkKeyVaultId"`
 	// Customer managed encryption properties for the Databricks Workspace managed disks.
 	ManagedDiskCmkKeyVaultKeyId pulumi.StringPtrOutput `pulumi:"managedDiskCmkKeyVaultKeyId"`
@@ -126,9 +123,7 @@ type Workspace struct {
 	ManagedResourceGroupName pulumi.StringOutput `pulumi:"managedResourceGroupName"`
 	// Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedServicesCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedServicesCmkKeyVaultId pulumi.StringPtrOutput `pulumi:"managedServicesCmkKeyVaultId"`
 	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
 	ManagedServicesCmkKeyVaultKeyId pulumi.StringPtrOutput `pulumi:"managedServicesCmkKeyVaultKeyId"`
@@ -150,7 +145,7 @@ type Workspace struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The unique identifier of the databricks workspace in Databricks control plane.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
-	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+	// The workspace URL which is of the format `adb-{workspaceId}.{random}.azuredatabricks.net`
 	WorkspaceUrl pulumi.StringOutput `pulumi:"workspaceUrl"`
 }
 
@@ -212,9 +207,7 @@ type workspaceState struct {
 	Location *string `pulumi:"location"`
 	// Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedDiskCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedDiskCmkKeyVaultId *string `pulumi:"managedDiskCmkKeyVaultId"`
 	// Customer managed encryption properties for the Databricks Workspace managed disks.
 	ManagedDiskCmkKeyVaultKeyId *string `pulumi:"managedDiskCmkKeyVaultKeyId"`
@@ -230,9 +223,7 @@ type workspaceState struct {
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedServicesCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedServicesCmkKeyVaultId *string `pulumi:"managedServicesCmkKeyVaultId"`
 	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
 	ManagedServicesCmkKeyVaultKeyId *string `pulumi:"managedServicesCmkKeyVaultKeyId"`
@@ -254,7 +245,7 @@ type workspaceState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The unique identifier of the databricks workspace in Databricks control plane.
 	WorkspaceId *string `pulumi:"workspaceId"`
-	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+	// The workspace URL which is of the format `adb-{workspaceId}.{random}.azuredatabricks.net`
 	WorkspaceUrl *string `pulumi:"workspaceUrl"`
 }
 
@@ -281,9 +272,7 @@ type WorkspaceState struct {
 	Location pulumi.StringPtrInput
 	// Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedDiskCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedDiskCmkKeyVaultId pulumi.StringPtrInput
 	// Customer managed encryption properties for the Databricks Workspace managed disks.
 	ManagedDiskCmkKeyVaultKeyId pulumi.StringPtrInput
@@ -299,9 +288,7 @@ type WorkspaceState struct {
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedServicesCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedServicesCmkKeyVaultId pulumi.StringPtrInput
 	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
 	ManagedServicesCmkKeyVaultKeyId pulumi.StringPtrInput
@@ -323,7 +310,7 @@ type WorkspaceState struct {
 	Tags pulumi.StringMapInput
 	// The unique identifier of the databricks workspace in Databricks control plane.
 	WorkspaceId pulumi.StringPtrInput
-	// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+	// The workspace URL which is of the format `adb-{workspaceId}.{random}.azuredatabricks.net`
 	WorkspaceUrl pulumi.StringPtrInput
 }
 
@@ -352,9 +339,7 @@ type workspaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedDiskCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedDiskCmkKeyVaultId *string `pulumi:"managedDiskCmkKeyVaultId"`
 	// Customer managed encryption properties for the Databricks Workspace managed disks.
 	ManagedDiskCmkKeyVaultKeyId *string `pulumi:"managedDiskCmkKeyVaultKeyId"`
@@ -366,9 +351,7 @@ type workspaceArgs struct {
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedServicesCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedServicesCmkKeyVaultId *string `pulumi:"managedServicesCmkKeyVaultId"`
 	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
 	ManagedServicesCmkKeyVaultKeyId *string `pulumi:"managedServicesCmkKeyVaultKeyId"`
@@ -410,9 +393,7 @@ type WorkspaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedDiskCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedDiskCmkKeyVaultId pulumi.StringPtrInput
 	// Customer managed encryption properties for the Databricks Workspace managed disks.
 	ManagedDiskCmkKeyVaultKeyId pulumi.StringPtrInput
@@ -424,9 +405,7 @@ type WorkspaceArgs struct {
 	ManagedResourceGroupName pulumi.StringPtrInput
 	// Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
 	//
-	// > **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-	//
-	// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+	// Deprecated: `managedServicesCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 	ManagedServicesCmkKeyVaultId pulumi.StringPtrInput
 	// Customer managed encryption properties for the Databricks Workspace managed resources(e.g. Notebooks and Artifacts).
 	ManagedServicesCmkKeyVaultKeyId pulumi.StringPtrInput
@@ -582,9 +561,7 @@ func (o WorkspaceOutput) Location() pulumi.StringOutput {
 
 // Resource ID of the Key Vault which contains the `managedDiskCmkKeyVaultKeyId` key.
 //
-// > **Note:** The `managedDiskCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedDiskCmkKeyVaultId` field is not specified it is assumed that the `managedDiskCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-//
-// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+// Deprecated: `managedDiskCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 func (o WorkspaceOutput) ManagedDiskCmkKeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ManagedDiskCmkKeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -618,9 +595,7 @@ func (o WorkspaceOutput) ManagedResourceGroupName() pulumi.StringOutput {
 
 // Resource ID of the Key Vault which contains the `managedServicesCmkKeyVaultKeyId` key.
 //
-// > **Note:** The `managedServicesCmkKeyVaultId` field is only required if the Key Vault exists in a different subscription than the Databricks Workspace. If the `managedServicesCmkKeyVaultId` field is not specified it is assumed that the `managedServicesCmkKeyVaultKeyId` is hosted in the same subscriptioin as the Databricks Workspace.
-//
-// > **Note:** If you are using multiple service principals to execute Terraform across subscriptions you will need to add an additional `keyvault.AccessPolicy` resource granting the service principal access to the key vault in that subscription.
+// Deprecated: `managedServicesCmkKeyVaultId` has been deprecated and will be removed in v6.0 of the AzureRM provider. This property is no longer required for cross-subscription scenarios.
 func (o WorkspaceOutput) ManagedServicesCmkKeyVaultId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.ManagedServicesCmkKeyVaultId }).(pulumi.StringPtrOutput)
 }
@@ -672,7 +647,7 @@ func (o WorkspaceOutput) WorkspaceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceId }).(pulumi.StringOutput)
 }
 
-// The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
+// The workspace URL which is of the format `adb-{workspaceId}.{random}.azuredatabricks.net`
 func (o WorkspaceOutput) WorkspaceUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.WorkspaceUrl }).(pulumi.StringOutput)
 }

@@ -61,6 +61,14 @@ export interface GetAnalyticsWorkspaceResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The public network access type for ingestion into the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+     */
+    readonly internetIngestionAccessType: string;
+    /**
+     * The public network access type for querying the Log Analytics Workspace. Possible values are `Enabled`, `Disabled`, and `SecuredByPerimeter`.
+     */
+    readonly internetQueryAccessType: string;
     readonly location: string;
     readonly name: string;
     /**

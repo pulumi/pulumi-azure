@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *     guestPartnerName: guest.name,
  *     content: std.file({
  *         input: "testdata/integration_account_agreement_content_as2.json",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     hostIdentity: {
  *         qualifier: "AS2Identity",
  *         value: "FabrikamNY",

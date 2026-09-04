@@ -16,6 +16,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
+    private @Nullable Boolean acceleratedNetworkingEnabled;
     /**
      * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
      * 
@@ -38,20 +39,11 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
      */
     private @Nullable List<String> dnsServers;
     /**
-     * @return Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-     * 
-     */
-    private @Nullable Boolean enableAcceleratedNetworking;
-    /**
-     * @return Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-     * 
-     */
-    private @Nullable Boolean enableIpForwarding;
-    /**
      * @return One or more `ipConfiguration` blocks as defined above.
      * 
      */
     private List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
+    private @Nullable Boolean ipForwardingEnabled;
     /**
      * @return The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
      * 
@@ -76,6 +68,9 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     private @Nullable Map<String,String> tags;
 
     private OrchestratedVirtualMachineScaleSetNetworkInterface() {}
+    public Optional<Boolean> acceleratedNetworkingEnabled() {
+        return Optional.ofNullable(this.acceleratedNetworkingEnabled);
+    }
     /**
      * @return Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
      * 
@@ -104,25 +99,14 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         return this.dnsServers == null ? List.of() : this.dnsServers;
     }
     /**
-     * @return Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-     * 
-     */
-    public Optional<Boolean> enableAcceleratedNetworking() {
-        return Optional.ofNullable(this.enableAcceleratedNetworking);
-    }
-    /**
-     * @return Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-     * 
-     */
-    public Optional<Boolean> enableIpForwarding() {
-        return Optional.ofNullable(this.enableIpForwarding);
-    }
-    /**
      * @return One or more `ipConfiguration` blocks as defined above.
      * 
      */
     public List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations() {
         return this.ipConfigurations;
+    }
+    public Optional<Boolean> ipForwardingEnabled() {
+        return Optional.ofNullable(this.ipForwardingEnabled);
     }
     /**
      * @return The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
@@ -164,12 +148,12 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean acceleratedNetworkingEnabled;
         private @Nullable String auxiliaryMode;
         private @Nullable String auxiliarySku;
         private @Nullable List<String> dnsServers;
-        private @Nullable Boolean enableAcceleratedNetworking;
-        private @Nullable Boolean enableIpForwarding;
         private List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations;
+        private @Nullable Boolean ipForwardingEnabled;
         private String name;
         private @Nullable String networkSecurityGroupId;
         private @Nullable Boolean primary;
@@ -177,18 +161,24 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetNetworkInterface defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.acceleratedNetworkingEnabled = defaults.acceleratedNetworkingEnabled;
     	      this.auxiliaryMode = defaults.auxiliaryMode;
     	      this.auxiliarySku = defaults.auxiliarySku;
     	      this.dnsServers = defaults.dnsServers;
-    	      this.enableAcceleratedNetworking = defaults.enableAcceleratedNetworking;
-    	      this.enableIpForwarding = defaults.enableIpForwarding;
     	      this.ipConfigurations = defaults.ipConfigurations;
+    	      this.ipForwardingEnabled = defaults.ipForwardingEnabled;
     	      this.name = defaults.name;
     	      this.networkSecurityGroupId = defaults.networkSecurityGroupId;
     	      this.primary = defaults.primary;
     	      this.tags = defaults.tags;
         }
 
+        @CustomType.Setter
+        public Builder acceleratedNetworkingEnabled(@Nullable Boolean acceleratedNetworkingEnabled) {
+
+            this.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            return this;
+        }
         @CustomType.Setter
         public Builder auxiliaryMode(@Nullable String auxiliaryMode) {
 
@@ -211,18 +201,6 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
             return dnsServers(List.of(dnsServers));
         }
         @CustomType.Setter
-        public Builder enableAcceleratedNetworking(@Nullable Boolean enableAcceleratedNetworking) {
-
-            this.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder enableIpForwarding(@Nullable Boolean enableIpForwarding) {
-
-            this.enableIpForwarding = enableIpForwarding;
-            return this;
-        }
-        @CustomType.Setter
         public Builder ipConfigurations(List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration> ipConfigurations) {
             if (ipConfigurations == null) {
               throw new MissingRequiredPropertyException("OrchestratedVirtualMachineScaleSetNetworkInterface", "ipConfigurations");
@@ -232,6 +210,12 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         }
         public Builder ipConfigurations(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfiguration... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
+        }
+        @CustomType.Setter
+        public Builder ipForwardingEnabled(@Nullable Boolean ipForwardingEnabled) {
+
+            this.ipForwardingEnabled = ipForwardingEnabled;
+            return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -261,12 +245,12 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterface {
         }
         public OrchestratedVirtualMachineScaleSetNetworkInterface build() {
             final var _resultValue = new OrchestratedVirtualMachineScaleSetNetworkInterface();
+            _resultValue.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
             _resultValue.auxiliaryMode = auxiliaryMode;
             _resultValue.auxiliarySku = auxiliarySku;
             _resultValue.dnsServers = dnsServers;
-            _resultValue.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            _resultValue.enableIpForwarding = enableIpForwarding;
             _resultValue.ipConfigurations = ipConfigurations;
+            _resultValue.ipForwardingEnabled = ipForwardingEnabled;
             _resultValue.name = name;
             _resultValue.networkSecurityGroupId = networkSecurityGroupId;
             _resultValue.primary = primary;

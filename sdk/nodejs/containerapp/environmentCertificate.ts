@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     containerAppEnvironmentId: exampleEnvironment.id,
  *     certificateBlobBase64: std.filebase64({
  *         input: "path/to/certificate_file.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     certificatePassword: "$3cretSqu1rreL",
  * });
  * ```
@@ -103,7 +103,7 @@ import * as utilities from "../utilities";
  *     certificate: {
  *         contents: std.filebase64({
  *             input: "path/to/certificate_file.pfx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *         password: "",
  *     },
  * }, {

@@ -63,7 +63,7 @@ export interface GetFrontdoorProfileResult {
     /**
      * An `identity` block as defined below.
      */
-    readonly identity: outputs.cdn.GetFrontdoorProfileIdentity;
+    readonly identities: outputs.cdn.GetFrontdoorProfileIdentity[];
     /**
      * One or more `logScrubbingRule` blocks as defined below.
      */

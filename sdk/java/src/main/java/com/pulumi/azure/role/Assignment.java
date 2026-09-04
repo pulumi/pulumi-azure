@@ -255,7 +255,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.Assignment;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.BasenameArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -305,11 +304,7 @@ import javax.annotation.Nullable;
  *   }{@literal @}{@code Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals }{{@code %s}}{@code
  *  )
  * )
- * ", StdFunctions.basename(BasenameArgs.builder()
- *                 .input(builtin.roleDefinitionId())
- *                 .build()).result(),StdFunctions.basename(BasenameArgs.builder()
- *                 .input(builtin.roleDefinitionId())
- *                 .build()).result()))
+ * ", StdFunctions.basename(Map.of("input", builtin.roleDefinitionId())).result(),StdFunctions.basename(Map.of("input", builtin.roleDefinitionId())).result()))
  *             .build());
  * 
  *     }}{@code
@@ -349,21 +344,21 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:role/assignment:Assignment")
 public class Assignment extends com.pulumi.resources.CustomResource {
     /**
-     * The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     * The condition that limits the resources that the role can be assigned to.
      * 
      */
     @Export(name="condition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> condition;
 
     /**
-     * @return The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created.
+     * @return The condition that limits the resources that the role can be assigned to.
      * 
      */
     public Output<Optional<String>> condition() {
         return Codegen.optional(this.condition);
     }
     /**
-     * The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     * The version of the condition. Possible values are `1.0` or `2.0`.
      * 
      * &gt; **Note:** `condition` is required when `conditionVersion` is set.
      * 
@@ -372,7 +367,7 @@ public class Assignment extends com.pulumi.resources.CustomResource {
     private Output<String> conditionVersion;
 
     /**
-     * @return The version of the condition. Possible values are `1.0` or `2.0`. Changing this forces a new resource to be created.
+     * @return The version of the condition. Possible values are `1.0` or `2.0`.
      * 
      * &gt; **Note:** `condition` is required when `conditionVersion` is set.
      * 
@@ -399,14 +394,14 @@ public class Assignment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.delegatedManagedIdentityResourceId);
     }
     /**
-     * The description for this Role Assignment. Changing this forces a new resource to be created.
+     * The description for this Role Assignment.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description for this Role Assignment. Changing this forces a new resource to be created.
+     * @return The description for this Role Assignment.
      * 
      */
     public Output<Optional<String>> description() {

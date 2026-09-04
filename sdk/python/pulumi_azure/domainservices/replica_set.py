@@ -263,16 +263,16 @@ class ReplicaSet(pulumi.CustomResource):
             subnet_id=primary_subnet.id,
             network_security_group_id=primary_network_security_group.id)
         dc_admins = azuread.Group("dc_admins",
-            display_name="aad-dc-administrators",
+            display_name=aad-dc-administrators,
             security_enabled=True)
         admin = azuread.User("admin",
-            user_principal_name="dc-admin@hashicorp-example.net",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
+            user_principal_name=dc-admin@hashicorp-example.net,
+            display_name=DC Administrator,
+            password=Pa55w0Rd!!1)
         admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
             member_object_id=admin.object_id)
-        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        example = azuread.ServicePrincipal("example", application_id=2565bd9d-da50-47d4-8b85-4c97f669dc36)
         aadds = azure.core.ResourceGroup("aadds",
             name="aadds-rg",
             location="westeurope")
@@ -510,16 +510,16 @@ class ReplicaSet(pulumi.CustomResource):
             subnet_id=primary_subnet.id,
             network_security_group_id=primary_network_security_group.id)
         dc_admins = azuread.Group("dc_admins",
-            display_name="aad-dc-administrators",
+            display_name=aad-dc-administrators,
             security_enabled=True)
         admin = azuread.User("admin",
-            user_principal_name="dc-admin@hashicorp-example.net",
-            display_name="DC Administrator",
-            password="Pa55w0Rd!!1")
+            user_principal_name=dc-admin@hashicorp-example.net,
+            display_name=DC Administrator,
+            password=Pa55w0Rd!!1)
         admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
             member_object_id=admin.object_id)
-        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        example = azuread.ServicePrincipal("example", application_id=2565bd9d-da50-47d4-8b85-4c97f669dc36)
         aadds = azure.core.ResourceGroup("aadds",
             name="aadds-rg",
             location="westeurope")

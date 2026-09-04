@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +22,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/customip"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/customip"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -69,8 +69,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/customip"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/customip"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -96,16 +96,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeCidrsubnet, err := std.Cidrsubnet(ctx, map[string]interface{}{
+//				"input":   global.Cidr,
+//				"newbits": 16,
+//				"netnum":  1,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = customip.NewPrefix(ctx, "regional", &customip.PrefixArgs{
 //				Name:                   pulumi.String("example-Regional-CustomIPPrefix"),
 //				Location:               pulumi.Any(test.Location),
 //				ResourceGroupName:      pulumi.Any(test.Name),
 //				ParentCustomIpPrefixId: global.ID().ToIDOutput().ToStringOutput(),
-//				Cidr: std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
-//					Input:   global.Cidr,
-//					Newbits: pulumi.Int(16),
-//					Netnum:  pulumi.Int(1),
-//				}, nil).Result(),
+//				Cidr:                   invokeCidrsubnet.Result,
 //				Zones: pulumi.StringArray{
 //					pulumi.String("1"),
 //				},

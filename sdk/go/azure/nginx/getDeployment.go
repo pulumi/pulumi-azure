@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,7 +20,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/nginx"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/nginx"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -75,8 +75,6 @@ type LookupDeploymentResult struct {
 	Capacity int `pulumi:"capacity"`
 	// The dataplane API endpoint of the NGINX Deployment.
 	DataplaneApiEndpoint string `pulumi:"dataplaneApiEndpoint"`
-	// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-	DiagnoseSupportEnabled bool `pulumi:"diagnoseSupportEnabled"`
 	// Preferred email associated with the NGINX Deployment.
 	Email string `pulumi:"email"`
 	// A `frontendPrivate` block as defined below.
@@ -91,10 +89,6 @@ type LookupDeploymentResult struct {
 	IpAddress string `pulumi:"ipAddress"`
 	// The Azure Region where the NGINX Deployment exists.
 	Location string `pulumi:"location"`
-	// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-	LoggingStorageAccounts []GetDeploymentLoggingStorageAccount `pulumi:"loggingStorageAccounts"`
-	// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-	ManagedResourceGroup string `pulumi:"managedResourceGroup"`
 	// Name of the autoscaling profile.
 	Name string `pulumi:"name"`
 	// A `networkInterface` block as defined below.
@@ -162,11 +156,6 @@ func (o LookupDeploymentResultOutput) DataplaneApiEndpoint() pulumi.StringOutput
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.DataplaneApiEndpoint }).(pulumi.StringOutput)
 }
 
-// Deprecated: this property is deprecated and will be removed in v5.0, metrics are enabled by default.
-func (o LookupDeploymentResultOutput) DiagnoseSupportEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v LookupDeploymentResult) bool { return v.DiagnoseSupportEnabled }).(pulumi.BoolOutput)
-}
-
 // Preferred email associated with the NGINX Deployment.
 func (o LookupDeploymentResultOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Email }).(pulumi.StringOutput)
@@ -200,16 +189,6 @@ func (o LookupDeploymentResultOutput) IpAddress() pulumi.StringOutput {
 // The Azure Region where the NGINX Deployment exists.
 func (o LookupDeploymentResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDeploymentResult) string { return v.Location }).(pulumi.StringOutput)
-}
-
-// Deprecated: The `loggingStorageAccount` block has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-func (o LookupDeploymentResultOutput) LoggingStorageAccounts() GetDeploymentLoggingStorageAccountArrayOutput {
-	return o.ApplyT(func(v LookupDeploymentResult) []GetDeploymentLoggingStorageAccount { return v.LoggingStorageAccounts }).(GetDeploymentLoggingStorageAccountArrayOutput)
-}
-
-// Deprecated: The `managedResourceGroup` field isn't supported by the API anymore and has been deprecated and will be removed in v5.0 of the AzureRM Provider.
-func (o LookupDeploymentResultOutput) ManagedResourceGroup() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupDeploymentResult) string { return v.ManagedResourceGroup }).(pulumi.StringOutput)
 }
 
 // Name of the autoscaling profile.

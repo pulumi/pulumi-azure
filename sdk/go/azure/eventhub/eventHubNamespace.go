@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/eventhub"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/eventhub"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -98,7 +98,7 @@ type EventHubNamespace struct {
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
 	MaximumThroughputUnits pulumi.IntPtrOutput `pulumi:"maximumThroughputUnits"`
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+	// The minimum supported TLS version for this EventHub Namespace. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrOutput `pulumi:"minimumTlsVersion"`
@@ -187,7 +187,7 @@ type eventHubNamespaceState struct {
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
 	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+	// The minimum supported TLS version for this EventHub Namespace. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
@@ -232,7 +232,7 @@ type EventHubNamespaceState struct {
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
 	MaximumThroughputUnits pulumi.IntPtrInput
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+	// The minimum supported TLS version for this EventHub Namespace. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
@@ -269,7 +269,7 @@ type eventHubNamespaceArgs struct {
 	Location *string `pulumi:"location"`
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
 	MaximumThroughputUnits *int `pulumi:"maximumThroughputUnits"`
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+	// The minimum supported TLS version for this EventHub Namespace. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion *string `pulumi:"minimumTlsVersion"`
@@ -303,7 +303,7 @@ type EventHubNamespaceArgs struct {
 	Location pulumi.StringPtrInput
 	// Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `40`.
 	MaximumThroughputUnits pulumi.IntPtrInput
-	// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+	// The minimum supported TLS version for this EventHub Namespace. The only possible value is `1.2`. Defaults to `1.2`.
 	//
 	// > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 	MinimumTlsVersion pulumi.StringPtrInput
@@ -473,7 +473,7 @@ func (o EventHubNamespaceOutput) MaximumThroughputUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespace) pulumi.IntPtrOutput { return v.MaximumThroughputUnits }).(pulumi.IntPtrOutput)
 }
 
-// The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. Defaults to `1.2`.
+// The minimum supported TLS version for this EventHub Namespace. The only possible value is `1.2`. Defaults to `1.2`.
 //
 // > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more.
 func (o EventHubNamespaceOutput) MinimumTlsVersion() pulumi.StringPtrOutput {

@@ -118,7 +118,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.management.GroupTemplateDeployment;
  * import com.pulumi.azure.management.GroupTemplateDeploymentArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -140,12 +139,8 @@ import javax.annotation.Nullable;
  *             .name("example")
  *             .location("West Europe")
  *             .managementGroupId(example.id())
- *             .templateContent(StdFunctions.file(FileArgs.builder()
- *                 .input("templates/example-deploy-template.json")
- *                 .build()).result())
- *             .parametersContent(StdFunctions.file(FileArgs.builder()
- *                 .input("templates/example-deploy-params.json")
- *                 .build()).result())
+ *             .templateContent(StdFunctions.file(Map.of("input", "templates/example-deploy-template.json")).result())
+ *             .parametersContent(StdFunctions.file(Map.of("input", "templates/example-deploy-params.json")).result())
  *             .build());
  * 
  *     }

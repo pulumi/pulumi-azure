@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -799,109 +799,6 @@ func (o DeploymentIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-type DeploymentLoggingStorageAccount struct {
-	ContainerName *string `pulumi:"containerName"`
-	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-	Name *string `pulumi:"name"`
-}
-
-// DeploymentLoggingStorageAccountInput is an input type that accepts DeploymentLoggingStorageAccountArgs and DeploymentLoggingStorageAccountOutput values.
-// You can construct a concrete instance of `DeploymentLoggingStorageAccountInput` via:
-//
-//	DeploymentLoggingStorageAccountArgs{...}
-type DeploymentLoggingStorageAccountInput interface {
-	pulumi.Input
-
-	ToDeploymentLoggingStorageAccountOutput() DeploymentLoggingStorageAccountOutput
-	ToDeploymentLoggingStorageAccountOutputWithContext(context.Context) DeploymentLoggingStorageAccountOutput
-}
-
-type DeploymentLoggingStorageAccountArgs struct {
-	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
-	// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (DeploymentLoggingStorageAccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentLoggingStorageAccount)(nil)).Elem()
-}
-
-func (i DeploymentLoggingStorageAccountArgs) ToDeploymentLoggingStorageAccountOutput() DeploymentLoggingStorageAccountOutput {
-	return i.ToDeploymentLoggingStorageAccountOutputWithContext(context.Background())
-}
-
-func (i DeploymentLoggingStorageAccountArgs) ToDeploymentLoggingStorageAccountOutputWithContext(ctx context.Context) DeploymentLoggingStorageAccountOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentLoggingStorageAccountOutput)
-}
-
-// DeploymentLoggingStorageAccountArrayInput is an input type that accepts DeploymentLoggingStorageAccountArray and DeploymentLoggingStorageAccountArrayOutput values.
-// You can construct a concrete instance of `DeploymentLoggingStorageAccountArrayInput` via:
-//
-//	DeploymentLoggingStorageAccountArray{ DeploymentLoggingStorageAccountArgs{...} }
-type DeploymentLoggingStorageAccountArrayInput interface {
-	pulumi.Input
-
-	ToDeploymentLoggingStorageAccountArrayOutput() DeploymentLoggingStorageAccountArrayOutput
-	ToDeploymentLoggingStorageAccountArrayOutputWithContext(context.Context) DeploymentLoggingStorageAccountArrayOutput
-}
-
-type DeploymentLoggingStorageAccountArray []DeploymentLoggingStorageAccountInput
-
-func (DeploymentLoggingStorageAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentLoggingStorageAccount)(nil)).Elem()
-}
-
-func (i DeploymentLoggingStorageAccountArray) ToDeploymentLoggingStorageAccountArrayOutput() DeploymentLoggingStorageAccountArrayOutput {
-	return i.ToDeploymentLoggingStorageAccountArrayOutputWithContext(context.Background())
-}
-
-func (i DeploymentLoggingStorageAccountArray) ToDeploymentLoggingStorageAccountArrayOutputWithContext(ctx context.Context) DeploymentLoggingStorageAccountArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentLoggingStorageAccountArrayOutput)
-}
-
-type DeploymentLoggingStorageAccountOutput struct{ *pulumi.OutputState }
-
-func (DeploymentLoggingStorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentLoggingStorageAccount)(nil)).Elem()
-}
-
-func (o DeploymentLoggingStorageAccountOutput) ToDeploymentLoggingStorageAccountOutput() DeploymentLoggingStorageAccountOutput {
-	return o
-}
-
-func (o DeploymentLoggingStorageAccountOutput) ToDeploymentLoggingStorageAccountOutputWithContext(ctx context.Context) DeploymentLoggingStorageAccountOutput {
-	return o
-}
-
-func (o DeploymentLoggingStorageAccountOutput) ContainerName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentLoggingStorageAccount) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
-}
-
-// The name which should be used for this NGINX Deployment. Changing this forces a new NGINX Deployment to be created.
-func (o DeploymentLoggingStorageAccountOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeploymentLoggingStorageAccount) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type DeploymentLoggingStorageAccountArrayOutput struct{ *pulumi.OutputState }
-
-func (DeploymentLoggingStorageAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentLoggingStorageAccount)(nil)).Elem()
-}
-
-func (o DeploymentLoggingStorageAccountArrayOutput) ToDeploymentLoggingStorageAccountArrayOutput() DeploymentLoggingStorageAccountArrayOutput {
-	return o
-}
-
-func (o DeploymentLoggingStorageAccountArrayOutput) ToDeploymentLoggingStorageAccountArrayOutputWithContext(ctx context.Context) DeploymentLoggingStorageAccountArrayOutput {
-	return o
-}
-
-func (o DeploymentLoggingStorageAccountArrayOutput) Index(i pulumi.IntInput) DeploymentLoggingStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentLoggingStorageAccount {
-		return vs[0].([]DeploymentLoggingStorageAccount)[vs[1].(int)]
-	}).(DeploymentLoggingStorageAccountOutput)
 }
 
 type DeploymentNetworkInterface struct {
@@ -1824,10 +1721,6 @@ func (o GetConfigurationConfigFileArrayOutput) Index(i pulumi.IntInput) GetConfi
 }
 
 type GetConfigurationProtectedFile struct {
-	// The base-64 encoded contents of this configuration file.
-	//
-	// Deprecated: the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
-	Content string `pulumi:"content"`
 	// The hash of the contents of this configuration file prefixed by the algorithm used.
 	ContentHash string `pulumi:"contentHash"`
 	// The path of this configuration file.
@@ -1846,10 +1739,6 @@ type GetConfigurationProtectedFileInput interface {
 }
 
 type GetConfigurationProtectedFileArgs struct {
-	// The base-64 encoded contents of this configuration file.
-	//
-	// Deprecated: the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
-	Content pulumi.StringInput `pulumi:"content"`
 	// The hash of the contents of this configuration file prefixed by the algorithm used.
 	ContentHash pulumi.StringInput `pulumi:"contentHash"`
 	// The path of this configuration file.
@@ -1905,13 +1794,6 @@ func (o GetConfigurationProtectedFileOutput) ToGetConfigurationProtectedFileOutp
 
 func (o GetConfigurationProtectedFileOutput) ToGetConfigurationProtectedFileOutputWithContext(ctx context.Context) GetConfigurationProtectedFileOutput {
 	return o
-}
-
-// The base-64 encoded contents of this configuration file.
-//
-// Deprecated: the `content` property is deprecated and will be removed in v5.0 of the AzureRM Provider.
-func (o GetConfigurationProtectedFileOutput) Content() pulumi.StringOutput {
-	return o.ApplyT(func(v GetConfigurationProtectedFile) string { return v.Content }).(pulumi.StringOutput)
 }
 
 // The hash of the contents of this configuration file prefixed by the algorithm used.
@@ -2387,109 +2269,6 @@ func (o GetDeploymentIdentityArrayOutput) Index(i pulumi.IntInput) GetDeployment
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentIdentity {
 		return vs[0].([]GetDeploymentIdentity)[vs[1].(int)]
 	}).(GetDeploymentIdentityOutput)
-}
-
-type GetDeploymentLoggingStorageAccount struct {
-	ContainerName string `pulumi:"containerName"`
-	// The name of this NGINX Deployment.
-	Name string `pulumi:"name"`
-}
-
-// GetDeploymentLoggingStorageAccountInput is an input type that accepts GetDeploymentLoggingStorageAccountArgs and GetDeploymentLoggingStorageAccountOutput values.
-// You can construct a concrete instance of `GetDeploymentLoggingStorageAccountInput` via:
-//
-//	GetDeploymentLoggingStorageAccountArgs{...}
-type GetDeploymentLoggingStorageAccountInput interface {
-	pulumi.Input
-
-	ToGetDeploymentLoggingStorageAccountOutput() GetDeploymentLoggingStorageAccountOutput
-	ToGetDeploymentLoggingStorageAccountOutputWithContext(context.Context) GetDeploymentLoggingStorageAccountOutput
-}
-
-type GetDeploymentLoggingStorageAccountArgs struct {
-	ContainerName pulumi.StringInput `pulumi:"containerName"`
-	// The name of this NGINX Deployment.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetDeploymentLoggingStorageAccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDeploymentLoggingStorageAccount)(nil)).Elem()
-}
-
-func (i GetDeploymentLoggingStorageAccountArgs) ToGetDeploymentLoggingStorageAccountOutput() GetDeploymentLoggingStorageAccountOutput {
-	return i.ToGetDeploymentLoggingStorageAccountOutputWithContext(context.Background())
-}
-
-func (i GetDeploymentLoggingStorageAccountArgs) ToGetDeploymentLoggingStorageAccountOutputWithContext(ctx context.Context) GetDeploymentLoggingStorageAccountOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentLoggingStorageAccountOutput)
-}
-
-// GetDeploymentLoggingStorageAccountArrayInput is an input type that accepts GetDeploymentLoggingStorageAccountArray and GetDeploymentLoggingStorageAccountArrayOutput values.
-// You can construct a concrete instance of `GetDeploymentLoggingStorageAccountArrayInput` via:
-//
-//	GetDeploymentLoggingStorageAccountArray{ GetDeploymentLoggingStorageAccountArgs{...} }
-type GetDeploymentLoggingStorageAccountArrayInput interface {
-	pulumi.Input
-
-	ToGetDeploymentLoggingStorageAccountArrayOutput() GetDeploymentLoggingStorageAccountArrayOutput
-	ToGetDeploymentLoggingStorageAccountArrayOutputWithContext(context.Context) GetDeploymentLoggingStorageAccountArrayOutput
-}
-
-type GetDeploymentLoggingStorageAccountArray []GetDeploymentLoggingStorageAccountInput
-
-func (GetDeploymentLoggingStorageAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDeploymentLoggingStorageAccount)(nil)).Elem()
-}
-
-func (i GetDeploymentLoggingStorageAccountArray) ToGetDeploymentLoggingStorageAccountArrayOutput() GetDeploymentLoggingStorageAccountArrayOutput {
-	return i.ToGetDeploymentLoggingStorageAccountArrayOutputWithContext(context.Background())
-}
-
-func (i GetDeploymentLoggingStorageAccountArray) ToGetDeploymentLoggingStorageAccountArrayOutputWithContext(ctx context.Context) GetDeploymentLoggingStorageAccountArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDeploymentLoggingStorageAccountArrayOutput)
-}
-
-type GetDeploymentLoggingStorageAccountOutput struct{ *pulumi.OutputState }
-
-func (GetDeploymentLoggingStorageAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDeploymentLoggingStorageAccount)(nil)).Elem()
-}
-
-func (o GetDeploymentLoggingStorageAccountOutput) ToGetDeploymentLoggingStorageAccountOutput() GetDeploymentLoggingStorageAccountOutput {
-	return o
-}
-
-func (o GetDeploymentLoggingStorageAccountOutput) ToGetDeploymentLoggingStorageAccountOutputWithContext(ctx context.Context) GetDeploymentLoggingStorageAccountOutput {
-	return o
-}
-
-func (o GetDeploymentLoggingStorageAccountOutput) ContainerName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDeploymentLoggingStorageAccount) string { return v.ContainerName }).(pulumi.StringOutput)
-}
-
-// The name of this NGINX Deployment.
-func (o GetDeploymentLoggingStorageAccountOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetDeploymentLoggingStorageAccount) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type GetDeploymentLoggingStorageAccountArrayOutput struct{ *pulumi.OutputState }
-
-func (GetDeploymentLoggingStorageAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDeploymentLoggingStorageAccount)(nil)).Elem()
-}
-
-func (o GetDeploymentLoggingStorageAccountArrayOutput) ToGetDeploymentLoggingStorageAccountArrayOutput() GetDeploymentLoggingStorageAccountArrayOutput {
-	return o
-}
-
-func (o GetDeploymentLoggingStorageAccountArrayOutput) ToGetDeploymentLoggingStorageAccountArrayOutputWithContext(ctx context.Context) GetDeploymentLoggingStorageAccountArrayOutput {
-	return o
-}
-
-func (o GetDeploymentLoggingStorageAccountArrayOutput) Index(i pulumi.IntInput) GetDeploymentLoggingStorageAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDeploymentLoggingStorageAccount {
-		return vs[0].([]GetDeploymentLoggingStorageAccount)[vs[1].(int)]
-	}).(GetDeploymentLoggingStorageAccountOutput)
 }
 
 type GetDeploymentNetworkInterface struct {
@@ -3248,8 +3027,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentFrontendPublicPtrInput)(nil)).Elem(), DeploymentFrontendPublicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIdentityInput)(nil)).Elem(), DeploymentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentIdentityPtrInput)(nil)).Elem(), DeploymentIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentLoggingStorageAccountInput)(nil)).Elem(), DeploymentLoggingStorageAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentLoggingStorageAccountArrayInput)(nil)).Elem(), DeploymentLoggingStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentNetworkInterfaceInput)(nil)).Elem(), DeploymentNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentNetworkInterfaceArrayInput)(nil)).Elem(), DeploymentNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentWebApplicationFirewallInput)(nil)).Elem(), DeploymentWebApplicationFirewallArgs{})
@@ -3276,8 +3053,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentFrontendPublicArrayInput)(nil)).Elem(), GetDeploymentFrontendPublicArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentIdentityInput)(nil)).Elem(), GetDeploymentIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentIdentityArrayInput)(nil)).Elem(), GetDeploymentIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentLoggingStorageAccountInput)(nil)).Elem(), GetDeploymentLoggingStorageAccountArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentLoggingStorageAccountArrayInput)(nil)).Elem(), GetDeploymentLoggingStorageAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentNetworkInterfaceInput)(nil)).Elem(), GetDeploymentNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentNetworkInterfaceArrayInput)(nil)).Elem(), GetDeploymentNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeploymentWebApplicationFirewallInput)(nil)).Elem(), GetDeploymentWebApplicationFirewallArgs{})
@@ -3304,8 +3079,6 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentFrontendPublicPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentIdentityOutput{})
 	pulumi.RegisterOutputType(DeploymentIdentityPtrOutput{})
-	pulumi.RegisterOutputType(DeploymentLoggingStorageAccountOutput{})
-	pulumi.RegisterOutputType(DeploymentLoggingStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(DeploymentNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentWebApplicationFirewallOutput{})
@@ -3332,8 +3105,6 @@ func init() {
 	pulumi.RegisterOutputType(GetDeploymentFrontendPublicArrayOutput{})
 	pulumi.RegisterOutputType(GetDeploymentIdentityOutput{})
 	pulumi.RegisterOutputType(GetDeploymentIdentityArrayOutput{})
-	pulumi.RegisterOutputType(GetDeploymentLoggingStorageAccountOutput{})
-	pulumi.RegisterOutputType(GetDeploymentLoggingStorageAccountArrayOutput{})
 	pulumi.RegisterOutputType(GetDeploymentNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(GetDeploymentNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(GetDeploymentWebApplicationFirewallOutput{})

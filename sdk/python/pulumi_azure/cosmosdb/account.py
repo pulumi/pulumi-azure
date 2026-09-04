@@ -42,10 +42,8 @@ class AccountArgs:
                  is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
                  multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -69,7 +67,7 @@ class AccountArgs:
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[_builtins.str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        :param pulumi.Input[_builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -113,20 +111,10 @@ class AccountArgs:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
-        if local_authentication_disabled is not None:
-            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if local_authentication_enabled is not None:
             pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_hsm_key_id is not None:
-            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if minimal_tls_version is not None:
             pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if mongo_server_version is not None:
@@ -360,16 +348,6 @@ class AccountArgs:
         pulumi.set(self, "kind", value)
 
     @_builtins.property
-    @pulumi.getter(name="localAuthenticationDisabled")
-    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "local_authentication_disabled")
-
-    @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "local_authentication_disabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "local_authentication_enabled")
@@ -391,20 +369,10 @@ class AccountArgs:
         pulumi.set(self, "location", value)
 
     @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
@@ -534,10 +502,8 @@ class _AccountState:
                  is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
                  multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -576,7 +542,7 @@ class _AccountState:
         :param pulumi.Input[_builtins.str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint used to connect to the CosmosDB account.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        :param pulumi.Input[_builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -638,20 +604,10 @@ class _AccountState:
             pulumi.set(__self__, "key_vault_key_id", key_vault_key_id)
         if kind is not None:
             pulumi.set(__self__, "kind", kind)
-        if local_authentication_disabled is not None:
-            warnings.warn("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""", DeprecationWarning)
-            pulumi.log.warn("""local_authentication_disabled is deprecated: `local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-        if local_authentication_disabled is not None:
-            pulumi.set(__self__, "local_authentication_disabled", local_authentication_disabled)
         if local_authentication_enabled is not None:
             pulumi.set(__self__, "local_authentication_enabled", local_authentication_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if managed_hsm_key_id is not None:
-            warnings.warn("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""", DeprecationWarning)
-            pulumi.log.warn("""managed_hsm_key_id is deprecated: `managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-        if managed_hsm_key_id is not None:
-            pulumi.set(__self__, "managed_hsm_key_id", managed_hsm_key_id)
         if minimal_tls_version is not None:
             pulumi.set(__self__, "minimal_tls_version", minimal_tls_version)
         if mongo_server_version is not None:
@@ -905,16 +861,6 @@ class _AccountState:
         pulumi.set(self, "kind", value)
 
     @_builtins.property
-    @pulumi.getter(name="localAuthenticationDisabled")
-    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
-        return pulumi.get(self, "local_authentication_disabled")
-
-    @local_authentication_disabled.setter
-    def local_authentication_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
-        pulumi.set(self, "local_authentication_disabled", value)
-
-    @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
     def local_authentication_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         return pulumi.get(self, "local_authentication_enabled")
@@ -936,20 +882,10 @@ class _AccountState:
         pulumi.set(self, "location", value)
 
     @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @managed_hsm_key_id.setter
-    def managed_hsm_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "managed_hsm_key_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """
@@ -1273,10 +1209,8 @@ class Account(pulumi.CustomResource):
                  is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
                  multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1360,11 +1294,11 @@ class Account(pulumi.CustomResource):
             name="example-resource",
             location=example_azurerm_resource_group["location"],
             resource_group_name=example_azurerm_resource_group["name"],
-            default_identity_type=std.join_output(separator="=",
+            default_identity_type=std.join(separator="=",
                 input=[
                     "UserAssignedIdentity",
                     example.id,
-                ]).result,
+                ])["result"],
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[{
@@ -1407,7 +1341,7 @@ class Account(pulumi.CustomResource):
                > **Note:** `create_mode` can only be defined when the `backup.type` is set to `Continuous`.
         :param pulumi.Input[_builtins.str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        :param pulumi.Input[_builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -1490,11 +1424,11 @@ class Account(pulumi.CustomResource):
             name="example-resource",
             location=example_azurerm_resource_group["location"],
             resource_group_name=example_azurerm_resource_group["name"],
-            default_identity_type=std.join_output(separator="=",
+            default_identity_type=std.join(separator="=",
                 input=[
                     "UserAssignedIdentity",
                     example.id,
-                ]).result,
+                ])["result"],
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[{
@@ -1562,10 +1496,8 @@ class Account(pulumi.CustomResource):
                  is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kind: pulumi.Input[Optional[_builtins.str]] = None,
-                 local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  location: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
                  mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
                  multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1611,10 +1543,8 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
             __props__.__dict__["key_vault_key_id"] = key_vault_key_id
             __props__.__dict__["kind"] = kind
-            __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
             __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
             __props__.__dict__["location"] = location
-            __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
             __props__.__dict__["minimal_tls_version"] = minimal_tls_version
             __props__.__dict__["mongo_server_version"] = mongo_server_version
             __props__.__dict__["multiple_write_locations_enabled"] = multiple_write_locations_enabled
@@ -1679,10 +1609,8 @@ class Account(pulumi.CustomResource):
             is_virtual_network_filter_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             key_vault_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             kind: pulumi.Input[Optional[_builtins.str]] = None,
-            local_authentication_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
             local_authentication_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             location: pulumi.Input[Optional[_builtins.str]] = None,
-            managed_hsm_key_id: pulumi.Input[Optional[_builtins.str]] = None,
             minimal_tls_version: pulumi.Input[Optional[_builtins.str]] = None,
             mongo_server_version: pulumi.Input[Optional[_builtins.str]] = None,
             multiple_write_locations_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1725,7 +1653,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_identity_type: The default identity for accessing Key Vault. Possible values are `FirstPartyIdentity`, `SystemAssignedIdentity` or `UserAssignedIdentity`. Defaults to `FirstPartyIdentity`.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint used to connect to the CosmosDB account.
         :param pulumi.Input[_builtins.str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-        :param pulumi.Input[_builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        :param pulumi.Input[_builtins.str] minimal_tls_version: Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
                
                > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the CosmosDB Account. Changing this forces a new resource to be created.
@@ -1771,10 +1699,8 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["is_virtual_network_filter_enabled"] = is_virtual_network_filter_enabled
         __props__.__dict__["key_vault_key_id"] = key_vault_key_id
         __props__.__dict__["kind"] = kind
-        __props__.__dict__["local_authentication_disabled"] = local_authentication_disabled
         __props__.__dict__["local_authentication_enabled"] = local_authentication_enabled
         __props__.__dict__["location"] = location
-        __props__.__dict__["managed_hsm_key_id"] = managed_hsm_key_id
         __props__.__dict__["minimal_tls_version"] = minimal_tls_version
         __props__.__dict__["mongo_server_version"] = mongo_server_version
         __props__.__dict__["multiple_write_locations_enabled"] = multiple_write_locations_enabled
@@ -1922,14 +1848,8 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "kind")
 
     @_builtins.property
-    @pulumi.getter(name="localAuthenticationDisabled")
-    @_utilities.deprecated("""`local_authentication_disabled` has been deprecated in favour of `local_authentication_enabled` and will be removed in v5.0 of the AzureRM Provider""")
-    def local_authentication_disabled(self) -> pulumi.Output[_builtins.bool]:
-        return pulumi.get(self, "local_authentication_disabled")
-
-    @_builtins.property
     @pulumi.getter(name="localAuthenticationEnabled")
-    def local_authentication_enabled(self) -> pulumi.Output[_builtins.bool]:
+    def local_authentication_enabled(self) -> pulumi.Output[Optional[_builtins.bool]]:
         return pulumi.get(self, "local_authentication_enabled")
 
     @_builtins.property
@@ -1941,16 +1861,10 @@ class Account(pulumi.CustomResource):
         return pulumi.get(self, "location")
 
     @_builtins.property
-    @pulumi.getter(name="managedHsmKeyId")
-    @_utilities.deprecated("""`managed_hsm_key_id` has been deprecated in favour of `key_vault_key_id` and will be removed in v5.0 of the AzureRM provider""")
-    def managed_hsm_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
-        return pulumi.get(self, "managed_hsm_key_id")
-
-    @_builtins.property
     @pulumi.getter(name="minimalTlsVersion")
     def minimal_tls_version(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Specifies the minimal TLS version for the CosmosDB account. Possible values are: `Tls`, `Tls11`, and `Tls12`. Defaults to `Tls12`.
+        Specifies the minimal TLS version for the CosmosDB account. The only possible value is `Tls12`. Defaults to `Tls12`.
 
         > **Note:** Azure Services will require TLS 1.2+ by August 2025, please see this [announcement](https://azure.microsoft.com/en-us/updates/v2/update-retirement-tls1-0-tls1-1-versions-azure-services/) for more details.
         """

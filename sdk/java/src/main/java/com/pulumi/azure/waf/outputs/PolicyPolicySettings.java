@@ -20,7 +20,7 @@ public final class PolicyPolicySettings {
      */
     private @Nullable Boolean enabled;
     /**
-     * @return Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+     * @return Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
      * 
      */
     private @Nullable Boolean fileUploadEnforcement;
@@ -74,7 +74,7 @@ public final class PolicyPolicySettings {
         return Optional.ofNullable(this.enabled);
     }
     /**
-     * @return Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+     * @return Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
      * 
      */
     public Optional<Boolean> fileUploadEnforcement() {

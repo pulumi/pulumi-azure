@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Cdn.Outputs
     public sealed class FrontdoorSecretSecretCustomerCertificate
     {
         /// <summary>
+        /// The key vault certificate expiration date.
+        /// </summary>
+        public readonly string? ExpirationDate;
+        /// <summary>
         /// The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
         /// 
         /// &gt; **Note:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates `VersionlessId` attribute as the `KeyVaultCertificateId` fields value(e.g. `KeyVaultCertificateId = azurerm_key_vault_certificate.example.versionless_id`).
@@ -26,10 +30,13 @@ namespace Pulumi.Azure.Cdn.Outputs
 
         [OutputConstructor]
         private FrontdoorSecretSecretCustomerCertificate(
+            string? expirationDate,
+
             string keyVaultCertificateId,
 
             ImmutableArray<string> subjectAlternativeNames)
         {
+            ExpirationDate = expirationDate;
             KeyVaultCertificateId = keyVaultCertificateId;
             SubjectAlternativeNames = subjectAlternativeNames;
         }

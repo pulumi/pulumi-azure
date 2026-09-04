@@ -12,6 +12,9 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class OrchestratedVirtualMachineScaleSetNetworkInterfaceGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("acceleratedNetworkingEnabled")]
+        public Input<bool>? AcceleratedNetworkingEnabled { get; set; }
+
         /// <summary>
         /// Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
         /// 
@@ -42,18 +45,6 @@ namespace Pulumi.Azure.Compute.Inputs
             set => _dnsServers = value;
         }
 
-        /// <summary>
-        /// Does this Network Interface support Accelerated Networking? Possible values are `True` and `False`. Defaults to `False`.
-        /// </summary>
-        [Input("enableAcceleratedNetworking")]
-        public Input<bool>? EnableAcceleratedNetworking { get; set; }
-
-        /// <summary>
-        /// Does this Network Interface support IP Forwarding? Possible values are `True` and `False`. Defaults to `False`.
-        /// </summary>
-        [Input("enableIpForwarding")]
-        public Input<bool>? EnableIpForwarding { get; set; }
-
         [Input("ipConfigurations", required: true)]
         private InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationGetArgs>? _ipConfigurations;
 
@@ -65,6 +56,9 @@ namespace Pulumi.Azure.Compute.Inputs
             get => _ipConfigurations ?? (_ipConfigurations = new InputList<Inputs.OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationGetArgs>());
             set => _ipConfigurations = value;
         }
+
+        [Input("ipForwardingEnabled")]
+        public Input<bool>? IpForwardingEnabled { get; set; }
 
         /// <summary>
         /// The Name which should be used for this Network Interface. Changing this forces a new resource to be created.

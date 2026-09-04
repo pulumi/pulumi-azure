@@ -3,7 +3,6 @@
 
 package com.pulumi.azure;
 
-import com.pulumi.azure.config.inputs.EnhancedValidation;
 import com.pulumi.azure.config.inputs.Features;
 import com.pulumi.core.TypeShape;
 import com.pulumi.core.internal.Codegen;
@@ -88,9 +87,6 @@ public final class Config {
     public Optional<Boolean> disableTerraformPartnerId() {
         return Codegen.booleanProp("disableTerraformPartnerId").config(config).get();
     }
-    public Optional<EnhancedValidation> enhancedValidation() {
-        return Codegen.objectProp("enhancedValidation", EnhancedValidation.class).config(config).get();
-    }
 /**
  * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used and should not be specified when `metadataHost` is specified.
  * 
@@ -173,13 +169,6 @@ public final class Config {
  */
     public Optional<List<String>> resourceProvidersToRegisters() {
         return Codegen.objectProp("resourceProvidersToRegisters", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
-    }
-/**
- * Should the AzureRM Provider skip registering all of the Resource Providers that it supports, if they&#39;re not already registered?
- * 
- */
-    public Optional<Boolean> skipProviderRegistration() {
-        return Codegen.booleanProp("skipProviderRegistration").config(config).env("ARM_SKIP_PROVIDER_REGISTRATION").def(false).get();
     }
 /**
  * Should the AzureRM Provider use Azure AD Authentication when accessing the Storage Data Plane APIs?

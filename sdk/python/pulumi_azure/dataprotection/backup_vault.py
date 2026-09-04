@@ -35,9 +35,7 @@ class BackupVaultArgs:
         """
         The set of arguments for constructing a BackupVault resource.
 
-        :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-               
-               > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] redundancy: Specifies the backup storage redundancy. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the Resource Group where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
@@ -79,9 +77,7 @@ class BackupVaultArgs:
     @pulumi.getter(name="datastoreType")
     def datastore_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-
-        > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "datastore_type")
 
@@ -236,9 +232,7 @@ class _BackupVaultState:
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
-        :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-               
-               > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         :param pulumi.Input['BackupVaultIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
@@ -294,9 +288,7 @@ class _BackupVaultState:
     @pulumi.getter(name="datastoreType")
     def datastore_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-
-        > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "datastore_type")
 
@@ -476,9 +468,7 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
-        :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-               
-               > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
@@ -618,9 +608,7 @@ class BackupVault(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] cross_region_restore_enabled: Whether to enable cross-region restore for the Backup Vault.
                
                > **Note:** The `cross_region_restore_enabled` can only be specified when `redundancy` is specified for `GeoRedundant`. Once `cross_region_restore_enabled` is enabled, it cannot be disabled.
-        :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-               
-               > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        :param pulumi.Input[_builtins.str] datastore_type: Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['BackupVaultIdentityArgs', 'BackupVaultIdentityArgsDict']] identity: An `identity` block as defined below.
         :param pulumi.Input[_builtins.str] immutability: The state of immutability for this Backup Vault. Possible values are `Disabled`, `Locked`, and `Unlocked`. Defaults to `Disabled`.
         :param pulumi.Input[_builtins.str] location: The Azure Region where the Backup Vault should exist. Changing this forces a new Backup Vault to be created.
@@ -666,9 +654,7 @@ class BackupVault(pulumi.CustomResource):
     @pulumi.getter(name="datastoreType")
     def datastore_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore`, `SnapshotStore` and `VaultStore`. Changing this forces a new resource to be created.
-
-        > **Note:** The `SnapshotStore` will be removed in version 4.0 as it has been replaced by `OperationalStore`.
+        Specifies the type of the data store. Possible values are `ArchiveStore`, `OperationalStore` and `VaultStore`. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "datastore_type")
 

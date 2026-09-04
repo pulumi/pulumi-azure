@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/datafactory"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -78,7 +78,7 @@ type LinkedServiceMysql struct {
 	DataFactoryId pulumi.StringOutput `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service MySQL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
 	//
 	// > **Note:** New linked services must set `driverVersion` to `V2`.
 	DriverVersion pulumi.StringPtrOutput `pulumi:"driverVersion"`
@@ -136,7 +136,7 @@ type linkedServiceMysqlState struct {
 	DataFactoryId *string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service MySQL.
 	Description *string `pulumi:"description"`
-	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
 	//
 	// > **Note:** New linked services must set `driverVersion` to `V2`.
 	DriverVersion *string `pulumi:"driverVersion"`
@@ -159,7 +159,7 @@ type LinkedServiceMysqlState struct {
 	DataFactoryId pulumi.StringPtrInput
 	// The description for the Data Factory Linked Service MySQL.
 	Description pulumi.StringPtrInput
-	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
 	//
 	// > **Note:** New linked services must set `driverVersion` to `V2`.
 	DriverVersion pulumi.StringPtrInput
@@ -186,7 +186,7 @@ type linkedServiceMysqlArgs struct {
 	DataFactoryId string `pulumi:"dataFactoryId"`
 	// The description for the Data Factory Linked Service MySQL.
 	Description *string `pulumi:"description"`
-	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
 	//
 	// > **Note:** New linked services must set `driverVersion` to `V2`.
 	DriverVersion *string `pulumi:"driverVersion"`
@@ -210,7 +210,7 @@ type LinkedServiceMysqlArgs struct {
 	DataFactoryId pulumi.StringInput
 	// The description for the Data Factory Linked Service MySQL.
 	Description pulumi.StringPtrInput
-	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+	// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
 	//
 	// > **Note:** New linked services must set `driverVersion` to `V2`.
 	DriverVersion pulumi.StringPtrInput
@@ -334,7 +334,7 @@ func (o LinkedServiceMysqlOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LinkedServiceMysql) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V1`.
+// The version of the MySQL driver. Possible values are `V1` and `V2`. Defaults to `V2`.
 //
 // > **Note:** New linked services must set `driverVersion` to `V2`.
 func (o LinkedServiceMysqlOutput) DriverVersion() pulumi.StringPtrOutput {

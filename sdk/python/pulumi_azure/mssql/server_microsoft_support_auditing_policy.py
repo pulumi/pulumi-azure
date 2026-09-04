@@ -299,8 +299,12 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                {
+                    "service": "Microsoft.Sql",
+                },
+                {
+                    "service": "Microsoft.Storage",
+                },
             ],
             enforce_private_link_endpoint_network_policies=True)
         example_server = azure.mssql.Server("example",
@@ -362,7 +366,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql` - 2023-08-01-preview
+        * `Microsoft.Sql` - 2025-01-01
 
         ## Import
 
@@ -443,8 +447,12 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=[
-                "Microsoft.Sql",
-                "Microsoft.Storage",
+                {
+                    "service": "Microsoft.Sql",
+                },
+                {
+                    "service": "Microsoft.Storage",
+                },
             ],
             enforce_private_link_endpoint_network_policies=True)
         example_server = azure.mssql.Server("example",
@@ -506,7 +514,7 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         <!-- This section is generated, changes will be overwritten -->
         This resource uses the following Azure API Providers:
 
-        * `Microsoft.Sql` - 2023-08-01-preview
+        * `Microsoft.Sql` - 2025-01-01
 
         ## Import
 

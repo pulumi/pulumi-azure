@@ -180,13 +180,9 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
      */
     declare public readonly keyVaultPassword: pulumi.Output<outputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword | undefined>;
     /**
-     * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    declare public readonly msiWorkSpaceResourceId: pulumi.Output<string>;
-    /**
      * Authenticate to ADB via managed service identity.
      */
-    declare public readonly msiWorkspaceId: pulumi.Output<string>;
+    declare public readonly msiWorkspaceId: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the Data Factory Linked Service. Changing this forces a new resource to be created. Must be unique within a data factory. See the [Microsoft documentation](https://docs.microsoft.com/azure/data-factory/naming-rules) for all restrictions.
      */
@@ -223,7 +219,6 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             resourceInputs["instancePool"] = state?.instancePool;
             resourceInputs["integrationRuntimeName"] = state?.integrationRuntimeName;
             resourceInputs["keyVaultPassword"] = state?.keyVaultPassword;
-            resourceInputs["msiWorkSpaceResourceId"] = state?.msiWorkSpaceResourceId;
             resourceInputs["msiWorkspaceId"] = state?.msiWorkspaceId;
             resourceInputs["name"] = state?.name;
             resourceInputs["newClusterConfig"] = state?.newClusterConfig;
@@ -246,7 +241,6 @@ export class LinkedServiceAzureDatabricks extends pulumi.CustomResource {
             resourceInputs["instancePool"] = args?.instancePool;
             resourceInputs["integrationRuntimeName"] = args?.integrationRuntimeName;
             resourceInputs["keyVaultPassword"] = args?.keyVaultPassword;
-            resourceInputs["msiWorkSpaceResourceId"] = args?.msiWorkSpaceResourceId;
             resourceInputs["msiWorkspaceId"] = args?.msiWorkspaceId;
             resourceInputs["name"] = args?.name;
             resourceInputs["newClusterConfig"] = args?.newClusterConfig;
@@ -303,10 +297,6 @@ export interface LinkedServiceAzureDatabricksState {
      * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
      */
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword | undefined>;
-    /**
-     * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    msiWorkSpaceResourceId?: pulumi.Input<string | undefined>;
     /**
      * Authenticate to ADB via managed service identity.
      */
@@ -369,10 +359,6 @@ export interface LinkedServiceAzureDatabricksArgs {
      * Authenticate to ADB via Azure Key Vault Linked Service as defined in the `keyVaultPassword` block below.
      */
     keyVaultPassword?: pulumi.Input<inputs.datafactory.LinkedServiceAzureDatabricksKeyVaultPassword | undefined>;
-    /**
-     * @deprecated The `msiWorkSpaceResourceId` property is deprecated in favour of the `msiWorkspaceId` property and will be removed in v5.0 of the AzureRM Provider
-     */
-    msiWorkSpaceResourceId?: pulumi.Input<string | undefined>;
     /**
      * Authenticate to ADB via managed service identity.
      */

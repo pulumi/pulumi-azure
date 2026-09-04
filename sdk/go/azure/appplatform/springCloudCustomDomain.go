@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/appplatform"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/dns"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/appplatform"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/dns"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -70,14 +70,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			invokeJoin, err := std.Join(ctx, map[string]interface{}{
+//				"separator": ".",
+//				"input": pulumi.StringArray{
+//					exampleCNameRecord.Name,
+//					exampleCNameRecord.ZoneName,
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
 //			_, err = appplatform.NewSpringCloudCustomDomain(ctx, "example", &appplatform.SpringCloudCustomDomainArgs{
-//				Name: std.JoinOutput(ctx, std.JoinOutputArgs{
-//					Separator: pulumi.String("."),
-//					Input: pulumi.StringArray{
-//						exampleCNameRecord.Name,
-//						exampleCNameRecord.ZoneName,
-//					},
-//				}, nil).Result(),
+//				Name:             invokeJoin.Result,
 //				SpringCloudAppId: exampleSpringCloudApp.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {

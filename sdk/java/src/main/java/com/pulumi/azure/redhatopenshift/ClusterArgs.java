@@ -5,9 +5,11 @@ package com.pulumi.azure.redhatopenshift;
 
 import com.pulumi.azure.redhatopenshift.inputs.ClusterApiServerProfileArgs;
 import com.pulumi.azure.redhatopenshift.inputs.ClusterClusterProfileArgs;
+import com.pulumi.azure.redhatopenshift.inputs.ClusterIdentityArgs;
 import com.pulumi.azure.redhatopenshift.inputs.ClusterIngressProfileArgs;
 import com.pulumi.azure.redhatopenshift.inputs.ClusterMainProfileArgs;
 import com.pulumi.azure.redhatopenshift.inputs.ClusterNetworkProfileArgs;
+import com.pulumi.azure.redhatopenshift.inputs.ClusterPlatformWorkloadIdentityProfileArgs;
 import com.pulumi.azure.redhatopenshift.inputs.ClusterServicePrincipalArgs;
 import com.pulumi.azure.redhatopenshift.inputs.ClusterWorkerProfileArgs;
 import com.pulumi.core.Output;
@@ -52,6 +54,21 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<ClusterClusterProfileArgs> clusterProfile() {
         return this.clusterProfile;
+    }
+
+    /**
+     * An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+     * 
+     */
+    @Import(name="identity")
+    private @Nullable Output<ClusterIdentityArgs> identity;
+
+    /**
+     * @return An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+     * 
+     */
+    public Optional<Output<ClusterIdentityArgs>> identity() {
+        return Optional.ofNullable(this.identity);
     }
 
     /**
@@ -115,18 +132,33 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+     * A `networkProfile` block as defined below.
      * 
      */
     @Import(name="networkProfile", required=true)
     private Output<ClusterNetworkProfileArgs> networkProfile;
 
     /**
-     * @return A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+     * @return A `networkProfile` block as defined below.
      * 
      */
     public Output<ClusterNetworkProfileArgs> networkProfile() {
         return this.networkProfile;
+    }
+
+    /**
+     * A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+     * 
+     */
+    @Import(name="platformWorkloadIdentityProfile")
+    private @Nullable Output<ClusterPlatformWorkloadIdentityProfileArgs> platformWorkloadIdentityProfile;
+
+    /**
+     * @return A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+     * 
+     */
+    public Optional<Output<ClusterPlatformWorkloadIdentityProfileArgs>> platformWorkloadIdentityProfile() {
+        return Optional.ofNullable(this.platformWorkloadIdentityProfile);
     }
 
     /**
@@ -145,18 +177,18 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A `servicePrincipal` block as defined below.
+     * A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
      * 
      */
-    @Import(name="servicePrincipal", required=true)
-    private Output<ClusterServicePrincipalArgs> servicePrincipal;
+    @Import(name="servicePrincipal")
+    private @Nullable Output<ClusterServicePrincipalArgs> servicePrincipal;
 
     /**
-     * @return A `servicePrincipal` block as defined below.
+     * @return A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
      * 
      */
-    public Output<ClusterServicePrincipalArgs> servicePrincipal() {
-        return this.servicePrincipal;
+    public Optional<Output<ClusterServicePrincipalArgs>> servicePrincipal() {
+        return Optional.ofNullable(this.servicePrincipal);
     }
 
     /**
@@ -194,11 +226,13 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     private ClusterArgs(ClusterArgs $) {
         this.apiServerProfile = $.apiServerProfile;
         this.clusterProfile = $.clusterProfile;
+        this.identity = $.identity;
         this.ingressProfile = $.ingressProfile;
         this.location = $.location;
         this.mainProfile = $.mainProfile;
         this.name = $.name;
         this.networkProfile = $.networkProfile;
+        this.platformWorkloadIdentityProfile = $.platformWorkloadIdentityProfile;
         this.resourceGroupName = $.resourceGroupName;
         this.servicePrincipal = $.servicePrincipal;
         this.tags = $.tags;
@@ -263,6 +297,27 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder clusterProfile(ClusterClusterProfileArgs clusterProfile) {
             return clusterProfile(Output.of(clusterProfile));
+        }
+
+        /**
+         * @param identity An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(@Nullable Output<ClusterIdentityArgs> identity) {
+            $.identity = identity;
+            return this;
+        }
+
+        /**
+         * @param identity An `identity` block as defined below. Exactly one of `identity` or `servicePrincipal` must be specified. Required when `platformWorkloadIdentityProfile` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder identity(ClusterIdentityArgs identity) {
+            return identity(Output.of(identity));
         }
 
         /**
@@ -350,7 +405,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfile A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 
@@ -361,13 +416,34 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkProfile A `networkProfile` block as defined below. Changing this forces a new resource to be created.
+         * @param networkProfile A `networkProfile` block as defined below.
          * 
          * @return builder
          * 
          */
         public Builder networkProfile(ClusterNetworkProfileArgs networkProfile) {
             return networkProfile(Output.of(networkProfile));
+        }
+
+        /**
+         * @param platformWorkloadIdentityProfile A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder platformWorkloadIdentityProfile(@Nullable Output<ClusterPlatformWorkloadIdentityProfileArgs> platformWorkloadIdentityProfile) {
+            $.platformWorkloadIdentityProfile = platformWorkloadIdentityProfile;
+            return this;
+        }
+
+        /**
+         * @param platformWorkloadIdentityProfile A `platformWorkloadIdentityProfile` block as defined below. Required when `identity` is set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder platformWorkloadIdentityProfile(ClusterPlatformWorkloadIdentityProfileArgs platformWorkloadIdentityProfile) {
+            return platformWorkloadIdentityProfile(Output.of(platformWorkloadIdentityProfile));
         }
 
         /**
@@ -392,18 +468,18 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servicePrincipal A `servicePrincipal` block as defined below.
+         * @param servicePrincipal A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
          * 
          * @return builder
          * 
          */
-        public Builder servicePrincipal(Output<ClusterServicePrincipalArgs> servicePrincipal) {
+        public Builder servicePrincipal(@Nullable Output<ClusterServicePrincipalArgs> servicePrincipal) {
             $.servicePrincipal = servicePrincipal;
             return this;
         }
 
         /**
-         * @param servicePrincipal A `servicePrincipal` block as defined below.
+         * @param servicePrincipal A `servicePrincipal` block as defined below. Exactly one of `servicePrincipal` or `identity` must be specified.
          * 
          * @return builder
          * 
@@ -472,9 +548,6 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("ClusterArgs", "resourceGroupName");
-            }
-            if ($.servicePrincipal == null) {
-                throw new MissingRequiredPropertyException("ClusterArgs", "servicePrincipal");
             }
             if ($.workerProfile == null) {
                 throw new MissingRequiredPropertyException("ClusterArgs", "workerProfile");

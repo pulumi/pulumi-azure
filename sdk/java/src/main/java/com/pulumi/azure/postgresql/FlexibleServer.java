@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.network.Subnet;
  * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetServiceEndpointArgs;
  * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
  * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
  * import com.pulumi.azure.privatedns.Zone;
@@ -81,7 +82,9 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes("10.0.2.0/24")
- *             .serviceEndpoints("Microsoft.Storage")
+ *             .serviceEndpoints(SubnetServiceEndpointArgs.builder()
+ *                 .service("Microsoft.Storage")
+ *                 .build())
  *             .delegations(SubnetDelegationArgs.builder()
  *                 .name("fs")
  *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
@@ -98,9 +101,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("exampleVnetZone.com")
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
- *             .resourceGroupName(example.name())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleSubnet)
  *                 .build());
@@ -170,7 +172,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
-     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
      * 
      * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      * 
@@ -181,7 +183,7 @@ public class FlexibleServer extends com.pulumi.resources.CustomResource {
     /**
      * @return The Administrator login for the PostgreSQL Flexible Server. Required when `createMode` is `Default` and `authentication.password_auth_enabled` is `true`.
      * 
-     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created.
+     * &gt; **Note:** Once `administratorLogin` is specified, changing this forces a new PostgreSQL Flexible Server to be created. Setting it back to `null` has no effect - since this property is computed, Terraform will report no changes and the previously configured value will be retained in state and on the server.
      * 
      * &gt; **Note:** To create with `administratorLogin` specified or update with it first specified , `authentication.password_auth_enabled` must be set to `true`.
      * 

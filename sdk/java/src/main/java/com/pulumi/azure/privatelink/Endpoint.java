@@ -294,8 +294,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", ZoneVirtualNetworkLinkArgs.builder()
  *             .name("example-link")
- *             .resourceGroupName(example.name())
- *             .privateDnsZoneName(exampleZone.name())
+ *             .privateDnsZoneId(exampleZone.id())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 

@@ -1253,7 +1253,7 @@ class HciLogicalNetworkSubnet(dict):
                  ip_allocation_method: _builtins.str,
                  address_prefix: Optional[_builtins.str] = None,
                  ip_pools: Optional[Sequence['outputs.HciLogicalNetworkSubnetIpPool']] = None,
-                 routes: Optional[Sequence['outputs.HciLogicalNetworkSubnetRoute']] = None,
+                 route: Optional['outputs.HciLogicalNetworkSubnetRoute'] = None,
                  vlan_id: Optional[_builtins.int] = None):
         """
         :param _builtins.str ip_allocation_method: The IP address allocation method for the subnet. Possible values are `Dynamic` and `Static`. Changing this forces a new resource to be created.
@@ -1261,7 +1261,7 @@ class HciLogicalNetworkSubnet(dict):
         :param Sequence['HciLogicalNetworkSubnetIpPoolArgs'] ip_pools: One or more `ip_pool` block as defined above. Changing this forces a new resource to be created.
                
                > **Note:** If `ip_pool` is not specified, it will be assigned by the server. If you experience a diff you may need to add this to `ignore_changes`.
-        :param Sequence['HciLogicalNetworkSubnetRouteArgs'] routes: A `route` block as defined above. Changing this forces a new resource to be created.
+        :param 'HciLogicalNetworkSubnetRouteArgs' route: A `route` block as defined above. Changing this forces a new resource to be created.
         :param _builtins.int vlan_id: The VLAN ID for the Logical Network. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "ip_allocation_method", ip_allocation_method)
@@ -1269,8 +1269,8 @@ class HciLogicalNetworkSubnet(dict):
             pulumi.set(__self__, "address_prefix", address_prefix)
         if ip_pools is not None:
             pulumi.set(__self__, "ip_pools", ip_pools)
-        if routes is not None:
-            pulumi.set(__self__, "routes", routes)
+        if route is not None:
+            pulumi.set(__self__, "route", route)
         if vlan_id is not None:
             pulumi.set(__self__, "vlan_id", vlan_id)
 
@@ -1302,11 +1302,11 @@ class HciLogicalNetworkSubnet(dict):
 
     @_builtins.property
     @pulumi.getter
-    def routes(self) -> Optional[Sequence['outputs.HciLogicalNetworkSubnetRoute']]:
+    def route(self) -> Optional['outputs.HciLogicalNetworkSubnetRoute']:
         """
         A `route` block as defined above. Changing this forces a new resource to be created.
         """
-        return pulumi.get(self, "routes")
+        return pulumi.get(self, "route")
 
     @_builtins.property
     @pulumi.getter(name="vlanId")

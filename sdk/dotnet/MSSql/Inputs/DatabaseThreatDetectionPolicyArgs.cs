@@ -25,10 +25,10 @@ namespace Pulumi.Azure.MSSql.Inputs
         }
 
         /// <summary>
-        /// Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+        /// Whether the account administrators should receive an email when this alert is triggered. Defaults to `False`.
         /// </summary>
-        [Input("emailAccountAdmins")]
-        public Input<string>? EmailAccountAdmins { get; set; }
+        [Input("emailAccountAdminsEnabled")]
+        public Input<bool>? EmailAccountAdminsEnabled { get; set; }
 
         [Input("emailAddresses")]
         private InputList<string>? _emailAddresses;

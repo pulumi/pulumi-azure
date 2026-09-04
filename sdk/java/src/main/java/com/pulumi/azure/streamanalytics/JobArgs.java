@@ -10,7 +10,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -136,8 +135,8 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
      * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      * 
      */
-    @Import(name="jobStorageAccounts")
-    private @Nullable Output<List<JobJobStorageAccountArgs>> jobStorageAccounts;
+    @Import(name="jobStorageAccount")
+    private @Nullable Output<JobJobStorageAccountArgs> jobStorageAccount;
 
     /**
      * @return The details of the job storage account. A `jobStorageAccount` block as defined below.
@@ -145,8 +144,8 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
      * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
      * 
      */
-    public Optional<Output<List<JobJobStorageAccountArgs>>> jobStorageAccounts() {
-        return Optional.ofNullable(this.jobStorageAccounts);
+    public Optional<Output<JobJobStorageAccountArgs>> jobStorageAccount() {
+        return Optional.ofNullable(this.jobStorageAccount);
     }
 
     /**
@@ -301,7 +300,7 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         this.eventsOutOfOrderMaxDelayInSeconds = $.eventsOutOfOrderMaxDelayInSeconds;
         this.eventsOutOfOrderPolicy = $.eventsOutOfOrderPolicy;
         this.identity = $.identity;
-        this.jobStorageAccounts = $.jobStorageAccounts;
+        this.jobStorageAccount = $.jobStorageAccount;
         this.location = $.location;
         this.name = $.name;
         this.outputErrorPolicy = $.outputErrorPolicy;
@@ -484,40 +483,28 @@ public final class JobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jobStorageAccounts The details of the job storage account. A `jobStorageAccount` block as defined below.
+         * @param jobStorageAccount The details of the job storage account. A `jobStorageAccount` block as defined below.
          * 
          * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
          * 
          * @return builder
          * 
          */
-        public Builder jobStorageAccounts(@Nullable Output<List<JobJobStorageAccountArgs>> jobStorageAccounts) {
-            $.jobStorageAccounts = jobStorageAccounts;
+        public Builder jobStorageAccount(@Nullable Output<JobJobStorageAccountArgs> jobStorageAccount) {
+            $.jobStorageAccount = jobStorageAccount;
             return this;
         }
 
         /**
-         * @param jobStorageAccounts The details of the job storage account. A `jobStorageAccount` block as defined below.
+         * @param jobStorageAccount The details of the job storage account. A `jobStorageAccount` block as defined below.
          * 
          * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
          * 
          * @return builder
          * 
          */
-        public Builder jobStorageAccounts(List<JobJobStorageAccountArgs> jobStorageAccounts) {
-            return jobStorageAccounts(Output.of(jobStorageAccounts));
-        }
-
-        /**
-         * @param jobStorageAccounts The details of the job storage account. A `jobStorageAccount` block as defined below.
-         * 
-         * &gt; **Note:** `contentStoragePolicy` must be set to `JobStorageAccount` when specifying `jobStorageAccount`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder jobStorageAccounts(JobJobStorageAccountArgs... jobStorageAccounts) {
-            return jobStorageAccounts(List.of(jobStorageAccounts));
+        public Builder jobStorageAccount(JobJobStorageAccountArgs jobStorageAccount) {
+            return jobStorageAccount(Output.of(jobStorageAccount));
         }
 
         /**

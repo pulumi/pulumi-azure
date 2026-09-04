@@ -63,8 +63,12 @@ import * as utilities from "../utilities";
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     serviceEndpoints: [
- *         "Microsoft.Sql",
- *         "Microsoft.Storage",
+ *         {
+ *             service: "Microsoft.Sql",
+ *         },
+ *         {
+ *             service: "Microsoft.Storage",
+ *         },
  *     ],
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
@@ -134,7 +138,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.Sql` - 2023-08-01-preview
+ * * `Microsoft.Sql` - 2025-01-01
  *
  * ## Import
  *

@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Cdn.Inputs
         /// <summary>
         /// A `UrlRewrite` block as defined below.
         /// 
-        /// &gt; **Note:** `UrlRewrite` conflicts with `UrlRedirect` and vice-versa.
+        /// &gt; **Note:** `UrlRewrite` conflicts with `UrlRedirect`
         /// </summary>
         [Input("urlRewrite")]
         public Input<Inputs.FrontdoorBatchRuleSetRuleActionsUrlRewriteGetArgs>? UrlRewrite { get; set; }

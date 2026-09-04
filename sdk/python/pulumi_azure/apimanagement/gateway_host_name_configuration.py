@@ -368,7 +368,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         example_gateway_host_name_configuration = azure.apimanagement.GatewayHostNameConfiguration("example",
             name="example-host-name-configuration",
             api_management_id=example_service.id,
@@ -449,7 +449,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
             name="example-cert",
             api_management_name=example_service.name,
             resource_group_name=example.name,
-            data=std.filebase64(input="example.pfx").result)
+            data=std.filebase64(input="example.pfx")["result"])
         example_gateway_host_name_configuration = azure.apimanagement.GatewayHostNameConfiguration("example",
             name="example-host-name-configuration",
             api_management_id=example_service.id,

@@ -101,14 +101,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:cdn/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
     /**
-     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      * 
      */
     @Export(name="contentTypesToCompresses", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> contentTypesToCompresses;
 
     /**
-     * @return An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types.
+     * @return An array of strings that indicates a content types on which compression will be applied. The value for the elements should be MIME types. Required if `isCompressionEnabled` is `true`.
      * 
      */
     public Output<Optional<List<String>>> contentTypesToCompresses() {

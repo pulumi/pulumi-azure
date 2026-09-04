@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/recoveryservices"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/recoveryservices"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -96,8 +96,6 @@ type Vault struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku pulumi.StringOutput `pulumi:"sku"`
-	// Deprecated: `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-	SoftDeleteEnabled pulumi.BoolPtrOutput `pulumi:"softDeleteEnabled"`
 	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType pulumi.StringPtrOutput `pulumi:"storageModeType"`
 	// A mapping of tags to assign to the resource.
@@ -168,8 +166,6 @@ type vaultState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku *string `pulumi:"sku"`
-	// Deprecated: `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
 	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType *string `pulumi:"storageModeType"`
 	// A mapping of tags to assign to the resource.
@@ -205,8 +201,6 @@ type VaultState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku pulumi.StringPtrInput
-	// Deprecated: `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-	SoftDeleteEnabled pulumi.BoolPtrInput
 	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -246,8 +240,6 @@ type vaultArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku string `pulumi:"sku"`
-	// Deprecated: `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-	SoftDeleteEnabled *bool `pulumi:"softDeleteEnabled"`
 	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType *string `pulumi:"storageModeType"`
 	// A mapping of tags to assign to the resource.
@@ -284,8 +276,6 @@ type VaultArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 	Sku pulumi.StringInput
-	// Deprecated: `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-	SoftDeleteEnabled pulumi.BoolPtrInput
 	// The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.
 	StorageModeType pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
@@ -438,11 +428,6 @@ func (o VaultOutput) ResourceGroupName() pulumi.StringOutput {
 // Sets the vault's SKU. Possible values include: `Standard`, `RS0`.
 func (o VaultOutput) Sku() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vault) pulumi.StringOutput { return v.Sku }).(pulumi.StringOutput)
-}
-
-// Deprecated: `softDeleteEnabled` has been deprecated and will be removed in v5.0 of the AzureRM Provider. Soft delete is always enabled by default as part of Azure's secure by default policy (https://learn.microsoft.com/en-us/azure/backup/secure-by-default)
-func (o VaultOutput) SoftDeleteEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Vault) pulumi.BoolPtrOutput { return v.SoftDeleteEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The storage type of the Recovery Services Vault. Possible values are `GeoRedundant`, `LocallyRedundant` and `ZoneRedundant`. Defaults to `GeoRedundant`.

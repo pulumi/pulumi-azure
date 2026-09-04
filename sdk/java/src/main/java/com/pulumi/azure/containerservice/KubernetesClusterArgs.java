@@ -656,15 +656,15 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
      * A `nodeProvisioningProfile` block as defined below.
      * 
      */
-    @Import(name="nodeProvisioningProfile")
-    private @Nullable Output<KubernetesClusterNodeProvisioningProfileArgs> nodeProvisioningProfile;
+    @Import(name="nodeProvisioningProfile", required=true)
+    private Output<KubernetesClusterNodeProvisioningProfileArgs> nodeProvisioningProfile;
 
     /**
      * @return A `nodeProvisioningProfile` block as defined below.
      * 
      */
-    public Optional<Output<KubernetesClusterNodeProvisioningProfileArgs>> nodeProvisioningProfile() {
-        return Optional.ofNullable(this.nodeProvisioningProfile);
+    public Output<KubernetesClusterNodeProvisioningProfileArgs> nodeProvisioningProfile() {
+        return this.nodeProvisioningProfile;
     }
 
     /**
@@ -687,7 +687,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
      * 
      * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
@@ -696,7 +696,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     private @Nullable Output<Boolean> oidcIssuerEnabled;
 
     /**
-     * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+     * @return Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
      * 
      * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
      * 
@@ -2071,7 +2071,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder nodeProvisioningProfile(@Nullable Output<KubernetesClusterNodeProvisioningProfileArgs> nodeProvisioningProfile) {
+        public Builder nodeProvisioningProfile(Output<KubernetesClusterNodeProvisioningProfileArgs> nodeProvisioningProfile) {
             $.nodeProvisioningProfile = nodeProvisioningProfile;
             return this;
         }
@@ -2112,7 +2112,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
          * 
          * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
          * 
@@ -2125,7 +2125,7 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer).
+         * @param oidcIssuerEnabled Whether to enable the [OIDC issuer feature](https://learn.microsoft.com/en-gb/azure/aks/use-oidc-issuer). Defaults to `true`.
          * 
          * &gt; **Note:** Once enabled, this feature cannot be disabled, doing so forces a new resource to be created.
          * 
@@ -2696,6 +2696,9 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         public KubernetesClusterArgs build() {
             if ($.defaultNodePool == null) {
                 throw new MissingRequiredPropertyException("KubernetesClusterArgs", "defaultNodePool");
+            }
+            if ($.nodeProvisioningProfile == null) {
+                throw new MissingRequiredPropertyException("KubernetesClusterArgs", "nodeProvisioningProfile");
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("KubernetesClusterArgs", "resourceGroupName");

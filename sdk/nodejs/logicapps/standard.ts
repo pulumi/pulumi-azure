@@ -153,7 +153,7 @@ export class Standard extends pulumi.CustomResource {
      */
     declare public readonly clientAffinityEnabled: pulumi.Output<boolean>;
     /**
-     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      */
     declare public readonly clientCertificateMode: pulumi.Output<string | undefined>;
     /**
@@ -215,7 +215,7 @@ export class Standard extends pulumi.CustomResource {
      *
      * > **Note:** Setting this property will also set it in the Site Config.
      */
-    declare public readonly publicNetworkAccess: pulumi.Output<string>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The name of the resource group in which to create the Logic App. Changing this forces a new resource to be created.
      */
@@ -397,7 +397,7 @@ export interface StandardState {
      */
     clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      */
     clientCertificateMode?: pulumi.Input<string | undefined>;
     /**
@@ -549,7 +549,7 @@ export interface StandardArgs {
      */
     clientAffinityEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`.
+     * The mode of the Logic App's client certificates requirement for incoming requests. Possible values are `Required`, `Optional`, and `OptionalInteractiveUser`. Defaults to `Required`.
      */
     clientCertificateMode?: pulumi.Input<string | undefined>;
     /**

@@ -5,9 +5,11 @@ package com.pulumi.azure.network.inputs;
 
 import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
 import com.pulumi.azure.network.inputs.SubnetIpAddressPoolArgs;
+import com.pulumi.azure.network.inputs.SubnetServiceEndpointArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -102,6 +104,49 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="networkSecurityGroupId")
+    private @Nullable Output<String> networkSecurityGroupId;
+
+    public Optional<Output<String>> networkSecurityGroupId() {
+        return Optional.ofNullable(this.networkSecurityGroupId);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Network Security Group to associate with the subnet.
+     * 
+     * &gt; **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+     * 
+     */
+    @Import(name="networkSecurityGroupIdWo")
+    private @Nullable Output<String> networkSecurityGroupIdWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Network Security Group to associate with the subnet.
+     * 
+     * &gt; **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+     * 
+     */
+    public Optional<Output<String>> networkSecurityGroupIdWo() {
+        return Optional.ofNullable(this.networkSecurityGroupIdWo);
+    }
+
+    /**
+     * An integer that must be incremented whenever `networkSecurityGroupIdWo` is updated. Required if `networkSecurityGroupIdWo` is specified.
+     * 
+     */
+    @Import(name="networkSecurityGroupIdWoVersion")
+    private @Nullable Output<Integer> networkSecurityGroupIdWoVersion;
+
+    /**
+     * @return An integer that must be incremented whenever `networkSecurityGroupIdWo` is updated. Required if `networkSecurityGroupIdWo` is specified.
+     * 
+     */
+    public Optional<Output<Integer>> networkSecurityGroupIdWoVersion() {
+        return Optional.ofNullable(this.networkSecurityGroupIdWoVersion);
+    }
+
     /**
      * Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
      * 
@@ -163,6 +208,49 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.resourceGroupName);
     }
 
+    @Import(name="routeTableId")
+    private @Nullable Output<String> routeTableId;
+
+    public Optional<Output<String>> routeTableId() {
+        return Optional.ofNullable(this.routeTableId);
+    }
+
+    /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Route Table to associate with the subnet.
+     * 
+     * &gt; **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+     * 
+     */
+    @Import(name="routeTableIdWo")
+    private @Nullable Output<String> routeTableIdWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * The ID of the Route Table to associate with the subnet.
+     * 
+     * &gt; **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+     * 
+     */
+    public Optional<Output<String>> routeTableIdWo() {
+        return Optional.ofNullable(this.routeTableIdWo);
+    }
+
+    /**
+     * An integer that must be incremented whenever `routeTableIdWo` is updated. Required if `routeTableIdWo` is specified.
+     * 
+     */
+    @Import(name="routeTableIdWoVersion")
+    private @Nullable Output<Integer> routeTableIdWoVersion;
+
+    /**
+     * @return An integer that must be incremented whenever `routeTableIdWo` is updated. Required if `routeTableIdWo` is specified.
+     * 
+     */
+    public Optional<Output<Integer>> routeTableIdWoVersion() {
+        return Optional.ofNullable(this.routeTableIdWoVersion);
+    }
+
     /**
      * The list of IDs of Service Endpoint Policies to associate with the subnet.
      * 
@@ -179,21 +267,17 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-     * 
-     * &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+     * A `serviceEndpoint` block as defined below.
      * 
      */
     @Import(name="serviceEndpoints")
-    private @Nullable Output<List<String>> serviceEndpoints;
+    private @Nullable Output<List<SubnetServiceEndpointArgs>> serviceEndpoints;
 
     /**
-     * @return The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-     * 
-     * &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+     * @return A `serviceEndpoint` block as defined below.
      * 
      */
-    public Optional<Output<List<String>>> serviceEndpoints() {
+    public Optional<Output<List<SubnetServiceEndpointArgs>>> serviceEndpoints() {
         return Optional.ofNullable(this.serviceEndpoints);
     }
 
@@ -243,9 +327,15 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         this.delegations = $.delegations;
         this.ipAddressPool = $.ipAddressPool;
         this.name = $.name;
+        this.networkSecurityGroupId = $.networkSecurityGroupId;
+        this.networkSecurityGroupIdWo = $.networkSecurityGroupIdWo;
+        this.networkSecurityGroupIdWoVersion = $.networkSecurityGroupIdWoVersion;
         this.privateEndpointNetworkPolicies = $.privateEndpointNetworkPolicies;
         this.privateLinkServiceNetworkPoliciesEnabled = $.privateLinkServiceNetworkPoliciesEnabled;
         this.resourceGroupName = $.resourceGroupName;
+        this.routeTableId = $.routeTableId;
+        this.routeTableIdWo = $.routeTableIdWo;
+        this.routeTableIdWoVersion = $.routeTableIdWoVersion;
         this.serviceEndpointPolicyIds = $.serviceEndpointPolicyIds;
         this.serviceEndpoints = $.serviceEndpoints;
         this.sharingScope = $.sharingScope;
@@ -405,6 +495,63 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
             return name(Output.of(name));
         }
 
+        public Builder networkSecurityGroupId(@Nullable Output<String> networkSecurityGroupId) {
+            $.networkSecurityGroupId = networkSecurityGroupId;
+            return this;
+        }
+
+        public Builder networkSecurityGroupId(String networkSecurityGroupId) {
+            return networkSecurityGroupId(Output.of(networkSecurityGroupId));
+        }
+
+        /**
+         * @param networkSecurityGroupIdWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The ID of the Network Security Group to associate with the subnet.
+         * 
+         * &gt; **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkSecurityGroupIdWo(@Nullable Output<String> networkSecurityGroupIdWo) {
+            $.networkSecurityGroupIdWo = networkSecurityGroupIdWo;
+            return this;
+        }
+
+        /**
+         * @param networkSecurityGroupIdWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The ID of the Network Security Group to associate with the subnet.
+         * 
+         * &gt; **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetNetworkSecurityGroupAssociation` resource instead.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkSecurityGroupIdWo(String networkSecurityGroupIdWo) {
+            return networkSecurityGroupIdWo(Output.of(networkSecurityGroupIdWo));
+        }
+
+        /**
+         * @param networkSecurityGroupIdWoVersion An integer that must be incremented whenever `networkSecurityGroupIdWo` is updated. Required if `networkSecurityGroupIdWo` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkSecurityGroupIdWoVersion(@Nullable Output<Integer> networkSecurityGroupIdWoVersion) {
+            $.networkSecurityGroupIdWoVersion = networkSecurityGroupIdWoVersion;
+            return this;
+        }
+
+        /**
+         * @param networkSecurityGroupIdWoVersion An integer that must be incremented whenever `networkSecurityGroupIdWo` is updated. Required if `networkSecurityGroupIdWo` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder networkSecurityGroupIdWoVersion(Integer networkSecurityGroupIdWoVersion) {
+            return networkSecurityGroupIdWoVersion(Output.of(networkSecurityGroupIdWoVersion));
+        }
+
         /**
          * @param privateEndpointNetworkPolicies Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
          * 
@@ -484,6 +631,63 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
             return resourceGroupName(Output.of(resourceGroupName));
         }
 
+        public Builder routeTableId(@Nullable Output<String> routeTableId) {
+            $.routeTableId = routeTableId;
+            return this;
+        }
+
+        public Builder routeTableId(String routeTableId) {
+            return routeTableId(Output.of(routeTableId));
+        }
+
+        /**
+         * @param routeTableIdWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The ID of the Route Table to associate with the subnet.
+         * 
+         * &gt; **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableIdWo(@Nullable Output<String> routeTableIdWo) {
+            $.routeTableIdWo = routeTableIdWo;
+            return this;
+        }
+
+        /**
+         * @param routeTableIdWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The ID of the Route Table to associate with the subnet.
+         * 
+         * &gt; **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `azure.network.SubnetRouteTableAssociation` resource instead.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableIdWo(String routeTableIdWo) {
+            return routeTableIdWo(Output.of(routeTableIdWo));
+        }
+
+        /**
+         * @param routeTableIdWoVersion An integer that must be incremented whenever `routeTableIdWo` is updated. Required if `routeTableIdWo` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableIdWoVersion(@Nullable Output<Integer> routeTableIdWoVersion) {
+            $.routeTableIdWoVersion = routeTableIdWoVersion;
+            return this;
+        }
+
+        /**
+         * @param routeTableIdWoVersion An integer that must be incremented whenever `routeTableIdWo` is updated. Required if `routeTableIdWo` is specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routeTableIdWoVersion(Integer routeTableIdWoVersion) {
+            return routeTableIdWoVersion(Output.of(routeTableIdWoVersion));
+        }
+
         /**
          * @param serviceEndpointPolicyIds The list of IDs of Service Endpoint Policies to associate with the subnet.
          * 
@@ -516,39 +720,33 @@ public final class SubnetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceEndpoints The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-         * 
-         * &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+         * @param serviceEndpoints A `serviceEndpoint` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder serviceEndpoints(@Nullable Output<List<String>> serviceEndpoints) {
+        public Builder serviceEndpoints(@Nullable Output<List<SubnetServiceEndpointArgs>> serviceEndpoints) {
             $.serviceEndpoints = serviceEndpoints;
             return this;
         }
 
         /**
-         * @param serviceEndpoints The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-         * 
-         * &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+         * @param serviceEndpoints A `serviceEndpoint` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder serviceEndpoints(List<String> serviceEndpoints) {
+        public Builder serviceEndpoints(List<SubnetServiceEndpointArgs> serviceEndpoints) {
             return serviceEndpoints(Output.of(serviceEndpoints));
         }
 
         /**
-         * @param serviceEndpoints The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-         * 
-         * &gt; **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+         * @param serviceEndpoints A `serviceEndpoint` block as defined below.
          * 
          * @return builder
          * 
          */
-        public Builder serviceEndpoints(String... serviceEndpoints) {
+        public Builder serviceEndpoints(SubnetServiceEndpointArgs... serviceEndpoints) {
             return serviceEndpoints(List.of(serviceEndpoints));
         }
 

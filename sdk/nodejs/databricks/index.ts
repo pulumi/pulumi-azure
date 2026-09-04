@@ -35,11 +35,6 @@ export type Workspace = import("./workspace").Workspace;
 export const Workspace: typeof import("./workspace").Workspace = null as any;
 utilities.lazyLoad(exports, ["Workspace"], () => require("./workspace"));
 
-export { WorkspaceCustomerManagedKeyArgs, WorkspaceCustomerManagedKeyState } from "./workspaceCustomerManagedKey";
-export type WorkspaceCustomerManagedKey = import("./workspaceCustomerManagedKey").WorkspaceCustomerManagedKey;
-export const WorkspaceCustomerManagedKey: typeof import("./workspaceCustomerManagedKey").WorkspaceCustomerManagedKey = null as any;
-utilities.lazyLoad(exports, ["WorkspaceCustomerManagedKey"], () => require("./workspaceCustomerManagedKey"));
-
 export { WorkspaceRootDbfsCustomerManagedKeyArgs, WorkspaceRootDbfsCustomerManagedKeyState } from "./workspaceRootDbfsCustomerManagedKey";
 export type WorkspaceRootDbfsCustomerManagedKey = import("./workspaceRootDbfsCustomerManagedKey").WorkspaceRootDbfsCustomerManagedKey;
 export const WorkspaceRootDbfsCustomerManagedKey: typeof import("./workspaceRootDbfsCustomerManagedKey").WorkspaceRootDbfsCustomerManagedKey = null as any;
@@ -56,8 +51,6 @@ const _module = {
                 return new VirtualNetworkPeering(name, <any>undefined, { urn })
             case "azure:databricks/workspace:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
-            case "azure:databricks/workspaceCustomerManagedKey:WorkspaceCustomerManagedKey":
-                return new WorkspaceCustomerManagedKey(name, <any>undefined, { urn })
             case "azure:databricks/workspaceRootDbfsCustomerManagedKey:WorkspaceRootDbfsCustomerManagedKey":
                 return new WorkspaceRootDbfsCustomerManagedKey(name, <any>undefined, { urn })
             default:
@@ -68,5 +61,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("azure", "databricks/accessConnector", _module)
 pulumi.runtime.registerResourceModule("azure", "databricks/virtualNetworkPeering", _module)
 pulumi.runtime.registerResourceModule("azure", "databricks/workspace", _module)
-pulumi.runtime.registerResourceModule("azure", "databricks/workspaceCustomerManagedKey", _module)
 pulumi.runtime.registerResourceModule("azure", "databricks/workspaceRootDbfsCustomerManagedKey", _module)

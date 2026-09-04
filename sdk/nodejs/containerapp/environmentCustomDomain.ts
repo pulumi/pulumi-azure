@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     containerAppEnvironmentId: exampleEnvironment.id,
  *     certificateBlobBase64: std.filebase64({
  *         input: "testacc.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     certificatePassword: "TestAcc",
  *     dnsSuffix: "acceptancetest.contoso.com",
  * });

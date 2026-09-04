@@ -12,47 +12,51 @@ namespace Pulumi.Azure.Cdn.Inputs
 
     public sealed class FrontdoorRuleActionsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("requestHeaderActions")]
-        private InputList<Inputs.FrontdoorRuleActionsRequestHeaderActionArgs>? _requestHeaderActions;
+        [Input("modifyRequestHeaders")]
+        private InputList<Inputs.FrontdoorRuleActionsModifyRequestHeaderArgs>? _modifyRequestHeaders;
 
         /// <summary>
-        /// A `RequestHeaderAction` block as defined below.
+        /// One or more `ModifyRequestHeader` block as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleActionsRequestHeaderActionArgs> RequestHeaderActions
+        public InputList<Inputs.FrontdoorRuleActionsModifyRequestHeaderArgs> ModifyRequestHeaders
         {
-            get => _requestHeaderActions ?? (_requestHeaderActions = new InputList<Inputs.FrontdoorRuleActionsRequestHeaderActionArgs>());
-            set => _requestHeaderActions = value;
+            get => _modifyRequestHeaders ?? (_modifyRequestHeaders = new InputList<Inputs.FrontdoorRuleActionsModifyRequestHeaderArgs>());
+            set => _modifyRequestHeaders = value;
         }
 
-        [Input("responseHeaderActions")]
-        private InputList<Inputs.FrontdoorRuleActionsResponseHeaderActionArgs>? _responseHeaderActions;
+        [Input("modifyResponseHeaders")]
+        private InputList<Inputs.FrontdoorRuleActionsModifyResponseHeaderArgs>? _modifyResponseHeaders;
 
         /// <summary>
-        /// A `ResponseHeaderAction` block as defined below.
+        /// One or more `ModifyResponseHeader` block as defined below.
         /// </summary>
-        public InputList<Inputs.FrontdoorRuleActionsResponseHeaderActionArgs> ResponseHeaderActions
+        public InputList<Inputs.FrontdoorRuleActionsModifyResponseHeaderArgs> ModifyResponseHeaders
         {
-            get => _responseHeaderActions ?? (_responseHeaderActions = new InputList<Inputs.FrontdoorRuleActionsResponseHeaderActionArgs>());
-            set => _responseHeaderActions = value;
+            get => _modifyResponseHeaders ?? (_modifyResponseHeaders = new InputList<Inputs.FrontdoorRuleActionsModifyResponseHeaderArgs>());
+            set => _modifyResponseHeaders = value;
         }
 
         /// <summary>
-        /// A `RouteConfigurationOverrideAction` block as defined below.
+        /// A `RouteConfigurationOverride` block as defined below.
+        /// 
+        /// &gt; **Note:** `RouteConfigurationOverride` conflicts with `UrlRedirect`.
         /// </summary>
-        [Input("routeConfigurationOverrideAction")]
-        public Input<Inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs>? RouteConfigurationOverrideAction { get; set; }
+        [Input("routeConfigurationOverride")]
+        public Input<Inputs.FrontdoorRuleActionsRouteConfigurationOverrideArgs>? RouteConfigurationOverride { get; set; }
 
         /// <summary>
-        /// A `UrlRedirectAction` block as defined below. You may **not** have a `UrlRedirectAction` **and** a `UrlRewriteAction` defined in the same `Actions` block.
+        /// A `UrlRedirect` block as defined below.
+        /// 
+        /// &gt; **Note:** `UrlRewrite` conflicts with `UrlRedirect`
         /// </summary>
-        [Input("urlRedirectAction")]
-        public Input<Inputs.FrontdoorRuleActionsUrlRedirectActionArgs>? UrlRedirectAction { get; set; }
+        [Input("urlRedirect")]
+        public Input<Inputs.FrontdoorRuleActionsUrlRedirectArgs>? UrlRedirect { get; set; }
 
         /// <summary>
-        /// A `UrlRewriteAction` block as defined below. You may **not** have a `UrlRewriteAction` **and** a `UrlRedirectAction` defined in the same `Actions` block.
+        /// A `UrlRewrite` block as defined below.
         /// </summary>
-        [Input("urlRewriteAction")]
-        public Input<Inputs.FrontdoorRuleActionsUrlRewriteActionArgs>? UrlRewriteAction { get; set; }
+        [Input("urlRewrite")]
+        public Input<Inputs.FrontdoorRuleActionsUrlRewriteArgs>? UrlRewrite { get; set; }
 
         public FrontdoorRuleActionsArgs()
         {

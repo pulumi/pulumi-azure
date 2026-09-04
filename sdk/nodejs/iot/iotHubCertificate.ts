@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     iotDpsName: exampleIotHubDps.name,
  *     certificateContent: std.filebase64({
  *         input: "example.cer",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

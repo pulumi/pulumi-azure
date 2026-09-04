@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,9 +23,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/operationalinsights"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -59,8 +59,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "path/to/certificate_file.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "path/to/certificate_file.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -68,7 +68,7 @@ import (
 //			_, err = containerapp.NewEnvironmentCertificate(ctx, "example", &containerapp.EnvironmentCertificateArgs{
 //				Name:                      pulumi.String("myfriendlyname"),
 //				ContainerAppEnvironmentId: exampleEnvironment.ID().ToIDOutput().ToStringOutput(),
-//				CertificateBlobBase64:     pulumi.String(invokeFilebase64.Result),
+//				CertificateBlobBase64:     invokeFilebase64.Result,
 //				CertificatePassword:       pulumi.String("$3cretSqu1rreL"),
 //			})
 //			if err != nil {
@@ -87,11 +87,11 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/operationalinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/operationalinsights"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -170,8 +170,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
-//				Input: "path/to/certificate_file.pfx",
+//			invokeFilebase64, err := std.Filebase64(ctx, map[string]string{
+//				"input": "path/to/certificate_file.pfx",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -180,7 +180,7 @@ import (
 //				Name:       pulumi.String("example-certificate"),
 //				KeyVaultId: exampleKeyVault.ID().ToIDOutput().ToStringOutput(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: pulumi.String(invokeFilebase64.Result),
+//					Contents: invokeFilebase64.Result,
 //					Password: pulumi.String(""),
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{

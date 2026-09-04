@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     policySigningCertificateData: std.file({
  *         input: "./example/cert.pem",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

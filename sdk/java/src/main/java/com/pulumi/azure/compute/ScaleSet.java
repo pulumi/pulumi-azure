@@ -75,7 +75,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetNetworkProfileIpConfigurationArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -195,9 +194,7 @@ import javax.annotation.Nullable;
  *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
  *                     .path("/home/myadmin/.ssh/authorized_keys")
- *                     .keyData(StdFunctions.file(FileArgs.builder()
- *                         .input("~/.ssh/demo_key.pub")
- *                         .build()).result())
+ *                     .keyData(StdFunctions.file(Map.of("input", "~/.ssh/demo_key.pub")).result())
  *                     .build())
  *                 .build())
  *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
@@ -249,7 +246,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileOsDiskArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -315,9 +311,7 @@ import javax.annotation.Nullable;
  *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
  *                     .path("/home/myadmin/.ssh/authorized_keys")
- *                     .keyData(StdFunctions.file(FileArgs.builder()
- *                         .input("~/.ssh/demo_key.pub")
- *                         .build()).result())
+ *                     .keyData(StdFunctions.file(Map.of("input", "~/.ssh/demo_key.pub")).result())
  *                     .build())
  *                 .build())
  *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()

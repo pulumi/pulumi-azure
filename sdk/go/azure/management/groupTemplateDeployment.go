@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -25,7 +25,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/management"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -102,7 +102,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/management"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -116,14 +116,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "templates/example-deploy-template.json",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "templates/example-deploy-template.json",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: "templates/example-deploy-params.json",
+//			invokeFile1, err := std.File(ctx, map[string]string{
+//				"input": "templates/example-deploy-params.json",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -132,8 +132,8 @@ import (
 //				Name:              pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
 //				ManagementGroupId: pulumi.String(example.Id),
-//				TemplateContent:   pulumi.String(invokeFile.Result),
-//				ParametersContent: pulumi.String(invokeFile1.Result),
+//				TemplateContent:   invokeFile.Result,
+//				ParametersContent: invokeFile1.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -149,8 +149,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/management"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/management"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

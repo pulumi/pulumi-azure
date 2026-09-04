@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -44,14 +44,16 @@ import (
 //				AdminEnabled:      pulumi.Bool(false),
 //				Georeplications: containerservice.RegistryGeoreplicationArray{
 //					&containerservice.RegistryGeoreplicationArgs{
-//						Location:              pulumi.String("East US"),
-//						ZoneRedundancyEnabled: pulumi.Bool(true),
-//						Tags:                  pulumi.StringMap{},
+//						Location:                     pulumi.String("East US"),
+//						GlobalEndpointRoutingEnabled: pulumi.Bool(true),
+//						ZoneRedundancyEnabled:        pulumi.Bool(true),
+//						Tags:                         pulumi.StringMap{},
 //					},
 //					&containerservice.RegistryGeoreplicationArgs{
-//						Location:              pulumi.String("North Europe"),
-//						ZoneRedundancyEnabled: pulumi.Bool(true),
-//						Tags:                  pulumi.StringMap{},
+//						Location:                     pulumi.String("North Europe"),
+//						GlobalEndpointRoutingEnabled: pulumi.Bool(true),
+//						ZoneRedundancyEnabled:        pulumi.Bool(true),
+//						Tags:                         pulumi.StringMap{},
 //					},
 //				},
 //			})
@@ -71,10 +73,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/keyvault"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -135,9 +137,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/authorization"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/containerservice"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/containerservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -222,14 +224,14 @@ type Registry struct {
 	AnonymousPullEnabled pulumi.BoolPtrOutput `pulumi:"anonymousPullEnabled"`
 	// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
 	//
-	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	AzureadAuthenticationAsArmPolicyEnabled pulumi.BoolPtrOutput `pulumi:"azureadAuthenticationAsArmPolicyEnabled"`
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrOutput `pulumi:"dataEndpointEnabled"`
 	// A set of data endpoint hostnames associated with the container registry if data endpoints are enabled.
 	DataEndpointHostNames pulumi.StringArrayOutput `pulumi:"dataEndpointHostNames"`
 	// An `encryption` block as documented below.
-	Encryption RegistryEncryptionOutput `pulumi:"encryption"`
+	Encryption RegistryEncryptionPtrOutput `pulumi:"encryption"`
 	// Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
 	ExportPolicyEnabled pulumi.BoolPtrOutput `pulumi:"exportPolicyEnabled"`
 	// One or more `georeplications` blocks as documented below.
@@ -268,8 +270,6 @@ type Registry struct {
 	Sku pulumi.StringOutput `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-	TrustPolicyEnabled pulumi.BoolPtrOutput `pulumi:"trustPolicyEnabled"`
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled pulumi.BoolPtrOutput `pulumi:"zoneRedundancyEnabled"`
 }
@@ -324,7 +324,7 @@ type registryState struct {
 	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
 	// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
 	//
-	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	AzureadAuthenticationAsArmPolicyEnabled *bool `pulumi:"azureadAuthenticationAsArmPolicyEnabled"`
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
@@ -370,8 +370,6 @@ type registryState struct {
 	Sku *string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-	TrustPolicyEnabled *bool `pulumi:"trustPolicyEnabled"`
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
@@ -387,7 +385,7 @@ type RegistryState struct {
 	AnonymousPullEnabled pulumi.BoolPtrInput
 	// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
 	//
-	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	AzureadAuthenticationAsArmPolicyEnabled pulumi.BoolPtrInput
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrInput
@@ -433,8 +431,6 @@ type RegistryState struct {
 	Sku pulumi.StringPtrInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-	TrustPolicyEnabled pulumi.BoolPtrInput
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
@@ -450,7 +446,7 @@ type registryArgs struct {
 	AnonymousPullEnabled *bool `pulumi:"anonymousPullEnabled"`
 	// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
 	//
-	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	AzureadAuthenticationAsArmPolicyEnabled *bool `pulumi:"azureadAuthenticationAsArmPolicyEnabled"`
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled *bool `pulumi:"dataEndpointEnabled"`
@@ -492,8 +488,6 @@ type registryArgs struct {
 	Sku string `pulumi:"sku"`
 	// A mapping of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-	TrustPolicyEnabled *bool `pulumi:"trustPolicyEnabled"`
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled *bool `pulumi:"zoneRedundancyEnabled"`
 }
@@ -506,7 +500,7 @@ type RegistryArgs struct {
 	AnonymousPullEnabled pulumi.BoolPtrInput
 	// Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
 	//
-	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+	// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 	AzureadAuthenticationAsArmPolicyEnabled pulumi.BoolPtrInput
 	// Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU.
 	DataEndpointEnabled pulumi.BoolPtrInput
@@ -548,8 +542,6 @@ type RegistryArgs struct {
 	Sku pulumi.StringInput
 	// A mapping of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-	TrustPolicyEnabled pulumi.BoolPtrInput
 	// Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.
 	ZoneRedundancyEnabled pulumi.BoolPtrInput
 }
@@ -663,7 +655,7 @@ func (o RegistryOutput) AnonymousPullEnabled() pulumi.BoolPtrOutput {
 
 // Whether to use Azure Resource Manager audience token for this Container Registry? Defaults to `true`.
 //
-// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `trustPolicyEnabled`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
+// > **Note:** `quarantinePolicyEnabled`, `retentionPolicyInDays`, `exportPolicyEnabled` and `zoneRedundancyEnabled` are only supported on resources with the `Premium` SKU.
 func (o RegistryOutput) AzureadAuthenticationAsArmPolicyEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.AzureadAuthenticationAsArmPolicyEnabled }).(pulumi.BoolPtrOutput)
 }
@@ -679,8 +671,8 @@ func (o RegistryOutput) DataEndpointHostNames() pulumi.StringArrayOutput {
 }
 
 // An `encryption` block as documented below.
-func (o RegistryOutput) Encryption() RegistryEncryptionOutput {
-	return o.ApplyT(func(v *Registry) RegistryEncryptionOutput { return v.Encryption }).(RegistryEncryptionOutput)
+func (o RegistryOutput) Encryption() RegistryEncryptionPtrOutput {
+	return o.ApplyT(func(v *Registry) RegistryEncryptionPtrOutput { return v.Encryption }).(RegistryEncryptionPtrOutput)
 }
 
 // Boolean value that indicates whether export policy is enabled. Defaults to `true`. In order to set it to `false`, make sure the `publicNetworkAccessEnabled` is also set to `false`.
@@ -767,11 +759,6 @@ func (o RegistryOutput) Sku() pulumi.StringOutput {
 // A mapping of tags to assign to the resource.
 func (o RegistryOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
-}
-
-// Boolean value that indicated whether trust policy is enabled. Defaults to `false`.
-func (o RegistryOutput) TrustPolicyEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *Registry) pulumi.BoolPtrOutput { return v.TrustPolicyEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Whether zone redundancy is enabled for this Container Registry? Changing this forces a new resource to be created. Defaults to `false`.

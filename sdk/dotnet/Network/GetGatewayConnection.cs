@@ -171,17 +171,16 @@ namespace Pulumi.Azure.Network
         /// ExpressRoute connection.
         /// </summary>
         public readonly string AuthorizationKey;
+        /// <summary>
+        /// If `True`, BGP (Border Gateway Protocol) is enabled for this connection.
+        /// </summary>
+        public readonly bool BgpEnabled;
         public readonly string ConnectionProtocol;
         /// <summary>
         /// The dead peer detection timeout of this connection in seconds.
         /// </summary>
         public readonly int DpdTimeoutSeconds;
         public readonly int EgressBytesTransferred;
-        /// <summary>
-        /// If `True`, BGP (Border Gateway Protocol) is enabled
-        /// for this connection.
-        /// </summary>
-        public readonly bool EnableBgp;
         /// <summary>
         /// The ID of the Express Route Circuit
         /// (i.e. when `Type` is `ExpressRoute`).
@@ -269,13 +268,13 @@ namespace Pulumi.Azure.Network
         private GetGatewayConnectionResult(
             string authorizationKey,
 
+            bool bgpEnabled,
+
             string connectionProtocol,
 
             int dpdTimeoutSeconds,
 
             int egressBytesTransferred,
-
-            bool enableBgp,
 
             string expressRouteCircuitId,
 
@@ -318,10 +317,10 @@ namespace Pulumi.Azure.Network
             string virtualNetworkGatewayId)
         {
             AuthorizationKey = authorizationKey;
+            BgpEnabled = bgpEnabled;
             ConnectionProtocol = connectionProtocol;
             DpdTimeoutSeconds = dpdTimeoutSeconds;
             EgressBytesTransferred = egressBytesTransferred;
-            EnableBgp = enableBgp;
             ExpressRouteCircuitId = expressRouteCircuitId;
             ExpressRouteGatewayBypass = expressRouteGatewayBypass;
             Id = id;

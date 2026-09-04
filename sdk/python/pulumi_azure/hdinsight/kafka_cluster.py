@@ -27,6 +27,7 @@ class KafkaClusterArgs:
                  resource_group_name: pulumi.Input[_builtins.str],
                  roles: pulumi.Input['KafkaClusterRolesArgs'],
                  tier: pulumi.Input[_builtins.str],
+                 tls_min_version: pulumi.Input[_builtins.str],
                  compute_isolation: pulumi.Input[Optional['KafkaClusterComputeIsolationArgs']] = None,
                  disk_encryptions: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]]] = None,
                  encryption_in_transit_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -41,8 +42,7 @@ class KafkaClusterArgs:
                  security_profile: pulumi.Input[Optional['KafkaClusterSecurityProfileArgs']] = None,
                  storage_account_gen2: pulumi.Input[Optional['KafkaClusterStorageAccountGen2Args']] = None,
                  storage_accounts: pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tls_min_version: pulumi.Input[Optional[_builtins.str]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a KafkaCluster resource.
 
@@ -52,10 +52,9 @@ class KafkaClusterArgs:
         :param pulumi.Input[_builtins.str] resource_group_name: Specifies the name of the Resource Group in which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterRolesArgs'] roles: A `roles` block as defined below.
         :param pulumi.Input[_builtins.str] tier: Specifies the Tier which should be used for this HDInsight Kafka Cluster. Possible values are `Standard` or `Premium`. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] tls_min_version: The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
-               
-               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[_builtins.bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input[_builtins.str] location: Specifies the Azure Region which this HDInsight Kafka Cluster should exist. Changing this forces a new resource to be created.
@@ -69,7 +68,6 @@ class KafkaClusterArgs:
         :param pulumi.Input['KafkaClusterStorageAccountGen2Args'] storage_account_gen2: A `storage_account_gen2` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterStorageAccountArgs']]] storage_accounts: One or more `storage_account` block as defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of Tags which should be assigned to this HDInsight Kafka Cluster.
-        :param pulumi.Input[_builtins.str] tls_min_version: The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
         """
         pulumi.set(__self__, "cluster_version", cluster_version)
         pulumi.set(__self__, "component_version", component_version)
@@ -77,6 +75,7 @@ class KafkaClusterArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "roles", roles)
         pulumi.set(__self__, "tier", tier)
+        pulumi.set(__self__, "tls_min_version", tls_min_version)
         if compute_isolation is not None:
             pulumi.set(__self__, "compute_isolation", compute_isolation)
         if disk_encryptions is not None:
@@ -107,8 +106,6 @@ class KafkaClusterArgs:
             pulumi.set(__self__, "storage_accounts", storage_accounts)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tls_min_version is not None:
-            pulumi.set(__self__, "tls_min_version", tls_min_version)
 
     @_builtins.property
     @pulumi.getter(name="clusterVersion")
@@ -183,6 +180,18 @@ class KafkaClusterArgs:
         pulumi.set(self, "tier", value)
 
     @_builtins.property
+    @pulumi.getter(name="tlsMinVersion")
+    def tls_min_version(self) -> pulumi.Input[_builtins.str]:
+        """
+        The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "tls_min_version")
+
+    @tls_min_version.setter
+    def tls_min_version(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tls_min_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="computeIsolation")
     def compute_isolation(self) -> pulumi.Input[Optional['KafkaClusterComputeIsolationArgs']]:
         """
@@ -199,8 +208,6 @@ class KafkaClusterArgs:
     def disk_encryptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
-
-        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "disk_encryptions")
 
@@ -364,18 +371,6 @@ class KafkaClusterArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
-    @_builtins.property
-    @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "tls_min_version")
-
-    @tls_min_version.setter
-    def tls_min_version(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "tls_min_version", value)
-
 
 @pulumi.input_type
 class _KafkaClusterState:
@@ -412,8 +407,6 @@ class _KafkaClusterState:
         :param pulumi.Input['KafkaClusterComponentVersionArgs'] component_version: A `component_version` block as defined below.
         :param pulumi.Input['KafkaClusterComputeIsolationArgs'] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]] disk_encryptions: One or more `disk_encryption` block as defined below.
-               
-               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[_builtins.bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input['KafkaClusterExtensionArgs'] extension: An `extension` block as defined below.
         :param pulumi.Input['KafkaClusterGatewayArgs'] gateway: A `gateway` block as defined below.
@@ -528,8 +521,6 @@ class _KafkaClusterState:
     def disk_encryptions(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['KafkaClusterDiskEncryptionArgs']]]]:
         """
         One or more `disk_encryption` block as defined below.
-
-        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "disk_encryptions")
 
@@ -845,35 +836,36 @@ class KafkaCluster(pulumi.CustomResource):
             name="example-hdicluster",
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="4.0",
+            cluster_version="5.1",
             tier="Standard",
+            tls_min_version="1.2",
             component_version={
-                "kafka": "2.1",
+                "kafka": "3.2",
             },
             gateway={
                 "username": "acctestusrgw",
                 "password": "Password123!",
             },
             storage_accounts=[{
-                "storage_container_id": example_container.id,
+                "storage_container_url": example_container.url,
                 "storage_account_key": example_account.primary_access_key,
                 "is_default": True,
             }],
             roles={
                 "head_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
                 "worker_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                     "number_of_disks_per_node": 3,
                     "target_instance_count": 3,
                 },
                 "zookeeper_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
@@ -902,8 +894,6 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KafkaClusterComponentVersionArgs', 'KafkaClusterComponentVersionArgsDict']] component_version: A `component_version` block as defined below.
         :param pulumi.Input[Union['KafkaClusterComputeIsolationArgs', 'KafkaClusterComputeIsolationArgsDict']] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterDiskEncryptionArgs', 'KafkaClusterDiskEncryptionArgsDict']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
-               
-               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[_builtins.bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['KafkaClusterExtensionArgs', 'KafkaClusterExtensionArgsDict']] extension: An `extension` block as defined below.
         :param pulumi.Input[Union['KafkaClusterGatewayArgs', 'KafkaClusterGatewayArgsDict']] gateway: A `gateway` block as defined below.
@@ -955,35 +945,36 @@ class KafkaCluster(pulumi.CustomResource):
             name="example-hdicluster",
             resource_group_name=example.name,
             location=example.location,
-            cluster_version="4.0",
+            cluster_version="5.1",
             tier="Standard",
+            tls_min_version="1.2",
             component_version={
-                "kafka": "2.1",
+                "kafka": "3.2",
             },
             gateway={
                 "username": "acctestusrgw",
                 "password": "Password123!",
             },
             storage_accounts=[{
-                "storage_container_id": example_container.id,
+                "storage_container_url": example_container.url,
                 "storage_account_key": example_account.primary_access_key,
                 "is_default": True,
             }],
             roles={
                 "head_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
                 "worker_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                     "number_of_disks_per_node": 3,
                     "target_instance_count": 3,
                 },
                 "zookeeper_node": {
-                    "vm_size": "Standard_D3_V2",
+                    "vm_size": "Standard_A4_V2",
                     "username": "acctestusrvm",
                     "password": "AccTestvdSC4daf986!",
                 },
@@ -1085,6 +1076,8 @@ class KafkaCluster(pulumi.CustomResource):
             if tier is None and not opts.urn:
                 raise TypeError("Missing required property 'tier'")
             __props__.__dict__["tier"] = tier
+            if tls_min_version is None and not opts.urn:
+                raise TypeError("Missing required property 'tls_min_version'")
             __props__.__dict__["tls_min_version"] = tls_min_version
             __props__.__dict__["https_endpoint"] = None
             __props__.__dict__["kafka_rest_proxy_endpoint"] = None
@@ -1135,8 +1128,6 @@ class KafkaCluster(pulumi.CustomResource):
         :param pulumi.Input[Union['KafkaClusterComponentVersionArgs', 'KafkaClusterComponentVersionArgsDict']] component_version: A `component_version` block as defined below.
         :param pulumi.Input[Union['KafkaClusterComputeIsolationArgs', 'KafkaClusterComputeIsolationArgsDict']] compute_isolation: A `compute_isolation` block as defined below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KafkaClusterDiskEncryptionArgs', 'KafkaClusterDiskEncryptionArgsDict']]]] disk_encryptions: One or more `disk_encryption` block as defined below.
-               
-               > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         :param pulumi.Input[_builtins.bool] encryption_in_transit_enabled: Whether encryption in transit is enabled for this HDInsight Kafka Cluster. Changing this forces a new resource to be created.
         :param pulumi.Input[Union['KafkaClusterExtensionArgs', 'KafkaClusterExtensionArgsDict']] extension: An `extension` block as defined below.
         :param pulumi.Input[Union['KafkaClusterGatewayArgs', 'KafkaClusterGatewayArgsDict']] gateway: A `gateway` block as defined below.
@@ -1219,8 +1210,6 @@ class KafkaCluster(pulumi.CustomResource):
     def disk_encryptions(self) -> pulumi.Output[Optional[Sequence['outputs.KafkaClusterDiskEncryption']]]:
         """
         One or more `disk_encryption` block as defined below.
-
-        > **Note:** Starting on June 30, 2020, Azure HDInsight will enforce TLS 1.2 or later versions for all HTTPS connections. For more information, see [Azure HDInsight TLS 1.2 Enforcement](https://azure.microsoft.com/en-us/updates/azure-hdinsight-tls-12-enforcement/).
         """
         return pulumi.get(self, "disk_encryptions")
 
@@ -1386,7 +1375,7 @@ class KafkaCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tlsMinVersion")
-    def tls_min_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def tls_min_version(self) -> pulumi.Output[_builtins.str]:
         """
         The minimal supported TLS version. Possible values are `1.0`, `1.1` or `1.2`. Changing this forces a new resource to be created.
         """

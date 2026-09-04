@@ -14,22 +14,22 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy
     {
         /// <summary>
-        /// Should automatic rollbacks be disabled?
-        /// </summary>
-        public readonly bool DisableAutomaticRollback;
-        /// <summary>
         /// Should OS Upgrades automatically be applied to Scale Set instances in a rolling fashion when a newer version of the OS Image becomes available?
         /// </summary>
-        public readonly bool EnableAutomaticOsUpgrade;
+        public readonly bool AutomaticOsUpgradeEnabled;
+        /// <summary>
+        /// Should automatic rollbacks be enabled?
+        /// </summary>
+        public readonly bool AutomaticRollbackEnabled;
 
         [OutputConstructor]
         private WindowsVirtualMachineScaleSetAutomaticOsUpgradePolicy(
-            bool disableAutomaticRollback,
+            bool automaticOsUpgradeEnabled,
 
-            bool enableAutomaticOsUpgrade)
+            bool automaticRollbackEnabled)
         {
-            DisableAutomaticRollback = disableAutomaticRollback;
-            EnableAutomaticOsUpgrade = enableAutomaticOsUpgrade;
+            AutomaticOsUpgradeEnabled = automaticOsUpgradeEnabled;
+            AutomaticRollbackEnabled = automaticRollbackEnabled;
         }
     }
 }

@@ -76,13 +76,6 @@ public final class LinkedStorageAccountState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.workspaceId);
     }
 
-    @Import(name="workspaceResourceId")
-    private @Nullable Output<String> workspaceResourceId;
-
-    public Optional<Output<String>> workspaceResourceId() {
-        return Optional.ofNullable(this.workspaceResourceId);
-    }
-
     private LinkedStorageAccountState() {}
 
     private LinkedStorageAccountState(LinkedStorageAccountState $) {
@@ -90,7 +83,6 @@ public final class LinkedStorageAccountState extends com.pulumi.resources.Resour
         this.resourceGroupName = $.resourceGroupName;
         this.storageAccountIds = $.storageAccountIds;
         this.workspaceId = $.workspaceId;
-        this.workspaceResourceId = $.workspaceResourceId;
     }
 
     public static Builder builder() {
@@ -203,15 +195,6 @@ public final class LinkedStorageAccountState extends com.pulumi.resources.Resour
          */
         public Builder workspaceId(String workspaceId) {
             return workspaceId(Output.of(workspaceId));
-        }
-
-        public Builder workspaceResourceId(@Nullable Output<String> workspaceResourceId) {
-            $.workspaceResourceId = workspaceResourceId;
-            return this;
-        }
-
-        public Builder workspaceResourceId(String workspaceResourceId) {
-            return workspaceResourceId(Output.of(workspaceResourceId));
         }
 
         public LinkedStorageAccountState build() {

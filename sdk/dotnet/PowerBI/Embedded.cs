@@ -74,7 +74,7 @@ namespace Pulumi.Azure.PowerBI
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+        /// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
         /// </summary>
         [Output("mode")]
         public Output<string?> Mode { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Azure.PowerBI
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+        /// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Azure.PowerBI
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen1`. Changing this forces a new resource to be created.
+        /// Sets the PowerBI Embedded's mode. Possible values include: `Gen1`, `Gen2`. Defaults to `Gen2`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

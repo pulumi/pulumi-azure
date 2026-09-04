@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,7 +18,7 @@ type ClusterApiServerProfile struct {
 	IpAddress *string `pulumi:"ipAddress"`
 	// The URL the API Server Profile is associated with.
 	Url *string `pulumi:"url"`
-	// Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+	// Cluster API server visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
 	Visibility string `pulumi:"visibility"`
 }
 
@@ -38,7 +38,7 @@ type ClusterApiServerProfileArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The URL the API Server Profile is associated with.
 	Url pulumi.StringPtrInput `pulumi:"url"`
-	// Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+	// Cluster API server visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
 	Visibility pulumi.StringInput `pulumi:"visibility"`
 }
 
@@ -129,7 +129,7 @@ func (o ClusterApiServerProfileOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterApiServerProfile) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-// Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+// Cluster API server visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
 func (o ClusterApiServerProfileOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterApiServerProfile) string { return v.Visibility }).(pulumi.StringOutput)
 }
@@ -178,7 +178,7 @@ func (o ClusterApiServerProfilePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cluster API server visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+// Cluster API server visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
 func (o ClusterApiServerProfilePtrOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterApiServerProfile) *string {
 		if v == nil {
@@ -197,7 +197,7 @@ type ClusterClusterProfile struct {
 	ManagedResourceGroupName *string `pulumi:"managedResourceGroupName"`
 	// The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
 	PullSecret *string `pulumi:"pullSecret"`
-	// The resource group that the cluster profile is attached to.
+	// The Resource Group that the cluster profile is attached to.
 	ResourceGroupId *string `pulumi:"resourceGroupId"`
 	// The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
@@ -223,7 +223,7 @@ type ClusterClusterProfileArgs struct {
 	ManagedResourceGroupName pulumi.StringPtrInput `pulumi:"managedResourceGroupName"`
 	// The Red Hat pull secret for the cluster. For more info, see [Get a Red Hat pull secret](https://learn.microsoft.com/azure/openshift/tutorial-create-cluster#get-a-red-hat-pull-secret-optional). Changing this forces a new resource to be created.
 	PullSecret pulumi.StringPtrInput `pulumi:"pullSecret"`
-	// The resource group that the cluster profile is attached to.
+	// The Resource Group that the cluster profile is attached to.
 	ResourceGroupId pulumi.StringPtrInput `pulumi:"resourceGroupId"`
 	// The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
 	Version pulumi.StringInput `pulumi:"version"`
@@ -326,7 +326,7 @@ func (o ClusterClusterProfileOutput) PullSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterProfile) *string { return v.PullSecret }).(pulumi.StringPtrOutput)
 }
 
-// The resource group that the cluster profile is attached to.
+// The Resource Group that the cluster profile is attached to.
 func (o ClusterClusterProfileOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterProfile) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
 }
@@ -400,7 +400,7 @@ func (o ClusterClusterProfilePtrOutput) PullSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource group that the cluster profile is attached to.
+// The Resource Group that the cluster profile is attached to.
 func (o ClusterClusterProfilePtrOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterClusterProfile) *string {
 		if v == nil {
@@ -420,12 +420,168 @@ func (o ClusterClusterProfilePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterIdentity struct {
+	// A set of User Assigned Managed Identity IDs to assign to the cluster. Exactly one cluster identity is required for now.
+	IdentityIds string `pulumi:"identityIds"`
+	// The type of Managed Service Identity assigned to the cluster. The only supported value is `UserAssigned`.
+	Type string `pulumi:"type"`
+}
+
+// ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
+// You can construct a concrete instance of `ClusterIdentityInput` via:
+//
+//	ClusterIdentityArgs{...}
+type ClusterIdentityInput interface {
+	pulumi.Input
+
+	ToClusterIdentityOutput() ClusterIdentityOutput
+	ToClusterIdentityOutputWithContext(context.Context) ClusterIdentityOutput
+}
+
+type ClusterIdentityArgs struct {
+	// A set of User Assigned Managed Identity IDs to assign to the cluster. Exactly one cluster identity is required for now.
+	IdentityIds pulumi.StringInput `pulumi:"identityIds"`
+	// The type of Managed Service Identity assigned to the cluster. The only supported value is `UserAssigned`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ClusterIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterIdentity)(nil)).Elem()
+}
+
+func (i ClusterIdentityArgs) ToClusterIdentityOutput() ClusterIdentityOutput {
+	return i.ToClusterIdentityOutputWithContext(context.Background())
+}
+
+func (i ClusterIdentityArgs) ToClusterIdentityOutputWithContext(ctx context.Context) ClusterIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput)
+}
+
+func (i ClusterIdentityArgs) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
+	return i.ToClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterIdentityArgs) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput).ToClusterIdentityPtrOutputWithContext(ctx)
+}
+
+// ClusterIdentityPtrInput is an input type that accepts ClusterIdentityArgs, ClusterIdentityPtr and ClusterIdentityPtrOutput values.
+// You can construct a concrete instance of `ClusterIdentityPtrInput` via:
+//
+//	        ClusterIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterIdentityPtrInput interface {
+	pulumi.Input
+
+	ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput
+	ToClusterIdentityPtrOutputWithContext(context.Context) ClusterIdentityPtrOutput
+}
+
+type clusterIdentityPtrType ClusterIdentityArgs
+
+func ClusterIdentityPtr(v *ClusterIdentityArgs) ClusterIdentityPtrInput {
+	return (*clusterIdentityPtrType)(v)
+}
+
+func (*clusterIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterIdentity)(nil)).Elem()
+}
+
+func (i *clusterIdentityPtrType) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
+	return i.ToClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterIdentityPtrType) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityPtrOutput)
+}
+
+type ClusterIdentityOutput struct{ *pulumi.OutputState }
+
+func (ClusterIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterIdentity)(nil)).Elem()
+}
+
+func (o ClusterIdentityOutput) ToClusterIdentityOutput() ClusterIdentityOutput {
+	return o
+}
+
+func (o ClusterIdentityOutput) ToClusterIdentityOutputWithContext(ctx context.Context) ClusterIdentityOutput {
+	return o
+}
+
+func (o ClusterIdentityOutput) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
+	return o.ToClusterIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterIdentityOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterIdentity) *ClusterIdentity {
+		return &v
+	}).(ClusterIdentityPtrOutput)
+}
+
+// A set of User Assigned Managed Identity IDs to assign to the cluster. Exactly one cluster identity is required for now.
+func (o ClusterIdentityOutput) IdentityIds() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterIdentity) string { return v.IdentityIds }).(pulumi.StringOutput)
+}
+
+// The type of Managed Service Identity assigned to the cluster. The only supported value is `UserAssigned`.
+func (o ClusterIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ClusterIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterIdentity)(nil)).Elem()
+}
+
+func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutput() ClusterIdentityPtrOutput {
+	return o
+}
+
+func (o ClusterIdentityPtrOutput) ToClusterIdentityPtrOutputWithContext(ctx context.Context) ClusterIdentityPtrOutput {
+	return o
+}
+
+func (o ClusterIdentityPtrOutput) Elem() ClusterIdentityOutput {
+	return o.ApplyT(func(v *ClusterIdentity) ClusterIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterIdentity
+		return ret
+	}).(ClusterIdentityOutput)
+}
+
+// A set of User Assigned Managed Identity IDs to assign to the cluster. Exactly one cluster identity is required for now.
+func (o ClusterIdentityPtrOutput) IdentityIds() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityIds
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of Managed Service Identity assigned to the cluster. The only supported value is `UserAssigned`.
+func (o ClusterIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterIngressProfile struct {
 	// The IP Address the Ingress Profile is associated with.
 	IpAddress *string `pulumi:"ipAddress"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
-	// Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+	// Cluster Ingress visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
 	Visibility string `pulumi:"visibility"`
 }
 
@@ -445,7 +601,7 @@ type ClusterIngressProfileArgs struct {
 	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
 	// The name of the Azure Red Hat OpenShift Cluster to create. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+	// Cluster Ingress visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
 	Visibility pulumi.StringInput `pulumi:"visibility"`
 }
 
@@ -536,7 +692,7 @@ func (o ClusterIngressProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterIngressProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+// Cluster Ingress visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
 func (o ClusterIngressProfileOutput) Visibility() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterIngressProfile) string { return v.Visibility }).(pulumi.StringOutput)
 }
@@ -585,7 +741,7 @@ func (o ClusterIngressProfilePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Cluster Ingress visibility. Supported values are `Public` and `Private`. Changing this forces a new resource to be created.
+// Cluster Ingress visibility. Possible values are `Public` and `Private`. Changing this forces a new resource to be created.
 func (o ClusterIngressProfilePtrOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterIngressProfile) *string {
 		if v == nil {
@@ -798,6 +954,8 @@ func (o ClusterMainProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 }
 
 type ClusterNetworkProfile struct {
+	// A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+	LoadBalancerProfile *ClusterNetworkProfileLoadBalancerProfile `pulumi:"loadBalancerProfile"`
 	// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
 	OutboundType *string `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
@@ -820,6 +978,8 @@ type ClusterNetworkProfileInput interface {
 }
 
 type ClusterNetworkProfileArgs struct {
+	// A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+	LoadBalancerProfile ClusterNetworkProfileLoadBalancerProfilePtrInput `pulumi:"loadBalancerProfile"`
 	// The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
 	OutboundType pulumi.StringPtrInput `pulumi:"outboundType"`
 	// The CIDR to use for pod IP addresses. Changing this forces a new resource to be created.
@@ -907,6 +1067,11 @@ func (o ClusterNetworkProfileOutput) ToClusterNetworkProfilePtrOutputWithContext
 	}).(ClusterNetworkProfilePtrOutput)
 }
 
+// A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+func (o ClusterNetworkProfileOutput) LoadBalancerProfile() ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return o.ApplyT(func(v ClusterNetworkProfile) *ClusterNetworkProfileLoadBalancerProfile { return v.LoadBalancerProfile }).(ClusterNetworkProfileLoadBalancerProfilePtrOutput)
+}
+
 // The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
 func (o ClusterNetworkProfileOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterNetworkProfile) *string { return v.OutboundType }).(pulumi.StringPtrOutput)
@@ -951,6 +1116,16 @@ func (o ClusterNetworkProfilePtrOutput) Elem() ClusterNetworkProfileOutput {
 	}).(ClusterNetworkProfileOutput)
 }
 
+// A `loadBalancerProfile` block as defined above. Only applicable when `outboundType` is set to `Loadbalancer`.
+func (o ClusterNetworkProfilePtrOutput) LoadBalancerProfile() ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkProfile) *ClusterNetworkProfileLoadBalancerProfile {
+		if v == nil {
+			return nil
+		}
+		return v.LoadBalancerProfile
+	}).(ClusterNetworkProfileLoadBalancerProfilePtrOutput)
+}
+
 // The outbound (egress) routing method. Possible values are `Loadbalancer` and `UserDefinedRouting`. Defaults to `Loadbalancer`. Changing this forces a new resource to be created.
 func (o ClusterNetworkProfilePtrOutput) OutboundType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterNetworkProfile) *string {
@@ -989,6 +1164,450 @@ func (o ClusterNetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 		}
 		return &v.ServiceCidr
 	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterNetworkProfileLoadBalancerProfile struct {
+	// The list of effective outbound IP resource IDs of the cluster's public load balancer.
+	EffectiveOutboundIps []string `pulumi:"effectiveOutboundIps"`
+	// The desired number of managed outbound public IP addresses created and assigned to the cluster's outbound load balancer. Possible values range between `1` and `20`.
+	ManagedOutboundIpCount int `pulumi:"managedOutboundIpCount"`
+}
+
+// ClusterNetworkProfileLoadBalancerProfileInput is an input type that accepts ClusterNetworkProfileLoadBalancerProfileArgs and ClusterNetworkProfileLoadBalancerProfileOutput values.
+// You can construct a concrete instance of `ClusterNetworkProfileLoadBalancerProfileInput` via:
+//
+//	ClusterNetworkProfileLoadBalancerProfileArgs{...}
+type ClusterNetworkProfileLoadBalancerProfileInput interface {
+	pulumi.Input
+
+	ToClusterNetworkProfileLoadBalancerProfileOutput() ClusterNetworkProfileLoadBalancerProfileOutput
+	ToClusterNetworkProfileLoadBalancerProfileOutputWithContext(context.Context) ClusterNetworkProfileLoadBalancerProfileOutput
+}
+
+type ClusterNetworkProfileLoadBalancerProfileArgs struct {
+	// The list of effective outbound IP resource IDs of the cluster's public load balancer.
+	EffectiveOutboundIps pulumi.StringArrayInput `pulumi:"effectiveOutboundIps"`
+	// The desired number of managed outbound public IP addresses created and assigned to the cluster's outbound load balancer. Possible values range between `1` and `20`.
+	ManagedOutboundIpCount pulumi.IntInput `pulumi:"managedOutboundIpCount"`
+}
+
+func (ClusterNetworkProfileLoadBalancerProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkProfileLoadBalancerProfile)(nil)).Elem()
+}
+
+func (i ClusterNetworkProfileLoadBalancerProfileArgs) ToClusterNetworkProfileLoadBalancerProfileOutput() ClusterNetworkProfileLoadBalancerProfileOutput {
+	return i.ToClusterNetworkProfileLoadBalancerProfileOutputWithContext(context.Background())
+}
+
+func (i ClusterNetworkProfileLoadBalancerProfileArgs) ToClusterNetworkProfileLoadBalancerProfileOutputWithContext(ctx context.Context) ClusterNetworkProfileLoadBalancerProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkProfileLoadBalancerProfileOutput)
+}
+
+func (i ClusterNetworkProfileLoadBalancerProfileArgs) ToClusterNetworkProfileLoadBalancerProfilePtrOutput() ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return i.ToClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterNetworkProfileLoadBalancerProfileArgs) ToClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(ctx context.Context) ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkProfileLoadBalancerProfileOutput).ToClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(ctx)
+}
+
+// ClusterNetworkProfileLoadBalancerProfilePtrInput is an input type that accepts ClusterNetworkProfileLoadBalancerProfileArgs, ClusterNetworkProfileLoadBalancerProfilePtr and ClusterNetworkProfileLoadBalancerProfilePtrOutput values.
+// You can construct a concrete instance of `ClusterNetworkProfileLoadBalancerProfilePtrInput` via:
+//
+//	        ClusterNetworkProfileLoadBalancerProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterNetworkProfileLoadBalancerProfilePtrInput interface {
+	pulumi.Input
+
+	ToClusterNetworkProfileLoadBalancerProfilePtrOutput() ClusterNetworkProfileLoadBalancerProfilePtrOutput
+	ToClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(context.Context) ClusterNetworkProfileLoadBalancerProfilePtrOutput
+}
+
+type clusterNetworkProfileLoadBalancerProfilePtrType ClusterNetworkProfileLoadBalancerProfileArgs
+
+func ClusterNetworkProfileLoadBalancerProfilePtr(v *ClusterNetworkProfileLoadBalancerProfileArgs) ClusterNetworkProfileLoadBalancerProfilePtrInput {
+	return (*clusterNetworkProfileLoadBalancerProfilePtrType)(v)
+}
+
+func (*clusterNetworkProfileLoadBalancerProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkProfileLoadBalancerProfile)(nil)).Elem()
+}
+
+func (i *clusterNetworkProfileLoadBalancerProfilePtrType) ToClusterNetworkProfileLoadBalancerProfilePtrOutput() ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return i.ToClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterNetworkProfileLoadBalancerProfilePtrType) ToClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(ctx context.Context) ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterNetworkProfileLoadBalancerProfilePtrOutput)
+}
+
+type ClusterNetworkProfileLoadBalancerProfileOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkProfileLoadBalancerProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterNetworkProfileLoadBalancerProfile)(nil)).Elem()
+}
+
+func (o ClusterNetworkProfileLoadBalancerProfileOutput) ToClusterNetworkProfileLoadBalancerProfileOutput() ClusterNetworkProfileLoadBalancerProfileOutput {
+	return o
+}
+
+func (o ClusterNetworkProfileLoadBalancerProfileOutput) ToClusterNetworkProfileLoadBalancerProfileOutputWithContext(ctx context.Context) ClusterNetworkProfileLoadBalancerProfileOutput {
+	return o
+}
+
+func (o ClusterNetworkProfileLoadBalancerProfileOutput) ToClusterNetworkProfileLoadBalancerProfilePtrOutput() ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return o.ToClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterNetworkProfileLoadBalancerProfileOutput) ToClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(ctx context.Context) ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterNetworkProfileLoadBalancerProfile) *ClusterNetworkProfileLoadBalancerProfile {
+		return &v
+	}).(ClusterNetworkProfileLoadBalancerProfilePtrOutput)
+}
+
+// The list of effective outbound IP resource IDs of the cluster's public load balancer.
+func (o ClusterNetworkProfileLoadBalancerProfileOutput) EffectiveOutboundIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterNetworkProfileLoadBalancerProfile) []string { return v.EffectiveOutboundIps }).(pulumi.StringArrayOutput)
+}
+
+// The desired number of managed outbound public IP addresses created and assigned to the cluster's outbound load balancer. Possible values range between `1` and `20`.
+func (o ClusterNetworkProfileLoadBalancerProfileOutput) ManagedOutboundIpCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ClusterNetworkProfileLoadBalancerProfile) int { return v.ManagedOutboundIpCount }).(pulumi.IntOutput)
+}
+
+type ClusterNetworkProfileLoadBalancerProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterNetworkProfileLoadBalancerProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterNetworkProfileLoadBalancerProfile)(nil)).Elem()
+}
+
+func (o ClusterNetworkProfileLoadBalancerProfilePtrOutput) ToClusterNetworkProfileLoadBalancerProfilePtrOutput() ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return o
+}
+
+func (o ClusterNetworkProfileLoadBalancerProfilePtrOutput) ToClusterNetworkProfileLoadBalancerProfilePtrOutputWithContext(ctx context.Context) ClusterNetworkProfileLoadBalancerProfilePtrOutput {
+	return o
+}
+
+func (o ClusterNetworkProfileLoadBalancerProfilePtrOutput) Elem() ClusterNetworkProfileLoadBalancerProfileOutput {
+	return o.ApplyT(func(v *ClusterNetworkProfileLoadBalancerProfile) ClusterNetworkProfileLoadBalancerProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterNetworkProfileLoadBalancerProfile
+		return ret
+	}).(ClusterNetworkProfileLoadBalancerProfileOutput)
+}
+
+// The list of effective outbound IP resource IDs of the cluster's public load balancer.
+func (o ClusterNetworkProfileLoadBalancerProfilePtrOutput) EffectiveOutboundIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterNetworkProfileLoadBalancerProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveOutboundIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The desired number of managed outbound public IP addresses created and assigned to the cluster's outbound load balancer. Possible values range between `1` and `20`.
+func (o ClusterNetworkProfileLoadBalancerProfilePtrOutput) ManagedOutboundIpCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterNetworkProfileLoadBalancerProfile) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ManagedOutboundIpCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterPlatformWorkloadIdentityProfile struct {
+	// One or more `platformWorkloadIdentity` blocks as defined above.
+	PlatformWorkloadIdentities []ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity `pulumi:"platformWorkloadIdentities"`
+	// The target OpenShift version (`x.y.z`) the platform workload identities should satisfy. Once set, this value cannot be cleared.
+	UpgradeableTo *string `pulumi:"upgradeableTo"`
+}
+
+// ClusterPlatformWorkloadIdentityProfileInput is an input type that accepts ClusterPlatformWorkloadIdentityProfileArgs and ClusterPlatformWorkloadIdentityProfileOutput values.
+// You can construct a concrete instance of `ClusterPlatformWorkloadIdentityProfileInput` via:
+//
+//	ClusterPlatformWorkloadIdentityProfileArgs{...}
+type ClusterPlatformWorkloadIdentityProfileInput interface {
+	pulumi.Input
+
+	ToClusterPlatformWorkloadIdentityProfileOutput() ClusterPlatformWorkloadIdentityProfileOutput
+	ToClusterPlatformWorkloadIdentityProfileOutputWithContext(context.Context) ClusterPlatformWorkloadIdentityProfileOutput
+}
+
+type ClusterPlatformWorkloadIdentityProfileArgs struct {
+	// One or more `platformWorkloadIdentity` blocks as defined above.
+	PlatformWorkloadIdentities ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayInput `pulumi:"platformWorkloadIdentities"`
+	// The target OpenShift version (`x.y.z`) the platform workload identities should satisfy. Once set, this value cannot be cleared.
+	UpgradeableTo pulumi.StringPtrInput `pulumi:"upgradeableTo"`
+}
+
+func (ClusterPlatformWorkloadIdentityProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlatformWorkloadIdentityProfile)(nil)).Elem()
+}
+
+func (i ClusterPlatformWorkloadIdentityProfileArgs) ToClusterPlatformWorkloadIdentityProfileOutput() ClusterPlatformWorkloadIdentityProfileOutput {
+	return i.ToClusterPlatformWorkloadIdentityProfileOutputWithContext(context.Background())
+}
+
+func (i ClusterPlatformWorkloadIdentityProfileArgs) ToClusterPlatformWorkloadIdentityProfileOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlatformWorkloadIdentityProfileOutput)
+}
+
+func (i ClusterPlatformWorkloadIdentityProfileArgs) ToClusterPlatformWorkloadIdentityProfilePtrOutput() ClusterPlatformWorkloadIdentityProfilePtrOutput {
+	return i.ToClusterPlatformWorkloadIdentityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterPlatformWorkloadIdentityProfileArgs) ToClusterPlatformWorkloadIdentityProfilePtrOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlatformWorkloadIdentityProfileOutput).ToClusterPlatformWorkloadIdentityProfilePtrOutputWithContext(ctx)
+}
+
+// ClusterPlatformWorkloadIdentityProfilePtrInput is an input type that accepts ClusterPlatformWorkloadIdentityProfileArgs, ClusterPlatformWorkloadIdentityProfilePtr and ClusterPlatformWorkloadIdentityProfilePtrOutput values.
+// You can construct a concrete instance of `ClusterPlatformWorkloadIdentityProfilePtrInput` via:
+//
+//	        ClusterPlatformWorkloadIdentityProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterPlatformWorkloadIdentityProfilePtrInput interface {
+	pulumi.Input
+
+	ToClusterPlatformWorkloadIdentityProfilePtrOutput() ClusterPlatformWorkloadIdentityProfilePtrOutput
+	ToClusterPlatformWorkloadIdentityProfilePtrOutputWithContext(context.Context) ClusterPlatformWorkloadIdentityProfilePtrOutput
+}
+
+type clusterPlatformWorkloadIdentityProfilePtrType ClusterPlatformWorkloadIdentityProfileArgs
+
+func ClusterPlatformWorkloadIdentityProfilePtr(v *ClusterPlatformWorkloadIdentityProfileArgs) ClusterPlatformWorkloadIdentityProfilePtrInput {
+	return (*clusterPlatformWorkloadIdentityProfilePtrType)(v)
+}
+
+func (*clusterPlatformWorkloadIdentityProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPlatformWorkloadIdentityProfile)(nil)).Elem()
+}
+
+func (i *clusterPlatformWorkloadIdentityProfilePtrType) ToClusterPlatformWorkloadIdentityProfilePtrOutput() ClusterPlatformWorkloadIdentityProfilePtrOutput {
+	return i.ToClusterPlatformWorkloadIdentityProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterPlatformWorkloadIdentityProfilePtrType) ToClusterPlatformWorkloadIdentityProfilePtrOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlatformWorkloadIdentityProfilePtrOutput)
+}
+
+type ClusterPlatformWorkloadIdentityProfileOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlatformWorkloadIdentityProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlatformWorkloadIdentityProfile)(nil)).Elem()
+}
+
+func (o ClusterPlatformWorkloadIdentityProfileOutput) ToClusterPlatformWorkloadIdentityProfileOutput() ClusterPlatformWorkloadIdentityProfileOutput {
+	return o
+}
+
+func (o ClusterPlatformWorkloadIdentityProfileOutput) ToClusterPlatformWorkloadIdentityProfileOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfileOutput {
+	return o
+}
+
+func (o ClusterPlatformWorkloadIdentityProfileOutput) ToClusterPlatformWorkloadIdentityProfilePtrOutput() ClusterPlatformWorkloadIdentityProfilePtrOutput {
+	return o.ToClusterPlatformWorkloadIdentityProfilePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPlatformWorkloadIdentityProfileOutput) ToClusterPlatformWorkloadIdentityProfilePtrOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPlatformWorkloadIdentityProfile) *ClusterPlatformWorkloadIdentityProfile {
+		return &v
+	}).(ClusterPlatformWorkloadIdentityProfilePtrOutput)
+}
+
+// One or more `platformWorkloadIdentity` blocks as defined above.
+func (o ClusterPlatformWorkloadIdentityProfileOutput) PlatformWorkloadIdentities() ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput {
+	return o.ApplyT(func(v ClusterPlatformWorkloadIdentityProfile) []ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity {
+		return v.PlatformWorkloadIdentities
+	}).(ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput)
+}
+
+// The target OpenShift version (`x.y.z`) the platform workload identities should satisfy. Once set, this value cannot be cleared.
+func (o ClusterPlatformWorkloadIdentityProfileOutput) UpgradeableTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPlatformWorkloadIdentityProfile) *string { return v.UpgradeableTo }).(pulumi.StringPtrOutput)
+}
+
+type ClusterPlatformWorkloadIdentityProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlatformWorkloadIdentityProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPlatformWorkloadIdentityProfile)(nil)).Elem()
+}
+
+func (o ClusterPlatformWorkloadIdentityProfilePtrOutput) ToClusterPlatformWorkloadIdentityProfilePtrOutput() ClusterPlatformWorkloadIdentityProfilePtrOutput {
+	return o
+}
+
+func (o ClusterPlatformWorkloadIdentityProfilePtrOutput) ToClusterPlatformWorkloadIdentityProfilePtrOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfilePtrOutput {
+	return o
+}
+
+func (o ClusterPlatformWorkloadIdentityProfilePtrOutput) Elem() ClusterPlatformWorkloadIdentityProfileOutput {
+	return o.ApplyT(func(v *ClusterPlatformWorkloadIdentityProfile) ClusterPlatformWorkloadIdentityProfile {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPlatformWorkloadIdentityProfile
+		return ret
+	}).(ClusterPlatformWorkloadIdentityProfileOutput)
+}
+
+// One or more `platformWorkloadIdentity` blocks as defined above.
+func (o ClusterPlatformWorkloadIdentityProfilePtrOutput) PlatformWorkloadIdentities() ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput {
+	return o.ApplyT(func(v *ClusterPlatformWorkloadIdentityProfile) []ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.PlatformWorkloadIdentities
+	}).(ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput)
+}
+
+// The target OpenShift version (`x.y.z`) the platform workload identities should satisfy. Once set, this value cannot be cleared.
+func (o ClusterPlatformWorkloadIdentityProfilePtrOutput) UpgradeableTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterPlatformWorkloadIdentityProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpgradeableTo
+	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity struct {
+	// The client ID of the User Assigned Managed Identity assigned to the operator.
+	ClientId *string `pulumi:"clientId"`
+	// The resource ID of the User Assigned Managed Identity to assign to the operator.
+	IdentityId string `pulumi:"identityId"`
+	// The name of the platform workload identity operator.
+	//
+	// > **Note:** The required operator names vary by OpenShift minor version. For 4.19 they are `aro-operator`, `cloud-controller-manager`, `cloud-network-config`, `disk-csi-driver`, `file-csi-driver`, `image-registry`, `ingress`, and `machine-api`. See [Understand managed identities in Azure Red Hat OpenShift](https://learn.microsoft.com/azure/openshift/howto-understand-managed-identities#understand-identity-role-assignment-architecture) for more information.
+	Name string `pulumi:"name"`
+	// The object (principal) ID of the User Assigned Managed Identity assigned to the operator.
+	ObjectId *string `pulumi:"objectId"`
+}
+
+// ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityInput is an input type that accepts ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs and ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput values.
+// You can construct a concrete instance of `ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityInput` via:
+//
+//	ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs{...}
+type ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityInput interface {
+	pulumi.Input
+
+	ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput() ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput
+	ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutputWithContext(context.Context) ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput
+}
+
+type ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs struct {
+	// The client ID of the User Assigned Managed Identity assigned to the operator.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The resource ID of the User Assigned Managed Identity to assign to the operator.
+	IdentityId pulumi.StringInput `pulumi:"identityId"`
+	// The name of the platform workload identity operator.
+	//
+	// > **Note:** The required operator names vary by OpenShift minor version. For 4.19 they are `aro-operator`, `cloud-controller-manager`, `cloud-network-config`, `disk-csi-driver`, `file-csi-driver`, `image-registry`, `ingress`, and `machine-api`. See [Understand managed identities in Azure Red Hat OpenShift](https://learn.microsoft.com/azure/openshift/howto-understand-managed-identities#understand-identity-role-assignment-architecture) for more information.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The object (principal) ID of the User Assigned Managed Identity assigned to the operator.
+	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+}
+
+func (ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity)(nil)).Elem()
+}
+
+func (i ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs) ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput() ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput {
+	return i.ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutputWithContext(context.Background())
+}
+
+func (i ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs) ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput)
+}
+
+// ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayInput is an input type that accepts ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArray and ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput values.
+// You can construct a concrete instance of `ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayInput` via:
+//
+//	ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArray{ ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs{...} }
+type ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayInput interface {
+	pulumi.Input
+
+	ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput() ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput
+	ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutputWithContext(context.Context) ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput
+}
+
+type ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArray []ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityInput
+
+func (ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity)(nil)).Elem()
+}
+
+func (i ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArray) ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput() ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput {
+	return i.ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArray) ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput)
+}
+
+type ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity)(nil)).Elem()
+}
+
+func (o ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput) ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput() ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput {
+	return o
+}
+
+func (o ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput) ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput {
+	return o
+}
+
+// The client ID of the User Assigned Managed Identity assigned to the operator.
+func (o ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the User Assigned Managed Identity to assign to the operator.
+func (o ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput) IdentityId() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity) string { return v.IdentityId }).(pulumi.StringOutput)
+}
+
+// The name of the platform workload identity operator.
+//
+// > **Note:** The required operator names vary by OpenShift minor version. For 4.19 they are `aro-operator`, `cloud-controller-manager`, `cloud-network-config`, `disk-csi-driver`, `file-csi-driver`, `image-registry`, `ingress`, and `machine-api`. See [Understand managed identities in Azure Red Hat OpenShift](https://learn.microsoft.com/azure/openshift/howto-understand-managed-identities#understand-identity-role-assignment-architecture) for more information.
+func (o ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The object (principal) ID of the User Assigned Managed Identity assigned to the operator.
+func (o ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput) ObjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+type ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity)(nil)).Elem()
+}
+
+func (o ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput) ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput() ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput {
+	return o
+}
+
+func (o ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput) ToClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutputWithContext(ctx context.Context) ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput {
+	return o
+}
+
+func (o ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput) Index(i pulumi.IntInput) ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity {
+		return vs[0].([]ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentity)[vs[1].(int)]
+	}).(ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput)
 }
 
 type ClusterServicePrincipal struct {
@@ -1400,12 +2019,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterApiServerProfilePtrInput)(nil)).Elem(), ClusterApiServerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterProfileInput)(nil)).Elem(), ClusterClusterProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterProfilePtrInput)(nil)).Elem(), ClusterClusterProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityPtrInput)(nil)).Elem(), ClusterIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIngressProfileInput)(nil)).Elem(), ClusterIngressProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIngressProfilePtrInput)(nil)).Elem(), ClusterIngressProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMainProfileInput)(nil)).Elem(), ClusterMainProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterMainProfilePtrInput)(nil)).Elem(), ClusterMainProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkProfileInput)(nil)).Elem(), ClusterNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkProfilePtrInput)(nil)).Elem(), ClusterNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkProfileLoadBalancerProfileInput)(nil)).Elem(), ClusterNetworkProfileLoadBalancerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNetworkProfileLoadBalancerProfilePtrInput)(nil)).Elem(), ClusterNetworkProfileLoadBalancerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlatformWorkloadIdentityProfileInput)(nil)).Elem(), ClusterPlatformWorkloadIdentityProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlatformWorkloadIdentityProfilePtrInput)(nil)).Elem(), ClusterPlatformWorkloadIdentityProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityInput)(nil)).Elem(), ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayInput)(nil)).Elem(), ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicePrincipalInput)(nil)).Elem(), ClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServicePrincipalPtrInput)(nil)).Elem(), ClusterServicePrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterWorkerProfileInput)(nil)).Elem(), ClusterWorkerProfileArgs{})
@@ -1414,12 +2041,20 @@ func init() {
 	pulumi.RegisterOutputType(ClusterApiServerProfilePtrOutput{})
 	pulumi.RegisterOutputType(ClusterClusterProfileOutput{})
 	pulumi.RegisterOutputType(ClusterClusterProfilePtrOutput{})
+	pulumi.RegisterOutputType(ClusterIdentityOutput{})
+	pulumi.RegisterOutputType(ClusterIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterIngressProfileOutput{})
 	pulumi.RegisterOutputType(ClusterIngressProfilePtrOutput{})
 	pulumi.RegisterOutputType(ClusterMainProfileOutput{})
 	pulumi.RegisterOutputType(ClusterMainProfilePtrOutput{})
 	pulumi.RegisterOutputType(ClusterNetworkProfileOutput{})
 	pulumi.RegisterOutputType(ClusterNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkProfileLoadBalancerProfileOutput{})
+	pulumi.RegisterOutputType(ClusterNetworkProfileLoadBalancerProfilePtrOutput{})
+	pulumi.RegisterOutputType(ClusterPlatformWorkloadIdentityProfileOutput{})
+	pulumi.RegisterOutputType(ClusterPlatformWorkloadIdentityProfilePtrOutput{})
+	pulumi.RegisterOutputType(ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityOutput{})
+	pulumi.RegisterOutputType(ClusterPlatformWorkloadIdentityProfilePlatformWorkloadIdentityArrayOutput{})
 	pulumi.RegisterOutputType(ClusterServicePrincipalOutput{})
 	pulumi.RegisterOutputType(ClusterServicePrincipalPtrOutput{})
 	pulumi.RegisterOutputType(ClusterWorkerProfileOutput{})

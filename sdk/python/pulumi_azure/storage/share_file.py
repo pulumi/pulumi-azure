@@ -19,6 +19,7 @@ __all__ = ['ShareFileArgs', 'ShareFile']
 @pulumi.input_type
 class ShareFileArgs:
     def __init__(__self__, *,
+                 storage_share_url: pulumi.Input[_builtins.str],
                  content_disposition: pulumi.Input[Optional[_builtins.str]] = None,
                  content_encoding: pulumi.Input[Optional[_builtins.str]] = None,
                  content_md5: pulumi.Input[Optional[_builtins.str]] = None,
@@ -27,25 +28,30 @@ class ShareFileArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_share_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_share_url: pulumi.Input[Optional[_builtins.str]] = None):
+                 source_content: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a ShareFile resource.
 
+        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] content_disposition: Sets the file’s Content-Disposition header.
         :param pulumi.Input[_builtins.str] content_encoding: Specifies which content encodings have been applied to the file.
         :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
                
-               > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+               > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `source_content` is defined.
         :param pulumi.Input[_builtins.str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
-        :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `source_content`.
                
                > **Note:** The file specified with `source` can not be empty.
-        :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source_content: The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+               
+               > **Note:** The content specified with `source_content` can not be empty.
+               
+               > **Note:** The content specified with `source_content` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
         """
+        pulumi.set(__self__, "storage_share_url", storage_share_url)
         if content_disposition is not None:
             pulumi.set(__self__, "content_disposition", content_disposition)
         if content_encoding is not None:
@@ -62,13 +68,20 @@ class ShareFileArgs:
             pulumi.set(__self__, "path", path)
         if source is not None:
             pulumi.set(__self__, "source", source)
-        if storage_share_id is not None:
-            warnings.warn("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
-            pulumi.log.warn("""storage_share_id is deprecated: This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
-        if storage_share_id is not None:
-            pulumi.set(__self__, "storage_share_id", storage_share_id)
-        if storage_share_url is not None:
-            pulumi.set(__self__, "storage_share_url", storage_share_url)
+        if source_content is not None:
+            pulumi.set(__self__, "source_content", source_content)
+
+    @_builtins.property
+    @pulumi.getter(name="storageShareUrl")
+    def storage_share_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "storage_share_url")
+
+    @storage_share_url.setter
+    def storage_share_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_share_url", value)
 
     @_builtins.property
     @pulumi.getter(name="contentDisposition")
@@ -100,7 +113,7 @@ class ShareFileArgs:
         """
         The MD5 sum of the file contents. Changing this forces a new resource to be created.
 
-        > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+        > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `source_content` is defined.
         """
         return pulumi.get(self, "content_md5")
 
@@ -160,7 +173,7 @@ class ShareFileArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `source_content`.
 
         > **Note:** The file specified with `source` can not be empty.
         """
@@ -171,26 +184,20 @@ class ShareFileArgs:
         pulumi.set(self, "source", value)
 
     @_builtins.property
-    @pulumi.getter(name="storageShareId")
-    @_utilities.deprecated("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
-    def storage_share_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "storage_share_id")
-
-    @storage_share_id.setter
-    def storage_share_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_share_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageShareUrl")
-    def storage_share_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+    @pulumi.getter(name="sourceContent")
+    def source_content(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
-        """
-        return pulumi.get(self, "storage_share_url")
+        The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
 
-    @storage_share_url.setter
-    def storage_share_url(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_share_url", value)
+        > **Note:** The content specified with `source_content` can not be empty.
+
+        > **Note:** The content specified with `source_content` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+        """
+        return pulumi.get(self, "source_content")
+
+    @source_content.setter
+    def source_content(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_content", value)
 
 
 @pulumi.input_type
@@ -205,7 +212,7 @@ class _ShareFileState:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_share_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_content: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_share_url: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering ShareFile resources.
@@ -215,14 +222,19 @@ class _ShareFileState:
         :param pulumi.Input[_builtins.int] content_length: The length in bytes of the file content
         :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
                
-               > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+               > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `source_content` is defined.
         :param pulumi.Input[_builtins.str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
-        :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `source_content`.
                
                > **Note:** The file specified with `source` can not be empty.
+        :param pulumi.Input[_builtins.str] source_content: The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+               
+               > **Note:** The content specified with `source_content` can not be empty.
+               
+               > **Note:** The content specified with `source_content` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
         :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
         if content_disposition is not None:
@@ -243,11 +255,8 @@ class _ShareFileState:
             pulumi.set(__self__, "path", path)
         if source is not None:
             pulumi.set(__self__, "source", source)
-        if storage_share_id is not None:
-            warnings.warn("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""", DeprecationWarning)
-            pulumi.log.warn("""storage_share_id is deprecated: This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
-        if storage_share_id is not None:
-            pulumi.set(__self__, "storage_share_id", storage_share_id)
+        if source_content is not None:
+            pulumi.set(__self__, "source_content", source_content)
         if storage_share_url is not None:
             pulumi.set(__self__, "storage_share_url", storage_share_url)
 
@@ -293,7 +302,7 @@ class _ShareFileState:
         """
         The MD5 sum of the file contents. Changing this forces a new resource to be created.
 
-        > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+        > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `source_content` is defined.
         """
         return pulumi.get(self, "content_md5")
 
@@ -353,7 +362,7 @@ class _ShareFileState:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `source_content`.
 
         > **Note:** The file specified with `source` can not be empty.
         """
@@ -364,14 +373,20 @@ class _ShareFileState:
         pulumi.set(self, "source", value)
 
     @_builtins.property
-    @pulumi.getter(name="storageShareId")
-    @_utilities.deprecated("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
-    def storage_share_id(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "storage_share_id")
+    @pulumi.getter(name="sourceContent")
+    def source_content(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
 
-    @storage_share_id.setter
-    def storage_share_id(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "storage_share_id", value)
+        > **Note:** The content specified with `source_content` can not be empty.
+
+        > **Note:** The content specified with `source_content` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+        """
+        return pulumi.get(self, "source_content")
+
+    @source_content.setter
+    def source_content(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "source_content", value)
 
     @_builtins.property
     @pulumi.getter(name="storageShareUrl")
@@ -400,7 +415,7 @@ class ShareFile(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_share_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_content: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_share_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -448,21 +463,26 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] content_encoding: Specifies which content encodings have been applied to the file.
         :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
                
-               > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+               > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `source_content` is defined.
         :param pulumi.Input[_builtins.str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
-        :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `source_content`.
                
                > **Note:** The file specified with `source` can not be empty.
+        :param pulumi.Input[_builtins.str] source_content: The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+               
+               > **Note:** The content specified with `source_content` can not be empty.
+               
+               > **Note:** The content specified with `source_content` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
         :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ShareFileArgs] = None,
+                 args: ShareFileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a File within an Azure Storage File Share.
@@ -526,7 +546,7 @@ class ShareFile(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None,
                  source: pulumi.Input[Optional[_builtins.str]] = None,
-                 storage_share_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 source_content: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_share_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -545,7 +565,9 @@ class ShareFile(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["path"] = path
             __props__.__dict__["source"] = source
-            __props__.__dict__["storage_share_id"] = storage_share_id
+            __props__.__dict__["source_content"] = source_content
+            if storage_share_url is None and not opts.urn:
+                raise TypeError("Missing required property 'storage_share_url'")
             __props__.__dict__["storage_share_url"] = storage_share_url
             __props__.__dict__["content_length"] = None
         super(ShareFile, __self__).__init__(
@@ -567,7 +589,7 @@ class ShareFile(pulumi.CustomResource):
             name: pulumi.Input[Optional[_builtins.str]] = None,
             path: pulumi.Input[Optional[_builtins.str]] = None,
             source: pulumi.Input[Optional[_builtins.str]] = None,
-            storage_share_id: pulumi.Input[Optional[_builtins.str]] = None,
+            source_content: pulumi.Input[Optional[_builtins.str]] = None,
             storage_share_url: pulumi.Input[Optional[_builtins.str]] = None) -> 'ShareFile':
         """
         Get an existing ShareFile resource's state with the given name, id, and optional extra
@@ -581,14 +603,19 @@ class ShareFile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] content_length: The length in bytes of the file content
         :param pulumi.Input[_builtins.str] content_md5: The MD5 sum of the file contents. Changing this forces a new resource to be created.
                
-               > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+               > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `source_content` is defined.
         :param pulumi.Input[_builtins.str] content_type: The content type of the share file. Defaults to `application/octet-stream`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: A mapping of metadata to assign to this file.
         :param pulumi.Input[_builtins.str] name: The name (or path) of the File that should be created within this File Share. Changing this forces a new resource to be created.
         :param pulumi.Input[_builtins.str] path: The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
-        :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] source: An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `source_content`.
                
                > **Note:** The file specified with `source` can not be empty.
+        :param pulumi.Input[_builtins.str] source_content: The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+               
+               > **Note:** The content specified with `source_content` can not be empty.
+               
+               > **Note:** The content specified with `source_content` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
         :param pulumi.Input[_builtins.str] storage_share_url: The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -604,7 +631,7 @@ class ShareFile(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["path"] = path
         __props__.__dict__["source"] = source
-        __props__.__dict__["storage_share_id"] = storage_share_id
+        __props__.__dict__["source_content"] = source_content
         __props__.__dict__["storage_share_url"] = storage_share_url
         return ShareFile(resource_name, opts=opts, __props__=__props__)
 
@@ -638,7 +665,7 @@ class ShareFile(pulumi.CustomResource):
         """
         The MD5 sum of the file contents. Changing this forces a new resource to be created.
 
-        > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+        > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `source_content` is defined.
         """
         return pulumi.get(self, "content_md5")
 
@@ -678,17 +705,23 @@ class ShareFile(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        An absolute path to a file on the local system. Changing this forces a new resource to be created.
+        An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `source_content`.
 
         > **Note:** The file specified with `source` can not be empty.
         """
         return pulumi.get(self, "source")
 
     @_builtins.property
-    @pulumi.getter(name="storageShareId")
-    @_utilities.deprecated("""This property has been deprecated in favour of `storage_share_url` and will be removed in version 5.0 of the Provider.""")
-    def storage_share_id(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "storage_share_id")
+    @pulumi.getter(name="sourceContent")
+    def source_content(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+
+        > **Note:** The content specified with `source_content` can not be empty.
+
+        > **Note:** The content specified with `source_content` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+        """
+        return pulumi.get(self, "source_content")
 
     @_builtins.property
     @pulumi.getter(name="storageShareUrl")

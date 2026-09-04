@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.WorkspaceCertificate;
  * import com.pulumi.azure.apimanagement.WorkspaceCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -73,9 +72,7 @@ import javax.annotation.Nullable;
  *         var exampleWorkspaceCertificate = new WorkspaceCertificate("exampleWorkspaceCertificate", WorkspaceCertificateArgs.builder()
  *             .name("example-cert")
  *             .apiManagementWorkspaceId(exampleWorkspace.id())
- *             .certificateDataBase64(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("example.pfx")
- *                 .build()).result())
+ *             .certificateDataBase64(StdFunctions.filebase64(Map.of("input", "example.pfx")).result())
  *             .password("terraform")
  *             .build());
  * 

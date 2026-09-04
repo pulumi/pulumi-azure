@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,10 +23,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/lb"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/lb"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -120,8 +120,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/demo_key.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/demo_key.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -173,7 +173,7 @@ import (
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: pulumi.String(invokeFile.Result),
+//							KeyData: invokeFile.Result,
 //						},
 //					},
 //				},
@@ -218,10 +218,10 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -279,8 +279,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/demo_key.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/demo_key.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -304,7 +304,7 @@ import (
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: pulumi.String(invokeFile.Result),
+//							KeyData: invokeFile.Result,
 //						},
 //					},
 //				},
@@ -356,7 +356,7 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )

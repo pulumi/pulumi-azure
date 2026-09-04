@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -20,16 +20,23 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := storage.LookupTable(ctx, &storage.LookupTableArgs{
-//				Name:               "example-table-name",
-//				StorageAccountName: pulumi.StringRef("example-storage-account-name"),
+//			example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
+//				Name:              "exampleaccount",
+//				ResourceGroupName: pulumi.StringRef("examples"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = storage.LookupTable(ctx, &storage.LookupTableArgs{
+//				Name:             "example-table-name",
+//				StorageAccountId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -54,13 +61,7 @@ type LookupTableArgs struct {
 	// The name of the Table.
 	Name string `pulumi:"name"`
 	// The ID of the Storage Account where the Table exists.
-	StorageAccountId *string `pulumi:"storageAccountId"`
-	// The name of the Storage Account where the Table exists.
-	//
-	// > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-	//
-	// Deprecated: `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-	StorageAccountName *string `pulumi:"storageAccountName"`
+	StorageAccountId string `pulumi:"storageAccountId"`
 }
 
 // A collection of values returned by getTable.
@@ -73,8 +74,6 @@ type LookupTableResult struct {
 	// The Resource Manager ID of this Storage Table.
 	ResourceManagerId string `pulumi:"resourceManagerId"`
 	StorageAccountId  string `pulumi:"storageAccountId"`
-	// Deprecated: `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-	StorageAccountName string `pulumi:"storageAccountName"`
 }
 
 func LookupTableOutput(ctx *pulumi.Context, args LookupTableOutputArgs, opts ...pulumi.InvokeOption) LookupTableResultOutput {
@@ -87,13 +86,7 @@ type LookupTableOutputArgs struct {
 	// The name of the Table.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The ID of the Storage Account where the Table exists.
-	StorageAccountId pulumi.StringPtrInput `pulumi:"storageAccountId"`
-	// The name of the Storage Account where the Table exists.
-	//
-	// > **Note:** This property is deprecated in favour of `storageAccountId` and will be removed in version 5.0 of the AzureRM Provider.
-	//
-	// Deprecated: `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-	StorageAccountName pulumi.StringPtrInput `pulumi:"storageAccountName"`
+	StorageAccountId pulumi.StringInput `pulumi:"storageAccountId"`
 }
 
 func (LookupTableOutputArgs) ElementType() reflect.Type {
@@ -136,11 +129,6 @@ func (o LookupTableResultOutput) ResourceManagerId() pulumi.StringOutput {
 
 func (o LookupTableResultOutput) StorageAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.StorageAccountId }).(pulumi.StringOutput)
-}
-
-// Deprecated: `storageAccountName` has been deprecated in favour of `storageAccountId` and will be removed in v5.0 of the AzureRM Provider
-func (o LookupTableResultOutput) StorageAccountName() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupTableResult) string { return v.StorageAccountName }).(pulumi.StringOutput)
 }
 
 func init() {

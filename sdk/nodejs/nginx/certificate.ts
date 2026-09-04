@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  *     certificate: {
  *         contents: std.filebase64({
  *             input: "certificate-to-import.pfx",
- *         }).then(invoke => invoke.result),
+ *         }).result,
  *         password: "",
  *     },
  * });

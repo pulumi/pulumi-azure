@@ -71,6 +71,8 @@ namespace Pulumi.Azure.MongoCluster
 
         /// <summary>
         /// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `AdministratorUsername` is required when `AuthenticationMethods` contains `NativeAuth` or is not configured.
         /// </summary>
         [Output("administratorUsername")]
         public Output<string?> AdministratorUsername { get; private set; } = null!;
@@ -235,6 +237,7 @@ namespace Pulumi.Azure.MongoCluster
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure:cosmosdb/mongoCluster:MongoCluster" },
+                    new global::Pulumi.Alias { Type = "azure:cosmosdb/mongoCluster:MongoCluster" },
                 },
                 AdditionalSecretOutputs =
                 {
@@ -282,6 +285,8 @@ namespace Pulumi.Azure.MongoCluster
 
         /// <summary>
         /// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `AdministratorUsername` is required when `AuthenticationMethods` contains `NativeAuth` or is not configured.
         /// </summary>
         [Input("administratorUsername")]
         public Input<string>? AdministratorUsername { get; set; }
@@ -458,6 +463,8 @@ namespace Pulumi.Azure.MongoCluster
 
         /// <summary>
         /// The administrator username of the MongoDB Cluster. Changing this forces a new resource to be created.
+        /// 
+        /// &gt; **Note:** `AdministratorUsername` is required when `AuthenticationMethods` contains `NativeAuth` or is not configured.
         /// </summary>
         [Input("administratorUsername")]
         public Input<string>? AdministratorUsername { get; set; }

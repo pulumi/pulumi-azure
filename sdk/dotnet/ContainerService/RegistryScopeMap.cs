@@ -40,10 +40,12 @@ namespace Pulumi.Azure.ContainerService
     ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
     ///             {
     ///                 Location = "East US",
+    ///                 GlobalEndpointRoutingEnabled = true,
     ///             },
     ///             new Azure.ContainerService.Inputs.RegistryGeoreplicationArgs
     ///             {
     ///                 Location = "West Europe",
+    ///                 GlobalEndpointRoutingEnabled = true,
     ///             },
     ///         },
     ///     });

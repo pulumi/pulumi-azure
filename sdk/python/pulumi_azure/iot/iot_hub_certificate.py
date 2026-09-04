@@ -228,7 +228,7 @@ class IotHubCertificate(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             iot_dps_name=example_iot_hub_dps.name,
-            certificate_content=std.filebase64(input="example.cer").result)
+            certificate_content=std.filebase64(input="example.cer")["result"])
         ```
 
         ## API Providers
@@ -286,7 +286,7 @@ class IotHubCertificate(pulumi.CustomResource):
             name="example",
             resource_group_name=example.name,
             iot_dps_name=example_iot_hub_dps.name,
-            certificate_content=std.filebase64(input="example.cer").result)
+            certificate_content=std.filebase64(input="example.cer")["result"])
         ```
 
         ## API Providers

@@ -33,13 +33,6 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
      * 
      */
     private @Nullable String transparentHugePageDefrag;
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
-    private @Nullable String transparentHugePageEnabled;
 
     private KubernetesClusterNodePoolLinuxOsConfig() {}
     /**
@@ -70,15 +63,6 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
     public Optional<String> transparentHugePageDefrag() {
         return Optional.ofNullable(this.transparentHugePageDefrag);
     }
-    /**
-     * @deprecated
-     * this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider.
-     * 
-     */
-    @Deprecated /* this property has been deprecated in favour of `transparentHugePage` and will be removed in version 5.0 of the Provider. */
-    public Optional<String> transparentHugePageEnabled() {
-        return Optional.ofNullable(this.transparentHugePageEnabled);
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -93,7 +77,6 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
         private @Nullable KubernetesClusterNodePoolLinuxOsConfigSysctlConfig sysctlConfig;
         private @Nullable String transparentHugePage;
         private @Nullable String transparentHugePageDefrag;
-        private @Nullable String transparentHugePageEnabled;
         public Builder() {}
         public Builder(KubernetesClusterNodePoolLinuxOsConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -101,7 +84,6 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
     	      this.sysctlConfig = defaults.sysctlConfig;
     	      this.transparentHugePage = defaults.transparentHugePage;
     	      this.transparentHugePageDefrag = defaults.transparentHugePageDefrag;
-    	      this.transparentHugePageEnabled = defaults.transparentHugePageEnabled;
         }
 
         @CustomType.Setter
@@ -128,19 +110,12 @@ public final class KubernetesClusterNodePoolLinuxOsConfig {
             this.transparentHugePageDefrag = transparentHugePageDefrag;
             return this;
         }
-        @CustomType.Setter
-        public Builder transparentHugePageEnabled(@Nullable String transparentHugePageEnabled) {
-
-            this.transparentHugePageEnabled = transparentHugePageEnabled;
-            return this;
-        }
         public KubernetesClusterNodePoolLinuxOsConfig build() {
             final var _resultValue = new KubernetesClusterNodePoolLinuxOsConfig();
             _resultValue.swapFileSizeMb = swapFileSizeMb;
             _resultValue.sysctlConfig = sysctlConfig;
             _resultValue.transparentHugePage = transparentHugePage;
             _resultValue.transparentHugePageDefrag = transparentHugePageDefrag;
-            _resultValue.transparentHugePageEnabled = transparentHugePageEnabled;
             return _resultValue;
         }
     }

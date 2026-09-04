@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -140,9 +139,7 @@ import javax.annotation.Nullable;
  *             .name("imported-cert")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input("certificate-to-import.pfx")
- *                     .build()).result())
+ *                 .contents(StdFunctions.filebase64(Map.of("input", "certificate-to-import.pfx")).result())
  *                 .password("")
  *                 .build())
  *             .build());

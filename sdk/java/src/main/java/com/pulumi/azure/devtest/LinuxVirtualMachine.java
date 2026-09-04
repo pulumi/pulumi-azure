@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.devtest.LinuxVirtualMachineArgs;
  * import com.pulumi.azure.devtest.inputs.LinuxVirtualMachineGalleryImageReferenceArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -85,9 +84,7 @@ import javax.annotation.Nullable;
  *             .location(example.location())
  *             .size("Standard_DS2")
  *             .username("exampleuser99")
- *             .sshKey(StdFunctions.file(FileArgs.builder()
- *                 .input("~/.ssh/id_rsa.pub")
- *                 .build()).result())
+ *             .sshKey(StdFunctions.file(Map.of("input", "~/.ssh/id_rsa.pub")).result())
  *             .labVirtualNetworkId(exampleVirtualNetwork.id())
  *             .labSubnetName(exampleVirtualNetwork.subnet().applyValue(_subnet -> _subnet.name()))
  *             .storageType("Premium")

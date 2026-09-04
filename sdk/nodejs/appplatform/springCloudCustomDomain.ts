@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     record: exampleSpringCloudApp.fqdn,
  * });
  * const exampleSpringCloudCustomDomain = new azure.appplatform.SpringCloudCustomDomain("example", {
- *     name: std.joinOutput({
+ *     name: std.join({
  *         separator: ".",
  *         input: [
  *             exampleCNameRecord.name,

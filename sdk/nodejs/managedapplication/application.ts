@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  *     description: "Test Managed App Definition",
  *     authorizations: [{
  *         servicePrincipalId: current.then(current => current.objectId),
- *         roleDefinitionId: pulumi.all([builtin.then(builtin => std.split({
+ *         roleDefinitionId: std.split({
  *             separator: "/",
- *             text: builtin.id,
- *         })), builtin.then(builtin => std.split({
+ *             text: builtin.then(builtin => builtin.id),
+ *         }).result[std.split({
  *             separator: "/",
- *             text: builtin.id,
- *         })).then(invoke => invoke.result).length]).apply(([invoke, length]) => invoke.result[length - 1]),
+ *             text: builtin.then(builtin => builtin.id),
+ *         }).result.length - 1],
  *     }],
  * });
  * const exampleApplication = new azure.managedapplication.Application("example", {
@@ -112,6 +112,10 @@ export class Application extends pulumi.CustomResource {
      */
     declare public readonly applicationDefinitionId: pulumi.Output<string | undefined>;
     /**
+     * An `identity` block as defined below. Removing this block forces a new resource to be created.
+     */
+    declare public readonly identity: pulumi.Output<outputs.managedapplication.ApplicationIdentity | undefined>;
+    /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
      */
     declare public readonly kind: pulumi.Output<string>;
@@ -162,6 +166,7 @@ export class Application extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ApplicationState | undefined;
             resourceInputs["applicationDefinitionId"] = state?.applicationDefinitionId;
+            resourceInputs["identity"] = state?.identity;
             resourceInputs["kind"] = state?.kind;
             resourceInputs["location"] = state?.location;
             resourceInputs["managedResourceGroupName"] = state?.managedResourceGroupName;
@@ -183,6 +188,7 @@ export class Application extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["applicationDefinitionId"] = args?.applicationDefinitionId;
+            resourceInputs["identity"] = args?.identity;
             resourceInputs["kind"] = args?.kind;
             resourceInputs["location"] = args?.location;
             resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
@@ -206,6 +212,10 @@ export interface ApplicationState {
      * The application definition ID to deploy.
      */
     applicationDefinitionId?: pulumi.Input<string | undefined>;
+    /**
+     * An `identity` block as defined below. Removing this block forces a new resource to be created.
+     */
+    identity?: pulumi.Input<inputs.managedapplication.ApplicationIdentity | undefined>;
     /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
      */
@@ -252,6 +262,10 @@ export interface ApplicationArgs {
      * The application definition ID to deploy.
      */
     applicationDefinitionId?: pulumi.Input<string | undefined>;
+    /**
+     * An `identity` block as defined below. Removing this block forces a new resource to be created.
+     */
+    identity?: pulumi.Input<inputs.managedapplication.ApplicationIdentity | undefined>;
     /**
      * The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
      */

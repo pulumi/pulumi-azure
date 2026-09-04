@@ -56,10 +56,6 @@ export interface GetApplicationGatewayArgs {
  */
 export interface GetApplicationGatewayResult {
     /**
-     * One or more `authenticationCertificate` blocks as defined below.
-     */
-    readonly authenticationCertificates: outputs.network.GetApplicationGatewayAuthenticationCertificate[];
-    /**
      * An `autoscaleConfiguration` block as defined below.
      */
     readonly autoscaleConfigurations: outputs.network.GetApplicationGatewayAutoscaleConfiguration[];

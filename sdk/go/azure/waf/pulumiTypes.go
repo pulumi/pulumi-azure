@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -1337,7 +1337,7 @@ func (o PolicyManagedRulesManagedRuleSetRuleGroupOverrideRuleArrayOutput) Index(
 type PolicyPolicySettings struct {
 	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
-	// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+	// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
 	FileUploadEnforcement *bool `pulumi:"fileUploadEnforcement"`
 	// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
 	FileUploadLimitInMb *int `pulumi:"fileUploadLimitInMb"`
@@ -1371,7 +1371,7 @@ type PolicyPolicySettingsInput interface {
 type PolicyPolicySettingsArgs struct {
 	// Describes if the policy is in enabled state or disabled state. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+	// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
 	FileUploadEnforcement pulumi.BoolPtrInput `pulumi:"fileUploadEnforcement"`
 	// The File Upload Limit in MB. Accepted values are in the range `1` to `4000`. Defaults to `100`.
 	FileUploadLimitInMb pulumi.IntPtrInput `pulumi:"fileUploadLimitInMb"`
@@ -1473,7 +1473,7 @@ func (o PolicyPolicySettingsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
 func (o PolicyPolicySettingsOutput) FileUploadEnforcement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyPolicySettings) *bool { return v.FileUploadEnforcement }).(pulumi.BoolPtrOutput)
 }
@@ -1552,7 +1552,7 @@ func (o PolicyPolicySettingsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`.
+// Whether the firewall should block a request with upload size greater then `fileUploadLimitInMb`. Defaults to `true`.
 func (o PolicyPolicySettingsPtrOutput) FileUploadEnforcement() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PolicyPolicySettings) *bool {
 		if v == nil {

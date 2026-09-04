@@ -27,7 +27,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, acls=None, id=None, name=None, resource_manager_id=None, storage_account_id=None, storage_account_name=None):
+    def __init__(__self__, acls=None, id=None, name=None, resource_manager_id=None, storage_account_id=None):
         if acls and not isinstance(acls, list):
             raise TypeError("Expected argument 'acls' to be a list")
         pulumi.set(__self__, "acls", acls)
@@ -43,9 +43,6 @@ class GetTableResult:
         if storage_account_id and not isinstance(storage_account_id, str):
             raise TypeError("Expected argument 'storage_account_id' to be a str")
         pulumi.set(__self__, "storage_account_id", storage_account_id)
-        if storage_account_name and not isinstance(storage_account_name, str):
-            raise TypeError("Expected argument 'storage_account_name' to be a str")
-        pulumi.set(__self__, "storage_account_name", storage_account_name)
 
     @_builtins.property
     @pulumi.getter
@@ -81,12 +78,6 @@ class GetTableResult:
     def storage_account_id(self) -> _builtins.str:
         return pulumi.get(self, "storage_account_id")
 
-    @_builtins.property
-    @pulumi.getter(name="storageAccountName")
-    @_utilities.deprecated("""`storage_account_name` has been deprecated in favour of `storage_account_id` and will be removed in v5.0 of the AzureRM Provider""")
-    def storage_account_name(self) -> _builtins.str:
-        return pulumi.get(self, "storage_account_name")
-
 
 class AwaitableGetTableResult(GetTableResult):
     # pylint: disable=using-constant-test
@@ -98,13 +89,11 @@ class AwaitableGetTableResult(GetTableResult):
             id=self.id,
             name=self.name,
             resource_manager_id=self.resource_manager_id,
-            storage_account_id=self.storage_account_id,
-            storage_account_name=self.storage_account_name)
+            storage_account_id=self.storage_account_id)
 
 
 def get_table(name: Optional[_builtins.str] = None,
               storage_account_id: Optional[_builtins.str] = None,
-              storage_account_name: Optional[_builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableResult:
     """
     Use this data source to access information about an existing Storage Table.
@@ -115,21 +104,19 @@ def get_table(name: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_table(name="example-table-name",
-        storage_account_name="example-storage-account-name")
+    example = azure.storage.get_account(name="exampleaccount",
+        resource_group_name="examples")
+    example_get_table = azure.storage.get_table(name="example-table-name",
+        storage_account_id=example.id)
     ```
 
 
     :param _builtins.str name: The name of the Table.
     :param _builtins.str storage_account_id: The ID of the Storage Account where the Table exists.
-    :param _builtins.str storage_account_name: The name of the Storage Account where the Table exists.
-           
-           > **Note:** This property is deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the AzureRM Provider.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['storageAccountId'] = storage_account_id
-    __args__['storageAccountName'] = storage_account_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure:storage/getTable:getTable', __args__, opts=opts, typ=GetTableResult).value
 
@@ -138,11 +125,9 @@ def get_table(name: Optional[_builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         resource_manager_id=pulumi.get(__ret__, 'resource_manager_id'),
-        storage_account_id=pulumi.get(__ret__, 'storage_account_id'),
-        storage_account_name=pulumi.get(__ret__, 'storage_account_name'))
+        storage_account_id=pulumi.get(__ret__, 'storage_account_id'))
 def get_table_output(name: pulumi.Input[Optional[_builtins.str]] = None,
-                     storage_account_id: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
-                     storage_account_name: pulumi.Input[Optional[Optional[_builtins.str]]] = None,
+                     storage_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableResult]:
     """
     Use this data source to access information about an existing Storage Table.
@@ -153,21 +138,19 @@ def get_table_output(name: pulumi.Input[Optional[_builtins.str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.storage.get_table(name="example-table-name",
-        storage_account_name="example-storage-account-name")
+    example = azure.storage.get_account(name="exampleaccount",
+        resource_group_name="examples")
+    example_get_table = azure.storage.get_table(name="example-table-name",
+        storage_account_id=example.id)
     ```
 
 
     :param _builtins.str name: The name of the Table.
     :param _builtins.str storage_account_id: The ID of the Storage Account where the Table exists.
-    :param _builtins.str storage_account_name: The name of the Storage Account where the Table exists.
-           
-           > **Note:** This property is deprecated in favour of `storage_account_id` and will be removed in version 5.0 of the AzureRM Provider.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['storageAccountId'] = storage_account_id
-    __args__['storageAccountName'] = storage_account_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure:storage/getTable:getTable', __args__, opts=opts, typ=GetTableResult)
     return __ret__.apply(lambda __response__: GetTableResult(
@@ -175,5 +158,4 @@ def get_table_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         resource_manager_id=pulumi.get(__response__, 'resource_manager_id'),
-        storage_account_id=pulumi.get(__response__, 'storage_account_id'),
-        storage_account_name=pulumi.get(__response__, 'storage_account_name')))
+        storage_account_id=pulumi.get(__response__, 'storage_account_id')))

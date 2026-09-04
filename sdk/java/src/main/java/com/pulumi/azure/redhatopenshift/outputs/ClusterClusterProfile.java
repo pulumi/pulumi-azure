@@ -34,7 +34,7 @@ public final class ClusterClusterProfile {
      */
     private @Nullable String pullSecret;
     /**
-     * @return The resource group that the cluster profile is attached to.
+     * @return The Resource Group that the cluster profile is attached to.
      * 
      */
     private @Nullable String resourceGroupId;
@@ -74,7 +74,7 @@ public final class ClusterClusterProfile {
         return Optional.ofNullable(this.pullSecret);
     }
     /**
-     * @return The resource group that the cluster profile is attached to.
+     * @return The Resource Group that the cluster profile is attached to.
      * 
      */
     public Optional<String> resourceGroupId() {

@@ -36,6 +36,21 @@ public final class TxtRecordArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="privateDnsZoneId", required=true)
+    private Output<String> privateDnsZoneId;
+
+    /**
+     * @return Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<String> privateDnsZoneId() {
+        return this.privateDnsZoneId;
+    }
+
+    /**
      * One or more `record` blocks as defined below.
      * 
      */
@@ -48,21 +63,6 @@ public final class TxtRecordArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<List<TxtRecordRecordArgs>> records() {
         return this.records;
-    }
-
-    /**
-     * Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Import(name="resourceGroupName", required=true)
-    private Output<String> resourceGroupName;
-
-    /**
-     * @return Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<String> resourceGroupName() {
-        return this.resourceGroupName;
     }
 
     /**
@@ -95,30 +95,14 @@ public final class TxtRecordArgs extends com.pulumi.resources.ResourceArgs {
         return this.ttl;
     }
 
-    /**
-     * Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    @Import(name="zoneName", required=true)
-    private Output<String> zoneName;
-
-    /**
-     * @return Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-     * 
-     */
-    public Output<String> zoneName() {
-        return this.zoneName;
-    }
-
     private TxtRecordArgs() {}
 
     private TxtRecordArgs(TxtRecordArgs $) {
         this.name = $.name;
+        this.privateDnsZoneId = $.privateDnsZoneId;
         this.records = $.records;
-        this.resourceGroupName = $.resourceGroupName;
         this.tags = $.tags;
         this.ttl = $.ttl;
-        this.zoneName = $.zoneName;
     }
 
     public static Builder builder() {
@@ -161,6 +145,27 @@ public final class TxtRecordArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param privateDnsZoneId Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsZoneId(Output<String> privateDnsZoneId) {
+            $.privateDnsZoneId = privateDnsZoneId;
+            return this;
+        }
+
+        /**
+         * @param privateDnsZoneId Specifies the ID of the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsZoneId(String privateDnsZoneId) {
+            return privateDnsZoneId(Output.of(privateDnsZoneId));
+        }
+
+        /**
          * @param records One or more `record` blocks as defined below.
          * 
          * @return builder
@@ -189,27 +194,6 @@ public final class TxtRecordArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder records(TxtRecordRecordArgs... records) {
             return records(List.of(records));
-        }
-
-        /**
-         * @param resourceGroupName Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceGroupName(Output<String> resourceGroupName) {
-            $.resourceGroupName = resourceGroupName;
-            return this;
-        }
-
-        /**
-         * @param resourceGroupName Specifies the resource group where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder resourceGroupName(String resourceGroupName) {
-            return resourceGroupName(Output.of(resourceGroupName));
         }
 
         /**
@@ -254,39 +238,15 @@ public final class TxtRecordArgs extends com.pulumi.resources.ResourceArgs {
             return ttl(Output.of(ttl));
         }
 
-        /**
-         * @param zoneName Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneName(Output<String> zoneName) {
-            $.zoneName = zoneName;
-            return this;
-        }
-
-        /**
-         * @param zoneName Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder zoneName(String zoneName) {
-            return zoneName(Output.of(zoneName));
-        }
-
         public TxtRecordArgs build() {
+            if ($.privateDnsZoneId == null) {
+                throw new MissingRequiredPropertyException("TxtRecordArgs", "privateDnsZoneId");
+            }
             if ($.records == null) {
                 throw new MissingRequiredPropertyException("TxtRecordArgs", "records");
             }
-            if ($.resourceGroupName == null) {
-                throw new MissingRequiredPropertyException("TxtRecordArgs", "resourceGroupName");
-            }
             if ($.ttl == null) {
                 throw new MissingRequiredPropertyException("TxtRecordArgs", "ttl");
-            }
-            if ($.zoneName == null) {
-                throw new MissingRequiredPropertyException("TxtRecordArgs", "zoneName");
             }
             return $;
         }

@@ -4,6 +4,7 @@
 package com.pulumi.azure.mssql.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -19,10 +20,10 @@ public final class DatabaseThreatDetectionPolicy {
      */
     private @Nullable List<String> disabledAlerts;
     /**
-     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+     * @return Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
      * 
      */
-    private @Nullable String emailAccountAdmins;
+    private @Nullable Boolean emailAccountAdminsEnabled;
     /**
      * @return A list of email addresses which alerts should be sent to.
      * 
@@ -58,11 +59,11 @@ public final class DatabaseThreatDetectionPolicy {
         return this.disabledAlerts == null ? List.of() : this.disabledAlerts;
     }
     /**
-     * @return Should the account administrators be emailed when this alert is triggered? Possible values are `Enabled` or `Disabled`. Defaults to `Disabled`.
+     * @return Whether the account administrators should receive an email when this alert is triggered. Defaults to `false`.
      * 
      */
-    public Optional<String> emailAccountAdmins() {
-        return Optional.ofNullable(this.emailAccountAdmins);
+    public Optional<Boolean> emailAccountAdminsEnabled() {
+        return Optional.ofNullable(this.emailAccountAdminsEnabled);
     }
     /**
      * @return A list of email addresses which alerts should be sent to.
@@ -110,7 +111,7 @@ public final class DatabaseThreatDetectionPolicy {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<String> disabledAlerts;
-        private @Nullable String emailAccountAdmins;
+        private @Nullable Boolean emailAccountAdminsEnabled;
         private @Nullable List<String> emailAddresses;
         private @Nullable Integer retentionDays;
         private @Nullable String state;
@@ -120,7 +121,7 @@ public final class DatabaseThreatDetectionPolicy {
         public Builder(DatabaseThreatDetectionPolicy defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.disabledAlerts = defaults.disabledAlerts;
-    	      this.emailAccountAdmins = defaults.emailAccountAdmins;
+    	      this.emailAccountAdminsEnabled = defaults.emailAccountAdminsEnabled;
     	      this.emailAddresses = defaults.emailAddresses;
     	      this.retentionDays = defaults.retentionDays;
     	      this.state = defaults.state;
@@ -138,9 +139,9 @@ public final class DatabaseThreatDetectionPolicy {
             return disabledAlerts(List.of(disabledAlerts));
         }
         @CustomType.Setter
-        public Builder emailAccountAdmins(@Nullable String emailAccountAdmins) {
+        public Builder emailAccountAdminsEnabled(@Nullable Boolean emailAccountAdminsEnabled) {
 
-            this.emailAccountAdmins = emailAccountAdmins;
+            this.emailAccountAdminsEnabled = emailAccountAdminsEnabled;
             return this;
         }
         @CustomType.Setter
@@ -179,7 +180,7 @@ public final class DatabaseThreatDetectionPolicy {
         public DatabaseThreatDetectionPolicy build() {
             final var _resultValue = new DatabaseThreatDetectionPolicy();
             _resultValue.disabledAlerts = disabledAlerts;
-            _resultValue.emailAccountAdmins = emailAccountAdmins;
+            _resultValue.emailAccountAdminsEnabled = emailAccountAdminsEnabled;
             _resultValue.emailAddresses = emailAddresses;
             _resultValue.retentionDays = retentionDays;
             _resultValue.state = state;

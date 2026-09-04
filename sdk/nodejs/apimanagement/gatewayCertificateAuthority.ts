@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *     resourceGroupName: example.name,
  *     data: std.filebase64({
  *         input: "example.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * const exampleGatewayCertificateAuthority = new azure.apimanagement.GatewayCertificateAuthority("example", {
  *     apiManagementId: exampleService.id,

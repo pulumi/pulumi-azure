@@ -37,7 +37,7 @@ namespace Pulumi.Azure.Attestation
     ///         PolicySigningCertificateData = Std.File.Invoke(new()
     ///         {
     ///             Input = "./example/cert.pem",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///     });
     /// 
     /// });

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *     contentType: "application/vnd.ms-azure-apim.xsd+xml",
  *     value: std.file({
  *         input: "api_management_api_schema.xml",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  * });
  * ```
  *

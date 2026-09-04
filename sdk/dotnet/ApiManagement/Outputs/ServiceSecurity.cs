@@ -31,12 +31,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
         /// &gt; **Note:** This maps to the `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` field
         /// </summary>
         public readonly bool? BackendTls11Enabled;
-        public readonly bool? EnableBackendSsl30;
-        public readonly bool? EnableBackendTls10;
-        public readonly bool? EnableBackendTls11;
-        public readonly bool? EnableFrontendSsl30;
-        public readonly bool? EnableFrontendTls10;
-        public readonly bool? EnableFrontendTls11;
         /// <summary>
         /// Should SSL 3.0 be enabled on the frontend of the gateway? Defaults to `False`.
         /// 
@@ -130,18 +124,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
 
             bool? backendTls11Enabled,
 
-            bool? enableBackendSsl30,
-
-            bool? enableBackendTls10,
-
-            bool? enableBackendTls11,
-
-            bool? enableFrontendSsl30,
-
-            bool? enableFrontendTls10,
-
-            bool? enableFrontendTls11,
-
             bool? frontendSsl30Enabled,
 
             bool? frontendTls10Enabled,
@@ -173,12 +155,6 @@ namespace Pulumi.Azure.ApiManagement.Outputs
             BackendSsl30Enabled = backendSsl30Enabled;
             BackendTls10Enabled = backendTls10Enabled;
             BackendTls11Enabled = backendTls11Enabled;
-            EnableBackendSsl30 = enableBackendSsl30;
-            EnableBackendTls10 = enableBackendTls10;
-            EnableBackendTls11 = enableBackendTls11;
-            EnableFrontendSsl30 = enableFrontendSsl30;
-            EnableFrontendTls10 = enableFrontendTls10;
-            EnableFrontendTls11 = enableFrontendTls11;
             FrontendSsl30Enabled = frontendSsl30Enabled;
             FrontendTls10Enabled = frontendTls10Enabled;
             FrontendTls11Enabled = frontendTls11Enabled;

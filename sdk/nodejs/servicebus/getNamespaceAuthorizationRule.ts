@@ -32,8 +32,6 @@ export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRul
     return pulumi.runtime.invoke("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
         "name": args.name,
         "namespaceId": args.namespaceId,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -48,15 +46,7 @@ export interface GetNamespaceAuthorizationRuleArgs {
     /**
      * Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
      */
-    namespaceId?: string;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     */
-    namespaceName?: string;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: string;
+    namespaceId: string;
 }
 
 /**
@@ -68,11 +58,7 @@ export interface GetNamespaceAuthorizationRuleResult {
      */
     readonly id: string;
     readonly name: string;
-    readonly namespaceId?: string;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     */
-    readonly namespaceName?: string;
+    readonly namespaceId: string;
     /**
      * The primary connection string for the authorization rule.
      */
@@ -85,10 +71,6 @@ export interface GetNamespaceAuthorizationRuleResult {
      * The primary access key for the authorization rule.
      */
     readonly primaryKey: string;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     */
-    readonly resourceGroupName?: string;
     /**
      * The secondary connection string for the authorization rule.
      */
@@ -130,8 +112,6 @@ export function getNamespaceAuthorizationRuleOutput(args: GetNamespaceAuthorizat
     return pulumi.runtime.invokeOutput("azure:servicebus/getNamespaceAuthorizationRule:getNamespaceAuthorizationRule", {
         "name": args.name,
         "namespaceId": args.namespaceId,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
@@ -146,13 +126,5 @@ export interface GetNamespaceAuthorizationRuleOutputArgs {
     /**
      * Specifies the ID of the ServiceBus Namespace where the Service Bus Namespace Authorization Rule exists.
      */
-    namespaceId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `namespaceName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     */
-    namespaceName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `namespaceId` in v5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
+    namespaceId: pulumi.Input<string>;
 }

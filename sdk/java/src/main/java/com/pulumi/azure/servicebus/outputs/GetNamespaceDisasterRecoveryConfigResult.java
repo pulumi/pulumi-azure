@@ -31,13 +31,6 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     private String name;
     private String namespaceId;
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    private String namespaceName;
-    /**
      * @return The ID of the Service Bus Namespace to replicate to.
      * 
      */
@@ -47,13 +40,6 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
      * 
      */
     private String primaryConnectionStringAlias;
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    private String resourceGroupName;
     /**
      * @return The alias Secondary Connection String for the ServiceBus Namespace
      * 
@@ -92,15 +78,6 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
         return this.namespaceId;
     }
     /**
-     * @deprecated
-     * `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `namespaceName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    public String namespaceName() {
-        return this.namespaceName;
-    }
-    /**
      * @return The ID of the Service Bus Namespace to replicate to.
      * 
      */
@@ -113,15 +90,6 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
      */
     public String primaryConnectionStringAlias() {
         return this.primaryConnectionStringAlias;
-    }
-    /**
-     * @deprecated
-     * `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `resourceGroupName` will be removed in favour of the property `namespaceId` in version 5.0 of the AzureRM Provider. */
-    public String resourceGroupName() {
-        return this.resourceGroupName;
     }
     /**
      * @return The alias Secondary Connection String for the ServiceBus Namespace
@@ -146,10 +114,8 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
         private String id;
         private String name;
         private String namespaceId;
-        private String namespaceName;
         private String partnerNamespaceId;
         private String primaryConnectionStringAlias;
-        private String resourceGroupName;
         private String secondaryConnectionStringAlias;
         public Builder() {}
         public Builder(GetNamespaceDisasterRecoveryConfigResult defaults) {
@@ -160,10 +126,8 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.namespaceId = defaults.namespaceId;
-    	      this.namespaceName = defaults.namespaceName;
     	      this.partnerNamespaceId = defaults.partnerNamespaceId;
     	      this.primaryConnectionStringAlias = defaults.primaryConnectionStringAlias;
-    	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.secondaryConnectionStringAlias = defaults.secondaryConnectionStringAlias;
         }
 
@@ -214,14 +178,6 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
             return this;
         }
         @CustomType.Setter
-        public Builder namespaceName(String namespaceName) {
-            if (namespaceName == null) {
-              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "namespaceName");
-            }
-            this.namespaceName = namespaceName;
-            return this;
-        }
-        @CustomType.Setter
         public Builder partnerNamespaceId(String partnerNamespaceId) {
             if (partnerNamespaceId == null) {
               throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "partnerNamespaceId");
@@ -235,14 +191,6 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
               throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "primaryConnectionStringAlias");
             }
             this.primaryConnectionStringAlias = primaryConnectionStringAlias;
-            return this;
-        }
-        @CustomType.Setter
-        public Builder resourceGroupName(String resourceGroupName) {
-            if (resourceGroupName == null) {
-              throw new MissingRequiredPropertyException("GetNamespaceDisasterRecoveryConfigResult", "resourceGroupName");
-            }
-            this.resourceGroupName = resourceGroupName;
             return this;
         }
         @CustomType.Setter
@@ -261,10 +209,8 @@ public final class GetNamespaceDisasterRecoveryConfigResult {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.namespaceId = namespaceId;
-            _resultValue.namespaceName = namespaceName;
             _resultValue.partnerNamespaceId = partnerNamespaceId;
             _resultValue.primaryConnectionStringAlias = primaryConnectionStringAlias;
-            _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.secondaryConnectionStringAlias = secondaryConnectionStringAlias;
             return _resultValue;
         }

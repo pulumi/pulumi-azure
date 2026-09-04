@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,9 +33,9 @@ import (
 //
 //	"fmt"
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/netapp"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/netapp"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi-tls/sdk/go/tls"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -148,8 +148,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeBase64encode, err := std.Base64encode(ctx, &std.Base64encodeArgs{
-//				Input: fmt.Sprintf("%v%v", bucketSelfSignedCert.CertPem, bucket.PrivateKeyPem),
+//			invokeBase64encode, err := std.Base64encode(ctx, map[string]string{
+//				"input": fmt.Sprintf("%v%v", bucketSelfSignedCert.CertPem, bucket.PrivateKeyPem),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -164,7 +164,7 @@ import (
 //				},
 //				Server: &netapp.VolumeBucketWithServerServerArgs{
 //					Fqdn:           pulumi.String("example-bucket.example.internal"),
-//					CertificatePem: pulumi.String(invokeBase64encode.Result),
+//					CertificatePem: invokeBase64encode.Result,
 //				},
 //			})
 //			if err != nil {

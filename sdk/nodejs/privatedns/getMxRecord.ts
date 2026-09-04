@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.privatedns.MxRecord("example", {
- *     name: "test",
- *     zoneName: "test-zone",
- *     resourceGroupName: "test-rg",
+ * const example = azure.privatedns.getMxRecord({
+ *     name: "example",
+ *     zoneName: "example-zone",
+ *     resourceGroupName: "example-rg",
  * });
- * export const privateDnsMxRecordId = exampleAzurermPrivateDnsMxRecord.id;
+ * export const privateDnsMxRecordId = example.then(example => example.id);
  * ```
  *
  * ## API Providers
@@ -98,12 +98,12 @@ export interface GetMxRecordResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.privatedns.MxRecord("example", {
- *     name: "test",
- *     zoneName: "test-zone",
- *     resourceGroupName: "test-rg",
+ * const example = azure.privatedns.getMxRecord({
+ *     name: "example",
+ *     zoneName: "example-zone",
+ *     resourceGroupName: "example-rg",
  * });
- * export const privateDnsMxRecordId = exampleAzurermPrivateDnsMxRecord.id;
+ * export const privateDnsMxRecordId = example.then(example => example.id);
  * ```
  *
  * ## API Providers

@@ -21,28 +21,21 @@ class MonitorSsoConfigurationArgs:
     def __init__(__self__, *,
                  datadog_monitor_id: pulumi.Input[_builtins.str],
                  enterprise_application_id: pulumi.Input[_builtins.str],
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None):
+                 single_sign_on: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a MonitorSsoConfiguration resource.
 
         :param pulumi.Input[_builtins.str] datadog_monitor_id: The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configuration. Changing this forces a new Datadog Monitor SSO Configuration to be created.
         :param pulumi.Input[_builtins.str] enterprise_application_id: The application Id to perform SSO operation.
-        :param pulumi.Input[_builtins.str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         :param pulumi.Input[_builtins.str] single_sign_on: The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+        :param pulumi.Input[_builtins.str] name: The name of the SingleSignOn configuration. Defaults to `default`.
         """
         pulumi.set(__self__, "datadog_monitor_id", datadog_monitor_id)
         pulumi.set(__self__, "enterprise_application_id", enterprise_application_id)
+        pulumi.set(__self__, "single_sign_on", single_sign_on)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if single_sign_on is not None:
-            pulumi.set(__self__, "single_sign_on", single_sign_on)
-        if single_sign_on_enabled is not None:
-            warnings.warn("""`single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""single_sign_on_enabled is deprecated: `single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.""")
-        if single_sign_on_enabled is not None:
-            pulumi.set(__self__, "single_sign_on_enabled", single_sign_on_enabled)
 
     @_builtins.property
     @pulumi.getter(name="datadogMonitorId")
@@ -69,6 +62,18 @@ class MonitorSsoConfigurationArgs:
         pulumi.set(self, "enterprise_application_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="singleSignOn")
+    def single_sign_on(self) -> pulumi.Input[_builtins.str]:
+        """
+        The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
+        """
+        return pulumi.get(self, "single_sign_on")
+
+    @single_sign_on.setter
+    def single_sign_on(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "single_sign_on", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -80,28 +85,6 @@ class MonitorSsoConfigurationArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
-    @_builtins.property
-    @pulumi.getter(name="singleSignOn")
-    def single_sign_on(self) -> pulumi.Input[Optional[_builtins.str]]:
-        """
-        The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
-        """
-        return pulumi.get(self, "single_sign_on")
-
-    @single_sign_on.setter
-    def single_sign_on(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "single_sign_on", value)
-
-    @_builtins.property
-    @pulumi.getter(name="singleSignOnEnabled")
-    @_utilities.deprecated("""`single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def single_sign_on_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "single_sign_on_enabled")
-
-    @single_sign_on_enabled.setter
-    def single_sign_on_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "single_sign_on_enabled", value)
-
 
 @pulumi.input_type
 class _MonitorSsoConfigurationState:
@@ -110,8 +93,7 @@ class _MonitorSsoConfigurationState:
                  enterprise_application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  login_url: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None):
+                 single_sign_on: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering MonitorSsoConfiguration resources.
 
@@ -131,11 +113,6 @@ class _MonitorSsoConfigurationState:
             pulumi.set(__self__, "name", name)
         if single_sign_on is not None:
             pulumi.set(__self__, "single_sign_on", single_sign_on)
-        if single_sign_on_enabled is not None:
-            warnings.warn("""`single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.""", DeprecationWarning)
-            pulumi.log.warn("""single_sign_on_enabled is deprecated: `single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.""")
-        if single_sign_on_enabled is not None:
-            pulumi.set(__self__, "single_sign_on_enabled", single_sign_on_enabled)
 
     @_builtins.property
     @pulumi.getter(name="datadogMonitorId")
@@ -197,16 +174,6 @@ class _MonitorSsoConfigurationState:
     def single_sign_on(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "single_sign_on", value)
 
-    @_builtins.property
-    @pulumi.getter(name="singleSignOnEnabled")
-    @_utilities.deprecated("""`single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def single_sign_on_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "single_sign_on_enabled")
-
-    @single_sign_on_enabled.setter
-    def single_sign_on_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "single_sign_on_enabled", value)
-
 
 @pulumi.type_token("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration")
 class MonitorSsoConfiguration(pulumi.CustomResource):
@@ -218,7 +185,6 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
                  enterprise_application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Manages SingleSignOn on the datadog Monitor.
@@ -354,7 +320,6 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
                  enterprise_application_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
-                 single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -371,8 +336,9 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'enterprise_application_id'")
             __props__.__dict__["enterprise_application_id"] = enterprise_application_id
             __props__.__dict__["name"] = name
+            if single_sign_on is None and not opts.urn:
+                raise TypeError("Missing required property 'single_sign_on'")
             __props__.__dict__["single_sign_on"] = single_sign_on
-            __props__.__dict__["single_sign_on_enabled"] = single_sign_on_enabled
             __props__.__dict__["login_url"] = None
         super(MonitorSsoConfiguration, __self__).__init__(
             'azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration',
@@ -388,8 +354,7 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
             enterprise_application_id: pulumi.Input[Optional[_builtins.str]] = None,
             login_url: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
-            single_sign_on: pulumi.Input[Optional[_builtins.str]] = None,
-            single_sign_on_enabled: pulumi.Input[Optional[_builtins.str]] = None) -> 'MonitorSsoConfiguration':
+            single_sign_on: pulumi.Input[Optional[_builtins.str]] = None) -> 'MonitorSsoConfiguration':
         """
         Get an existing MonitorSsoConfiguration resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -412,7 +377,6 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         __props__.__dict__["login_url"] = login_url
         __props__.__dict__["name"] = name
         __props__.__dict__["single_sign_on"] = single_sign_on
-        __props__.__dict__["single_sign_on_enabled"] = single_sign_on_enabled
         return MonitorSsoConfiguration(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -454,10 +418,4 @@ class MonitorSsoConfiguration(pulumi.CustomResource):
         The state of SingleSignOn configuration. Possible values are `Enable`, `Disable`, `Initial` and `Existing`.
         """
         return pulumi.get(self, "single_sign_on")
-
-    @_builtins.property
-    @pulumi.getter(name="singleSignOnEnabled")
-    @_utilities.deprecated("""`single_sign_on_enabled` has been deprecated in favour of the `single_sign_on` property and will be removed in v5.0 of the AzureRM Provider.""")
-    def single_sign_on_enabled(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "single_sign_on_enabled")
 

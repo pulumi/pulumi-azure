@@ -153,12 +153,6 @@ public class LinkedStorageAccount extends com.pulumi.resources.CustomResource {
     public Output<String> workspaceId() {
         return this.workspaceId;
     }
-    @Export(name="workspaceResourceId", refs={String.class}, tree="[0]")
-    private Output<String> workspaceResourceId;
-
-    public Output<String> workspaceResourceId() {
-        return this.workspaceResourceId;
-    }
 
     /**
      *

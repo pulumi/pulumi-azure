@@ -678,14 +678,18 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
     }
 
     /**
-     * A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      * 
      */
     @Import(name="rollingUpgradePolicy")
     private @Nullable Output<LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs> rollingUpgradePolicy;
 
     /**
-     * @return A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+     * @return A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
      * 
      */
     public Optional<Output<LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs>> rollingUpgradePolicy() {
@@ -1933,7 +1937,9 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
          * 
          * @return builder
          * 
@@ -1944,7 +1950,9 @@ public final class LinuxVirtualMachineScaleSetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+         * @param rollingUpgradePolicy A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
          * 
          * @return builder
          * 

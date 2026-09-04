@@ -204,7 +204,7 @@ class Assessment(pulumi.CustomResource):
             admin_username="adminuser",
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
             }],
             source_image_reference={
                 "publisher": "Canonical",
@@ -291,7 +291,7 @@ class Assessment(pulumi.CustomResource):
             admin_username="adminuser",
             admin_ssh_keys=[{
                 "username": "adminuser",
-                "public_key": std.file(input="~/.ssh/id_rsa.pub").result,
+                "public_key": std.file(input="~/.ssh/id_rsa.pub")["result"],
             }],
             source_image_reference={
                 "publisher": "Canonical",

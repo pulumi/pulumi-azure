@@ -172,11 +172,11 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             name="example-customDomain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "contoso",
                     example_zone.name,
-                ]).result,
+                ])["result"],
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",
@@ -290,11 +290,11 @@ class FrontdoorCustomDomainAssociation(pulumi.CustomResource):
             name="example-customDomain",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             dns_zone_id=example_zone.id,
-            host_name=std.join_output(separator=".",
+            host_name=std.join(separator=".",
                 input=[
                     "contoso",
                     example_zone.name,
-                ]).result,
+                ])["result"],
             tls={
                 "certificate_type": "ManagedCertificate",
                 "minimum_tls_version": "TLS12",

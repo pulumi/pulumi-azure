@@ -362,6 +362,13 @@ public final class SentinelFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
+     * 
      */
     public static Output<GetAlertRuleAnomalyResult> getAlertRuleAnomaly(GetAlertRuleAnomalyArgs args) {
         return getAlertRuleAnomaly(args, InvokeOptions.Empty);
@@ -426,6 +433,13 @@ public final class SentinelFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
      * 
      */
     public static CompletableFuture<GetAlertRuleAnomalyResult> getAlertRuleAnomalyPlain(GetAlertRuleAnomalyPlainArgs args) {
@@ -492,6 +506,13 @@ public final class SentinelFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
+     * 
      */
     public static Output<GetAlertRuleAnomalyResult> getAlertRuleAnomaly(GetAlertRuleAnomalyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", TypeShape.of(GetAlertRuleAnomalyResult.class), args, Utilities.withVersion(options));
@@ -556,6 +577,13 @@ public final class SentinelFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
      * 
      */
     public static Output<GetAlertRuleAnomalyResult> getAlertRuleAnomaly(GetAlertRuleAnomalyArgs args, InvokeOutputOptions options) {
@@ -622,6 +650,13 @@ public final class SentinelFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
+     * 
      */
     public static CompletableFuture<GetAlertRuleAnomalyResult> getAlertRuleAnomalyPlain(GetAlertRuleAnomalyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:sentinel/getAlertRuleAnomaly:getAlertRuleAnomaly", TypeShape.of(GetAlertRuleAnomalyResult.class), args, Utilities.withVersion(options));
@@ -663,6 +698,15 @@ public final class SentinelFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
      * 
      */
     public static Output<GetAlertRuleTemplateResult> getAlertRuleTemplate(GetAlertRuleTemplateArgs args) {
@@ -706,6 +750,15 @@ public final class SentinelFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
+     * 
      */
     public static CompletableFuture<GetAlertRuleTemplateResult> getAlertRuleTemplatePlain(GetAlertRuleTemplatePlainArgs args) {
         return getAlertRuleTemplatePlain(args, InvokeOptions.Empty);
@@ -747,6 +800,15 @@ public final class SentinelFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
      * 
      */
     public static Output<GetAlertRuleTemplateResult> getAlertRuleTemplate(GetAlertRuleTemplateArgs args, InvokeOptions options) {
@@ -790,6 +852,15 @@ public final class SentinelFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
+     * 
      */
     public static Output<GetAlertRuleTemplateResult> getAlertRuleTemplate(GetAlertRuleTemplateArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:sentinel/getAlertRuleTemplate:getAlertRuleTemplate", TypeShape.of(GetAlertRuleTemplateResult.class), args, Utilities.withVersion(options));
@@ -831,6 +902,15 @@ public final class SentinelFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.OperationalInsights` - 2022-10-01-preview
+     * 
+     * * `Microsoft.SecurityInsights` - 2022-10-01-preview
      * 
      */
     public static CompletableFuture<GetAlertRuleTemplateResult> getAlertRuleTemplatePlain(GetAlertRuleTemplatePlainArgs args, InvokeOptions options) {

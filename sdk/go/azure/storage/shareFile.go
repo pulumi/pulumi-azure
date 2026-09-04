@@ -7,7 +7,8 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"errors"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +23,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/storage"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -87,7 +88,7 @@ type ShareFile struct {
 	ContentLength pulumi.IntOutput `pulumi:"contentLength"`
 	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
 	//
-	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
 	ContentMd5 pulumi.StringPtrOutput `pulumi:"contentMd5"`
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrOutput `pulumi:"contentType"`
@@ -97,12 +98,16 @@ type ShareFile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source pulumi.StringPtrOutput `pulumi:"source"`
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId pulumi.StringOutput `pulumi:"storageShareId"`
+	// The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+	//
+	// > **Note:** The content specified with `sourceContent` can not be empty.
+	//
+	// > **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+	SourceContent pulumi.StringPtrOutput `pulumi:"sourceContent"`
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareUrl pulumi.StringOutput `pulumi:"storageShareUrl"`
 }
@@ -111,9 +116,12 @@ type ShareFile struct {
 func NewShareFile(ctx *pulumi.Context,
 	name string, args *ShareFileArgs, opts ...pulumi.ResourceOption) (*ShareFile, error) {
 	if args == nil {
-		args = &ShareFileArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.StorageShareUrl == nil {
+		return nil, errors.New("invalid value for required argument 'StorageShareUrl'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ShareFile
 	err := ctx.RegisterResource("azure:storage/shareFile:ShareFile", name, args, &resource, opts...)
@@ -145,7 +153,7 @@ type shareFileState struct {
 	ContentLength *int `pulumi:"contentLength"`
 	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
 	//
-	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
 	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
@@ -155,12 +163,16 @@ type shareFileState struct {
 	Name *string `pulumi:"name"`
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path *string `pulumi:"path"`
-	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source *string `pulumi:"source"`
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId *string `pulumi:"storageShareId"`
+	// The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+	//
+	// > **Note:** The content specified with `sourceContent` can not be empty.
+	//
+	// > **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+	SourceContent *string `pulumi:"sourceContent"`
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareUrl *string `pulumi:"storageShareUrl"`
 }
@@ -174,7 +186,7 @@ type ShareFileState struct {
 	ContentLength pulumi.IntPtrInput
 	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
 	//
-	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
 	ContentMd5 pulumi.StringPtrInput
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
@@ -184,12 +196,16 @@ type ShareFileState struct {
 	Name pulumi.StringPtrInput
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path pulumi.StringPtrInput
-	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source pulumi.StringPtrInput
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId pulumi.StringPtrInput
+	// The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+	//
+	// > **Note:** The content specified with `sourceContent` can not be empty.
+	//
+	// > **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+	SourceContent pulumi.StringPtrInput
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
 	StorageShareUrl pulumi.StringPtrInput
 }
@@ -205,7 +221,7 @@ type shareFileArgs struct {
 	ContentEncoding *string `pulumi:"contentEncoding"`
 	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
 	//
-	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
 	ContentMd5 *string `pulumi:"contentMd5"`
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType *string `pulumi:"contentType"`
@@ -215,14 +231,18 @@ type shareFileArgs struct {
 	Name *string `pulumi:"name"`
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path *string `pulumi:"path"`
-	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source *string `pulumi:"source"`
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId *string `pulumi:"storageShareId"`
+	// The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+	//
+	// > **Note:** The content specified with `sourceContent` can not be empty.
+	//
+	// > **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+	SourceContent *string `pulumi:"sourceContent"`
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
-	StorageShareUrl *string `pulumi:"storageShareUrl"`
+	StorageShareUrl string `pulumi:"storageShareUrl"`
 }
 
 // The set of arguments for constructing a ShareFile resource.
@@ -233,7 +253,7 @@ type ShareFileArgs struct {
 	ContentEncoding pulumi.StringPtrInput
 	// The MD5 sum of the file contents. Changing this forces a new resource to be created.
 	//
-	// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+	// > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
 	ContentMd5 pulumi.StringPtrInput
 	// The content type of the share file. Defaults to `application/octet-stream`.
 	ContentType pulumi.StringPtrInput
@@ -243,14 +263,18 @@ type ShareFileArgs struct {
 	Name pulumi.StringPtrInput
 	// The storage share directory that you would like the file placed into. Changing this forces a new resource to be created. Defaults to `""`.
 	Path pulumi.StringPtrInput
-	// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+	// An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
 	//
 	// > **Note:** The file specified with `source` can not be empty.
 	Source pulumi.StringPtrInput
-	// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-	StorageShareId pulumi.StringPtrInput
+	// The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+	//
+	// > **Note:** The content specified with `sourceContent` can not be empty.
+	//
+	// > **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+	SourceContent pulumi.StringPtrInput
 	// The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.
-	StorageShareUrl pulumi.StringPtrInput
+	StorageShareUrl pulumi.StringInput
 }
 
 func (ShareFileArgs) ElementType() reflect.Type {
@@ -357,7 +381,7 @@ func (o ShareFileOutput) ContentLength() pulumi.IntOutput {
 
 // The MD5 sum of the file contents. Changing this forces a new resource to be created.
 //
-// > **Note:** This property is intended to be used with the Terraform internal filemd5 and md5 functions when `source` is defined.
+// > **Note:** This property is intended to be used with the Terraform internal filemd5 function when `source` is defined, or the md5 function when `sourceContent` is defined.
 func (o ShareFileOutput) ContentMd5() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.ContentMd5 }).(pulumi.StringPtrOutput)
 }
@@ -382,16 +406,20 @@ func (o ShareFileOutput) Path() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.Path }).(pulumi.StringPtrOutput)
 }
 
-// An absolute path to a file on the local system. Changing this forces a new resource to be created.
+// An absolute path to a file on the local system. Changing this forces a new resource to be created. Conflicts with `sourceContent`.
 //
 // > **Note:** The file specified with `source` can not be empty.
 func (o ShareFileOutput) Source() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.Source }).(pulumi.StringPtrOutput)
 }
 
-// Deprecated: This property has been deprecated in favour of `storageShareUrl` and will be removed in version 5.0 of the Provider.
-func (o ShareFileOutput) StorageShareId() pulumi.StringOutput {
-	return o.ApplyT(func(v *ShareFile) pulumi.StringOutput { return v.StorageShareId }).(pulumi.StringOutput)
+// The content for this file specified inline. Changing this forces a new resource to be created. Conflicts with `source`.
+//
+// > **Note:** The content specified with `sourceContent` can not be empty.
+//
+// > **Note:** The content specified with `sourceContent` is written to a temporary file on the local system before being uploaded, which may require sufficient available disk space for large content.
+func (o ShareFileOutput) SourceContent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ShareFile) pulumi.StringPtrOutput { return v.SourceContent }).(pulumi.StringPtrOutput)
 }
 
 // The Storage Share URL in which this file will be placed into. Changing this forces a new resource to be created.

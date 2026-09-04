@@ -51,20 +51,15 @@ namespace Pulumi.Azure.ManagedApplication
     ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
     ///             {
     ///                 ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 RoleDefinitionId = Output.Tuple(Std.Split.Invoke(new()
+    ///                 RoleDefinitionId = Std.Split.Invoke(new()
     ///                 {
     ///                     Separator = "/",
     ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
-    ///                 }), Std.Split.Invoke(new()
+    ///                 }).Result[Std.Split.Invoke(new()
     ///                 {
     ///                     Separator = "/",
     ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
-    ///                 }).Apply(invoke =&gt; invoke.Result).Length()).Apply(values =&gt;
-    ///                 {
-    ///                     var invoke = values.Item1;
-    ///                     var length = values.Item2;
-    ///                     return invoke.Result[length - 1];
-    ///                 }),
+    ///                 }).Result.Length - 1],
     ///             },
     ///         },
     ///     });
@@ -120,6 +115,12 @@ namespace Pulumi.Azure.ManagedApplication
         /// </summary>
         [Output("applicationDefinitionId")]
         public Output<string?> ApplicationDefinitionId { get; private set; } = null!;
+
+        /// <summary>
+        /// An `Identity` block as defined below. Removing this block forces a new resource to be created.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.ApplicationIdentity?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
@@ -228,6 +229,12 @@ namespace Pulumi.Azure.ManagedApplication
         public Input<string>? ApplicationDefinitionId { get; set; }
 
         /// <summary>
+        /// An `Identity` block as defined below. Removing this block forces a new resource to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ApplicationIdentityArgs>? Identity { get; set; }
+
+        /// <summary>
         /// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.
         /// </summary>
         [Input("kind", required: true)]
@@ -294,6 +301,12 @@ namespace Pulumi.Azure.ManagedApplication
         /// </summary>
         [Input("applicationDefinitionId")]
         public Input<string>? ApplicationDefinitionId { get; set; }
+
+        /// <summary>
+        /// An `Identity` block as defined below. Removing this block forces a new resource to be created.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.ApplicationIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
         /// The kind of the managed application to deploy. Possible values are `MarketPlace` and `ServiceCatalog`. Changing this forces a new resource to be created.

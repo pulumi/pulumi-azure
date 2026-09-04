@@ -20,6 +20,13 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
 
     public static final OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs Empty = new OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs();
 
+    @Import(name="acceleratedNetworkingEnabled")
+    private @Nullable Output<Boolean> acceleratedNetworkingEnabled;
+
+    public Optional<Output<Boolean>> acceleratedNetworkingEnabled() {
+        return Optional.ofNullable(this.acceleratedNetworkingEnabled);
+    }
+
     /**
      * Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are `AcceleratedConnections` and `Floating`.
      * 
@@ -78,36 +85,6 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
     }
 
     /**
-     * Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-     * 
-     */
-    @Import(name="enableAcceleratedNetworking")
-    private @Nullable Output<Boolean> enableAcceleratedNetworking;
-
-    /**
-     * @return Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> enableAcceleratedNetworking() {
-        return Optional.ofNullable(this.enableAcceleratedNetworking);
-    }
-
-    /**
-     * Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-     * 
-     */
-    @Import(name="enableIpForwarding")
-    private @Nullable Output<Boolean> enableIpForwarding;
-
-    /**
-     * @return Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-     * 
-     */
-    public Optional<Output<Boolean>> enableIpForwarding() {
-        return Optional.ofNullable(this.enableIpForwarding);
-    }
-
-    /**
      * One or more `ipConfiguration` blocks as defined above.
      * 
      */
@@ -120,6 +97,13 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
      */
     public Output<List<OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs>> ipConfigurations() {
         return this.ipConfigurations;
+    }
+
+    @Import(name="ipForwardingEnabled")
+    private @Nullable Output<Boolean> ipForwardingEnabled;
+
+    public Optional<Output<Boolean>> ipForwardingEnabled() {
+        return Optional.ofNullable(this.ipForwardingEnabled);
     }
 
     /**
@@ -189,12 +173,12 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs() {}
 
     private OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs(OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs $) {
+        this.acceleratedNetworkingEnabled = $.acceleratedNetworkingEnabled;
         this.auxiliaryMode = $.auxiliaryMode;
         this.auxiliarySku = $.auxiliarySku;
         this.dnsServers = $.dnsServers;
-        this.enableAcceleratedNetworking = $.enableAcceleratedNetworking;
-        this.enableIpForwarding = $.enableIpForwarding;
         this.ipConfigurations = $.ipConfigurations;
+        this.ipForwardingEnabled = $.ipForwardingEnabled;
         this.name = $.name;
         this.networkSecurityGroupId = $.networkSecurityGroupId;
         this.primary = $.primary;
@@ -217,6 +201,15 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
 
         public Builder(OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs defaults) {
             $ = new OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs(Objects.requireNonNull(defaults));
+        }
+
+        public Builder acceleratedNetworkingEnabled(@Nullable Output<Boolean> acceleratedNetworkingEnabled) {
+            $.acceleratedNetworkingEnabled = acceleratedNetworkingEnabled;
+            return this;
+        }
+
+        public Builder acceleratedNetworkingEnabled(Boolean acceleratedNetworkingEnabled) {
+            return acceleratedNetworkingEnabled(Output.of(acceleratedNetworkingEnabled));
         }
 
         /**
@@ -305,48 +298,6 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
         }
 
         /**
-         * @param enableAcceleratedNetworking Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAcceleratedNetworking(@Nullable Output<Boolean> enableAcceleratedNetworking) {
-            $.enableAcceleratedNetworking = enableAcceleratedNetworking;
-            return this;
-        }
-
-        /**
-         * @param enableAcceleratedNetworking Does this Network Interface support Accelerated Networking? Possible values are `true` and `false`. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableAcceleratedNetworking(Boolean enableAcceleratedNetworking) {
-            return enableAcceleratedNetworking(Output.of(enableAcceleratedNetworking));
-        }
-
-        /**
-         * @param enableIpForwarding Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableIpForwarding(@Nullable Output<Boolean> enableIpForwarding) {
-            $.enableIpForwarding = enableIpForwarding;
-            return this;
-        }
-
-        /**
-         * @param enableIpForwarding Does this Network Interface support IP Forwarding? Possible values are `true` and `false`. Defaults to `false`.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder enableIpForwarding(Boolean enableIpForwarding) {
-            return enableIpForwarding(Output.of(enableIpForwarding));
-        }
-
-        /**
          * @param ipConfigurations One or more `ipConfiguration` blocks as defined above.
          * 
          * @return builder
@@ -375,6 +326,15 @@ public final class OrchestratedVirtualMachineScaleSetNetworkInterfaceArgs extend
          */
         public Builder ipConfigurations(OrchestratedVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs... ipConfigurations) {
             return ipConfigurations(List.of(ipConfigurations));
+        }
+
+        public Builder ipForwardingEnabled(@Nullable Output<Boolean> ipForwardingEnabled) {
+            $.ipForwardingEnabled = ipForwardingEnabled;
+            return this;
+        }
+
+        public Builder ipForwardingEnabled(Boolean ipForwardingEnabled) {
+            return ipForwardingEnabled(Output.of(ipForwardingEnabled));
         }
 
         /**

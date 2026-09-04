@@ -7,11 +7,213 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
+
+type ApplicationIdentity struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Application.
+	//
+	// > **Note:** The `identityIds` argument is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Identity.
+	PrincipalId *string `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Identity.
+	TenantId *string `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Managed Application. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+	Type string `pulumi:"type"`
+}
+
+// ApplicationIdentityInput is an input type that accepts ApplicationIdentityArgs and ApplicationIdentityOutput values.
+// You can construct a concrete instance of `ApplicationIdentityInput` via:
+//
+//	ApplicationIdentityArgs{...}
+type ApplicationIdentityInput interface {
+	pulumi.Input
+
+	ToApplicationIdentityOutput() ApplicationIdentityOutput
+	ToApplicationIdentityOutputWithContext(context.Context) ApplicationIdentityOutput
+}
+
+type ApplicationIdentityArgs struct {
+	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Application.
+	//
+	// > **Note:** The `identityIds` argument is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The Principal ID associated with this Managed Identity.
+	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
+	// The Tenant ID associated with this Managed Identity.
+	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
+	// Specifies the type of Managed Service Identity that should be configured on this Managed Application. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ApplicationIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIdentity)(nil)).Elem()
+}
+
+func (i ApplicationIdentityArgs) ToApplicationIdentityOutput() ApplicationIdentityOutput {
+	return i.ToApplicationIdentityOutputWithContext(context.Background())
+}
+
+func (i ApplicationIdentityArgs) ToApplicationIdentityOutputWithContext(ctx context.Context) ApplicationIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIdentityOutput)
+}
+
+func (i ApplicationIdentityArgs) ToApplicationIdentityPtrOutput() ApplicationIdentityPtrOutput {
+	return i.ToApplicationIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationIdentityArgs) ToApplicationIdentityPtrOutputWithContext(ctx context.Context) ApplicationIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIdentityOutput).ToApplicationIdentityPtrOutputWithContext(ctx)
+}
+
+// ApplicationIdentityPtrInput is an input type that accepts ApplicationIdentityArgs, ApplicationIdentityPtr and ApplicationIdentityPtrOutput values.
+// You can construct a concrete instance of `ApplicationIdentityPtrInput` via:
+//
+//	        ApplicationIdentityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationIdentityPtrInput interface {
+	pulumi.Input
+
+	ToApplicationIdentityPtrOutput() ApplicationIdentityPtrOutput
+	ToApplicationIdentityPtrOutputWithContext(context.Context) ApplicationIdentityPtrOutput
+}
+
+type applicationIdentityPtrType ApplicationIdentityArgs
+
+func ApplicationIdentityPtr(v *ApplicationIdentityArgs) ApplicationIdentityPtrInput {
+	return (*applicationIdentityPtrType)(v)
+}
+
+func (*applicationIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationIdentity)(nil)).Elem()
+}
+
+func (i *applicationIdentityPtrType) ToApplicationIdentityPtrOutput() ApplicationIdentityPtrOutput {
+	return i.ToApplicationIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationIdentityPtrType) ToApplicationIdentityPtrOutputWithContext(ctx context.Context) ApplicationIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIdentityPtrOutput)
+}
+
+type ApplicationIdentityOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIdentity)(nil)).Elem()
+}
+
+func (o ApplicationIdentityOutput) ToApplicationIdentityOutput() ApplicationIdentityOutput {
+	return o
+}
+
+func (o ApplicationIdentityOutput) ToApplicationIdentityOutputWithContext(ctx context.Context) ApplicationIdentityOutput {
+	return o
+}
+
+func (o ApplicationIdentityOutput) ToApplicationIdentityPtrOutput() ApplicationIdentityPtrOutput {
+	return o.ToApplicationIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationIdentityOutput) ToApplicationIdentityPtrOutputWithContext(ctx context.Context) ApplicationIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationIdentity) *ApplicationIdentity {
+		return &v
+	}).(ApplicationIdentityPtrOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Application.
+//
+// > **Note:** The `identityIds` argument is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o ApplicationIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ApplicationIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Identity.
+func (o ApplicationIdentityOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationIdentity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Identity.
+func (o ApplicationIdentityOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationIdentity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Managed Application. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+func (o ApplicationIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ApplicationIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationIdentity)(nil)).Elem()
+}
+
+func (o ApplicationIdentityPtrOutput) ToApplicationIdentityPtrOutput() ApplicationIdentityPtrOutput {
+	return o
+}
+
+func (o ApplicationIdentityPtrOutput) ToApplicationIdentityPtrOutputWithContext(ctx context.Context) ApplicationIdentityPtrOutput {
+	return o
+}
+
+func (o ApplicationIdentityPtrOutput) Elem() ApplicationIdentityOutput {
+	return o.ApplyT(func(v *ApplicationIdentity) ApplicationIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationIdentity
+		return ret
+	}).(ApplicationIdentityOutput)
+}
+
+// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Managed Application.
+//
+// > **Note:** The `identityIds` argument is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`.
+func (o ApplicationIdentityPtrOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ApplicationIdentity) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The Principal ID associated with this Managed Identity.
+func (o ApplicationIdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID associated with this Managed Identity.
+func (o ApplicationIdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of Managed Service Identity that should be configured on this Managed Application. Possible values are `SystemAssigned`, `UserAssigned`, and `SystemAssigned, UserAssigned` (to enable both).
+func (o ApplicationIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
 
 type ApplicationPlan struct {
 	// Specifies the name of the plan from the marketplace. Changing this forces a new resource to be created.
@@ -341,10 +543,14 @@ func (o DefinitionAuthorizationArrayOutput) Index(i pulumi.IntInput) DefinitionA
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentityInput)(nil)).Elem(), ApplicationIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIdentityPtrInput)(nil)).Elem(), ApplicationIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPlanInput)(nil)).Elem(), ApplicationPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPlanPtrInput)(nil)).Elem(), ApplicationPlanArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionAuthorizationInput)(nil)).Elem(), DefinitionAuthorizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefinitionAuthorizationArrayInput)(nil)).Elem(), DefinitionAuthorizationArray{})
+	pulumi.RegisterOutputType(ApplicationIdentityOutput{})
+	pulumi.RegisterOutputType(ApplicationIdentityPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationPlanOutput{})
 	pulumi.RegisterOutputType(ApplicationPlanPtrOutput{})
 	pulumi.RegisterOutputType(DefinitionAuthorizationOutput{})

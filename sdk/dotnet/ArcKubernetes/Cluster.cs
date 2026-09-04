@@ -39,7 +39,7 @@ namespace Pulumi.Azure.ArcKubernetes
     ///         AgentPublicKeyCertificate = Std.Filebase64.Invoke(new()
     ///         {
     ///             Input = "testdata/public.cer",
-    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         }).Result,
     ///         Identity = new Azure.ArcKubernetes.Inputs.ClusterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",

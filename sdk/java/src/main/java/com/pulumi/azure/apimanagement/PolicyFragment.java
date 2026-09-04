@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.apimanagement.PolicyFragment;
  * import com.pulumi.azure.apimanagement.PolicyFragmentArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -65,9 +64,7 @@ import javax.annotation.Nullable;
  *             .apiManagementId(exampleService.id())
  *             .name("example-policy-fragment")
  *             .format("xml")
- *             .value(StdFunctions.file(FileArgs.builder()
- *                 .input("policy-fragment-1.xml")
- *                 .build()).result())
+ *             .value(StdFunctions.file(Map.of("input", "policy-fragment-1.xml")).result())
  *             .build());
  * 
  *     }}{@code

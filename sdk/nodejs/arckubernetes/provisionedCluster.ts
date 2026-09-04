@@ -21,9 +21,9 @@ import * as utilities from "../utilities";
  *     location: "West Europe",
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleGroup = new azuread.Group("example", {
+ * const exampleGroup = new azuread.index.Group("example", {
  *     displayName: "example-adg",
- *     owners: [current.then(current => current.objectId)],
+ *     owners: [current.objectId],
  *     securityEnabled: true,
  * });
  * const exampleProvisionedCluster = new azure.arckubernetes.ProvisionedCluster("example", {

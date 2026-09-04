@@ -24,7 +24,6 @@ class AlertRuleFusionArgs:
                  alert_rule_template_guid: pulumi.Input[_builtins.str],
                  log_analytics_workspace_id: pulumi.Input[_builtins.str],
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  sources: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None):
         """
         The set of arguments for constructing a AlertRuleFusion resource.
@@ -38,11 +37,6 @@ class AlertRuleFusionArgs:
         pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
-        if name is not None:
-            warnings.warn("""the `name` is deprecated and will be removed in v5.0 version of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""name is deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.""")
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
 
@@ -84,16 +78,6 @@ class AlertRuleFusionArgs:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""the `name` is deprecated and will be removed in v5.0 version of the provider.""")
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
     def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]]:
         """
         One or more `source` blocks as defined below.
@@ -111,7 +95,6 @@ class _AlertRuleFusionState:
                  alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  sources: pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]] = None):
         """
         Input properties used for looking up and filtering AlertRuleFusion resources.
@@ -127,11 +110,6 @@ class _AlertRuleFusionState:
             pulumi.set(__self__, "enabled", enabled)
         if log_analytics_workspace_id is not None:
             pulumi.set(__self__, "log_analytics_workspace_id", log_analytics_workspace_id)
-        if name is not None:
-            warnings.warn("""the `name` is deprecated and will be removed in v5.0 version of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""name is deprecated: the `name` is deprecated and will be removed in v5.0 version of the provider.""")
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if sources is not None:
             pulumi.set(__self__, "sources", sources)
 
@@ -173,16 +151,6 @@ class _AlertRuleFusionState:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""the `name` is deprecated and will be removed in v5.0 version of the provider.""")
-    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
     def sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AlertRuleFusionSourceArgs']]]]:
         """
         One or more `source` blocks as defined below.
@@ -203,7 +171,6 @@ class AlertRuleFusion(pulumi.CustomResource):
                  alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -315,7 +282,6 @@ class AlertRuleFusion(pulumi.CustomResource):
                  alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -333,7 +299,6 @@ class AlertRuleFusion(pulumi.CustomResource):
             if log_analytics_workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'log_analytics_workspace_id'")
             __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
-            __props__.__dict__["name"] = name
             __props__.__dict__["sources"] = sources
         super(AlertRuleFusion, __self__).__init__(
             'azure:sentinel/alertRuleFusion:AlertRuleFusion',
@@ -348,7 +313,6 @@ class AlertRuleFusion(pulumi.CustomResource):
             alert_rule_template_guid: pulumi.Input[Optional[_builtins.str]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             log_analytics_workspace_id: pulumi.Input[Optional[_builtins.str]] = None,
-            name: pulumi.Input[Optional[_builtins.str]] = None,
             sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AlertRuleFusionSourceArgs', 'AlertRuleFusionSourceArgsDict']]]]] = None) -> 'AlertRuleFusion':
         """
         Get an existing AlertRuleFusion resource's state with the given name, id, and optional extra
@@ -369,7 +333,6 @@ class AlertRuleFusion(pulumi.CustomResource):
         __props__.__dict__["alert_rule_template_guid"] = alert_rule_template_guid
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["log_analytics_workspace_id"] = log_analytics_workspace_id
-        __props__.__dict__["name"] = name
         __props__.__dict__["sources"] = sources
         return AlertRuleFusion(resource_name, opts=opts, __props__=__props__)
 
@@ -396,12 +359,6 @@ class AlertRuleFusion(pulumi.CustomResource):
         The ID of the Log Analytics Workspace this Sentinel Fusion Alert Rule belongs to. Changing this forces a new Sentinel Fusion Alert Rule to be created.
         """
         return pulumi.get(self, "log_analytics_workspace_id")
-
-    @_builtins.property
-    @pulumi.getter
-    @_utilities.deprecated("""the `name` is deprecated and will be removed in v5.0 version of the provider.""")
-    def name(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     location: example.location,
  *     pfxBlob: std.filebase64({
  *         input: "certificate.pfx",
- *     }).then(invoke => invoke.result),
+ *     }).result,
  *     password: "password123!",
  * });
  * ```

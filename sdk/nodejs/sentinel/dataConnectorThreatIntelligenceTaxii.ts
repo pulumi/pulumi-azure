@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * <!-- This section is generated, changes will be overwritten -->
  * This resource uses the following Azure API Providers:
  *
- * * `Microsoft.OperationalInsights` - 2023-09-01
+ * * `Microsoft.OperationalInsights` - 2025-07-01, 2022-10-01-preview
  *
  * ## Import
  *

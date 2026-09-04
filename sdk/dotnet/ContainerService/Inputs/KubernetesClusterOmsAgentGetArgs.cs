@@ -36,6 +36,12 @@ namespace Pulumi.Azure.ContainerService.Inputs
             set => _omsAgentIdentities = value;
         }
 
+        /// <summary>
+        /// Is Retina Flow Logs collection enabled?
+        /// </summary>
+        [Input("retinaFlowLogsEnabled")]
+        public Input<bool>? RetinaFlowLogsEnabled { get; set; }
+
         public KubernetesClusterOmsAgentGetArgs()
         {
         }

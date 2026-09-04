@@ -41,7 +41,7 @@ public final class FrontdoorBatchRuleSetRuleActions {
     /**
      * @return A `urlRewrite` block as defined below.
      * 
-     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect` and vice-versa.
+     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
      * 
      */
     private @Nullable FrontdoorBatchRuleSetRuleActionsUrlRewrite urlRewrite;
@@ -80,7 +80,7 @@ public final class FrontdoorBatchRuleSetRuleActions {
     /**
      * @return A `urlRewrite` block as defined below.
      * 
-     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect` and vice-versa.
+     * &gt; **Note:** `urlRewrite` conflicts with `urlRedirect`
      * 
      */
     public Optional<FrontdoorBatchRuleSetRuleActionsUrlRewrite> urlRewrite() {

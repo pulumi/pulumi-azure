@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerapp.EnvironmentCertificate;
  * import com.pulumi.azure.containerapp.EnvironmentCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -77,9 +76,7 @@ import javax.annotation.Nullable;
  *         var exampleEnvironmentCertificate = new EnvironmentCertificate("exampleEnvironmentCertificate", EnvironmentCertificateArgs.builder()
  *             .name("myfriendlyname")
  *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .certificateBlobBase64(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("path/to/certificate_file.pfx")
- *                 .build()).result())
+ *             .certificateBlobBase64(StdFunctions.filebase64(Map.of("input", "path/to/certificate_file.pfx")).result())
  *             .certificatePassword("$3cretSqu1rreL")
  *             .build());
  * 
@@ -115,7 +112,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.CertificateArgs;
  * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import com.pulumi.azure.containerapp.EnvironmentCertificate;
  * import com.pulumi.azure.containerapp.EnvironmentCertificateArgs;
  * import com.pulumi.azure.containerapp.inputs.EnvironmentCertificateCertificateKeyVaultArgs;
@@ -190,9 +186,7 @@ import javax.annotation.Nullable;
  *             .name("example-certificate")
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
- *                     .input("path/to/certificate_file.pfx")
- *                     .build()).result())
+ *                 .contents(StdFunctions.filebase64(Map.of("input", "path/to/certificate_file.pfx")).result())
  *                 .password("")
  *                 .build())
  *             .build(), CustomResourceOptions.builder()

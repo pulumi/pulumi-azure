@@ -28,10 +28,14 @@ class SubnetArgs:
                  delegations: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
                  ip_address_pool: pulumi.Input[Optional['SubnetIpAddressPoolArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 route_table_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetServiceEndpointArgs']]]] = None,
                  sharing_scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a Subnet resource.
@@ -47,6 +51,11 @@ class SubnetArgs:
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_security_group_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The ID of the Network Security Group to associate with the subnet.
+               
+               > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        :param pulumi.Input[_builtins.int] network_security_group_id_wo_version: An integer that must be incremented whenever `network_security_group_id_wo` is updated. Required if `network_security_group_id_wo` is specified.
         :param pulumi.Input[_builtins.str] private_endpoint_network_policies: Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
                
                > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
@@ -57,10 +66,13 @@ class SubnetArgs:
         :param pulumi.Input[_builtins.bool] private_link_service_network_policies_enabled: Enable or Disable network policies for the private link service on the subnet. Defaults to `true`.
                
                > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        :param pulumi.Input[_builtins.str] route_table_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The ID of the Route Table to associate with the subnet.
                
-               > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+               > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `network.SubnetRouteTableAssociation` resource instead.
+        :param pulumi.Input[_builtins.int] route_table_id_wo_version: An integer that must be incremented whenever `route_table_id_wo` is updated. Required if `route_table_id_wo` is specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetServiceEndpointArgs']]] service_endpoints: A `service_endpoint` block as defined below.
         :param pulumi.Input[_builtins.str] sharing_scope: The sharing scope of the subnet. Possible value is `Tenant`.
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
@@ -79,10 +91,18 @@ class SubnetArgs:
             pulumi.set(__self__, "ip_address_pool", ip_address_pool)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_security_group_id_wo is not None:
+            pulumi.set(__self__, "network_security_group_id_wo", network_security_group_id_wo)
+        if network_security_group_id_wo_version is not None:
+            pulumi.set(__self__, "network_security_group_id_wo_version", network_security_group_id_wo_version)
         if private_endpoint_network_policies is not None:
             pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
         if private_link_service_network_policies_enabled is not None:
             pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
+        if route_table_id_wo is not None:
+            pulumi.set(__self__, "route_table_id_wo", route_table_id_wo)
+        if route_table_id_wo_version is not None:
+            pulumi.set(__self__, "route_table_id_wo_version", route_table_id_wo_version)
         if service_endpoint_policy_ids is not None:
             pulumi.set(__self__, "service_endpoint_policy_ids", service_endpoint_policy_ids)
         if service_endpoints is not None:
@@ -179,6 +199,33 @@ class SubnetArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkSecurityGroupIdWo")
+    def network_security_group_id_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The ID of the Network Security Group to associate with the subnet.
+
+        > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        """
+        return pulumi.get(self, "network_security_group_id_wo")
+
+    @network_security_group_id_wo.setter
+    def network_security_group_id_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_security_group_id_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroupIdWoVersion")
+    def network_security_group_id_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        An integer that must be incremented whenever `network_security_group_id_wo` is updated. Required if `network_security_group_id_wo` is specified.
+        """
+        return pulumi.get(self, "network_security_group_id_wo_version")
+
+    @network_security_group_id_wo_version.setter
+    def network_security_group_id_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "network_security_group_id_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="privateEndpointNetworkPolicies")
     def private_endpoint_network_policies(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -211,6 +258,33 @@ class SubnetArgs:
         pulumi.set(self, "private_link_service_network_policies_enabled", value)
 
     @_builtins.property
+    @pulumi.getter(name="routeTableIdWo")
+    def route_table_id_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The ID of the Route Table to associate with the subnet.
+
+        > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `network.SubnetRouteTableAssociation` resource instead.
+        """
+        return pulumi.get(self, "route_table_id_wo")
+
+    @route_table_id_wo.setter
+    def route_table_id_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "route_table_id_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableIdWoVersion")
+    def route_table_id_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        An integer that must be incremented whenever `route_table_id_wo` is updated. Required if `route_table_id_wo` is specified.
+        """
+        return pulumi.get(self, "route_table_id_wo_version")
+
+    @route_table_id_wo_version.setter
+    def route_table_id_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "route_table_id_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="serviceEndpointPolicyIds")
     def service_endpoint_policy_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -224,16 +298,14 @@ class SubnetArgs:
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubnetServiceEndpointArgs']]]]:
         """
-        The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-
-        > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+        A `service_endpoint` block as defined below.
         """
         return pulumi.get(self, "service_endpoints")
 
     @service_endpoints.setter
-    def service_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetServiceEndpointArgs']]]]):
         pulumi.set(self, "service_endpoints", value)
 
     @_builtins.property
@@ -261,11 +333,17 @@ class _SubnetState:
                  delegations: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetDelegationArgs']]]] = None,
                  ip_address_pool: pulumi.Input[Optional['SubnetIpAddressPoolArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetServiceEndpointArgs']]]] = None,
                  sharing_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -280,6 +358,11 @@ class _SubnetState:
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_security_group_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The ID of the Network Security Group to associate with the subnet.
+               
+               > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        :param pulumi.Input[_builtins.int] network_security_group_id_wo_version: An integer that must be incremented whenever `network_security_group_id_wo` is updated. Required if `network_security_group_id_wo` is specified.
         :param pulumi.Input[_builtins.str] private_endpoint_network_policies: Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
                
                > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
@@ -291,10 +374,13 @@ class _SubnetState:
                
                > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        :param pulumi.Input[_builtins.str] route_table_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The ID of the Route Table to associate with the subnet.
                
-               > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+               > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `network.SubnetRouteTableAssociation` resource instead.
+        :param pulumi.Input[_builtins.int] route_table_id_wo_version: An integer that must be incremented whenever `route_table_id_wo` is updated. Required if `route_table_id_wo` is specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input['SubnetServiceEndpointArgs']]] service_endpoints: A `service_endpoint` block as defined below.
         :param pulumi.Input[_builtins.str] sharing_scope: The sharing scope of the subnet. Possible value is `Tenant`.
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
@@ -312,12 +398,24 @@ class _SubnetState:
             pulumi.set(__self__, "ip_address_pool", ip_address_pool)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_security_group_id is not None:
+            pulumi.set(__self__, "network_security_group_id", network_security_group_id)
+        if network_security_group_id_wo is not None:
+            pulumi.set(__self__, "network_security_group_id_wo", network_security_group_id_wo)
+        if network_security_group_id_wo_version is not None:
+            pulumi.set(__self__, "network_security_group_id_wo_version", network_security_group_id_wo_version)
         if private_endpoint_network_policies is not None:
             pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
         if private_link_service_network_policies_enabled is not None:
             pulumi.set(__self__, "private_link_service_network_policies_enabled", private_link_service_network_policies_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if route_table_id is not None:
+            pulumi.set(__self__, "route_table_id", route_table_id)
+        if route_table_id_wo is not None:
+            pulumi.set(__self__, "route_table_id_wo", route_table_id_wo)
+        if route_table_id_wo_version is not None:
+            pulumi.set(__self__, "route_table_id_wo_version", route_table_id_wo_version)
         if service_endpoint_policy_ids is not None:
             pulumi.set(__self__, "service_endpoint_policy_ids", service_endpoint_policy_ids)
         if service_endpoints is not None:
@@ -392,6 +490,42 @@ class _SubnetState:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "network_security_group_id")
+
+    @network_security_group_id.setter
+    def network_security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_security_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroupIdWo")
+    def network_security_group_id_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The ID of the Network Security Group to associate with the subnet.
+
+        > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        """
+        return pulumi.get(self, "network_security_group_id_wo")
+
+    @network_security_group_id_wo.setter
+    def network_security_group_id_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "network_security_group_id_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroupIdWoVersion")
+    def network_security_group_id_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        An integer that must be incremented whenever `network_security_group_id_wo` is updated. Required if `network_security_group_id_wo` is specified.
+        """
+        return pulumi.get(self, "network_security_group_id_wo_version")
+
+    @network_security_group_id_wo_version.setter
+    def network_security_group_id_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "network_security_group_id_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="privateEndpointNetworkPolicies")
     def private_endpoint_network_policies(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -436,6 +570,42 @@ class _SubnetState:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "route_table_id")
+
+    @route_table_id.setter
+    def route_table_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "route_table_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableIdWo")
+    def route_table_id_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The ID of the Route Table to associate with the subnet.
+
+        > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `network.SubnetRouteTableAssociation` resource instead.
+        """
+        return pulumi.get(self, "route_table_id_wo")
+
+    @route_table_id_wo.setter
+    def route_table_id_wo(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "route_table_id_wo", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableIdWoVersion")
+    def route_table_id_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        An integer that must be incremented whenever `route_table_id_wo` is updated. Required if `route_table_id_wo` is specified.
+        """
+        return pulumi.get(self, "route_table_id_wo_version")
+
+    @route_table_id_wo_version.setter
+    def route_table_id_wo_version(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "route_table_id_wo_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="serviceEndpointPolicyIds")
     def service_endpoint_policy_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -449,16 +619,14 @@ class _SubnetState:
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+    def service_endpoints(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['SubnetServiceEndpointArgs']]]]:
         """
-        The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-
-        > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+        A `service_endpoint` block as defined below.
         """
         return pulumi.get(self, "service_endpoints")
 
     @service_endpoints.setter
-    def service_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+    def service_endpoints(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['SubnetServiceEndpointArgs']]]]):
         pulumi.set(self, "service_endpoints", value)
 
     @_builtins.property
@@ -501,11 +669,15 @@ class Subnet(pulumi.CustomResource):
                  delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
                  ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]]] = None,
                  sharing_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -574,6 +746,11 @@ class Subnet(pulumi.CustomResource):
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_security_group_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The ID of the Network Security Group to associate with the subnet.
+               
+               > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        :param pulumi.Input[_builtins.int] network_security_group_id_wo_version: An integer that must be incremented whenever `network_security_group_id_wo` is updated. Required if `network_security_group_id_wo` is specified.
         :param pulumi.Input[_builtins.str] private_endpoint_network_policies: Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
                
                > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
@@ -585,10 +762,13 @@ class Subnet(pulumi.CustomResource):
                
                > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        :param pulumi.Input[_builtins.str] route_table_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The ID of the Route Table to associate with the subnet.
                
-               > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+               > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `network.SubnetRouteTableAssociation` resource instead.
+        :param pulumi.Input[_builtins.int] route_table_id_wo_version: An integer that must be incremented whenever `route_table_id_wo` is updated. Required if `route_table_id_wo` is specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]] service_endpoints: A `service_endpoint` block as defined below.
         :param pulumi.Input[_builtins.str] sharing_scope: The sharing scope of the subnet. Possible value is `Tenant`.
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
@@ -676,11 +856,15 @@ class Subnet(pulumi.CustomResource):
                  delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
                  ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 network_security_group_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
                  private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+                 route_table_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
                  service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]]] = None,
                  sharing_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -697,17 +881,25 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["delegations"] = delegations
             __props__.__dict__["ip_address_pool"] = ip_address_pool
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_security_group_id_wo"] = None if network_security_group_id_wo is None else pulumi.Output.secret(network_security_group_id_wo)
+            __props__.__dict__["network_security_group_id_wo_version"] = network_security_group_id_wo_version
             __props__.__dict__["private_endpoint_network_policies"] = private_endpoint_network_policies
             __props__.__dict__["private_link_service_network_policies_enabled"] = private_link_service_network_policies_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["route_table_id_wo"] = None if route_table_id_wo is None else pulumi.Output.secret(route_table_id_wo)
+            __props__.__dict__["route_table_id_wo_version"] = route_table_id_wo_version
             __props__.__dict__["service_endpoint_policy_ids"] = service_endpoint_policy_ids
             __props__.__dict__["service_endpoints"] = service_endpoints
             __props__.__dict__["sharing_scope"] = sharing_scope
             if virtual_network_name is None and not opts.urn:
                 raise TypeError("Missing required property 'virtual_network_name'")
             __props__.__dict__["virtual_network_name"] = virtual_network_name
+            __props__.__dict__["network_security_group_id"] = None
+            __props__.__dict__["route_table_id"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["networkSecurityGroupIdWo", "routeTableIdWo"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Subnet, __self__).__init__(
             'azure:network/subnet:Subnet',
             resource_name,
@@ -723,11 +915,17 @@ class Subnet(pulumi.CustomResource):
             delegations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetDelegationArgs', 'SubnetDelegationArgsDict']]]]] = None,
             ip_address_pool: pulumi.Input[Optional[Union['SubnetIpAddressPoolArgs', 'SubnetIpAddressPoolArgsDict']]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            network_security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+            network_security_group_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            network_security_group_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             private_endpoint_network_policies: pulumi.Input[Optional[_builtins.str]] = None,
             private_link_service_network_policies_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             resource_group_name: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_id_wo: pulumi.Input[Optional[_builtins.str]] = None,
+            route_table_id_wo_version: pulumi.Input[Optional[_builtins.int]] = None,
             service_endpoint_policy_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-            service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            service_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]]] = None,
             sharing_scope: pulumi.Input[Optional[_builtins.str]] = None,
             virtual_network_name: pulumi.Input[Optional[_builtins.str]] = None) -> 'Subnet':
         """
@@ -746,6 +944,11 @@ class Subnet(pulumi.CustomResource):
                
                > **Note:** Exactly one of `address_prefixes` or `ip_address_pool` must be specified.
         :param pulumi.Input[_builtins.str] name: The name of the subnet. Changing this forces a new resource to be created.
+        :param pulumi.Input[_builtins.str] network_security_group_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The ID of the Network Security Group to associate with the subnet.
+               
+               > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        :param pulumi.Input[_builtins.int] network_security_group_id_wo_version: An integer that must be incremented whenever `network_security_group_id_wo` is updated. Required if `network_security_group_id_wo` is specified.
         :param pulumi.Input[_builtins.str] private_endpoint_network_policies: Enable or Disable network policies for the private endpoint on the subnet. Possible values are `Disabled`, `Enabled`, `NetworkSecurityGroupEnabled` and `RouteTableEnabled`. Defaults to `Disabled`.
                
                > **NOTE:** If you don't want to use network policies like user-defined Routes and Network Security Groups, you need to set `private_endpoint_network_policies` in the subnet to `Disabled`. This setting only applies to Private Endpoints in the Subnet and affects all Private Endpoints in the Subnet. For other resources in the Subnet, access is controlled based via the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource.
@@ -757,10 +960,13 @@ class Subnet(pulumi.CustomResource):
                
                > **NOTE:** When configuring Azure Private Link service, the explicit setting `private_link_service_network_policies_enabled` must be set to `false` in the subnet since Private Link Service does not support network policies like user-defined Routes and Network Security Groups. This setting only affects the Private Link service. For other resources in the subnet, access is controlled based on the Network Security Group which can be configured using the `network.SubnetNetworkSecurityGroupAssociation` resource. See more details from [Manage network policies for Private Link Services](https://learn.microsoft.com/en-gb/azure/private-link/disable-private-link-service-network-policy?tabs=private-link-network-policy-powershell).
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group in which to create the subnet. This must be the resource group that the virtual network resides in. Changing this forces a new resource to be created.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoints: The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
+        :param pulumi.Input[_builtins.str] route_table_id_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+               The ID of the Route Table to associate with the subnet.
                
-               > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+               > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `network.SubnetRouteTableAssociation` resource instead.
+        :param pulumi.Input[_builtins.int] route_table_id_wo_version: An integer that must be incremented whenever `route_table_id_wo` is updated. Required if `route_table_id_wo` is specified.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] service_endpoint_policy_ids: The list of IDs of Service Endpoint Policies to associate with the subnet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubnetServiceEndpointArgs', 'SubnetServiceEndpointArgsDict']]]] service_endpoints: A `service_endpoint` block as defined below.
         :param pulumi.Input[_builtins.str] sharing_scope: The sharing scope of the subnet. Possible value is `Tenant`.
                
                > **Note:** This property cannot be set if `default_outbound_access_enabled` is set to `true`.
@@ -777,9 +983,15 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["delegations"] = delegations
         __props__.__dict__["ip_address_pool"] = ip_address_pool
         __props__.__dict__["name"] = name
+        __props__.__dict__["network_security_group_id"] = network_security_group_id
+        __props__.__dict__["network_security_group_id_wo"] = network_security_group_id_wo
+        __props__.__dict__["network_security_group_id_wo_version"] = network_security_group_id_wo_version
         __props__.__dict__["private_endpoint_network_policies"] = private_endpoint_network_policies
         __props__.__dict__["private_link_service_network_policies_enabled"] = private_link_service_network_policies_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
+        __props__.__dict__["route_table_id"] = route_table_id
+        __props__.__dict__["route_table_id_wo"] = route_table_id_wo
+        __props__.__dict__["route_table_id_wo_version"] = route_table_id_wo_version
         __props__.__dict__["service_endpoint_policy_ids"] = service_endpoint_policy_ids
         __props__.__dict__["service_endpoints"] = service_endpoints
         __props__.__dict__["sharing_scope"] = sharing_scope
@@ -831,6 +1043,30 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter(name="networkSecurityGroupId")
+    def network_security_group_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "network_security_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroupIdWo")
+    def network_security_group_id_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The ID of the Network Security Group to associate with the subnet.
+
+        > **Note:** This property is only meant for environments where Azure Policy requires Network Security Groups to be specified during Subnet creation/update. It is recommended to use the `network.SubnetNetworkSecurityGroupAssociation` resource instead.
+        """
+        return pulumi.get(self, "network_security_group_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroupIdWoVersion")
+    def network_security_group_id_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        An integer that must be incremented whenever `network_security_group_id_wo` is updated. Required if `network_security_group_id_wo` is specified.
+        """
+        return pulumi.get(self, "network_security_group_id_wo_version")
+
+    @_builtins.property
     @pulumi.getter(name="privateEndpointNetworkPolicies")
     def private_endpoint_network_policies(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -863,6 +1099,30 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "resource_group_name")
 
     @_builtins.property
+    @pulumi.getter(name="routeTableId")
+    def route_table_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "route_table_id")
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableIdWo")
+    def route_table_id_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        The ID of the Route Table to associate with the subnet.
+
+        > **Note:** This property is only meant for environments where Azure Policy requires Route Tables to be specified during Subnet creation/update. It is recommended to use the `network.SubnetRouteTableAssociation` resource instead.
+        """
+        return pulumi.get(self, "route_table_id_wo")
+
+    @_builtins.property
+    @pulumi.getter(name="routeTableIdWoVersion")
+    def route_table_id_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        An integer that must be incremented whenever `route_table_id_wo` is updated. Required if `route_table_id_wo` is specified.
+        """
+        return pulumi.get(self, "route_table_id_wo_version")
+
+    @_builtins.property
     @pulumi.getter(name="serviceEndpointPolicyIds")
     def service_endpoint_policy_ids(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
@@ -872,11 +1132,9 @@ class Subnet(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="serviceEndpoints")
-    def service_endpoints(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    def service_endpoints(self) -> pulumi.Output[Optional[Sequence['outputs.SubnetServiceEndpoint']]]:
         """
-        The list of Service endpoints to associate with the subnet. Possible values include: `Microsoft.AzureActiveDirectory`, `Microsoft.AzureCosmosDB`, `Microsoft.ContainerRegistry`, `Microsoft.EventHub`, `Microsoft.KeyVault`, `Microsoft.ServiceBus`, `Microsoft.Sql`, `Microsoft.Storage`, `Microsoft.Storage.Global` and `Microsoft.Web`.
-
-        > **NOTE:** In order to use `Microsoft.Storage.Global` service endpoint (which allows access to virtual networks in other regions), you must enable the `AllowGlobalTagsForStorage` feature in your subscription. This is currently a preview feature, please see the [official documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-cli#enabling-access-to-virtual-networks-in-other-regions-preview) for more information.
+        A `service_endpoint` block as defined below.
         """
         return pulumi.get(self, "service_endpoints")
 

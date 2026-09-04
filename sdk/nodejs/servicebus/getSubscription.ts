@@ -31,10 +31,7 @@ export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure:servicebus/getSubscription:getSubscription", {
         "name": args.name,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
         "topicId": args.topicId,
-        "topicName": args.topicName,
     }, opts);
 }
 
@@ -47,21 +44,9 @@ export interface GetSubscriptionArgs {
      */
     name: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     */
-    namespaceName?: string;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: string;
-    /**
      * The ID of the ServiceBus Topic where the Service Bus Subscription exists.
      */
-    topicId?: string;
-    /**
-     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     */
-    topicName?: string;
+    topicId: string;
 }
 
 /**
@@ -88,7 +73,6 @@ export interface GetSubscriptionResult {
      * The Default message timespan to live. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
     readonly defaultMessageTtl: string;
-    readonly enableBatchedOperations: boolean;
     /**
      * The name of a Queue or Topic to automatically forward Dead Letter messages to.
      */
@@ -111,22 +95,10 @@ export interface GetSubscriptionResult {
     readonly maxDeliveryCount: number;
     readonly name: string;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     */
-    readonly namespaceName?: string;
-    /**
      * Whether this ServiceBus Subscription supports session.
      */
     readonly requiresSession: boolean;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     */
-    readonly resourceGroupName?: string;
-    readonly topicId?: string;
-    /**
-     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     */
-    readonly topicName?: string;
+    readonly topicId: string;
 }
 /**
  * Use this data source to access information about an existing ServiceBus Subscription.
@@ -155,10 +127,7 @@ export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pu
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure:servicebus/getSubscription:getSubscription", {
         "name": args.name,
-        "namespaceName": args.namespaceName,
-        "resourceGroupName": args.resourceGroupName,
         "topicId": args.topicId,
-        "topicName": args.topicName,
     }, opts);
 }
 
@@ -171,19 +140,7 @@ export interface GetSubscriptionOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * @deprecated `namespaceName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     */
-    namespaceName?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `resourceGroupName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     */
-    resourceGroupName?: pulumi.Input<string | undefined>;
-    /**
      * The ID of the ServiceBus Topic where the Service Bus Subscription exists.
      */
-    topicId?: pulumi.Input<string | undefined>;
-    /**
-     * @deprecated `topicName` will be removed in favour of the property `topicId` in version 5.0 of the AzureRM Provider.
-     */
-    topicName?: pulumi.Input<string | undefined>;
+    topicId: pulumi.Input<string>;
 }

@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.logicapps.IntegrationAccountSchema;
  * import com.pulumi.azure.logicapps.IntegrationAccountSchemaArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.FileArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -63,9 +62,7 @@ import javax.annotation.Nullable;
  *             .name("example-ias")
  *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
- *             .content(StdFunctions.file(FileArgs.builder()
- *                 .input("testdata/integration_account_schema_content.xsd")
- *                 .build()).result())
+ *             .content(StdFunctions.file(Map.of("input", "testdata/integration_account_schema_content.xsd")).result())
  *             .build());
  * 
  *     }

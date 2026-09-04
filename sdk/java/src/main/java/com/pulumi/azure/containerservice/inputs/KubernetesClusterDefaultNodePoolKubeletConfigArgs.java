@@ -49,25 +49,6 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfigArgs extends com
     }
 
     /**
-     * @deprecated
-     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
-    @Import(name="containerLogMaxLine")
-    private @Nullable Output<Integer> containerLogMaxLine;
-
-    /**
-     * @deprecated
-     * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-     * 
-     */
-    @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
-    public Optional<Output<Integer>> containerLogMaxLine() {
-        return Optional.ofNullable(this.containerLogMaxLine);
-    }
-
-    /**
      * Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
      * 
      */
@@ -192,7 +173,6 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfigArgs extends com
     private KubernetesClusterDefaultNodePoolKubeletConfigArgs(KubernetesClusterDefaultNodePoolKubeletConfigArgs $) {
         this.allowedUnsafeSysctls = $.allowedUnsafeSysctls;
         this.containerLogMaxFiles = $.containerLogMaxFiles;
-        this.containerLogMaxLine = $.containerLogMaxLine;
         this.containerLogMaxSizeMb = $.containerLogMaxSizeMb;
         this.cpuCfsQuotaEnabled = $.cpuCfsQuotaEnabled;
         this.cpuCfsQuotaPeriod = $.cpuCfsQuotaPeriod;
@@ -271,31 +251,6 @@ public final class KubernetesClusterDefaultNodePoolKubeletConfigArgs extends com
          */
         public Builder containerLogMaxFiles(Integer containerLogMaxFiles) {
             return containerLogMaxFiles(Output.of(containerLogMaxFiles));
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
-        public Builder containerLogMaxLine(@Nullable Output<Integer> containerLogMaxLine) {
-            $.containerLogMaxLine = containerLogMaxLine;
-            return this;
-        }
-
-        /**
-         * @return builder
-         * 
-         * @deprecated
-         * `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider
-         * 
-         */
-        @Deprecated /* `containerLogMaxLine` has been renamed to `containerLogMaxFiles` to align with the API property name and will be removed in v5.0 of the AzureRM Provider */
-        public Builder containerLogMaxLine(Integer containerLogMaxLine) {
-            return containerLogMaxLine(Output.of(containerLogMaxLine));
         }
 
         /**

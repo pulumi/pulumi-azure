@@ -1030,6 +1030,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args) {
         return getFrontdoorOriginGroup(args, InvokeOptions.Empty);
@@ -1071,6 +1078,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args) {
@@ -1114,6 +1128,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", TypeShape.of(GetFrontdoorOriginGroupResult.class), args, Utilities.withVersion(options));
@@ -1156,6 +1177,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroup(GetFrontdoorOriginGroupArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorOriginGroup:getFrontdoorOriginGroup", TypeShape.of(GetFrontdoorOriginGroupResult.class), args, Utilities.withVersion(options));
@@ -1197,6 +1225,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorOriginGroupResult> getFrontdoorOriginGroupPlain(GetFrontdoorOriginGroupPlainArgs args, InvokeOptions options) {
@@ -1745,6 +1780,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args) {
         return getFrontdoorSecret(args, InvokeOptions.Empty);
@@ -1786,6 +1828,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorSecretResult> getFrontdoorSecretPlain(GetFrontdoorSecretPlainArgs args) {
@@ -1829,6 +1878,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", TypeShape.of(GetFrontdoorSecretResult.class), args, Utilities.withVersion(options));
@@ -1871,6 +1927,13 @@ public final class CdnFunctions {
      * }
      * </pre>
      * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
+     * 
      */
     public static Output<GetFrontdoorSecretResult> getFrontdoorSecret(GetFrontdoorSecretArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("azure:cdn/getFrontdoorSecret:getFrontdoorSecret", TypeShape.of(GetFrontdoorSecretResult.class), args, Utilities.withVersion(options));
@@ -1912,6 +1975,13 @@ public final class CdnFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ## API Providers
+     * 
+     * &lt;!-- This section is generated, changes will be overwritten --&gt;
+     * This data source uses the following Azure API Providers:
+     * 
+     * * `Microsoft.Cdn` - 2025-12-01
      * 
      */
     public static CompletableFuture<GetFrontdoorSecretResult> getFrontdoorSecretPlain(GetFrontdoorSecretPlainArgs args, InvokeOptions options) {

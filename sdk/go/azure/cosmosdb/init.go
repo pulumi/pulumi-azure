@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,8 +35,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GremlinDatabase{}
 	case "azure:cosmosdb/gremlinGraph:GremlinGraph":
 		r = &GremlinGraph{}
-	case "azure:cosmosdb/mongoCluster:MongoCluster":
-		r = &MongoCluster{}
 	case "azure:cosmosdb/mongoCollection:MongoCollection":
 		r = &MongoCollection{}
 	case "azure:cosmosdb/mongoDatabase:MongoDatabase":
@@ -119,11 +117,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"cosmosdb/gremlinGraph",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"azure",
-		"cosmosdb/mongoCluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

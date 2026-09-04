@@ -492,7 +492,7 @@ class Certificate(pulumi.CustomResource):
             name="example-cert",
             resource_group_name=example.name,
             location=example.location,
-            pfx_blob=std.filebase64(input="certificate.pfx").result,
+            pfx_blob=std.filebase64(input="certificate.pfx")["result"],
             password="password123!")
         ```
 
@@ -553,7 +553,7 @@ class Certificate(pulumi.CustomResource):
             name="example-cert",
             resource_group_name=example.name,
             location=example.location,
-            pfx_blob=std.filebase64(input="certificate.pfx").result,
+            pfx_blob=std.filebase64(input="certificate.pfx")["result"],
             password="password123!")
         ```
 

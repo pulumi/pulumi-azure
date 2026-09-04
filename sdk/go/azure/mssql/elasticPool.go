@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,8 +21,8 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/mssql"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/mssql"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -79,7 +79,7 @@ import (
 // <!-- This section is generated, changes will be overwritten -->
 // This resource uses the following Azure API Providers:
 //
-// * `Microsoft.Sql` - 2023-08-01-preview
+// * `Microsoft.Sql` - 2025-01-01
 //
 // ## Import
 //
@@ -98,7 +98,7 @@ type ElasticPool struct {
 	// > **Note:** `enclaveType` is not supported for DC-series SKUs.
 	//
 	// > **Note:** The default value for `enclaveType` field is unset not `Default`.
-	EnclaveType pulumi.StringOutput `pulumi:"enclaveType"`
+	EnclaveType pulumi.StringPtrOutput `pulumi:"enclaveType"`
 	// Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.
 	//
 	// > **Note:** The `highAvailabilityReplicaCount` property is only supported for `Hyperscale` tier elastic pools.
@@ -435,8 +435,8 @@ func (o ElasticPoolOutput) ToElasticPoolOutputWithContext(ctx context.Context) E
 // > **Note:** `enclaveType` is not supported for DC-series SKUs.
 //
 // > **Note:** The default value for `enclaveType` field is unset not `Default`.
-func (o ElasticPoolOutput) EnclaveType() pulumi.StringOutput {
-	return o.ApplyT(func(v *ElasticPool) pulumi.StringOutput { return v.EnclaveType }).(pulumi.StringOutput)
+func (o ElasticPoolOutput) EnclaveType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElasticPool) pulumi.StringPtrOutput { return v.EnclaveType }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the number of high availability replicas for the elastic pool. Defaults to `1`. Possible values are between `0` and `4`.

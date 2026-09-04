@@ -7,7 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.iot.SecuritySolutionArgs;
 import com.pulumi.azure.iot.inputs.SecuritySolutionState;
 import com.pulumi.azure.iot.outputs.SecuritySolutionAdditionalWorkspace;
-import com.pulumi.azure.iot.outputs.SecuritySolutionRecommendationsEnabled;
+import com.pulumi.azure.iot.outputs.SecuritySolutionRecommendations;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -259,18 +259,18 @@ public class SecuritySolution extends com.pulumi.resources.CustomResource {
         return this.querySubscriptionIds;
     }
     /**
-     * A `recommendationsEnabled` block of options to enable or disable as defined below.
+     * A `recommendations` block as defined below.
      * 
      */
-    @Export(name="recommendationsEnabled", refs={SecuritySolutionRecommendationsEnabled.class}, tree="[0]")
-    private Output<SecuritySolutionRecommendationsEnabled> recommendationsEnabled;
+    @Export(name="recommendations", refs={SecuritySolutionRecommendations.class}, tree="[0]")
+    private Output<SecuritySolutionRecommendations> recommendations;
 
     /**
-     * @return A `recommendationsEnabled` block of options to enable or disable as defined below.
+     * @return A `recommendations` block as defined below.
      * 
      */
-    public Output<SecuritySolutionRecommendationsEnabled> recommendationsEnabled() {
-        return this.recommendationsEnabled;
+    public Output<SecuritySolutionRecommendations> recommendations() {
+        return this.recommendations;
     }
     /**
      * Specifies the name of the resource group in which to create the Iot Security Solution. Changing this forces a new resource to be created.

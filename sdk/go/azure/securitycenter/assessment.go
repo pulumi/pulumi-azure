@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,10 +21,10 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/securitycenter"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -61,8 +61,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: "~/.ssh/id_rsa.pub",
+//			invokeFile, err := std.File(ctx, map[string]string{
+//				"input": "~/.ssh/id_rsa.pub",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -77,7 +77,7 @@ import (
 //				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
 //						Username:  pulumi.String("adminuser"),
-//						PublicKey: pulumi.String(invokeFile.Result),
+//						PublicKey: invokeFile.Result,
 //					},
 //				},
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{

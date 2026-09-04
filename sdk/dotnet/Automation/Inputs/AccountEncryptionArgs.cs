@@ -12,9 +12,6 @@ namespace Pulumi.Azure.Automation.Inputs
 
     public sealed class AccountEncryptionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("keySource")]
-        public Input<string>? KeySource { get; set; }
-
         /// <summary>
         /// The ID of the Key Vault Key which should be used to Encrypt the data in this Automation Account.
         /// </summary>

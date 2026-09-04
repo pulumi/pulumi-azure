@@ -106,7 +106,7 @@ export class WebApp extends pulumi.CustomResource {
      */
     declare public readonly microsoftAppTenantId: pulumi.Output<string | undefined>;
     /**
-     * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Defaults to `MultiTenant`. Changing this forces a new resource to be created.
+     * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      *
      * > **Note:** Creation of `azure.bot.WebApp` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      */
@@ -165,6 +165,9 @@ export class WebApp extends pulumi.CustomResource {
             const args = argsOrState as WebAppArgs | undefined;
             if (args?.microsoftAppId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'microsoftAppId'");
+            }
+            if (args?.microsoftAppType === undefined && !opts.urn) {
+                throw new Error("Missing required property 'microsoftAppType'");
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
@@ -241,7 +244,7 @@ export interface WebAppState {
      */
     microsoftAppTenantId?: pulumi.Input<string | undefined>;
     /**
-     * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Defaults to `MultiTenant`. Changing this forces a new resource to be created.
+     * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      *
      * > **Note:** Creation of `azure.bot.WebApp` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      */
@@ -313,11 +316,11 @@ export interface WebAppArgs {
      */
     microsoftAppTenantId?: pulumi.Input<string | undefined>;
     /**
-     * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Defaults to `MultiTenant`. Changing this forces a new resource to be created.
+     * The Microsoft Application Type for the Bot Channels Registration. Possible values are `MultiTenant`, `SingleTenant` and `UserAssignedMSI`. Changing this forces a new resource to be created.
      *
      * > **Note:** Creation of `azure.bot.WebApp` resources using the `MultiTenant` type is no longer supported by Azure, existing resources can continue using this type.
      */
-    microsoftAppType?: pulumi.Input<string | undefined>;
+    microsoftAppType: pulumi.Input<string>;
     /**
      * The ID of Microsoft Application User Assigned Identity for the Bot Channels Registration. Changing this forces a new resource to be created.
      */

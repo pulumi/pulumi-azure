@@ -133,14 +133,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration")
 public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * The list of databases from the `clusterResourceId` which are currently attached to the cluster.
+     * The list of databases from the `clusterId` which are currently attached to the cluster.
      * 
      */
     @Export(name="attachedDatabaseNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> attachedDatabaseNames;
 
     /**
-     * @return The list of databases from the `clusterResourceId` which are currently attached to the cluster.
+     * @return The list of databases from the `clusterId` which are currently attached to the cluster.
      * 
      */
     public Output<List<String>> attachedDatabaseNames() {
@@ -173,18 +173,6 @@ public class AttachedDatabaseConfiguration extends com.pulumi.resources.CustomRe
      */
     public Output<String> clusterName() {
         return this.clusterName;
-    }
-    /**
-     * @deprecated
-     * `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider.
-     * 
-     */
-    @Deprecated /* `clusterResourceId` has been deprecated in favour of the `clusterId` property and will be removed in v5.0 of the AzureRM Provider. */
-    @Export(name="clusterResourceId", refs={String.class}, tree="[0]")
-    private Output<String> clusterResourceId;
-
-    public Output<String> clusterResourceId() {
-        return this.clusterResourceId;
     }
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases. Changing this forces a new resource to be created.

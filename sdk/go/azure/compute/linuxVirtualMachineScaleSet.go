@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,9 +27,9 @@ import (
 //
 // import (
 //
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/compute"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/core"
-//	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/network"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -239,7 +239,9 @@ type LinuxVirtualMachineScaleSet struct {
 	ResilientVmDeletionEnabled pulumi.BoolPtrOutput `pulumi:"resilientVmDeletionEnabled"`
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn LinuxVirtualMachineScaleSetScaleInPtrOutput `pulumi:"scaleIn"`
@@ -451,7 +453,9 @@ type linuxVirtualMachineScaleSetState struct {
 	ResilientVmDeletionEnabled *bool `pulumi:"resilientVmDeletionEnabled"`
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *LinuxVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
@@ -608,7 +612,9 @@ type LinuxVirtualMachineScaleSetState struct {
 	ResilientVmDeletionEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn LinuxVirtualMachineScaleSetScaleInPtrInput
@@ -769,7 +775,9 @@ type linuxVirtualMachineScaleSetArgs struct {
 	ResilientVmDeletionEnabled *bool `pulumi:"resilientVmDeletionEnabled"`
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
 	RollingUpgradePolicy *LinuxVirtualMachineScaleSetRollingUpgradePolicy `pulumi:"rollingUpgradePolicy"`
 	// A `scaleIn` block as defined below.
 	ScaleIn *LinuxVirtualMachineScaleSetScaleIn `pulumi:"scaleIn"`
@@ -925,7 +933,9 @@ type LinuxVirtualMachineScaleSetArgs struct {
 	ResilientVmDeletionEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group in which the Linux Virtual Machine Scale Set should be exist. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
-	// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+	// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+	//
+	// > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
 	RollingUpgradePolicy LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrInput
 	// A `scaleIn` block as defined below.
 	ScaleIn LinuxVirtualMachineScaleSetScaleInPtrInput
@@ -1300,7 +1310,9 @@ func (o LinuxVirtualMachineScaleSetOutput) ResourceGroupName() pulumi.StringOutp
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) pulumi.StringOutput { return v.ResourceGroupName }).(pulumi.StringOutput)
 }
 
-// A `rollingUpgradePolicy` block as defined below. This is Required and can only be specified when `upgradeMode` is set to `Automatic` or `Rolling`. Changing this forces a new resource to be created.
+// A `rollingUpgradePolicy` block as defined below. Changing this forces a new resource to be created.
+//
+// > **Note:** `rollingUpgradePolicy` is required for `Rolling`, optional for `Automatic`, and cannot be specified for `Manual`. When omitted with `Automatic`, Azure sets this block to its default values.
 func (o LinuxVirtualMachineScaleSetOutput) RollingUpgradePolicy() LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
 	return o.ApplyT(func(v *LinuxVirtualMachineScaleSet) LinuxVirtualMachineScaleSetRollingUpgradePolicyPtrOutput {
 		return v.RollingUpgradePolicy

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-azure/sdk/v6/go/azure/internal"
+	"github.com/pulumi/pulumi-azure/sdk/v7/go/azure/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -2159,6 +2159,8 @@ func (o EventHubNamespaceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 
 type EventHubNamespaceNetworkRulesets struct {
 	// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+	//
+	// > **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
 	DefaultAction string `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules []EventHubNamespaceNetworkRulesetsIpRule `pulumi:"ipRules"`
@@ -2185,6 +2187,8 @@ type EventHubNamespaceNetworkRulesetsInput interface {
 
 type EventHubNamespaceNetworkRulesetsArgs struct {
 	// The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+	//
+	// > **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
 	DefaultAction pulumi.StringInput `pulumi:"defaultAction"`
 	// One or more `ipRule` blocks as defined below.
 	IpRules EventHubNamespaceNetworkRulesetsIpRuleArrayInput `pulumi:"ipRules"`
@@ -2276,6 +2280,8 @@ func (o EventHubNamespaceNetworkRulesetsOutput) ToEventHubNamespaceNetworkRulese
 }
 
 // The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+//
+// > **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
 func (o EventHubNamespaceNetworkRulesetsOutput) DefaultAction() pulumi.StringOutput {
 	return o.ApplyT(func(v EventHubNamespaceNetworkRulesets) string { return v.DefaultAction }).(pulumi.StringOutput)
 }
@@ -2329,6 +2335,8 @@ func (o EventHubNamespaceNetworkRulesetsPtrOutput) Elem() EventHubNamespaceNetwo
 }
 
 // The default action to take when a rule is not matched. Possible values are `Allow` and `Deny`.
+//
+// > **Note:** `defaultAction` can only be set to `Deny` when at least one `ipRule` or `virtualNetworkRule` block is specified, otherwise the Azure API will not honor the setting.
 func (o EventHubNamespaceNetworkRulesetsPtrOutput) DefaultAction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventHubNamespaceNetworkRulesets) *string {
 		if v == nil {

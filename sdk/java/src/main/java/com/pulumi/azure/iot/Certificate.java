@@ -36,7 +36,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.iot.Certificate;
  * import com.pulumi.azure.iot.CertificateArgs;
  * import com.pulumi.std.StdFunctions;
- * import com.pulumi.std.inputs.Filebase64Args;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -70,9 +69,7 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(example.name())
  *             .iothubName(exampleIoTHub.name())
  *             .isVerified(true)
- *             .certificateContent(StdFunctions.filebase64(Filebase64Args.builder()
- *                 .input("example.cer")
- *                 .build()).result())
+ *             .certificateContent(StdFunctions.filebase64(Map.of("input", "example.cer")).result())
  *             .build());
  * 
  *     }

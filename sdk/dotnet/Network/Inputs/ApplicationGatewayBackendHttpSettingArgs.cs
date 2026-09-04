@@ -18,18 +18,6 @@ namespace Pulumi.Azure.Network.Inputs
         [Input("affinityCookieName")]
         public Input<string>? AffinityCookieName { get; set; }
 
-        [Input("authenticationCertificates")]
-        private InputList<Inputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs>? _authenticationCertificates;
-
-        /// <summary>
-        /// One or more `AuthenticationCertificateBackend` blocks as defined below.
-        /// </summary>
-        public InputList<Inputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs> AuthenticationCertificates
-        {
-            get => _authenticationCertificates ?? (_authenticationCertificates = new InputList<Inputs.ApplicationGatewayBackendHttpSettingAuthenticationCertificateArgs>());
-            set => _authenticationCertificates = value;
-        }
-
         /// <summary>
         /// Whether to validate the certificate chain and expiry on the backend HTTPS servers. Defaults to `True`.
         /// </summary>
@@ -67,7 +55,7 @@ namespace Pulumi.Azure.Network.Inputs
         public Input<string>? Id { get; set; }
 
         /// <summary>
-        /// The name of the Authentication Certificate.
+        /// The name of the Backend HTTP Settings Collection.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
