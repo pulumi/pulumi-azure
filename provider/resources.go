@@ -703,7 +703,6 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 		},
-		IgnoreMappings: []string{},
 		PreConfigureCallback: preConfigureCallback,
 		DocRules: &info.DocRule{
 			EditRules: func(defaults []info.DocsEdit) []info.DocsEdit {
@@ -851,21 +850,21 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 
-			"azurerm_function_app_active_slot":         {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
-			"azurerm_function_app_function":            {Tok: azureResource(azureAppService, "FunctionAppFunction")},
-			"azurerm_function_app_hybrid_connection":   {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
-			"azurerm_linux_function_app":               {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
-			"azurerm_linux_function_app_slot":          {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
-			"azurerm_linux_web_app":                    {Tok: azureResource(azureAppService, "LinuxWebApp")},
-			"azurerm_linux_web_app_slot":               {Tok: azureResource(azureAppService, "LinuxWebAppSlot")},
-			"azurerm_web_app_active_slot":              {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
-			"azurerm_web_app_hybrid_connection":        {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
-			"azurerm_windows_function_app":             {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
-			"azurerm_windows_function_app_slot":        {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
-			"azurerm_windows_web_app":                  {Tok: azureResource(azureAppService, "WindowsWebApp")},
-			"azurerm_windows_web_app_slot":             {Tok: azureResource(azureAppService, "WindowsWebAppSlot")},
-			"azurerm_app_service_certificate":          {Tok: azureResource(azureAppService, "Certificate")},
-			"azurerm_app_service_certificate_order":    {Tok: azureResource(azureAppService, "CertificateOrder")},
+			"azurerm_function_app_active_slot":       {Tok: azureResource(azureAppService, "FunctionAppActiveSlot")},
+			"azurerm_function_app_function":          {Tok: azureResource(azureAppService, "FunctionAppFunction")},
+			"azurerm_function_app_hybrid_connection": {Tok: azureResource(azureAppService, "FunctionAppHybridConnection")},
+			"azurerm_linux_function_app":             {Tok: azureResource(azureAppService, "LinuxFunctionApp")},
+			"azurerm_linux_function_app_slot":        {Tok: azureResource(azureAppService, "LinuxFunctionAppSlot")},
+			"azurerm_linux_web_app":                  {Tok: azureResource(azureAppService, "LinuxWebApp")},
+			"azurerm_linux_web_app_slot":             {Tok: azureResource(azureAppService, "LinuxWebAppSlot")},
+			"azurerm_web_app_active_slot":            {Tok: azureResource(azureAppService, "WebAppActiveSlot")},
+			"azurerm_web_app_hybrid_connection":      {Tok: azureResource(azureAppService, "WebAppHybridConnection")},
+			"azurerm_windows_function_app":           {Tok: azureResource(azureAppService, "WindowsFunctionApp")},
+			"azurerm_windows_function_app_slot":      {Tok: azureResource(azureAppService, "WindowsFunctionAppSlot")},
+			"azurerm_windows_web_app":                {Tok: azureResource(azureAppService, "WindowsWebApp")},
+			"azurerm_windows_web_app_slot":           {Tok: azureResource(azureAppService, "WindowsWebAppSlot")},
+			"azurerm_app_service_certificate":        {Tok: azureResource(azureAppService, "Certificate")},
+			"azurerm_app_service_certificate_order":  {Tok: azureResource(azureAppService, "CertificateOrder")},
 			"azurerm_app_service_virtual_network_swift_connection": {
 				Tok: azureResource(azureAppService, "VirtualNetworkSwiftConnection"),
 			},
@@ -916,12 +915,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_automation_connection_service_principal": {
 				Tok: azureResource(azureAutomation, "ConnectionServicePrincipal"),
 			},
-			"azurerm_automation_webhook":                       {Tok: azureResource(azureAutomation, "Webhook")},
-			"azurerm_automation_connection_type":               {Tok: azureResource(azureAutomation, "ConnectionType")},
-			"azurerm_automation_hybrid_runbook_worker":         {Tok: azureResource(azureAutomation, "HybridRunbookWorker")},
-			"azurerm_automation_hybrid_runbook_worker_group":   {Tok: azureResource(azureAutomation, "HybridRunbookWorkerGroup")},
-			"azurerm_automation_source_control":                {Tok: azureResource(azureAutomation, "SourceControl")},
-			"azurerm_automation_watcher":                       {Tok: azureResource(azureAutomation, "Watcher")},
+			"azurerm_automation_webhook":                     {Tok: azureResource(azureAutomation, "Webhook")},
+			"azurerm_automation_connection_type":             {Tok: azureResource(azureAutomation, "ConnectionType")},
+			"azurerm_automation_hybrid_runbook_worker":       {Tok: azureResource(azureAutomation, "HybridRunbookWorker")},
+			"azurerm_automation_hybrid_runbook_worker_group": {Tok: azureResource(azureAutomation, "HybridRunbookWorkerGroup")},
+			"azurerm_automation_source_control":              {Tok: azureResource(azureAutomation, "SourceControl")},
+			"azurerm_automation_watcher":                     {Tok: azureResource(azureAutomation, "Watcher")},
 
 			// Azure Container Service
 			"azurerm_container_registry": {
@@ -993,8 +992,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Batch
 			"azurerm_batch_account":     {Tok: azureResource(azureBatch, "Account")},
 			"azurerm_batch_application": {Tok: azureResource(azureBatch, "Application")},
-			"azurerm_batch_pool": {Tok: azureResource(azureBatch, "Pool")},
-			"azurerm_batch_job":  {Tok: azureResource(azureBatch, "Job")},
+			"azurerm_batch_pool":        {Tok: azureResource(azureBatch, "Pool")},
+			"azurerm_batch_job":         {Tok: azureResource(azureBatch, "Job")},
 
 			// Billing
 			"azurerm_billing_account_cost_management_export": {Tok: azureResource(azureBilling, "AccountCostManagementExport")},
