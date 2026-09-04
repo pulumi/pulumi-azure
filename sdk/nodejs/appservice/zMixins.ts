@@ -209,7 +209,8 @@ interface FunctionAppArgsBase<OS extends FunctionAppOS = "linux"> {
     readonly name?: pulumi.Input<string>;
 
     /**
-     * Controls the value of WEBSITE_NODE_DEFAULT_VERSION in `appSettings`.  If not provided,
+     * Controls the Node.js runtime version (`site_config.application_stack.node_version`). Accepts
+     * either the classic App Service format (e.g. `~22`) or a bare version number. If not provided,
      * defaults to `~14`.
      */
     readonly nodeVersion?: pulumi.Input<string>;
@@ -625,6 +626,21 @@ function createFunctionAppParts<OS extends FunctionAppOS = "linux">(name: string
 
     const codeBlobUrl = storageMod.signedBlobReadUrl(zipBlob, account);
 
+    // Azure Functions on Linux/Windows Function Apps read the Node runtime version from
+    // `site_config.application_stack.node_version`, not from a `WEBSITE_NODE_DEFAULT_VERSION` app
+    // setting (that only applied to the pre-v5.0 unified Function App resource, and is silently
+    // dropped by the split Linux/WindowsFunctionApp resources - setting it produces a perpetual,
+    // never-resolving diff). [nodeVersion] here uses the classic "~14"/"~22" App Service format;
+    // the site config field expects a bare version number, so the leading "~" is stripped.
+    const nodeVersion = pulumi.output(args.nodeVersion).apply(v => (v ?? "~14").replace(/^~/, ""));
+    const siteConfig = pulumi.all([args.siteConfig, nodeVersion]).apply(([config, resolvedNodeVersion]: [any, string]) => ({
+        ...(config ?? {}),
+        applicationStack: {
+            ...(config?.applicationStack ?? {}),
+            nodeVersion: resolvedNodeVersion,
+        },
+    }));
+
     // `siteConfig` differs in shape between Linux and Windows Function Apps (see [os]), so this is
     // deliberately loosely typed here and cast to the right shape at each `new ...FunctionApp(...)`
     // call site in the callers of createFunctionAppParts below.
@@ -637,13 +653,12 @@ function createFunctionAppParts<OS extends FunctionAppOS = "linux">(name: string
         storageAccountAccessKey: account.primaryAccessKey,
         functionsExtensionVersion: args.version || "~4",
         builtinLoggingEnabled: args.enableBuiltinLogging,
-        siteConfig: args.siteConfig ?? {},
+        siteConfig,
 
         appSettings: pulumi.output(args.appSettings).apply(settings => {
             return {
                 ...settings,
                 WEBSITE_RUN_FROM_PACKAGE: codeBlobUrl,
-                WEBSITE_NODE_DEFAULT_VERSION: util.ifUndefined(args.nodeVersion, "~14"),
             };
         }),
     };
