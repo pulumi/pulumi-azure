@@ -16,7 +16,7 @@ const storageAccount = new azure.storage.Account("storageaccount", {
 });
 
 const storageShare = new azure.storage.Share("storageshare", {
-  storageAccountName: storageAccount.name,
+  storageAccountId: storageAccount.id,
   quota: 50,
   accessTier,
 });
