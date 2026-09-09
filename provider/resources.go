@@ -3583,6 +3583,15 @@ func Provider() tfbridge.ProviderInfo {
 		}
 	}
 
+	// Correct the casing of ARM resource IDs supplied as inputs. The upstream resource ID parsers
+	// match the static segments of an ID case-sensitively, which otherwise makes IDs reported by
+	// azure-native (which contain `/resourcegroups/`) unusable as inputs here.
+	for _, res := range prov.Resources {
+		if res.PreCheckCallback == nil {
+			res.PreCheckCallback = canonicalizeResourceIDsInInputs
+		}
+	}
+
 	return prov
 }
 
